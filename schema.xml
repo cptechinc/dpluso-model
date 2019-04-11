@@ -1,0 +1,2249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<database name="default" defaultIdMethod="native" defaultPhpNamingMethod="underscore">
+  <table name="additem" idMethod="native" phpName="Additem">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
+    <column name="recno" phpName="Recno" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="itemid" phpName="Itemid" type="VARCHAR" size="30"/>
+    <column name="price" phpName="Price" type="DECIMAL" size="8" scale="2"/>
+    <column name="qty" phpName="Qty" type="INTEGER" size="8"/>
+    <column name="priceqty1" phpName="Priceqty1" type="INTEGER" size="8"/>
+    <column name="priceqty2" phpName="Priceqty2" type="INTEGER" size="8"/>
+    <column name="priceqty3" phpName="Priceqty3" type="INTEGER" size="8"/>
+    <column name="priceqty4" phpName="Priceqty4" type="INTEGER" size="8"/>
+    <column name="priceqty5" phpName="Priceqty5" type="INTEGER" size="8"/>
+    <column name="priceqty6" phpName="Priceqty6" type="INTEGER" size="8"/>
+    <column name="priceprice1" phpName="Priceprice1" type="DECIMAL" size="8" scale="2"/>
+    <column name="priceprice2" phpName="Priceprice2" type="DECIMAL" size="8" scale="2"/>
+    <column name="priceprice3" phpName="Priceprice3" type="DECIMAL" size="8" scale="2"/>
+    <column name="priceprice4" phpName="Priceprice4" type="DECIMAL" size="8" scale="2"/>
+    <column name="priceprice5" phpName="Priceprice5" type="DECIMAL" size="8" scale="2"/>
+    <column name="priceprice6" phpName="Priceprice6" type="DECIMAL" size="8" scale="2"/>
+    <column name="unit" phpName="Unit" type="VARCHAR" size="4"/>
+    <column name="listprice" phpName="Listprice" type="DECIMAL" size="8" scale="2"/>
+    <column name="name1" phpName="Name1" type="VARCHAR" size="35"/>
+    <column name="name2" phpName="Name2" type="VARCHAR" size="35"/>
+    <column name="shortdesc" phpName="Shortdesc" type="VARCHAR" size="1000"/>
+    <column name="image" phpName="Image" type="VARCHAR" size="30"/>
+    <column name="familyid" phpName="Familyid" type="VARCHAR" size="35"/>
+    <column name="ermes" phpName="Ermes" type="VARCHAR" size="50"/>
+    <column name="speca" phpName="Speca" type="VARCHAR" size="200"/>
+    <column name="specb" phpName="Specb" type="VARCHAR" size="200"/>
+    <column name="specc" phpName="Specc" type="VARCHAR" size="200"/>
+    <column name="specd" phpName="Specd" type="VARCHAR" size="200"/>
+    <column name="spece" phpName="Spece" type="VARCHAR" size="200"/>
+    <column name="specf" phpName="Specf" type="VARCHAR" size="200"/>
+    <column name="specg" phpName="Specg" type="VARCHAR" size="200"/>
+    <column name="spech" phpName="Spech" type="VARCHAR" size="200"/>
+    <column name="longdesc" phpName="Longdesc" type="LONGVARCHAR"/>
+    <column name="orderno" phpName="Orderno" type="VARCHAR" size="30"/>
+    <column name="name3" phpName="Name3" type="VARCHAR" size="35"/>
+    <column name="name4" phpName="Name4" type="VARCHAR" size="35"/>
+    <column name="thumb" phpName="Thumb" type="VARCHAR" size="35"/>
+    <column name="width" phpName="Width" type="VARCHAR" size="35"/>
+    <column name="height" phpName="Height" type="VARCHAR" size="35"/>
+    <column name="familydes" phpName="Familydes" type="VARCHAR" size="35"/>
+    <column name="keywords" phpName="Keywords" type="VARCHAR" size="200"/>
+    <column name="vpn" phpName="Vpn" type="VARCHAR" size="35"/>
+    <column name="uomdesc" phpName="Uomdesc" type="VARCHAR" size="20"/>
+    <column name="vidinffg" phpName="Vidinffg" type="VARCHAR" size="1"/>
+    <column name="vidinflk" phpName="Vidinflk" type="VARCHAR" size="200"/>
+    <column name="additemflag" phpName="Additemflag" type="VARCHAR" size="1"/>
+    <column name="schemafam" phpName="Schemafam" type="VARCHAR" size="20"/>
+    <column name="origitemid" phpName="Origitemid" type="VARCHAR" size="30"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="advsrch" idMethod="native" phpName="Advsrch">
+    <column name="recordno" phpName="Recordno" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="catid" phpName="Catid" type="VARCHAR" size="12" primaryKey="true" required="true"/>
+    <column name="cat1" phpName="Cat1" type="VARCHAR" size="12" primaryKey="true" required="true"/>
+    <column name="cat2" phpName="Cat2" type="VARCHAR" size="12" primaryKey="true" required="true" defaultValue=""/>
+    <column name="cat3" phpName="Cat3" type="VARCHAR" size="12" primaryKey="true" required="true" defaultValue=""/>
+    <column name="cat4" phpName="Cat4" type="VARCHAR" size="12" primaryKey="true" required="true" defaultValue=""/>
+    <column name="cat5" phpName="Cat5" type="VARCHAR" size="12" primaryKey="true" required="true" defaultValue=""/>
+    <column name="optcode" phpName="Optcode" type="VARCHAR" size="12" primaryKey="true" required="true" defaultValue=""/>
+    <column name="adsrchfield" phpName="Adsrchfield" type="VARCHAR" size="20" primaryKey="true" required="true" defaultValue=""/>
+    <column name="optcodedesc1" phpName="Optcodedesc1" type="VARCHAR" size="30"/>
+    <column name="optcodedesc2" phpName="Optcodedesc2" type="VARCHAR" size="30"/>
+    <column name="adsrchtype" phpName="Adsrchtype" type="VARCHAR" size="10"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="barcodes" idMethod="native" phpName="Barcodes">
+    <column name="barcodenbr" phpName="Barcodenbr" type="VARCHAR" size="20" primaryKey="true" required="true"/>
+    <column name="itemid" phpName="Itemid" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="primary" phpName="Primary" type="VARCHAR" size="1"/>
+    <column name="unitqty" phpName="Unitqty" type="INTEGER" size="10"/>
+    <column name="uom" phpName="Uom" type="VARCHAR" size="4"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="billing" idMethod="native" phpName="Billing">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="bconame" phpName="Bconame" type="VARCHAR" size="30"/>
+    <column name="baddress" phpName="Baddress" type="VARCHAR" size="35"/>
+    <column name="baddress2" phpName="Baddress2" type="VARCHAR" size="20"/>
+    <column name="bname" phpName="Bname" type="VARCHAR" size="30"/>
+    <column name="bcity" phpName="Bcity" type="VARCHAR" size="30"/>
+    <column name="bst" phpName="Bst" type="VARCHAR" size="30"/>
+    <column name="bzip" phpName="Bzip" type="VARCHAR" size="30"/>
+    <column name="bcountry" phpName="Bcountry" type="VARCHAR" size="30"/>
+    <column name="sconame" phpName="Sconame" type="VARCHAR" size="30"/>
+    <column name="sname" phpName="Sname" type="VARCHAR" size="30"/>
+    <column name="saddress" phpName="Saddress" type="VARCHAR" size="30"/>
+    <column name="saddress2" phpName="Saddress2" type="CLOB"/>
+    <column name="scity" phpName="Scity" type="VARCHAR" size="30"/>
+    <column name="sst" phpName="Sst" type="VARCHAR" size="30"/>
+    <column name="szip" phpName="Szip" type="VARCHAR" size="30"/>
+    <column name="scountry" phpName="Scountry" type="VARCHAR" size="30"/>
+    <column name="ccno" phpName="Ccno" type="LONGVARCHAR"/>
+    <column name="email" phpName="Email" type="VARCHAR" size="50"/>
+    <column name="phone" phpName="Phone" type="VARCHAR" size="30"/>
+    <column name="vc" phpName="Vc" type="LONGVARCHAR"/>
+    <column name="error" phpName="Error" type="VARCHAR" size="30"/>
+    <column name="ermes" phpName="Ermes" type="VARCHAR" size="30"/>
+    <column name="orders" phpName="Orders" type="VARCHAR" size="30"/>
+    <column name="xpdate" phpName="Xpdate" type="LONGVARCHAR"/>
+    <column name="pono" phpName="Pono" type="VARCHAR" size="30"/>
+    <column name="paymenttype" phpName="Paymenttype" type="VARCHAR" size="30"/>
+    <column name="shipmeth" phpName="Shipmeth" type="VARCHAR" size="35"/>
+    <column name="shipcom" phpName="Shipcom" type="CHAR"/>
+    <column name="note" phpName="Note" type="VARCHAR" size="200"/>
+    <column name="termtype" phpName="Termtype" type="VARCHAR" size="30"/>
+    <column name="custid" phpName="Custid" type="VARCHAR" size="30"/>
+    <column name="shiptoid" phpName="Shiptoid" type="VARCHAR" size="30"/>
+    <column name="baddress3" phpName="Baddress3" type="VARCHAR" size="30"/>
+    <column name="saddress3" phpName="Saddress3" type="VARCHAR" size="30"/>
+    <column name="newnbr" phpName="Newnbr" type="VARCHAR" size="30"/>
+    <column name="faxnbr" phpName="Faxnbr" type="VARCHAR" size="30"/>
+    <column name="rqstdate" phpName="Rqstdate" type="VARCHAR" size="10"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="bincntl" idMethod="native" phpName="Bincntl">
+    <column name="warehouse" phpName="Warehouse" type="VARCHAR" size="2" primaryKey="true" required="true" defaultValue=""/>
+    <column name="binfrom" phpName="Binfrom" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="binthru" phpName="Binthru" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="bintype" phpName="Bintype" type="VARCHAR" size="1"/>
+    <column name="binarea" phpName="Binarea" type="VARCHAR" size="2"/>
+    <column name="bindesc" phpName="Bindesc" type="VARCHAR" size="20"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="bininfo" idMethod="native" phpName="Bininfo">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true" defaultValue=""/>
+    <column name="recno" phpName="Recno" type="INTEGER" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="itemid" phpName="Itemid" type="VARCHAR" size="30"/>
+    <column name="whse" phpName="Whse" type="VARCHAR" size="2"/>
+    <column name="lotserial" phpName="Lotserial" type="VARCHAR" size="20"/>
+    <column name="bin" phpName="Bin" type="VARCHAR" size="8"/>
+    <column name="qty" phpName="Qty" type="VARCHAR" size="20"/>
+    <column name="lotref" phpName="Lotref" type="VARCHAR" size="20"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="binrsession" idMethod="native" phpName="Binrsession">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="45" primaryKey="true" required="true"/>
+    <column name="loginid" phpName="Loginid" type="VARCHAR" size="45"/>
+    <column name="whseid" phpName="Whseid" type="VARCHAR" size="2"/>
+    <column name="itemid" phpName="Itemid" type="VARCHAR" size="30"/>
+    <column name="itemtype" phpName="Itemtype" type="VARCHAR" size="1"/>
+    <column name="lotserial" phpName="Lotserial" type="VARCHAR" size="45"/>
+    <column name="frombin" phpName="Frombin" type="VARCHAR" size="12"/>
+    <column name="frombinqty" phpName="Frombinqty" type="INTEGER"/>
+    <column name="tobin" phpName="Tobin" type="VARCHAR" size="12"/>
+    <column name="tobinqty" phpName="Tobinqty" type="INTEGER"/>
+    <column name="function" phpName="Function" type="VARCHAR" size="45"/>
+    <column name="status" phpName="Status" type="VARCHAR" size="50"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="bookingc" idMethod="native" phpName="Bookingc">
+    <column name="custid" phpName="Custid" type="VARCHAR" size="45" primaryKey="true" required="true"/>
+    <column name="shiptoid" phpName="Shiptoid" type="VARCHAR" size="45" primaryKey="true" required="true"/>
+    <column name="bookdate" phpName="Bookdate" type="INTEGER" size="8" primaryKey="true" required="true"/>
+    <column name="salesrep" phpName="Salesrep" type="VARCHAR" size="45" primaryKey="true" required="true"/>
+    <column name="amount" phpName="Amount" type="DECIMAL" size="10" scale="2"/>
+    <column name="dateupdated" phpName="Dateupdated" type="INTEGER" size="8"/>
+    <column name="timeupdated" phpName="Timeupdated" type="VARCHAR" size="8"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="bookingd" idMethod="native" phpName="Bookingd">
+    <column name="bookdate" phpName="Bookdate" type="VARCHAR" size="8" primaryKey="true" required="true"/>
+    <column name="custid" phpName="Custid" type="VARCHAR" size="6" primaryKey="true" required="true"/>
+    <column name="shiptoid" phpName="Shiptoid" type="VARCHAR" size="6" primaryKey="true" required="true"/>
+    <column name="salesorderbase" phpName="Salesorderbase" type="INTEGER" size="8" primaryKey="true" required="true"/>
+    <column name="origorderline" phpName="Origorderline" type="INTEGER" size="4" primaryKey="true" required="true"/>
+    <column name="itemid" phpName="Itemid" type="VARCHAR" size="30" primaryKey="true" required="true"/>
+    <column name="salesordernbr" phpName="Salesordernbr" type="INTEGER" size="10" required="true"/>
+    <column name="salesperson1" phpName="Salesperson1" type="VARCHAR" size="6"/>
+    <column name="b4qty" phpName="B4qty" type="DECIMAL" size="9" scale="3" required="true" defaultValue="0.000"/>
+    <column name="b4price" phpName="B4price" type="DECIMAL" size="9" scale="3" required="true" defaultValue="0.000"/>
+    <column name="b4uom" phpName="B4uom" type="VARCHAR" size="4"/>
+    <column name="afterqty" phpName="Afterqty" type="DECIMAL" size="9" scale="3" required="true" defaultValue="0.000"/>
+    <column name="afterprice" phpName="Afterprice" type="DECIMAL" size="9" scale="3" required="true" defaultValue="0.000"/>
+    <column name="afteruom" phpName="Afteruom" type="VARCHAR" size="4"/>
+    <column name="netamount" phpName="Netamount" type="DECIMAL" size="9" scale="2" required="true" defaultValue="0.00"/>
+    <column name="createdate" phpName="Createdate" type="VARCHAR" size="8"/>
+    <column name="createtime" phpName="Createtime" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="bookingr" idMethod="native" phpName="Bookingr">
+    <column name="salesrep" phpName="Salesrep" type="VARCHAR" size="45" primaryKey="true" required="true"/>
+    <column name="bookdate" phpName="Bookdate" type="INTEGER" size="8" primaryKey="true" required="true"/>
+    <column name="whse" phpName="Whse" type="VARCHAR" size="45"/>
+    <column name="amount" phpName="Amount" type="DECIMAL" size="10" scale="2"/>
+    <column name="salesgroup" phpName="Salesgroup" type="VARCHAR" size="6"/>
+    <column name="dateupdated" phpName="Dateupdated" type="INTEGER" size="8"/>
+    <column name="timeupdated" phpName="Timeupdated" type="VARCHAR" size="8"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="cart" idMethod="native" phpName="Cart">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true" defaultValue=""/>
+    <column name="recordno" phpName="Recordno" type="INTEGER" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="date" phpName="Date" type="VARCHAR" size="20"/>
+    <column name="time" phpName="Time" type="INTEGER" size="6"/>
+    <column name="itemid" phpName="Itemid" type="VARCHAR" size="30"/>
+    <column name="price" phpName="Price" type="DECIMAL" size="8" scale="2"/>
+    <column name="qty" phpName="Qty" type="INTEGER" size="8"/>
+    <column name="amount" phpName="Amount" type="DECIMAL" size="8" scale="2"/>
+    <column name="desc1" phpName="Desc1" type="VARCHAR" size="75"/>
+    <column name="desc2" phpName="Desc2" type="VARCHAR" size="35"/>
+    <column name="errormes" phpName="Errormes" type="VARCHAR" size="50"/>
+    <column name="entitemid" phpName="Entitemid" type="VARCHAR" size="50"/>
+    <column name="uomdesc" phpName="Uomdesc" type="VARCHAR" size="20"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="cartdet" idMethod="native" phpName="Cartdet">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
+    <column name="recno" phpName="Recno" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="orderno" phpName="Orderno" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="linenbr" phpName="Linenbr" type="VARCHAR" size="5" defaultValue=""/>
+    <column name="itemid" phpName="Itemid" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="custitemid" phpName="Custitemid" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="desc1" phpName="Desc1" type="VARCHAR" size="35" defaultValue=""/>
+    <column name="desc2" phpName="Desc2" type="VARCHAR" size="35" defaultValue=""/>
+    <column name="price" phpName="Price" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="totalprice" phpName="Totalprice" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="qty" phpName="Qty" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="qtyshipped" phpName="Qtyshipped" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="qtybackord" phpName="Qtybackord" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="rshipdate" phpName="Rshipdate" type="VARCHAR" size="10" defaultValue=""/>
+    <column name="hasdocuments" phpName="Hasdocuments" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="qtyavail" phpName="Qtyavail" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="hasnotes" phpName="Hasnotes" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="cost" phpName="Cost" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="whse" phpName="Whse" type="VARCHAR" size="2" defaultValue=""/>
+    <column name="uom" phpName="Uom" type="VARCHAR" size="4" defaultValue=""/>
+    <column name="spcord" phpName="Spcord" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="kititemflag" phpName="Kititemflag" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="promocode" phpName="Promocode" type="VARCHAR" size="6" defaultValue=""/>
+    <column name="taxcode" phpName="Taxcode" type="VARCHAR" size="6" defaultValue=""/>
+    <column name="taxcodeperc" phpName="Taxcodeperc" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="discpct" phpName="Discpct" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="listprice" phpName="Listprice" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="uomconv" phpName="Uomconv" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="catlgid" phpName="Catlgid" type="VARCHAR" size="8" defaultValue=""/>
+    <column name="errormsg" phpName="Errormsg" type="VARCHAR" size="50" defaultValue=""/>
+    <column name="minprice" phpName="Minprice" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="vendorid" phpName="Vendorid" type="VARCHAR" size="6" defaultValue=""/>
+    <column name="vendoritemid" phpName="Vendoritemid" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="ponbr" phpName="Ponbr" type="VARCHAR" size="8" defaultValue=""/>
+    <column name="poref" phpName="Poref" type="VARCHAR" size="15" defaultValue=""/>
+    <column name="nsitemgroup" phpName="Nsitemgroup" type="VARCHAR" size="4" defaultValue=""/>
+    <column name="shipfromid" phpName="Shipfromid" type="VARCHAR" size="6" defaultValue=""/>
+    <column name="itemtype" phpName="Itemtype" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1" defaultValue="x"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="carthed" idMethod="native" phpName="Carthed">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
+    <column name="recno" phpName="Recno" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="custid" phpName="Custid" type="VARCHAR" size="6" defaultValue=""/>
+    <column name="shiptoid" phpName="Shiptoid" type="VARCHAR" size="6" defaultValue=""/>
+    <column name="custname" phpName="Custname" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="orderno" phpName="Orderno" type="VARCHAR" size="50" defaultValue=""/>
+    <column name="custpo" phpName="Custpo" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="status" phpName="Status" type="VARCHAR" size="10" defaultValue=""/>
+    <column name="orderdate" phpName="Orderdate" type="VARCHAR" size="10" defaultValue=""/>
+    <column name="invdate" phpName="Invdate" type="VARCHAR" size="10" defaultValue=""/>
+    <column name="shipdate" phpName="Shipdate" type="VARCHAR" size="10" defaultValue=""/>
+    <column name="hasdocuments" phpName="Hasdocuments" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="hastracking" phpName="Hastracking" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="subtotal" phpName="Subtotal" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="salestax" phpName="Salestax" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="freight" phpName="Freight" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="misccost" phpName="Misccost" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="ordertotal" phpName="Ordertotal" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="hasnotes" phpName="Hasnotes" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="editord" phpName="Editord" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="error" phpName="Error" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="errormsg" phpName="Errormsg" type="VARCHAR" size="100" defaultValue=""/>
+    <column name="sconame" phpName="Sconame" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="shipname" phpName="Shipname" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="shipaddress" phpName="Shipaddress" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="shipaddress2" phpName="Shipaddress2" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="shipcity" phpName="Shipcity" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="shipstate" phpName="Shipstate" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="shipzip" phpName="Shipzip" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="shipcountry" phpName="Shipcountry" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="contact" phpName="Contact" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="phintl" phpName="Phintl" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="phone" phpName="Phone" type="VARCHAR" size="25" defaultValue=""/>
+    <column name="extension" phpName="Extension" type="VARCHAR" size="7" defaultValue=""/>
+    <column name="faxnbr" phpName="Faxnbr" type="VARCHAR" size="25" defaultValue=""/>
+    <column name="email" phpName="Email" type="VARCHAR" size="50" defaultValue=""/>
+    <column name="releasenbr" phpName="Releasenbr" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="shipviacd" phpName="Shipviacd" type="VARCHAR" size="4" defaultValue=""/>
+    <column name="shipviadesc" phpName="Shipviadesc" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="termcode" phpName="Termcode" type="VARCHAR" size="4" defaultValue=""/>
+    <column name="termtype" phpName="Termtype" type="VARCHAR" size="4" defaultValue=""/>
+    <column name="termdesc" phpName="Termdesc" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="rqstdate" phpName="Rqstdate" type="VARCHAR" size="10" defaultValue=""/>
+    <column name="shipcom" phpName="Shipcom" type="CHAR" defaultValue=""/>
+    <column name="sp1" phpName="Sp1" type="CHAR" size="6" defaultValue=""/>
+    <column name="sp1name" phpName="Sp1name" type="CHAR" size="20" defaultValue=""/>
+    <column name="cardnumber" phpName="Cardnumber" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="cardexpire" phpName="Cardexpire" type="VARCHAR" size="10" defaultValue=""/>
+    <column name="cardcode" phpName="Cardcode" type="VARCHAR" size="4" defaultValue=""/>
+    <column name="cardapproval" phpName="Cardapproval" type="VARCHAR" size="4" defaultValue=""/>
+    <column name="totalcost" phpName="Totalcost" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="totaldiscount" phpName="Totaldiscount" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="paymenttype" phpName="Paymenttype" type="VARCHAR" size="4" defaultValue=""/>
+    <column name="srcdatefrom" phpName="Srcdatefrom" type="VARCHAR" size="10" defaultValue=""/>
+    <column name="srcdatethru" phpName="Srcdatethru" type="VARCHAR" size="10" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1" defaultValue=""/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="catagory" idMethod="native" phpName="Catagory">
+    <column name="catid" phpName="Catid" type="VARCHAR" size="12" primaryKey="true" required="true"/>
+    <column name="catdesc" phpName="Catdesc" type="VARCHAR" size="30"/>
+    <column name="displayOrder" phpName="Displayorder" type="INTEGER" size="10" sqlType="int(10) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="sub" phpName="Sub" type="VARCHAR" size="35"/>
+    <column name="parent" phpName="Parent" type="VARCHAR" size="35"/>
+    <column name="cf" phpName="Cf" type="VARCHAR" size="1"/>
+    <column name="pf" phpName="Pf" type="VARCHAR" size="1"/>
+    <column name="cat1" phpName="Cat1" type="VARCHAR" size="1"/>
+    <column name="fulcat" phpName="Fulcat" type="VARCHAR" size="72"/>
+    <column name="sdis" phpName="Sdis" type="VARCHAR" size="1"/>
+    <column name="cata" phpName="Cata" type="VARCHAR" size="35"/>
+    <column name="catb" phpName="Catb" type="VARCHAR" size="35"/>
+    <column name="catc" phpName="Catc" type="VARCHAR" size="35"/>
+    <column name="catd" phpName="Catd" type="VARCHAR" size="35"/>
+    <column name="cate" phpName="Cate" type="VARCHAR" size="35"/>
+    <column name="image" phpName="Image" type="VARCHAR" size="35"/>
+    <column name="shortdesc" phpName="Shortdesc" type="VARCHAR" size="1000"/>
+    <column name="longdesc" phpName="Longdesc" type="LONGVARCHAR"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="commprice" idMethod="native" phpName="Commprice">
+    <column name="itemid" phpName="Itemid" type="VARCHAR" size="45" primaryKey="true" required="true"/>
+    <column name="percent" phpName="Percent" type="DECIMAL" size="8" scale="2" primaryKey="true" required="true"/>
+    <column name="price" phpName="Price" type="DECIMAL" size="8" scale="2"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="countries" idMethod="native" phpName="Countries">
+    <column name="name" phpName="Name" type="CHAR" size="52" required="true" defaultValue="&quot;&quot;"/>
+    <column name="ccode" phpName="Ccode" type="CHAR" size="3" required="true" defaultValue="&quot;&quot;"/>
+    <column name="calling_code" phpName="CallingCode" type="VARCHAR" size="8"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="custcontact" idMethod="native" phpName="Custcontact">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
+    <column name="recno" phpName="Recno" type="INTEGER" size="10" primaryKey="true" required="true"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="custid" phpName="Custid" type="VARCHAR" size="6"/>
+    <column name="shiptoid" phpName="Shiptoid" type="VARCHAR" size="6"/>
+    <column name="contactid" phpName="Contactid" type="VARCHAR" size="35"/>
+    <column name="phtype" phpName="Phtype" type="VARCHAR" size="2"/>
+    <column name="phseq" phpName="Phseq" type="VARCHAR" size="1"/>
+    <column name="phintl" phpName="Phintl" type="VARCHAR" size="1"/>
+    <column name="officephone" phpName="Officephone" type="VARCHAR" size="25"/>
+    <column name="extension" phpName="Extension" type="VARCHAR" size="7"/>
+    <column name="cellphone" phpName="Cellphone" type="VARCHAR" size="25"/>
+    <column name="faxnumber" phpName="Faxnumber" type="VARCHAR" size="25"/>
+    <column name="title" phpName="Title" type="VARCHAR" size="20"/>
+    <column name="email" phpName="Email" type="VARCHAR" size="50"/>
+    <column name="webaddress" phpName="Webaddress" type="VARCHAR" size="50"/>
+    <column name="lastcontact" phpName="Lastcontact" type="VARCHAR" size="10"/>
+    <column name="followupdate" phpName="Followupdate" type="VARCHAR" size="10"/>
+    <column name="errormsg" phpName="Errormsg" type="VARCHAR" size="30"/>
+    <column name="shptoname" phpName="Shptoname" type="VARCHAR" size="40"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="custindex" idMethod="native" phpName="Custindex">
+    <column name="recno" phpName="Recno" type="INTEGER" size="10" primaryKey="true" required="true"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8" required="true"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8" required="true"/>
+    <column name="splogin1" phpName="Splogin1" type="VARCHAR" size="12" required="true"/>
+    <column name="splogin2" phpName="Splogin2" type="VARCHAR" size="12" required="true"/>
+    <column name="splogin3" phpName="Splogin3" type="VARCHAR" size="12" required="true"/>
+    <column name="custid" phpName="Custid" type="VARCHAR" size="6" required="true"/>
+    <column name="shiptoid" phpName="Shiptoid" type="VARCHAR" size="6" required="true"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="30" required="true"/>
+    <column name="addr1" phpName="Addr1" type="VARCHAR" size="30" required="true"/>
+    <column name="addr2" phpName="Addr2" type="VARCHAR" size="30" required="true"/>
+    <column name="city" phpName="City" type="VARCHAR" size="30" required="true"/>
+    <column name="state" phpName="State" type="VARCHAR" size="2" required="true"/>
+    <column name="zip" phpName="Zip" type="VARCHAR" size="10" required="true"/>
+    <column name="phone" phpName="Phone" type="VARCHAR" size="20" required="true"/>
+    <column name="cellphone" phpName="Cellphone" type="VARCHAR" size="20" required="true"/>
+    <column name="contact" phpName="Contact" type="VARCHAR" size="35" required="true"/>
+    <column name="source" phpName="Source" type="VARCHAR" size="2" required="true"/>
+    <column name="extension" phpName="Extension" type="VARCHAR" size="7" required="true"/>
+    <column name="email" phpName="Email" type="VARCHAR" size="50" required="true"/>
+    <column name="typecode" phpName="Typecode" type="VARCHAR" size="45" required="true"/>
+    <column name="faxnbr" phpName="Faxnbr" type="VARCHAR" size="20" required="true"/>
+    <column name="title" phpName="Title" type="VARCHAR" size="45" required="true"/>
+    <column name="arcontact" phpName="Arcontact" type="VARCHAR" size="1" required="true"/>
+    <column name="dunningcontact" phpName="Dunningcontact" type="VARCHAR" size="1" required="true"/>
+    <column name="buyingcontact" phpName="Buyingcontact" type="VARCHAR" size="1" required="true"/>
+    <column name="certcontact" phpName="Certcontact" type="VARCHAR" size="1" required="true"/>
+    <column name="ackcontact" phpName="Ackcontact" type="VARCHAR" size="1" required="true"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1" required="true"/>
+    <index name="search">
+      <index-column name="custid"/>
+      <index-column name="shiptoid"/>
+      <index-column name="name"/>
+      <index-column name="addr1"/>
+      <index-column name="addr2"/>
+      <index-column name="city"/>
+      <index-column name="state"/>
+      <index-column name="zip"/>
+      <index-column name="phone"/>
+      <index-column name="cellphone"/>
+      <index-column name="contact"/>
+      <index-column name="email"/>
+      <index-column name="typecode"/>
+      <index-column name="faxnbr"/>
+      <index-column name="title"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="custnotes" idMethod="native" phpName="Custnotes">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
+    <column name="recno" phpName="Recno" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="custid" phpName="Custid" type="VARCHAR" size="45"/>
+    <column name="shipid" phpName="Shipid" type="VARCHAR" size="45"/>
+    <column name="date" phpName="Date" type="VARCHAR" size="45"/>
+    <column name="author" phpName="Author" type="VARCHAR" size="45"/>
+    <column name="note" phpName="Note" type="CLOB"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="customer" idMethod="native" phpName="Customer">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
+    <column name="recno" phpName="Recno" type="INTEGER" size="10" primaryKey="true" required="true"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="custid" phpName="Custid" type="VARCHAR" size="6"/>
+    <column name="custname" phpName="Custname" type="VARCHAR" size="30"/>
+    <column name="caddress" phpName="Caddress" type="VARCHAR" size="30"/>
+    <column name="caddress2" phpName="Caddress2" type="VARCHAR" size="30"/>
+    <column name="caddress3" phpName="Caddress3" type="VARCHAR" size="30"/>
+    <column name="ccity" phpName="Ccity" type="VARCHAR" size="30"/>
+    <column name="cst" phpName="Cst" type="VARCHAR" size="2"/>
+    <column name="czip" phpName="Czip" type="VARCHAR" size="10"/>
+    <column name="ccountry" phpName="Ccountry" type="VARCHAR" size="30"/>
+    <column name="cphone" phpName="Cphone" type="VARCHAR" size="20"/>
+    <column name="csalesrep" phpName="Csalesrep" type="VARCHAR" size="6"/>
+    <column name="csalesrepname" phpName="Csalesrepname" type="VARCHAR" size="30"/>
+    <column name="ctype" phpName="Ctype" type="VARCHAR" size="20"/>
+    <column name="nbrshipto" phpName="Nbrshipto" type="INTEGER" size="8"/>
+    <column name="dateentered" phpName="Dateentered" type="VARCHAR" size="10"/>
+    <column name="lastsaledate" phpName="Lastsaledate" type="VARCHAR" size="10"/>
+    <column name="errormsg" phpName="Errormsg" type="VARCHAR" size="30"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="customerconfigs" idMethod="native" phpName="Customerconfigs">
+    <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="configtype" phpName="Configtype" type="VARCHAR" size="45"/>
+    <column name="data" phpName="Data" type="LONGVARCHAR"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="custperm" idMethod="native" phpName="Custperm">
+    <column name="loginid" phpName="Loginid" type="VARCHAR" size="12" primaryKey="true" required="true" defaultValue=""/>
+    <column name="custid" phpName="Custid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="shiptoid" phpName="Shiptoid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="salesper1" phpName="Salesper1" type="VARCHAR" size="6"/>
+    <column name="restrictaccess" phpName="Restrictaccess" type="VARCHAR" size="1"/>
+    <column name="amountsold" phpName="Amountsold" type="DECIMAL" size="10" scale="2"/>
+    <column name="timesold" phpName="Timesold" type="INTEGER"/>
+    <column name="lastsaledate" phpName="Lastsaledate" type="INTEGER" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="custpricehistory" idMethod="native" phpName="Custpricehistory">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="45" primaryKey="true" required="true"/>
+    <column name="itemid" phpName="Itemid" type="VARCHAR" size="45" primaryKey="true" required="true"/>
+    <column name="lastqty" phpName="Lastqty" type="VARCHAR" size="4"/>
+    <column name="lastsold" phpName="Lastsold" type="VARCHAR" size="12"/>
+    <column name="lastprice" phpName="Lastprice" type="VARCHAR" size="45"/>
+    <column name="ordn" phpName="Ordn" type="VARCHAR" size="45"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="doccntl" idMethod="native" phpName="Doccntl">
+    <column name="folder" phpName="Folder" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="desc" phpName="Desc" type="VARCHAR" size="40"/>
+    <column name="directory" phpName="Directory" type="VARCHAR" size="50"/>
+    <column name="tag" phpName="Tag" type="VARCHAR" size="2"/>
+    <column name="field1title" phpName="Field1title" type="VARCHAR" size="45"/>
+    <column name="field2title" phpName="Field2title" type="VARCHAR" size="45"/>
+    <column name="field3title" phpName="Field3title" type="VARCHAR" size="45"/>
+    <column name="datecreated" phpName="Datecreated" type="VARCHAR" size="8"/>
+    <column name="timecreated" phpName="Timecreated" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="dplusfunctions" idMethod="native" phpName="Dplusfunctions">
+    <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="menu1" phpName="Menu1" type="VARCHAR" size="5" required="true"/>
+    <column name="menu2" phpName="Menu2" type="VARCHAR" size="5" required="true"/>
+    <column name="program" phpName="Program" type="VARCHAR" size="10" required="true"/>
+    <column name="description" phpName="Description" type="VARCHAR" size="45"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="family" idMethod="native" phpName="Family">
+    <column name="famID" phpName="Famid" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="name1" phpName="Name1" type="VARCHAR" size="35"/>
+    <column name="name2" phpName="Name2" type="VARCHAR" size="35"/>
+    <column name="name3" phpName="Name3" type="VARCHAR" size="35"/>
+    <column name="longdesc" phpName="Longdesc" type="LONGVARCHAR"/>
+    <column name="image" phpName="Image" type="VARCHAR" size="200"/>
+    <column name="speca" phpName="Speca" type="VARCHAR" size="200"/>
+    <column name="specb" phpName="Specb" type="VARCHAR" size="200"/>
+    <column name="specc" phpName="Specc" type="VARCHAR" size="200"/>
+    <column name="specd" phpName="Specd" type="VARCHAR" size="200"/>
+    <column name="spece" phpName="Spece" type="VARCHAR" size="200"/>
+    <column name="specf" phpName="Specf" type="VARCHAR" size="200"/>
+    <column name="specg" phpName="Specg" type="VARCHAR" size="200"/>
+    <column name="spech" phpName="Spech" type="VARCHAR" size="200"/>
+    <column name="shortdesc" phpName="Shortdesc" type="LONGVARCHAR"/>
+    <column name="catid" phpName="Catid" type="VARCHAR" size="12" required="true"/>
+    <column name="tview" phpName="Tview" type="VARCHAR" size="1"/>
+    <column name="ftype" phpName="Ftype" type="VARCHAR" size="1"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="funcperm" idMethod="native" phpName="Funcperm">
+    <column name="loginid" phpName="Loginid" type="VARCHAR" size="12" primaryKey="true" required="true"/>
+    <column name="function" phpName="Function" type="VARCHAR" size="6" primaryKey="true" required="true"/>
+    <column name="permission" phpName="Permission" type="VARCHAR" size="1"/>
+    <column name="createdate" phpName="Createdate" type="VARCHAR" size="8"/>
+    <column name="createtime" phpName="Createtime" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="im" idMethod="native" phpName="Im">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
+    <column name="recordno" phpName="Recordno" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="itemid" phpName="Itemid" type="VARCHAR" size="30"/>
+    <column name="price" phpName="Price" type="DECIMAL" size="6" scale="2"/>
+    <column name="qty" phpName="Qty" type="INTEGER" size="8"/>
+    <column name="priceqty1" phpName="Priceqty1" type="INTEGER" size="8"/>
+    <column name="priceqty2" phpName="Priceqty2" type="INTEGER" size="8"/>
+    <column name="priceqty3" phpName="Priceqty3" type="INTEGER" size="8"/>
+    <column name="priceqty4" phpName="Priceqty4" type="INTEGER" size="8"/>
+    <column name="priceqty5" phpName="Priceqty5" type="INTEGER" size="8"/>
+    <column name="priceqty6" phpName="Priceqty6" type="INTEGER" size="8"/>
+    <column name="priceprice1" phpName="Priceprice1" type="DECIMAL" size="6" scale="2"/>
+    <column name="priceprice2" phpName="Priceprice2" type="DECIMAL" size="6" scale="2"/>
+    <column name="priceprice3" phpName="Priceprice3" type="DECIMAL" size="6" scale="2"/>
+    <column name="priceprice4" phpName="Priceprice4" type="DECIMAL" size="6" scale="2"/>
+    <column name="priceprice5" phpName="Priceprice5" type="DECIMAL" size="6" scale="2"/>
+    <column name="priceprice6" phpName="Priceprice6" type="DECIMAL" size="6" scale="2"/>
+    <column name="unit" phpName="Unit" type="VARCHAR" size="4"/>
+    <column name="listprice" phpName="Listprice" type="DECIMAL" size="6" scale="2"/>
+    <column name="name1" phpName="Name1" type="VARCHAR" size="35"/>
+    <column name="name2" phpName="Name2" type="VARCHAR" size="35"/>
+    <column name="shortdesc" phpName="Shortdesc" type="LONGVARCHAR"/>
+    <column name="image" phpName="Image" type="VARCHAR" size="30"/>
+    <column name="familyid" phpName="Familyid" type="VARCHAR" size="35"/>
+    <column name="ermes" phpName="Ermes" type="VARCHAR" size="50"/>
+    <column name="speca" phpName="Speca" type="VARCHAR" size="200"/>
+    <column name="specb" phpName="Specb" type="VARCHAR" size="200"/>
+    <column name="specc" phpName="Specc" type="VARCHAR" size="200"/>
+    <column name="specd" phpName="Specd" type="VARCHAR" size="200"/>
+    <column name="spece" phpName="Spece" type="VARCHAR" size="200"/>
+    <column name="specf" phpName="Specf" type="VARCHAR" size="200"/>
+    <column name="specg" phpName="Specg" type="VARCHAR" size="200"/>
+    <column name="spech" phpName="Spech" type="VARCHAR" size="200"/>
+    <column name="longdesc" phpName="Longdesc" type="LONGVARCHAR"/>
+    <column name="orderno" phpName="Orderno" type="VARCHAR" size="35"/>
+    <column name="name3" phpName="Name3" type="VARCHAR" size="35"/>
+    <column name="name4" phpName="Name4" type="VARCHAR" size="35"/>
+    <column name="thumb" phpName="Thumb" type="VARCHAR" size="35"/>
+    <column name="width" phpName="Width" type="VARCHAR" size="35"/>
+    <column name="height" phpName="Height" type="VARCHAR" size="35"/>
+    <column name="familydes" phpName="Familydes" type="VARCHAR" size="35"/>
+    <column name="keywords" phpName="Keywords" type="VARCHAR" size="200"/>
+    <column name="vpn" phpName="Vpn" type="VARCHAR" size="35"/>
+    <column name="uomdesc" phpName="Uomdesc" type="VARCHAR" size="20"/>
+    <column name="vidinffg" phpName="Vidinffg" type="VARCHAR" size="1"/>
+    <column name="vidinflk" phpName="Vidinflk" type="VARCHAR" size="200"/>
+    <column name="additemflag" phpName="Additemflag" type="VARCHAR" size="1"/>
+    <column name="schemafam" phpName="Schemafam" type="VARCHAR" size="20"/>
+    <column name="prop65" phpName="Prop65" type="VARCHAR" size="1"/>
+    <column name="leadfree" phpName="Leadfree" type="VARCHAR" size="1"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="inv_whse_code" idMethod="native" phpName="InvWhseCode">
+    <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="8" primaryKey="true" required="true"/>
+    <column name="IntbWhseName" phpName="Intbwhsename" type="VARCHAR" size="30"/>
+    <column name="IntbWhseAdr1" phpName="Intbwhseadr1" type="VARCHAR" size="30"/>
+    <column name="IntbWhseAdr2" phpName="Intbwhseadr2" type="VARCHAR" size="30"/>
+    <column name="IntbWhseCity" phpName="Intbwhsecity" type="VARCHAR" size="16"/>
+    <column name="IntbWhseStat" phpName="Intbwhsestat" type="VARCHAR" size="2"/>
+    <column name="IntbWhseZipCode" phpName="Intbwhsezipcode" type="VARCHAR" size="10"/>
+    <column name="IntbWhseCtry" phpName="Intbwhsectry" type="VARCHAR" size="4"/>
+    <column name="IntbWhseUseHandheld" phpName="Intbwhseusehandheld" type="VARCHAR" size="1"/>
+    <column name="IntbWhseCashCust" phpName="Intbwhsecashcust" type="VARCHAR" size="6"/>
+    <column name="IntbWhsePickDtl" phpName="Intbwhsepickdtl" type="VARCHAR" size="1"/>
+    <column name="IntbWhseProdBin" phpName="Intbwhseprodbin" type="VARCHAR" size="8"/>
+    <column name="IntbWhsePhArea" phpName="Intbwhsepharea" type="INTEGER" size="3"/>
+    <column name="IntbWhsePhFrst3" phpName="Intbwhsephfrst3" type="INTEGER" size="3"/>
+    <column name="IntbWhsePhLast4" phpName="Intbwhsephlast4" type="INTEGER" size="4"/>
+    <column name="IntbWhsePhExt" phpName="Intbwhsephext" type="VARCHAR" size="7"/>
+    <column name="IntbWhseFaxArea" phpName="Intbwhsefaxarea" type="INTEGER" size="3"/>
+    <column name="IntbWhseFaxFrst3" phpName="Intbwhsefaxfrst3" type="INTEGER" size="3"/>
+    <column name="IntbWhseFaxLast4" phpName="Intbwhsefaxlast4" type="INTEGER" size="4"/>
+    <column name="IntbWhseEmailAdr" phpName="Intbwhseemailadr" type="VARCHAR" size="50"/>
+    <column name="IntbWhseQcRgaBin" phpName="Intbwhseqcrgabin" type="VARCHAR" size="8"/>
+    <column name="IntbWhseRfPrinter1" phpName="Intbwhserfprinter1" type="VARCHAR" size="12"/>
+    <column name="IntbWhseRfPrinter2" phpName="Intbwhserfprinter2" type="VARCHAR" size="12"/>
+    <column name="IntbWhseRfPrinter3" phpName="Intbwhserfprinter3" type="VARCHAR" size="12"/>
+    <column name="IntbWhseRfPrinter4" phpName="Intbwhserfprinter4" type="VARCHAR" size="12"/>
+    <column name="IntbWhseRfPrinter5" phpName="Intbwhserfprinter5" type="VARCHAR" size="12"/>
+    <column name="IntbWhseProfWhse" phpName="Intbwhseprofwhse" type="VARCHAR" size="2"/>
+    <column name="IntbWhseAsetWhse" phpName="Intbwhseasetwhse" type="VARCHAR" size="2"/>
+    <column name="IntbWhseConsignWhse" phpName="Intbwhseconsignwhse" type="VARCHAR" size="1"/>
+    <column name="IntbWhseBinRangeList" phpName="Intbwhsebinrangelist" type="VARCHAR" size="1"/>
+    <column name="IntbWhseSupplyWhse" phpName="Intbwhsesupplywhse" type="VARCHAR" size="2"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="INTEGER" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="INTEGER" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="inv_whse_from" idMethod="native" phpName="InvWhseFrom">
+    <column name="IntbWhseFrom" phpName="Intbwhsefrom" type="VARCHAR" size="8" primaryKey="true" required="true"/>
+    <column name="IntbWhseName" phpName="Intbwhsename" type="VARCHAR" size="30"/>
+    <column name="IntbWhseAdr1" phpName="Intbwhseadr1" type="VARCHAR" size="30"/>
+    <column name="IntbWhseAdr2" phpName="Intbwhseadr2" type="VARCHAR" size="30"/>
+    <column name="IntbWhseCity" phpName="Intbwhsecity" type="VARCHAR" size="16"/>
+    <column name="IntbWhseStat" phpName="Intbwhsestat" type="VARCHAR" size="2"/>
+    <column name="IntbWhseZipCode" phpName="Intbwhsezipcode" type="VARCHAR" size="10"/>
+    <column name="IntbWhseCtry" phpName="Intbwhsectry" type="VARCHAR" size="4"/>
+    <column name="IntbWhseUseHandheld" phpName="Intbwhseusehandheld" type="VARCHAR" size="1"/>
+    <column name="IntbWhseCashCust" phpName="Intbwhsecashcust" type="VARCHAR" size="6"/>
+    <column name="IntbWhsePickDtl" phpName="Intbwhsepickdtl" type="VARCHAR" size="1"/>
+    <column name="IntbWhseProdBin" phpName="Intbwhseprodbin" type="VARCHAR" size="8"/>
+    <column name="IntbWhsePhArea" phpName="Intbwhsepharea" type="INTEGER" size="3"/>
+    <column name="IntbWhsePhFrst3" phpName="Intbwhsephfrst3" type="INTEGER" size="3"/>
+    <column name="IntbWhsePhLast4" phpName="Intbwhsephlast4" type="INTEGER" size="4"/>
+    <column name="IntbWhsePhExt" phpName="Intbwhsephext" type="VARCHAR" size="7"/>
+    <column name="IntbWhseFaxArea" phpName="Intbwhsefaxarea" type="INTEGER" size="3"/>
+    <column name="IntbWhseFaxFrst3" phpName="Intbwhsefaxfrst3" type="INTEGER" size="3"/>
+    <column name="IntbWhseFaxLast4" phpName="Intbwhsefaxlast4" type="INTEGER" size="4"/>
+    <column name="IntbWhseEmailAdr" phpName="Intbwhseemailadr" type="VARCHAR" size="50"/>
+    <column name="IntbWhseQcRgaBin" phpName="Intbwhseqcrgabin" type="VARCHAR" size="8"/>
+    <column name="IntbWhseRfPrinter1" phpName="Intbwhserfprinter1" type="VARCHAR" size="12"/>
+    <column name="IntbWhseRfPrinter2" phpName="Intbwhserfprinter2" type="VARCHAR" size="12"/>
+    <column name="IntbWhseRfPrinter3" phpName="Intbwhserfprinter3" type="VARCHAR" size="12"/>
+    <column name="IntbWhseRfPrinter4" phpName="Intbwhserfprinter4" type="VARCHAR" size="12"/>
+    <column name="IntbWhseRfPrinter5" phpName="Intbwhserfprinter5" type="VARCHAR" size="12"/>
+    <column name="IntbWhseProfWhse" phpName="Intbwhseprofwhse" type="VARCHAR" size="2"/>
+    <column name="IntbWhseAsetWhse" phpName="Intbwhseasetwhse" type="VARCHAR" size="2"/>
+    <column name="IntbWhseConsignWhse" phpName="Intbwhseconsignwhse" type="VARCHAR" size="1"/>
+    <column name="IntbWhseBinRangeList" phpName="Intbwhsebinrangelist" type="VARCHAR" size="1"/>
+    <column name="IntbWhseSupplyWhse" phpName="Intbwhsesupplywhse" type="VARCHAR" size="2"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="INTEGER" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="INTEGER" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="inv_whse_orig" idMethod="native" phpName="InvWhseOrig">
+    <column name="IntbWhseOrig" phpName="Intbwhseorig" type="VARCHAR" size="8" primaryKey="true" required="true"/>
+    <column name="IntbWhseName" phpName="Intbwhsename" type="VARCHAR" size="30"/>
+    <column name="IntbWhseAdr1" phpName="Intbwhseadr1" type="VARCHAR" size="30"/>
+    <column name="IntbWhseAdr2" phpName="Intbwhseadr2" type="VARCHAR" size="30"/>
+    <column name="IntbWhseCity" phpName="Intbwhsecity" type="VARCHAR" size="16"/>
+    <column name="IntbWhseStat" phpName="Intbwhsestat" type="VARCHAR" size="2"/>
+    <column name="IntbWhseZipCode" phpName="Intbwhsezipcode" type="VARCHAR" size="10"/>
+    <column name="IntbWhseCtry" phpName="Intbwhsectry" type="VARCHAR" size="4"/>
+    <column name="IntbWhseUseHandheld" phpName="Intbwhseusehandheld" type="VARCHAR" size="1"/>
+    <column name="IntbWhseCashCust" phpName="Intbwhsecashcust" type="VARCHAR" size="6"/>
+    <column name="IntbWhsePickDtl" phpName="Intbwhsepickdtl" type="VARCHAR" size="1"/>
+    <column name="IntbWhseProdBin" phpName="Intbwhseprodbin" type="VARCHAR" size="8"/>
+    <column name="IntbWhsePhArea" phpName="Intbwhsepharea" type="INTEGER" size="3"/>
+    <column name="IntbWhsePhFrst3" phpName="Intbwhsephfrst3" type="INTEGER" size="3"/>
+    <column name="IntbWhsePhLast4" phpName="Intbwhsephlast4" type="INTEGER" size="4"/>
+    <column name="IntbWhsePhExt" phpName="Intbwhsephext" type="VARCHAR" size="7"/>
+    <column name="IntbWhseFaxArea" phpName="Intbwhsefaxarea" type="INTEGER" size="3"/>
+    <column name="IntbWhseFaxFrst3" phpName="Intbwhsefaxfrst3" type="INTEGER" size="3"/>
+    <column name="IntbWhseFaxLast4" phpName="Intbwhsefaxlast4" type="INTEGER" size="4"/>
+    <column name="IntbWhseEmailAdr" phpName="Intbwhseemailadr" type="VARCHAR" size="50"/>
+    <column name="IntbWhseQcRgaBin" phpName="Intbwhseqcrgabin" type="VARCHAR" size="8"/>
+    <column name="IntbWhseRfPrinter1" phpName="Intbwhserfprinter1" type="VARCHAR" size="12"/>
+    <column name="IntbWhseRfPrinter2" phpName="Intbwhserfprinter2" type="VARCHAR" size="12"/>
+    <column name="IntbWhseRfPrinter3" phpName="Intbwhserfprinter3" type="VARCHAR" size="12"/>
+    <column name="IntbWhseRfPrinter4" phpName="Intbwhserfprinter4" type="VARCHAR" size="12"/>
+    <column name="IntbWhseRfPrinter5" phpName="Intbwhserfprinter5" type="VARCHAR" size="12"/>
+    <column name="IntbWhseProfWhse" phpName="Intbwhseprofwhse" type="VARCHAR" size="2"/>
+    <column name="IntbWhseAsetWhse" phpName="Intbwhseasetwhse" type="VARCHAR" size="2"/>
+    <column name="IntbWhseConsignWhse" phpName="Intbwhseconsignwhse" type="VARCHAR" size="1"/>
+    <column name="IntbWhseBinRangeList" phpName="Intbwhsebinrangelist" type="VARCHAR" size="1"/>
+    <column name="IntbWhseSupplyWhse" phpName="Intbwhsesupplywhse" type="VARCHAR" size="2"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="INTEGER" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="INTEGER" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="inv_whse_to" idMethod="native" phpName="InvWhseTo">
+    <column name="IntbWhseTo" phpName="Intbwhseto" type="VARCHAR" size="8" primaryKey="true" required="true"/>
+    <column name="IntbWhseName" phpName="Intbwhsename" type="VARCHAR" size="30"/>
+    <column name="IntbWhseAdr1" phpName="Intbwhseadr1" type="VARCHAR" size="30"/>
+    <column name="IntbWhseAdr2" phpName="Intbwhseadr2" type="VARCHAR" size="30"/>
+    <column name="IntbWhseCity" phpName="Intbwhsecity" type="VARCHAR" size="16"/>
+    <column name="IntbWhseStat" phpName="Intbwhsestat" type="VARCHAR" size="2"/>
+    <column name="IntbWhseZipCode" phpName="Intbwhsezipcode" type="VARCHAR" size="10"/>
+    <column name="IntbWhseCtry" phpName="Intbwhsectry" type="VARCHAR" size="4"/>
+    <column name="IntbWhseUseHandheld" phpName="Intbwhseusehandheld" type="VARCHAR" size="1"/>
+    <column name="IntbWhseCashCust" phpName="Intbwhsecashcust" type="VARCHAR" size="6"/>
+    <column name="IntbWhsePickDtl" phpName="Intbwhsepickdtl" type="VARCHAR" size="1"/>
+    <column name="IntbWhseProdBin" phpName="Intbwhseprodbin" type="VARCHAR" size="8"/>
+    <column name="IntbWhsePhArea" phpName="Intbwhsepharea" type="INTEGER" size="3"/>
+    <column name="IntbWhsePhFrst3" phpName="Intbwhsephfrst3" type="INTEGER" size="3"/>
+    <column name="IntbWhsePhLast4" phpName="Intbwhsephlast4" type="INTEGER" size="4"/>
+    <column name="IntbWhsePhExt" phpName="Intbwhsephext" type="VARCHAR" size="7"/>
+    <column name="IntbWhseFaxArea" phpName="Intbwhsefaxarea" type="INTEGER" size="3"/>
+    <column name="IntbWhseFaxFrst3" phpName="Intbwhsefaxfrst3" type="INTEGER" size="3"/>
+    <column name="IntbWhseFaxLast4" phpName="Intbwhsefaxlast4" type="INTEGER" size="4"/>
+    <column name="IntbWhseEmailAdr" phpName="Intbwhseemailadr" type="VARCHAR" size="50"/>
+    <column name="IntbWhseQcRgaBin" phpName="Intbwhseqcrgabin" type="VARCHAR" size="8"/>
+    <column name="IntbWhseRfPrinter1" phpName="Intbwhserfprinter1" type="VARCHAR" size="12"/>
+    <column name="IntbWhseRfPrinter2" phpName="Intbwhserfprinter2" type="VARCHAR" size="12"/>
+    <column name="IntbWhseRfPrinter3" phpName="Intbwhserfprinter3" type="VARCHAR" size="12"/>
+    <column name="IntbWhseRfPrinter4" phpName="Intbwhserfprinter4" type="VARCHAR" size="12"/>
+    <column name="IntbWhseRfPrinter5" phpName="Intbwhserfprinter5" type="VARCHAR" size="12"/>
+    <column name="IntbWhseProfWhse" phpName="Intbwhseprofwhse" type="VARCHAR" size="2"/>
+    <column name="IntbWhseAsetWhse" phpName="Intbwhseasetwhse" type="VARCHAR" size="2"/>
+    <column name="IntbWhseConsignWhse" phpName="Intbwhseconsignwhse" type="VARCHAR" size="1"/>
+    <column name="IntbWhseBinRangeList" phpName="Intbwhsebinrangelist" type="VARCHAR" size="1"/>
+    <column name="IntbWhseSupplyWhse" phpName="Intbwhsesupplywhse" type="VARCHAR" size="2"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="INTEGER" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="INTEGER" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="invsearch" idMethod="native" phpName="Invsearch">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="45" primaryKey="true" required="true" defaultValue=""/>
+    <column name="recno" phpName="Recno" type="INTEGER" size="5" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="itemid" phpName="Itemid" type="VARCHAR" size="45" primaryKey="true" required="true" defaultValue=""/>
+    <column name="xitemid" phpName="Xitemid" type="VARCHAR" size="45"/>
+    <column name="xorigin" phpName="Xorigin" type="VARCHAR" size="45"/>
+    <column name="itemtype" phpName="Itemtype" type="VARCHAR" size="45"/>
+    <column name="lotserial" phpName="Lotserial" type="VARCHAR" size="45"/>
+    <column name="desc1" phpName="Desc1" type="VARCHAR" size="45"/>
+    <column name="desc2" phpName="Desc2" type="VARCHAR" size="45"/>
+    <column name="primebin" phpName="Primebin" type="VARCHAR" size="8"/>
+    <column name="bin" phpName="Bin" type="VARCHAR" size="8"/>
+    <column name="qty" phpName="Qty" type="INTEGER" size="8"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="itemcartonlabel" idMethod="native" phpName="Itemcartonlabel">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="45" primaryKey="true" required="true"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="itemid" phpName="Itemid" type="VARCHAR" size="45"/>
+    <column name="whse" phpName="Whse" type="VARCHAR" size="45"/>
+    <column name="lotserial" phpName="Lotserial" type="VARCHAR" size="45"/>
+    <column name="bin" phpName="Bin" type="VARCHAR" size="45"/>
+    <column name="label_box" phpName="LabelBox" type="VARCHAR" size="45"/>
+    <column name="printer_box" phpName="PrinterBox" type="VARCHAR" size="45"/>
+    <column name="qty_box" phpName="QtyBox" type="INTEGER" size="4"/>
+    <column name="nbr_box_labels" phpName="NbrBoxLabels" type="INTEGER" size="4"/>
+    <column name="label_master" phpName="LabelMaster" type="VARCHAR" size="45"/>
+    <column name="printer_master" phpName="PrinterMaster" type="VARCHAR" size="45"/>
+    <column name="qty_master" phpName="QtyMaster" type="INTEGER" size="4"/>
+    <column name="nbr_master_labels" phpName="NbrMasterLabels" type="INTEGER" size="4"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="itemgroups" idMethod="native" phpName="Itemgroups">
+    <column name="code" phpName="Code" type="VARCHAR" size="4" primaryKey="true" required="true"/>
+    <column name="desc" phpName="Desc" type="VARCHAR" size="20"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="itemmaster" idMethod="native" phpName="Itemmaster">
+    <column name="itemid" phpName="Itemid" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="name1" phpName="Name1" type="VARCHAR" size="35"/>
+    <column name="name2" phpName="Name2" type="VARCHAR" size="35"/>
+    <column name="shortdesc" phpName="Shortdesc" type="VARCHAR" size="1000"/>
+    <column name="familyid" phpName="Familyid" type="VARCHAR" size="30"/>
+    <column name="image" phpName="Image" type="VARCHAR" size="30"/>
+    <column name="catagory" phpName="Catagory" type="VARCHAR" size="30"/>
+    <column name="tview" phpName="Tview" type="VARCHAR" size="100"/>
+    <column name="itemgroup" phpName="Itemgroup" type="VARCHAR" size="6"/>
+    <column name="itemtype" phpName="Itemtype" type="VARCHAR" size="1"/>
+    <column name="innerpackqty" phpName="Innerpackqty" type="VARCHAR" size="5"/>
+    <column name="outerpackqty" phpName="Outerpackqty" type="VARCHAR" size="5"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="itemsearch" idMethod="native" phpName="Itemsearch">
+    <column name="recno" phpName="Recno" type="INTEGER"/>
+    <column name="itemid" phpName="Itemid" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="origintype" phpName="Origintype" type="VARCHAR" size="1" primaryKey="true" required="true" defaultValue=""/>
+    <column name="originid" phpName="Originid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="refitemid" phpName="Refitemid" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="desc1" phpName="Desc1" type="VARCHAR" size="35"/>
+    <column name="desc2" phpName="Desc2" type="VARCHAR" size="35"/>
+    <column name="image" phpName="Image" type="VARCHAR" size="50"/>
+    <column name="qty_percase" phpName="QtyPercase" type="INTEGER" size="5"/>
+    <column name="create_date" phpName="CreateDate" type="VARCHAR" size="8"/>
+    <column name="create_time" phpName="CreateTime" type="VARCHAR" size="8"/>
+    <column name="itemstatus" phpName="Itemstatus" type="VARCHAR" size="1"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <index name="search">
+      <index-column name="itemid"/>
+      <index-column name="origintype"/>
+      <index-column name="refitemid"/>
+      <index-column name="desc1"/>
+      <index-column name="desc2"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="itemstock" idMethod="native" phpName="Itemstock">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
+    <column name="recno" phpName="Recno" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="itemid" phpName="Itemid" type="VARCHAR" size="30"/>
+    <column name="whse" phpName="Whse" type="VARCHAR" size="2"/>
+    <column name="ohhand" phpName="Ohhand" type="VARCHAR" size="20"/>
+    <column name="committed" phpName="Committed" type="VARCHAR" size="20"/>
+    <column name="onorder" phpName="Onorder" type="VARCHAR" size="20"/>
+    <column name="available" phpName="Available" type="VARCHAR" size="20"/>
+    <column name="eta" phpName="Eta" type="VARCHAR" size="20"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="log_signin" idMethod="native" phpName="LogSignin">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
+    <column name="user" phpName="User" type="VARCHAR" size="45" primaryKey="true" required="true"/>
+    <column name="date" phpName="Date" type="TIMESTAMP"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="login" idMethod="native" phpName="Login">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="recordno" phpName="Recordno" type="INTEGER" defaultValue="0"/>
+    <column name="date" phpName="Date" type="VARCHAR" size="20"/>
+    <column name="time" phpName="Time" type="VARCHAR" size="8"/>
+    <column name="custid" phpName="Custid" type="VARCHAR" size="6"/>
+    <column name="shiptoid" phpName="Shiptoid" type="VARCHAR" size="6"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="30"/>
+    <column name="address1" phpName="Address1" type="VARCHAR" size="30"/>
+    <column name="address2" phpName="Address2" type="VARCHAR" size="30"/>
+    <column name="city" phpName="City" type="VARCHAR" size="16"/>
+    <column name="st" phpName="St" type="CHAR" size="2"/>
+    <column name="zip" phpName="Zip" type="VARCHAR" size="10"/>
+    <column name="phone" phpName="Phone" type="VARCHAR" size="20"/>
+    <column name="email" phpName="Email" type="VARCHAR" size="50"/>
+    <column name="contact" phpName="Contact" type="VARCHAR" size="20"/>
+    <column name="validlogin" phpName="Validlogin" type="CHAR"/>
+    <column name="cconly" phpName="Cconly" type="CHAR"/>
+    <column name="ermes" phpName="Ermes" type="VARCHAR" size="50"/>
+    <column name="passwd" phpName="Passwd" type="VARCHAR" size="20"/>
+    <column name="cbi" phpName="Cbi" type="VARCHAR" size="50"/>
+    <column name="mmn" phpName="Mmn" type="VARCHAR" size="50"/>
+    <column name="country" phpName="Country" type="VARCHAR" size="35"/>
+    <column name="type" phpName="Type" type="VARCHAR" size="1"/>
+    <column name="address3" phpName="Address3" type="VARCHAR" size="30"/>
+    <column name="vpromo" phpName="Vpromo" type="VARCHAR" size="1"/>
+    <column name="promocode" phpName="Promocode" type="VARCHAR" size="30"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="logm" idMethod="native" phpName="Logm">
+    <column name="loginid" phpName="Loginid" type="VARCHAR" size="30" primaryKey="true" required="true"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="45"/>
+    <column name="whseid" phpName="Whseid" type="VARCHAR" size="45"/>
+    <column name="role" phpName="Role" type="VARCHAR" size="45"/>
+    <column name="company" phpName="Company" type="VARCHAR" size="45"/>
+    <column name="fax" phpName="Fax" type="VARCHAR" size="12"/>
+    <column name="phone" phpName="Phone" type="VARCHAR" size="12"/>
+    <column name="email" phpName="Email" type="VARCHAR" size="45"/>
+    <column name="roleid" phpName="Roleid" type="VARCHAR" size="45"/>
+    <column name="rolename" phpName="Rolename" type="VARCHAR" size="45"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="logperm" idMethod="native" phpName="Logperm">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
+    <column name="recno" phpName="Recno" type="INTEGER" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="loginid" phpName="Loginid" type="VARCHAR" size="12"/>
+    <column name="loginname" phpName="Loginname" type="VARCHAR" size="20"/>
+    <column name="salespersonid" phpName="Salespersonid" type="VARCHAR" size="6"/>
+    <column name="salespername" phpName="Salespername" type="VARCHAR" size="30"/>
+    <column name="validlogin" phpName="Validlogin" type="VARCHAR" size="1"/>
+    <column name="restrictcustomers" phpName="Restrictcustomers" type="VARCHAR" size="1"/>
+    <column name="errormsg" phpName="Errormsg" type="VARCHAR" size="20"/>
+    <column name="ordernbr" phpName="Ordernbr" type="VARCHAR" size="30"/>
+    <column name="restrictaccess" phpName="Restrictaccess" type="VARCHAR" size="1"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="modules" idMethod="native" phpName="Modules">
+    <column name="id" phpName="Id" type="INTEGER" size="10" sqlType="int(10) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="class" phpName="Class" type="VARCHAR" size="128" required="true"/>
+    <column name="flags" phpName="Flags" type="INTEGER" required="true" defaultValue="0"/>
+    <column name="data" phpName="Data" type="LONGVARCHAR" required="true"/>
+    <column name="created" phpName="Created" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
+    <unique name="class">
+      <unique-column name="class"/>
+    </unique>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="oe_head" idMethod="native" phpName="OeHead">
+    <column name="ordernumber" phpName="Ordernumber" type="VARCHAR" size="12" primaryKey="true" required="true"/>
+    <column name="status" phpName="Status" type="VARCHAR" size="1" required="true"/>
+    <column name="holdstatus" phpName="Holdstatus" type="VARCHAR" size="1" required="true"/>
+    <column name="custid" phpName="Custid" type="VARCHAR" size="6" required="true"/>
+    <column name="shiptoid" phpName="Shiptoid" type="VARCHAR" size="6" required="true"/>
+    <column name="shipto_name" phpName="ShiptoName" type="VARCHAR" size="30" required="true"/>
+    <column name="shipto_address1" phpName="ShiptoAddress1" type="VARCHAR" size="30" required="true"/>
+    <column name="shipto_address2" phpName="ShiptoAddress2" type="VARCHAR" size="30" required="true"/>
+    <column name="shipto_address3" phpName="ShiptoAddress3" type="VARCHAR" size="30" required="true"/>
+    <column name="shipto_address4" phpName="ShiptoAddress4" type="VARCHAR" size="30" required="true"/>
+    <column name="shipto_city" phpName="ShiptoCity" type="VARCHAR" size="30" required="true"/>
+    <column name="shipto_state" phpName="ShiptoState" type="VARCHAR" size="4" required="true"/>
+    <column name="shipto_zip" phpName="ShiptoZip" type="VARCHAR" size="10" required="true"/>
+    <column name="custpo" phpName="Custpo" type="VARCHAR" size="20" required="true"/>
+    <column name="order_date" phpName="OrderDate" type="INTEGER" size="8" required="true"/>
+    <column name="termcode" phpName="Termcode" type="VARCHAR" size="4" required="true"/>
+    <column name="shipviacode" phpName="Shipviacode" type="VARCHAR" size="4" required="true"/>
+    <column name="invoice_number" phpName="InvoiceNumber" type="INTEGER" size="12" required="true"/>
+    <column name="invoice_date" phpName="InvoiceDate" type="INTEGER" size="8" required="true"/>
+    <column name="genledger_period" phpName="GenledgerPeriod" type="INTEGER" size="2" required="true"/>
+    <column name="salesperson_1" phpName="Salesperson1" type="VARCHAR" size="6" required="true"/>
+    <column name="salesperson_1pct" phpName="Salesperson1pct" type="DECIMAL" size="6" scale="2" required="true"/>
+    <column name="salesperson_2" phpName="Salesperson2" type="VARCHAR" size="6" required="true"/>
+    <column name="salesperson_2pct" phpName="Salesperson2pct" type="DECIMAL" size="6" scale="2" required="true"/>
+    <column name="salesperson_3" phpName="Salesperson3" type="VARCHAR" size="6" required="true"/>
+    <column name="salesperson_3pct" phpName="Salesperson3pct" type="DECIMAL" size="6" scale="2" required="true"/>
+    <column name="contract_nbr" phpName="ContractNbr" type="INTEGER" size="8" required="true"/>
+    <column name="batch_nbr" phpName="BatchNbr" type="INTEGER" size="8" required="true"/>
+    <column name="dropreleasehold" phpName="Dropreleasehold" type="VARCHAR" size="1" required="true"/>
+    <column name="subtotal_nontax" phpName="SubtotalNontax" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="subtotal_tax" phpName="SubtotalTax" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="total_tax" phpName="TotalTax" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="total_freight" phpName="TotalFreight" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="total_misc" phpName="TotalMisc" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="total_order" phpName="TotalOrder" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="total_cost" phpName="TotalCost" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="lock" phpName="Lock" type="VARCHAR" size="1" required="true"/>
+    <column name="taken_date" phpName="TakenDate" type="INTEGER" size="8" required="true"/>
+    <column name="taken_time" phpName="TakenTime" type="INTEGER" size="4" required="true"/>
+    <column name="pick_date" phpName="PickDate" type="INTEGER" size="8" required="true"/>
+    <column name="pick_time" phpName="PickTime" type="INTEGER" size="4" required="true"/>
+    <column name="pack_date" phpName="PackDate" type="INTEGER" size="8" required="true"/>
+    <column name="pack_time" phpName="PackTime" type="INTEGER" size="4" required="true"/>
+    <column name="verify_date" phpName="VerifyDate" type="INTEGER" size="8" required="true"/>
+    <column name="verify_time" phpName="VerifyTime" type="INTEGER" size="4" required="true"/>
+    <column name="creditmemo" phpName="Creditmemo" type="VARCHAR" size="1" required="true"/>
+    <column name="booked" phpName="Booked" type="VARCHAR" size="1" required="true"/>
+    <column name="original_whse" phpName="OriginalWhse" type="VARCHAR" size="2" required="true"/>
+    <column name="billto_state" phpName="BilltoState" type="VARCHAR" size="2" required="true"/>
+    <column name="shipcomplete" phpName="Shipcomplete" type="VARCHAR" size="1" required="true"/>
+    <column name="cwo_flag" phpName="CwoFlag" type="VARCHAR" size="45" required="true"/>
+    <column name="division" phpName="Division" type="VARCHAR" size="8" required="true"/>
+    <column name="taken_code" phpName="TakenCode" type="VARCHAR" size="8" required="true"/>
+    <column name="pack_code" phpName="PackCode" type="VARCHAR" size="8" required="true"/>
+    <column name="pick_code" phpName="PickCode" type="VARCHAR" size="8" required="true"/>
+    <column name="verify_code" phpName="VerifyCode" type="VARCHAR" size="8" required="true"/>
+    <column name="total_discount" phpName="TotalDiscount" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="edi_refererencenbr" phpName="EdiRefererencenbr" type="VARCHAR" size="3" required="true"/>
+    <column name="user_code1" phpName="UserCode1" type="VARCHAR" size="8" required="true"/>
+    <column name="user_code2" phpName="UserCode2" type="VARCHAR" size="8" required="true"/>
+    <column name="user_code3" phpName="UserCode3" type="VARCHAR" size="8" required="true"/>
+    <column name="user_code4" phpName="UserCode4" type="VARCHAR" size="8" required="true"/>
+    <column name="exchange_country" phpName="ExchangeCountry" type="VARCHAR" size="4" required="true"/>
+    <column name="exchange_rate" phpName="ExchangeRate" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="weight_total" phpName="WeightTotal" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="weight_override" phpName="WeightOverride" type="VARCHAR" size="1" required="true"/>
+    <column name="box_count" phpName="BoxCount" type="INTEGER" size="5" required="true"/>
+    <column name="request_date" phpName="RequestDate" type="INTEGER" size="8" required="true"/>
+    <column name="cancel_date" phpName="CancelDate" type="INTEGER" size="8" required="true"/>
+    <column name="lockedby" phpName="Lockedby" type="VARCHAR" size="12" required="true"/>
+    <column name="release_number" phpName="ReleaseNumber" type="VARCHAR" size="20" required="true"/>
+    <column name="whse" phpName="Whse" type="VARCHAR" size="2" required="true"/>
+    <column name="backorder_date" phpName="BackorderDate" type="INTEGER" size="8" required="true"/>
+    <column name="deptcode" phpName="Deptcode" type="VARCHAR" size="8" required="true"/>
+    <column name="freight_in_entered" phpName="FreightInEntered" type="VARCHAR" size="1" required="true"/>
+    <column name="dropship_entered" phpName="DropshipEntered" type="VARCHAR" size="1" required="true"/>
+    <column name="er_flag" phpName="ErFlag" type="VARCHAR" size="1" required="true"/>
+    <column name="freight_in" phpName="FreightIn" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="dropship" phpName="Dropship" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="minorder" phpName="Minorder" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="contract_terms" phpName="ContractTerms" type="VARCHAR" size="1" required="true"/>
+    <column name="dropship_billed" phpName="DropshipBilled" type="VARCHAR" size="1" required="true"/>
+    <column name="order_type" phpName="OrderType" type="VARCHAR" size="1" required="true"/>
+    <column name="tracking_edinumber" phpName="TrackingEdinumber" type="VARCHAR" size="15" required="true"/>
+    <column name="source" phpName="Source" type="VARCHAR" size="1" required="true"/>
+    <column name="pick_format" phpName="PickFormat" type="VARCHAR" size="1" required="true"/>
+    <column name="invoice_format" phpName="InvoiceFormat" type="VARCHAR" size="1" required="true"/>
+    <column name="cash_amount" phpName="CashAmount" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="check_amount" phpName="CheckAmount" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="check_number" phpName="CheckNumber" type="VARCHAR" size="8" required="true"/>
+    <column name="deposit_amount" phpName="DepositAmount" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="deposit_number" phpName="DepositNumber" type="VARCHAR" size="8" required="true"/>
+    <column name="original_subtotal_tax" phpName="OriginalSubtotalTax" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="original_subtotal_nontax" phpName="OriginalSubtotalNontax" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="original_total_tax" phpName="OriginalTotalTax" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="original_total" phpName="OriginalTotal" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="pick_printdate" phpName="PickPrintdate" type="INTEGER" size="8" required="true"/>
+    <column name="pick_printtime" phpName="PickPrinttime" type="INTEGER" size="4" required="true"/>
+    <column name="contact" phpName="Contact" type="VARCHAR" size="20" required="true"/>
+    <column name="phone_intl" phpName="PhoneIntl" type="VARCHAR" size="1" required="true"/>
+    <column name="phone_accesscode" phpName="PhoneAccesscode" type="VARCHAR" size="3" required="true"/>
+    <column name="phone_countrycode" phpName="PhoneCountrycode" type="VARCHAR" size="4" required="true"/>
+    <column name="phone" phpName="Phone" type="VARCHAR" size="15" required="true"/>
+    <column name="phone_ext" phpName="PhoneExt" type="VARCHAR" size="7" required="true"/>
+    <column name="fax_intl" phpName="FaxIntl" type="VARCHAR" size="1" required="true"/>
+    <column name="fax_accesscode" phpName="FaxAccesscode" type="VARCHAR" size="3" required="true"/>
+    <column name="fax_countrycode" phpName="FaxCountrycode" type="VARCHAR" size="4" required="true"/>
+    <column name="fax" phpName="Fax" type="VARCHAR" size="15" required="true"/>
+    <column name="ship_account" phpName="ShipAccount" type="VARCHAR" size="10" required="true"/>
+    <column name="change_due" phpName="ChangeDue" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="discount_additional" phpName="DiscountAdditional" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="all_ship" phpName="AllShip" type="VARCHAR" size="2" required="true"/>
+    <column name="credit_applied" phpName="CreditApplied" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="invoice_printdate" phpName="InvoicePrintdate" type="INTEGER" size="8" required="true"/>
+    <column name="invoice_printtime" phpName="InvoicePrinttime" type="INTEGER" size="4" required="true"/>
+    <column name="discount_freight" phpName="DiscountFreight" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="ship_completeoverride" phpName="ShipCompleteoverride" type="VARCHAR" size="1" required="true"/>
+    <column name="contact_email" phpName="ContactEmail" type="VARCHAR" size="50" required="true"/>
+    <column name="manual_freight" phpName="ManualFreight" type="VARCHAR" size="1" required="true"/>
+    <column name="internal_freight" phpName="InternalFreight" type="VARCHAR" size="1" required="true"/>
+    <column name="cost_freight" phpName="CostFreight" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="route" phpName="Route" type="VARCHAR" size="4" required="true"/>
+    <column name="route_seq" phpName="RouteSeq" type="INTEGER" size="4" required="true"/>
+    <column name="edi_855sent" phpName="Edi855sent" type="VARCHAR" size="1" required="true"/>
+    <column name="freight_3rdparty" phpName="Freight3rdparty" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="fob" phpName="Fob" type="VARCHAR" size="15" required="true"/>
+    <column name="confirm_image" phpName="ConfirmImage" type="VARCHAR" size="1" required="true"/>
+    <column name="cstk_consign" phpName="CstkConsign" type="VARCHAR" size="1" required="true"/>
+    <column name="manufacturer" phpName="Manufacturer" type="VARCHAR" size="6" required="true"/>
+    <column name="pick_queue" phpName="PickQueue" type="VARCHAR" size="1" required="true"/>
+    <column name="arrive_date" phpName="ArriveDate" type="INTEGER" size="8" required="true"/>
+    <column name="surcharge_status" phpName="SurchargeStatus" type="VARCHAR" size="1" required="true"/>
+    <column name="freight_group" phpName="FreightGroup" type="VARCHAR" size="2" required="true"/>
+    <column name="comm_override" phpName="CommOverride" type="VARCHAR" size="1" required="true"/>
+    <column name="charge_split" phpName="ChargeSplit" type="VARCHAR" size="1" required="true"/>
+    <column name="creditcart_approved" phpName="CreditcartApproved" type="VARCHAR" size="1" required="true"/>
+    <column name="original_ordernumber" phpName="OriginalOrdernumber" type="VARCHAR" size="12" required="true"/>
+    <column name="has_notes" phpName="HasNotes" type="VARCHAR" size="1" required="true"/>
+    <column name="has_documents" phpName="HasDocuments" type="VARCHAR" size="1" required="true"/>
+    <column name="has_tracking" phpName="HasTracking" type="VARCHAR" size="1" required="true"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8" required="true"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8" required="true"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="oe_hist" idMethod="native" phpName="OeHist">
+    <column name="orderno" phpName="Orderno" type="INTEGER" size="12" primaryKey="true" required="true"/>
+    <column name="status" phpName="Status" type="VARCHAR" size="1" required="true"/>
+    <column name="holdstatus" phpName="Holdstatus" type="VARCHAR" size="1" required="true"/>
+    <column name="custid" phpName="Custid" type="VARCHAR" size="6" required="true"/>
+    <column name="shiptoid" phpName="Shiptoid" type="VARCHAR" size="6" required="true"/>
+    <column name="shipto_name" phpName="ShiptoName" type="VARCHAR" size="30" required="true"/>
+    <column name="shipto_address1" phpName="ShiptoAddress1" type="VARCHAR" size="30" required="true"/>
+    <column name="shipto_address2" phpName="ShiptoAddress2" type="VARCHAR" size="30" required="true"/>
+    <column name="shipto_address3" phpName="ShiptoAddress3" type="VARCHAR" size="30" required="true"/>
+    <column name="shipto_address4" phpName="ShiptoAddress4" type="VARCHAR" size="30" required="true"/>
+    <column name="shipto_city" phpName="ShiptoCity" type="VARCHAR" size="30" required="true"/>
+    <column name="shipto_state" phpName="ShiptoState" type="VARCHAR" size="4" required="true"/>
+    <column name="shipto_zip" phpName="ShiptoZip" type="VARCHAR" size="10" required="true"/>
+    <column name="custpo" phpName="Custpo" type="VARCHAR" size="20" required="true"/>
+    <column name="orderdate" phpName="Orderdate" type="INTEGER" size="8" required="true"/>
+    <column name="termcode" phpName="Termcode" type="VARCHAR" size="4" required="true"/>
+    <column name="shipviacode" phpName="Shipviacode" type="VARCHAR" size="4" required="true"/>
+    <column name="invoice_number" phpName="InvoiceNumber" type="INTEGER" size="12" required="true"/>
+    <column name="invoice_date" phpName="InvoiceDate" type="INTEGER" size="8" required="true"/>
+    <column name="genledger_period" phpName="GenledgerPeriod" type="INTEGER" size="2" required="true"/>
+    <column name="salesperson_1" phpName="Salesperson1" type="VARCHAR" size="6" required="true"/>
+    <column name="salesperson_1pct" phpName="Salesperson1pct" type="DECIMAL" size="6" scale="2" required="true"/>
+    <column name="salesperson_2" phpName="Salesperson2" type="VARCHAR" size="6" required="true"/>
+    <column name="salesperson_2pct" phpName="Salesperson2pct" type="DECIMAL" size="6" scale="2" required="true"/>
+    <column name="salesperson_3" phpName="Salesperson3" type="VARCHAR" size="6" required="true"/>
+    <column name="salesperson_3pct" phpName="Salesperson3pct" type="DECIMAL" size="6" scale="2" required="true"/>
+    <column name="contract_nbr" phpName="ContractNbr" type="INTEGER" size="8" required="true"/>
+    <column name="batch_nbr" phpName="BatchNbr" type="INTEGER" size="8" required="true"/>
+    <column name="dropreleasehold" phpName="Dropreleasehold" type="VARCHAR" size="1" required="true"/>
+    <column name="subtotal_tax" phpName="SubtotalTax" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="subtotal_nontax" phpName="SubtotalNontax" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="total_tax" phpName="TotalTax" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="total_freight" phpName="TotalFreight" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="total_misc" phpName="TotalMisc" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="total_order" phpName="TotalOrder" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="total_cost" phpName="TotalCost" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="lock" phpName="Lock" type="VARCHAR" size="1" required="true"/>
+    <column name="taken_date" phpName="TakenDate" type="INTEGER" size="8" required="true"/>
+    <column name="taken_time" phpName="TakenTime" type="INTEGER" size="4" required="true"/>
+    <column name="pick_date" phpName="PickDate" type="INTEGER" size="8" required="true"/>
+    <column name="pick_time" phpName="PickTime" type="INTEGER" size="4" required="true"/>
+    <column name="pack_date" phpName="PackDate" type="INTEGER" size="8" required="true"/>
+    <column name="pack_time" phpName="PackTime" type="INTEGER" size="4" required="true"/>
+    <column name="verify_date" phpName="VerifyDate" type="INTEGER" size="8" required="true"/>
+    <column name="verify_time" phpName="VerifyTime" type="INTEGER" size="4" required="true"/>
+    <column name="creditmemo" phpName="Creditmemo" type="VARCHAR" size="1" required="true"/>
+    <column name="booked" phpName="Booked" type="VARCHAR" size="1" required="true"/>
+    <column name="original_whse" phpName="OriginalWhse" type="VARCHAR" size="2" required="true"/>
+    <column name="billto_state" phpName="BilltoState" type="VARCHAR" size="2" required="true"/>
+    <column name="shipcomplete" phpName="Shipcomplete" type="VARCHAR" size="1" required="true"/>
+    <column name="cwo_flag" phpName="CwoFlag" type="VARCHAR" size="45" required="true"/>
+    <column name="division" phpName="Division" type="VARCHAR" size="8" required="true"/>
+    <column name="taken_code" phpName="TakenCode" type="VARCHAR" size="8" required="true"/>
+    <column name="pack_code" phpName="PackCode" type="VARCHAR" size="8" required="true"/>
+    <column name="pick_code" phpName="PickCode" type="VARCHAR" size="8" required="true"/>
+    <column name="verify_code" phpName="VerifyCode" type="VARCHAR" size="8" required="true"/>
+    <column name="total_discount" phpName="TotalDiscount" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="edi_refererencenbr" phpName="EdiRefererencenbr" type="VARCHAR" size="3" required="true"/>
+    <column name="user_code1" phpName="UserCode1" type="VARCHAR" size="8" required="true"/>
+    <column name="user_code2" phpName="UserCode2" type="VARCHAR" size="8" required="true"/>
+    <column name="user_code3" phpName="UserCode3" type="VARCHAR" size="8" required="true"/>
+    <column name="user_code4" phpName="UserCode4" type="VARCHAR" size="8" required="true"/>
+    <column name="exchange_country" phpName="ExchangeCountry" type="VARCHAR" size="4" required="true"/>
+    <column name="exchange_rate" phpName="ExchangeRate" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="weight_total" phpName="WeightTotal" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="weight_override" phpName="WeightOverride" type="VARCHAR" size="1" required="true"/>
+    <column name="box_count" phpName="BoxCount" type="INTEGER" size="5" required="true"/>
+    <column name="request_date" phpName="RequestDate" type="INTEGER" size="8" required="true"/>
+    <column name="cancel_date" phpName="CancelDate" type="INTEGER" size="8" required="true"/>
+    <column name="lockedby" phpName="Lockedby" type="VARCHAR" size="12" required="true"/>
+    <column name="release_number" phpName="ReleaseNumber" type="VARCHAR" size="20" required="true"/>
+    <column name="whse" phpName="Whse" type="VARCHAR" size="2" required="true"/>
+    <column name="backorder_date" phpName="BackorderDate" type="INTEGER" size="8" required="true"/>
+    <column name="deptcode" phpName="Deptcode" type="VARCHAR" size="8" required="true"/>
+    <column name="freight_in_entered" phpName="FreightInEntered" type="VARCHAR" size="1" required="true"/>
+    <column name="dropship_entered" phpName="DropshipEntered" type="VARCHAR" size="1" required="true"/>
+    <column name="er_flag" phpName="ErFlag" type="VARCHAR" size="1" required="true"/>
+    <column name="freight_in" phpName="FreightIn" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="dropship" phpName="Dropship" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="minorder" phpName="Minorder" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="contract_terms" phpName="ContractTerms" type="VARCHAR" size="1" required="true"/>
+    <column name="dropship_billed" phpName="DropshipBilled" type="VARCHAR" size="1" required="true"/>
+    <column name="order_type" phpName="OrderType" type="VARCHAR" size="1" required="true"/>
+    <column name="tracking_edinumber" phpName="TrackingEdinumber" type="VARCHAR" size="15" required="true"/>
+    <column name="source" phpName="Source" type="VARCHAR" size="1" required="true"/>
+    <column name="pick_format" phpName="PickFormat" type="VARCHAR" size="1" required="true"/>
+    <column name="invoice_format" phpName="InvoiceFormat" type="VARCHAR" size="1" required="true"/>
+    <column name="cash_amount" phpName="CashAmount" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="check_amount" phpName="CheckAmount" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="check_number" phpName="CheckNumber" type="VARCHAR" size="8" required="true"/>
+    <column name="deposit_amount" phpName="DepositAmount" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="deposit_number" phpName="DepositNumber" type="VARCHAR" size="8" required="true"/>
+    <column name="original_subtotal_tax" phpName="OriginalSubtotalTax" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="original_subtotal_nontax" phpName="OriginalSubtotalNontax" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="original_total_tax" phpName="OriginalTotalTax" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="original_total" phpName="OriginalTotal" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="pick_printdate" phpName="PickPrintdate" type="INTEGER" size="8" required="true"/>
+    <column name="pick_printtime" phpName="PickPrinttime" type="INTEGER" size="4" required="true"/>
+    <column name="contact" phpName="Contact" type="VARCHAR" size="20" required="true"/>
+    <column name="phone_intl" phpName="PhoneIntl" type="VARCHAR" size="1" required="true"/>
+    <column name="phone_accesscode" phpName="PhoneAccesscode" type="VARCHAR" size="3" required="true"/>
+    <column name="phone_countrycode" phpName="PhoneCountrycode" type="VARCHAR" size="4" required="true"/>
+    <column name="phone" phpName="Phone" type="VARCHAR" size="15" required="true"/>
+    <column name="phone_ext" phpName="PhoneExt" type="VARCHAR" size="7" required="true"/>
+    <column name="fax_intl" phpName="FaxIntl" type="VARCHAR" size="1" required="true"/>
+    <column name="fax_accesscode" phpName="FaxAccesscode" type="VARCHAR" size="3" required="true"/>
+    <column name="fax_countrycode" phpName="FaxCountrycode" type="VARCHAR" size="4" required="true"/>
+    <column name="fax" phpName="Fax" type="VARCHAR" size="15" required="true"/>
+    <column name="ship_account" phpName="ShipAccount" type="VARCHAR" size="10" required="true"/>
+    <column name="change_due" phpName="ChangeDue" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="discount_additional" phpName="DiscountAdditional" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="all_ship" phpName="AllShip" type="VARCHAR" size="2" required="true"/>
+    <column name="credit_applied" phpName="CreditApplied" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="invoice_printdate" phpName="InvoicePrintdate" type="INTEGER" size="8" required="true"/>
+    <column name="invoice_printtime" phpName="InvoicePrinttime" type="INTEGER" size="4" required="true"/>
+    <column name="discount_freight" phpName="DiscountFreight" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="ship_completeoverride" phpName="ShipCompleteoverride" type="VARCHAR" size="1" required="true"/>
+    <column name="contact_email" phpName="ContactEmail" type="VARCHAR" size="50" required="true"/>
+    <column name="manual_freight" phpName="ManualFreight" type="VARCHAR" size="1" required="true"/>
+    <column name="internal_freight" phpName="InternalFreight" type="VARCHAR" size="1" required="true"/>
+    <column name="cost_freight" phpName="CostFreight" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="route" phpName="Route" type="VARCHAR" size="4" required="true"/>
+    <column name="route_seq" phpName="RouteSeq" type="INTEGER" size="4" required="true"/>
+    <column name="edi_855sent" phpName="Edi855sent" type="VARCHAR" size="1" required="true"/>
+    <column name="freight_3rdparty" phpName="Freight3rdparty" type="DECIMAL" size="12" scale="2" required="true"/>
+    <column name="fob" phpName="Fob" type="VARCHAR" size="15" required="true"/>
+    <column name="confirm_image" phpName="ConfirmImage" type="VARCHAR" size="1" required="true"/>
+    <column name="cstk_consign" phpName="CstkConsign" type="VARCHAR" size="1" required="true"/>
+    <column name="manufacturer" phpName="Manufacturer" type="VARCHAR" size="6" required="true"/>
+    <column name="pick_queue" phpName="PickQueue" type="VARCHAR" size="1" required="true"/>
+    <column name="arrive_date" phpName="ArriveDate" type="INTEGER" size="8" required="true"/>
+    <column name="surcharge_status" phpName="SurchargeStatus" type="VARCHAR" size="1" required="true"/>
+    <column name="freight_group" phpName="FreightGroup" type="VARCHAR" size="2" required="true"/>
+    <column name="comm_override" phpName="CommOverride" type="VARCHAR" size="1" required="true"/>
+    <column name="charge_split" phpName="ChargeSplit" type="VARCHAR" size="1" required="true"/>
+    <column name="creditcart_approved" phpName="CreditcartApproved" type="VARCHAR" size="1" required="true"/>
+    <column name="original_ordernumber" phpName="OriginalOrdernumber" type="VARCHAR" size="12" required="true"/>
+    <column name="has_notes" phpName="HasNotes" type="VARCHAR" size="1" required="true"/>
+    <column name="has_documents" phpName="HasDocuments" type="VARCHAR" size="1" required="true"/>
+    <column name="has_tracking" phpName="HasTracking" type="VARCHAR" size="1" required="true"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8" required="true"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8" required="true"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="orddocs" idMethod="native" phpName="Orddocs">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
+    <column name="recno" phpName="Recno" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="orderno" phpName="Orderno" type="VARCHAR" size="30"/>
+    <column name="linenbr" phpName="Linenbr" type="VARCHAR" size="5"/>
+    <column name="itemnbr" phpName="Itemnbr" type="VARCHAR" size="30"/>
+    <column name="title" phpName="Title" type="VARCHAR" size="50"/>
+    <column name="createdate" phpName="Createdate" type="VARCHAR" size="10"/>
+    <column name="createtime" phpName="Createtime" type="VARCHAR" size="5"/>
+    <column name="pathname" phpName="Pathname" type="VARCHAR" size="100" required="true"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="ordlock" idMethod="native" phpName="Ordlock">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
+    <column name="recno" phpName="Recno" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="orderno" phpName="Orderno" type="VARCHAR" size="30"/>
+    <column name="userid" phpName="Userid" type="VARCHAR" size="30"/>
+    <column name="errormsg" phpName="Errormsg" type="VARCHAR" size="100"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="ordrdet" idMethod="native" phpName="Ordrdet">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true" defaultValue=""/>
+    <column name="recno" phpName="Recno" type="INTEGER" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="type" phpName="Type" type="VARCHAR" size="1" defaultValue="O"/>
+    <column name="orderno" phpName="Orderno" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="linenbr" phpName="Linenbr" type="VARCHAR" size="5" defaultValue="0"/>
+    <column name="sublinenbr" phpName="Sublinenbr" type="VARCHAR" size="5" defaultValue="0"/>
+    <column name="itemid" phpName="Itemid" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="custid" phpName="Custid" type="VARCHAR" size="6" defaultValue=""/>
+    <column name="custitemid" phpName="Custitemid" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="desc1" phpName="Desc1" type="VARCHAR" size="35" defaultValue=""/>
+    <column name="desc2" phpName="Desc2" type="VARCHAR" size="35" defaultValue=""/>
+    <column name="price" phpName="Price" type="VARCHAR" size="20" defaultValue="0.00"/>
+    <column name="totalprice" phpName="Totalprice" type="VARCHAR" size="20" defaultValue="0.00"/>
+    <column name="qty" phpName="Qty" type="VARCHAR" size="20" defaultValue="0"/>
+    <column name="qtyshipped" phpName="Qtyshipped" type="VARCHAR" size="20" defaultValue="0"/>
+    <column name="qtybackord" phpName="Qtybackord" type="VARCHAR" size="20" defaultValue="0"/>
+    <column name="rshipdate" phpName="Rshipdate" type="VARCHAR" size="10" defaultValue=""/>
+    <column name="hasdocuments" phpName="Hasdocuments" type="VARCHAR" size="1" defaultValue="N"/>
+    <column name="qtyavail" phpName="Qtyavail" type="VARCHAR" size="20" defaultValue="0"/>
+    <column name="hasnotes" phpName="Hasnotes" type="VARCHAR" size="1" defaultValue="N"/>
+    <column name="cost" phpName="Cost" type="VARCHAR" size="20" defaultValue="0.00"/>
+    <column name="whse" phpName="Whse" type="VARCHAR" size="2" defaultValue=""/>
+    <column name="uom" phpName="Uom" type="VARCHAR" size="4" defaultValue=""/>
+    <column name="spcord" phpName="Spcord" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="kititemflag" phpName="Kititemflag" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="promocode" phpName="Promocode" type="VARCHAR" size="6" defaultValue=""/>
+    <column name="taxcode" phpName="Taxcode" type="VARCHAR" size="6" defaultValue=""/>
+    <column name="taxcodeperc" phpName="Taxcodeperc" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="discpct" phpName="Discpct" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="listprice" phpName="Listprice" type="VARCHAR" size="20" defaultValue="0.00"/>
+    <column name="uomconv" phpName="Uomconv" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="vendorid" phpName="Vendorid" type="VARCHAR" size="6" defaultValue=""/>
+    <column name="vendoritemid" phpName="Vendoritemid" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="mfgid" phpName="Mfgid" type="VARCHAR" size="6" defaultValue=""/>
+    <column name="mfgitemid" phpName="Mfgitemid" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="status" phpName="Status" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="lostreason" phpName="Lostreason" type="VARCHAR" size="4" defaultValue=""/>
+    <column name="lostdate" phpName="Lostdate" type="VARCHAR" size="10" defaultValue=""/>
+    <column name="notes" phpName="Notes" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="leaddays" phpName="Leaddays" type="INTEGER" size="4"/>
+    <column name="ordrtotalcost" phpName="Ordrtotalcost" type="VARCHAR" size="20" defaultValue="0.00"/>
+    <column name="costuom" phpName="Costuom" type="VARCHAR" size="4" defaultValue=""/>
+    <column name="stancost" phpName="Stancost" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="quotind" phpName="Quotind" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="quotqty" phpName="Quotqty" type="INTEGER" size="9" defaultValue="0"/>
+    <column name="quotprice" phpName="Quotprice" type="VARCHAR" size="20" defaultValue="0.00"/>
+    <column name="quotcost" phpName="Quotcost" type="VARCHAR" size="20" defaultValue="0.00"/>
+    <column name="quotmkupmarg" phpName="Quotmkupmarg" type="VARCHAR" size="20" defaultValue="0.00"/>
+    <column name="quotdiscpct" phpName="Quotdiscpct" type="VARCHAR" size="20" defaultValue="0.00"/>
+    <column name="errormsg" phpName="Errormsg" type="VARCHAR" size="50" defaultValue=""/>
+    <column name="minprice" phpName="Minprice" type="VARCHAR" size="20" defaultValue="0.00"/>
+    <column name="ponbr" phpName="Ponbr" type="VARCHAR" size="8" defaultValue=""/>
+    <column name="poref" phpName="Poref" type="VARCHAR" size="15" defaultValue=""/>
+    <column name="nsitemgroup" phpName="Nsitemgroup" type="VARCHAR" size="4" defaultValue=""/>
+    <column name="shipfromid" phpName="Shipfromid" type="VARCHAR" size="6" defaultValue=""/>
+    <column name="itemtype" phpName="Itemtype" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="canbackorder" phpName="Canbackorder" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1" defaultValue="x"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="ordrhed" idMethod="native" phpName="Ordrhed">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true" defaultValue=""/>
+    <column name="recno" phpName="Recno" type="INTEGER" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="type" phpName="Type" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="custid" phpName="Custid" type="VARCHAR" size="6" defaultValue=""/>
+    <column name="shiptoid" phpName="Shiptoid" type="VARCHAR" size="6" defaultValue=""/>
+    <column name="custname" phpName="Custname" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="orderno" phpName="Orderno" type="VARCHAR" size="20" primaryKey="true" required="true" defaultValue=""/>
+    <column name="custpo" phpName="Custpo" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="custref" phpName="Custref" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="status" phpName="Status" type="VARCHAR" size="10" defaultValue=""/>
+    <column name="orderdate" phpName="Orderdate" type="VARCHAR" size="10" defaultValue=""/>
+    <column name="careof" phpName="Careof" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="quotdate" phpName="Quotdate" type="VARCHAR" size="10" defaultValue=""/>
+    <column name="invdate" phpName="Invdate" type="VARCHAR" size="10" defaultValue=""/>
+    <column name="shipdate" phpName="Shipdate" type="VARCHAR" size="10" defaultValue=""/>
+    <column name="revdate" phpName="Revdate" type="VARCHAR" size="10" defaultValue=""/>
+    <column name="expdate" phpName="Expdate" type="VARCHAR" size="10" defaultValue=""/>
+    <column name="hasdocuments" phpName="Hasdocuments" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="hastracking" phpName="Hastracking" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="subtotal" phpName="Subtotal" type="DECIMAL" size="10" scale="2" defaultValue="0.00"/>
+    <column name="salestax" phpName="Salestax" type="DECIMAL" size="10" scale="2" defaultValue="0.00"/>
+    <column name="freight" phpName="Freight" type="DECIMAL" size="10" scale="2" defaultValue="0.00"/>
+    <column name="misccost" phpName="Misccost" type="DECIMAL" size="10" scale="2" defaultValue="0.00"/>
+    <column name="ordertotal" phpName="Ordertotal" type="DECIMAL" size="10" scale="2" defaultValue="0.00"/>
+    <column name="hasnotes" phpName="Hasnotes" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="editord" phpName="Editord" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="error" phpName="Error" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="errormsg" phpName="Errormsg" type="VARCHAR" size="100" defaultValue=""/>
+    <column name="sconame" phpName="Sconame" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="shipname" phpName="Shipname" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="shipaddress" phpName="Shipaddress" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="shipaddress2" phpName="Shipaddress2" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="shipcity" phpName="Shipcity" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="shipstate" phpName="Shipstate" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="shipzip" phpName="Shipzip" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="shipcountry" phpName="Shipcountry" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="contact" phpName="Contact" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="phintl" phpName="Phintl" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="phone" phpName="Phone" type="VARCHAR" size="25" defaultValue=""/>
+    <column name="extension" phpName="Extension" type="VARCHAR" size="7" defaultValue=""/>
+    <column name="faxnbr" phpName="Faxnbr" type="VARCHAR" size="25" defaultValue=""/>
+    <column name="email" phpName="Email" type="VARCHAR" size="50" defaultValue=""/>
+    <column name="releasenbr" phpName="Releasenbr" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="shipviacd" phpName="Shipviacd" type="VARCHAR" size="4" defaultValue=""/>
+    <column name="shipviadesc" phpName="Shipviadesc" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="pricecode" phpName="Pricecode" type="VARCHAR" size="4" defaultValue=""/>
+    <column name="pricecodedesc" phpName="Pricecodedesc" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="pricedisp" phpName="Pricedisp" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="taxcode" phpName="Taxcode" type="VARCHAR" size="4" defaultValue=""/>
+    <column name="taxcodedesc" phpName="Taxcodedesc" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="taxcodedisp" phpName="Taxcodedisp" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="termcode" phpName="Termcode" type="VARCHAR" size="4" defaultValue=""/>
+    <column name="termtype" phpName="Termtype" type="VARCHAR" size="4" defaultValue=""/>
+    <column name="termcodedesc" phpName="Termcodedesc" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="rqstdate" phpName="Rqstdate" type="VARCHAR" size="10" defaultValue=""/>
+    <column name="shipcom" phpName="Shipcom" type="CHAR" defaultValue=""/>
+    <column name="sp1" phpName="Sp1" type="CHAR" size="6" defaultValue=""/>
+    <column name="sp1name" phpName="Sp1name" type="CHAR" size="20" defaultValue=""/>
+    <column name="sp2" phpName="Sp2" type="CHAR" size="6" defaultValue=""/>
+    <column name="sp2name" phpName="Sp2name" type="CHAR" size="20" defaultValue=""/>
+    <column name="sp2disp" phpName="Sp2disp" type="CHAR" defaultValue=""/>
+    <column name="sp3" phpName="Sp3" type="CHAR" size="6" defaultValue=""/>
+    <column name="sp3name" phpName="Sp3name" type="CHAR" size="20" defaultValue=""/>
+    <column name="sp3disp" phpName="Sp3disp" type="CHAR" defaultValue=""/>
+    <column name="fob" phpName="Fob" type="CHAR" defaultValue=""/>
+    <column name="deliverydesc" phpName="Deliverydesc" type="CHAR" size="20" defaultValue=""/>
+    <column name="whse" phpName="Whse" type="CHAR" size="2" defaultValue=""/>
+    <column name="cardnumber" phpName="Cardnumber" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="cardexpire" phpName="Cardexpire" type="VARCHAR" size="10" defaultValue=""/>
+    <column name="cardcode" phpName="Cardcode" type="VARCHAR" size="4" defaultValue=""/>
+    <column name="cardapproval" phpName="Cardapproval" type="VARCHAR" size="6" defaultValue=""/>
+    <column name="totalcost" phpName="Totalcost" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="totaldiscount" phpName="Totaldiscount" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="paymenttype" phpName="Paymenttype" type="VARCHAR" size="4" defaultValue=""/>
+    <column name="srcdatefrom" phpName="Srcdatefrom" type="VARCHAR" size="10" defaultValue=""/>
+    <column name="srcdatethru" phpName="Srcdatethru" type="VARCHAR" size="10" defaultValue=""/>
+    <column name="billname" phpName="Billname" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="billaddress" phpName="Billaddress" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="billaddress2" phpName="Billaddress2" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="billaddress3" phpName="Billaddress3" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="billcountry" phpName="Billcountry" type="VARCHAR" size="4" defaultValue=""/>
+    <column name="billcity" phpName="Billcity" type="VARCHAR" size="16" defaultValue=""/>
+    <column name="billstate" phpName="Billstate" type="VARCHAR" size="2" defaultValue=""/>
+    <column name="billzip" phpName="Billzip" type="VARCHAR" size="10" defaultValue=""/>
+    <column name="prntfmt" phpName="Prntfmt" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="prntfmtdisp" phpName="Prntfmtdisp" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1" defaultValue="x"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="ordrtot" idMethod="native" phpName="Ordrtot">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
+    <column name="recno" phpName="Recno" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="type" phpName="Type" type="VARCHAR" size="6"/>
+    <column name="custid" phpName="Custid" type="VARCHAR" size="6"/>
+    <column name="shiptoid" phpName="Shiptoid" type="VARCHAR" size="6"/>
+    <column name="saleordnbr" phpName="Saleordnbr" type="INTEGER" size="8"/>
+    <column name="saleordamt" phpName="Saleordamt" type="DECIMAL" size="10" scale="2"/>
+    <column name="openinvnbr" phpName="Openinvnbr" type="INTEGER" size="8"/>
+    <column name="openinvamt" phpName="Openinvamt" type="DECIMAL" size="10" scale="2"/>
+    <column name="quotesbr" phpName="Quotesbr" type="INTEGER" size="8"/>
+    <column name="quotesmt" phpName="Quotesmt" type="DECIMAL" size="10" scale="2"/>
+    <column name="monthtodatenbr" phpName="Monthtodatenbr" type="INTEGER" size="8"/>
+    <column name="monthtodateamt" phpName="Monthtodateamt" type="DECIMAL" size="10" scale="2"/>
+    <column name="yeartodatenbr" phpName="Yeartodatenbr" type="INTEGER" size="8"/>
+    <column name="yeartodateamt" phpName="Yeartodateamt" type="DECIMAL" size="10" scale="2"/>
+    <column name="last12nbr" phpName="Last12nbr" type="INTEGER" size="8"/>
+    <column name="last12amt" phpName="Last12amt" type="DECIMAL" size="10" scale="2"/>
+    <column name="prevyearnbr" phpName="Prevyearnbr" type="INTEGER" size="8"/>
+    <column name="prevyearamt" phpName="Prevyearamt" type="DECIMAL" size="10" scale="2"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="ordrtrk" idMethod="native" phpName="Ordrtrk">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
+    <column name="recno" phpName="Recno" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="orderno" phpName="Orderno" type="VARCHAR" size="30"/>
+    <column name="shipdate" phpName="Shipdate" type="VARCHAR" size="20"/>
+    <column name="tracknbr" phpName="Tracknbr" type="VARCHAR" size="35"/>
+    <column name="servtype" phpName="Servtype" type="VARCHAR" size="35"/>
+    <column name="weight" phpName="Weight" type="VARCHAR" size="20"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="page_path_history" idMethod="native" phpName="PagePathHistory">
+    <column name="path" phpName="Path" type="VARCHAR" size="250" primaryKey="true" required="true"/>
+    <column name="pages_id" phpName="PagesId" type="INTEGER" size="10" sqlType="int(10) unsigned" required="true"/>
+    <column name="created" phpName="Created" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
+    <index name="pages_id">
+      <index-column name="pages_id"/>
+    </index>
+    <index name="created">
+      <index-column name="created"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="pricing" idMethod="native" phpName="Pricing">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
+    <column name="recno" phpName="Recno" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="itemid" phpName="Itemid" type="VARCHAR" size="30"/>
+    <column name="price" phpName="Price" type="DECIMAL" size="8" scale="2"/>
+    <column name="qty" phpName="Qty" type="INTEGER" size="8"/>
+    <column name="priceqty1" phpName="Priceqty1" type="INTEGER" size="8"/>
+    <column name="priceqty2" phpName="Priceqty2" type="INTEGER" size="8"/>
+    <column name="priceqty3" phpName="Priceqty3" type="INTEGER" size="8"/>
+    <column name="priceqty4" phpName="Priceqty4" type="INTEGER" size="8"/>
+    <column name="priceqty5" phpName="Priceqty5" type="INTEGER" size="8"/>
+    <column name="priceqty6" phpName="Priceqty6" type="INTEGER" size="8"/>
+    <column name="priceprice1" phpName="Priceprice1" type="DECIMAL" size="8" scale="2"/>
+    <column name="priceprice2" phpName="Priceprice2" type="DECIMAL" size="8" scale="2"/>
+    <column name="priceprice3" phpName="Priceprice3" type="DECIMAL" size="8" scale="2"/>
+    <column name="priceprice4" phpName="Priceprice4" type="DECIMAL" size="8" scale="2"/>
+    <column name="priceprice5" phpName="Priceprice5" type="DECIMAL" size="8" scale="2"/>
+    <column name="priceprice6" phpName="Priceprice6" type="DECIMAL" size="8" scale="2"/>
+    <column name="unit" phpName="Unit" type="VARCHAR" size="25"/>
+    <column name="listprice" phpName="Listprice" type="DECIMAL" size="8" scale="2"/>
+    <column name="name1" phpName="Name1" type="VARCHAR" size="70"/>
+    <column name="name2" phpName="Name2" type="VARCHAR" size="70"/>
+    <column name="shortdesc" phpName="Shortdesc" type="VARCHAR" size="1000"/>
+    <column name="image" phpName="Image" type="VARCHAR" size="35"/>
+    <column name="familyid" phpName="Familyid" type="VARCHAR" size="35"/>
+    <column name="ermes" phpName="Ermes" type="VARCHAR" size="50"/>
+    <column name="speca" phpName="Speca" type="VARCHAR" size="200"/>
+    <column name="specb" phpName="Specb" type="VARCHAR" size="200"/>
+    <column name="specc" phpName="Specc" type="VARCHAR" size="200"/>
+    <column name="specd" phpName="Specd" type="VARCHAR" size="200"/>
+    <column name="spece" phpName="Spece" type="VARCHAR" size="200"/>
+    <column name="specf" phpName="Specf" type="VARCHAR" size="200"/>
+    <column name="specg" phpName="Specg" type="VARCHAR" size="200"/>
+    <column name="spech" phpName="Spech" type="VARCHAR" size="200"/>
+    <column name="longdesc" phpName="Longdesc" type="LONGVARCHAR"/>
+    <column name="orderno" phpName="Orderno" type="VARCHAR" size="35"/>
+    <column name="name3" phpName="Name3" type="VARCHAR" size="35"/>
+    <column name="name4" phpName="Name4" type="VARCHAR" size="35"/>
+    <column name="thumb" phpName="Thumb" type="VARCHAR" size="35"/>
+    <column name="width" phpName="Width" type="VARCHAR" size="35"/>
+    <column name="height" phpName="Height" type="VARCHAR" size="35"/>
+    <column name="familydes" phpName="Familydes" type="VARCHAR" size="35"/>
+    <column name="keywords" phpName="Keywords" type="VARCHAR" size="200"/>
+    <column name="vpn" phpName="Vpn" type="VARCHAR" size="35"/>
+    <column name="uomdesc" phpName="Uomdesc" type="VARCHAR" size="20"/>
+    <column name="vidinffg" phpName="Vidinffg" type="VARCHAR" size="1"/>
+    <column name="vidinflk" phpName="Vidinflk" type="VARCHAR" size="200"/>
+    <column name="additemflag" phpName="Additemflag" type="VARCHAR" size="1"/>
+    <column name="schemafam" phpName="Schemafam" type="VARCHAR" size="20"/>
+    <column name="origitemid" phpName="Origitemid" type="VARCHAR" size="30"/>
+    <column name="techspecflg" phpName="Techspecflg" type="VARCHAR" size="1"/>
+    <column name="techspecname" phpName="Techspecname" type="VARCHAR" size="50"/>
+    <column name="cost" phpName="Cost" type="DECIMAL" size="8" scale="2"/>
+    <column name="prop65" phpName="Prop65" type="VARCHAR" size="1"/>
+    <column name="leadfree" phpName="Leadfree" type="VARCHAR" size="1"/>
+    <column name="extendesc" phpName="Extendesc" type="VARCHAR" size="1000"/>
+    <column name="minprice" phpName="Minprice" type="DECIMAL" size="8" scale="2"/>
+    <column name="spcord" phpName="Spcord" type="VARCHAR" size="1"/>
+    <column name="vendorid" phpName="Vendorid" type="VARCHAR" size="6"/>
+    <column name="vendoritemid" phpName="Vendoritemid" type="VARCHAR" size="30"/>
+    <column name="shipfromid" phpName="Shipfromid" type="VARCHAR" size="6"/>
+    <column name="nsitemgroup" phpName="Nsitemgroup" type="VARCHAR" size="4"/>
+    <column name="itemtype" phpName="Itemtype" type="VARCHAR" size="1"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="prntctrl" idMethod="native" phpName="Prntctrl">
+    <column name="id" phpName="Id" type="VARCHAR" size="30" primaryKey="true" required="true"/>
+    <column name="desc" phpName="Desc" type="VARCHAR" size="50"/>
+    <column name="whse" phpName="Whse" type="VARCHAR" size="6"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="qnote" idMethod="native" phpName="Qnote">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
+    <column name="recno" phpName="Recno" type="INTEGER" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="rectype" phpName="Rectype" type="VARCHAR" size="4" primaryKey="true" required="true" defaultValue="SORD"/>
+    <column name="key1" phpName="Key1" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="key2" phpName="Key2" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="key3" phpName="Key3" type="VARCHAR" size="30"/>
+    <column name="key4" phpName="Key4" type="VARCHAR" size="30"/>
+    <column name="key5" phpName="Key5" type="VARCHAR" size="30"/>
+    <column name="form1" phpName="Form1" type="VARCHAR" size="1" primaryKey="true" required="true" defaultValue=""/>
+    <column name="form2" phpName="Form2" type="VARCHAR" size="1" primaryKey="true" required="true" defaultValue=""/>
+    <column name="form3" phpName="Form3" type="VARCHAR" size="1" primaryKey="true" required="true" defaultValue=""/>
+    <column name="form4" phpName="Form4" type="VARCHAR" size="1" primaryKey="true" required="true" defaultValue=""/>
+    <column name="form5" phpName="Form5" type="VARCHAR" size="1" primaryKey="true" required="true" defaultValue=""/>
+    <column name="form6" phpName="Form6" type="VARCHAR" size="1"/>
+    <column name="form7" phpName="Form7" type="VARCHAR" size="1"/>
+    <column name="form8" phpName="Form8" type="VARCHAR" size="1"/>
+    <column name="colwidth" phpName="Colwidth" type="INTEGER" size="4"/>
+    <column name="notefld" phpName="Notefld" type="LONGVARCHAR"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="quotdet" idMethod="native" phpName="Quotdet">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
+    <column name="recno" phpName="Recno" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="quotenbr" phpName="Quotenbr" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="custid" phpName="Custid" type="VARCHAR" size="6" defaultValue=""/>
+    <column name="linenbr" phpName="Linenbr" type="VARCHAR" size="5" defaultValue=""/>
+    <column name="sublinenbr" phpName="Sublinenbr" type="VARCHAR" size="5" defaultValue=""/>
+    <column name="itemid" phpName="Itemid" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="desc1" phpName="Desc1" type="VARCHAR" size="35" defaultValue=""/>
+    <column name="desc2" phpName="Desc2" type="VARCHAR" size="35" defaultValue=""/>
+    <column name="custitemid" phpName="Custitemid" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="vendorid" phpName="Vendorid" type="VARCHAR" size="6" defaultValue=""/>
+    <column name="vendoritemid" phpName="Vendoritemid" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="status" phpName="Status" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="lostreason" phpName="Lostreason" type="VARCHAR" size="4" defaultValue=""/>
+    <column name="lostdate" phpName="Lostdate" type="VARCHAR" size="10" defaultValue=""/>
+    <column name="kititemflag" phpName="Kititemflag" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="hasnotes" phpName="Hasnotes" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="venddetail" phpName="Venddetail" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="rshipdate" phpName="Rshipdate" type="VARCHAR" size="10" defaultValue=""/>
+    <column name="leaddays" phpName="Leaddays" type="INTEGER" size="4" defaultValue="0"/>
+    <column name="taxcode" phpName="Taxcode" type="VARCHAR" size="6" defaultValue=""/>
+    <column name="ordrqty" phpName="Ordrqty" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="ordrprice" phpName="Ordrprice" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="ordrcost" phpName="Ordrcost" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="ordrtotalprice" phpName="Ordrtotalprice" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="ordrtotalcost" phpName="Ordrtotalcost" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="uom" phpName="Uom" type="VARCHAR" size="4" defaultValue=""/>
+    <column name="costuom" phpName="Costuom" type="VARCHAR" size="4" defaultValue=""/>
+    <column name="whse" phpName="Whse" type="VARCHAR" size="2" defaultValue=""/>
+    <column name="listprice" phpName="Listprice" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="stancost" phpName="Stancost" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="quotind" phpName="Quotind" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="quotqty" phpName="Quotqty" type="INTEGER" size="9" defaultValue="0"/>
+    <column name="quotprice" phpName="Quotprice" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="quotcost" phpName="Quotcost" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="quotmkupmarg" phpName="Quotmkupmarg" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="discpct" phpName="Discpct" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="spcord" phpName="Spcord" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="error" phpName="Error" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="errormsg" phpName="Errormsg" type="VARCHAR" size="50" defaultValue=""/>
+    <column name="minprice" phpName="Minprice" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="nsitemgroup" phpName="Nsitemgroup" type="VARCHAR" size="4" defaultValue=""/>
+    <column name="shipfromid" phpName="Shipfromid" type="VARCHAR" size="6" defaultValue=""/>
+    <column name="itemtype" phpName="Itemtype" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1" defaultValue="x"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="quotelock" idMethod="native" phpName="Quotelock">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
+    <column name="recno" phpName="Recno" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="quotenbr" phpName="Quotenbr" type="VARCHAR" size="30"/>
+    <column name="userid" phpName="Userid" type="VARCHAR" size="30"/>
+    <column name="errormsg" phpName="Errormsg" type="VARCHAR" size="100"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="quothed" idMethod="native" phpName="Quothed">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
+    <column name="recno" phpName="Recno" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="quotnbr" phpName="Quotnbr" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="status" phpName="Status" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="custid" phpName="Custid" type="VARCHAR" size="6" defaultValue=""/>
+    <column name="billname" phpName="Billname" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="billaddress" phpName="Billaddress" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="billaddress2" phpName="Billaddress2" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="billaddress3" phpName="Billaddress3" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="billcountry" phpName="Billcountry" type="VARCHAR" size="4" defaultValue=""/>
+    <column name="billcity" phpName="Billcity" type="VARCHAR" size="16" defaultValue=""/>
+    <column name="billstate" phpName="Billstate" type="VARCHAR" size="2" defaultValue=""/>
+    <column name="billzip" phpName="Billzip" type="VARCHAR" size="10" defaultValue=""/>
+    <column name="shiptoid" phpName="Shiptoid" type="VARCHAR" size="6" defaultValue=""/>
+    <column name="shipname" phpName="Shipname" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="shipaddress" phpName="Shipaddress" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="shipaddress2" phpName="Shipaddress2" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="shipaddress3" phpName="Shipaddress3" type="VARCHAR" size="30" defaultValue=""/>
+    <column name="shipcountry" phpName="Shipcountry" type="VARCHAR" size="4" defaultValue=""/>
+    <column name="shipcity" phpName="Shipcity" type="VARCHAR" size="16" defaultValue=""/>
+    <column name="shipstate" phpName="Shipstate" type="VARCHAR" size="2" defaultValue=""/>
+    <column name="shipzip" phpName="Shipzip" type="VARCHAR" size="10" defaultValue=""/>
+    <column name="contact" phpName="Contact" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="phone" phpName="Phone" type="VARCHAR" size="12" defaultValue=""/>
+    <column name="faxnbr" phpName="Faxnbr" type="VARCHAR" size="12" defaultValue=""/>
+    <column name="email" phpName="Email" type="VARCHAR" size="50" defaultValue=""/>
+    <column name="careof" phpName="Careof" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="quotdate" phpName="Quotdate" type="VARCHAR" size="10" defaultValue=""/>
+    <column name="revdate" phpName="Revdate" type="VARCHAR" size="10" defaultValue=""/>
+    <column name="expdate" phpName="Expdate" type="VARCHAR" size="10" defaultValue=""/>
+    <column name="pricecode" phpName="Pricecode" type="VARCHAR" size="4" defaultValue=""/>
+    <column name="pricecodedesc" phpName="Pricecodedesc" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="taxcode" phpName="Taxcode" type="VARCHAR" size="6" defaultValue=""/>
+    <column name="taxcodedesc" phpName="Taxcodedesc" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="termcode" phpName="Termcode" type="VARCHAR" size="4" defaultValue=""/>
+    <column name="termcodedesc" phpName="Termcodedesc" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="shipviacd" phpName="Shipviacd" type="VARCHAR" size="4" defaultValue=""/>
+    <column name="shipviadesc" phpName="Shipviadesc" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="sp1" phpName="Sp1" type="VARCHAR" size="6" defaultValue=""/>
+    <column name="sp1pct" phpName="Sp1pct" type="VARCHAR" size="10" defaultValue=""/>
+    <column name="sp1name" phpName="Sp1name" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="sp2" phpName="Sp2" type="VARCHAR" size="6" defaultValue=""/>
+    <column name="sp2pct" phpName="Sp2pct" type="VARCHAR" size="10" defaultValue=""/>
+    <column name="sp2name" phpName="Sp2name" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="sp3" phpName="Sp3" type="VARCHAR" size="6" defaultValue=""/>
+    <column name="sp3pct" phpName="Sp3pct" type="VARCHAR" size="10" defaultValue=""/>
+    <column name="sp3name" phpName="Sp3name" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="fob" phpName="Fob" type="VARCHAR" size="4" defaultValue=""/>
+    <column name="deliverydesc" phpName="Deliverydesc" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="whse" phpName="Whse" type="VARCHAR" size="2" defaultValue=""/>
+    <column name="custpo" phpName="Custpo" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="custref" phpName="Custref" type="VARCHAR" size="20" defaultValue=""/>
+    <column name="hasnotes" phpName="Hasnotes" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="error" phpName="Error" type="VARCHAR" size="1" defaultValue=""/>
+    <column name="errormsg" phpName="Errormsg" type="VARCHAR" size="50" defaultValue=""/>
+    <column name="subtotal" phpName="Subtotal" type="DECIMAL" size="10" scale="2" defaultValue="0.00"/>
+    <column name="salestax" phpName="Salestax" type="DECIMAL" size="10" scale="2" defaultValue="0.00"/>
+    <column name="freight" phpName="Freight" type="DECIMAL" size="10" scale="2" defaultValue="0.00"/>
+    <column name="misccost" phpName="Misccost" type="DECIMAL" size="10" scale="2" defaultValue="0.00"/>
+    <column name="ordertotal" phpName="Ordertotal" type="DECIMAL" size="10" scale="2" defaultValue="0.00"/>
+    <column name="cost_total" phpName="CostTotal" type="DECIMAL" size="10" scale="2" defaultValue="0.00"/>
+    <column name="margin_amt" phpName="MarginAmt" type="VARCHAR" size="20" defaultValue="0.00"/>
+    <column name="margin_pct" phpName="MarginPct" type="VARCHAR" size="20" defaultValue="0.00"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1" defaultValue="x"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="saleschart" idMethod="native" phpName="Saleschart">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true" defaultValue=""/>
+    <column name="recno" phpName="Recno" type="INTEGER" size="10" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="custid" phpName="Custid" type="VARCHAR" size="6"/>
+    <column name="shiptoid" phpName="Shiptoid" type="VARCHAR" size="6"/>
+    <column name="lastsaledate" phpName="Lastsaledate" type="VARCHAR" size="10"/>
+    <column name="salesmtd" phpName="Salesmtd" type="DECIMAL" size="8" scale="2"/>
+    <column name="salesmth1" phpName="Salesmth1" type="DECIMAL" size="8" scale="2"/>
+    <column name="salesmth2" phpName="Salesmth2" type="DECIMAL" size="8" scale="2"/>
+    <column name="salesmth3" phpName="Salesmth3" type="DECIMAL" size="8" scale="2"/>
+    <column name="salesmth4" phpName="Salesmth4" type="DECIMAL" size="8" scale="2"/>
+    <column name="salesmth5" phpName="Salesmth5" type="DECIMAL" size="8" scale="2"/>
+    <column name="salesmth6" phpName="Salesmth6" type="DECIMAL" size="8" scale="2"/>
+    <column name="salesmth7" phpName="Salesmth7" type="DECIMAL" size="8" scale="2"/>
+    <column name="salesmth8" phpName="Salesmth8" type="DECIMAL" size="8" scale="2"/>
+    <column name="salesmth9" phpName="Salesmth9" type="DECIMAL" size="8" scale="2"/>
+    <column name="salesmth10" phpName="Salesmth10" type="DECIMAL" size="8" scale="2"/>
+    <column name="salesmth11" phpName="Salesmth11" type="DECIMAL" size="8" scale="2"/>
+    <column name="salesmth12" phpName="Salesmth12" type="DECIMAL" size="8" scale="2"/>
+    <column name="salesmth13" phpName="Salesmth13" type="DECIMAL" size="8" scale="2"/>
+    <column name="salesmth14" phpName="Salesmth14" type="DECIMAL" size="8" scale="2"/>
+    <column name="salesmth15" phpName="Salesmth15" type="DECIMAL" size="8" scale="2"/>
+    <column name="salesmth16" phpName="Salesmth16" type="DECIMAL" size="8" scale="2"/>
+    <column name="salesmth17" phpName="Salesmth17" type="DECIMAL" size="8" scale="2"/>
+    <column name="salesmth18" phpName="Salesmth18" type="DECIMAL" size="8" scale="2"/>
+    <column name="salesmth19" phpName="Salesmth19" type="DECIMAL" size="8" scale="2"/>
+    <column name="salesmth20" phpName="Salesmth20" type="DECIMAL" size="8" scale="2"/>
+    <column name="salesmth21" phpName="Salesmth21" type="DECIMAL" size="8" scale="2"/>
+    <column name="salesmth22" phpName="Salesmth22" type="DECIMAL" size="8" scale="2"/>
+    <column name="salesmth23" phpName="Salesmth23" type="DECIMAL" size="8" scale="2"/>
+    <column name="salesmth24" phpName="Salesmth24" type="DECIMAL" size="8" scale="2"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="saleshist" idMethod="native" phpName="Saleshist">
+    <column name="ordernumber" phpName="Ordernumber" type="VARCHAR" size="30" primaryKey="true" required="true"/>
+    <column name="custid" phpName="Custid" type="VARCHAR" size="10"/>
+    <column name="shiptoid" phpName="Shiptoid" type="VARCHAR" size="10"/>
+    <column name="custname" phpName="Custname" type="VARCHAR" size="45"/>
+    <column name="custpo" phpName="Custpo" type="VARCHAR" size="45"/>
+    <column name="order_date" phpName="OrderDate" type="INTEGER" size="8"/>
+    <column name="invoice_date" phpName="InvoiceDate" type="INTEGER" size="8"/>
+    <column name="salesperson_1" phpName="Salesperson1" type="VARCHAR" size="45"/>
+    <column name="sp1login" phpName="Sp1login" type="VARCHAR" size="45"/>
+    <column name="has_tracking" phpName="HasTracking" type="VARCHAR" size="45"/>
+    <column name="subtotal_nontax" phpName="SubtotalNontax" type="DECIMAL" size="10" scale="2"/>
+    <column name="total_tax" phpName="TotalTax" type="DECIMAL" size="10" scale="2"/>
+    <column name="total_freight" phpName="TotalFreight" type="DECIMAL" size="10" scale="2"/>
+    <column name="total_misc" phpName="TotalMisc" type="DECIMAL" size="10" scale="2"/>
+    <column name="total_order" phpName="TotalOrder" type="DECIMAL" size="10" scale="2"/>
+    <column name="has_documents" phpName="HasDocuments" type="VARCHAR" size="1"/>
+    <column name="has_notes" phpName="HasNotes" type="VARCHAR" size="1"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="shipto" idMethod="native" phpName="Shipto">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="sconame" phpName="Sconame" type="VARCHAR" size="30"/>
+    <column name="sname" phpName="Sname" type="VARCHAR" size="30"/>
+    <column name="saddress" phpName="Saddress" type="VARCHAR" size="30"/>
+    <column name="saddress2" phpName="Saddress2" type="VARCHAR" size="30"/>
+    <column name="scity" phpName="Scity" type="VARCHAR" size="30"/>
+    <column name="sst" phpName="Sst" type="VARCHAR" size="30"/>
+    <column name="szip" phpName="Szip" type="VARCHAR" size="30"/>
+    <column name="scountry" phpName="Scountry" type="VARCHAR" size="30"/>
+    <column name="recno" phpName="Recno" type="INTEGER" size="10" primaryKey="true" required="true"/>
+    <column name="custid" phpName="Custid" type="VARCHAR" size="30"/>
+    <column name="shiptoid" phpName="Shiptoid" type="VARCHAR" size="30"/>
+    <column name="saddress3" phpName="Saddress3" type="VARCHAR" size="100"/>
+    <column name="sphone" phpName="Sphone" type="VARCHAR" size="30"/>
+    <column name="ssalesrep" phpName="Ssalesrep" type="VARCHAR" size="6"/>
+    <column name="ssalesrepname" phpName="Ssalesrepname" type="VARCHAR" size="30"/>
+    <column name="dateentered" phpName="Dateentered" type="VARCHAR" size="10"/>
+    <column name="lastsaledate" phpName="Lastsaledate" type="VARCHAR" size="10"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="shipvia" idMethod="native" phpName="Shipvia">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
+    <column name="recno" phpName="Recno" type="INTEGER" size="10" primaryKey="true" required="true"/>
+    <column name="date" phpName="Date" type="VARCHAR" size="20"/>
+    <column name="time" phpName="Time" type="VARCHAR" size="8"/>
+    <column name="code" phpName="Code" type="VARCHAR" size="30"/>
+    <column name="via" phpName="Via" type="VARCHAR" size="30"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="sidebar" idMethod="native" phpName="Sidebar">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
+    <column name="recno" phpName="Recno" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="code" phpName="Code" type="VARCHAR" size="35"/>
+    <column name="description" phpName="Description" type="VARCHAR" size="50"/>
+    <column name="title" phpName="Title" type="VARCHAR" size="35"/>
+    <column name="type" phpName="Type" type="CHAR" size="2"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="states" idMethod="native" phpName="States">
+    <column name="id" phpName="Id" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="255"/>
+    <column name="abbreviation" phpName="Abbreviation" type="VARCHAR" size="255"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="statesandprovinces" idMethod="native" phpName="Statesandprovinces">
+    <column name="id" phpName="Id" type="INTEGER" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="255"/>
+    <column name="abbreviation" phpName="Abbreviation" type="VARCHAR" size="255"/>
+    <column name="country" phpName="Country" type="VARCHAR" size="255"/>
+    <column name="type" phpName="Type" type="VARCHAR" size="255"/>
+    <column name="assoc_press" phpName="AssocPress" type="VARCHAR" size="255"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="tableformatter" idMethod="native" phpName="Tableformatter">
+    <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="user" phpName="User" type="VARCHAR" size="45"/>
+    <column name="formattertype" phpName="Formattertype" type="VARCHAR" size="45"/>
+    <column name="data" phpName="Data" type="LONGVARCHAR"/>
+    <unique name="userformat">
+      <unique-column name="user"/>
+      <unique-column name="formattertype"/>
+    </unique>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="taskscheduler" idMethod="native" phpName="Taskscheduler">
+    <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="datecreated" phpName="Datecreated" type="TIMESTAMP"/>
+    <column name="startdate" phpName="Startdate" type="TIMESTAMP"/>
+    <column name="user" phpName="User" type="VARCHAR" size="45"/>
+    <column name="active" phpName="Active" type="VARCHAR" size="1"/>
+    <column name="description" phpName="Description" type="LONGVARCHAR"/>
+    <column name="tasktype" phpName="Tasktype" type="VARCHAR" size="10"/>
+    <column name="repeatlogic" phpName="Repeatlogic" type="LONGVARCHAR"/>
+    <column name="customerlink" phpName="Customerlink" type="VARCHAR" size="45"/>
+    <column name="shiptolink" phpName="Shiptolink" type="VARCHAR" size="45"/>
+    <column name="contactlink" phpName="Contactlink" type="VARCHAR" size="45"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="templates" idMethod="native" phpName="Templates">
+    <column name="id" phpName="Id" type="INTEGER" size="10" sqlType="int(10) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="250" required="true"/>
+    <column name="fieldgroups_id" phpName="FieldgroupsId" type="INTEGER" size="10" sqlType="int(10) unsigned" required="true" defaultValue="0"/>
+    <column name="flags" phpName="Flags" type="INTEGER" required="true" defaultValue="0"/>
+    <column name="cache_time" phpName="CacheTime" type="SMALLINT" size="9" required="true" defaultValue="0"/>
+    <column name="data" phpName="Data" type="LONGVARCHAR" required="true"/>
+    <index name="fieldgroups_id">
+      <index-column name="fieldgroups_id"/>
+    </index>
+    <unique name="name">
+      <unique-column name="name"/>
+    </unique>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="thermal_label_format" idMethod="native" phpName="ThermalLabelFormat">
+    <column name="id" phpName="Id" type="VARCHAR" size="20" primaryKey="true" required="true"/>
+    <column name="desc" phpName="Desc" type="VARCHAR" size="50"/>
+    <column name="width" phpName="Width" type="DECIMAL" size="5" scale="2"/>
+    <column name="length" phpName="Length" type="DECIMAL" size="5" scale="2"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="tview" idMethod="native" phpName="Tview">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true" defaultValue=""/>
+    <column name="recno" phpName="Recno" type="VARCHAR" size="35" primaryKey="true" required="true" defaultValue=""/>
+    <column name="date" phpName="Date" type="VARCHAR" size="35"/>
+    <column name="time" phpName="Time" type="VARCHAR" size="35"/>
+    <column name="c1" phpName="C1" type="VARCHAR" size="100"/>
+    <column name="c2" phpName="C2" type="VARCHAR" size="100"/>
+    <column name="c3" phpName="C3" type="VARCHAR" size="100"/>
+    <column name="c4" phpName="C4" type="VARCHAR" size="100"/>
+    <column name="c5" phpName="C5" type="VARCHAR" size="100"/>
+    <column name="c6" phpName="C6" type="VARCHAR" size="100"/>
+    <column name="c7" phpName="C7" type="VARCHAR" size="100"/>
+    <column name="c8" phpName="C8" type="VARCHAR" size="100"/>
+    <column name="c9" phpName="C9" type="VARCHAR" size="100"/>
+    <column name="c10" phpName="C10" type="VARCHAR" size="100"/>
+    <column name="famid" phpName="Famid" type="VARCHAR" size="35"/>
+    <column name="itemid" phpName="Itemid" type="VARCHAR" size="35"/>
+    <column name="picid" phpName="Picid" type="VARCHAR" size="35"/>
+    <column name="vidinffg" phpName="Vidinffg" type="VARCHAR" size="1"/>
+    <column name="vidinflk" phpName="Vidinflk" type="VARCHAR" size="200"/>
+    <column name="message" phpName="Message" type="VARCHAR" size="35"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="tvsearch" idMethod="native" phpName="Tvsearch">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="30" primaryKey="true" required="true"/>
+    <column name="recno" phpName="Recno" type="INTEGER" size="10" sqlType="int(10) unsigned" primaryKey="true" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="unitofmeasure" idMethod="native" phpName="Unitofmeasure">
+    <column name="code" phpName="Code" type="VARCHAR" size="4" primaryKey="true" required="true"/>
+    <column name="desc" phpName="Desc" type="VARCHAR" size="20"/>
+    <column name="conversion" phpName="Conversion" type="DECIMAL" size="9" scale="5"/>
+    <column name="createdate" phpName="Createdate" type="INTEGER" size="8"/>
+    <column name="createtime" phpName="Createtime" type="INTEGER" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="useractions" idMethod="native" phpName="Useractions">
+    <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="datecreated" phpName="Datecreated" type="TIMESTAMP" required="true"/>
+    <column name="actiontype" phpName="Actiontype" type="VARCHAR" size="20" required="true"/>
+    <column name="actionsubtype" phpName="Actionsubtype" type="VARCHAR" size="20" required="true"/>
+    <column name="duedate" phpName="Duedate" type="TIMESTAMP"/>
+    <column name="createdby" phpName="Createdby" type="VARCHAR" size="45" required="true"/>
+    <column name="assignedto" phpName="Assignedto" type="VARCHAR" size="45" required="true"/>
+    <column name="assignedby" phpName="Assignedby" type="VARCHAR" size="45" required="true"/>
+    <column name="title" phpName="Title" type="VARCHAR" size="45" required="true"/>
+    <column name="textbody" phpName="Textbody" type="LONGVARCHAR" required="true"/>
+    <column name="reflectnote" phpName="Reflectnote" type="LONGVARCHAR" required="true"/>
+    <column name="completed" phpName="Completed" type="VARCHAR" size="1" required="true"/>
+    <column name="datecompleted" phpName="Datecompleted" type="TIMESTAMP"/>
+    <column name="dateupdated" phpName="Dateupdated" type="TIMESTAMP"/>
+    <column name="customerlink" phpName="Customerlink" type="VARCHAR" size="30" required="true"/>
+    <column name="shiptolink" phpName="Shiptolink" type="VARCHAR" size="30" required="true"/>
+    <column name="contactlink" phpName="Contactlink" type="VARCHAR" size="30" required="true"/>
+    <column name="salesorderlink" phpName="Salesorderlink" type="VARCHAR" size="30" required="true"/>
+    <column name="quotelink" phpName="Quotelink" type="VARCHAR" size="30" required="true"/>
+    <column name="vendorlink" phpName="Vendorlink" type="VARCHAR" size="30"/>
+    <column name="vendorshipfromlink" phpName="Vendorshipfromlink" type="VARCHAR" size="30"/>
+    <column name="purchaseorderlink" phpName="Purchaseorderlink" type="VARCHAR" size="30"/>
+    <column name="actionlink" phpName="Actionlink" type="VARCHAR" size="30" required="true"/>
+    <column name="rescheduledlink" phpName="Rescheduledlink" type="VARCHAR" size="30" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="userconfigs" idMethod="native" phpName="Userconfigs">
+    <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="user" phpName="User" type="VARCHAR" size="45"/>
+    <column name="configtype" phpName="Configtype" type="VARCHAR" size="45"/>
+    <column name="data" phpName="Data" type="LONGVARCHAR"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="vendors" idMethod="native" phpName="Vendors">
+    <column name="vendid" phpName="Vendid" type="VARCHAR" size="25" primaryKey="true" required="true"/>
+    <column name="shipfrom" phpName="Shipfrom" type="VARCHAR" size="45" primaryKey="true" required="true"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="45" required="true"/>
+    <column name="address1" phpName="Address1" type="VARCHAR" size="45" required="true"/>
+    <column name="address2" phpName="Address2" type="VARCHAR" size="45" required="true"/>
+    <column name="address3" phpName="Address3" type="VARCHAR" size="45" required="true"/>
+    <column name="city" phpName="City" type="VARCHAR" size="45" required="true"/>
+    <column name="state" phpName="State" type="VARCHAR" size="4" required="true"/>
+    <column name="zip" phpName="Zip" type="VARCHAR" size="12" required="true"/>
+    <column name="country" phpName="Country" type="VARCHAR" size="45" required="true"/>
+    <column name="phone" phpName="Phone" type="VARCHAR" size="45" required="true"/>
+    <column name="fax" phpName="Fax" type="VARCHAR" size="45" required="true"/>
+    <column name="email" phpName="Email" type="VARCHAR" size="45" required="true"/>
+    <column name="createtime" phpName="Createtime" type="INTEGER" size="8"/>
+    <column name="createdate" phpName="Createdate" type="INTEGER" size="8"/>
+    <index name="search">
+      <index-column name="vendid"/>
+      <index-column name="shipfrom"/>
+      <index-column name="name"/>
+      <index-column name="address1"/>
+      <index-column name="address2"/>
+      <index-column name="address3"/>
+      <index-column name="city"/>
+      <index-column name="state"/>
+      <index-column name="zip"/>
+      <index-column name="country"/>
+      <index-column name="phone"/>
+      <index-column name="fax"/>
+      <index-column name="email"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="vmenu" idMethod="native" phpName="Vmenu">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true" defaultValue=""/>
+    <column name="recno" phpName="Recno" type="INTEGER" size="35" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="date" phpName="Date" type="VARCHAR" size="20"/>
+    <column name="cata" phpName="Cata" type="VARCHAR" size="35"/>
+    <column name="catb" phpName="Catb" type="VARCHAR" size="35"/>
+    <column name="catc" phpName="Catc" type="VARCHAR" size="35"/>
+    <column name="catd" phpName="Catd" type="VARCHAR" size="35"/>
+    <column name="cate" phpName="Cate" type="VARCHAR" size="35"/>
+    <column name="catid" phpName="Catid" type="VARCHAR" size="35"/>
+    <column name="dispord" phpName="Dispord" type="INTEGER" size="35"/>
+    <column name="cat1" phpName="Cat1" type="VARCHAR" size="2"/>
+    <column name="catdesc" phpName="Catdesc" type="VARCHAR" size="70"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="whse_tbl" idMethod="native" phpName="WhseTbl">
+    <column name="whseid" phpName="Whseid" type="VARCHAR" size="2" primaryKey="true" required="true" defaultValue=""/>
+    <column name="whsename" phpName="Whsename" type="VARCHAR" size="30"/>
+    <column name="whseadr1" phpName="Whseadr1" type="VARCHAR" size="30"/>
+    <column name="whseadr2" phpName="Whseadr2" type="VARCHAR" size="30"/>
+    <column name="whsecity" phpName="Whsecity" type="VARCHAR" size="16"/>
+    <column name="whsestat" phpName="Whsestat" type="VARCHAR" size="2"/>
+    <column name="whsezipcode" phpName="Whsezipcode" type="VARCHAR" size="10"/>
+    <column name="whsectry" phpName="Whsectry" type="VARCHAR" size="2"/>
+    <column name="whseusehandheld" phpName="Whseusehandheld" type="VARCHAR" size="1"/>
+    <column name="whsecashcust" phpName="Whsecashcust" type="VARCHAR" size="6"/>
+    <column name="whsepickdtl" phpName="Whsepickdtl" type="VARCHAR" size="1"/>
+    <column name="whseprodbin" phpName="Whseprodbin" type="VARCHAR" size="8"/>
+    <column name="whsephone" phpName="Whsephone" type="VARCHAR" size="10"/>
+    <column name="whsephoneext" phpName="Whsephoneext" type="VARCHAR" size="7"/>
+    <column name="whsefax" phpName="Whsefax" type="VARCHAR" size="10"/>
+    <column name="whseemailadr" phpName="Whseemailadr" type="VARCHAR" size="50"/>
+    <column name="whseqcrgabin" phpName="Whseqcrgabin" type="VARCHAR" size="8"/>
+    <column name="whserfprinter1" phpName="Whserfprinter1" type="VARCHAR" size="12"/>
+    <column name="whserfprinter2" phpName="Whserfprinter2" type="VARCHAR" size="12"/>
+    <column name="whserfprinter3" phpName="Whserfprinter3" type="VARCHAR" size="12"/>
+    <column name="whserfprinter4" phpName="Whserfprinter4" type="VARCHAR" size="12"/>
+    <column name="whserfprinter5" phpName="Whserfprinter5" type="VARCHAR" size="12"/>
+    <column name="whseprofwhse" phpName="Whseprofwhse" type="VARCHAR" size="2"/>
+    <column name="whseasetwhse" phpName="Whseasetwhse" type="VARCHAR" size="2"/>
+    <column name="whseconsignwhse" phpName="Whseconsignwhse" type="VARCHAR" size="2"/>
+    <column name="whsebinrangelist" phpName="Whsebinrangelist" type="VARCHAR" size="1"/>
+    <column name="whsesupplywhse" phpName="Whsesupplywhse" type="VARCHAR" size="2"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="whseavail" idMethod="native" phpName="Whseavail">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="30" primaryKey="true" required="true"/>
+    <column name="recno" phpName="Recno" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="whsecd" phpName="Whsecd" type="VARCHAR" size="2"/>
+    <column name="whsename" phpName="Whsename" type="VARCHAR" size="30"/>
+    <column name="itemid" phpName="Itemid" type="VARCHAR" size="30"/>
+    <column name="itemavail" phpName="Itemavail" type="INTEGER" size="8"/>
+    <column name="itemonord" phpName="Itemonord" type="INTEGER" size="8"/>
+    <column name="itemetadt" phpName="Itemetadt" type="VARCHAR" size="10"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="whseitempick" idMethod="native" phpName="Whseitempick">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
+    <column name="ordn" phpName="Ordn" type="VARCHAR" size="45" primaryKey="true" required="true"/>
+    <column name="itemid" phpName="Itemid" type="VARCHAR" size="45" primaryKey="true" required="true"/>
+    <column name="recordnumber" phpName="Recordnumber" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="palletnbr" phpName="Palletnbr" type="INTEGER" size="5"/>
+    <column name="barcode" phpName="Barcode" type="VARCHAR" size="45"/>
+    <column name="qty" phpName="Qty" type="INTEGER"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="whsesession" idMethod="native" phpName="Whsesession">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="30" primaryKey="true" required="true"/>
+    <column name="recno" phpName="Recno" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="loginid" phpName="Loginid" type="VARCHAR" size="12"/>
+    <column name="whseid" phpName="Whseid" type="VARCHAR" size="2"/>
+    <column name="ordernbr" phpName="Ordernbr" type="VARCHAR" size="10"/>
+    <column name="binnbr" phpName="Binnbr" type="VARCHAR" size="8"/>
+    <column name="palletnbr" phpName="Palletnbr" type="INTEGER" size="4"/>
+    <column name="cartonnbr" phpName="Cartonnbr" type="INTEGER" size="4"/>
+    <column name="status" phpName="Status" type="VARCHAR" size="40"/>
+    <column name="function" phpName="Function" type="VARCHAR" size="12"/>
+    <column name="promptfunction" phpName="Promptfunction" type="VARCHAR" size="1"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="wmpickdet" idMethod="native" phpName="Wmpickdet">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="recno" phpName="Recno" type="INTEGER" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="ordernbr" phpName="Ordernbr" type="VARCHAR" size="10"/>
+    <column name="linenbr" phpName="Linenbr" type="INTEGER" size="4" required="true"/>
+    <column name="itemnbr" phpName="Itemnbr" type="VARCHAR" size="30"/>
+    <column name="itemdesc1" phpName="Itemdesc1" type="VARCHAR" size="35"/>
+    <column name="itemdesc2" phpName="Itemdesc2" type="VARCHAR" size="35"/>
+    <column name="qtyordered" phpName="Qtyordered" type="INTEGER" size="12"/>
+    <column name="qtypulled" phpName="Qtypulled" type="INTEGER" size="12"/>
+    <column name="qtyremaining" phpName="Qtyremaining" type="INTEGER" size="12"/>
+    <column name="binnbr" phpName="Binnbr" type="VARCHAR" size="8"/>
+    <column name="caseqty" phpName="Caseqty" type="INTEGER" size="8" required="true"/>
+    <column name="innerpack" phpName="Innerpack" type="INTEGER" size="8" required="true"/>
+    <column name="binqty" phpName="Binqty" type="INTEGER" size="9"/>
+    <column name="overbin1" phpName="Overbin1" type="VARCHAR" size="8"/>
+    <column name="overbinqty1" phpName="Overbinqty1" type="INTEGER" size="9"/>
+    <column name="overbin2" phpName="Overbin2" type="VARCHAR" size="8"/>
+    <column name="overbinqty2" phpName="Overbinqty2" type="INTEGER" size="9"/>
+    <column name="statusmsg" phpName="Statusmsg" type="VARCHAR" size="50"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="wmpickhed" idMethod="native" phpName="Wmpickhed">
+    <column name="ordernbr" phpName="Ordernbr" type="VARCHAR" size="10" primaryKey="true" required="true"/>
+    <column name="recno" phpName="Recno" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="customerid" phpName="Customerid" type="VARCHAR" size="6"/>
+    <column name="customername" phpName="Customername" type="VARCHAR" size="30"/>
+    <column name="statusmsg" phpName="Statusmsg" type="VARCHAR" size="50"/>
+    <column name="lastpalletnbr" phpName="Lastpalletnbr" type="INTEGER" size="4"/>
+    <column name="function" phpName="Function" type="VARCHAR" size="12"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+</database>
