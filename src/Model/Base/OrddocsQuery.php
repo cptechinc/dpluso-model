@@ -112,7 +112,7 @@ abstract class OrddocsQuery extends ModelCriteria
      * @param     string $modelName The phpName of a model, e.g. 'Book'
      * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
      */
-    public function __construct($dbName = 'default', $modelName = '\\Orddocs', $modelAlias = null)
+    public function __construct($dbName = 'dplusodb', $modelName = '\\Orddocs', $modelAlias = null)
     {
         parent::__construct($dbName, $modelName, $modelAlias);
     }

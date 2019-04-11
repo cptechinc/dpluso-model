@@ -39,7 +39,7 @@ class FamilyTableMap extends TableMap
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    const DATABASE_NAME = 'dplusodb';
 
     /**
      * The table name for this class

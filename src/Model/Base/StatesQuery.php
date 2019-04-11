@@ -67,7 +67,7 @@ abstract class StatesQuery extends ModelCriteria
      * @param     string $modelName The phpName of a model, e.g. 'Book'
      * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
      */
-    public function __construct($dbName = 'default', $modelName = '\\States', $modelAlias = null)
+    public function __construct($dbName = 'dplusodb', $modelName = '\\States', $modelAlias = null)
     {
         parent::__construct($dbName, $modelName, $modelAlias);
     }

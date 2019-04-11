@@ -222,7 +222,7 @@ abstract class InvWhseCodeQuery extends ModelCriteria
      * @param     string $modelName The phpName of a model, e.g. 'Book'
      * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
      */
-    public function __construct($dbName = 'default', $modelName = '\\InvWhseCode', $modelAlias = null)
+    public function __construct($dbName = 'dplusodb', $modelName = '\\InvWhseCode', $modelAlias = null)
     {
         parent::__construct($dbName, $modelName, $modelAlias);
     }
