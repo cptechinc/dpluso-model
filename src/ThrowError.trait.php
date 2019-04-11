@@ -1,5 +1,5 @@
 <?php 
-	namespace Dplus\Model;
+	namespace Dpluso\Model;
 	
 	/**
 	 * Functions that throw, show, or log errors

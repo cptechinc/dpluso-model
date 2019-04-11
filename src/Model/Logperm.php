@@ -2,6 +2,9 @@
 
 use Base\Logperm as BaseLogperm;
 
+use Dpluso\Model\ThrowErrorTrait;
+use Dpluso\Model\MagicMethodTraits;
+
 /**
  * Skeleton subclass for representing a row from the 'logperm' table.
  *
@@ -12,7 +15,7 @@ use Base\Logperm as BaseLogperm;
  * long as it does not already exist in the output directory.
  *
  */
-class Logperm extends BaseLogperm
-{
-
+class Logperm extends BaseLogperm {
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
 }
