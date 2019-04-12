@@ -12,7 +12,11 @@ use Base\LogpermQuery as BaseLogpermQuery;
  * long as it does not already exist in the output directory.
  *
  */
-class LogpermQuery extends BaseLogpermQuery
-{
+class LogpermQuery extends BaseLogpermQuery {
+	const VALID_LOGIN = 'Y';
 
+	public function is_loggedin($sessionID) {
+		$isloggedin = $this->select(array('validlogin'))->findOneBySessionid($sessionID);
+		return (strtoupper($isloggedin) == self::VALID_LOGIN);
+	}
 }

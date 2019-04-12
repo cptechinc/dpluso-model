@@ -2,6 +2,8 @@
 
 use Base\Logm as BaseLogm;
 
+use Dpluso\Model\ThrowErrorTrait;
+use Dpluso\Model\MagicMethodTraits;
 /**
  * Skeleton subclass for representing a row from the 'logm' table.
  *
@@ -12,7 +14,7 @@ use Base\Logm as BaseLogm;
  * long as it does not already exist in the output directory.
  *
  */
-class Logm extends BaseLogm
-{
-
+class Logm extends BaseLogm {
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
 }
