@@ -1,9 +1,11 @@
 <?php
 
-use Base\LogmQuery as BaseLogmQuery;
+use Base\LogpermQuery as BaseLogpermQuery;
+
+use Propel\Runtime\Propel;
 
 /**
- * Skeleton subclass for performing query and update operations on the 'logm' table.
+ * Skeleton subclass for performing query and update operations on the 'logperm' table.
  *
  *
  *
@@ -12,7 +14,11 @@ use Base\LogmQuery as BaseLogmQuery;
  * long as it does not already exist in the output directory.
  *
  */
-class LogmQuery extends BaseLogmQuery
-{
+class LogpermQuery extends BaseLogpermQuery {
+	const VALID_LOGIN = 'Y';
 
+	public function is_loggedin($sessionID) {
+		$isloggedin = $this->select(array('validlogin'))->findOneBySessionid($sessionID);
+		return (strtoupper($isloggedin) == self::VALID_LOGIN);
+	}
 }

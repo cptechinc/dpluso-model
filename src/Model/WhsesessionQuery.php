@@ -12,7 +12,14 @@ use Base\WhsesessionQuery as BaseWhsesessionQuery;
  * long as it does not already exist in the output directory.
  *
  */
-class WhsesessionQuery extends BaseWhsesessionQuery
-{
+class WhsesessionQuery extends BaseWhsesessionQuery {
 
+	/**
+	 * Returns if record exists for Session ID
+	 * @param  string $sessionID User Session ID
+	 * @return bool              Does Session ID have a record
+	 */
+	public function sessionExists($sessionID) {
+		return boolval($this->findOneBySessionid($sessionID));
+	}
 }
