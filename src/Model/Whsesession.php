@@ -2,6 +2,9 @@
 
 use Base\Whsesession as BaseWhsesession;
 
+use Dplus\Model\ThrowErrorTrait;
+use Dplus\Model\MagicMethodTraits;
+
 /**
  * Skeleton subclass for representing a row from the 'whsesession' table.
  *
@@ -13,6 +16,9 @@ use Base\Whsesession as BaseWhsesession;
  *
  */
 class Whsesession extends BaseWhsesession {
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
+
 	/**
 	 * Session Identifier
 	 * @var string
