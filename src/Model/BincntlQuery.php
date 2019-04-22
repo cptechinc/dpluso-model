@@ -15,14 +15,6 @@ use Propel\Runtime\ActiveQuery\Criteria;
  */
 class BincntlQuery extends BaseBincntlQuery {
 
-	/**
-	 * Returns if Provided Bin is valid accoring to Warehouse Config Rules
-	 * @uses WarehouseQuery::are_binsranged()
-	 * 
-	 * @param  string $whseID Warehouse ID
-	 * @param  string $binID  Warehouse Bin
-	 * @return bool           Is bin valid?
-	 */
 	public function validate_bin($whseID, $binID) {
 		$bins_areranged = WarehouseQuery::create()->are_binsranged($whseID);
 
