@@ -116,7 +116,7 @@ class Invsearch extends BaseInvsearch {
 	 * Aliases for Class Properties
 	 * @var array
 	 */
-	protected $column_aliases = array(
+	const COLUMN_ALIASES = array(
 		'itemID'    => 'itemid',
 		'serialnbr' => 'lotserial',
 		'lotnbr'    => 'lotserial',

@@ -23,7 +23,7 @@ class Bincntl extends BaseBincntl {
 	 * Aliases for Class Properties
 	 * @var array
 	 */
-	protected $column_aliases = array(
+	const COLUMN_ALIASES = array(
 		'whseid'  => 'warehouse',
 		'whseID'  => 'warehouse',
 		'from'    => 'binfrom',
