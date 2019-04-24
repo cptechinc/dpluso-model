@@ -105,8 +105,8 @@ class Invsearch extends BaseInvsearch {
 	 */
 	protected $date;
 
-		/**
-	 * Date
+	/**
+	 * Time
 	 * @var int
 	 */
 	protected $time;

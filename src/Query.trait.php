@@ -1,5 +1,5 @@
 <?php
-	namespace Dplus\Model;
+	namespace Dpluso\Model;
 
 	use Propel\Runtime\Propel;
 	use Propel\Runtime\ActiveQuery\Criteria;

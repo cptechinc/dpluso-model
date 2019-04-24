@@ -1,5 +1,5 @@
 <?php
-	namespace Dplus\Model;
+	namespace Dpluso\Model;
 
 	/**
 	 * Class for Throwing Errors if class or static function needs it
