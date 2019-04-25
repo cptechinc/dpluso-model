@@ -2,6 +2,9 @@
 
 use Base\Useractions as BaseUseractions;
 
+use Dpluso\Model\ThrowErrorTrait;
+use Dpluso\Model\MagicMethodTraits;
+
 /**
  * Skeleton subclass for representing a row from the 'useractions' table.
  *
@@ -12,7 +15,7 @@ use Base\Useractions as BaseUseractions;
  * long as it does not already exist in the output directory.
  *
  */
-class Useractions extends BaseUseractions
-{
-
+class Useractions extends BaseUseractions {
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
 }
