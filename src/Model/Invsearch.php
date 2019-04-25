@@ -177,6 +177,38 @@ class Invsearch extends BaseInvsearch {
 	}
 
 	/**
+	 * Is the Item Cross Reference Origin from the Item ID
+	 * @return bool
+	 */
+	public function is_xorigin_item() {
+		return $this->xorigin == 'item';
+	}
+
+	/**
+	 * Is the Item Cross Reference Origin from the Lot or Serial Master
+	 * @return bool
+	 */
+	public function is_xorigin_lotserial() {
+		return $this->xorigin == 'lotm' || $this->xorigin  == 'seri';
+	}
+
+	/**
+	 * Is the Item Cross Reference Origin from the Lot Master
+	 * @return bool
+	 */
+	public function is_xorigin_lot() {
+		return $this->xorigin == 'lotm';
+	}
+
+	/**
+	 * Is the Item Cross Reference Origin from Serial Master
+	 * @return bool
+	 */
+	public function is_xorigin_serial() {
+		return $this->xorigin == 'seri';
+	}
+
+	/**
 	 * Returns the property needed to access the item's identifier
 	 * based on its item type
 	 * e.g. Lot Number / Serial Number / Item ID
