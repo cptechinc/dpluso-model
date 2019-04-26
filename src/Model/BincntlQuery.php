@@ -19,11 +19,11 @@ class BincntlQuery extends BaseBincntlQuery {
 		$bins_areranged = WarehouseQuery::create()->are_binsranged($whseID);
 
 		if ($bins_areranged) {
-			$this->condition('from', 'Bincntl.Binfrom <= ? ', $binID);
-			$this->condition('thru', 'Bincntl.Binthru >= ? ', $binID);
+			$this->condition('from', 'Bincntl.Binfrom <= ?', $binID);
+			$this->condition('thru', 'Bincntl.Binthru >= ?', $binID);
 			$this->where(array('from', 'thru'), Criteria::LOGICAL_AND);
 		} else {
-			$this->where('Bincntl.Binfrom = ?', $binID);
+			$this->filterbyBinfrom($binID);
 		}
 
 		$this->filterByWarehouse($whseID);
