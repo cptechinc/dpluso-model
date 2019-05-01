@@ -12,7 +12,14 @@ use Base\ThermalLabelFormatQuery as BaseThermalLabelFormatQuery;
  * long as it does not already exist in the output directory.
  *
  */
-class ThermalLabelFormatQuery extends BaseThermalLabelFormatQuery
-{
-
+class ThermalLabelFormatQuery extends BaseThermalLabelFormatQuery {
+	/**
+	 * Returns the description of a Label Format by ID
+	 *
+	 * @param  string $formatID
+	 * @return string
+	 */
+	public function get_description($formatID) {
+		return $this->select('desc')->findOneById($formatID);
+	}
 }
