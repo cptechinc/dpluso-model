@@ -2,8 +2,8 @@
 
 namespace Map;
 
-use \Prntctrl;
-use \PrntctrlQuery;
+use \WhsePrinter;
+use \WhsePrinterQuery;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\InstancePoolTrait;
@@ -26,7 +26,7 @@ use Propel\Runtime\Map\TableMapTrait;
  * (i.e. if it's a text column type).
  *
  */
-class PrntctrlTableMap extends TableMap
+class WhsePrinterTableMap extends TableMap
 {
     use InstancePoolTrait;
     use TableMapTrait;
@@ -34,7 +34,7 @@ class PrntctrlTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.PrntctrlTableMap';
+    const CLASS_NAME = '.Map.WhsePrinterTableMap';
 
     /**
      * The default database name for this class
@@ -49,12 +49,12 @@ class PrntctrlTableMap extends TableMap
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\Prntctrl';
+    const OM_CLASS = '\\WhsePrinter';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'Prntctrl';
+    const CLASS_DEFAULT = 'WhsePrinter';
 
     /**
      * The total number of columns
@@ -100,7 +100,7 @@ class PrntctrlTableMap extends TableMap
     protected static $fieldNames = array (
         self::TYPE_PHPNAME       => array('Id', 'Desc', 'Whse', ),
         self::TYPE_CAMELNAME     => array('id', 'desc', 'whse', ),
-        self::TYPE_COLNAME       => array(PrntctrlTableMap::COL_ID, PrntctrlTableMap::COL_DESC, PrntctrlTableMap::COL_WHSE, ),
+        self::TYPE_COLNAME       => array(WhsePrinterTableMap::COL_ID, WhsePrinterTableMap::COL_DESC, WhsePrinterTableMap::COL_WHSE, ),
         self::TYPE_FIELDNAME     => array('id', 'desc', 'whse', ),
         self::TYPE_NUM           => array(0, 1, 2, )
     );
@@ -114,7 +114,7 @@ class PrntctrlTableMap extends TableMap
     protected static $fieldKeys = array (
         self::TYPE_PHPNAME       => array('Id' => 0, 'Desc' => 1, 'Whse' => 2, ),
         self::TYPE_CAMELNAME     => array('id' => 0, 'desc' => 1, 'whse' => 2, ),
-        self::TYPE_COLNAME       => array(PrntctrlTableMap::COL_ID => 0, PrntctrlTableMap::COL_DESC => 1, PrntctrlTableMap::COL_WHSE => 2, ),
+        self::TYPE_COLNAME       => array(WhsePrinterTableMap::COL_ID => 0, WhsePrinterTableMap::COL_DESC => 1, WhsePrinterTableMap::COL_WHSE => 2, ),
         self::TYPE_FIELDNAME     => array('id' => 0, 'desc' => 1, 'whse' => 2, ),
         self::TYPE_NUM           => array(0, 1, 2, )
     );
@@ -130,9 +130,9 @@ class PrntctrlTableMap extends TableMap
     {
         // attributes
         $this->setName('prntctrl');
-        $this->setPhpName('Prntctrl');
+        $this->setPhpName('WhsePrinter');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\Prntctrl');
+        $this->setClassName('\\WhsePrinter');
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
@@ -205,7 +205,7 @@ class PrntctrlTableMap extends TableMap
      */
     public static function getOMClass($withPrefix = true)
     {
-        return $withPrefix ? PrntctrlTableMap::CLASS_DEFAULT : PrntctrlTableMap::OM_CLASS;
+        return $withPrefix ? WhsePrinterTableMap::CLASS_DEFAULT : WhsePrinterTableMap::OM_CLASS;
     }
 
     /**
@@ -219,22 +219,22 @@ class PrntctrlTableMap extends TableMap
      *
      * @throws PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (Prntctrl object, last column rank)
+     * @return array           (WhsePrinter object, last column rank)
      */
     public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
-        $key = PrntctrlTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
-        if (null !== ($obj = PrntctrlTableMap::getInstanceFromPool($key))) {
+        $key = WhsePrinterTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
+        if (null !== ($obj = WhsePrinterTableMap::getInstanceFromPool($key))) {
             // We no longer rehydrate the object, since this can cause data loss.
             // See http://www.propelorm.org/ticket/509
             // $obj->hydrate($row, $offset, true); // rehydrate
-            $col = $offset + PrntctrlTableMap::NUM_HYDRATE_COLUMNS;
+            $col = $offset + WhsePrinterTableMap::NUM_HYDRATE_COLUMNS;
         } else {
-            $cls = PrntctrlTableMap::OM_CLASS;
-            /** @var Prntctrl $obj */
+            $cls = WhsePrinterTableMap::OM_CLASS;
+            /** @var WhsePrinter $obj */
             $obj = new $cls();
             $col = $obj->hydrate($row, $offset, false, $indexType);
-            PrntctrlTableMap::addInstanceToPool($obj, $key);
+            WhsePrinterTableMap::addInstanceToPool($obj, $key);
         }
 
         return array($obj, $col);
@@ -257,18 +257,18 @@ class PrntctrlTableMap extends TableMap
         $cls = static::getOMClass(false);
         // populate the object(s)
         while ($row = $dataFetcher->fetch()) {
-            $key = PrntctrlTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
-            if (null !== ($obj = PrntctrlTableMap::getInstanceFromPool($key))) {
+            $key = WhsePrinterTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
+            if (null !== ($obj = WhsePrinterTableMap::getInstanceFromPool($key))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj->hydrate($row, 0, true); // rehydrate
                 $results[] = $obj;
             } else {
-                /** @var Prntctrl $obj */
+                /** @var WhsePrinter $obj */
                 $obj = new $cls();
                 $obj->hydrate($row);
                 $results[] = $obj;
-                PrntctrlTableMap::addInstanceToPool($obj, $key);
+                WhsePrinterTableMap::addInstanceToPool($obj, $key);
             } // if key exists
         }
 
@@ -289,9 +289,9 @@ class PrntctrlTableMap extends TableMap
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(PrntctrlTableMap::COL_ID);
-            $criteria->addSelectColumn(PrntctrlTableMap::COL_DESC);
-            $criteria->addSelectColumn(PrntctrlTableMap::COL_WHSE);
+            $criteria->addSelectColumn(WhsePrinterTableMap::COL_ID);
+            $criteria->addSelectColumn(WhsePrinterTableMap::COL_DESC);
+            $criteria->addSelectColumn(WhsePrinterTableMap::COL_WHSE);
         } else {
             $criteria->addSelectColumn($alias . '.id');
             $criteria->addSelectColumn($alias . '.desc');
@@ -308,7 +308,7 @@ class PrntctrlTableMap extends TableMap
      */
     public static function getTableMap()
     {
-        return Propel::getServiceContainer()->getDatabaseMap(PrntctrlTableMap::DATABASE_NAME)->getTable(PrntctrlTableMap::TABLE_NAME);
+        return Propel::getServiceContainer()->getDatabaseMap(WhsePrinterTableMap::DATABASE_NAME)->getTable(WhsePrinterTableMap::TABLE_NAME);
     }
 
     /**
@@ -316,16 +316,16 @@ class PrntctrlTableMap extends TableMap
      */
     public static function buildTableMap()
     {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(PrntctrlTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(PrntctrlTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new PrntctrlTableMap());
+        $dbMap = Propel::getServiceContainer()->getDatabaseMap(WhsePrinterTableMap::DATABASE_NAME);
+        if (!$dbMap->hasTable(WhsePrinterTableMap::TABLE_NAME)) {
+            $dbMap->addTableObject(new WhsePrinterTableMap());
         }
     }
 
     /**
-     * Performs a DELETE on the database, given a Prntctrl or Criteria object OR a primary key value.
+     * Performs a DELETE on the database, given a WhsePrinter or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or Prntctrl object or primary key or array of primary keys
+     * @param mixed               $values Criteria or WhsePrinter object or primary key or array of primary keys
      *              which is used to create the DELETE statement
      * @param  ConnectionInterface $con the connection to use
      * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
@@ -336,27 +336,27 @@ class PrntctrlTableMap extends TableMap
      public static function doDelete($values, ConnectionInterface $con = null)
      {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(PrntctrlTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(WhsePrinterTableMap::DATABASE_NAME);
         }
 
         if ($values instanceof Criteria) {
             // rename for clarity
             $criteria = $values;
-        } elseif ($values instanceof \Prntctrl) { // it's a model object
+        } elseif ($values instanceof \WhsePrinter) { // it's a model object
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(PrntctrlTableMap::DATABASE_NAME);
-            $criteria->add(PrntctrlTableMap::COL_ID, (array) $values, Criteria::IN);
+            $criteria = new Criteria(WhsePrinterTableMap::DATABASE_NAME);
+            $criteria->add(WhsePrinterTableMap::COL_ID, (array) $values, Criteria::IN);
         }
 
-        $query = PrntctrlQuery::create()->mergeWith($criteria);
+        $query = WhsePrinterQuery::create()->mergeWith($criteria);
 
         if ($values instanceof Criteria) {
-            PrntctrlTableMap::clearInstancePool();
+            WhsePrinterTableMap::clearInstancePool();
         } elseif (!is_object($values)) { // it's a primary key, or an array of pks
             foreach ((array) $values as $singleval) {
-                PrntctrlTableMap::removeInstanceFromPool($singleval);
+                WhsePrinterTableMap::removeInstanceFromPool($singleval);
             }
         }
 
@@ -371,13 +371,13 @@ class PrntctrlTableMap extends TableMap
      */
     public static function doDeleteAll(ConnectionInterface $con = null)
     {
-        return PrntctrlQuery::create()->doDeleteAll($con);
+        return WhsePrinterQuery::create()->doDeleteAll($con);
     }
 
     /**
-     * Performs an INSERT on the database, given a Prntctrl or Criteria object.
+     * Performs an INSERT on the database, given a WhsePrinter or Criteria object.
      *
-     * @param mixed               $criteria Criteria or Prntctrl object containing data that is used to create the INSERT statement.
+     * @param mixed               $criteria Criteria or WhsePrinter object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
      * @return mixed           The new primary key.
      * @throws PropelException Any exceptions caught during processing will be
@@ -386,18 +386,18 @@ class PrntctrlTableMap extends TableMap
     public static function doInsert($criteria, ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(PrntctrlTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(WhsePrinterTableMap::DATABASE_NAME);
         }
 
         if ($criteria instanceof Criteria) {
             $criteria = clone $criteria; // rename for clarity
         } else {
-            $criteria = $criteria->buildCriteria(); // build Criteria from Prntctrl object
+            $criteria = $criteria->buildCriteria(); // build Criteria from WhsePrinter object
         }
 
 
         // Set the correct dbName
-        $query = PrntctrlQuery::create()->mergeWith($criteria);
+        $query = WhsePrinterQuery::create()->mergeWith($criteria);
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
@@ -406,7 +406,7 @@ class PrntctrlTableMap extends TableMap
         });
     }
 
-} // PrntctrlTableMap
+} // WhsePrinterTableMap
 // This is the static code needed to register the TableMap for this table with the main Propel class.
 //
-PrntctrlTableMap::buildTableMap();
+WhsePrinterTableMap::buildTableMap();

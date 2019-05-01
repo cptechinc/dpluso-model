@@ -1631,7 +1631,7 @@
       <parameter name="Engine" value="MyISAM"/>
     </vendor>
   </table>
-  <table name="prntctrl" idMethod="native" phpName="Prntctrl">
+  <table name="prntctrl" idMethod="native" phpName="WhsePrinter">
     <column name="id" phpName="Id" type="VARCHAR" size="30" primaryKey="true" required="true"/>
     <column name="desc" phpName="Desc" type="VARCHAR" size="50"/>
     <column name="whse" phpName="Whse" type="VARCHAR" size="6"/>

@@ -1,6 +1,6 @@
 <?php
 
-use Base\Prntctrl as BasePrntctrl;
+use Base\WhsePrinter as BaseWhsePrinter;
 
 /**
  * Skeleton subclass for representing a row from the 'prntctrl' table.
@@ -12,7 +12,7 @@ use Base\Prntctrl as BasePrntctrl;
  * long as it does not already exist in the output directory.
  *
  */
-class Prntctrl extends BasePrntctrl
+class WhsePrinter extends BaseWhsePrinter
 {
 
 }

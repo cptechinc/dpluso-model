@@ -1,6 +1,6 @@
 <?php
 
-use Base\PrntctrlQuery as BasePrntctrlQuery;
+use Base\WhsePrinterQuery as BaseWhsePrinterQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'prntctrl' table.
@@ -12,7 +12,7 @@ use Base\PrntctrlQuery as BasePrntctrlQuery;
  * long as it does not already exist in the output directory.
  *
  */
-class PrntctrlQuery extends BasePrntctrlQuery
+class WhsePrinterQuery extends BaseWhsePrinterQuery
 {
 
 }
