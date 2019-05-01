@@ -23,6 +23,7 @@ class InvsearchQuery extends BaseInvsearchQuery {
 	 * @return int                Number of Invsearch records for sessionid, itemid
 	 */
 	public function countDistinctItemid($sessionID, $binID = '') {
+		$this->clear();
 		$this->addAsColumn('count', 'COUNT(DISTINCT(itemid))');
 		$this->select('count');
 
@@ -40,6 +41,7 @@ class InvsearchQuery extends BaseInvsearchQuery {
 	 * @return Invsearch[]|ObjectCollection
 	 */
 	public function findDistinctItems($sessionID, $binID = '') {
+		$this->clear();
 		if (!empty($binID)) {
 			$this->filterBy('Bin', $binID);
 		}
@@ -55,6 +57,7 @@ class InvsearchQuery extends BaseInvsearchQuery {
 	 * @return Invsearch
 	 */
 	public function findOneBySessionidBin($sessionID, $binID = '') {
+		$this->clear();
 		if (!empty($binID)) {
 			$this->filterBy('Bin', $binID);
 		}
@@ -70,6 +73,7 @@ class InvsearchQuery extends BaseInvsearchQuery {
 	 * @return int                Number of Invsearch records for sessionid, itemid
 	 */
 	public function countByItemID($sessionID, $itemID, $binID = '') {
+		$this->clear();
 		$this->filterBy('Itemid', $itemID);
 
 		if (!empty($binID)) {
@@ -87,6 +91,7 @@ class InvsearchQuery extends BaseInvsearchQuery {
 	 * @return Invsearch
 	 */
 	public function findOneByItemid($sessionID, $itemID, $binID = '') {
+		$this->clear();
 		$this->filterBy('Itemid', $itemID);
 
 		if (!empty($binID)) {
@@ -104,6 +109,7 @@ class InvsearchQuery extends BaseInvsearchQuery {
 	 * @return int                Number of Invsearch records for sessionid, itemid
 	 */
 	public function countByLotserial($sessionID, $lotserial, $binID = '') {
+		$this->clear();
 		$this->filterBy('Lotserial', $lotserial);
 
 		if (!empty($binID)) {
@@ -121,6 +127,7 @@ class InvsearchQuery extends BaseInvsearchQuery {
 	 * @return Invsearch
 	 */
 	public function get_lotserial($sessionID, $lotserial, $binID = '') {
+		$this->clear();
 		$this->filterBy('Lotserial', $lotserial);
 
 		if (!empty($binID)) {
@@ -138,6 +145,7 @@ class InvsearchQuery extends BaseInvsearchQuery {
 	 * @return int                  Item bin qty
 	 */
 	public function get_binqty($sessionID, InvSearch $item, $binID) {
+		$this->clear();
 		$this->select('Qty');
 		$this->filterBySessionid($sessionID);
 		$this->filterByItemid($item->itemid);
@@ -156,6 +164,7 @@ class InvsearchQuery extends BaseInvsearchQuery {
 	 * @return int               Total Item Qty
 	 */
 	public function get_qty_itemid($sessionID, $itemID, $binID = '') {
+		$this->clear();
 		$this->addAsColumn('qty', 'SUM(qty)');
 		$this->select('qty');
 		$this->filterBySessionid($sessionID);
