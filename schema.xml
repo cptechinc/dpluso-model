@@ -842,7 +842,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="itemcartonlabel" idMethod="native" phpName="Itemcartonlabel">
+  <table name="itemcartonlabel" idMethod="native" phpName="LabelPrintSession">
     <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="45" primaryKey="true" required="true"/>
     <column name="date" phpName="Date" type="INTEGER" size="8"/>
     <column name="time" phpName="Time" type="INTEGER" size="8"/>
