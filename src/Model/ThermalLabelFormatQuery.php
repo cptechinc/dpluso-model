@@ -22,4 +22,14 @@ class ThermalLabelFormatQuery extends BaseThermalLabelFormatQuery {
 	public function get_description($formatID) {
 		return $this->select('desc')->findOneById($formatID);
 	}
+
+	/**
+	 * Return hermalLabelFormat objects
+	 *
+	 * @return ThermalLabelFormat[]|ObjectCollection
+	 */
+	public function get_formats() {
+		$this->clear();
+		return $this->find();
+	}
 }
