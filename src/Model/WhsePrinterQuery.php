@@ -12,7 +12,28 @@ use Base\WhsePrinterQuery as BaseWhsePrinterQuery;
  * long as it does not already exist in the output directory.
  *
  */
-class WhsePrinterQuery extends BaseWhsePrinterQuery
-{
+class WhsePrinterQuery extends BaseWhsePrinterQuery {
+	/**
+	 * Returns the Printer Description
+	 * @param  string $whseID    Warehouse ID
+	 * @param  string $printerID Printer
+	 * @return string            Printer Description
+	 */
+	public function get_description($whseID, $printerID) {
+		$this->clear();
+		$this->select('desc');
+		$this->filterByWhse($warehouseID);
+		return $this->findOneById($printerID);
+	}
 
+	/**
+	 * Return WhsePrinter objects filtered by the whse column
+	 * 
+	 * @param  string $whseID    Warehouse ID
+	 * @return WhsePrinter[]|ObjectCollection
+	 */
+	public function get_printers($whseID) {
+		$this->clear();
+		return $this->findByWhse($warehouseID);
+	}
 }
