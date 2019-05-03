@@ -2204,7 +2204,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="wmpickdet" idMethod="native" phpName="Wmpickdet">
+  <table name="wmpickdet" idMethod="native" phpName="PickSalesOrderDetail">
     <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
     <column name="recno" phpName="Recno" type="INTEGER" primaryKey="true" required="true" defaultValue="0"/>
     <column name="date" phpName="Date" type="INTEGER" size="8"/>
@@ -2231,7 +2231,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="wmpickhed" idMethod="native" phpName="Wmpickhed">
+  <table name="wmpickhed" idMethod="native" phpName="PickSalesOrder">
     <column name="ordernbr" phpName="Ordernbr" type="VARCHAR" size="10" primaryKey="true" required="true"/>
     <column name="recno" phpName="Recno" type="INTEGER" primaryKey="true" required="true"/>
     <column name="date" phpName="Date" type="INTEGER" size="8"/>
