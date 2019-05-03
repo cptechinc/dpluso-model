@@ -2,6 +2,9 @@
 
 use Base\PickSalesOrder as BasePickSalesOrder;
 
+use Dpluso\Model\ThrowErrorTrait;
+use Dpluso\Model\MagicMethodTraits;
+
 /**
  * Skeleton subclass for representing a row from the 'wmpickhed' table.
  *
@@ -12,7 +15,7 @@ use Base\PickSalesOrder as BasePickSalesOrder;
  * long as it does not already exist in the output directory.
  *
  */
-class PickSalesOrder extends BasePickSalesOrder
-{
-
+class PickSalesOrder extends BasePickSalesOrder {
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
 }
