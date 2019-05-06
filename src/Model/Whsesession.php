@@ -157,10 +157,19 @@ class Whsesession extends BaseWhsesession {
 
 	/**
 	 * Returns if the Sales Order Number is invalid
-	 * @return bool        Has Order been Sales Order Number is invalid
+	 * @return bool       Is Sales Order Number invalid?
 	 */
 	public function is_orderinvalid() {
-		return strpos(strtolower($this->status), 'bad order nbr') !== false? true : false;
+		return strpos(strtolower($this->status), 'bad order nbr') !== false ? true : false;
+	}
+
+	/**
+	 * Returns if the Sales Order is not able to be picked due to low inventory
+	 * @return bool
+	 */
+	public function is_ordershortstocked() {
+		return strpos(strtolower($this->status), 'no stock on hand ') !== false ? true : false;
+
 	}
 
 	/**
@@ -175,17 +184,19 @@ class Whsesession extends BaseWhsesession {
 	 * Returns a message about the Status of the Order
 	 * @return string Order Status
 	 */
-	public function generate_statusmessage() {
+	public function get_statusmessage() {
 		$msg = '';
 
 		if ($this->is_orderonhold()) {
-			$msg = "Order $this->ordernbr is on hold";
+			$msg = "Order #$this->ordernbr is on hold";
 		} elseif ($this->is_orderverified()) {
-			$msg = "Order $this->ordernbr has been verified";
+			$msg = "Order #$this->ordernbr has been verified";
 		} elseif ($this->is_orderinvoiced()) {
-			$msg = "Order $this->ordernbr has been invoiced";
+			$msg = "Order #$this->ordernbr has been invoiced";
 		} elseif ($this->is_orderinvalid()) {
 			$msg = "$this->ordernbr is Invalid";
+		} elseif ($this->is_ordershortstocked()) {
+			$msg = "There is insufficent stock for Order #$this->ordernbr";
 		}
 		return $msg;
 	}

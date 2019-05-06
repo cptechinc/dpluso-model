@@ -22,7 +22,7 @@ class WhsePrinterQuery extends BaseWhsePrinterQuery {
 	public function get_description($whseID, $printerID) {
 		$this->clear();
 		$this->select('desc');
-		$this->filterByWhse($warehouseID);
+		$this->filterByWhse($whseID);
 		return $this->findOneById($printerID);
 	}
 
@@ -34,6 +34,6 @@ class WhsePrinterQuery extends BaseWhsePrinterQuery {
 	 */
 	public function get_printers($whseID) {
 		$this->clear();
-		return $this->findByWhse($warehouseID);
+		return $this->findByWhse($whseID);
 	}
 }

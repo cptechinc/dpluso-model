@@ -12,7 +12,32 @@ use Base\PickSalesOrderDetailQuery as BasePickSalesOrderDetailQuery;
  * long as it does not already exist in the output directory.
  *
  */
-class PickSalesOrderDetailQuery extends BasePickSalesOrderDetailQuery
-{
-
+class PickSalesOrderDetailQuery extends BasePickSalesOrderDetailQuery {
+	/**
+	 * Return Number of rows filtered by the sessionid, Sales Order Number column(s)
+	 *
+	 * @param  string $sessionID  SessionID
+	 * @param  string $ordn       Sales Order Number
+	 * @return int                Number of PickSalesOrderDetail rows
+	 */
+	public function countByOrder($sessionID, $ordn) {
+		$this->clear();
+		$this->filterBySessionid($sessionID);
+		$this->filterByOrdernbr($ordn);
+		return $this->count();
+	}
+	
+	/**
+	 * Return PickSalesOrderDetail filtered by the sessionid, Sales Order Number column(s)
+	 *
+	 * @param  string $sessionID  SessionID
+	 * @param  string $ordn       Sales Order Number
+	 * @return PickSalesOrderDetail
+	 */
+	public function findOneByOrder($sessionID, $ordn) {
+		$this->clear();
+		$this->filterBySessionid($sessionID);
+		$this->filterByOrdernbr($ordn);
+		return $this->findOneByOrdernbr($ordn);
+	}
 }

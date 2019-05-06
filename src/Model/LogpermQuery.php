@@ -15,6 +15,12 @@ use Base\LogpermQuery as BaseLogpermQuery;
 class LogpermQuery extends BaseLogpermQuery {
 	const VALID_LOGIN = 'Y';
 
+	/**
+	 * Returns if user is logged in by checking if logm record has a Y in the validlogin field. 
+	 *
+	 * @param  string $sessionID  User SessionID
+	 * @return bool               Is User Logged in
+	 */
 	public function is_loggedin($sessionID) {
 		$isloggedin = $this->select(array('validlogin'))->findOneBySessionid($sessionID);
 		return (strtoupper($isloggedin) == self::VALID_LOGIN);
