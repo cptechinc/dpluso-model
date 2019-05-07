@@ -18,4 +18,14 @@ use Dpluso\Model\MagicMethodTraits;
 class PickSalesOrder extends BasePickSalesOrder {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
+
+	/**
+	 * Aliases for Class Properties
+	 * @var array
+	 */
+	const COLUMN_ALIASES = array(
+		'custid'    => 'customerid',
+		'custID'    => 'customerid',
+		'ordn'      => 'ordernbr'
+	);
 }
