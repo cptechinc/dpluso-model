@@ -12,7 +12,6 @@ use Base\Whseitempick as BaseWhseitempick;
  * long as it does not already exist in the output directory.
  *
  */
-class Whseitempick extends BaseWhseitempick
-{
-
+class Whseitempick extends BaseWhseitempick {
+	
 }
