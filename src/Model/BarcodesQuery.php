@@ -12,7 +12,35 @@ use Base\BarcodesQuery as BaseBarcodesQuery;
  * long as it does not already exist in the output directory.
  *
  */
-class BarcodesQuery extends BaseBarcodesQuery
-{
+class BarcodesQuery extends BaseBarcodesQuery {
 
+	/**
+	 * Returns itemid from the barcodes table filtered by barcodenbr
+	 *
+	 * @param  string $barcode Barcode
+	 * @return string          Item ID
+	 */
+	public function get_barcode_itemid($barcode) {
+		return $this->select('itemid')->findOneByBarcodenbr($barcode);
+	}
+
+	/**
+	 * Returns unitqty from the barcodes table filtered by barcodenbr
+	 *
+	 * @param  string $barcode Barcode
+	 * @return int          Unit Qty
+	 */
+	public function get_barcode_qty($barcode) {
+		return $this->select('unitqty')->findOneByBarcodenbr($barcode);
+	}
+
+	/**
+	 * Return the first Barcodes filtered by the barcodenbr column
+	 *
+	 * @param  string   $barcode Barcode
+	 * @return Barcodes
+	 */
+	public function findOneByBarcode($barcode) {
+		return $this->findOneByBarcodenbr($barcode);
+	}
 }

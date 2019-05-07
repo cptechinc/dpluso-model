@@ -2,6 +2,9 @@
 
 use Base\Barcodes as BaseBarcodes;
 
+use Dpluso\Model\ThrowErrorTrait;
+use Dpluso\Model\MagicMethodTraits;
+
 /**
  * Skeleton subclass for representing a row from the 'barcodes' table.
  *
@@ -12,7 +15,17 @@ use Base\Barcodes as BaseBarcodes;
  * long as it does not already exist in the output directory.
  *
  */
-class Barcodes extends BaseBarcodes
-{
+class Barcodes extends BaseBarcodes {
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
 
+	/**
+	 * Aliases for Class Properties
+	 * @var array
+	 */
+	const COLUMN_ALIASES = array(
+		'itemID'    => 'itemid',
+		'barcode'   => 'barcodenbr',
+		'qty'       => 'unitqty'
+	);
 }
