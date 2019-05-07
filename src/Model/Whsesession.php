@@ -86,10 +86,16 @@ class Whsesession extends BaseWhsesession {
 	protected $function;
 
 	/**
+	 * Should Prompt Function
+	 * @var string Y | N
+	 */
+	protected $promptfunction;
+
+	/**
 	 * Aliases for Class Properties
 	 * @var array
 	 */
-	protected $fieldaliases = array(
+	const COLUMN_ALIASES = array(
 		'sessionID' => 'sessionid',
 		'loginID'   => 'loginid',
 		'whseID'    => 'whseid',
@@ -98,6 +104,9 @@ class Whsesession extends BaseWhsesession {
 		'pallet'    => 'palletnbr',
 		'carton'    => 'cartonnbr'
 	);
+
+	const PROMPTFUNCTION_TRUE  = 'Y';
+	const PROMPTFUNCTION_FALSE = 'N';
 
 	/**
 	 * Returns if the Whse Session has a bin defined
@@ -181,6 +190,34 @@ class Whsesession extends BaseWhsesession {
 	}
 
 	/**
+	 * Returns if whse session status has the word success
+	 * @return bool was the whse function successful?
+	 */
+	public function had_succeeded() {
+		return strpos(strtolower($this->status), 'success') !== false ? true : false;
+	}
+
+	/**
+	 * Returns if Whsesession needs prompt for function
+	 *
+	 * @return bool
+	 */
+	public function needs_functionprompt() {
+		return $this->promptfunction == self::PROMPTFUNCTION_TRUE;
+	}
+
+	/**
+	 * Sets Function Prompt to the value needed for true or false
+	 *
+	 * @param  bool $prompt
+	 * @return void
+	 */
+	public function set_functionprompt($prompt = true) {
+		$promptfunction = $prompt ? self::PROMPTFUNCTION_TRUE : self::PROMPTFUNCTION_FALSE;
+		$this->setPromptfunction($promptfunction);
+	}
+
+	/**
 	 * Returns a message about the Status of the Order
 	 * @return string Order Status
 	 */
@@ -197,15 +234,9 @@ class Whsesession extends BaseWhsesession {
 			$msg = "$this->ordernbr is Invalid";
 		} elseif ($this->is_ordershortstocked()) {
 			$msg = "There is insufficent stock for Order #$this->ordernbr";
+		} elseif ($this->is_orderfinished()) {
+			$msg = "$this->ordernbr is finished";
 		}
 		return $msg;
-	}
-
-	/**
-	 * Returns if whse session status has the word success
-	 * @return bool was the whse function successful?
-	 */
-	public function had_succeeded() {
-		return strpos(strtolower($this->status), 'success') !== false ? true : false;
 	}
 }
