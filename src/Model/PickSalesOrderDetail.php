@@ -186,6 +186,14 @@ class PickSalesOrderDetail extends BasePickSalesOrderDetail {
 	}
 
 	/**
+	 * Returns the Item's total Picked Qty for each Pallet
+	 * @return array   ex. array(array('qty' => 2, 'palletnbr' => 1))
+	 */
+	public function get_userpickedtotalsbypallet() {
+		return WhseitempickQuery::create()->get_pickeditemqtytotalbypallet($this->sessionid, $this->ordernbr, $this->itemnbr);
+	}
+
+	/**
 	 * Returns the Picked Qty + already pulled qty for the Order, not just user
 	 * // NOTE this Total is total picked for the order, not just what the user has picked
 	 * @return int Total Picked for this item on the order
