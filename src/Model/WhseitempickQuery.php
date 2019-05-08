@@ -36,6 +36,32 @@ class WhseitempickQuery extends BaseWhseitempickQuery {
 		return intval($this->findOneBySessionid($sessionID));
 	}
 
+	/**
+	 * Returns the sum of the Qty of all the barcodes picked for item filtered
+	 * by the sessionid, ordernumber and itemid columns for each pallet
+	 * @param  string $sessionID Session Identifier
+	 * @param  string $ordn      Sales Order Number
+	 * @param  string $itemID    Item ID
+	 * @return array             ex. array(array('qty' => 2, 'palletnbr' => 1))
+	 */
+	public function get_pickeditemqtytotalbypallet($sessionID, $ordn, $itemID) {
+		$this->clear();
+		$this->addAsColumn('qty', 'SUM(qty)');
+		$this->select('palletnbr','qty');
+		$this->filterByOrdn($ordn);
+		$this->filterByItemid($itemID);
+		$this->groupBy('palletnbr');
+		return $this->findBySessionid($sessionID);
+	}
+
+	/**
+	 * Returns the Max Record Number for the Item ID filtered
+	 * by the sessionid, ordernumber and itemid columns
+	 * @param  string $sessionID Session Identifier
+	 * @param  string $ordn      Sales Order Number
+	 * @param  string $itemID    Item ID
+	 * @return int               Order Item Max record number
+	 */
 	public function get_max_orderitem_recordnumber($sessionID, $ordn, $itemID) {
 		$this->clear();
 		$this->addAsColumn('max', 'MAX(recordnumber)');
@@ -45,6 +71,13 @@ class WhseitempickQuery extends BaseWhseitempickQuery {
 		return $this->findOneBySessionid($sessionID);
 	}
 
+	/**
+	 * Return Whseitempick objects filtered by the sessionid, ordernbr, itemid columns
+	 * @param  string $sessionID Session Identifier
+	 * @param  string $ordn      Sales Order Number
+	 * @param  string $itemID    Item ID
+	 * @return Whseitempick[]|ObjectCollection
+	 */
 	public function get_order_pickeditems($sessionID, $ordn, $itemID) {
 		$this->clear();
 		$this->filterByOrdn($ordn);
@@ -52,6 +85,14 @@ class WhseitempickQuery extends BaseWhseitempickQuery {
 		return $this->findBySessionid($sessionID);
 	}
 
+	/**
+	 * Return Whseitempick object by the sessionid, ordernbr, itemid, recordnumber columns
+	 * @param  string $sessionID     Session Identifier
+	 * @param  string $ordn          Sales Order Number
+	 * @param  string $itemID        Item ID
+	 * @param  int    $recordnumber  Record Number
+	 * @return Whseitempick[]|ObjectCollection
+	 */
 	public function get_order_pickeditem($sessionID, $ordn, $itemID, $recordnumber)  {
 		$this->clear();
 		$this->filterByOrdn($ordn);

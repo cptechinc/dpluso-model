@@ -105,7 +105,16 @@ class Whsesession extends BaseWhsesession {
 		'carton'    => 'cartonnbr'
 	);
 
+	/**
+	 * Value for Prompt Function if it's true
+	 * @var string
+	 */
 	const PROMPTFUNCTION_TRUE  = 'Y';
+
+	/**
+	 * Value for Prompt Function if it's false
+	 * @var string
+	 */
 	const PROMPTFUNCTION_FALSE = 'N';
 
 	/**
@@ -122,6 +131,14 @@ class Whsesession extends BaseWhsesession {
 	 */
 	public function has_pallet() {
 		return !empty($this->palletnbr);
+	}
+
+	public function is_picking() {
+		return $this->function == 'PICKING';
+	}
+
+	public function is_pickingpacking() {
+		return $this->function == 'PACKING';
 	}
 
 	/**
@@ -207,6 +224,14 @@ class Whsesession extends BaseWhsesession {
 	}
 
 	/**
+	 * Returns if status has No Order Head Rec
+	 * @return bool Is the order not found
+	 */
+	public function is_ordernotfound() {
+		return strpos(strtolower($this->status), 'no order head rec') !== false ? true : false;
+	}
+
+	/**
 	 * Sets Function Prompt to the value needed for true or false
 	 *
 	 * @param  bool $prompt
@@ -236,7 +261,14 @@ class Whsesession extends BaseWhsesession {
 			$msg = "There is insufficent stock for Order #$this->ordernbr";
 		} elseif ($this->is_orderfinished()) {
 			$msg = "$this->ordernbr is finished";
+		} elseif ($this->is_ordernotfound()) {
+			$msg = "Order #$this->ordernbr can't be found";
+		} elseif ($this->is_usingwrongfunction()) {
+			$msg = "$this->status for Order # $this->ordernbr";
 		}
+
 		return $msg;
 	}
+
+
 }
