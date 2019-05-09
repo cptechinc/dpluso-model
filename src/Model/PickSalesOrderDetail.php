@@ -155,7 +155,9 @@ class PickSalesOrderDetail extends BasePickSalesOrderDetail {
 		'ordn'      => 'ordernbr',
 		'bin'       => 'binnbr',
 		'itemid'    => 'itemnbr',
-		'itemID'    => 'itemnbr'
+		'itemID'    => 'itemnbr',
+		'desc1'     => 'itemdesc1',
+		'desc2'     => 'itemdesc2',
 	);
 
 	/**
@@ -294,10 +296,9 @@ class PickSalesOrderDetail extends BasePickSalesOrderDetail {
 	 */
 	public function edit_barcode_qty($barcode, $palletnbr = 1, $recordnumber, $qty = 1) {
 		$barcode_qty = BarcodesQuery::create()->get_barcode_qty($barcode);
-		$edit_qty = ($barcode_qty * $qty);
 		$picking_master = WhseitempickQuery::create();
 		$item = $picking_master->get_order_pickeditem($this->sessionid, $this->ordernbr, $this->itemnbr, $recordnumber);
-		$item->setQty($edit_qty);
+		$item->setQty($qty);
 		$item->save();
 	}
 

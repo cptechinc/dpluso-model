@@ -20,13 +20,13 @@ class PickSalesOrderDetailQuery extends BasePickSalesOrderDetailQuery {
 	 * @param  string $ordn       Sales Order Number
 	 * @return int                Number of PickSalesOrderDetail rows
 	 */
-	public function countByOrder($sessionID, $ordn) {
+	public function countBySessionidOrder($sessionID, $ordn) {
 		$this->clear();
 		$this->filterBySessionid($sessionID);
 		$this->filterByOrdernbr($ordn);
 		return $this->count();
 	}
-	
+
 	/**
 	 * Return PickSalesOrderDetail filtered by the sessionid, Sales Order Number column(s)
 	 *
@@ -34,10 +34,24 @@ class PickSalesOrderDetailQuery extends BasePickSalesOrderDetailQuery {
 	 * @param  string $ordn       Sales Order Number
 	 * @return PickSalesOrderDetail
 	 */
-	public function findOneByOrder($sessionID, $ordn) {
+	public function findOneBySessionidOrder($sessionID, $ordn) {
 		$this->clear();
 		$this->filterBySessionid($sessionID);
 		$this->filterByOrdernbr($ordn);
 		return $this->findOneByOrdernbr($ordn);
+	}
+
+	/**
+	 * Return PickSalesOrderDetail filtered by the sessionid, Sales Order Number column(s)
+	 *
+	 * @param  string $sessionID  SessionID
+	 * @param  string $ordn       Sales Order Number
+	 * @return PickSalesOrderDetail
+	 */
+	public function findBySessionidOrder($sessionID, $ordn) {
+		$this->clear();
+		$this->filterBySessionid($sessionID);
+		$this->filterByOrdernbr($ordn);
+		return $this->findByOrdernbr($ordn);
 	}
 }
