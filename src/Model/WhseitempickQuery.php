@@ -4,6 +4,7 @@ use Base\WhseitempickQuery as BaseWhseitempickQuery;
 
 use Dpluso\Model\ThrowErrorTrait;
 use Dpluso\Model\MagicMethodTraits;
+use Dpluso\Model\QueryTraits;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'whseitempick' table.
@@ -18,22 +19,23 @@ use Dpluso\Model\MagicMethodTraits;
 class WhseitempickQuery extends BaseWhseitempickQuery {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
+	use QueryTraits;
 
 	/**
-	 * Returns the sum of the Qty of all the barcodes picked for item filtered
-	 * by the sessionid, ordernumber and itemid columns
+	 * Returns the sum of How many eaches were picked by adding up all the unit quantities
+	 * of each barcode picked multiplied by the qty picked of that barcode
 	 * @param  string $sessionID Session Identifier
 	 * @param  string $ordn      Sales Order Number
 	 * @param  string $itemID    Item ID
 	 * @return int               Picked Item Qty total
 	 */
 	public function get_pickeditemqtytotal($sessionID, $ordn, $itemID) {
-		$this->clear();
-		$this->addAsColumn('sum', 'SUM(qty)');
-		$this->select('sum');
-		$this->filterByOrdn($ordn);
-		$this->filterByItemid($itemID);
-		return intval($this->findOneBySessionid($sessionID));
+		$sql =  "SELECT SUM(unitqty * qty) as totalpicked
+		FROM whseitempick JOIN barcodes ON barcode = barcodes.barcodenbr
+		WHERE sessionid = :sessionID AND ordn = :ordernumber AND whseitempick.itemid = :item";
+		$params = array(':sessionID' => $sessionID, ':ordernumber' => $ordn, ':item' => $itemID);
+		$result = $this->execute_query($sql, $params);
+		return intval($result->fetchColumn());
 	}
 
 	/**
@@ -45,13 +47,13 @@ class WhseitempickQuery extends BaseWhseitempickQuery {
 	 * @return array             ex. array(array('qty' => 2, 'palletnbr' => 1))
 	 */
 	public function get_pickeditemqtytotalbypallet($sessionID, $ordn, $itemID) {
-		$this->clear();
-		$this->addAsColumn('qty', 'SUM(qty)');
-		$this->select('palletnbr','qty');
-		$this->filterByOrdn($ordn);
-		$this->filterByItemid($itemID);
-		$this->groupBy('palletnbr');
-		return $this->findBySessionid($sessionID);
+		$sql =  "SELECT palletnbr, SUM(unitqty * qty) as totalpicked
+		FROM whseitempick JOIN barcodes ON barcode = barcodes.barcodenbr
+		WHERE sessionid = :sessionID AND ordn = :ordernumber AND whseitempick.itemid = :item
+		GROUP BY palletnbr";
+		$params = array(':sessionID' => $sessionID, ':ordernumber' => $ordn, ':item' => $itemID);
+		$result = $this->execute_query($sql, $params);
+		return $result->fetchAll();
 	}
 
 	/**

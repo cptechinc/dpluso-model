@@ -13,5 +13,12 @@ use Base\Whseitempick as BaseWhseitempick;
  *
  */
 class Whseitempick extends BaseWhseitempick {
-	
+	/**
+	 * Returns the Qty by multiplying the unit qty of barcode by the number of units (of this barcode)
+	 * @return int Qty
+	 */
+	public function get_barcodeqtytotal() {
+		$barcode_qty = BarcodesQuery::create()->get_barcode_qty($this->barcode);
+		return $this->qty * $barcode_qty;
+	}
 }
