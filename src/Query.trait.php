@@ -36,6 +36,8 @@
 		 * @return ModelCriteria          $this
 		 */
 		public function search_filter(array $columns, $q) {
+			$q = is_string($q) ? $q = strtoupper($q) : $q;
+
 			foreach ($columns as $column) {
 				$tablemap_column = "COL_".strtoupper($column);
 				$mapclass = get_class($this->tableMap);
