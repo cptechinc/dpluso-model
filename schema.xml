@@ -2176,6 +2176,7 @@
   <table name="whseitempick" idMethod="native" phpName="Whseitempick">
     <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
     <column name="ordn" phpName="Ordn" type="VARCHAR" size="45" primaryKey="true" required="true"/>
+    <column name="linenbr" phpName="Linenbr" type="INTEGER" required="true"/>
     <column name="itemid" phpName="Itemid" type="VARCHAR" size="45" primaryKey="true" required="true"/>
     <column name="recordnumber" phpName="Recordnumber" type="INTEGER" primaryKey="true" required="true"/>
     <column name="palletnbr" phpName="Palletnbr" type="INTEGER" size="5"/>
