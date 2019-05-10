@@ -12,7 +12,29 @@ use Base\UseractionsQuery as BaseUseractionsQuery;
  * long as it does not already exist in the output directory.
  *
  */
-class UseractionsQuery extends BaseUseractionsQuery
-{
+class UseractionsQuery extends BaseUseractionsQuery {
 
+	/**
+	 * Filter the query on the status column being Incomplete
+	 * @return void
+	 */
+	public function filterByStatusComplete() {
+		$this->filterByCompleted(Useractions::STATUS_COMPLETED);
+	}
+
+	/**
+	 * Filter the query on the status column being Rescheduled
+	 * @return void
+	 */
+	public function filterByStatusRescheduled() {
+		$this->filterByCompleted(Useractions::STATUS_RESCHEDULED);
+	}
+
+	/**
+	 * Filter the query on the status column being Incomplete
+	 * @return void
+	 */
+	public function filterByStatusIncomplete() {
+		$this->filterByCompleted('');
+	}
 }
