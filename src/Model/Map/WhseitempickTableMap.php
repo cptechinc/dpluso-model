@@ -59,7 +59,7 @@ class WhseitempickTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 8;
+    const NUM_COLUMNS = 9;
 
     /**
      * The number of lazy-loaded columns
@@ -69,7 +69,7 @@ class WhseitempickTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 8;
+    const NUM_HYDRATE_COLUMNS = 9;
 
     /**
      * the column name for the sessionid field
@@ -107,6 +107,11 @@ class WhseitempickTableMap extends TableMap
     const COL_BARCODE = 'whseitempick.barcode';
 
     /**
+     * the column name for the bin field
+     */
+    const COL_BIN = 'whseitempick.bin';
+
+    /**
      * the column name for the qty field
      */
     const COL_QTY = 'whseitempick.qty';
@@ -123,11 +128,11 @@ class WhseitempickTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Sessionid', 'Ordn', 'Linenbr', 'Itemid', 'Recordnumber', 'Palletnbr', 'Barcode', 'Qty', ),
-        self::TYPE_CAMELNAME     => array('sessionid', 'ordn', 'linenbr', 'itemid', 'recordnumber', 'palletnbr', 'barcode', 'qty', ),
-        self::TYPE_COLNAME       => array(WhseitempickTableMap::COL_SESSIONID, WhseitempickTableMap::COL_ORDN, WhseitempickTableMap::COL_LINENBR, WhseitempickTableMap::COL_ITEMID, WhseitempickTableMap::COL_RECORDNUMBER, WhseitempickTableMap::COL_PALLETNBR, WhseitempickTableMap::COL_BARCODE, WhseitempickTableMap::COL_QTY, ),
-        self::TYPE_FIELDNAME     => array('sessionid', 'ordn', 'linenbr', 'itemid', 'recordnumber', 'palletnbr', 'barcode', 'qty', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, )
+        self::TYPE_PHPNAME       => array('Sessionid', 'Ordn', 'Linenbr', 'Itemid', 'Recordnumber', 'Palletnbr', 'Barcode', 'Bin', 'Qty', ),
+        self::TYPE_CAMELNAME     => array('sessionid', 'ordn', 'linenbr', 'itemid', 'recordnumber', 'palletnbr', 'barcode', 'bin', 'qty', ),
+        self::TYPE_COLNAME       => array(WhseitempickTableMap::COL_SESSIONID, WhseitempickTableMap::COL_ORDN, WhseitempickTableMap::COL_LINENBR, WhseitempickTableMap::COL_ITEMID, WhseitempickTableMap::COL_RECORDNUMBER, WhseitempickTableMap::COL_PALLETNBR, WhseitempickTableMap::COL_BARCODE, WhseitempickTableMap::COL_BIN, WhseitempickTableMap::COL_QTY, ),
+        self::TYPE_FIELDNAME     => array('sessionid', 'ordn', 'linenbr', 'itemid', 'recordnumber', 'palletnbr', 'barcode', 'bin', 'qty', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, )
     );
 
     /**
@@ -137,11 +142,11 @@ class WhseitempickTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Ordn' => 1, 'Linenbr' => 2, 'Itemid' => 3, 'Recordnumber' => 4, 'Palletnbr' => 5, 'Barcode' => 6, 'Qty' => 7, ),
-        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'ordn' => 1, 'linenbr' => 2, 'itemid' => 3, 'recordnumber' => 4, 'palletnbr' => 5, 'barcode' => 6, 'qty' => 7, ),
-        self::TYPE_COLNAME       => array(WhseitempickTableMap::COL_SESSIONID => 0, WhseitempickTableMap::COL_ORDN => 1, WhseitempickTableMap::COL_LINENBR => 2, WhseitempickTableMap::COL_ITEMID => 3, WhseitempickTableMap::COL_RECORDNUMBER => 4, WhseitempickTableMap::COL_PALLETNBR => 5, WhseitempickTableMap::COL_BARCODE => 6, WhseitempickTableMap::COL_QTY => 7, ),
-        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'ordn' => 1, 'linenbr' => 2, 'itemid' => 3, 'recordnumber' => 4, 'palletnbr' => 5, 'barcode' => 6, 'qty' => 7, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, )
+        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Ordn' => 1, 'Linenbr' => 2, 'Itemid' => 3, 'Recordnumber' => 4, 'Palletnbr' => 5, 'Barcode' => 6, 'Bin' => 7, 'Qty' => 8, ),
+        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'ordn' => 1, 'linenbr' => 2, 'itemid' => 3, 'recordnumber' => 4, 'palletnbr' => 5, 'barcode' => 6, 'bin' => 7, 'qty' => 8, ),
+        self::TYPE_COLNAME       => array(WhseitempickTableMap::COL_SESSIONID => 0, WhseitempickTableMap::COL_ORDN => 1, WhseitempickTableMap::COL_LINENBR => 2, WhseitempickTableMap::COL_ITEMID => 3, WhseitempickTableMap::COL_RECORDNUMBER => 4, WhseitempickTableMap::COL_PALLETNBR => 5, WhseitempickTableMap::COL_BARCODE => 6, WhseitempickTableMap::COL_BIN => 7, WhseitempickTableMap::COL_QTY => 8, ),
+        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'ordn' => 1, 'linenbr' => 2, 'itemid' => 3, 'recordnumber' => 4, 'palletnbr' => 5, 'barcode' => 6, 'bin' => 7, 'qty' => 8, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, )
     );
 
     /**
@@ -168,6 +173,7 @@ class WhseitempickTableMap extends TableMap
         $this->addPrimaryKey('recordnumber', 'Recordnumber', 'INTEGER', true, null, null);
         $this->addColumn('palletnbr', 'Palletnbr', 'INTEGER', false, 5, null);
         $this->addColumn('barcode', 'Barcode', 'VARCHAR', false, 45, null);
+        $this->addColumn('bin', 'Bin', 'VARCHAR', false, 12, null);
         $this->addColumn('qty', 'Qty', 'INTEGER', false, null, null);
     } // initialize()
 
@@ -398,6 +404,7 @@ class WhseitempickTableMap extends TableMap
             $criteria->addSelectColumn(WhseitempickTableMap::COL_RECORDNUMBER);
             $criteria->addSelectColumn(WhseitempickTableMap::COL_PALLETNBR);
             $criteria->addSelectColumn(WhseitempickTableMap::COL_BARCODE);
+            $criteria->addSelectColumn(WhseitempickTableMap::COL_BIN);
             $criteria->addSelectColumn(WhseitempickTableMap::COL_QTY);
         } else {
             $criteria->addSelectColumn($alias . '.sessionid');
@@ -407,6 +414,7 @@ class WhseitempickTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.recordnumber');
             $criteria->addSelectColumn($alias . '.palletnbr');
             $criteria->addSelectColumn($alias . '.barcode');
+            $criteria->addSelectColumn($alias . '.bin');
             $criteria->addSelectColumn($alias . '.qty');
         }
     }
