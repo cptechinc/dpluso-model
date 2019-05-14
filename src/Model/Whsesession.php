@@ -133,6 +133,10 @@ class Whsesession extends BaseWhsesession {
 		return !empty($this->palletnbr);
 	}
 
+	public function is_pickingunguided() {
+		return $this->function == 'PICKUNGUIDED';
+	}
+
 	public function is_picking() {
 		return $this->function == 'PICKING';
 	}

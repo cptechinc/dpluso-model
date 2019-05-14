@@ -2,6 +2,9 @@
 
 use Base\Itemmaster as BaseItemmaster;
 
+use Dpluso\Model\ThrowErrorTrait;
+use Dpluso\Model\MagicMethodTraits;
+
 /**
  * Skeleton subclass for representing a row from the 'itemmaster' table.
  *
@@ -12,7 +15,12 @@ use Base\Itemmaster as BaseItemmaster;
  * long as it does not already exist in the output directory.
  *
  */
-class Itemmaster extends BaseItemmaster
-{
+class Itemmaster extends BaseItemmaster {
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
 
+	const ITEMTYPE_SERIALIZED = 'S';
+	const ITEMTYPE_LOTTED     = 'L';
+	const ITEMTYPE_NORMAL     = 'N';
+	const ITEMTYPE_PRICEONLY  = 'P';
 }

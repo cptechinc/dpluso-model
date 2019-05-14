@@ -161,33 +161,6 @@ class PickSalesOrderDetail extends BasePickSalesOrderDetail {
 	);
 
 	/**
-	 * Creates an array for JS config for the item
-	 *
-	 * @return array
-	 */
-	public function get_jsconfigarray() {
-		return array(
-			'itemid' => $this->itemnbr,
-			'qty' => [
-				'expected'     => intval($this->binqty),
-				'ordered'      => intval($this->qtyordered),
-				'picked'       => intval($this->get_userpickedtotal()),
-				'pulled'       => intval($this->qtypulled),
-				'total_picked' => intval($this->get_orderpickedtotal()),
-				'remaining'    => intval($this->get_qtyremaining())
-			]
-		);
-	}
-
-	/**
-	 * Returns the Total Picked Qty for this item
-	 * @return int User Picked Qty
-	 */
-	public function get_userpickedtotal() {
-		return WhseitempickQuery::create()->get_pickeditemqtytotal($this->sessionid, $this->ordernbr, $this->itemnbr);
-	}
-
-	/**
 	 * Returns the Item's total Picked Qty for each Pallet
 	 * @return array   ex. array(array('qty' => 2, 'palletnbr' => 1))
 	 */
@@ -196,20 +169,27 @@ class PickSalesOrderDetail extends BasePickSalesOrderDetail {
 	}
 
 	/**
-	 * Returns the Picked Qty + already pulled qty for the Order, not just user
-	 * // NOTE this Total is total picked for the order, not just what the user has picked
-	 * @return int Total Picked for this item on the order
+	 * Returns the Item's total picked qty grouped by Bin
+	 *
+	 * @return array array(array('bin' => binid, 'qty' => 2))
 	 */
-	public function get_orderpickedtotal() {
-		return $this->qtypulled + $this->get_userpickedtotal();
+	public function get_userpickedtotalsbybin() {
+		return WhseitempickQuery::create()->get_qtytotalbybin($this->sessionid, $this->ordernbr, $this->itemnbr, $this->linenbr);
 	}
 
 	/**
-	 * Returns the Quantity remaining to pull
-	 * @return int
+	 * Returns Item's total picked grouped by barcode
+	 *
+	 * @return array array(array('barcode' => $barcode, bin' => binid, 'qty' => 2))
 	 */
-	public function get_qtyremaining() {
-		return $this->qtyordered - ($this->get_orderpickedtotal());
+	public function get_userpickedtotalsbybarcode() {
+		$query = WhseitempickQuery::create();
+		$query->filterBySessionid($this->sessionid);
+		$query->filterByOrdn($this->ordernbr);
+		$query->filterByItemid($this->itemnbr);
+		$query->filterByLinenbr($this->linenbr);
+		$query->groupByBarcode();
+		return $query->find();
 	}
 
 	/**
@@ -250,67 +230,26 @@ class PickSalesOrderDetail extends BasePickSalesOrderDetail {
 	}
 
 	/**
-	 * Returns if Qty picked is more than needed
-	 * @return bool Has user picked too much?
+	 * Return is Item is serialized
+	 * @return bool Is item Serialized?
 	 */
-	public function has_pickedtoomuch() {
-		return $this->get_orderpickedtotal() > $this->qtyordered;
+	public function is_item_serialized() {
+		return ItemmasterQuery::create()->is_item_serialized($this->itemnbr);
 	}
 
 	/**
-	 * Returns if User has picked more than bin qty
-	 * @return bool Did user pick more than expected Bin Qty?
+	 * Return is Item is lotted
+	 * @return bool Is item Lotted?
 	 */
-	public function has_pickedmorethanbinqty() {
-		return $this->get_userpickedtotal() > $this->binqty ? true : false;
+	public function is_item_lotted() {
+		return ItemmasterQuery::create()->is_item_lotted($this->itemnbr);
 	}
 
 	/**
-	 * Inserts a Whseitempick record for this item
-	 * @param string $barcode   Barcode to add
-	 * @param int    $palletnbr Pallet Number
+	 * Return is Item is Normal
+	 * @return bool Is item Normal?
 	 */
-	public function add_barcode($barcode, $palletnbr = 1) {
-		if (BarcodesQuery::create()->get_barcode_itemid($barcode) == $this->itemnbr) {
-			$barcode_info = BarcodesQuery::create()->findOneByBarcode($barcode);
-			$picking_master = WhseitempickQuery::create();
-
-			$item = new Whseitempick();
-			$item->setSessionid($this->sessionid);
-			$item->setOrdn($this->ordernbr);
-			$item->setItemid($this->itemnbr);
-			$item->setRecordnumber($picking_master->get_max_orderitem_recordnumber($this->sessionid, $this->ordernbr, $this->itemnbr) + 1);
-			$item->setPalletnbr($palletnbr);
-			$item->setBarcode($barcode);
-			$item->setQty($barcode_info->qty);
-			$item->save();
-		}
-	}
-
-	/**
-	 * Updates a Whseitempick record for this item
-	 * @param string $barcode     Barcode to add
-	 * @param int    $palletnbr   Pallet Number
-	 * @param int    $recordumber Record Number
-	 * @param int    $qty         Quantity to change to
-	 */
-	public function edit_barcode_qty($barcode, $palletnbr = 1, $recordnumber, $qty = 1) {
-		$barcode_qty = BarcodesQuery::create()->get_barcode_qty($barcode);
-		$picking_master = WhseitempickQuery::create();
-		$item = $picking_master->get_order_pickeditem($this->sessionid, $this->ordernbr, $this->itemnbr, $recordnumber);
-		$item->setQty($qty);
-		$item->save();
-	}
-
-	/**
-	 * Eletes a Whseitempick record for with recordnumber
-	 * @param string $barcode     Barcode to add
-	 * @param int    $palletnbr   Pallet Number
-	 * @param int    $recordumber Record Number
-	 */
-	public function delete_barcode_qty($barcode, $palletnbr = 1, $recordnumber) {
-		$picking_master = WhseitempickQuery::create();
-		$item = $picking_master->get_order_pickeditem($this->sessionid, $this->ordernbr, $this->itemnbr, $recordnumber);
-		$item->delete();
+	public function is_item_normal() {
+		return ItemmasterQuery::create()->is_item_normal($this->itemnbr);
 	}
 }

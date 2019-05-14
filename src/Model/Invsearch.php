@@ -123,6 +123,15 @@ class Invsearch extends BaseInvsearch {
 		'binID'     => 'bin'
 	);
 
+	const ITEMTYPE_SERIALIZED = 'S';
+	const ITEMTYPE_LOTTED     = 'L';
+	const ITEMTYPE_NORMAL     = 'N';
+	const ITEMTYPE_PRICEONLY  = 'P';
+
+	const XORIGIN_ITEM = 'item';
+	const XORIGIN_LOTM = 'lotm';
+	const XORIGIN_SERI = 'seri';
+
 	/**
 	 * Item Type and the property / alias name that represents it
 	 * @var array
@@ -149,7 +158,7 @@ class Invsearch extends BaseInvsearch {
 	 * @return bool
 	 */
 	public function is_serialized() {
-		return $this->itemtype == 'S';
+		return $this->itemtype == self::ITEMTYPE_SERIALIZED;
 	}
 
 	/**
@@ -157,7 +166,7 @@ class Invsearch extends BaseInvsearch {
 	 * @return bool
 	 */
 	public function is_lotted() {
-		return $this->itemtype == 'L';
+		return $this->itemtype == self::ITEMTYPE_LOTTED;
 	}
 
 	/**
@@ -165,15 +174,15 @@ class Invsearch extends BaseInvsearch {
 	 * @return bool
 	 */
 	public function is_normal() {
-		return $this->itemtype == 'N';
+		return $this->itemtype == self::ITEMTYPE_NORMAL;
 	}
 
 	/**
-	 * Returns if Item is a Normal Inventory item
+	 * Returns if Item is a Price Only Inventory item
 	 * @return bool
 	 */
 	public function is_priceonly() {
-		return $this->itemtype == 'P';
+		return $this->itemtype == self::ITEMTYPE_PRICEONLY;
 	}
 
 	/**
@@ -181,7 +190,7 @@ class Invsearch extends BaseInvsearch {
 	 * @return bool
 	 */
 	public function is_xorigin_item() {
-		return $this->xorigin == 'item';
+		return $this->xorigin == self::XORIGIN_ITEM;
 	}
 
 	/**
@@ -189,7 +198,7 @@ class Invsearch extends BaseInvsearch {
 	 * @return bool
 	 */
 	public function is_xorigin_lotserial() {
-		return $this->xorigin == 'lotm' || $this->xorigin  == 'seri';
+		return $this->xorigin == self::XORIGIN_LOTM || $this->xorigin  == self::XORIGIN_SERI;
 	}
 
 	/**
@@ -197,7 +206,7 @@ class Invsearch extends BaseInvsearch {
 	 * @return bool
 	 */
 	public function is_xorigin_lot() {
-		return $this->xorigin == 'lotm';
+		return $this->xorigin == self::XORIGIN_LOTM;
 	}
 
 	/**
@@ -205,7 +214,7 @@ class Invsearch extends BaseInvsearch {
 	 * @return bool
 	 */
 	public function is_xorigin_serial() {
-		return $this->xorigin == 'seri';
+		return $this->xorigin == self::XORIGIN_SERI;
 	}
 
 	/**

@@ -153,7 +153,7 @@ class InvsearchQuery extends BaseInvsearchQuery {
 		if ($item->is_lotted() || $item->is_serialized()) {
 			$this->filterByLotserial($item->lotserial);
 		}
-		return $this->findOneByBin($binID);
+		return intval($this->findOneByBin($binID));
 	}
 
 	/**
