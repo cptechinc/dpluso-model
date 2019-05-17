@@ -132,7 +132,7 @@ class Whsesession extends BaseWhsesession {
 	public function has_pallet() {
 		return !empty($this->palletnbr);
 	}
-
+	
 	public function is_pickingunguided() {
 		return $this->function == 'PICKUNGUIDED';
 	}
@@ -216,6 +216,16 @@ class Whsesession extends BaseWhsesession {
 	 */
 	public function had_succeeded() {
 		return strpos(strtolower($this->status), 'success') !== false ? true : false;
+	}
+
+	/**
+	 * Returns if status has the message for successful line pick
+	 *
+	 * @return bool
+	 */
+	public function had_picksucceeded() {
+		$regex = "/(line)\s\d\s(picked)/i";
+		return (preg_match($regex, strtolower($this->status)));
 	}
 
 	/**
