@@ -202,7 +202,25 @@ class WhseitempickQuery extends BaseWhseitempickQuery {
 		$this->select('count');
 		$this->filterByOrdn($ordn);
 		$this->filterByLinenbr($linenbr);
-		$this->where('whseitempick.sessionid != ?', $sessionID);
+		//$this->where('whseitempick.sessionid != ?', $sessionID);
+		return boolval($this->findOne());
+	}
+
+	/**
+	 * Returns if Session is picking the order line
+	 *
+	 * @param  string $sessionID User SessionID to
+	 * @param  string $ordn      Sales Order Number
+	 * @param  int    $linenbr   Line Number
+	 * @return bool              Is Sales Order Detail Line being Picked by $sessionID
+	 */
+	public function is_orderline_being_picked_session($sessionID, $ordn, $linenbr = 1) {
+		$this->clear();
+		$this->addAsColumn('count', 'COUNT(*)');
+		$this->select('count');
+		$this->filterByOrdn($ordn);
+		$this->filterByLinenbr($linenbr);
+		$this->filterBySessionid($sessionID);
 		return boolval($this->findOne());
 	}
 }
