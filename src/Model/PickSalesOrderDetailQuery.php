@@ -107,7 +107,7 @@ class PickSalesOrderDetailQuery extends BasePickSalesOrderDetailQuery {
 	/**
 	 * Return PickSalesOrderDetail filtered by the sessionid, Sales Order Number column(s)
 	 *
-	 * @param  string $sessionID  SessionID
+	 * @param  string $sessionID  Session ID
 	 * @param  string $ordn       Sales Order Number
 	 * @return PickSalesOrderDetail
 	 */
@@ -115,5 +115,48 @@ class PickSalesOrderDetailQuery extends BasePickSalesOrderDetailQuery {
 		$this->clear();
 		$this->filterBySessionid($sessionID);
 		return $this->findByOrdernbr($ordn);
+	}
+
+	/**
+	 * Filters Query by Sessionid, Ordernbr columns
+	 *
+	 * @param string $sessionID Session ID
+	 * @param string $ordn      Sales Order Number
+	 * @return PickSalesOrderDetailQuery
+	 */
+	public function filterBySessionidOrder($sessionID, $ordn) {
+		$this->filterBySessionid($sessionID);
+		$this->filterByOrdernbr($ordn);
+		return $this;
+	}
+
+	/**
+	 * 
+	 * Return PickSalesOrderDetail objects filtered by the sessionid, ordernumber, (qtyremaining = 0) column
+	 *
+	 * @param string $sessionID Session ID
+	 * @param string $ordn      Sales Order Number
+	 * @return PickSalesOrderDetail[]|ObjectCollection
+	 */
+	public function get_order_lines_picked($sessionID, $ordn) {
+		$this->clear();
+		$this->filterBySessionidOrder($sessionID, $ordn);
+		$this->filterByQtyremaining(0);
+		return $this->find();
+	}
+
+	/**
+	 * 
+	 * Return PickSalesOrderDetail objects filtered by the sessionid, ordernumber, (qtyremaining >= 1) column
+	 *
+	 * @param string $sessionID Session ID
+	 * @param string $ordn      Sales Order Number
+	 * @return PickSalesOrderDetail[]|ObjectCollection
+	 */
+	public function get_order_lines_unpicked($sessionID, $ordn) {
+		$this->clear();
+		$this->filterBySessionidOrder($sessionID, $ordn);
+		$this->filterByQtyremaining(array('min' => 1));
+		return $this->find();
 	}
 }
