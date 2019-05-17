@@ -33,6 +33,8 @@ class InvsearchQuery extends BaseInvsearchQuery {
 		return $this->findOneBySessionid($sessionID);
 	}
 
+
+
 	/**
 	 * Return Invsearch objects filtered by the sessionid (& binid if needed) column(s)
 	 *
@@ -101,6 +103,26 @@ class InvsearchQuery extends BaseInvsearchQuery {
 	}
 
 	/**
+	 * Return Invsearch object filtered by the sessionid, itemid (& binid if needed) column(s)
+	 *
+	 * @param  string $sessionID Session ID
+	 * @param  string $itemID    Item ID
+	 * @param  string $binID     Bin ID (optional)
+	 * @return Invsearch
+	 */
+	public function findByItemid($sessionID, $itemID, $binID = '') {
+		$this->clear();
+		$this->filterBy('Itemid', $itemID);
+
+		if (!empty($binID)) {
+			$this->filterBy('Bin', $binID);
+		}
+		return $this->findBySessionid($sessionID);
+	}
+
+
+
+	/**
 	 * Returns Number of Invsearch records filtered by sessionid, lotserial (& binid if neeeded)
 	 *
 	 * @param  string $sessionID  Session ID
@@ -156,6 +178,53 @@ class InvsearchQuery extends BaseInvsearchQuery {
 		return intval($this->findOneByBin($binID));
 	}
 
+	public function count_itembins($sessionID, InvSearch $item) {
+		$this->clear();
+		$this->addAsColumn('bincount', 'COUNT(DISTINCT(bin))');
+		$this->select('bincount');
+		$this->filterByItemid($item->itemid);
+
+		if ($item->is_lotted() || $item->is_serialized()) {
+			$this->filterByLotserial($item->lotserial);
+		}
+
+		return intval($this->findOne());
+	}
+
+	/**
+	 * Returns the number of bins the Item ID is in
+	 *
+	 * @param  string $sessionID Session ID
+	 * @param  string $itemID    Item ID
+	 * @return int
+	 */
+	public function count_itembins_itemid($sessionID, $itemID) {
+		$this->clear();
+		$this->addAsColumn('bincount', 'COUNT(DISTINCT(bin))');
+		$this->select('bincount');
+		$this->filterBySessionid($sessionID);
+		$this->filterByItemid($itemID);
+		return intval($this->findOne());
+	}
+
+	/**
+	 * Returns the number of bins the Lot Serial is in
+	 *
+	 * @param  string $sessionID Session ID
+	 * @param  string $itemID    Item ID
+	 * @param  string $lotserial Lot / Serial number
+	 * @return int
+	 */
+	public function count_itembins_lotserial($sessionID, $itemID, $lotserial) {
+		$this->clear();
+		$this->addAsColumn('bincount', 'COUNT(DISTINCT(bin))');
+		$this->select('bincount');
+		$this->filterBySessionid($sessionID);
+		$this->filterByItemid($itemID);
+		$this->filterByLotserial($lotserial);
+		return intval($this->findOne());
+	}
+
 	/**
 	 * Return the Sum of Qty for filtered by sessionid, itemid (& bin)
 	 * @param  string $sessionID Session ID
@@ -193,5 +262,4 @@ class InvsearchQuery extends BaseInvsearchQuery {
 		}
 		return $this->findBySessionid($sessionID);
 	}
-
 }
