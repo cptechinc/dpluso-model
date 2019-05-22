@@ -24,6 +24,7 @@ class WhseitempickQuery extends BaseWhseitempickQuery {
 	/**
 	 * Returns the sum of How many eaches were picked by adding up all the unit quantities
 	 * of each barcode picked multiplied by the qty picked of that barcode
+	 * 
 	 * @param  string $sessionID Session Identifier
 	 * @param  string $ordn      Sales Order Number
 	 * @param  string $itemID    Item ID
@@ -41,6 +42,7 @@ class WhseitempickQuery extends BaseWhseitempickQuery {
 	/**
 	 * Returns the sum of How many eaches were picked by adding up all the unit quantities
 	 * of each barcode picked multiplied by the qty picked of that barcode
+	 * 
 	 * @param  string $sessionID Session Identifier
 	 * @param  string $ordn      Sales Order Number
 	 * @param  string $itemID    Item ID
@@ -58,6 +60,7 @@ class WhseitempickQuery extends BaseWhseitempickQuery {
 	/**
 	 * Returns the sum of the Qty of all the barcodes picked for item filtered
 	 * by the sessionid, ordernumber and itemid columns for each pallet
+	 * 
 	 * @param  string $sessionID Session Identifier
 	 * @param  string $ordn      Sales Order Number
 	 * @param  string $itemID    Item ID
@@ -74,19 +77,20 @@ class WhseitempickQuery extends BaseWhseitempickQuery {
 	}
 
 	/**
-	 * Returns the sum of the Qty of all the barcodes picked for item filtered
+	 * Returns the sum of the Qty of all the barcodes picked for line filtered
 	 * by the sessionid, ordernumber and itemid columns for each pallet
+	 * 
 	 * @param  string $sessionID Session Identifier
 	 * @param  string $ordn      Sales Order Number
 	 * @param  string $itemID    Item ID
 	 * @return array             ex. array(array('qty' => 2, 'palletnbr' => 1))
 	 */
-	public function get_qtytotalbybin($sessionID, $ordn, $itemID, $linenbr = 1) {
-		$sql =  "SELECT bin, SUM(unitqty * qty) as totalpicked
+	public function get_qtytotalbybin($sessionID, $ordn, $linenbr = 1) {
+		$sql =  "SELECT bin, SUM(unitqty * qty) as qty
 		FROM whseitempick JOIN barcodes ON barcode = barcodes.barcodenbr
-		WHERE sessionid = :sessionID AND ordn = :ordernumber AND whseitempick.itemid = :item AND linenbr = :line
+		WHERE sessionid = :sessionID AND ordn = :ordernumber AND linenbr = :line
 		GROUP BY bin";
-		$params = array(':sessionID' => $sessionID, ':ordernumber' => $ordn, ':item' => $itemID, ':line' => $linenbr);
+		$params = array(':sessionID' => $sessionID, ':ordernumber' => $ordn, ':line' => $linenbr);
 		$result = $this->execute_query($sql, $params);
 		return $result->fetchAll();
 	}
@@ -94,6 +98,7 @@ class WhseitempickQuery extends BaseWhseitempickQuery {
 	/**
 	 * Returns the Max Record Number for the Item ID filtered
 	 * by the sessionid, ordernumber and itemid columns
+	 * 
 	 * @param  string $sessionID Session Identifier
 	 * @param  string $ordn      Sales Order Number
 	 * @param  string $itemID    Item ID
@@ -111,6 +116,7 @@ class WhseitempickQuery extends BaseWhseitempickQuery {
 	/**
 	 * Returns the Max Record Number for the Line Nbr filtered
 	 * by the sessionid, ordernumber and itemid columns
+	 * 
 	 * @param  string $sessionID Session Identifier
 	 * @param  string $ordn      Sales Order Number
 	 * @param  string $linenbr   Line Nbr
@@ -127,6 +133,7 @@ class WhseitempickQuery extends BaseWhseitempickQuery {
 
 	/**
 	 * Return Whseitempick objects filtered by the sessionid, ordernbr, itemid columns
+	 * 
 	 * @param  string $sessionID Session Identifier
 	 * @param  string $ordn      Sales Order Number
 	 * @param  string $itemID    Item ID
@@ -141,6 +148,7 @@ class WhseitempickQuery extends BaseWhseitempickQuery {
 
 	/**
 	 * Return Whseitempick object by the sessionid, ordernbr, itemid, recordnumber columns
+	 * 
 	 * @param  string $sessionID     Session Identifier
 	 * @param  string $ordn          Sales Order Number
 	 * @param  string $itemID        Item ID
@@ -157,6 +165,7 @@ class WhseitempickQuery extends BaseWhseitempickQuery {
 
 	/**
 	 * Return Whseitempick object by the sessionid, ordernbr, linenbr, recordnumber columns
+	 * 
 	 * @param  string $sessionID     Session Identifier
 	 * @param  string $ordn          Sales Order Number
 	 * @param  int$linenbr           Pick Order Line Number
@@ -173,6 +182,7 @@ class WhseitempickQuery extends BaseWhseitempickQuery {
 
 	/**
 	 * Return if barcode has been picked for Order Number Line Number
+	 * 
 	 * @param  string $sessionID
 	 * @param  string $ordn
 	 * @param  string $barcode
@@ -191,6 +201,7 @@ class WhseitempickQuery extends BaseWhseitempickQuery {
 
 	/**
 	 * Returns if Sales Order Detail Line is being Picked by another Session
+	 * 
 	 * @param  string $sessionID User SessionID to
 	 * @param  string $ordn      Sales Order Number
 	 * @param  int    $linenbr   Line Number
@@ -222,5 +233,32 @@ class WhseitempickQuery extends BaseWhseitempickQuery {
 		$this->filterByLinenbr($linenbr);
 		$this->filterBySessionid($sessionID);
 		return boolval($this->findOne());
+	}
+
+	/**
+	 * Filter the query on the sessionid, ordn columns
+	 *
+	 * @param  string $sessionID Session ID
+	 * @param  string $ordn      Sales Order Number
+	 * @return WhseitempickQuery
+	 */
+	public function filterBySessionidOrder($sessionID, $ordn) {
+		$this->filterBySessionid($sessionID);
+		$this->filterByOrdn($ordn);
+		return $this;
+	}
+
+	/**
+	 * Filter the query on the sessionid, ordn columns
+	 *
+	 * @param  string $sessionID Session ID
+	 * @param  string $ordn      Sales Order Number
+	 * @param  int    $linenbr   Sales Order Line Number
+	 * @return WhseitempickQuery
+	 */
+	public function filterBySessionidOrderLinenbr($sessionID, $ordn, $linenbr) {
+		$this->filterBySessionidOrder($sessionID, $ordn);
+		$this->filterByLinenbr($linenbr);
+		return $this;
 	}
 }
