@@ -1547,20 +1547,6 @@
       <parameter name="Engine" value="MyISAM"/>
     </vendor>
   </table>
-  <table name="page_path_history" idMethod="native" phpName="PagePathHistory">
-    <column name="path" phpName="Path" type="VARCHAR" size="250" primaryKey="true" required="true"/>
-    <column name="pages_id" phpName="PagesId" type="INTEGER" size="10" sqlType="int(10) unsigned" required="true"/>
-    <column name="created" phpName="Created" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
-    <index name="pages_id">
-      <index-column name="pages_id"/>
-    </index>
-    <index name="created">
-      <index-column name="created"/>
-    </index>
-    <vendor type="mysql">
-      <parameter name="Engine" value="MyISAM"/>
-    </vendor>
-  </table>
   <table name="pricing" idMethod="native" phpName="Pricing">
     <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
     <column name="recno" phpName="Recno" type="INTEGER" primaryKey="true" required="true"/>
