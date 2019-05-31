@@ -12,7 +12,27 @@ use Base\Qnote as BaseQnote;
  * long as it does not already exist in the output directory.
  *
  */
-class Qnote extends BaseQnote
-{
+class Qnote extends BaseQnote {
+	const SHOW_TRUE = 'Y';
+	
+	const TYPE_CART       = 'CART';
+	const TYPE_SALESORDER = 'SORD';
+	const TYPE_QUOTE      = 'QUOT';
 
+	const SHOW_SALESORDER_PICK            = 'form1';
+	const SHOW_SALESORDER_PACK            = 'form2';
+	const SHOW_SALESORDER_INVOICE         = 'form3';
+	const SHOW_SALESORDER_ACKNOWLEDGEMENT = 'form3';
+
+	const SHOW_QUOTE_QUOTE           = 'form1';
+	const SHOW_QUOTE_PICK            = 'form2';
+	const SHOW_QUOTE_PACK            = 'form3';
+	const SHOW_QUOTE_INVOICE         = 'form4';
+	const SHOW_QUOTE_ACKNOWLEDGEMENT = 'form5';
+
+	const SHOW_CART_QUOTE           = 'form1';
+	const SHOW_CART_PICK            = 'form2';
+	const SHOW_CART_PACK            = 'form3';
+	const SHOW_CART_INVOICE         = 'form4';
+	const SHOW_CART_ACKNOWLEDGEMENT = 'form5';
 }
