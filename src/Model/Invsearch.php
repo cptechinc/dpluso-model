@@ -133,21 +133,18 @@ class Invsearch extends BaseInvsearch {
 	const XORIGIN_SERI = 'seri';
 
 	/**
-	 * Item Type and the property / alias name that represents it
-	 * @var array
+	 * Item Type to the property / alias that describes it
 	 */
-	public static $itemtype_properties = array(
+	const ITEMTYPE_PROPERTIES = array (
 		'L' => 'lotnbr',
 		'S' => 'serialnbr',
 		'N' => 'itemid'
 	);
 
 	/**
-	 * Array of Item Types and their description
-	 *
-	 * @var array
+	 * Item Types and their descriptions
 	 */
-	public static $itemtype_desc = array(
+	const ITEMTYPE_DESCRIPTIONS = array(
 		'L' => 'lot number',
 		'S' => 'serial number',
 		'N' => 'item id'
@@ -224,7 +221,7 @@ class Invsearch extends BaseInvsearch {
 	 * @return string
 	 */
 	public function get_itemtypeproperty() {
-		return self::$itemtype_properties[$this->itemtype];
+		return self::ITEMTYPE_PROPERTIES[$this->itemtype];
 	}
 
 	/**
@@ -232,7 +229,7 @@ class Invsearch extends BaseInvsearch {
 	 * @return string
 	 */
 	public function get_itemtypepropertydesc() {
-		return self::$itemtype_desc[$this->itemtype];
+		return self::ITEMTYPE_DESCRIPTIONS[$this->itemtype];
 	}
 
 	/**
