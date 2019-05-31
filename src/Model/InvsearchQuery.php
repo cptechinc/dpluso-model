@@ -118,8 +118,6 @@ class InvsearchQuery extends BaseInvsearchQuery {
 		return $this->findBySessionid($sessionID);
 	}
 
-
-
 	/**
 	 * Returns Number of Invsearch records filtered by sessionid, lotserial (& binid if neeeded)
 	 *
@@ -187,6 +185,7 @@ class InvsearchQuery extends BaseInvsearchQuery {
 		$this->clear();
 		$this->addAsColumn('bincount', 'COUNT(DISTINCT(bin))');
 		$this->select('bincount');
+		$this->filterByQty(array('min' => 0));
 		$this->filterByItemid($item->itemid);
 
 		if ($item->is_lotted() || $item->is_serialized()) {
@@ -207,9 +206,26 @@ class InvsearchQuery extends BaseInvsearchQuery {
 		$this->clear();
 		$this->addAsColumn('bincount', 'COUNT(DISTINCT(bin))');
 		$this->select('bincount');
+		$this->filterByQty(array('min' => 0));
 		$this->filterBySessionid($sessionID);
 		$this->filterByItemid($itemID);
 		return intval($this->findOne());
+	}
+
+	/**
+	 * Return the first Invsearch filtered by the sessionid, itemid columns
+	 *
+	 * @param string $sessionID Session ID
+	 * @param string $itemID    Item ID
+	 * @return Invsearch
+	 */
+	public function findOneBinBySessionidItemid($sessionID, $itemID) {
+		$this->clear();
+		$this->select('bin');
+		$this->filterByQty(array('min' => 0));
+		$this->filterBySessionid($sessionID);
+		$this->filterByItemid($itemID);
+		return $this->findOne();
 	}
 
 	/**
