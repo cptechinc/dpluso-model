@@ -2,6 +2,9 @@
 
 use Base\Whseitempack as BaseWhseitempack;
 
+use Dpluso\Model\ThrowErrorTrait;
+use Dpluso\Model\MagicMethodTraits;
+
 /**
  * Skeleton subclass for representing a row from the 'whseitempack' table.
  *
@@ -12,7 +15,7 @@ use Base\Whseitempack as BaseWhseitempack;
  * long as it does not already exist in the output directory.
  *
  */
-class Whseitempack extends BaseWhseitempack
-{
-
+class Whseitempack extends BaseWhseitempack {
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
 }
