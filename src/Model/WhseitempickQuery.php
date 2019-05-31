@@ -2,8 +2,6 @@
 
 use Base\WhseitempickQuery as BaseWhseitempickQuery;
 
-use Dpluso\Model\ThrowErrorTrait;
-use Dpluso\Model\MagicMethodTraits;
 use Dpluso\Model\QueryTraits;
 
 /**
@@ -17,8 +15,6 @@ use Dpluso\Model\QueryTraits;
  *
  */
 class WhseitempickQuery extends BaseWhseitempickQuery {
-	use ThrowErrorTrait;
-	use MagicMethodTraits;
 	use QueryTraits;
 
 	/**
@@ -168,7 +164,7 @@ class WhseitempickQuery extends BaseWhseitempickQuery {
 	 * 
 	 * @param  string $sessionID     Session Identifier
 	 * @param  string $ordn          Sales Order Number
-	 * @param  int$linenbr           Pick Order Line Number
+	 * @param  int    $linenbr       Pick Order Line Number
 	 * @param  int    $recordnumber  Record Number
 	 * @return Whseitempick[]|ObjectCollection
 	 */
