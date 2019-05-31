@@ -2159,6 +2159,19 @@
       <parameter name="Engine" value="MyISAM"/>
     </vendor>
   </table>
+  <table name="whseitempack" idMethod="native" phpName="Whseitempack">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="45" primaryKey="true" required="true"/>
+    <column name="ordn" phpName="Ordn" type="VARCHAR" size="10" primaryKey="true" required="true"/>
+    <column name="linenumber" phpName="Linenumber" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="carton" phpName="Carton" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="recordnumber" phpName="Recordnumber" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="itemid" phpName="Itemid" type="VARCHAR" size="45"/>
+    <column name="lotserial" phpName="Lotserial" type="VARCHAR" size="45"/>
+    <column name="qty" phpName="Qty" type="INTEGER"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="whseitempick" idMethod="native" phpName="Whseitempick">
     <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
     <column name="ordn" phpName="Ordn" type="VARCHAR" size="45" primaryKey="true" required="true"/>
@@ -2188,6 +2201,21 @@
     <column name="function" phpName="Function" type="VARCHAR" size="12"/>
     <column name="promptfunction" phpName="Promptfunction" type="VARCHAR" size="1"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="wmpackdet" idMethod="native" phpName="PackSalesOrderDetail">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="45" primaryKey="true" required="true"/>
+    <column name="ordernbr" phpName="Ordernbr" type="VARCHAR" size="45" primaryKey="true" required="true"/>
+    <column name="linenbr" phpName="Linenbr" type="VARCHAR" size="45" primaryKey="true" required="true"/>
+    <column name="itemid" phpName="Itemid" type="VARCHAR" size="45" primaryKey="true" required="true"/>
+    <column name="lotserial" phpName="Lotserial" type="VARCHAR" size="45" primaryKey="true" required="true"/>
+    <column name="qty_toship" phpName="QtyToship" type="INTEGER" size="6"/>
+    <column name="qty_packed" phpName="QtyPacked" type="INTEGER" size="6"/>
+    <column name="qty_remaining" phpName="QtyRemaining" type="INTEGER"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
