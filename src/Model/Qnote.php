@@ -2,6 +2,9 @@
 
 use Base\Qnote as BaseQnote;
 
+use Dpluso\Model\ThrowErrorTrait;
+use Dpluso\Model\MagicMethodTraits;
+
 /**
  * Skeleton subclass for representing a row from the 'qnote' table.
  *
@@ -13,8 +16,11 @@ use Base\Qnote as BaseQnote;
  *
  */
 class Qnote extends BaseQnote {
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
+
 	const SHOW_TRUE = 'Y';
-	
+
 	const TYPE_CART       = 'CART';
 	const TYPE_SALESORDER = 'SORD';
 	const TYPE_QUOTE      = 'QUOT';
@@ -35,4 +41,14 @@ class Qnote extends BaseQnote {
 	const SHOW_CART_PACK            = 'form3';
 	const SHOW_CART_INVOICE         = 'form4';
 	const SHOW_CART_ACKNOWLEDGEMENT = 'form5';
+
+	/**
+	 * Aliases for Class Properties
+	 * @var array
+	 */
+	const COLUMN_ALIASES = array(
+		'sessionID' => 'sessionid',
+		'type'      => 'rectype',
+		'note'      => 'notefld'
+	);
 }

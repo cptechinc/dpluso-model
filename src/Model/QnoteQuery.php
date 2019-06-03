@@ -1,7 +1,6 @@
 <?php
 
 use Base\QnoteQuery as BaseQnoteQuery;
-use Base\Qnote;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'qnote' table.
@@ -27,7 +26,7 @@ class QnoteQuery extends BaseQnoteQuery {
 		$this->filterBySessionid($sessionID);
 		$this->filterByRectype(Qnote::TYPE_SALESORDER);
 		$this->filterByKey1($ordn);
-		$this->filterByKey1($linenbr);
+		$this->filterByKey2($linenbr);
 		return $this;
 	}
 
