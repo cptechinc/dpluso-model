@@ -36,14 +36,23 @@
 		 * @return ModelCriteria          $this
 		 */
 		public function search_filter(array $columns, $q) {
-
 			foreach ($columns as $column) {
-				$tablemap_column = "COL_".strtoupper($column);
-				$mapclass = get_class($this->tableMap);
-				$tablecolumn = constant("$mapclass::$tablemap_column");
+				$tablecolumn = $this->get_tablecolumn($column);
 				$this->condition($column, "$tablecolumn LIKE ?", "%$q%");
 			}
 			$this->where($columns, Criteria::LOGICAL_OR);
 			return $this;
+		}
+
+		/**
+		 * Returns Table Map Column
+		 *
+		 * @param  string $prop  Property to lookup column
+		 * @return string        column
+		 */
+		public function get_tablecolumn($prop) {
+			$tablemap_column = "COL_".strtoupper($prop);
+			$mapclass = get_class($this->tableMap);
+			return constant("$mapclass::$tablemap_column");
 		}
 	}
