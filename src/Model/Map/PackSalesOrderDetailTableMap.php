@@ -173,12 +173,12 @@ class PackSalesOrderDetailTableMap extends TableMap
         // columns
         $this->addPrimaryKey('sessionid', 'Sessionid', 'VARCHAR', true, 45, null);
         $this->addPrimaryKey('ordernbr', 'Ordernbr', 'VARCHAR', true, 45, null);
-        $this->addPrimaryKey('linenbr', 'Linenbr', 'VARCHAR', true, 45, null);
+        $this->addPrimaryKey('linenbr', 'Linenbr', 'INTEGER', true, 8, null);
         $this->addPrimaryKey('itemid', 'Itemid', 'VARCHAR', true, 45, null);
         $this->addPrimaryKey('lotserial', 'Lotserial', 'VARCHAR', true, 45, null);
         $this->addColumn('qty_toship', 'QtyToship', 'INTEGER', false, 6, null);
         $this->addColumn('qty_packed', 'QtyPacked', 'INTEGER', false, 6, null);
-        $this->addColumn('qty_remaining', 'QtyRemaining', 'INTEGER', false, null, null);
+        $this->addColumn('qty_remaining', 'QtyRemaining', 'INTEGER', false, 6, null);
         $this->addColumn('date', 'Date', 'INTEGER', false, 8, null);
         $this->addColumn('time', 'Time', 'INTEGER', false, 8, null);
     } // initialize()
@@ -292,7 +292,7 @@ class PackSalesOrderDetailTableMap extends TableMap
                 ? 1 + $offset
                 : self::translateFieldName('Ordernbr', TableMap::TYPE_PHPNAME, $indexType)
         ];
-        $pks[] = (string) $row[
+        $pks[] = (int) $row[
             $indexType == TableMap::TYPE_NUM
                 ? 2 + $offset
                 : self::translateFieldName('Linenbr', TableMap::TYPE_PHPNAME, $indexType)

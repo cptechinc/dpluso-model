@@ -54,7 +54,7 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     ChildPackSalesOrderDetail findOneBySessionid(string $sessionid) Return the first ChildPackSalesOrderDetail filtered by the sessionid column
  * @method     ChildPackSalesOrderDetail findOneByOrdernbr(string $ordernbr) Return the first ChildPackSalesOrderDetail filtered by the ordernbr column
- * @method     ChildPackSalesOrderDetail findOneByLinenbr(string $linenbr) Return the first ChildPackSalesOrderDetail filtered by the linenbr column
+ * @method     ChildPackSalesOrderDetail findOneByLinenbr(int $linenbr) Return the first ChildPackSalesOrderDetail filtered by the linenbr column
  * @method     ChildPackSalesOrderDetail findOneByItemid(string $itemid) Return the first ChildPackSalesOrderDetail filtered by the itemid column
  * @method     ChildPackSalesOrderDetail findOneByLotserial(string $lotserial) Return the first ChildPackSalesOrderDetail filtered by the lotserial column
  * @method     ChildPackSalesOrderDetail findOneByQtyToship(int $qty_toship) Return the first ChildPackSalesOrderDetail filtered by the qty_toship column
@@ -68,7 +68,7 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     ChildPackSalesOrderDetail requireOneBySessionid(string $sessionid) Return the first ChildPackSalesOrderDetail filtered by the sessionid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPackSalesOrderDetail requireOneByOrdernbr(string $ordernbr) Return the first ChildPackSalesOrderDetail filtered by the ordernbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildPackSalesOrderDetail requireOneByLinenbr(string $linenbr) Return the first ChildPackSalesOrderDetail filtered by the linenbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPackSalesOrderDetail requireOneByLinenbr(int $linenbr) Return the first ChildPackSalesOrderDetail filtered by the linenbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPackSalesOrderDetail requireOneByItemid(string $itemid) Return the first ChildPackSalesOrderDetail filtered by the itemid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPackSalesOrderDetail requireOneByLotserial(string $lotserial) Return the first ChildPackSalesOrderDetail filtered by the lotserial column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPackSalesOrderDetail requireOneByQtyToship(int $qty_toship) Return the first ChildPackSalesOrderDetail filtered by the qty_toship column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -80,7 +80,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPackSalesOrderDetail[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildPackSalesOrderDetail objects based on current ModelCriteria
  * @method     ChildPackSalesOrderDetail[]|ObjectCollection findBySessionid(string $sessionid) Return ChildPackSalesOrderDetail objects filtered by the sessionid column
  * @method     ChildPackSalesOrderDetail[]|ObjectCollection findByOrdernbr(string $ordernbr) Return ChildPackSalesOrderDetail objects filtered by the ordernbr column
- * @method     ChildPackSalesOrderDetail[]|ObjectCollection findByLinenbr(string $linenbr) Return ChildPackSalesOrderDetail objects filtered by the linenbr column
+ * @method     ChildPackSalesOrderDetail[]|ObjectCollection findByLinenbr(int $linenbr) Return ChildPackSalesOrderDetail objects filtered by the linenbr column
  * @method     ChildPackSalesOrderDetail[]|ObjectCollection findByItemid(string $itemid) Return ChildPackSalesOrderDetail objects filtered by the itemid column
  * @method     ChildPackSalesOrderDetail[]|ObjectCollection findByLotserial(string $lotserial) Return ChildPackSalesOrderDetail objects filtered by the lotserial column
  * @method     ChildPackSalesOrderDetail[]|ObjectCollection findByQtyToship(int $qty_toship) Return ChildPackSalesOrderDetail objects filtered by the qty_toship column
@@ -191,7 +191,7 @@ abstract class PackSalesOrderDetailQuery extends ModelCriteria
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
             $stmt->bindValue(':p1', $key[1], PDO::PARAM_STR);
-            $stmt->bindValue(':p2', $key[2], PDO::PARAM_STR);
+            $stmt->bindValue(':p2', $key[2], PDO::PARAM_INT);
             $stmt->bindValue(':p3', $key[3], PDO::PARAM_STR);
             $stmt->bindValue(':p4', $key[4], PDO::PARAM_STR);
             $stmt->execute();
@@ -355,19 +355,35 @@ abstract class PackSalesOrderDetailQuery extends ModelCriteria
      *
      * Example usage:
      * <code>
-     * $query->filterByLinenbr('fooValue');   // WHERE linenbr = 'fooValue'
-     * $query->filterByLinenbr('%fooValue%', Criteria::LIKE); // WHERE linenbr LIKE '%fooValue%'
+     * $query->filterByLinenbr(1234); // WHERE linenbr = 1234
+     * $query->filterByLinenbr(array(12, 34)); // WHERE linenbr IN (12, 34)
+     * $query->filterByLinenbr(array('min' => 12)); // WHERE linenbr > 12
      * </code>
      *
-     * @param     string $linenbr The value to use as filter.
+     * @param     mixed $linenbr The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildPackSalesOrderDetailQuery The current query, for fluid interface
      */
     public function filterByLinenbr($linenbr = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($linenbr)) {
+        if (is_array($linenbr)) {
+            $useMinMax = false;
+            if (isset($linenbr['min'])) {
+                $this->addUsingAlias(PackSalesOrderDetailTableMap::COL_LINENBR, $linenbr['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($linenbr['max'])) {
+                $this->addUsingAlias(PackSalesOrderDetailTableMap::COL_LINENBR, $linenbr['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }

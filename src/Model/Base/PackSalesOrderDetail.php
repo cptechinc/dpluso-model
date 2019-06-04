@@ -76,7 +76,7 @@ abstract class PackSalesOrderDetail implements ActiveRecordInterface
     /**
      * The value for the linenbr field.
      *
-     * @var        string
+     * @var        int
      */
     protected $linenbr;
 
@@ -385,7 +385,7 @@ abstract class PackSalesOrderDetail implements ActiveRecordInterface
     /**
      * Get the [linenbr] column value.
      *
-     * @return string
+     * @return int
      */
     public function getLinenbr()
     {
@@ -505,13 +505,13 @@ abstract class PackSalesOrderDetail implements ActiveRecordInterface
     /**
      * Set the value of [linenbr] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\PackSalesOrderDetail The current object (for fluent API support)
      */
     public function setLinenbr($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->linenbr !== $v) {
@@ -705,7 +705,7 @@ abstract class PackSalesOrderDetail implements ActiveRecordInterface
             $this->ordernbr = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : PackSalesOrderDetailTableMap::translateFieldName('Linenbr', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->linenbr = (null !== $col) ? (string) $col : null;
+            $this->linenbr = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : PackSalesOrderDetailTableMap::translateFieldName('Itemid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->itemid = (null !== $col) ? (string) $col : null;
@@ -980,7 +980,7 @@ abstract class PackSalesOrderDetail implements ActiveRecordInterface
                         $stmt->bindValue($identifier, $this->ordernbr, PDO::PARAM_STR);
                         break;
                     case 'linenbr':
-                        $stmt->bindValue($identifier, $this->linenbr, PDO::PARAM_STR);
+                        $stmt->bindValue($identifier, $this->linenbr, PDO::PARAM_INT);
                         break;
                     case 'itemid':
                         $stmt->bindValue($identifier, $this->itemid, PDO::PARAM_STR);
