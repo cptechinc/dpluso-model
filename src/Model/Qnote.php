@@ -51,4 +51,16 @@ class Qnote extends BaseQnote {
 		'type'      => 'rectype',
 		'note'      => 'notefld'
 	);
+
+	/**
+	 * Returns the value at the form field
+	 * @param  string $form pick, pack, invoice, acknowledgement
+	 * @return string       Form Value
+	 */
+	public function get_salesorder_form($form) {
+		$form = strtoupper($form);
+		$class = get_class();
+		$prop = constant("$class::SHOW_SALESORDER_$form");
+		return $this->$prop;
+	}
 }
