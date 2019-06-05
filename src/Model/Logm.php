@@ -4,6 +4,7 @@ use Base\Logm as BaseLogm;
 
 use Dpluso\Model\ThrowErrorTrait;
 use Dpluso\Model\MagicMethodTraits;
+
 /**
  * Skeleton subclass for representing a row from the 'logm' table.
  *

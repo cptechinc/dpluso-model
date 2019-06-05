@@ -2,6 +2,9 @@
 
 use Base\Ordrdet as BaseOrdrdet;
 
+use Dpluso\Model\ThrowErrorTrait;
+use Dpluso\Model\MagicMethodTraits;
+
 /**
  * Skeleton subclass for representing a row from the 'ordrdet' table.
  *
@@ -12,7 +15,7 @@ use Base\Ordrdet as BaseOrdrdet;
  * long as it does not already exist in the output directory.
  *
  */
-class Ordrdet extends BaseOrdrdet
-{
-
+class Ordrdet extends BaseOrdrdet {
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
 }

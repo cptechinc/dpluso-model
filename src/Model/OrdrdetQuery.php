@@ -12,7 +12,32 @@ use Base\OrdrdetQuery as BaseOrdrdetQuery;
  * long as it does not already exist in the output directory.
  *
  */
-class OrdrdetQuery extends BaseOrdrdetQuery
-{
+class OrdrdetQuery extends BaseOrdrdetQuery {
 
+	/**
+	 * Filter the query on the sessionid, Orderno column
+	 * @param  string $sessionID Session ID
+	 * @param  string $ordn      Sales Order Number
+	 * @param  int    $linenbr   Line Number
+	 * @return $this|OrdrhedQuery The current query, for fluid interface
+	 */
+	public function filterBySessionidOrderLineNbr($sessionID, $ordn, $linenbr) {
+		$this->filterBySessionid($sessionID);
+		$this->filterByOrderno($ordn);
+		$this->filterByLinenbr($linenbr);
+		return $this;
+	}
+
+	/**
+	 * Return the first Ordrhed filtered by the sessionid, orderno column
+	 * @param  string $sessionID Session ID
+	 * @param  string $ordn      Sales Order Number
+	 * @param  int    $linenbr   Line Number
+	 * @return Ordrhed
+	 */
+	public function findOneBySessionidOrder($sessionID, $ordn, $linenbr) {
+		$this->clear();
+		$this->filterBySessionidOrderLinenbr($sessionID, $ordn, $linenbr);
+		return $this->findOne();
+	}
 }
