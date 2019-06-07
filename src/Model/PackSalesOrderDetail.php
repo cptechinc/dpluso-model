@@ -27,6 +27,32 @@ class PackSalesOrderDetail extends BasePackSalesOrderDetail {
 	const COLUMN_ALIASES = array(
 		'sessionID' => 'sessionid',
 		'ordn'      => 'ordernbr',
-		'itemid'    => 'itemnbr'
 	);
+
+	/**
+	 * Return is Item is serialized
+	 *
+	 * @return bool Is item Serialized?
+	 */
+	public function is_item_serialized() {
+		return ItemmasterQuery::create()->is_item_serialized($this->itemid);
+	}
+
+	/**
+	 * Return is Item is lotted
+	 *
+	 * @return bool Is item Lotted?
+	 */
+	public function is_item_lotted() {
+		return ItemmasterQuery::create()->is_item_lotted($this->itemid);
+	}
+
+	/**
+	 * Return is Item is Normal
+	 *
+	 * @return bool Is item Normal?
+	 */
+	public function is_item_normal() {
+		return ItemmasterQuery::create()->is_item_normal($this->itemid);
+	}
 }

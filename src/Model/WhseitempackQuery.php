@@ -15,24 +15,24 @@ use Base\WhseitempackQuery as BaseWhseitempackQuery;
 class WhseitempackQuery extends BaseWhseitempackQuery {
 	/**
 	 * Return Whseitempack object by the sessionid, ordernbr, linenbr, recordnumber columns
-	 * 
+	 *
 	 * @param  string $sessionID     Session Identifier
 	 * @param  string $ordn          Sales Order Number
 	 * @param  int    $linenbr       Pick Order Line Number
 	 * @param  int    $recordnumber  Record Number
-	 * @return Whseitempack[]|ObjectCollection
+	 * @return Whseitempack
 	 */
 	public function findOneBySessionidOrdnLinenbrRecordnumber($sessionID, $ordn, $linenbr, $recordnumber) {
 		$this->clear();
 		$this->filterByOrdn($ordn);
-		$this->filterByLinenbr($linenbr);
+		$this->filterByLinenumber($linenbr);
 		$this->filterByRecordnumber($recordnumber);
 		return $this->findOneBySessionid($sessionID);
 	}
 
 	/**
 	 * Returns if Sales Order Detail Line is being Packed by another Session
-	 * 
+	 *
 	 * @param  string $sessionID User SessionID
 	 * @param  string $ordn      Sales Order Number
 	 * @param  int    $linenbr   Line Number
@@ -43,8 +43,7 @@ class WhseitempackQuery extends BaseWhseitempackQuery {
 		$this->addAsColumn('count', 'COUNT(*)');
 		$this->select('count');
 		$this->filterByOrdn($ordn);
-		$this->filterByLinenbr($linenbr);
-		//$this->where('whseitempick.sessionid != ?', $sessionID);
+		$this->filterByLinenumber($linenbr);
 		return boolval($this->findOne());
 	}
 
@@ -61,7 +60,7 @@ class WhseitempackQuery extends BaseWhseitempackQuery {
 		$this->addAsColumn('count', 'COUNT(*)');
 		$this->select('count');
 		$this->filterByOrdn($ordn);
-		$this->filterByLinenbr($linenbr);
+		$this->filterByLinenumber($linenbr);
 		$this->filterBySessionid($sessionID);
 		return boolval($this->findOne());
 	}
@@ -89,7 +88,41 @@ class WhseitempackQuery extends BaseWhseitempackQuery {
 	 */
 	public function filterBySessionidOrderLinenbr($sessionID, $ordn, $linenbr) {
 		$this->filterBySessionidOrder($sessionID, $ordn);
-		$this->filterByLinenbr($linenbr);
+		$this->filterByLinenumber($linenbr);
 		return $this;
+	}
+
+	/**
+	 * Returns the Max Record Number for the Linenbr filtered
+	 * by the sessionid, ordernumber and itemid columns
+	 *
+	 * @param  string $sessionID Session Identifier
+	 * @param  string $ordn      Sales Order Number
+	 * @param  string $linenbr   Linenbr
+	 * @return int               Order Line Max record number
+	 */
+	public function get_max_orderline_recordnumber($sessionID, $ordn, $linenbr) {
+		$this->clear();
+		$this->addAsColumn('max', 'MAX(recordnumber)');
+		$this->select('max');
+		$this->filterByOrdn($ordn);
+		$this->filterByLinenumber($linenbr);
+		return $this->findOneBySessionid($sessionID);
+	}
+
+	/**
+	 * Get Qty Packed for Order Line
+	 *
+	 * @param  string $sessionID Session Identifier
+	 * @param  string $ordn      Sales Order Number
+	 * @param  string $linenbr   Linenbr
+	 * @return int               Order Line Qty Total
+	 */
+	public function get_orderline_qty($sessionID, $ordn, $linenbr) {
+		$this->clear();
+		$this->addAsColumn('qty', 'SUM(qty)');
+		$this->select('qty');
+		$this->filterBySessionidOrderLinenbr($sessionID, $ordn, $linenbr);
+		return $this->findOne();
 	}
 }

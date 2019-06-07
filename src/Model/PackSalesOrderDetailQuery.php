@@ -47,7 +47,7 @@ class PackSalesOrderDetailQuery extends BasePackSalesOrderDetailQuery {
 	 *
 	 * @param  string $sessionID  Session ID
 	 * @param  string $ordn       Sales Order Number
-	 * @return PackSalesOrderDetail
+	 * @return PackSalesOrderDetail[]|ObjectCollection
 	 */
 	public function findBySessionidOrderGroupedUnpacked($sessionID, $ordn) {
 		$this->clear();
@@ -62,7 +62,7 @@ class PackSalesOrderDetailQuery extends BasePackSalesOrderDetailQuery {
 	 *
 	 * @param  string $sessionID  Session ID
 	 * @param  string $ordn       Sales Order Number
-	 * @return PackSalesOrderDetail
+	 * @return PackSalesOrderDetail[]|ObjectCollection
 	 */
 	public function findBySessionidOrderGroupedPacked($sessionID, $ordn) {
 		$this->clear();
@@ -80,15 +80,20 @@ class PackSalesOrderDetailQuery extends BasePackSalesOrderDetailQuery {
 	 * @param  int    $linenbr    Line Number
 	 * @return PackSalesOrderDetail
 	 */
-	public function findBySessionidOrderLinenbr($sessionID, $ordn, $linenbr) {
+	public function findOneBySessionidOrderLinenbr($sessionID, $ordn, $linenbr) {
 		$this->clear();
 		$this->filterBySessionidOrder($sessionID, $ordn);
 		$this->filterByLinenbr($linenbr);
-		return $this->find();
+		return $this->findOne();
 	}
 
-
-
+	/**
+	 * Return total Qty to ship for Line
+	 * @param  string $sessionID Session ID
+	 * @param  string $ordn      Sales Order Number
+	 * @param  int    $linenbr   Line Number
+	 * @return int               total Qty to ship
+	 */
 	public function get_line_qtytoship($sessionID, $ordn, $linenbr) {
 		$this->clear();
 		$this->addAsColumn('qty', 'SUM(qty_toship)');
@@ -98,6 +103,13 @@ class PackSalesOrderDetailQuery extends BasePackSalesOrderDetailQuery {
 		return $this->findOne();
 	}
 
+	/**
+	 * Return total Qty packed for Line
+	 * @param  string $sessionID Session ID
+	 * @param  string $ordn      Sales Order Number
+	 * @param  int    $linenbr   Line Number
+	 * @return int               total Qty packed
+	 */
 	public function get_line_qtypacked($sessionID, $ordn, $linenbr) {
 		$this->clear();
 		$this->addAsColumn('qty', 'SUM(qty_packed)');
@@ -107,6 +119,13 @@ class PackSalesOrderDetailQuery extends BasePackSalesOrderDetailQuery {
 		return $this->findOne();
 	}
 
+	/**
+	 * Return total Qty remaining for Line
+	 * @param  string $sessionID Session ID
+	 * @param  string $ordn      Sales Order Number
+	 * @param  int    $linenbr   Line Number
+	 * @return int               total Qty remaining
+	 */
 	public function get_line_qtyremaining($sessionID, $ordn, $linenbr) {
 		$this->clear();
 		$this->addAsColumn('qty', 'SUM(qty_packed)');
