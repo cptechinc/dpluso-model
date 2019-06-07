@@ -1,9 +1,12 @@
 <?php
 
-use Base\OrdrhedQuery as BaseOrdrhedQuery;
+use Base\Ordrhed as BaseOrdrhed;
+
+use Dpluso\Model\ThrowErrorTrait;
+use Dpluso\Model\MagicMethodTraits;
 
 /**
- * Skeleton subclass for performing query and update operations on the 'ordrhed' table.
+ * Skeleton subclass for representing a row from the 'ordrhed' table.
  *
  *
  *
@@ -12,28 +15,7 @@ use Base\OrdrhedQuery as BaseOrdrhedQuery;
  * long as it does not already exist in the output directory.
  *
  */
-class OrdrhedQuery extends BaseOrdrhedQuery {
-	/**
-	 * Filter the query on the sessionid, Orderno column
-	 * @param  string $sessionID Session ID
-	 * @param  string $ordn      Sales Order Number
-	 * @return $this|OrdrhedQuery The current query, for fluid interface
-	 */
-	public function filterBySessionidOrder($sessionID, $ordn) {
-		$this->filterBySessionid($sessionID);
-		$this->filterByOrderno($ordn);
-		return $this;
-	}
-
-	/**
-	 * Return the first Ordrhed filtered by the sessionid, orderno column
-	 * @param  string $sessionID Session ID
-	 * @param  string $ordn      Sales Order Number
-	 * @return Ordrhed
-	 */
-	public function findOneBySessionidOrder($sessionID, $ordn) {
-		$this->clear();
-		$this->filterBySessionidOrder($sessionID, $ordn);
-		return $this->findOne();
-	}
+class Ordrhed extends BaseOrdrhed {
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
 }
