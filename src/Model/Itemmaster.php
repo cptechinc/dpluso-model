@@ -23,4 +23,16 @@ class Itemmaster extends BaseItemmaster {
 	const ITEMTYPE_LOTTED     = 'L';
 	const ITEMTYPE_NORMAL     = 'N';
 	const ITEMTYPE_PRICEONLY  = 'P';
+	
+	const ITEMID_NONSTOCK     = 'N';
+
+	/**
+	 * Return if the Item ID provided is a NON-STOCK Item ID
+	 *
+	 * @param  string $itemID
+	 * @return bool
+	 */
+	public static function is_itemid_nonstock($itemID) {
+		return $itemID == self::ITEMID_NONSTOCK;
+	}
 }

@@ -55,4 +55,13 @@ class PackSalesOrderDetail extends BasePackSalesOrderDetail {
 	public function is_item_normal() {
 		return ItemmasterQuery::create()->is_item_normal($this->itemid);
 	}
+
+	/**
+	 * Return if item is a Non Stock
+	 *
+	 * @return bool
+	 */
+	public function is_item_nonstock() {
+		return Itemmaster::is_itemid_nonstock($this->itemid);
+	}
 }
