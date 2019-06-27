@@ -18,4 +18,13 @@ use Dpluso\Model\MagicMethodTraits;
 class Ordrdet extends BaseOrdrdet {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
+
+	/**
+	 * Column Aliases to lookup / get properties
+	 * @var array
+	 */
+	const COLUMN_ALIASES = array(
+		'ordernumber'   => 'orderno',
+		'ordn'          => 'orderno',
+	);
 }

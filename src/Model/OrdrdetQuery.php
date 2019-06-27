@@ -18,12 +18,23 @@ class OrdrdetQuery extends BaseOrdrdetQuery {
 	 * Filter the query on the sessionid, Orderno column
 	 * @param  string $sessionID Session ID
 	 * @param  string $ordn      Sales Order Number
-	 * @param  int    $linenbr   Line Number
-	 * @return $this|OrdrhedQuery The current query, for fluid interface
+	 * @return $this|OrdrdetQuery The current query, for fluid interface
 	 */
-	public function filterBySessionidOrderLineNbr($sessionID, $ordn, $linenbr) {
+	public function filterBySessionidOrder($sessionID, $ordn) {
 		$this->filterBySessionid($sessionID);
 		$this->filterByOrderno($ordn);
+		return $this;
+	}
+
+	/**
+	 * Filter the query on the sessionid, Orderno column
+	 * @param  string $sessionID Session ID
+	 * @param  string $ordn      Sales Order Number
+	 * @param  int    $linenbr   Line Number
+	 * @return $this|OrdrdetQuery The current query, for fluid interface
+	 */
+	public function filterBySessionidOrderLineNbr($sessionID, $ordn, $linenbr) {
+		$this->filterBySessionidOrder($sessionID, $ordn);
 		$this->filterByLinenbr($linenbr);
 		return $this;
 	}
