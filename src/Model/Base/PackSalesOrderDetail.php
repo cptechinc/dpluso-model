@@ -95,6 +95,20 @@ abstract class PackSalesOrderDetail implements ActiveRecordInterface
     protected $lotserial;
 
     /**
+     * The value for the desc1 field.
+     *
+     * @var        string
+     */
+    protected $desc1;
+
+    /**
+     * The value for the desc2 field.
+     *
+     * @var        string
+     */
+    protected $desc2;
+
+    /**
      * The value for the qty_toship field.
      *
      * @var        int
@@ -413,6 +427,26 @@ abstract class PackSalesOrderDetail implements ActiveRecordInterface
     }
 
     /**
+     * Get the [desc1] column value.
+     *
+     * @return string
+     */
+    public function getDesc1()
+    {
+        return $this->desc1;
+    }
+
+    /**
+     * Get the [desc2] column value.
+     *
+     * @return string
+     */
+    public function getDesc2()
+    {
+        return $this->desc2;
+    }
+
+    /**
      * Get the [qty_toship] column value.
      *
      * @return int
@@ -561,6 +595,46 @@ abstract class PackSalesOrderDetail implements ActiveRecordInterface
 
         return $this;
     } // setLotserial()
+
+    /**
+     * Set the value of [desc1] column.
+     *
+     * @param string $v new value
+     * @return $this|\PackSalesOrderDetail The current object (for fluent API support)
+     */
+    public function setDesc1($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->desc1 !== $v) {
+            $this->desc1 = $v;
+            $this->modifiedColumns[PackSalesOrderDetailTableMap::COL_DESC1] = true;
+        }
+
+        return $this;
+    } // setDesc1()
+
+    /**
+     * Set the value of [desc2] column.
+     *
+     * @param string $v new value
+     * @return $this|\PackSalesOrderDetail The current object (for fluent API support)
+     */
+    public function setDesc2($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->desc2 !== $v) {
+            $this->desc2 = $v;
+            $this->modifiedColumns[PackSalesOrderDetailTableMap::COL_DESC2] = true;
+        }
+
+        return $this;
+    } // setDesc2()
 
     /**
      * Set the value of [qty_toship] column.
@@ -713,19 +787,25 @@ abstract class PackSalesOrderDetail implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : PackSalesOrderDetailTableMap::translateFieldName('Lotserial', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lotserial = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : PackSalesOrderDetailTableMap::translateFieldName('QtyToship', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : PackSalesOrderDetailTableMap::translateFieldName('Desc1', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->desc1 = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : PackSalesOrderDetailTableMap::translateFieldName('Desc2', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->desc2 = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : PackSalesOrderDetailTableMap::translateFieldName('QtyToship', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qty_toship = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : PackSalesOrderDetailTableMap::translateFieldName('QtyPacked', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : PackSalesOrderDetailTableMap::translateFieldName('QtyPacked', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qty_packed = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : PackSalesOrderDetailTableMap::translateFieldName('QtyRemaining', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : PackSalesOrderDetailTableMap::translateFieldName('QtyRemaining', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qty_remaining = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : PackSalesOrderDetailTableMap::translateFieldName('Date', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : PackSalesOrderDetailTableMap::translateFieldName('Date', TableMap::TYPE_PHPNAME, $indexType)];
             $this->date = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : PackSalesOrderDetailTableMap::translateFieldName('Time', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : PackSalesOrderDetailTableMap::translateFieldName('Time', TableMap::TYPE_PHPNAME, $indexType)];
             $this->time = (null !== $col) ? (int) $col : null;
             $this->resetModified();
 
@@ -735,7 +815,7 @@ abstract class PackSalesOrderDetail implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 10; // 10 = PackSalesOrderDetailTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 12; // 12 = PackSalesOrderDetailTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\PackSalesOrderDetail'), 0, $e);
@@ -947,6 +1027,12 @@ abstract class PackSalesOrderDetail implements ActiveRecordInterface
         if ($this->isColumnModified(PackSalesOrderDetailTableMap::COL_LOTSERIAL)) {
             $modifiedColumns[':p' . $index++]  = 'lotserial';
         }
+        if ($this->isColumnModified(PackSalesOrderDetailTableMap::COL_DESC1)) {
+            $modifiedColumns[':p' . $index++]  = 'desc1';
+        }
+        if ($this->isColumnModified(PackSalesOrderDetailTableMap::COL_DESC2)) {
+            $modifiedColumns[':p' . $index++]  = 'desc2';
+        }
         if ($this->isColumnModified(PackSalesOrderDetailTableMap::COL_QTY_TOSHIP)) {
             $modifiedColumns[':p' . $index++]  = 'qty_toship';
         }
@@ -987,6 +1073,12 @@ abstract class PackSalesOrderDetail implements ActiveRecordInterface
                         break;
                     case 'lotserial':
                         $stmt->bindValue($identifier, $this->lotserial, PDO::PARAM_STR);
+                        break;
+                    case 'desc1':
+                        $stmt->bindValue($identifier, $this->desc1, PDO::PARAM_STR);
+                        break;
+                    case 'desc2':
+                        $stmt->bindValue($identifier, $this->desc2, PDO::PARAM_STR);
                         break;
                     case 'qty_toship':
                         $stmt->bindValue($identifier, $this->qty_toship, PDO::PARAM_INT);
@@ -1074,18 +1166,24 @@ abstract class PackSalesOrderDetail implements ActiveRecordInterface
                 return $this->getLotserial();
                 break;
             case 5:
-                return $this->getQtyToship();
+                return $this->getDesc1();
                 break;
             case 6:
-                return $this->getQtyPacked();
+                return $this->getDesc2();
                 break;
             case 7:
-                return $this->getQtyRemaining();
+                return $this->getQtyToship();
                 break;
             case 8:
-                return $this->getDate();
+                return $this->getQtyPacked();
                 break;
             case 9:
+                return $this->getQtyRemaining();
+                break;
+            case 10:
+                return $this->getDate();
+                break;
+            case 11:
                 return $this->getTime();
                 break;
             default:
@@ -1122,11 +1220,13 @@ abstract class PackSalesOrderDetail implements ActiveRecordInterface
             $keys[2] => $this->getLinenbr(),
             $keys[3] => $this->getItemid(),
             $keys[4] => $this->getLotserial(),
-            $keys[5] => $this->getQtyToship(),
-            $keys[6] => $this->getQtyPacked(),
-            $keys[7] => $this->getQtyRemaining(),
-            $keys[8] => $this->getDate(),
-            $keys[9] => $this->getTime(),
+            $keys[5] => $this->getDesc1(),
+            $keys[6] => $this->getDesc2(),
+            $keys[7] => $this->getQtyToship(),
+            $keys[8] => $this->getQtyPacked(),
+            $keys[9] => $this->getQtyRemaining(),
+            $keys[10] => $this->getDate(),
+            $keys[11] => $this->getTime(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -1182,18 +1282,24 @@ abstract class PackSalesOrderDetail implements ActiveRecordInterface
                 $this->setLotserial($value);
                 break;
             case 5:
-                $this->setQtyToship($value);
+                $this->setDesc1($value);
                 break;
             case 6:
-                $this->setQtyPacked($value);
+                $this->setDesc2($value);
                 break;
             case 7:
-                $this->setQtyRemaining($value);
+                $this->setQtyToship($value);
                 break;
             case 8:
-                $this->setDate($value);
+                $this->setQtyPacked($value);
                 break;
             case 9:
+                $this->setQtyRemaining($value);
+                break;
+            case 10:
+                $this->setDate($value);
+                break;
+            case 11:
                 $this->setTime($value);
                 break;
         } // switch()
@@ -1238,19 +1344,25 @@ abstract class PackSalesOrderDetail implements ActiveRecordInterface
             $this->setLotserial($arr[$keys[4]]);
         }
         if (array_key_exists($keys[5], $arr)) {
-            $this->setQtyToship($arr[$keys[5]]);
+            $this->setDesc1($arr[$keys[5]]);
         }
         if (array_key_exists($keys[6], $arr)) {
-            $this->setQtyPacked($arr[$keys[6]]);
+            $this->setDesc2($arr[$keys[6]]);
         }
         if (array_key_exists($keys[7], $arr)) {
-            $this->setQtyRemaining($arr[$keys[7]]);
+            $this->setQtyToship($arr[$keys[7]]);
         }
         if (array_key_exists($keys[8], $arr)) {
-            $this->setDate($arr[$keys[8]]);
+            $this->setQtyPacked($arr[$keys[8]]);
         }
         if (array_key_exists($keys[9], $arr)) {
-            $this->setTime($arr[$keys[9]]);
+            $this->setQtyRemaining($arr[$keys[9]]);
+        }
+        if (array_key_exists($keys[10], $arr)) {
+            $this->setDate($arr[$keys[10]]);
+        }
+        if (array_key_exists($keys[11], $arr)) {
+            $this->setTime($arr[$keys[11]]);
         }
     }
 
@@ -1307,6 +1419,12 @@ abstract class PackSalesOrderDetail implements ActiveRecordInterface
         }
         if ($this->isColumnModified(PackSalesOrderDetailTableMap::COL_LOTSERIAL)) {
             $criteria->add(PackSalesOrderDetailTableMap::COL_LOTSERIAL, $this->lotserial);
+        }
+        if ($this->isColumnModified(PackSalesOrderDetailTableMap::COL_DESC1)) {
+            $criteria->add(PackSalesOrderDetailTableMap::COL_DESC1, $this->desc1);
+        }
+        if ($this->isColumnModified(PackSalesOrderDetailTableMap::COL_DESC2)) {
+            $criteria->add(PackSalesOrderDetailTableMap::COL_DESC2, $this->desc2);
         }
         if ($this->isColumnModified(PackSalesOrderDetailTableMap::COL_QTY_TOSHIP)) {
             $criteria->add(PackSalesOrderDetailTableMap::COL_QTY_TOSHIP, $this->qty_toship);
@@ -1434,6 +1552,8 @@ abstract class PackSalesOrderDetail implements ActiveRecordInterface
         $copyObj->setLinenbr($this->getLinenbr());
         $copyObj->setItemid($this->getItemid());
         $copyObj->setLotserial($this->getLotserial());
+        $copyObj->setDesc1($this->getDesc1());
+        $copyObj->setDesc2($this->getDesc2());
         $copyObj->setQtyToship($this->getQtyToship());
         $copyObj->setQtyPacked($this->getQtyPacked());
         $copyObj->setQtyRemaining($this->getQtyRemaining());
@@ -1478,6 +1598,8 @@ abstract class PackSalesOrderDetail implements ActiveRecordInterface
         $this->linenbr = null;
         $this->itemid = null;
         $this->lotserial = null;
+        $this->desc1 = null;
+        $this->desc2 = null;
         $this->qty_toship = null;
         $this->qty_packed = null;
         $this->qty_remaining = null;

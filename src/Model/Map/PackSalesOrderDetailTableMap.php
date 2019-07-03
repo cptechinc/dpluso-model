@@ -59,7 +59,7 @@ class PackSalesOrderDetailTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 10;
+    const NUM_COLUMNS = 12;
 
     /**
      * The number of lazy-loaded columns
@@ -69,7 +69,7 @@ class PackSalesOrderDetailTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 10;
+    const NUM_HYDRATE_COLUMNS = 12;
 
     /**
      * the column name for the sessionid field
@@ -95,6 +95,16 @@ class PackSalesOrderDetailTableMap extends TableMap
      * the column name for the lotserial field
      */
     const COL_LOTSERIAL = 'wmpackdet.lotserial';
+
+    /**
+     * the column name for the desc1 field
+     */
+    const COL_DESC1 = 'wmpackdet.desc1';
+
+    /**
+     * the column name for the desc2 field
+     */
+    const COL_DESC2 = 'wmpackdet.desc2';
 
     /**
      * the column name for the qty_toship field
@@ -133,11 +143,11 @@ class PackSalesOrderDetailTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Sessionid', 'Ordernbr', 'Linenbr', 'Itemid', 'Lotserial', 'QtyToship', 'QtyPacked', 'QtyRemaining', 'Date', 'Time', ),
-        self::TYPE_CAMELNAME     => array('sessionid', 'ordernbr', 'linenbr', 'itemid', 'lotserial', 'qtyToship', 'qtyPacked', 'qtyRemaining', 'date', 'time', ),
-        self::TYPE_COLNAME       => array(PackSalesOrderDetailTableMap::COL_SESSIONID, PackSalesOrderDetailTableMap::COL_ORDERNBR, PackSalesOrderDetailTableMap::COL_LINENBR, PackSalesOrderDetailTableMap::COL_ITEMID, PackSalesOrderDetailTableMap::COL_LOTSERIAL, PackSalesOrderDetailTableMap::COL_QTY_TOSHIP, PackSalesOrderDetailTableMap::COL_QTY_PACKED, PackSalesOrderDetailTableMap::COL_QTY_REMAINING, PackSalesOrderDetailTableMap::COL_DATE, PackSalesOrderDetailTableMap::COL_TIME, ),
-        self::TYPE_FIELDNAME     => array('sessionid', 'ordernbr', 'linenbr', 'itemid', 'lotserial', 'qty_toship', 'qty_packed', 'qty_remaining', 'date', 'time', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, )
+        self::TYPE_PHPNAME       => array('Sessionid', 'Ordernbr', 'Linenbr', 'Itemid', 'Lotserial', 'Desc1', 'Desc2', 'QtyToship', 'QtyPacked', 'QtyRemaining', 'Date', 'Time', ),
+        self::TYPE_CAMELNAME     => array('sessionid', 'ordernbr', 'linenbr', 'itemid', 'lotserial', 'desc1', 'desc2', 'qtyToship', 'qtyPacked', 'qtyRemaining', 'date', 'time', ),
+        self::TYPE_COLNAME       => array(PackSalesOrderDetailTableMap::COL_SESSIONID, PackSalesOrderDetailTableMap::COL_ORDERNBR, PackSalesOrderDetailTableMap::COL_LINENBR, PackSalesOrderDetailTableMap::COL_ITEMID, PackSalesOrderDetailTableMap::COL_LOTSERIAL, PackSalesOrderDetailTableMap::COL_DESC1, PackSalesOrderDetailTableMap::COL_DESC2, PackSalesOrderDetailTableMap::COL_QTY_TOSHIP, PackSalesOrderDetailTableMap::COL_QTY_PACKED, PackSalesOrderDetailTableMap::COL_QTY_REMAINING, PackSalesOrderDetailTableMap::COL_DATE, PackSalesOrderDetailTableMap::COL_TIME, ),
+        self::TYPE_FIELDNAME     => array('sessionid', 'ordernbr', 'linenbr', 'itemid', 'lotserial', 'desc1', 'desc2', 'qty_toship', 'qty_packed', 'qty_remaining', 'date', 'time', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, )
     );
 
     /**
@@ -147,11 +157,11 @@ class PackSalesOrderDetailTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Ordernbr' => 1, 'Linenbr' => 2, 'Itemid' => 3, 'Lotserial' => 4, 'QtyToship' => 5, 'QtyPacked' => 6, 'QtyRemaining' => 7, 'Date' => 8, 'Time' => 9, ),
-        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'ordernbr' => 1, 'linenbr' => 2, 'itemid' => 3, 'lotserial' => 4, 'qtyToship' => 5, 'qtyPacked' => 6, 'qtyRemaining' => 7, 'date' => 8, 'time' => 9, ),
-        self::TYPE_COLNAME       => array(PackSalesOrderDetailTableMap::COL_SESSIONID => 0, PackSalesOrderDetailTableMap::COL_ORDERNBR => 1, PackSalesOrderDetailTableMap::COL_LINENBR => 2, PackSalesOrderDetailTableMap::COL_ITEMID => 3, PackSalesOrderDetailTableMap::COL_LOTSERIAL => 4, PackSalesOrderDetailTableMap::COL_QTY_TOSHIP => 5, PackSalesOrderDetailTableMap::COL_QTY_PACKED => 6, PackSalesOrderDetailTableMap::COL_QTY_REMAINING => 7, PackSalesOrderDetailTableMap::COL_DATE => 8, PackSalesOrderDetailTableMap::COL_TIME => 9, ),
-        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'ordernbr' => 1, 'linenbr' => 2, 'itemid' => 3, 'lotserial' => 4, 'qty_toship' => 5, 'qty_packed' => 6, 'qty_remaining' => 7, 'date' => 8, 'time' => 9, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, )
+        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Ordernbr' => 1, 'Linenbr' => 2, 'Itemid' => 3, 'Lotserial' => 4, 'Desc1' => 5, 'Desc2' => 6, 'QtyToship' => 7, 'QtyPacked' => 8, 'QtyRemaining' => 9, 'Date' => 10, 'Time' => 11, ),
+        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'ordernbr' => 1, 'linenbr' => 2, 'itemid' => 3, 'lotserial' => 4, 'desc1' => 5, 'desc2' => 6, 'qtyToship' => 7, 'qtyPacked' => 8, 'qtyRemaining' => 9, 'date' => 10, 'time' => 11, ),
+        self::TYPE_COLNAME       => array(PackSalesOrderDetailTableMap::COL_SESSIONID => 0, PackSalesOrderDetailTableMap::COL_ORDERNBR => 1, PackSalesOrderDetailTableMap::COL_LINENBR => 2, PackSalesOrderDetailTableMap::COL_ITEMID => 3, PackSalesOrderDetailTableMap::COL_LOTSERIAL => 4, PackSalesOrderDetailTableMap::COL_DESC1 => 5, PackSalesOrderDetailTableMap::COL_DESC2 => 6, PackSalesOrderDetailTableMap::COL_QTY_TOSHIP => 7, PackSalesOrderDetailTableMap::COL_QTY_PACKED => 8, PackSalesOrderDetailTableMap::COL_QTY_REMAINING => 9, PackSalesOrderDetailTableMap::COL_DATE => 10, PackSalesOrderDetailTableMap::COL_TIME => 11, ),
+        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'ordernbr' => 1, 'linenbr' => 2, 'itemid' => 3, 'lotserial' => 4, 'desc1' => 5, 'desc2' => 6, 'qty_toship' => 7, 'qty_packed' => 8, 'qty_remaining' => 9, 'date' => 10, 'time' => 11, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, )
     );
 
     /**
@@ -176,6 +186,8 @@ class PackSalesOrderDetailTableMap extends TableMap
         $this->addPrimaryKey('linenbr', 'Linenbr', 'INTEGER', true, 8, null);
         $this->addPrimaryKey('itemid', 'Itemid', 'VARCHAR', true, 45, null);
         $this->addPrimaryKey('lotserial', 'Lotserial', 'VARCHAR', true, 45, null);
+        $this->addColumn('desc1', 'Desc1', 'VARCHAR', false, 45, null);
+        $this->addColumn('desc2', 'Desc2', 'VARCHAR', false, 45, null);
         $this->addColumn('qty_toship', 'QtyToship', 'INTEGER', false, 6, null);
         $this->addColumn('qty_packed', 'QtyPacked', 'INTEGER', false, 6, null);
         $this->addColumn('qty_remaining', 'QtyRemaining', 'INTEGER', false, 6, null);
@@ -413,6 +425,8 @@ class PackSalesOrderDetailTableMap extends TableMap
             $criteria->addSelectColumn(PackSalesOrderDetailTableMap::COL_LINENBR);
             $criteria->addSelectColumn(PackSalesOrderDetailTableMap::COL_ITEMID);
             $criteria->addSelectColumn(PackSalesOrderDetailTableMap::COL_LOTSERIAL);
+            $criteria->addSelectColumn(PackSalesOrderDetailTableMap::COL_DESC1);
+            $criteria->addSelectColumn(PackSalesOrderDetailTableMap::COL_DESC2);
             $criteria->addSelectColumn(PackSalesOrderDetailTableMap::COL_QTY_TOSHIP);
             $criteria->addSelectColumn(PackSalesOrderDetailTableMap::COL_QTY_PACKED);
             $criteria->addSelectColumn(PackSalesOrderDetailTableMap::COL_QTY_REMAINING);
@@ -424,6 +438,8 @@ class PackSalesOrderDetailTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.linenbr');
             $criteria->addSelectColumn($alias . '.itemid');
             $criteria->addSelectColumn($alias . '.lotserial');
+            $criteria->addSelectColumn($alias . '.desc1');
+            $criteria->addSelectColumn($alias . '.desc2');
             $criteria->addSelectColumn($alias . '.qty_toship');
             $criteria->addSelectColumn($alias . '.qty_packed');
             $criteria->addSelectColumn($alias . '.qty_remaining');

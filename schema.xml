@@ -2211,6 +2211,8 @@
     <column name="linenbr" phpName="Linenbr" type="INTEGER" size="8" primaryKey="true" required="true"/>
     <column name="itemid" phpName="Itemid" type="VARCHAR" size="45" primaryKey="true" required="true"/>
     <column name="lotserial" phpName="Lotserial" type="VARCHAR" size="45" primaryKey="true" required="true"/>
+    <column name="desc1" phpName="Desc1" type="VARCHAR" size="45"/>
+    <column name="desc2" phpName="Desc2" type="VARCHAR" size="45"/>
     <column name="qty_toship" phpName="QtyToship" type="INTEGER" size="6"/>
     <column name="qty_packed" phpName="QtyPacked" type="INTEGER" size="6"/>
     <column name="qty_remaining" phpName="QtyRemaining" type="INTEGER" size="6"/>

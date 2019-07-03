@@ -24,6 +24,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPackSalesOrderDetailQuery orderByLinenbr($order = Criteria::ASC) Order by the linenbr column
  * @method     ChildPackSalesOrderDetailQuery orderByItemid($order = Criteria::ASC) Order by the itemid column
  * @method     ChildPackSalesOrderDetailQuery orderByLotserial($order = Criteria::ASC) Order by the lotserial column
+ * @method     ChildPackSalesOrderDetailQuery orderByDesc1($order = Criteria::ASC) Order by the desc1 column
+ * @method     ChildPackSalesOrderDetailQuery orderByDesc2($order = Criteria::ASC) Order by the desc2 column
  * @method     ChildPackSalesOrderDetailQuery orderByQtyToship($order = Criteria::ASC) Order by the qty_toship column
  * @method     ChildPackSalesOrderDetailQuery orderByQtyPacked($order = Criteria::ASC) Order by the qty_packed column
  * @method     ChildPackSalesOrderDetailQuery orderByQtyRemaining($order = Criteria::ASC) Order by the qty_remaining column
@@ -35,6 +37,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPackSalesOrderDetailQuery groupByLinenbr() Group by the linenbr column
  * @method     ChildPackSalesOrderDetailQuery groupByItemid() Group by the itemid column
  * @method     ChildPackSalesOrderDetailQuery groupByLotserial() Group by the lotserial column
+ * @method     ChildPackSalesOrderDetailQuery groupByDesc1() Group by the desc1 column
+ * @method     ChildPackSalesOrderDetailQuery groupByDesc2() Group by the desc2 column
  * @method     ChildPackSalesOrderDetailQuery groupByQtyToship() Group by the qty_toship column
  * @method     ChildPackSalesOrderDetailQuery groupByQtyPacked() Group by the qty_packed column
  * @method     ChildPackSalesOrderDetailQuery groupByQtyRemaining() Group by the qty_remaining column
@@ -57,6 +61,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPackSalesOrderDetail findOneByLinenbr(int $linenbr) Return the first ChildPackSalesOrderDetail filtered by the linenbr column
  * @method     ChildPackSalesOrderDetail findOneByItemid(string $itemid) Return the first ChildPackSalesOrderDetail filtered by the itemid column
  * @method     ChildPackSalesOrderDetail findOneByLotserial(string $lotserial) Return the first ChildPackSalesOrderDetail filtered by the lotserial column
+ * @method     ChildPackSalesOrderDetail findOneByDesc1(string $desc1) Return the first ChildPackSalesOrderDetail filtered by the desc1 column
+ * @method     ChildPackSalesOrderDetail findOneByDesc2(string $desc2) Return the first ChildPackSalesOrderDetail filtered by the desc2 column
  * @method     ChildPackSalesOrderDetail findOneByQtyToship(int $qty_toship) Return the first ChildPackSalesOrderDetail filtered by the qty_toship column
  * @method     ChildPackSalesOrderDetail findOneByQtyPacked(int $qty_packed) Return the first ChildPackSalesOrderDetail filtered by the qty_packed column
  * @method     ChildPackSalesOrderDetail findOneByQtyRemaining(int $qty_remaining) Return the first ChildPackSalesOrderDetail filtered by the qty_remaining column
@@ -71,6 +77,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPackSalesOrderDetail requireOneByLinenbr(int $linenbr) Return the first ChildPackSalesOrderDetail filtered by the linenbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPackSalesOrderDetail requireOneByItemid(string $itemid) Return the first ChildPackSalesOrderDetail filtered by the itemid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPackSalesOrderDetail requireOneByLotserial(string $lotserial) Return the first ChildPackSalesOrderDetail filtered by the lotserial column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPackSalesOrderDetail requireOneByDesc1(string $desc1) Return the first ChildPackSalesOrderDetail filtered by the desc1 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPackSalesOrderDetail requireOneByDesc2(string $desc2) Return the first ChildPackSalesOrderDetail filtered by the desc2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPackSalesOrderDetail requireOneByQtyToship(int $qty_toship) Return the first ChildPackSalesOrderDetail filtered by the qty_toship column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPackSalesOrderDetail requireOneByQtyPacked(int $qty_packed) Return the first ChildPackSalesOrderDetail filtered by the qty_packed column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPackSalesOrderDetail requireOneByQtyRemaining(int $qty_remaining) Return the first ChildPackSalesOrderDetail filtered by the qty_remaining column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -83,6 +91,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPackSalesOrderDetail[]|ObjectCollection findByLinenbr(int $linenbr) Return ChildPackSalesOrderDetail objects filtered by the linenbr column
  * @method     ChildPackSalesOrderDetail[]|ObjectCollection findByItemid(string $itemid) Return ChildPackSalesOrderDetail objects filtered by the itemid column
  * @method     ChildPackSalesOrderDetail[]|ObjectCollection findByLotserial(string $lotserial) Return ChildPackSalesOrderDetail objects filtered by the lotserial column
+ * @method     ChildPackSalesOrderDetail[]|ObjectCollection findByDesc1(string $desc1) Return ChildPackSalesOrderDetail objects filtered by the desc1 column
+ * @method     ChildPackSalesOrderDetail[]|ObjectCollection findByDesc2(string $desc2) Return ChildPackSalesOrderDetail objects filtered by the desc2 column
  * @method     ChildPackSalesOrderDetail[]|ObjectCollection findByQtyToship(int $qty_toship) Return ChildPackSalesOrderDetail objects filtered by the qty_toship column
  * @method     ChildPackSalesOrderDetail[]|ObjectCollection findByQtyPacked(int $qty_packed) Return ChildPackSalesOrderDetail objects filtered by the qty_packed column
  * @method     ChildPackSalesOrderDetail[]|ObjectCollection findByQtyRemaining(int $qty_remaining) Return ChildPackSalesOrderDetail objects filtered by the qty_remaining column
@@ -186,7 +196,7 @@ abstract class PackSalesOrderDetailQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT sessionid, ordernbr, linenbr, itemid, lotserial, qty_toship, qty_packed, qty_remaining, date, time FROM wmpackdet WHERE sessionid = :p0 AND ordernbr = :p1 AND linenbr = :p2 AND itemid = :p3 AND lotserial = :p4';
+        $sql = 'SELECT sessionid, ordernbr, linenbr, itemid, lotserial, desc1, desc2, qty_toship, qty_packed, qty_remaining, date, time FROM wmpackdet WHERE sessionid = :p0 AND ordernbr = :p1 AND linenbr = :p2 AND itemid = :p3 AND lotserial = :p4';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -439,6 +449,56 @@ abstract class PackSalesOrderDetailQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(PackSalesOrderDetailTableMap::COL_LOTSERIAL, $lotserial, $comparison);
+    }
+
+    /**
+     * Filter the query on the desc1 column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByDesc1('fooValue');   // WHERE desc1 = 'fooValue'
+     * $query->filterByDesc1('%fooValue%', Criteria::LIKE); // WHERE desc1 LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $desc1 The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildPackSalesOrderDetailQuery The current query, for fluid interface
+     */
+    public function filterByDesc1($desc1 = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($desc1)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(PackSalesOrderDetailTableMap::COL_DESC1, $desc1, $comparison);
+    }
+
+    /**
+     * Filter the query on the desc2 column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByDesc2('fooValue');   // WHERE desc2 = 'fooValue'
+     * $query->filterByDesc2('%fooValue%', Criteria::LIKE); // WHERE desc2 LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $desc2 The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildPackSalesOrderDetailQuery The current query, for fluid interface
+     */
+    public function filterByDesc2($desc2 = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($desc2)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(PackSalesOrderDetailTableMap::COL_DESC2, $desc2, $comparison);
     }
 
     /**
