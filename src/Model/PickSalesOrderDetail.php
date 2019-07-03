@@ -162,7 +162,7 @@ class PickSalesOrderDetail extends BasePickSalesOrderDetail {
 
 	/**
 	 * Returns the Item's total Picked Qty for each Pallet
-	 * 
+	 *
 	 * @return array   ex. array(array('qty' => 2, 'palletnbr' => 1))
 	 */
 	public function get_userpickedtotalsbypallet() {
@@ -195,7 +195,7 @@ class PickSalesOrderDetail extends BasePickSalesOrderDetail {
 
 	/**
 	 * Returns if there has been Qty pulled for this Item / Order
-	 * 
+	 *
 	 * @return bool Does Order Item have previous pick quantity?
 	 */
 	public function has_pickedqty() {
@@ -204,7 +204,7 @@ class PickSalesOrderDetail extends BasePickSalesOrderDetail {
 
 	/**
 	 * Returns if there's still quantity remaining to pick
-	 * 
+	 *
 	 * @return bool Is there quantity left to pick?
 	 */
 	public function has_qtyremaining() {
@@ -214,7 +214,7 @@ class PickSalesOrderDetail extends BasePickSalesOrderDetail {
 	/**
 	 * Returns the Qty as cases
 	 * // NOTE Rounds down to nearest int
-	 * 
+	 *
 	 * @param  int $qty
 	 * @return int
 	 */
@@ -224,7 +224,7 @@ class PickSalesOrderDetail extends BasePickSalesOrderDetail {
 
 	/**
 	 * Returns the Qty as cases and if its cases vs case
-	 * 
+	 *
 	 * @uses self::get_casecount()
 	 * @param  int $qty
 	 * @return string
@@ -236,7 +236,7 @@ class PickSalesOrderDetail extends BasePickSalesOrderDetail {
 
 	/**
 	 * Return is Item is serialized
-	 * 
+	 *
 	 * @return bool Is item Serialized?
 	 */
 	public function is_item_serialized() {
@@ -245,7 +245,7 @@ class PickSalesOrderDetail extends BasePickSalesOrderDetail {
 
 	/**
 	 * Return is Item is lotted
-	 * 
+	 *
 	 * @return bool Is item Lotted?
 	 */
 	public function is_item_lotted() {
@@ -254,10 +254,19 @@ class PickSalesOrderDetail extends BasePickSalesOrderDetail {
 
 	/**
 	 * Return is Item is Normal
-	 * 
+	 *
 	 * @return bool Is item Normal?
 	 */
 	public function is_item_normal() {
 		return ItemmasterQuery::create()->is_item_normal($this->itemnbr);
+	}
+
+	/**
+	 * Return if item is a Non Stock
+	 *
+	 * @return bool
+	 */
+	public function is_item_nonstock() {
+		return Itemmaster::is_itemid_nonstock($this->itemid);
 	}
 }
