@@ -20,7 +20,7 @@ class WhseitempickQuery extends BaseWhseitempickQuery {
 	/**
 	 * Returns the sum of How many eaches were picked by adding up all the unit quantities
 	 * of each barcode picked multiplied by the qty picked of that barcode
-	 * 
+	 *
 	 * @param  string $sessionID Session Identifier
 	 * @param  string $ordn      Sales Order Number
 	 * @param  string $itemID    Item ID
@@ -38,7 +38,7 @@ class WhseitempickQuery extends BaseWhseitempickQuery {
 	/**
 	 * Returns the sum of How many eaches were picked by adding up all the unit quantities
 	 * of each barcode picked multiplied by the qty picked of that barcode
-	 * 
+	 *
 	 * @param  string $sessionID Session Identifier
 	 * @param  string $ordn      Sales Order Number
 	 * @param  string $itemID    Item ID
@@ -56,7 +56,7 @@ class WhseitempickQuery extends BaseWhseitempickQuery {
 	/**
 	 * Returns the sum of the Qty of all the barcodes picked for item filtered
 	 * by the sessionid, ordernumber and itemid columns for each pallet
-	 * 
+	 *
 	 * @param  string $sessionID Session Identifier
 	 * @param  string $ordn      Sales Order Number
 	 * @param  string $itemID    Item ID
@@ -75,7 +75,7 @@ class WhseitempickQuery extends BaseWhseitempickQuery {
 	/**
 	 * Returns the sum of the Qty of all the barcodes picked for line filtered
 	 * by the sessionid, ordernumber and itemid columns for each pallet
-	 * 
+	 *
 	 * @param  string $sessionID Session Identifier
 	 * @param  string $ordn      Sales Order Number
 	 * @param  string $itemID    Item ID
@@ -94,7 +94,7 @@ class WhseitempickQuery extends BaseWhseitempickQuery {
 	/**
 	 * Returns the Max Record Number for the Item ID filtered
 	 * by the sessionid, ordernumber and itemid columns
-	 * 
+	 *
 	 * @param  string $sessionID Session Identifier
 	 * @param  string $ordn      Sales Order Number
 	 * @param  string $itemID    Item ID
@@ -112,7 +112,7 @@ class WhseitempickQuery extends BaseWhseitempickQuery {
 	/**
 	 * Returns the Max Record Number for the Line Nbr filtered
 	 * by the sessionid, ordernumber and itemid columns
-	 * 
+	 *
 	 * @param  string $sessionID Session Identifier
 	 * @param  string $ordn      Sales Order Number
 	 * @param  string $linenbr   Line Nbr
@@ -129,7 +129,7 @@ class WhseitempickQuery extends BaseWhseitempickQuery {
 
 	/**
 	 * Return Whseitempick objects filtered by the sessionid, ordernbr, itemid columns
-	 * 
+	 *
 	 * @param  string $sessionID Session Identifier
 	 * @param  string $ordn      Sales Order Number
 	 * @param  string $itemID    Item ID
@@ -144,7 +144,7 @@ class WhseitempickQuery extends BaseWhseitempickQuery {
 
 	/**
 	 * Return Whseitempick object by the sessionid, ordernbr, itemid, recordnumber columns
-	 * 
+	 *
 	 * @param  string $sessionID     Session Identifier
 	 * @param  string $ordn          Sales Order Number
 	 * @param  string $itemID        Item ID
@@ -161,7 +161,7 @@ class WhseitempickQuery extends BaseWhseitempickQuery {
 
 	/**
 	 * Return Whseitempick object by the sessionid, ordernbr, linenbr, recordnumber columns
-	 * 
+	 *
 	 * @param  string $sessionID     Session Identifier
 	 * @param  string $ordn          Sales Order Number
 	 * @param  int    $linenbr       Pick Order Line Number
@@ -178,7 +178,7 @@ class WhseitempickQuery extends BaseWhseitempickQuery {
 
 	/**
 	 * Return if barcode has been picked for Order Number Line Number
-	 * 
+	 *
 	 * @param  string $sessionID
 	 * @param  string $ordn
 	 * @param  string $barcode
@@ -197,7 +197,7 @@ class WhseitempickQuery extends BaseWhseitempickQuery {
 
 	/**
 	 * Returns if Sales Order Detail Line is being Picked by another Session
-	 * 
+	 *
 	 * @param  string $sessionID User SessionID to
 	 * @param  string $ordn      Sales Order Number
 	 * @param  int    $linenbr   Line Number
