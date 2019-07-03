@@ -136,7 +136,7 @@ class WhseitempickQuery extends BaseWhseitempickQuery {
 	 * @return Whseitempick[]|ObjectCollection
 	 */
 	public function get_order_pickeditems($sessionID, $ordn, $itemID) {
-		$this->clear();
+		//$this->clear();
 		$this->filterByOrdn($ordn);
 		$this->filterByItemid($itemID);
 		return $this->findBySessionid($sessionID);
