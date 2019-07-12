@@ -43,4 +43,14 @@ class BarcodesQuery extends BaseBarcodesQuery {
 	public function findOneByBarcode($barcode) {
 		return $this->findOneByBarcodenbr($barcode);
 	}
+
+	/**
+	 * Return the first Barcodes filtered by the barcodenbr column
+	 *
+	 * @param  string   $barcode Barcode
+	 * @return Barcodes
+	 */
+	public function filterByBarcode($barcode) {
+		return $this->filterByBarcodenbr($barcode);
+	}
 }

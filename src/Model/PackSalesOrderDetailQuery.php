@@ -52,7 +52,7 @@ class PackSalesOrderDetailQuery extends BasePackSalesOrderDetailQuery {
 	public function findBySessionidOrderGroupedUnpacked($sessionID, $ordn) {
 		$this->clear();
 		$this->filterBySessionidOrder($sessionID, $ordn);
-		$this->groupBy(array('linenbr', 'lotserial'));
+		$this->groupBy(array('itemid', 'lotserial'));
 		$this->where('qty_packed < qty_toship');
 		return $this->find();
 	}
@@ -67,7 +67,7 @@ class PackSalesOrderDetailQuery extends BasePackSalesOrderDetailQuery {
 	public function findBySessionidOrderGroupedPacked($sessionID, $ordn) {
 		$this->clear();
 		$this->filterBySessionidOrder($sessionID, $ordn);
-		$this->groupBy(array('linenbr', 'lotserial'));
+		$this->groupBy(array('itemid', 'lotserial'));
 		$this->where('qty_packed >= qty_toship');
 		return $this->find();
 	}
@@ -128,7 +128,7 @@ class PackSalesOrderDetailQuery extends BasePackSalesOrderDetailQuery {
 	 */
 	public function get_line_qtyremaining($sessionID, $ordn, $linenbr) {
 		$this->clear();
-		$this->addAsColumn('qty', 'SUM(qty_packed)');
+		$this->addAsColumn('qty', 'SUM(qty_remaining)');
 		$this->select('qty');
 		$this->filterBySessionidOrder($sessionID, $ordn);
 		$this->filterByLinenbr($linenbr);

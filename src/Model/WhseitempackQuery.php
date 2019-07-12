@@ -14,6 +14,7 @@ use Base\WhseitempackQuery as BaseWhseitempackQuery;
  */
 class WhseitempackQuery extends BaseWhseitempackQuery {
 	/**
+	 * SAFE
 	 * Return Whseitempack object by the sessionid, ordernbr, linenbr, recordnumber columns
 	 *
 	 * @param  string $sessionID     Session Identifier
@@ -31,38 +32,36 @@ class WhseitempackQuery extends BaseWhseitempackQuery {
 	}
 
 	/**
-	 * Returns if Sales Order Detail Line is being Packed by another Session
+	 * SAFE
+	 * Filter the query by the sessionid, ordernbr, linenbr, recordnumber columns
 	 *
-	 * @param  string $sessionID User SessionID
-	 * @param  string $ordn      Sales Order Number
-	 * @param  int    $linenbr   Line Number
-	 * @return bool              Is Sales Order Detail Line being Packed
+	 * @param  string $sessionID     Session Identifier
+	 * @param  string $ordn          Sales Order Number
+	 * @param  int    $linenbr       Pick Order Line Number
+	 * @param  int    $recordnumber  Record Number
+	 * @return WhseitempackQuery
 	 */
-	public function is_orderline_being_packed($sessionID, $ordn, $linenbr = 1) {
+	public function filterBySessionidOrdnLinenbrRecordnumber($sessionID, $ordn, $linenbr, $recordnumber) {
 		$this->clear();
-		$this->addAsColumn('count', 'COUNT(*)');
-		$this->select('count');
 		$this->filterByOrdn($ordn);
 		$this->filterByLinenumber($linenbr);
-		return boolval($this->findOne());
+		$this->filterByRecordnumber($recordnumber);
+		return $this->filterBySessionid($sessionID);
 	}
 
 	/**
-	 * Returns if Session is packing the order line
-	 *
-	 * @param  string $sessionID User SessionID
-	 * @param  string $ordn      Sales Order Number
-	 * @param  int    $linenbr   Line Number
-	 * @return bool              Is Sales Order Detail Line being Packed by $sessionID
+	 * Return the highest carton number for Session and Order
+	 * @param  string $sessionID     Session Identifier
+	 * @param  string $ordn          Sales Order Number
+	 * @return int                   highest carton number for Session and Order
 	 */
-	public function is_orderline_being_packed_session($sessionID, $ordn, $linenbr = 1) {
+	public function get_maxcarton($sessionID, $ordn) {
 		$this->clear();
-		$this->addAsColumn('count', 'COUNT(*)');
-		$this->select('count');
-		$this->filterByOrdn($ordn);
-		$this->filterByLinenumber($linenbr);
 		$this->filterBySessionid($sessionID);
-		return boolval($this->findOne());
+		$this->filterByOrdn($ordn);
+		$this->addAsColumn('carton', 'MAX(carton)');
+		$this->select('carton');
+		return $this->findOne();
 	}
 
 	/**
