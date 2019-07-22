@@ -13,23 +13,6 @@ use Base\WhseitempackQuery as BaseWhseitempackQuery;
  *
  */
 class WhseitempackQuery extends BaseWhseitempackQuery {
-	/**
-	 * SAFE
-	 * Return Whseitempack object by the sessionid, ordernbr, linenbr, recordnumber columns
-	 *
-	 * @param  string $sessionID     Session Identifier
-	 * @param  string $ordn          Sales Order Number
-	 * @param  int    $linenbr       Pick Order Line Number
-	 * @param  int    $recordnumber  Record Number
-	 * @return Whseitempack
-	 */
-	public function findOneBySessionidOrdnLinenbrRecordnumber($sessionID, $ordn, $linenbr, $recordnumber) {
-		$this->clear();
-		$this->filterByOrdn($ordn);
-		$this->filterByLinenumber($linenbr);
-		$this->filterByRecordnumber($recordnumber);
-		return $this->findOneBySessionid($sessionID);
-	}
 
 	/**
 	 * SAFE
@@ -82,30 +65,31 @@ class WhseitempackQuery extends BaseWhseitempackQuery {
 	 *
 	 * @param  string $sessionID Session ID
 	 * @param  string $ordn      Sales Order Number
-	 * @param  int    $linenbr   Sales Order Line Number
+	 * @param string  $linenbr   Line Number
 	 * @return WhseitempackQuery
 	 */
 	public function filterBySessionidOrderLinenbr($sessionID, $ordn, $linenbr) {
-		$this->filterBySessionidOrder($sessionID, $ordn);
+		$this->filterBySessionid($sessionID);
+		$this->filterByOrdn($ordn);
 		$this->filterByLinenumber($linenbr);
 		return $this;
 	}
 
 	/**
-	 * Returns the Max Record Number for the Linenbr filtered
+	 * Returns the Max Record Number for the Carton filtered
 	 * by the sessionid, ordernumber and itemid columns
 	 *
 	 * @param  string $sessionID Session Identifier
 	 * @param  string $ordn      Sales Order Number
-	 * @param  string $linenbr   Linenbr
-	 * @return int               Order Line Max record number
+	 * @param  string $carton    Carton Number
+	 * @return int               Carton Line Max record number
 	 */
-	public function get_max_orderline_recordnumber($sessionID, $ordn, $linenbr) {
+	public function get_max_carton_recordnumber($sessionID, $ordn, $carton) {
 		$this->clear();
 		$this->addAsColumn('max', 'MAX(recordnumber)');
 		$this->select('max');
 		$this->filterByOrdn($ordn);
-		$this->filterByLinenumber($linenbr);
+		$this->filterByCarton($carton);
 		return $this->findOneBySessionid($sessionID);
 	}
 

@@ -221,6 +221,7 @@ class ComposerStaticInit3f927a38659065c5352eea03f725feb9
         'DoccntlQuery' => __DIR__ . '/../..' . '/src/Model/DoccntlQuery.php',
         'Dplusfunctions' => __DIR__ . '/../..' . '/src/Model/Dplusfunctions.php',
         'DplusfunctionsQuery' => __DIR__ . '/../..' . '/src/Model/DplusfunctionsQuery.php',
+        'Dpluso\\Model\\ItemTypeTraits' => __DIR__ . '/../..' . '/src/traits/ItemType.trait.php',
         'Dpluso\\Model\\MagicMethodTraits' => __DIR__ . '/../..' . '/src/MagicMethods.trait.php',
         'Dpluso\\Model\\QueryTraits' => __DIR__ . '/../..' . '/src/Query.trait.php',
         'Dpluso\\Model\\ThrowError' => __DIR__ . '/../..' . '/src/ThrowError.trait.php',

@@ -6,6 +6,6 @@
     "keywords": ["dpluso-model", "quote", "cart", "cartquote", "detail", "qnote"],
     "homepage": "http://github.com/cptechinc/dplus-model",
 	"autoload": {
-		"classmap": ["src/", "src/Model/"]
+		"classmap": ["src/", "src/Model/", "src/traits/"]
 	}
 }

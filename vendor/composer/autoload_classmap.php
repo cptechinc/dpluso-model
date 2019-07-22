@@ -220,6 +220,7 @@ return array(
     'DoccntlQuery' => $baseDir . '/src/Model/DoccntlQuery.php',
     'Dplusfunctions' => $baseDir . '/src/Model/Dplusfunctions.php',
     'DplusfunctionsQuery' => $baseDir . '/src/Model/DplusfunctionsQuery.php',
+    'Dpluso\\Model\\ItemTypeTraits' => $baseDir . '/src/traits/ItemType.trait.php',
     'Dpluso\\Model\\MagicMethodTraits' => $baseDir . '/src/MagicMethods.trait.php',
     'Dpluso\\Model\\QueryTraits' => $baseDir . '/src/Query.trait.php',
     'Dpluso\\Model\\ThrowError' => $baseDir . '/src/ThrowError.trait.php',
