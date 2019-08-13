@@ -2176,6 +2176,7 @@
     <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
     <column name="ordn" phpName="Ordn" type="VARCHAR" size="45" primaryKey="true" required="true"/>
     <column name="linenbr" phpName="Linenbr" type="INTEGER" required="true"/>
+    <column name="sublinenbr" phpName="Sublinenbr" type="INTEGER" size="4"/>
     <column name="itemid" phpName="Itemid" type="VARCHAR" size="45" primaryKey="true" required="true"/>
     <column name="recordnumber" phpName="Recordnumber" type="INTEGER" primaryKey="true" required="true"/>
     <column name="palletnbr" phpName="Palletnbr" type="INTEGER" size="5"/>
@@ -2229,6 +2230,7 @@
     <column name="time" phpName="Time" type="INTEGER" size="8"/>
     <column name="ordernbr" phpName="Ordernbr" type="VARCHAR" size="10"/>
     <column name="linenbr" phpName="Linenbr" type="INTEGER" size="4" required="true"/>
+    <column name="sublinenbr" phpName="Sublinenbr" type="INTEGER" size="4" required="true"/>
     <column name="itemnbr" phpName="Itemnbr" type="VARCHAR" size="30"/>
     <column name="itemdesc1" phpName="Itemdesc1" type="VARCHAR" size="35"/>
     <column name="itemdesc2" phpName="Itemdesc2" type="VARCHAR" size="35"/>
