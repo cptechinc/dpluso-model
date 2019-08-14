@@ -2180,7 +2180,7 @@
     <column name="type" phpName="Type" type="VARCHAR" size="45"/>
     <column name="lotserial" phpName="Lotserial" type="VARCHAR" size="45"/>
     <column name="lotserialref" phpName="Lotserialref" type="VARCHAR" size="45"/>
-    <column name="qty" phpName="Qty" type="VARCHAR" size="45"/>
+    <column name="qty" phpName="Qty" type="DECIMAL" size="10" scale="2"/>
     <column name="complete" phpName="Complete" type="VARCHAR" size="1"/>
     <column name="status" phpName="Status" type="VARCHAR" size="60"/>
     <column name="date" phpName="Date" type="INTEGER" size="8"/>

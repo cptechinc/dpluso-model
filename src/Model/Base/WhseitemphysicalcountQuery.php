@@ -499,19 +499,35 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
      *
      * Example usage:
      * <code>
-     * $query->filterByQty('fooValue');   // WHERE qty = 'fooValue'
-     * $query->filterByQty('%fooValue%', Criteria::LIKE); // WHERE qty LIKE '%fooValue%'
+     * $query->filterByQty(1234); // WHERE qty = 1234
+     * $query->filterByQty(array(12, 34)); // WHERE qty IN (12, 34)
+     * $query->filterByQty(array('min' => 12)); // WHERE qty > 12
      * </code>
      *
-     * @param     string $qty The value to use as filter.
+     * @param     mixed $qty The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildWhseitemphysicalcountQuery The current query, for fluid interface
      */
     public function filterByQty($qty = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($qty)) {
+        if (is_array($qty)) {
+            $useMinMax = false;
+            if (isset($qty['min'])) {
+                $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_QTY, $qty['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($qty['max'])) {
+                $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_QTY, $qty['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
