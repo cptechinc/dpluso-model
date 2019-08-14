@@ -104,6 +104,13 @@ abstract class PickSalesOrderDetail implements ActiveRecordInterface
     protected $linenbr;
 
     /**
+     * The value for the sublinenbr field.
+     *
+     * @var        int
+     */
+    protected $sublinenbr;
+
+    /**
      * The value for the itemnbr field.
      *
      * @var        string
@@ -523,6 +530,16 @@ abstract class PickSalesOrderDetail implements ActiveRecordInterface
     }
 
     /**
+     * Get the [sublinenbr] column value.
+     *
+     * @return int
+     */
+    public function getSublinenbr()
+    {
+        return $this->sublinenbr;
+    }
+
+    /**
      * Get the [itemnbr] column value.
      *
      * @return string
@@ -801,6 +818,26 @@ abstract class PickSalesOrderDetail implements ActiveRecordInterface
 
         return $this;
     } // setLinenbr()
+
+    /**
+     * Set the value of [sublinenbr] column.
+     *
+     * @param int $v new value
+     * @return $this|\PickSalesOrderDetail The current object (for fluent API support)
+     */
+    public function setSublinenbr($v)
+    {
+        if ($v !== null) {
+            $v = (int) $v;
+        }
+
+        if ($this->sublinenbr !== $v) {
+            $this->sublinenbr = $v;
+            $this->modifiedColumns[PickSalesOrderDetailTableMap::COL_SUBLINENBR] = true;
+        }
+
+        return $this;
+    } // setSublinenbr()
 
     /**
      * Set the value of [itemnbr] column.
@@ -1184,52 +1221,55 @@ abstract class PickSalesOrderDetail implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : PickSalesOrderDetailTableMap::translateFieldName('Linenbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->linenbr = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : PickSalesOrderDetailTableMap::translateFieldName('Itemnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : PickSalesOrderDetailTableMap::translateFieldName('Sublinenbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->sublinenbr = (null !== $col) ? (int) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : PickSalesOrderDetailTableMap::translateFieldName('Itemnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->itemnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : PickSalesOrderDetailTableMap::translateFieldName('Itemdesc1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : PickSalesOrderDetailTableMap::translateFieldName('Itemdesc1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->itemdesc1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : PickSalesOrderDetailTableMap::translateFieldName('Itemdesc2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : PickSalesOrderDetailTableMap::translateFieldName('Itemdesc2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->itemdesc2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : PickSalesOrderDetailTableMap::translateFieldName('Qtyordered', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : PickSalesOrderDetailTableMap::translateFieldName('Qtyordered', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtyordered = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : PickSalesOrderDetailTableMap::translateFieldName('Qtypulled', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : PickSalesOrderDetailTableMap::translateFieldName('Qtypulled', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtypulled = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : PickSalesOrderDetailTableMap::translateFieldName('Qtyremaining', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : PickSalesOrderDetailTableMap::translateFieldName('Qtyremaining', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtyremaining = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : PickSalesOrderDetailTableMap::translateFieldName('Binnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : PickSalesOrderDetailTableMap::translateFieldName('Binnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->binnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : PickSalesOrderDetailTableMap::translateFieldName('Caseqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : PickSalesOrderDetailTableMap::translateFieldName('Caseqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->caseqty = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : PickSalesOrderDetailTableMap::translateFieldName('Innerpack', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : PickSalesOrderDetailTableMap::translateFieldName('Innerpack', TableMap::TYPE_PHPNAME, $indexType)];
             $this->innerpack = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : PickSalesOrderDetailTableMap::translateFieldName('Binqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : PickSalesOrderDetailTableMap::translateFieldName('Binqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->binqty = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : PickSalesOrderDetailTableMap::translateFieldName('Overbin1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : PickSalesOrderDetailTableMap::translateFieldName('Overbin1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->overbin1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : PickSalesOrderDetailTableMap::translateFieldName('Overbinqty1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : PickSalesOrderDetailTableMap::translateFieldName('Overbinqty1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->overbinqty1 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : PickSalesOrderDetailTableMap::translateFieldName('Overbin2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : PickSalesOrderDetailTableMap::translateFieldName('Overbin2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->overbin2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : PickSalesOrderDetailTableMap::translateFieldName('Overbinqty2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : PickSalesOrderDetailTableMap::translateFieldName('Overbinqty2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->overbinqty2 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : PickSalesOrderDetailTableMap::translateFieldName('Statusmsg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : PickSalesOrderDetailTableMap::translateFieldName('Statusmsg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->statusmsg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : PickSalesOrderDetailTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : PickSalesOrderDetailTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -1239,7 +1279,7 @@ abstract class PickSalesOrderDetail implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 22; // 22 = PickSalesOrderDetailTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 23; // 23 = PickSalesOrderDetailTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\PickSalesOrderDetail'), 0, $e);
@@ -1454,6 +1494,9 @@ abstract class PickSalesOrderDetail implements ActiveRecordInterface
         if ($this->isColumnModified(PickSalesOrderDetailTableMap::COL_LINENBR)) {
             $modifiedColumns[':p' . $index++]  = 'linenbr';
         }
+        if ($this->isColumnModified(PickSalesOrderDetailTableMap::COL_SUBLINENBR)) {
+            $modifiedColumns[':p' . $index++]  = 'sublinenbr';
+        }
         if ($this->isColumnModified(PickSalesOrderDetailTableMap::COL_ITEMNBR)) {
             $modifiedColumns[':p' . $index++]  = 'itemnbr';
         }
@@ -1530,6 +1573,9 @@ abstract class PickSalesOrderDetail implements ActiveRecordInterface
                         break;
                     case 'linenbr':
                         $stmt->bindValue($identifier, $this->linenbr, PDO::PARAM_INT);
+                        break;
+                    case 'sublinenbr':
+                        $stmt->bindValue($identifier, $this->sublinenbr, PDO::PARAM_INT);
                         break;
                     case 'itemnbr':
                         $stmt->bindValue($identifier, $this->itemnbr, PDO::PARAM_STR);
@@ -1653,51 +1699,54 @@ abstract class PickSalesOrderDetail implements ActiveRecordInterface
                 return $this->getLinenbr();
                 break;
             case 6:
-                return $this->getItemnbr();
+                return $this->getSublinenbr();
                 break;
             case 7:
-                return $this->getItemdesc1();
+                return $this->getItemnbr();
                 break;
             case 8:
-                return $this->getItemdesc2();
+                return $this->getItemdesc1();
                 break;
             case 9:
-                return $this->getQtyordered();
+                return $this->getItemdesc2();
                 break;
             case 10:
-                return $this->getQtypulled();
+                return $this->getQtyordered();
                 break;
             case 11:
-                return $this->getQtyremaining();
+                return $this->getQtypulled();
                 break;
             case 12:
-                return $this->getBinnbr();
+                return $this->getQtyremaining();
                 break;
             case 13:
-                return $this->getCaseqty();
+                return $this->getBinnbr();
                 break;
             case 14:
-                return $this->getInnerpack();
+                return $this->getCaseqty();
                 break;
             case 15:
-                return $this->getBinqty();
+                return $this->getInnerpack();
                 break;
             case 16:
-                return $this->getOverbin1();
+                return $this->getBinqty();
                 break;
             case 17:
-                return $this->getOverbinqty1();
+                return $this->getOverbin1();
                 break;
             case 18:
-                return $this->getOverbin2();
+                return $this->getOverbinqty1();
                 break;
             case 19:
-                return $this->getOverbinqty2();
+                return $this->getOverbin2();
                 break;
             case 20:
-                return $this->getStatusmsg();
+                return $this->getOverbinqty2();
                 break;
             case 21:
+                return $this->getStatusmsg();
+                break;
+            case 22:
                 return $this->getDummy();
                 break;
             default:
@@ -1735,22 +1784,23 @@ abstract class PickSalesOrderDetail implements ActiveRecordInterface
             $keys[3] => $this->getTime(),
             $keys[4] => $this->getOrdernbr(),
             $keys[5] => $this->getLinenbr(),
-            $keys[6] => $this->getItemnbr(),
-            $keys[7] => $this->getItemdesc1(),
-            $keys[8] => $this->getItemdesc2(),
-            $keys[9] => $this->getQtyordered(),
-            $keys[10] => $this->getQtypulled(),
-            $keys[11] => $this->getQtyremaining(),
-            $keys[12] => $this->getBinnbr(),
-            $keys[13] => $this->getCaseqty(),
-            $keys[14] => $this->getInnerpack(),
-            $keys[15] => $this->getBinqty(),
-            $keys[16] => $this->getOverbin1(),
-            $keys[17] => $this->getOverbinqty1(),
-            $keys[18] => $this->getOverbin2(),
-            $keys[19] => $this->getOverbinqty2(),
-            $keys[20] => $this->getStatusmsg(),
-            $keys[21] => $this->getDummy(),
+            $keys[6] => $this->getSublinenbr(),
+            $keys[7] => $this->getItemnbr(),
+            $keys[8] => $this->getItemdesc1(),
+            $keys[9] => $this->getItemdesc2(),
+            $keys[10] => $this->getQtyordered(),
+            $keys[11] => $this->getQtypulled(),
+            $keys[12] => $this->getQtyremaining(),
+            $keys[13] => $this->getBinnbr(),
+            $keys[14] => $this->getCaseqty(),
+            $keys[15] => $this->getInnerpack(),
+            $keys[16] => $this->getBinqty(),
+            $keys[17] => $this->getOverbin1(),
+            $keys[18] => $this->getOverbinqty1(),
+            $keys[19] => $this->getOverbin2(),
+            $keys[20] => $this->getOverbinqty2(),
+            $keys[21] => $this->getStatusmsg(),
+            $keys[22] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -1809,51 +1859,54 @@ abstract class PickSalesOrderDetail implements ActiveRecordInterface
                 $this->setLinenbr($value);
                 break;
             case 6:
-                $this->setItemnbr($value);
+                $this->setSublinenbr($value);
                 break;
             case 7:
-                $this->setItemdesc1($value);
+                $this->setItemnbr($value);
                 break;
             case 8:
-                $this->setItemdesc2($value);
+                $this->setItemdesc1($value);
                 break;
             case 9:
-                $this->setQtyordered($value);
+                $this->setItemdesc2($value);
                 break;
             case 10:
-                $this->setQtypulled($value);
+                $this->setQtyordered($value);
                 break;
             case 11:
-                $this->setQtyremaining($value);
+                $this->setQtypulled($value);
                 break;
             case 12:
-                $this->setBinnbr($value);
+                $this->setQtyremaining($value);
                 break;
             case 13:
-                $this->setCaseqty($value);
+                $this->setBinnbr($value);
                 break;
             case 14:
-                $this->setInnerpack($value);
+                $this->setCaseqty($value);
                 break;
             case 15:
-                $this->setBinqty($value);
+                $this->setInnerpack($value);
                 break;
             case 16:
-                $this->setOverbin1($value);
+                $this->setBinqty($value);
                 break;
             case 17:
-                $this->setOverbinqty1($value);
+                $this->setOverbin1($value);
                 break;
             case 18:
-                $this->setOverbin2($value);
+                $this->setOverbinqty1($value);
                 break;
             case 19:
-                $this->setOverbinqty2($value);
+                $this->setOverbin2($value);
                 break;
             case 20:
-                $this->setStatusmsg($value);
+                $this->setOverbinqty2($value);
                 break;
             case 21:
+                $this->setStatusmsg($value);
+                break;
+            case 22:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -1901,52 +1954,55 @@ abstract class PickSalesOrderDetail implements ActiveRecordInterface
             $this->setLinenbr($arr[$keys[5]]);
         }
         if (array_key_exists($keys[6], $arr)) {
-            $this->setItemnbr($arr[$keys[6]]);
+            $this->setSublinenbr($arr[$keys[6]]);
         }
         if (array_key_exists($keys[7], $arr)) {
-            $this->setItemdesc1($arr[$keys[7]]);
+            $this->setItemnbr($arr[$keys[7]]);
         }
         if (array_key_exists($keys[8], $arr)) {
-            $this->setItemdesc2($arr[$keys[8]]);
+            $this->setItemdesc1($arr[$keys[8]]);
         }
         if (array_key_exists($keys[9], $arr)) {
-            $this->setQtyordered($arr[$keys[9]]);
+            $this->setItemdesc2($arr[$keys[9]]);
         }
         if (array_key_exists($keys[10], $arr)) {
-            $this->setQtypulled($arr[$keys[10]]);
+            $this->setQtyordered($arr[$keys[10]]);
         }
         if (array_key_exists($keys[11], $arr)) {
-            $this->setQtyremaining($arr[$keys[11]]);
+            $this->setQtypulled($arr[$keys[11]]);
         }
         if (array_key_exists($keys[12], $arr)) {
-            $this->setBinnbr($arr[$keys[12]]);
+            $this->setQtyremaining($arr[$keys[12]]);
         }
         if (array_key_exists($keys[13], $arr)) {
-            $this->setCaseqty($arr[$keys[13]]);
+            $this->setBinnbr($arr[$keys[13]]);
         }
         if (array_key_exists($keys[14], $arr)) {
-            $this->setInnerpack($arr[$keys[14]]);
+            $this->setCaseqty($arr[$keys[14]]);
         }
         if (array_key_exists($keys[15], $arr)) {
-            $this->setBinqty($arr[$keys[15]]);
+            $this->setInnerpack($arr[$keys[15]]);
         }
         if (array_key_exists($keys[16], $arr)) {
-            $this->setOverbin1($arr[$keys[16]]);
+            $this->setBinqty($arr[$keys[16]]);
         }
         if (array_key_exists($keys[17], $arr)) {
-            $this->setOverbinqty1($arr[$keys[17]]);
+            $this->setOverbin1($arr[$keys[17]]);
         }
         if (array_key_exists($keys[18], $arr)) {
-            $this->setOverbin2($arr[$keys[18]]);
+            $this->setOverbinqty1($arr[$keys[18]]);
         }
         if (array_key_exists($keys[19], $arr)) {
-            $this->setOverbinqty2($arr[$keys[19]]);
+            $this->setOverbin2($arr[$keys[19]]);
         }
         if (array_key_exists($keys[20], $arr)) {
-            $this->setStatusmsg($arr[$keys[20]]);
+            $this->setOverbinqty2($arr[$keys[20]]);
         }
         if (array_key_exists($keys[21], $arr)) {
-            $this->setDummy($arr[$keys[21]]);
+            $this->setStatusmsg($arr[$keys[21]]);
+        }
+        if (array_key_exists($keys[22], $arr)) {
+            $this->setDummy($arr[$keys[22]]);
         }
     }
 
@@ -2006,6 +2062,9 @@ abstract class PickSalesOrderDetail implements ActiveRecordInterface
         }
         if ($this->isColumnModified(PickSalesOrderDetailTableMap::COL_LINENBR)) {
             $criteria->add(PickSalesOrderDetailTableMap::COL_LINENBR, $this->linenbr);
+        }
+        if ($this->isColumnModified(PickSalesOrderDetailTableMap::COL_SUBLINENBR)) {
+            $criteria->add(PickSalesOrderDetailTableMap::COL_SUBLINENBR, $this->sublinenbr);
         }
         if ($this->isColumnModified(PickSalesOrderDetailTableMap::COL_ITEMNBR)) {
             $criteria->add(PickSalesOrderDetailTableMap::COL_ITEMNBR, $this->itemnbr);
@@ -2155,6 +2214,7 @@ abstract class PickSalesOrderDetail implements ActiveRecordInterface
         $copyObj->setTime($this->getTime());
         $copyObj->setOrdernbr($this->getOrdernbr());
         $copyObj->setLinenbr($this->getLinenbr());
+        $copyObj->setSublinenbr($this->getSublinenbr());
         $copyObj->setItemnbr($this->getItemnbr());
         $copyObj->setItemdesc1($this->getItemdesc1());
         $copyObj->setItemdesc2($this->getItemdesc2());
@@ -2211,6 +2271,7 @@ abstract class PickSalesOrderDetail implements ActiveRecordInterface
         $this->time = null;
         $this->ordernbr = null;
         $this->linenbr = null;
+        $this->sublinenbr = null;
         $this->itemnbr = null;
         $this->itemdesc1 = null;
         $this->itemdesc2 = null;

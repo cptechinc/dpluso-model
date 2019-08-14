@@ -25,6 +25,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPickSalesOrderDetailQuery orderByTime($order = Criteria::ASC) Order by the time column
  * @method     ChildPickSalesOrderDetailQuery orderByOrdernbr($order = Criteria::ASC) Order by the ordernbr column
  * @method     ChildPickSalesOrderDetailQuery orderByLinenbr($order = Criteria::ASC) Order by the linenbr column
+ * @method     ChildPickSalesOrderDetailQuery orderBySublinenbr($order = Criteria::ASC) Order by the sublinenbr column
  * @method     ChildPickSalesOrderDetailQuery orderByItemnbr($order = Criteria::ASC) Order by the itemnbr column
  * @method     ChildPickSalesOrderDetailQuery orderByItemdesc1($order = Criteria::ASC) Order by the itemdesc1 column
  * @method     ChildPickSalesOrderDetailQuery orderByItemdesc2($order = Criteria::ASC) Order by the itemdesc2 column
@@ -48,6 +49,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPickSalesOrderDetailQuery groupByTime() Group by the time column
  * @method     ChildPickSalesOrderDetailQuery groupByOrdernbr() Group by the ordernbr column
  * @method     ChildPickSalesOrderDetailQuery groupByLinenbr() Group by the linenbr column
+ * @method     ChildPickSalesOrderDetailQuery groupBySublinenbr() Group by the sublinenbr column
  * @method     ChildPickSalesOrderDetailQuery groupByItemnbr() Group by the itemnbr column
  * @method     ChildPickSalesOrderDetailQuery groupByItemdesc1() Group by the itemdesc1 column
  * @method     ChildPickSalesOrderDetailQuery groupByItemdesc2() Group by the itemdesc2 column
@@ -82,6 +84,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPickSalesOrderDetail findOneByTime(int $time) Return the first ChildPickSalesOrderDetail filtered by the time column
  * @method     ChildPickSalesOrderDetail findOneByOrdernbr(string $ordernbr) Return the first ChildPickSalesOrderDetail filtered by the ordernbr column
  * @method     ChildPickSalesOrderDetail findOneByLinenbr(int $linenbr) Return the first ChildPickSalesOrderDetail filtered by the linenbr column
+ * @method     ChildPickSalesOrderDetail findOneBySublinenbr(int $sublinenbr) Return the first ChildPickSalesOrderDetail filtered by the sublinenbr column
  * @method     ChildPickSalesOrderDetail findOneByItemnbr(string $itemnbr) Return the first ChildPickSalesOrderDetail filtered by the itemnbr column
  * @method     ChildPickSalesOrderDetail findOneByItemdesc1(string $itemdesc1) Return the first ChildPickSalesOrderDetail filtered by the itemdesc1 column
  * @method     ChildPickSalesOrderDetail findOneByItemdesc2(string $itemdesc2) Return the first ChildPickSalesOrderDetail filtered by the itemdesc2 column
@@ -108,6 +111,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPickSalesOrderDetail requireOneByTime(int $time) Return the first ChildPickSalesOrderDetail filtered by the time column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPickSalesOrderDetail requireOneByOrdernbr(string $ordernbr) Return the first ChildPickSalesOrderDetail filtered by the ordernbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPickSalesOrderDetail requireOneByLinenbr(int $linenbr) Return the first ChildPickSalesOrderDetail filtered by the linenbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPickSalesOrderDetail requireOneBySublinenbr(int $sublinenbr) Return the first ChildPickSalesOrderDetail filtered by the sublinenbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPickSalesOrderDetail requireOneByItemnbr(string $itemnbr) Return the first ChildPickSalesOrderDetail filtered by the itemnbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPickSalesOrderDetail requireOneByItemdesc1(string $itemdesc1) Return the first ChildPickSalesOrderDetail filtered by the itemdesc1 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPickSalesOrderDetail requireOneByItemdesc2(string $itemdesc2) Return the first ChildPickSalesOrderDetail filtered by the itemdesc2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -132,6 +136,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPickSalesOrderDetail[]|ObjectCollection findByTime(int $time) Return ChildPickSalesOrderDetail objects filtered by the time column
  * @method     ChildPickSalesOrderDetail[]|ObjectCollection findByOrdernbr(string $ordernbr) Return ChildPickSalesOrderDetail objects filtered by the ordernbr column
  * @method     ChildPickSalesOrderDetail[]|ObjectCollection findByLinenbr(int $linenbr) Return ChildPickSalesOrderDetail objects filtered by the linenbr column
+ * @method     ChildPickSalesOrderDetail[]|ObjectCollection findBySublinenbr(int $sublinenbr) Return ChildPickSalesOrderDetail objects filtered by the sublinenbr column
  * @method     ChildPickSalesOrderDetail[]|ObjectCollection findByItemnbr(string $itemnbr) Return ChildPickSalesOrderDetail objects filtered by the itemnbr column
  * @method     ChildPickSalesOrderDetail[]|ObjectCollection findByItemdesc1(string $itemdesc1) Return ChildPickSalesOrderDetail objects filtered by the itemdesc1 column
  * @method     ChildPickSalesOrderDetail[]|ObjectCollection findByItemdesc2(string $itemdesc2) Return ChildPickSalesOrderDetail objects filtered by the itemdesc2 column
@@ -246,7 +251,7 @@ abstract class PickSalesOrderDetailQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT sessionid, recno, date, time, ordernbr, linenbr, itemnbr, itemdesc1, itemdesc2, qtyordered, qtypulled, qtyremaining, binnbr, caseqty, innerpack, binqty, overbin1, overbinqty1, overbin2, overbinqty2, statusmsg, dummy FROM wmpickdet WHERE sessionid = :p0 AND recno = :p1';
+        $sql = 'SELECT sessionid, recno, date, time, ordernbr, linenbr, sublinenbr, itemnbr, itemdesc1, itemdesc2, qtyordered, qtypulled, qtyremaining, binnbr, caseqty, innerpack, binqty, overbin1, overbinqty1, overbin2, overbinqty2, statusmsg, dummy FROM wmpickdet WHERE sessionid = :p0 AND recno = :p1';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -560,6 +565,47 @@ abstract class PickSalesOrderDetailQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(PickSalesOrderDetailTableMap::COL_LINENBR, $linenbr, $comparison);
+    }
+
+    /**
+     * Filter the query on the sublinenbr column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterBySublinenbr(1234); // WHERE sublinenbr = 1234
+     * $query->filterBySublinenbr(array(12, 34)); // WHERE sublinenbr IN (12, 34)
+     * $query->filterBySublinenbr(array('min' => 12)); // WHERE sublinenbr > 12
+     * </code>
+     *
+     * @param     mixed $sublinenbr The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildPickSalesOrderDetailQuery The current query, for fluid interface
+     */
+    public function filterBySublinenbr($sublinenbr = null, $comparison = null)
+    {
+        if (is_array($sublinenbr)) {
+            $useMinMax = false;
+            if (isset($sublinenbr['min'])) {
+                $this->addUsingAlias(PickSalesOrderDetailTableMap::COL_SUBLINENBR, $sublinenbr['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($sublinenbr['max'])) {
+                $this->addUsingAlias(PickSalesOrderDetailTableMap::COL_SUBLINENBR, $sublinenbr['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(PickSalesOrderDetailTableMap::COL_SUBLINENBR, $sublinenbr, $comparison);
     }
 
     /**

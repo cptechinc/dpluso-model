@@ -59,7 +59,7 @@ class PickSalesOrderDetailTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 22;
+    const NUM_COLUMNS = 23;
 
     /**
      * The number of lazy-loaded columns
@@ -69,7 +69,7 @@ class PickSalesOrderDetailTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 22;
+    const NUM_HYDRATE_COLUMNS = 23;
 
     /**
      * the column name for the sessionid field
@@ -100,6 +100,11 @@ class PickSalesOrderDetailTableMap extends TableMap
      * the column name for the linenbr field
      */
     const COL_LINENBR = 'wmpickdet.linenbr';
+
+    /**
+     * the column name for the sublinenbr field
+     */
+    const COL_SUBLINENBR = 'wmpickdet.sublinenbr';
 
     /**
      * the column name for the itemnbr field
@@ -193,11 +198,11 @@ class PickSalesOrderDetailTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Sessionid', 'Recno', 'Date', 'Time', 'Ordernbr', 'Linenbr', 'Itemnbr', 'Itemdesc1', 'Itemdesc2', 'Qtyordered', 'Qtypulled', 'Qtyremaining', 'Binnbr', 'Caseqty', 'Innerpack', 'Binqty', 'Overbin1', 'Overbinqty1', 'Overbin2', 'Overbinqty2', 'Statusmsg', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('sessionid', 'recno', 'date', 'time', 'ordernbr', 'linenbr', 'itemnbr', 'itemdesc1', 'itemdesc2', 'qtyordered', 'qtypulled', 'qtyremaining', 'binnbr', 'caseqty', 'innerpack', 'binqty', 'overbin1', 'overbinqty1', 'overbin2', 'overbinqty2', 'statusmsg', 'dummy', ),
-        self::TYPE_COLNAME       => array(PickSalesOrderDetailTableMap::COL_SESSIONID, PickSalesOrderDetailTableMap::COL_RECNO, PickSalesOrderDetailTableMap::COL_DATE, PickSalesOrderDetailTableMap::COL_TIME, PickSalesOrderDetailTableMap::COL_ORDERNBR, PickSalesOrderDetailTableMap::COL_LINENBR, PickSalesOrderDetailTableMap::COL_ITEMNBR, PickSalesOrderDetailTableMap::COL_ITEMDESC1, PickSalesOrderDetailTableMap::COL_ITEMDESC2, PickSalesOrderDetailTableMap::COL_QTYORDERED, PickSalesOrderDetailTableMap::COL_QTYPULLED, PickSalesOrderDetailTableMap::COL_QTYREMAINING, PickSalesOrderDetailTableMap::COL_BINNBR, PickSalesOrderDetailTableMap::COL_CASEQTY, PickSalesOrderDetailTableMap::COL_INNERPACK, PickSalesOrderDetailTableMap::COL_BINQTY, PickSalesOrderDetailTableMap::COL_OVERBIN1, PickSalesOrderDetailTableMap::COL_OVERBINQTY1, PickSalesOrderDetailTableMap::COL_OVERBIN2, PickSalesOrderDetailTableMap::COL_OVERBINQTY2, PickSalesOrderDetailTableMap::COL_STATUSMSG, PickSalesOrderDetailTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('sessionid', 'recno', 'date', 'time', 'ordernbr', 'linenbr', 'itemnbr', 'itemdesc1', 'itemdesc2', 'qtyordered', 'qtypulled', 'qtyremaining', 'binnbr', 'caseqty', 'innerpack', 'binqty', 'overbin1', 'overbinqty1', 'overbin2', 'overbinqty2', 'statusmsg', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, )
+        self::TYPE_PHPNAME       => array('Sessionid', 'Recno', 'Date', 'Time', 'Ordernbr', 'Linenbr', 'Sublinenbr', 'Itemnbr', 'Itemdesc1', 'Itemdesc2', 'Qtyordered', 'Qtypulled', 'Qtyremaining', 'Binnbr', 'Caseqty', 'Innerpack', 'Binqty', 'Overbin1', 'Overbinqty1', 'Overbin2', 'Overbinqty2', 'Statusmsg', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('sessionid', 'recno', 'date', 'time', 'ordernbr', 'linenbr', 'sublinenbr', 'itemnbr', 'itemdesc1', 'itemdesc2', 'qtyordered', 'qtypulled', 'qtyremaining', 'binnbr', 'caseqty', 'innerpack', 'binqty', 'overbin1', 'overbinqty1', 'overbin2', 'overbinqty2', 'statusmsg', 'dummy', ),
+        self::TYPE_COLNAME       => array(PickSalesOrderDetailTableMap::COL_SESSIONID, PickSalesOrderDetailTableMap::COL_RECNO, PickSalesOrderDetailTableMap::COL_DATE, PickSalesOrderDetailTableMap::COL_TIME, PickSalesOrderDetailTableMap::COL_ORDERNBR, PickSalesOrderDetailTableMap::COL_LINENBR, PickSalesOrderDetailTableMap::COL_SUBLINENBR, PickSalesOrderDetailTableMap::COL_ITEMNBR, PickSalesOrderDetailTableMap::COL_ITEMDESC1, PickSalesOrderDetailTableMap::COL_ITEMDESC2, PickSalesOrderDetailTableMap::COL_QTYORDERED, PickSalesOrderDetailTableMap::COL_QTYPULLED, PickSalesOrderDetailTableMap::COL_QTYREMAINING, PickSalesOrderDetailTableMap::COL_BINNBR, PickSalesOrderDetailTableMap::COL_CASEQTY, PickSalesOrderDetailTableMap::COL_INNERPACK, PickSalesOrderDetailTableMap::COL_BINQTY, PickSalesOrderDetailTableMap::COL_OVERBIN1, PickSalesOrderDetailTableMap::COL_OVERBINQTY1, PickSalesOrderDetailTableMap::COL_OVERBIN2, PickSalesOrderDetailTableMap::COL_OVERBINQTY2, PickSalesOrderDetailTableMap::COL_STATUSMSG, PickSalesOrderDetailTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('sessionid', 'recno', 'date', 'time', 'ordernbr', 'linenbr', 'sublinenbr', 'itemnbr', 'itemdesc1', 'itemdesc2', 'qtyordered', 'qtypulled', 'qtyremaining', 'binnbr', 'caseqty', 'innerpack', 'binqty', 'overbin1', 'overbinqty1', 'overbin2', 'overbinqty2', 'statusmsg', 'dummy', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, )
     );
 
     /**
@@ -207,11 +212,11 @@ class PickSalesOrderDetailTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Recno' => 1, 'Date' => 2, 'Time' => 3, 'Ordernbr' => 4, 'Linenbr' => 5, 'Itemnbr' => 6, 'Itemdesc1' => 7, 'Itemdesc2' => 8, 'Qtyordered' => 9, 'Qtypulled' => 10, 'Qtyremaining' => 11, 'Binnbr' => 12, 'Caseqty' => 13, 'Innerpack' => 14, 'Binqty' => 15, 'Overbin1' => 16, 'Overbinqty1' => 17, 'Overbin2' => 18, 'Overbinqty2' => 19, 'Statusmsg' => 20, 'Dummy' => 21, ),
-        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'ordernbr' => 4, 'linenbr' => 5, 'itemnbr' => 6, 'itemdesc1' => 7, 'itemdesc2' => 8, 'qtyordered' => 9, 'qtypulled' => 10, 'qtyremaining' => 11, 'binnbr' => 12, 'caseqty' => 13, 'innerpack' => 14, 'binqty' => 15, 'overbin1' => 16, 'overbinqty1' => 17, 'overbin2' => 18, 'overbinqty2' => 19, 'statusmsg' => 20, 'dummy' => 21, ),
-        self::TYPE_COLNAME       => array(PickSalesOrderDetailTableMap::COL_SESSIONID => 0, PickSalesOrderDetailTableMap::COL_RECNO => 1, PickSalesOrderDetailTableMap::COL_DATE => 2, PickSalesOrderDetailTableMap::COL_TIME => 3, PickSalesOrderDetailTableMap::COL_ORDERNBR => 4, PickSalesOrderDetailTableMap::COL_LINENBR => 5, PickSalesOrderDetailTableMap::COL_ITEMNBR => 6, PickSalesOrderDetailTableMap::COL_ITEMDESC1 => 7, PickSalesOrderDetailTableMap::COL_ITEMDESC2 => 8, PickSalesOrderDetailTableMap::COL_QTYORDERED => 9, PickSalesOrderDetailTableMap::COL_QTYPULLED => 10, PickSalesOrderDetailTableMap::COL_QTYREMAINING => 11, PickSalesOrderDetailTableMap::COL_BINNBR => 12, PickSalesOrderDetailTableMap::COL_CASEQTY => 13, PickSalesOrderDetailTableMap::COL_INNERPACK => 14, PickSalesOrderDetailTableMap::COL_BINQTY => 15, PickSalesOrderDetailTableMap::COL_OVERBIN1 => 16, PickSalesOrderDetailTableMap::COL_OVERBINQTY1 => 17, PickSalesOrderDetailTableMap::COL_OVERBIN2 => 18, PickSalesOrderDetailTableMap::COL_OVERBINQTY2 => 19, PickSalesOrderDetailTableMap::COL_STATUSMSG => 20, PickSalesOrderDetailTableMap::COL_DUMMY => 21, ),
-        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'ordernbr' => 4, 'linenbr' => 5, 'itemnbr' => 6, 'itemdesc1' => 7, 'itemdesc2' => 8, 'qtyordered' => 9, 'qtypulled' => 10, 'qtyremaining' => 11, 'binnbr' => 12, 'caseqty' => 13, 'innerpack' => 14, 'binqty' => 15, 'overbin1' => 16, 'overbinqty1' => 17, 'overbin2' => 18, 'overbinqty2' => 19, 'statusmsg' => 20, 'dummy' => 21, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, )
+        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Recno' => 1, 'Date' => 2, 'Time' => 3, 'Ordernbr' => 4, 'Linenbr' => 5, 'Sublinenbr' => 6, 'Itemnbr' => 7, 'Itemdesc1' => 8, 'Itemdesc2' => 9, 'Qtyordered' => 10, 'Qtypulled' => 11, 'Qtyremaining' => 12, 'Binnbr' => 13, 'Caseqty' => 14, 'Innerpack' => 15, 'Binqty' => 16, 'Overbin1' => 17, 'Overbinqty1' => 18, 'Overbin2' => 19, 'Overbinqty2' => 20, 'Statusmsg' => 21, 'Dummy' => 22, ),
+        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'ordernbr' => 4, 'linenbr' => 5, 'sublinenbr' => 6, 'itemnbr' => 7, 'itemdesc1' => 8, 'itemdesc2' => 9, 'qtyordered' => 10, 'qtypulled' => 11, 'qtyremaining' => 12, 'binnbr' => 13, 'caseqty' => 14, 'innerpack' => 15, 'binqty' => 16, 'overbin1' => 17, 'overbinqty1' => 18, 'overbin2' => 19, 'overbinqty2' => 20, 'statusmsg' => 21, 'dummy' => 22, ),
+        self::TYPE_COLNAME       => array(PickSalesOrderDetailTableMap::COL_SESSIONID => 0, PickSalesOrderDetailTableMap::COL_RECNO => 1, PickSalesOrderDetailTableMap::COL_DATE => 2, PickSalesOrderDetailTableMap::COL_TIME => 3, PickSalesOrderDetailTableMap::COL_ORDERNBR => 4, PickSalesOrderDetailTableMap::COL_LINENBR => 5, PickSalesOrderDetailTableMap::COL_SUBLINENBR => 6, PickSalesOrderDetailTableMap::COL_ITEMNBR => 7, PickSalesOrderDetailTableMap::COL_ITEMDESC1 => 8, PickSalesOrderDetailTableMap::COL_ITEMDESC2 => 9, PickSalesOrderDetailTableMap::COL_QTYORDERED => 10, PickSalesOrderDetailTableMap::COL_QTYPULLED => 11, PickSalesOrderDetailTableMap::COL_QTYREMAINING => 12, PickSalesOrderDetailTableMap::COL_BINNBR => 13, PickSalesOrderDetailTableMap::COL_CASEQTY => 14, PickSalesOrderDetailTableMap::COL_INNERPACK => 15, PickSalesOrderDetailTableMap::COL_BINQTY => 16, PickSalesOrderDetailTableMap::COL_OVERBIN1 => 17, PickSalesOrderDetailTableMap::COL_OVERBINQTY1 => 18, PickSalesOrderDetailTableMap::COL_OVERBIN2 => 19, PickSalesOrderDetailTableMap::COL_OVERBINQTY2 => 20, PickSalesOrderDetailTableMap::COL_STATUSMSG => 21, PickSalesOrderDetailTableMap::COL_DUMMY => 22, ),
+        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'ordernbr' => 4, 'linenbr' => 5, 'sublinenbr' => 6, 'itemnbr' => 7, 'itemdesc1' => 8, 'itemdesc2' => 9, 'qtyordered' => 10, 'qtypulled' => 11, 'qtyremaining' => 12, 'binnbr' => 13, 'caseqty' => 14, 'innerpack' => 15, 'binqty' => 16, 'overbin1' => 17, 'overbinqty1' => 18, 'overbin2' => 19, 'overbinqty2' => 20, 'statusmsg' => 21, 'dummy' => 22, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, )
     );
 
     /**
@@ -237,6 +242,7 @@ class PickSalesOrderDetailTableMap extends TableMap
         $this->addColumn('time', 'Time', 'INTEGER', false, 8, null);
         $this->addColumn('ordernbr', 'Ordernbr', 'VARCHAR', false, 10, null);
         $this->addColumn('linenbr', 'Linenbr', 'INTEGER', true, 4, null);
+        $this->addColumn('sublinenbr', 'Sublinenbr', 'INTEGER', true, 4, null);
         $this->addColumn('itemnbr', 'Itemnbr', 'VARCHAR', false, 30, null);
         $this->addColumn('itemdesc1', 'Itemdesc1', 'VARCHAR', false, 35, null);
         $this->addColumn('itemdesc2', 'Itemdesc2', 'VARCHAR', false, 35, null);
@@ -471,6 +477,7 @@ class PickSalesOrderDetailTableMap extends TableMap
             $criteria->addSelectColumn(PickSalesOrderDetailTableMap::COL_TIME);
             $criteria->addSelectColumn(PickSalesOrderDetailTableMap::COL_ORDERNBR);
             $criteria->addSelectColumn(PickSalesOrderDetailTableMap::COL_LINENBR);
+            $criteria->addSelectColumn(PickSalesOrderDetailTableMap::COL_SUBLINENBR);
             $criteria->addSelectColumn(PickSalesOrderDetailTableMap::COL_ITEMNBR);
             $criteria->addSelectColumn(PickSalesOrderDetailTableMap::COL_ITEMDESC1);
             $criteria->addSelectColumn(PickSalesOrderDetailTableMap::COL_ITEMDESC2);
@@ -494,6 +501,7 @@ class PickSalesOrderDetailTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.time');
             $criteria->addSelectColumn($alias . '.ordernbr');
             $criteria->addSelectColumn($alias . '.linenbr');
+            $criteria->addSelectColumn($alias . '.sublinenbr');
             $criteria->addSelectColumn($alias . '.itemnbr');
             $criteria->addSelectColumn($alias . '.itemdesc1');
             $criteria->addSelectColumn($alias . '.itemdesc2');
