@@ -20,8 +20,10 @@ use Propel\Runtime\Exception\PropelException;
  *
  *
  * @method     ChildWhseitemphysicalcountQuery orderBySessionid($order = Criteria::ASC) Order by the sessionid column
+ * @method     ChildWhseitemphysicalcountQuery orderByRecno($order = Criteria::ASC) Order by the recno column
  * @method     ChildWhseitemphysicalcountQuery orderByItemid($order = Criteria::ASC) Order by the itemid column
  * @method     ChildWhseitemphysicalcountQuery orderByScan($order = Criteria::ASC) Order by the scan column
+ * @method     ChildWhseitemphysicalcountQuery orderByType($order = Criteria::ASC) Order by the type column
  * @method     ChildWhseitemphysicalcountQuery orderByLotserial($order = Criteria::ASC) Order by the lotserial column
  * @method     ChildWhseitemphysicalcountQuery orderByLotserialref($order = Criteria::ASC) Order by the lotserialref column
  * @method     ChildWhseitemphysicalcountQuery orderByQty($order = Criteria::ASC) Order by the qty column
@@ -32,8 +34,10 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWhseitemphysicalcountQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
  *
  * @method     ChildWhseitemphysicalcountQuery groupBySessionid() Group by the sessionid column
+ * @method     ChildWhseitemphysicalcountQuery groupByRecno() Group by the recno column
  * @method     ChildWhseitemphysicalcountQuery groupByItemid() Group by the itemid column
  * @method     ChildWhseitemphysicalcountQuery groupByScan() Group by the scan column
+ * @method     ChildWhseitemphysicalcountQuery groupByType() Group by the type column
  * @method     ChildWhseitemphysicalcountQuery groupByLotserial() Group by the lotserial column
  * @method     ChildWhseitemphysicalcountQuery groupByLotserialref() Group by the lotserialref column
  * @method     ChildWhseitemphysicalcountQuery groupByQty() Group by the qty column
@@ -55,11 +59,13 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWhseitemphysicalcount findOneOrCreate(ConnectionInterface $con = null) Return the first ChildWhseitemphysicalcount matching the query, or a new ChildWhseitemphysicalcount object populated from the query conditions when no match is found
  *
  * @method     ChildWhseitemphysicalcount findOneBySessionid(string $sessionid) Return the first ChildWhseitemphysicalcount filtered by the sessionid column
+ * @method     ChildWhseitemphysicalcount findOneByRecno(int $recno) Return the first ChildWhseitemphysicalcount filtered by the recno column
  * @method     ChildWhseitemphysicalcount findOneByItemid(string $itemid) Return the first ChildWhseitemphysicalcount filtered by the itemid column
  * @method     ChildWhseitemphysicalcount findOneByScan(string $scan) Return the first ChildWhseitemphysicalcount filtered by the scan column
+ * @method     ChildWhseitemphysicalcount findOneByType(string $type) Return the first ChildWhseitemphysicalcount filtered by the type column
  * @method     ChildWhseitemphysicalcount findOneByLotserial(string $lotserial) Return the first ChildWhseitemphysicalcount filtered by the lotserial column
  * @method     ChildWhseitemphysicalcount findOneByLotserialref(string $lotserialref) Return the first ChildWhseitemphysicalcount filtered by the lotserialref column
- * @method     ChildWhseitemphysicalcount findOneByQty(int $qty) Return the first ChildWhseitemphysicalcount filtered by the qty column
+ * @method     ChildWhseitemphysicalcount findOneByQty(string $qty) Return the first ChildWhseitemphysicalcount filtered by the qty column
  * @method     ChildWhseitemphysicalcount findOneByComplete(string $complete) Return the first ChildWhseitemphysicalcount filtered by the complete column
  * @method     ChildWhseitemphysicalcount findOneByStatus(string $status) Return the first ChildWhseitemphysicalcount filtered by the status column
  * @method     ChildWhseitemphysicalcount findOneByDate(int $date) Return the first ChildWhseitemphysicalcount filtered by the date column
@@ -70,11 +76,13 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWhseitemphysicalcount requireOne(ConnectionInterface $con = null) Return the first ChildWhseitemphysicalcount matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildWhseitemphysicalcount requireOneBySessionid(string $sessionid) Return the first ChildWhseitemphysicalcount filtered by the sessionid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWhseitemphysicalcount requireOneByRecno(int $recno) Return the first ChildWhseitemphysicalcount filtered by the recno column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitemphysicalcount requireOneByItemid(string $itemid) Return the first ChildWhseitemphysicalcount filtered by the itemid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitemphysicalcount requireOneByScan(string $scan) Return the first ChildWhseitemphysicalcount filtered by the scan column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWhseitemphysicalcount requireOneByType(string $type) Return the first ChildWhseitemphysicalcount filtered by the type column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitemphysicalcount requireOneByLotserial(string $lotserial) Return the first ChildWhseitemphysicalcount filtered by the lotserial column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitemphysicalcount requireOneByLotserialref(string $lotserialref) Return the first ChildWhseitemphysicalcount filtered by the lotserialref column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseitemphysicalcount requireOneByQty(int $qty) Return the first ChildWhseitemphysicalcount filtered by the qty column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWhseitemphysicalcount requireOneByQty(string $qty) Return the first ChildWhseitemphysicalcount filtered by the qty column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitemphysicalcount requireOneByComplete(string $complete) Return the first ChildWhseitemphysicalcount filtered by the complete column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitemphysicalcount requireOneByStatus(string $status) Return the first ChildWhseitemphysicalcount filtered by the status column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitemphysicalcount requireOneByDate(int $date) Return the first ChildWhseitemphysicalcount filtered by the date column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -83,11 +91,13 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     ChildWhseitemphysicalcount[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildWhseitemphysicalcount objects based on current ModelCriteria
  * @method     ChildWhseitemphysicalcount[]|ObjectCollection findBySessionid(string $sessionid) Return ChildWhseitemphysicalcount objects filtered by the sessionid column
+ * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByRecno(int $recno) Return ChildWhseitemphysicalcount objects filtered by the recno column
  * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByItemid(string $itemid) Return ChildWhseitemphysicalcount objects filtered by the itemid column
  * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByScan(string $scan) Return ChildWhseitemphysicalcount objects filtered by the scan column
+ * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByType(string $type) Return ChildWhseitemphysicalcount objects filtered by the type column
  * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByLotserial(string $lotserial) Return ChildWhseitemphysicalcount objects filtered by the lotserial column
  * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByLotserialref(string $lotserialref) Return ChildWhseitemphysicalcount objects filtered by the lotserialref column
- * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByQty(int $qty) Return ChildWhseitemphysicalcount objects filtered by the qty column
+ * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByQty(string $qty) Return ChildWhseitemphysicalcount objects filtered by the qty column
  * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByComplete(string $complete) Return ChildWhseitemphysicalcount objects filtered by the complete column
  * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByStatus(string $status) Return ChildWhseitemphysicalcount objects filtered by the status column
  * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByDate(int $date) Return ChildWhseitemphysicalcount objects filtered by the date column
@@ -107,7 +117,7 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
      * @param     string $modelName The phpName of a model, e.g. 'Book'
      * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
      */
-    public function __construct($dbName = 'dplusodb', $modelName = '\\Whseitemphysicalcount', $modelAlias = null)
+    public function __construct($dbName = 'default', $modelName = '\\Whseitemphysicalcount', $modelAlias = null)
     {
         parent::__construct($dbName, $modelName, $modelAlias);
     }
@@ -142,10 +152,10 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
      * Go fast if the query is untouched.
      *
      * <code>
-     * $obj  = $c->findPk(12, $con);
+     * $obj = $c->findPk(array(12, 34), $con);
      * </code>
      *
-     * @param mixed $key Primary key to use for the query
+     * @param array[$sessionid, $recno] $key Primary key to use for the query
      * @param ConnectionInterface $con an optional connection object
      *
      * @return ChildWhseitemphysicalcount|array|mixed the result, formatted by the current formatter
@@ -170,7 +180,7 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
             return $this->findPkComplex($key, $con);
         }
 
-        if ((null !== ($obj = WhseitemphysicalcountTableMap::getInstanceFromPool(null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key)))) {
+        if ((null !== ($obj = WhseitemphysicalcountTableMap::getInstanceFromPool(serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]))))) {
             // the object is already in the instance pool
             return $obj;
         }
@@ -191,10 +201,11 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT sessionid, itemid, scan, lotserial, lotserialref, qty, complete, status, date, time, dummy FROM whseitemphysicalcount WHERE sessionid = :p0';
+        $sql = 'SELECT sessionid, recno, itemid, scan, type, lotserial, lotserialref, qty, complete, status, date, time, dummy FROM whseitemphysicalcount WHERE sessionid = :p0 AND recno = :p1';
         try {
             $stmt = $con->prepare($sql);
-            $stmt->bindValue(':p0', $key, PDO::PARAM_STR);
+            $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
+            $stmt->bindValue(':p1', $key[1], PDO::PARAM_INT);
             $stmt->execute();
         } catch (Exception $e) {
             Propel::log($e->getMessage(), Propel::LOG_ERR);
@@ -205,7 +216,7 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
             /** @var ChildWhseitemphysicalcount $obj */
             $obj = new ChildWhseitemphysicalcount();
             $obj->hydrate($row);
-            WhseitemphysicalcountTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
+            WhseitemphysicalcountTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]));
         }
         $stmt->closeCursor();
 
@@ -234,7 +245,7 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
     /**
      * Find objects by primary key
      * <code>
-     * $objs = $c->findPks(array(12, 56, 832), $con);
+     * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
      * @param     array $keys Primary keys to use for the query
      * @param     ConnectionInterface $con an optional connection object
@@ -264,8 +275,10 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
      */
     public function filterByPrimaryKey($key)
     {
+        $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_SESSIONID, $key[0], Criteria::EQUAL);
+        $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_RECNO, $key[1], Criteria::EQUAL);
 
-        return $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_SESSIONID, $key, Criteria::EQUAL);
+        return $this;
     }
 
     /**
@@ -277,8 +290,17 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
      */
     public function filterByPrimaryKeys($keys)
     {
+        if (empty($keys)) {
+            return $this->add(null, '1<>1', Criteria::CUSTOM);
+        }
+        foreach ($keys as $key) {
+            $cton0 = $this->getNewCriterion(WhseitemphysicalcountTableMap::COL_SESSIONID, $key[0], Criteria::EQUAL);
+            $cton1 = $this->getNewCriterion(WhseitemphysicalcountTableMap::COL_RECNO, $key[1], Criteria::EQUAL);
+            $cton0->addAnd($cton1);
+            $this->addOr($cton0);
+        }
 
-        return $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_SESSIONID, $keys, Criteria::IN);
+        return $this;
     }
 
     /**
@@ -304,6 +326,47 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_SESSIONID, $sessionid, $comparison);
+    }
+
+    /**
+     * Filter the query on the recno column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByRecno(1234); // WHERE recno = 1234
+     * $query->filterByRecno(array(12, 34)); // WHERE recno IN (12, 34)
+     * $query->filterByRecno(array('min' => 12)); // WHERE recno > 12
+     * </code>
+     *
+     * @param     mixed $recno The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildWhseitemphysicalcountQuery The current query, for fluid interface
+     */
+    public function filterByRecno($recno = null, $comparison = null)
+    {
+        if (is_array($recno)) {
+            $useMinMax = false;
+            if (isset($recno['min'])) {
+                $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_RECNO, $recno['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($recno['max'])) {
+                $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_RECNO, $recno['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_RECNO, $recno, $comparison);
     }
 
     /**
@@ -354,6 +417,31 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_SCAN, $scan, $comparison);
+    }
+
+    /**
+     * Filter the query on the type column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByType('fooValue');   // WHERE type = 'fooValue'
+     * $query->filterByType('%fooValue%', Criteria::LIKE); // WHERE type LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $type The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildWhseitemphysicalcountQuery The current query, for fluid interface
+     */
+    public function filterByType($type = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($type)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_TYPE, $type, $comparison);
     }
 
     /**
@@ -411,35 +499,19 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
      *
      * Example usage:
      * <code>
-     * $query->filterByQty(1234); // WHERE qty = 1234
-     * $query->filterByQty(array(12, 34)); // WHERE qty IN (12, 34)
-     * $query->filterByQty(array('min' => 12)); // WHERE qty > 12
+     * $query->filterByQty('fooValue');   // WHERE qty = 'fooValue'
+     * $query->filterByQty('%fooValue%', Criteria::LIKE); // WHERE qty LIKE '%fooValue%'
      * </code>
      *
-     * @param     mixed $qty The value to use as filter.
-     *              Use scalar values for equality.
-     *              Use array values for in_array() equivalent.
-     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $qty The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildWhseitemphysicalcountQuery The current query, for fluid interface
      */
     public function filterByQty($qty = null, $comparison = null)
     {
-        if (is_array($qty)) {
-            $useMinMax = false;
-            if (isset($qty['min'])) {
-                $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_QTY, $qty['min'], Criteria::GREATER_EQUAL);
-                $useMinMax = true;
-            }
-            if (isset($qty['max'])) {
-                $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_QTY, $qty['max'], Criteria::LESS_EQUAL);
-                $useMinMax = true;
-            }
-            if ($useMinMax) {
-                return $this;
-            }
-            if (null === $comparison) {
+        if (null === $comparison) {
+            if (is_array($qty)) {
                 $comparison = Criteria::IN;
             }
         }
@@ -614,7 +686,9 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
     public function prune($whseitemphysicalcount = null)
     {
         if ($whseitemphysicalcount) {
-            $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_SESSIONID, $whseitemphysicalcount->getSessionid(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond0', $this->getAliasedColName(WhseitemphysicalcountTableMap::COL_SESSIONID), $whseitemphysicalcount->getSessionid(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond1', $this->getAliasedColName(WhseitemphysicalcountTableMap::COL_RECNO), $whseitemphysicalcount->getRecno(), Criteria::NOT_EQUAL);
+            $this->combine(array('pruneCond0', 'pruneCond1'), Criteria::LOGICAL_OR);
         }
 
         return $this;

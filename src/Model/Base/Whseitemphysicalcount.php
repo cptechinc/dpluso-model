@@ -67,6 +67,13 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
     protected $sessionid;
 
     /**
+     * The value for the recno field.
+     *
+     * @var        int
+     */
+    protected $recno;
+
+    /**
      * The value for the itemid field.
      *
      * @var        string
@@ -79,6 +86,13 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
      * @var        string
      */
     protected $scan;
+
+    /**
+     * The value for the type field.
+     *
+     * @var        string
+     */
+    protected $type;
 
     /**
      * The value for the lotserial field.
@@ -97,7 +111,7 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
     /**
      * The value for the qty field.
      *
-     * @var        int
+     * @var        string
      */
     protected $qty;
 
@@ -380,6 +394,16 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
     }
 
     /**
+     * Get the [recno] column value.
+     *
+     * @return int
+     */
+    public function getRecno()
+    {
+        return $this->recno;
+    }
+
+    /**
      * Get the [itemid] column value.
      *
      * @return string
@@ -397,6 +421,16 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
     public function getScan()
     {
         return $this->scan;
+    }
+
+    /**
+     * Get the [type] column value.
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 
     /**
@@ -422,7 +456,7 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
     /**
      * Get the [qty] column value.
      *
-     * @return int
+     * @return string
      */
     public function getQty()
     {
@@ -500,6 +534,26 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
     } // setSessionid()
 
     /**
+     * Set the value of [recno] column.
+     *
+     * @param int $v new value
+     * @return $this|\Whseitemphysicalcount The current object (for fluent API support)
+     */
+    public function setRecno($v)
+    {
+        if ($v !== null) {
+            $v = (int) $v;
+        }
+
+        if ($this->recno !== $v) {
+            $this->recno = $v;
+            $this->modifiedColumns[WhseitemphysicalcountTableMap::COL_RECNO] = true;
+        }
+
+        return $this;
+    } // setRecno()
+
+    /**
      * Set the value of [itemid] column.
      *
      * @param string $v new value
@@ -538,6 +592,26 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
 
         return $this;
     } // setScan()
+
+    /**
+     * Set the value of [type] column.
+     *
+     * @param string $v new value
+     * @return $this|\Whseitemphysicalcount The current object (for fluent API support)
+     */
+    public function setType($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->type !== $v) {
+            $this->type = $v;
+            $this->modifiedColumns[WhseitemphysicalcountTableMap::COL_TYPE] = true;
+        }
+
+        return $this;
+    } // setType()
 
     /**
      * Set the value of [lotserial] column.
@@ -582,13 +656,13 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
     /**
      * Set the value of [qty] column.
      *
-     * @param int $v new value
+     * @param string $v new value
      * @return $this|\Whseitemphysicalcount The current object (for fluent API support)
      */
     public function setQty($v)
     {
         if ($v !== null) {
-            $v = (int) $v;
+            $v = (string) $v;
         }
 
         if ($this->qty !== $v) {
@@ -738,34 +812,40 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->sessionid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Itemid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Recno', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->recno = (null !== $col) ? (int) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Itemid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->itemid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Scan', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Scan', TableMap::TYPE_PHPNAME, $indexType)];
             $this->scan = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Lotserial', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Type', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->type = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Lotserial', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lotserial = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Lotserialref', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Lotserialref', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lotserialref = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Qty', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->qty = (null !== $col) ? (int) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Qty', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->qty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Complete', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Complete', TableMap::TYPE_PHPNAME, $indexType)];
             $this->complete = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Status', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Status', TableMap::TYPE_PHPNAME, $indexType)];
             $this->status = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Date', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Date', TableMap::TYPE_PHPNAME, $indexType)];
             $this->date = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Time', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Time', TableMap::TYPE_PHPNAME, $indexType)];
             $this->time = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -775,7 +855,7 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 11; // 11 = WhseitemphysicalcountTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 13; // 13 = WhseitemphysicalcountTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\Whseitemphysicalcount'), 0, $e);
@@ -975,11 +1055,17 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
         if ($this->isColumnModified(WhseitemphysicalcountTableMap::COL_SESSIONID)) {
             $modifiedColumns[':p' . $index++]  = 'sessionid';
         }
+        if ($this->isColumnModified(WhseitemphysicalcountTableMap::COL_RECNO)) {
+            $modifiedColumns[':p' . $index++]  = 'recno';
+        }
         if ($this->isColumnModified(WhseitemphysicalcountTableMap::COL_ITEMID)) {
             $modifiedColumns[':p' . $index++]  = 'itemid';
         }
         if ($this->isColumnModified(WhseitemphysicalcountTableMap::COL_SCAN)) {
             $modifiedColumns[':p' . $index++]  = 'scan';
+        }
+        if ($this->isColumnModified(WhseitemphysicalcountTableMap::COL_TYPE)) {
+            $modifiedColumns[':p' . $index++]  = 'type';
         }
         if ($this->isColumnModified(WhseitemphysicalcountTableMap::COL_LOTSERIAL)) {
             $modifiedColumns[':p' . $index++]  = 'lotserial';
@@ -1019,11 +1105,17 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
                     case 'sessionid':
                         $stmt->bindValue($identifier, $this->sessionid, PDO::PARAM_STR);
                         break;
+                    case 'recno':
+                        $stmt->bindValue($identifier, $this->recno, PDO::PARAM_INT);
+                        break;
                     case 'itemid':
                         $stmt->bindValue($identifier, $this->itemid, PDO::PARAM_STR);
                         break;
                     case 'scan':
                         $stmt->bindValue($identifier, $this->scan, PDO::PARAM_STR);
+                        break;
+                    case 'type':
+                        $stmt->bindValue($identifier, $this->type, PDO::PARAM_STR);
                         break;
                     case 'lotserial':
                         $stmt->bindValue($identifier, $this->lotserial, PDO::PARAM_STR);
@@ -1032,7 +1124,7 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
                         $stmt->bindValue($identifier, $this->lotserialref, PDO::PARAM_STR);
                         break;
                     case 'qty':
-                        $stmt->bindValue($identifier, $this->qty, PDO::PARAM_INT);
+                        $stmt->bindValue($identifier, $this->qty, PDO::PARAM_STR);
                         break;
                     case 'complete':
                         $stmt->bindValue($identifier, $this->complete, PDO::PARAM_STR);
@@ -1108,33 +1200,39 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
                 return $this->getSessionid();
                 break;
             case 1:
-                return $this->getItemid();
+                return $this->getRecno();
                 break;
             case 2:
-                return $this->getScan();
+                return $this->getItemid();
                 break;
             case 3:
-                return $this->getLotserial();
+                return $this->getScan();
                 break;
             case 4:
-                return $this->getLotserialref();
+                return $this->getType();
                 break;
             case 5:
-                return $this->getQty();
+                return $this->getLotserial();
                 break;
             case 6:
-                return $this->getComplete();
+                return $this->getLotserialref();
                 break;
             case 7:
-                return $this->getStatus();
+                return $this->getQty();
                 break;
             case 8:
-                return $this->getDate();
+                return $this->getComplete();
                 break;
             case 9:
-                return $this->getTime();
+                return $this->getStatus();
                 break;
             case 10:
+                return $this->getDate();
+                break;
+            case 11:
+                return $this->getTime();
+                break;
+            case 12:
                 return $this->getDummy();
                 break;
             default:
@@ -1167,16 +1265,18 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
         $keys = WhseitemphysicalcountTableMap::getFieldNames($keyType);
         $result = array(
             $keys[0] => $this->getSessionid(),
-            $keys[1] => $this->getItemid(),
-            $keys[2] => $this->getScan(),
-            $keys[3] => $this->getLotserial(),
-            $keys[4] => $this->getLotserialref(),
-            $keys[5] => $this->getQty(),
-            $keys[6] => $this->getComplete(),
-            $keys[7] => $this->getStatus(),
-            $keys[8] => $this->getDate(),
-            $keys[9] => $this->getTime(),
-            $keys[10] => $this->getDummy(),
+            $keys[1] => $this->getRecno(),
+            $keys[2] => $this->getItemid(),
+            $keys[3] => $this->getScan(),
+            $keys[4] => $this->getType(),
+            $keys[5] => $this->getLotserial(),
+            $keys[6] => $this->getLotserialref(),
+            $keys[7] => $this->getQty(),
+            $keys[8] => $this->getComplete(),
+            $keys[9] => $this->getStatus(),
+            $keys[10] => $this->getDate(),
+            $keys[11] => $this->getTime(),
+            $keys[12] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -1220,33 +1320,39 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
                 $this->setSessionid($value);
                 break;
             case 1:
-                $this->setItemid($value);
+                $this->setRecno($value);
                 break;
             case 2:
-                $this->setScan($value);
+                $this->setItemid($value);
                 break;
             case 3:
-                $this->setLotserial($value);
+                $this->setScan($value);
                 break;
             case 4:
-                $this->setLotserialref($value);
+                $this->setType($value);
                 break;
             case 5:
-                $this->setQty($value);
+                $this->setLotserial($value);
                 break;
             case 6:
-                $this->setComplete($value);
+                $this->setLotserialref($value);
                 break;
             case 7:
-                $this->setStatus($value);
+                $this->setQty($value);
                 break;
             case 8:
-                $this->setDate($value);
+                $this->setComplete($value);
                 break;
             case 9:
-                $this->setTime($value);
+                $this->setStatus($value);
                 break;
             case 10:
+                $this->setDate($value);
+                break;
+            case 11:
+                $this->setTime($value);
+                break;
+            case 12:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -1279,34 +1385,40 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
             $this->setSessionid($arr[$keys[0]]);
         }
         if (array_key_exists($keys[1], $arr)) {
-            $this->setItemid($arr[$keys[1]]);
+            $this->setRecno($arr[$keys[1]]);
         }
         if (array_key_exists($keys[2], $arr)) {
-            $this->setScan($arr[$keys[2]]);
+            $this->setItemid($arr[$keys[2]]);
         }
         if (array_key_exists($keys[3], $arr)) {
-            $this->setLotserial($arr[$keys[3]]);
+            $this->setScan($arr[$keys[3]]);
         }
         if (array_key_exists($keys[4], $arr)) {
-            $this->setLotserialref($arr[$keys[4]]);
+            $this->setType($arr[$keys[4]]);
         }
         if (array_key_exists($keys[5], $arr)) {
-            $this->setQty($arr[$keys[5]]);
+            $this->setLotserial($arr[$keys[5]]);
         }
         if (array_key_exists($keys[6], $arr)) {
-            $this->setComplete($arr[$keys[6]]);
+            $this->setLotserialref($arr[$keys[6]]);
         }
         if (array_key_exists($keys[7], $arr)) {
-            $this->setStatus($arr[$keys[7]]);
+            $this->setQty($arr[$keys[7]]);
         }
         if (array_key_exists($keys[8], $arr)) {
-            $this->setDate($arr[$keys[8]]);
+            $this->setComplete($arr[$keys[8]]);
         }
         if (array_key_exists($keys[9], $arr)) {
-            $this->setTime($arr[$keys[9]]);
+            $this->setStatus($arr[$keys[9]]);
         }
         if (array_key_exists($keys[10], $arr)) {
-            $this->setDummy($arr[$keys[10]]);
+            $this->setDate($arr[$keys[10]]);
+        }
+        if (array_key_exists($keys[11], $arr)) {
+            $this->setTime($arr[$keys[11]]);
+        }
+        if (array_key_exists($keys[12], $arr)) {
+            $this->setDummy($arr[$keys[12]]);
         }
     }
 
@@ -1352,11 +1464,17 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
         if ($this->isColumnModified(WhseitemphysicalcountTableMap::COL_SESSIONID)) {
             $criteria->add(WhseitemphysicalcountTableMap::COL_SESSIONID, $this->sessionid);
         }
+        if ($this->isColumnModified(WhseitemphysicalcountTableMap::COL_RECNO)) {
+            $criteria->add(WhseitemphysicalcountTableMap::COL_RECNO, $this->recno);
+        }
         if ($this->isColumnModified(WhseitemphysicalcountTableMap::COL_ITEMID)) {
             $criteria->add(WhseitemphysicalcountTableMap::COL_ITEMID, $this->itemid);
         }
         if ($this->isColumnModified(WhseitemphysicalcountTableMap::COL_SCAN)) {
             $criteria->add(WhseitemphysicalcountTableMap::COL_SCAN, $this->scan);
+        }
+        if ($this->isColumnModified(WhseitemphysicalcountTableMap::COL_TYPE)) {
+            $criteria->add(WhseitemphysicalcountTableMap::COL_TYPE, $this->type);
         }
         if ($this->isColumnModified(WhseitemphysicalcountTableMap::COL_LOTSERIAL)) {
             $criteria->add(WhseitemphysicalcountTableMap::COL_LOTSERIAL, $this->lotserial);
@@ -1400,6 +1518,7 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
     {
         $criteria = ChildWhseitemphysicalcountQuery::create();
         $criteria->add(WhseitemphysicalcountTableMap::COL_SESSIONID, $this->sessionid);
+        $criteria->add(WhseitemphysicalcountTableMap::COL_RECNO, $this->recno);
 
         return $criteria;
     }
@@ -1412,7 +1531,8 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
      */
     public function hashCode()
     {
-        $validPk = null !== $this->getSessionid();
+        $validPk = null !== $this->getSessionid() &&
+            null !== $this->getRecno();
 
         $validPrimaryKeyFKs = 0;
         $primaryKeyFKs = [];
@@ -1427,23 +1547,29 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
     }
 
     /**
-     * Returns the primary key for this object (row).
-     * @return string
+     * Returns the composite primary key for this object.
+     * The array elements will be in same order as specified in XML.
+     * @return array
      */
     public function getPrimaryKey()
     {
-        return $this->getSessionid();
+        $pks = array();
+        $pks[0] = $this->getSessionid();
+        $pks[1] = $this->getRecno();
+
+        return $pks;
     }
 
     /**
-     * Generic method to set the primary key (sessionid column).
+     * Set the [composite] primary key.
      *
-     * @param       string $key Primary key.
+     * @param      array $keys The elements of the composite key (order must match the order in XML file).
      * @return void
      */
-    public function setPrimaryKey($key)
+    public function setPrimaryKey($keys)
     {
-        $this->setSessionid($key);
+        $this->setSessionid($keys[0]);
+        $this->setRecno($keys[1]);
     }
 
     /**
@@ -1452,7 +1578,7 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
      */
     public function isPrimaryKeyNull()
     {
-        return null === $this->getSessionid();
+        return (null === $this->getSessionid()) && (null === $this->getRecno());
     }
 
     /**
@@ -1469,8 +1595,10 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
     public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
     {
         $copyObj->setSessionid($this->getSessionid());
+        $copyObj->setRecno($this->getRecno());
         $copyObj->setItemid($this->getItemid());
         $copyObj->setScan($this->getScan());
+        $copyObj->setType($this->getType());
         $copyObj->setLotserial($this->getLotserial());
         $copyObj->setLotserialref($this->getLotserialref());
         $copyObj->setQty($this->getQty());
@@ -1514,8 +1642,10 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
     public function clear()
     {
         $this->sessionid = null;
+        $this->recno = null;
         $this->itemid = null;
         $this->scan = null;
+        $this->type = null;
         $this->lotserial = null;
         $this->lotserialref = null;
         $this->qty = null;

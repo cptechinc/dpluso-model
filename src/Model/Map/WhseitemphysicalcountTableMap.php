@@ -39,7 +39,7 @@ class WhseitemphysicalcountTableMap extends TableMap
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'dplusodb';
+    const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
@@ -59,7 +59,7 @@ class WhseitemphysicalcountTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 11;
+    const NUM_COLUMNS = 13;
 
     /**
      * The number of lazy-loaded columns
@@ -69,12 +69,17 @@ class WhseitemphysicalcountTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 11;
+    const NUM_HYDRATE_COLUMNS = 13;
 
     /**
      * the column name for the sessionid field
      */
     const COL_SESSIONID = 'whseitemphysicalcount.sessionid';
+
+    /**
+     * the column name for the recno field
+     */
+    const COL_RECNO = 'whseitemphysicalcount.recno';
 
     /**
      * the column name for the itemid field
@@ -85,6 +90,11 @@ class WhseitemphysicalcountTableMap extends TableMap
      * the column name for the scan field
      */
     const COL_SCAN = 'whseitemphysicalcount.scan';
+
+    /**
+     * the column name for the type field
+     */
+    const COL_TYPE = 'whseitemphysicalcount.type';
 
     /**
      * the column name for the lotserial field
@@ -138,11 +148,11 @@ class WhseitemphysicalcountTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Sessionid', 'Itemid', 'Scan', 'Lotserial', 'Lotserialref', 'Qty', 'Complete', 'Status', 'Date', 'Time', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('sessionid', 'itemid', 'scan', 'lotserial', 'lotserialref', 'qty', 'complete', 'status', 'date', 'time', 'dummy', ),
-        self::TYPE_COLNAME       => array(WhseitemphysicalcountTableMap::COL_SESSIONID, WhseitemphysicalcountTableMap::COL_ITEMID, WhseitemphysicalcountTableMap::COL_SCAN, WhseitemphysicalcountTableMap::COL_LOTSERIAL, WhseitemphysicalcountTableMap::COL_LOTSERIALREF, WhseitemphysicalcountTableMap::COL_QTY, WhseitemphysicalcountTableMap::COL_COMPLETE, WhseitemphysicalcountTableMap::COL_STATUS, WhseitemphysicalcountTableMap::COL_DATE, WhseitemphysicalcountTableMap::COL_TIME, WhseitemphysicalcountTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('sessionid', 'itemid', 'scan', 'lotserial', 'lotserialref', 'qty', 'complete', 'status', 'date', 'time', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, )
+        self::TYPE_PHPNAME       => array('Sessionid', 'Recno', 'Itemid', 'Scan', 'Type', 'Lotserial', 'Lotserialref', 'Qty', 'Complete', 'Status', 'Date', 'Time', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('sessionid', 'recno', 'itemid', 'scan', 'type', 'lotserial', 'lotserialref', 'qty', 'complete', 'status', 'date', 'time', 'dummy', ),
+        self::TYPE_COLNAME       => array(WhseitemphysicalcountTableMap::COL_SESSIONID, WhseitemphysicalcountTableMap::COL_RECNO, WhseitemphysicalcountTableMap::COL_ITEMID, WhseitemphysicalcountTableMap::COL_SCAN, WhseitemphysicalcountTableMap::COL_TYPE, WhseitemphysicalcountTableMap::COL_LOTSERIAL, WhseitemphysicalcountTableMap::COL_LOTSERIALREF, WhseitemphysicalcountTableMap::COL_QTY, WhseitemphysicalcountTableMap::COL_COMPLETE, WhseitemphysicalcountTableMap::COL_STATUS, WhseitemphysicalcountTableMap::COL_DATE, WhseitemphysicalcountTableMap::COL_TIME, WhseitemphysicalcountTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('sessionid', 'recno', 'itemid', 'scan', 'type', 'lotserial', 'lotserialref', 'qty', 'complete', 'status', 'date', 'time', 'dummy', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, )
     );
 
     /**
@@ -152,11 +162,11 @@ class WhseitemphysicalcountTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Itemid' => 1, 'Scan' => 2, 'Lotserial' => 3, 'Lotserialref' => 4, 'Qty' => 5, 'Complete' => 6, 'Status' => 7, 'Date' => 8, 'Time' => 9, 'Dummy' => 10, ),
-        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'itemid' => 1, 'scan' => 2, 'lotserial' => 3, 'lotserialref' => 4, 'qty' => 5, 'complete' => 6, 'status' => 7, 'date' => 8, 'time' => 9, 'dummy' => 10, ),
-        self::TYPE_COLNAME       => array(WhseitemphysicalcountTableMap::COL_SESSIONID => 0, WhseitemphysicalcountTableMap::COL_ITEMID => 1, WhseitemphysicalcountTableMap::COL_SCAN => 2, WhseitemphysicalcountTableMap::COL_LOTSERIAL => 3, WhseitemphysicalcountTableMap::COL_LOTSERIALREF => 4, WhseitemphysicalcountTableMap::COL_QTY => 5, WhseitemphysicalcountTableMap::COL_COMPLETE => 6, WhseitemphysicalcountTableMap::COL_STATUS => 7, WhseitemphysicalcountTableMap::COL_DATE => 8, WhseitemphysicalcountTableMap::COL_TIME => 9, WhseitemphysicalcountTableMap::COL_DUMMY => 10, ),
-        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'itemid' => 1, 'scan' => 2, 'lotserial' => 3, 'lotserialref' => 4, 'qty' => 5, 'complete' => 6, 'status' => 7, 'date' => 8, 'time' => 9, 'dummy' => 10, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, )
+        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Recno' => 1, 'Itemid' => 2, 'Scan' => 3, 'Type' => 4, 'Lotserial' => 5, 'Lotserialref' => 6, 'Qty' => 7, 'Complete' => 8, 'Status' => 9, 'Date' => 10, 'Time' => 11, 'Dummy' => 12, ),
+        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'recno' => 1, 'itemid' => 2, 'scan' => 3, 'type' => 4, 'lotserial' => 5, 'lotserialref' => 6, 'qty' => 7, 'complete' => 8, 'status' => 9, 'date' => 10, 'time' => 11, 'dummy' => 12, ),
+        self::TYPE_COLNAME       => array(WhseitemphysicalcountTableMap::COL_SESSIONID => 0, WhseitemphysicalcountTableMap::COL_RECNO => 1, WhseitemphysicalcountTableMap::COL_ITEMID => 2, WhseitemphysicalcountTableMap::COL_SCAN => 3, WhseitemphysicalcountTableMap::COL_TYPE => 4, WhseitemphysicalcountTableMap::COL_LOTSERIAL => 5, WhseitemphysicalcountTableMap::COL_LOTSERIALREF => 6, WhseitemphysicalcountTableMap::COL_QTY => 7, WhseitemphysicalcountTableMap::COL_COMPLETE => 8, WhseitemphysicalcountTableMap::COL_STATUS => 9, WhseitemphysicalcountTableMap::COL_DATE => 10, WhseitemphysicalcountTableMap::COL_TIME => 11, WhseitemphysicalcountTableMap::COL_DUMMY => 12, ),
+        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'recno' => 1, 'itemid' => 2, 'scan' => 3, 'type' => 4, 'lotserial' => 5, 'lotserialref' => 6, 'qty' => 7, 'complete' => 8, 'status' => 9, 'date' => 10, 'time' => 11, 'dummy' => 12, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, )
     );
 
     /**
@@ -177,13 +187,15 @@ class WhseitemphysicalcountTableMap extends TableMap
         $this->setUseIdGenerator(false);
         // columns
         $this->addPrimaryKey('sessionid', 'Sessionid', 'VARCHAR', true, 45, null);
+        $this->addPrimaryKey('recno', 'Recno', 'INTEGER', true, null, null);
         $this->addColumn('itemid', 'Itemid', 'VARCHAR', false, 45, null);
-        $this->addColumn('scan', 'Scan', 'VARCHAR', false, 45, null);
+        $this->addColumn('scan', 'Scan', 'VARCHAR', false, 55, null);
+        $this->addColumn('type', 'Type', 'VARCHAR', false, 45, null);
         $this->addColumn('lotserial', 'Lotserial', 'VARCHAR', false, 45, null);
         $this->addColumn('lotserialref', 'Lotserialref', 'VARCHAR', false, 45, null);
-        $this->addColumn('qty', 'Qty', 'INTEGER', false, 8, null);
-        $this->addColumn('complete', 'Complete', 'VARCHAR', false, 45, null);
-        $this->addColumn('status', 'Status', 'VARCHAR', false, 45, null);
+        $this->addColumn('qty', 'Qty', 'VARCHAR', false, 45, null);
+        $this->addColumn('complete', 'Complete', 'VARCHAR', false, 1, null);
+        $this->addColumn('status', 'Status', 'VARCHAR', false, 60, null);
         $this->addColumn('date', 'Date', 'INTEGER', false, 8, null);
         $this->addColumn('time', 'Time', 'INTEGER', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
@@ -195,6 +207,59 @@ class WhseitemphysicalcountTableMap extends TableMap
     public function buildRelations()
     {
     } // buildRelations()
+
+    /**
+     * Adds an object to the instance pool.
+     *
+     * Propel keeps cached copies of objects in an instance pool when they are retrieved
+     * from the database. In some cases you may need to explicitly add objects
+     * to the cache in order to ensure that the same objects are always returned by find*()
+     * and findPk*() calls.
+     *
+     * @param \Whseitemphysicalcount $obj A \Whseitemphysicalcount object.
+     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     */
+    public static function addInstanceToPool($obj, $key = null)
+    {
+        if (Propel::isInstancePoolingEnabled()) {
+            if (null === $key) {
+                $key = serialize([(null === $obj->getSessionid() || is_scalar($obj->getSessionid()) || is_callable([$obj->getSessionid(), '__toString']) ? (string) $obj->getSessionid() : $obj->getSessionid()), (null === $obj->getRecno() || is_scalar($obj->getRecno()) || is_callable([$obj->getRecno(), '__toString']) ? (string) $obj->getRecno() : $obj->getRecno())]);
+            } // if key === null
+            self::$instances[$key] = $obj;
+        }
+    }
+
+    /**
+     * Removes an object from the instance pool.
+     *
+     * Propel keeps cached copies of objects in an instance pool when they are retrieved
+     * from the database.  In some cases -- especially when you override doDelete
+     * methods in your stub classes -- you may need to explicitly remove objects
+     * from the cache in order to prevent returning objects that no longer exist.
+     *
+     * @param mixed $value A \Whseitemphysicalcount object or a primary key value.
+     */
+    public static function removeInstanceFromPool($value)
+    {
+        if (Propel::isInstancePoolingEnabled() && null !== $value) {
+            if (is_object($value) && $value instanceof \Whseitemphysicalcount) {
+                $key = serialize([(null === $value->getSessionid() || is_scalar($value->getSessionid()) || is_callable([$value->getSessionid(), '__toString']) ? (string) $value->getSessionid() : $value->getSessionid()), (null === $value->getRecno() || is_scalar($value->getRecno()) || is_callable([$value->getRecno(), '__toString']) ? (string) $value->getRecno() : $value->getRecno())]);
+
+            } elseif (is_array($value) && count($value) === 2) {
+                // assume we've been passed a primary key";
+                $key = serialize([(null === $value[0] || is_scalar($value[0]) || is_callable([$value[0], '__toString']) ? (string) $value[0] : $value[0]), (null === $value[1] || is_scalar($value[1]) || is_callable([$value[1], '__toString']) ? (string) $value[1] : $value[1])]);
+            } elseif ($value instanceof Criteria) {
+                self::$instances = [];
+
+                return;
+            } else {
+                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or \Whseitemphysicalcount object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value, true)));
+                throw $e;
+            }
+
+            unset(self::$instances[$key]);
+        }
+    }
 
     /**
      * Retrieves a string version of the primary key from the DB resultset row that can be used to uniquely identify a row in this table.
@@ -212,11 +277,11 @@ class WhseitemphysicalcountTableMap extends TableMap
     public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
         // If the PK cannot be derived from the row, return NULL.
-        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)] === null) {
+        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Recno', TableMap::TYPE_PHPNAME, $indexType)] === null) {
             return null;
         }
 
-        return null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)];
+        return serialize([(null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Recno', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Recno', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Recno', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Recno', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Recno', TableMap::TYPE_PHPNAME, $indexType)])]);
     }
 
     /**
@@ -233,11 +298,20 @@ class WhseitemphysicalcountTableMap extends TableMap
      */
     public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
-        return (string) $row[
+            $pks = [];
+
+        $pks[] = (string) $row[
             $indexType == TableMap::TYPE_NUM
                 ? 0 + $offset
                 : self::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)
         ];
+        $pks[] = (int) $row[
+            $indexType == TableMap::TYPE_NUM
+                ? 1 + $offset
+                : self::translateFieldName('Recno', TableMap::TYPE_PHPNAME, $indexType)
+        ];
+
+        return $pks;
     }
 
     /**
@@ -338,8 +412,10 @@ class WhseitemphysicalcountTableMap extends TableMap
     {
         if (null === $alias) {
             $criteria->addSelectColumn(WhseitemphysicalcountTableMap::COL_SESSIONID);
+            $criteria->addSelectColumn(WhseitemphysicalcountTableMap::COL_RECNO);
             $criteria->addSelectColumn(WhseitemphysicalcountTableMap::COL_ITEMID);
             $criteria->addSelectColumn(WhseitemphysicalcountTableMap::COL_SCAN);
+            $criteria->addSelectColumn(WhseitemphysicalcountTableMap::COL_TYPE);
             $criteria->addSelectColumn(WhseitemphysicalcountTableMap::COL_LOTSERIAL);
             $criteria->addSelectColumn(WhseitemphysicalcountTableMap::COL_LOTSERIALREF);
             $criteria->addSelectColumn(WhseitemphysicalcountTableMap::COL_QTY);
@@ -350,8 +426,10 @@ class WhseitemphysicalcountTableMap extends TableMap
             $criteria->addSelectColumn(WhseitemphysicalcountTableMap::COL_DUMMY);
         } else {
             $criteria->addSelectColumn($alias . '.sessionid');
+            $criteria->addSelectColumn($alias . '.recno');
             $criteria->addSelectColumn($alias . '.itemid');
             $criteria->addSelectColumn($alias . '.scan');
+            $criteria->addSelectColumn($alias . '.type');
             $criteria->addSelectColumn($alias . '.lotserial');
             $criteria->addSelectColumn($alias . '.lotserialref');
             $criteria->addSelectColumn($alias . '.qty');
@@ -411,7 +489,17 @@ class WhseitemphysicalcountTableMap extends TableMap
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
             $criteria = new Criteria(WhseitemphysicalcountTableMap::DATABASE_NAME);
-            $criteria->add(WhseitemphysicalcountTableMap::COL_SESSIONID, (array) $values, Criteria::IN);
+            // primary key is composite; we therefore, expect
+            // the primary key passed to be an array of pkey values
+            if (count($values) == count($values, COUNT_RECURSIVE)) {
+                // array is not multi-dimensional
+                $values = array($values);
+            }
+            foreach ($values as $value) {
+                $criterion = $criteria->getNewCriterion(WhseitemphysicalcountTableMap::COL_SESSIONID, $value[0]);
+                $criterion->addAnd($criteria->getNewCriterion(WhseitemphysicalcountTableMap::COL_RECNO, $value[1]));
+                $criteria->addOr($criterion);
+            }
         }
 
         $query = WhseitemphysicalcountQuery::create()->mergeWith($criteria);
