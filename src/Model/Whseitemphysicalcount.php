@@ -1,9 +1,9 @@
 <?php
 
-use Base\Taskscheduler as BaseTaskscheduler;
+use Base\Whseitemphysicalcount as BaseWhseitemphysicalcount;
 
 /**
- * Skeleton subclass for representing a row from the 'taskscheduler' table.
+ * Skeleton subclass for representing a row from the 'whseitemphysicalcount' table.
  *
  *
  *
@@ -12,7 +12,7 @@ use Base\Taskscheduler as BaseTaskscheduler;
  * long as it does not already exist in the output directory.
  *
  */
-class Taskscheduler extends BaseTaskscheduler
+class Whseitemphysicalcount extends BaseWhseitemphysicalcount
 {
 
 }
