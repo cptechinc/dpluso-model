@@ -17,6 +17,7 @@ class BincntlQuery extends BaseBincntlQuery {
 
 	/**
 	 * Returns if bin is a valid bin at the warehouse according to warehouse bin rules
+	 * 
 	 * @param  string $whseID Warehouse ID
 	 * @param  string $binID  Bin ID
 	 * @return bool           Is bin valid?
@@ -38,6 +39,7 @@ class BincntlQuery extends BaseBincntlQuery {
 
 	/**
 	 * Return Bincntl objects filtered by warehouse column
+	 * 
 	 * @return Bincntl[]|ObjectCollection
 	 */
 	public function get_warehousebins($whseID) {

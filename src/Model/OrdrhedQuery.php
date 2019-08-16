@@ -15,6 +15,7 @@ use Base\OrdrhedQuery as BaseOrdrhedQuery;
 class OrdrhedQuery extends BaseOrdrhedQuery {
 	/**
 	 * Filter the query on the sessionid, Orderno column
+	 * 
 	 * @param  string $sessionID Session ID
 	 * @param  string $ordn      Sales Order Number
 	 * @return $this|OrdrhedQuery The current query, for fluid interface
@@ -27,6 +28,7 @@ class OrdrhedQuery extends BaseOrdrhedQuery {
 
 	/**
 	 * Return the first Ordrhed filtered by the sessionid, orderno column
+	 * 
 	 * @param  string $sessionID Session ID
 	 * @param  string $ordn      Sales Order Number
 	 * @return Ordrhed

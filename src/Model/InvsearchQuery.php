@@ -248,6 +248,7 @@ class InvsearchQuery extends BaseInvsearchQuery {
 
 	/**
 	 * Return the Sum of Qty for filtered by sessionid, itemid (& bin)
+	 * 
 	 * @param  string $sessionID Session ID
 	 * @param  string $itemID    Item ID
 	 * @param  string $binID     Bin ID (optional)

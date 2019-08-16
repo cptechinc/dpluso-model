@@ -16,6 +16,7 @@ class WhsesessionQuery extends BaseWhsesessionQuery {
 
 	/**
 	 * Returns if record exists for Session ID
+	 * 
 	 * @param  string $sessionID User Session ID
 	 * @return bool              Does Session ID have a record
 	 */

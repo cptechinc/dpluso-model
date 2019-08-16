@@ -16,10 +16,9 @@ class TableformatterQuery extends BaseTableformatterQuery {
 	/**
 	 * Filter the query on the user, formattertype column
 	 *
-	 * @param     string $user       The value to use as filter.
-	 * @param     string $formatter  The value to use as filter.
-	 *
-	 * @return $this|TableformatterQuery The current query, for fluid interface
+	 * @param     string $user              The value to use as filter.
+	 * @param     string $formatter         The value to use as filter.
+	 * @return    $this|TableformatterQuery The current query, for fluid interface
 	 */
 	public function filterByUserFormattertype($userID, $formatter) {
 		$this->filterByUser($userID);

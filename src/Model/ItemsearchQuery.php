@@ -15,6 +15,7 @@ use Base\ItemsearchQuery as BaseItemsearchQuery;
 class ItemsearchQuery extends BaseItemsearchQuery {
 	/**
      * Filter the query on the itemstatus column for Active
+	 * 
      * @return $this|ItemsearchQuery The current query, for fluid interface
      */
 	public function filterActive() {
@@ -23,6 +24,7 @@ class ItemsearchQuery extends BaseItemsearchQuery {
 
 	/**
      * Filter the query on the itemstatus column for Inactive
+	 * 
      * @return $this|ItemsearchQuery The current query, for fluid interface
      */
 	public function filterInactive() {

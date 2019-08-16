@@ -16,6 +16,7 @@ class UseractionsQuery extends BaseUseractionsQuery {
 
 	/**
 	 * Filter the query on the status column being Incomplete
+	 * 
 	 * @return void
 	 */
 	public function filterByStatusComplete() {
@@ -24,6 +25,7 @@ class UseractionsQuery extends BaseUseractionsQuery {
 
 	/**
 	 * Filter the query on the status column being Rescheduled
+	 * 
 	 * @return void
 	 */
 	public function filterByStatusRescheduled() {
@@ -32,6 +34,7 @@ class UseractionsQuery extends BaseUseractionsQuery {
 
 	/**
 	 * Filter the query on the status column being Incomplete
+	 * 
 	 * @return void
 	 */
 	public function filterByStatusIncomplete() {

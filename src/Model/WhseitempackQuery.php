@@ -34,6 +34,7 @@ class WhseitempackQuery extends BaseWhseitempackQuery {
 
 	/**
 	 * Return the highest carton number for Session and Order
+	 * 
 	 * @param  string $sessionID     Session Identifier
 	 * @param  string $ordn          Sales Order Number
 	 * @return int                   highest carton number for Session and Order

@@ -17,6 +17,7 @@ class FuncpermQuery extends BaseFuncpermQuery {
 
 	/**
 	 * Return array of function codes filtered by the permission WHERE == Y, loginid column
+	 * 
 	 * @param  string $userID User LoginID
 	 * @return array          Function codes
 	 */
@@ -31,9 +32,10 @@ class FuncpermQuery extends BaseFuncpermQuery {
 
 	/**
 	 * Returns if user has Y in their funcperm record
+	 * 
 	 * @param  string $userID   User LoginID
 	 * @param  string $function Dplus Function Code
-	 * @return bool           Does User have permission to $function?
+	 * @return bool             Does User have permission to $function?
 	 */
 	public function does_user_have_permission($userID, $function) {
 		$this->select('permission');

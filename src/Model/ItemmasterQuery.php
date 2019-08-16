@@ -27,6 +27,7 @@ class ItemmasterQuery extends BaseItemmasterQuery {
 
 	/**
 	 * Returns if Item is serialized
+	 * 
 	 * @param  string $itemID
 	 * @return bool           Is the Item Serialized
 	 */
@@ -37,6 +38,7 @@ class ItemmasterQuery extends BaseItemmasterQuery {
 
 	/**
 	 * Returns if Item is lotted
+	 * 
 	 * @param  string $itemID
 	 * @return bool           Is the Item lotted
 	 */
@@ -47,6 +49,7 @@ class ItemmasterQuery extends BaseItemmasterQuery {
 
 	/**
 	 * Returns if Item is normal
+	 * 
 	 * @param  string $itemID
 	 * @return bool            Is the Item normal
 	 */
@@ -57,6 +60,7 @@ class ItemmasterQuery extends BaseItemmasterQuery {
 
 	/**
 	 * Returns if Item is price only
+	 * 
 	 * @param  string $itemID
 	 * @return bool            Is the Item price only
 	 */
@@ -64,5 +68,4 @@ class ItemmasterQuery extends BaseItemmasterQuery {
 		$itemtype = $this->get_itemtype($itemID);
 		return $itemtype == Itemmaster::ITEMTYPE_PRICEONLY;
 	}
-
 }

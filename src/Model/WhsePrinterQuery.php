@@ -15,6 +15,7 @@ use Base\WhsePrinterQuery as BaseWhsePrinterQuery;
 class WhsePrinterQuery extends BaseWhsePrinterQuery {
 	/**
 	 * Returns the Printer Description
+	 * 
 	 * @param  string $whseID    Warehouse ID
 	 * @param  string $printerID Printer
 	 * @return string            Printer Description
