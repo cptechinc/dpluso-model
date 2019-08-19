@@ -26,6 +26,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWhseitemphysicalcountQuery orderByType($order = Criteria::ASC) Order by the type column
  * @method     ChildWhseitemphysicalcountQuery orderByLotserial($order = Criteria::ASC) Order by the lotserial column
  * @method     ChildWhseitemphysicalcountQuery orderByLotserialref($order = Criteria::ASC) Order by the lotserialref column
+ * @method     ChildWhseitemphysicalcountQuery orderByBin($order = Criteria::ASC) Order by the bin column
  * @method     ChildWhseitemphysicalcountQuery orderByQty($order = Criteria::ASC) Order by the qty column
  * @method     ChildWhseitemphysicalcountQuery orderByComplete($order = Criteria::ASC) Order by the complete column
  * @method     ChildWhseitemphysicalcountQuery orderByStatus($order = Criteria::ASC) Order by the status column
@@ -40,6 +41,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWhseitemphysicalcountQuery groupByType() Group by the type column
  * @method     ChildWhseitemphysicalcountQuery groupByLotserial() Group by the lotserial column
  * @method     ChildWhseitemphysicalcountQuery groupByLotserialref() Group by the lotserialref column
+ * @method     ChildWhseitemphysicalcountQuery groupByBin() Group by the bin column
  * @method     ChildWhseitemphysicalcountQuery groupByQty() Group by the qty column
  * @method     ChildWhseitemphysicalcountQuery groupByComplete() Group by the complete column
  * @method     ChildWhseitemphysicalcountQuery groupByStatus() Group by the status column
@@ -65,6 +67,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWhseitemphysicalcount findOneByType(string $type) Return the first ChildWhseitemphysicalcount filtered by the type column
  * @method     ChildWhseitemphysicalcount findOneByLotserial(string $lotserial) Return the first ChildWhseitemphysicalcount filtered by the lotserial column
  * @method     ChildWhseitemphysicalcount findOneByLotserialref(string $lotserialref) Return the first ChildWhseitemphysicalcount filtered by the lotserialref column
+ * @method     ChildWhseitemphysicalcount findOneByBin(string $bin) Return the first ChildWhseitemphysicalcount filtered by the bin column
  * @method     ChildWhseitemphysicalcount findOneByQty(string $qty) Return the first ChildWhseitemphysicalcount filtered by the qty column
  * @method     ChildWhseitemphysicalcount findOneByComplete(string $complete) Return the first ChildWhseitemphysicalcount filtered by the complete column
  * @method     ChildWhseitemphysicalcount findOneByStatus(string $status) Return the first ChildWhseitemphysicalcount filtered by the status column
@@ -82,6 +85,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWhseitemphysicalcount requireOneByType(string $type) Return the first ChildWhseitemphysicalcount filtered by the type column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitemphysicalcount requireOneByLotserial(string $lotserial) Return the first ChildWhseitemphysicalcount filtered by the lotserial column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitemphysicalcount requireOneByLotserialref(string $lotserialref) Return the first ChildWhseitemphysicalcount filtered by the lotserialref column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWhseitemphysicalcount requireOneByBin(string $bin) Return the first ChildWhseitemphysicalcount filtered by the bin column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitemphysicalcount requireOneByQty(string $qty) Return the first ChildWhseitemphysicalcount filtered by the qty column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitemphysicalcount requireOneByComplete(string $complete) Return the first ChildWhseitemphysicalcount filtered by the complete column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitemphysicalcount requireOneByStatus(string $status) Return the first ChildWhseitemphysicalcount filtered by the status column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -97,6 +101,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByType(string $type) Return ChildWhseitemphysicalcount objects filtered by the type column
  * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByLotserial(string $lotserial) Return ChildWhseitemphysicalcount objects filtered by the lotserial column
  * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByLotserialref(string $lotserialref) Return ChildWhseitemphysicalcount objects filtered by the lotserialref column
+ * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByBin(string $bin) Return ChildWhseitemphysicalcount objects filtered by the bin column
  * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByQty(string $qty) Return ChildWhseitemphysicalcount objects filtered by the qty column
  * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByComplete(string $complete) Return ChildWhseitemphysicalcount objects filtered by the complete column
  * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByStatus(string $status) Return ChildWhseitemphysicalcount objects filtered by the status column
@@ -201,7 +206,7 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT sessionid, recno, itemid, scan, type, lotserial, lotserialref, qty, complete, status, date, time, dummy FROM whseitemphysicalcount WHERE sessionid = :p0 AND recno = :p1';
+        $sql = 'SELECT sessionid, recno, itemid, scan, type, lotserial, lotserialref, bin, qty, complete, status, date, time, dummy FROM whseitemphysicalcount WHERE sessionid = :p0 AND recno = :p1';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -492,6 +497,31 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_LOTSERIALREF, $lotserialref, $comparison);
+    }
+
+    /**
+     * Filter the query on the bin column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByBin('fooValue');   // WHERE bin = 'fooValue'
+     * $query->filterByBin('%fooValue%', Criteria::LIKE); // WHERE bin LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $bin The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildWhseitemphysicalcountQuery The current query, for fluid interface
+     */
+    public function filterByBin($bin = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($bin)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_BIN, $bin, $comparison);
     }
 
     /**

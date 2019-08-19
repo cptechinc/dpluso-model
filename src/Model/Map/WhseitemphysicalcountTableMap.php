@@ -59,7 +59,7 @@ class WhseitemphysicalcountTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 13;
+    const NUM_COLUMNS = 14;
 
     /**
      * The number of lazy-loaded columns
@@ -69,7 +69,7 @@ class WhseitemphysicalcountTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 13;
+    const NUM_HYDRATE_COLUMNS = 14;
 
     /**
      * the column name for the sessionid field
@@ -105,6 +105,11 @@ class WhseitemphysicalcountTableMap extends TableMap
      * the column name for the lotserialref field
      */
     const COL_LOTSERIALREF = 'whseitemphysicalcount.lotserialref';
+
+    /**
+     * the column name for the bin field
+     */
+    const COL_BIN = 'whseitemphysicalcount.bin';
 
     /**
      * the column name for the qty field
@@ -148,11 +153,11 @@ class WhseitemphysicalcountTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Sessionid', 'Recno', 'Itemid', 'Scan', 'Type', 'Lotserial', 'Lotserialref', 'Qty', 'Complete', 'Status', 'Date', 'Time', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('sessionid', 'recno', 'itemid', 'scan', 'type', 'lotserial', 'lotserialref', 'qty', 'complete', 'status', 'date', 'time', 'dummy', ),
-        self::TYPE_COLNAME       => array(WhseitemphysicalcountTableMap::COL_SESSIONID, WhseitemphysicalcountTableMap::COL_RECNO, WhseitemphysicalcountTableMap::COL_ITEMID, WhseitemphysicalcountTableMap::COL_SCAN, WhseitemphysicalcountTableMap::COL_TYPE, WhseitemphysicalcountTableMap::COL_LOTSERIAL, WhseitemphysicalcountTableMap::COL_LOTSERIALREF, WhseitemphysicalcountTableMap::COL_QTY, WhseitemphysicalcountTableMap::COL_COMPLETE, WhseitemphysicalcountTableMap::COL_STATUS, WhseitemphysicalcountTableMap::COL_DATE, WhseitemphysicalcountTableMap::COL_TIME, WhseitemphysicalcountTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('sessionid', 'recno', 'itemid', 'scan', 'type', 'lotserial', 'lotserialref', 'qty', 'complete', 'status', 'date', 'time', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, )
+        self::TYPE_PHPNAME       => array('Sessionid', 'Recno', 'Itemid', 'Scan', 'Type', 'Lotserial', 'Lotserialref', 'Bin', 'Qty', 'Complete', 'Status', 'Date', 'Time', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('sessionid', 'recno', 'itemid', 'scan', 'type', 'lotserial', 'lotserialref', 'bin', 'qty', 'complete', 'status', 'date', 'time', 'dummy', ),
+        self::TYPE_COLNAME       => array(WhseitemphysicalcountTableMap::COL_SESSIONID, WhseitemphysicalcountTableMap::COL_RECNO, WhseitemphysicalcountTableMap::COL_ITEMID, WhseitemphysicalcountTableMap::COL_SCAN, WhseitemphysicalcountTableMap::COL_TYPE, WhseitemphysicalcountTableMap::COL_LOTSERIAL, WhseitemphysicalcountTableMap::COL_LOTSERIALREF, WhseitemphysicalcountTableMap::COL_BIN, WhseitemphysicalcountTableMap::COL_QTY, WhseitemphysicalcountTableMap::COL_COMPLETE, WhseitemphysicalcountTableMap::COL_STATUS, WhseitemphysicalcountTableMap::COL_DATE, WhseitemphysicalcountTableMap::COL_TIME, WhseitemphysicalcountTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('sessionid', 'recno', 'itemid', 'scan', 'type', 'lotserial', 'lotserialref', 'bin', 'qty', 'complete', 'status', 'date', 'time', 'dummy', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, )
     );
 
     /**
@@ -162,11 +167,11 @@ class WhseitemphysicalcountTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Recno' => 1, 'Itemid' => 2, 'Scan' => 3, 'Type' => 4, 'Lotserial' => 5, 'Lotserialref' => 6, 'Qty' => 7, 'Complete' => 8, 'Status' => 9, 'Date' => 10, 'Time' => 11, 'Dummy' => 12, ),
-        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'recno' => 1, 'itemid' => 2, 'scan' => 3, 'type' => 4, 'lotserial' => 5, 'lotserialref' => 6, 'qty' => 7, 'complete' => 8, 'status' => 9, 'date' => 10, 'time' => 11, 'dummy' => 12, ),
-        self::TYPE_COLNAME       => array(WhseitemphysicalcountTableMap::COL_SESSIONID => 0, WhseitemphysicalcountTableMap::COL_RECNO => 1, WhseitemphysicalcountTableMap::COL_ITEMID => 2, WhseitemphysicalcountTableMap::COL_SCAN => 3, WhseitemphysicalcountTableMap::COL_TYPE => 4, WhseitemphysicalcountTableMap::COL_LOTSERIAL => 5, WhseitemphysicalcountTableMap::COL_LOTSERIALREF => 6, WhseitemphysicalcountTableMap::COL_QTY => 7, WhseitemphysicalcountTableMap::COL_COMPLETE => 8, WhseitemphysicalcountTableMap::COL_STATUS => 9, WhseitemphysicalcountTableMap::COL_DATE => 10, WhseitemphysicalcountTableMap::COL_TIME => 11, WhseitemphysicalcountTableMap::COL_DUMMY => 12, ),
-        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'recno' => 1, 'itemid' => 2, 'scan' => 3, 'type' => 4, 'lotserial' => 5, 'lotserialref' => 6, 'qty' => 7, 'complete' => 8, 'status' => 9, 'date' => 10, 'time' => 11, 'dummy' => 12, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, )
+        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Recno' => 1, 'Itemid' => 2, 'Scan' => 3, 'Type' => 4, 'Lotserial' => 5, 'Lotserialref' => 6, 'Bin' => 7, 'Qty' => 8, 'Complete' => 9, 'Status' => 10, 'Date' => 11, 'Time' => 12, 'Dummy' => 13, ),
+        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'recno' => 1, 'itemid' => 2, 'scan' => 3, 'type' => 4, 'lotserial' => 5, 'lotserialref' => 6, 'bin' => 7, 'qty' => 8, 'complete' => 9, 'status' => 10, 'date' => 11, 'time' => 12, 'dummy' => 13, ),
+        self::TYPE_COLNAME       => array(WhseitemphysicalcountTableMap::COL_SESSIONID => 0, WhseitemphysicalcountTableMap::COL_RECNO => 1, WhseitemphysicalcountTableMap::COL_ITEMID => 2, WhseitemphysicalcountTableMap::COL_SCAN => 3, WhseitemphysicalcountTableMap::COL_TYPE => 4, WhseitemphysicalcountTableMap::COL_LOTSERIAL => 5, WhseitemphysicalcountTableMap::COL_LOTSERIALREF => 6, WhseitemphysicalcountTableMap::COL_BIN => 7, WhseitemphysicalcountTableMap::COL_QTY => 8, WhseitemphysicalcountTableMap::COL_COMPLETE => 9, WhseitemphysicalcountTableMap::COL_STATUS => 10, WhseitemphysicalcountTableMap::COL_DATE => 11, WhseitemphysicalcountTableMap::COL_TIME => 12, WhseitemphysicalcountTableMap::COL_DUMMY => 13, ),
+        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'recno' => 1, 'itemid' => 2, 'scan' => 3, 'type' => 4, 'lotserial' => 5, 'lotserialref' => 6, 'bin' => 7, 'qty' => 8, 'complete' => 9, 'status' => 10, 'date' => 11, 'time' => 12, 'dummy' => 13, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, )
     );
 
     /**
@@ -193,6 +198,7 @@ class WhseitemphysicalcountTableMap extends TableMap
         $this->addColumn('type', 'Type', 'VARCHAR', false, 45, null);
         $this->addColumn('lotserial', 'Lotserial', 'VARCHAR', false, 45, null);
         $this->addColumn('lotserialref', 'Lotserialref', 'VARCHAR', false, 45, null);
+        $this->addColumn('bin', 'Bin', 'VARCHAR', false, 8, null);
         $this->addColumn('qty', 'Qty', 'DECIMAL', false, 10, null);
         $this->addColumn('complete', 'Complete', 'VARCHAR', false, 1, null);
         $this->addColumn('status', 'Status', 'VARCHAR', false, 60, null);
@@ -418,6 +424,7 @@ class WhseitemphysicalcountTableMap extends TableMap
             $criteria->addSelectColumn(WhseitemphysicalcountTableMap::COL_TYPE);
             $criteria->addSelectColumn(WhseitemphysicalcountTableMap::COL_LOTSERIAL);
             $criteria->addSelectColumn(WhseitemphysicalcountTableMap::COL_LOTSERIALREF);
+            $criteria->addSelectColumn(WhseitemphysicalcountTableMap::COL_BIN);
             $criteria->addSelectColumn(WhseitemphysicalcountTableMap::COL_QTY);
             $criteria->addSelectColumn(WhseitemphysicalcountTableMap::COL_COMPLETE);
             $criteria->addSelectColumn(WhseitemphysicalcountTableMap::COL_STATUS);
@@ -432,6 +439,7 @@ class WhseitemphysicalcountTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.type');
             $criteria->addSelectColumn($alias . '.lotserial');
             $criteria->addSelectColumn($alias . '.lotserialref');
+            $criteria->addSelectColumn($alias . '.bin');
             $criteria->addSelectColumn($alias . '.qty');
             $criteria->addSelectColumn($alias . '.complete');
             $criteria->addSelectColumn($alias . '.status');

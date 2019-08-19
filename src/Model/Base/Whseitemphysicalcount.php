@@ -109,6 +109,13 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
     protected $lotserialref;
 
     /**
+     * The value for the bin field.
+     *
+     * @var        string
+     */
+    protected $bin;
+
+    /**
      * The value for the qty field.
      *
      * @var        string
@@ -454,6 +461,16 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
     }
 
     /**
+     * Get the [bin] column value.
+     *
+     * @return string
+     */
+    public function getBin()
+    {
+        return $this->bin;
+    }
+
+    /**
      * Get the [qty] column value.
      *
      * @return string
@@ -654,6 +671,26 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
     } // setLotserialref()
 
     /**
+     * Set the value of [bin] column.
+     *
+     * @param string $v new value
+     * @return $this|\Whseitemphysicalcount The current object (for fluent API support)
+     */
+    public function setBin($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->bin !== $v) {
+            $this->bin = $v;
+            $this->modifiedColumns[WhseitemphysicalcountTableMap::COL_BIN] = true;
+        }
+
+        return $this;
+    } // setBin()
+
+    /**
      * Set the value of [qty] column.
      *
      * @param string $v new value
@@ -830,22 +867,25 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Lotserialref', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lotserialref = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Qty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Bin', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->bin = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Qty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Complete', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Complete', TableMap::TYPE_PHPNAME, $indexType)];
             $this->complete = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Status', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Status', TableMap::TYPE_PHPNAME, $indexType)];
             $this->status = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Date', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Date', TableMap::TYPE_PHPNAME, $indexType)];
             $this->date = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Time', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Time', TableMap::TYPE_PHPNAME, $indexType)];
             $this->time = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -855,7 +895,7 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 13; // 13 = WhseitemphysicalcountTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 14; // 14 = WhseitemphysicalcountTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\Whseitemphysicalcount'), 0, $e);
@@ -1073,6 +1113,9 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
         if ($this->isColumnModified(WhseitemphysicalcountTableMap::COL_LOTSERIALREF)) {
             $modifiedColumns[':p' . $index++]  = 'lotserialref';
         }
+        if ($this->isColumnModified(WhseitemphysicalcountTableMap::COL_BIN)) {
+            $modifiedColumns[':p' . $index++]  = 'bin';
+        }
         if ($this->isColumnModified(WhseitemphysicalcountTableMap::COL_QTY)) {
             $modifiedColumns[':p' . $index++]  = 'qty';
         }
@@ -1122,6 +1165,9 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
                         break;
                     case 'lotserialref':
                         $stmt->bindValue($identifier, $this->lotserialref, PDO::PARAM_STR);
+                        break;
+                    case 'bin':
+                        $stmt->bindValue($identifier, $this->bin, PDO::PARAM_STR);
                         break;
                     case 'qty':
                         $stmt->bindValue($identifier, $this->qty, PDO::PARAM_STR);
@@ -1218,21 +1264,24 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
                 return $this->getLotserialref();
                 break;
             case 7:
-                return $this->getQty();
+                return $this->getBin();
                 break;
             case 8:
-                return $this->getComplete();
+                return $this->getQty();
                 break;
             case 9:
-                return $this->getStatus();
+                return $this->getComplete();
                 break;
             case 10:
-                return $this->getDate();
+                return $this->getStatus();
                 break;
             case 11:
-                return $this->getTime();
+                return $this->getDate();
                 break;
             case 12:
+                return $this->getTime();
+                break;
+            case 13:
                 return $this->getDummy();
                 break;
             default:
@@ -1271,12 +1320,13 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
             $keys[4] => $this->getType(),
             $keys[5] => $this->getLotserial(),
             $keys[6] => $this->getLotserialref(),
-            $keys[7] => $this->getQty(),
-            $keys[8] => $this->getComplete(),
-            $keys[9] => $this->getStatus(),
-            $keys[10] => $this->getDate(),
-            $keys[11] => $this->getTime(),
-            $keys[12] => $this->getDummy(),
+            $keys[7] => $this->getBin(),
+            $keys[8] => $this->getQty(),
+            $keys[9] => $this->getComplete(),
+            $keys[10] => $this->getStatus(),
+            $keys[11] => $this->getDate(),
+            $keys[12] => $this->getTime(),
+            $keys[13] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -1338,21 +1388,24 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
                 $this->setLotserialref($value);
                 break;
             case 7:
-                $this->setQty($value);
+                $this->setBin($value);
                 break;
             case 8:
-                $this->setComplete($value);
+                $this->setQty($value);
                 break;
             case 9:
-                $this->setStatus($value);
+                $this->setComplete($value);
                 break;
             case 10:
-                $this->setDate($value);
+                $this->setStatus($value);
                 break;
             case 11:
-                $this->setTime($value);
+                $this->setDate($value);
                 break;
             case 12:
+                $this->setTime($value);
+                break;
+            case 13:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -1403,22 +1456,25 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
             $this->setLotserialref($arr[$keys[6]]);
         }
         if (array_key_exists($keys[7], $arr)) {
-            $this->setQty($arr[$keys[7]]);
+            $this->setBin($arr[$keys[7]]);
         }
         if (array_key_exists($keys[8], $arr)) {
-            $this->setComplete($arr[$keys[8]]);
+            $this->setQty($arr[$keys[8]]);
         }
         if (array_key_exists($keys[9], $arr)) {
-            $this->setStatus($arr[$keys[9]]);
+            $this->setComplete($arr[$keys[9]]);
         }
         if (array_key_exists($keys[10], $arr)) {
-            $this->setDate($arr[$keys[10]]);
+            $this->setStatus($arr[$keys[10]]);
         }
         if (array_key_exists($keys[11], $arr)) {
-            $this->setTime($arr[$keys[11]]);
+            $this->setDate($arr[$keys[11]]);
         }
         if (array_key_exists($keys[12], $arr)) {
-            $this->setDummy($arr[$keys[12]]);
+            $this->setTime($arr[$keys[12]]);
+        }
+        if (array_key_exists($keys[13], $arr)) {
+            $this->setDummy($arr[$keys[13]]);
         }
     }
 
@@ -1481,6 +1537,9 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
         }
         if ($this->isColumnModified(WhseitemphysicalcountTableMap::COL_LOTSERIALREF)) {
             $criteria->add(WhseitemphysicalcountTableMap::COL_LOTSERIALREF, $this->lotserialref);
+        }
+        if ($this->isColumnModified(WhseitemphysicalcountTableMap::COL_BIN)) {
+            $criteria->add(WhseitemphysicalcountTableMap::COL_BIN, $this->bin);
         }
         if ($this->isColumnModified(WhseitemphysicalcountTableMap::COL_QTY)) {
             $criteria->add(WhseitemphysicalcountTableMap::COL_QTY, $this->qty);
@@ -1601,6 +1660,7 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
         $copyObj->setType($this->getType());
         $copyObj->setLotserial($this->getLotserial());
         $copyObj->setLotserialref($this->getLotserialref());
+        $copyObj->setBin($this->getBin());
         $copyObj->setQty($this->getQty());
         $copyObj->setComplete($this->getComplete());
         $copyObj->setStatus($this->getStatus());
@@ -1648,6 +1708,7 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
         $this->type = null;
         $this->lotserial = null;
         $this->lotserialref = null;
+        $this->bin = null;
         $this->qty = null;
         $this->complete = null;
         $this->status = null;
