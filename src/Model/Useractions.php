@@ -191,11 +191,22 @@ class Useractions extends BaseUseractions {
 	 * Action Types
 	 * @var array
 	 */
-	CONST TYPES = array(
-		'task'    => 'task',
+	const TYPES = array(
+		'task'   => 'task',
 		'action' => 'action',
-		'notes'   => 'note'
+		'note'   => 'note'
 	);
+
+	const SUBTYPES_DESCRIPTION = array(
+		'follow-up'   => 'follow up',
+		'followup'    => 'follow up'
+	);
+
+	const STATUS_DESCRIPTION = array(
+		'Y' => 'completed',
+		'R' => 'rescheduled'
+	);
+
 
 	/**
 	 * Returns if UserAction has something in the ID property
@@ -282,4 +293,62 @@ class Useractions extends BaseUseractions {
 		return false;
 	}
 
+	/**
+	 * Return the Description of the Subtype
+	 * @return string Subtype Description
+	 */
+	public function subtype_description() {
+		return array_key_exists($this->actionsubtype, self::SUBTYPES_DESCRIPTION) ? self::SUBTYPES_DESCRIPTION[$this->actionsubtype] : $this->actionsubtype;
+	}
+
+	/**
+	 * Return the Description of the status
+	 * @return string status Description
+	 */
+	public function status_description() {
+		return array_key_exists($this->completed, self::STATUS_DESCRIPTION) ? self::STATUS_DESCRIPTION[$this->completed] : 'incomplete';
+	}
+
+	/**
+	 * Returns the Customer for Action
+	 * @return Customer
+	 */
+	public function get_customer() {
+		return CustomerQuery::create()->findOneByCustid($this->customerlink);
+	}
+
+	/**
+	 * Returns the Customer Shipto for Action
+	 * @return CustomerShipto
+	 */
+	public function get_shipto() {
+		return CustomerShiptoQuery::create()->findOneByCustidShiptoid($this->customerlink, $this->shiptolink);
+	}
+
+	/**
+	 * Returns the Contact for Action
+	 * @return Contact
+	 */
+	public function get_contact() {
+		return ContactQuery::create()->findOneByCustidShiptoidContactid($this->customerlink, $this->shiptolink, $this->contactlink);
+	}
+
+	/**
+	 * Returns an array of UserActions that are linked by parentage
+	 * @return array UserActions
+	 */
+	public function get_actionlineage() {
+		$lineage = array();
+
+		if ($this->has_actionlink()) {
+			$parentid = $this->actionlink;
+
+			while ($parentid != '') {
+				$parent = UserActionsQuery::create()->findOneById($parentid);
+				$lineage[] = $parent;
+				$parentid = $parent->actionlink;
+			}
+		}
+		return $lineage;
+	}
 }

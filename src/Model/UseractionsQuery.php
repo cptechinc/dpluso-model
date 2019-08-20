@@ -16,28 +16,33 @@ class UseractionsQuery extends BaseUseractionsQuery {
 
 	/**
 	 * Filter the query on the status column being Incomplete
-	 * 
 	 * @return void
 	 */
 	public function filterByStatusComplete() {
-		$this->filterByCompleted(Useractions::STATUS_COMPLETED);
+		return $this->filterByCompleted(Useractions::STATUS_COMPLETED);
 	}
 
 	/**
 	 * Filter the query on the status column being Rescheduled
-	 * 
 	 * @return void
 	 */
 	public function filterByStatusRescheduled() {
-		$this->filterByCompleted(Useractions::STATUS_RESCHEDULED);
+		return $this->filterByCompleted(Useractions::STATUS_RESCHEDULED);
 	}
 
 	/**
 	 * Filter the query on the status column being Incomplete
-	 * 
 	 * @return void
 	 */
 	public function filterByStatusIncomplete() {
-		$this->filterByCompleted('');
+		return $this->filterByCompleted('');
+	}
+
+	public function filterByType($type = 'all') {
+		if (in_array($type, Useractions::TYPES)) {
+			return $this->filterByActiontype($type);
+		} else {
+			return $this;
+		}
 	}
 }
