@@ -3,13 +3,21 @@
 use Base\BarcodesQuery as BaseBarcodesQuery;
 
 /**
- * Skeleton subclass for performing query and update operations on the 'barcodes' table.
+ * Class for performing query and update operations on the 'barcodes' table.
  *
+ * NOTE: you can use the findByXXX(), findOneByXXX(), requireOneByXXX(), filterByXXX(), orderByXXX(), and groupByXXX()
+ * methods with an alias
+ * EXAMPLE: findByCustid()
  *
+ * Magic Methods (NOTE these are the ones in use, not necessarily all the available ones)
+ * -----------------------------------------------------------------------------------------
+ * Filters
+ * @method     BarcodesQuery filterByBarcode(string $barcode)  Filter the query on the barcodenbr column
  *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
+ * FindOne
+ * @method     Barcodes findOneByBarcode(string $barcode)     Return the first Barcodes object filtered by the barcodenbr column
+ *
+ * Find
  *
  */
 class BarcodesQuery extends BaseBarcodesQuery {
@@ -32,25 +40,5 @@ class BarcodesQuery extends BaseBarcodesQuery {
 	 */
 	public function get_barcode_qty($barcode) {
 		return $this->select('unitqty')->findOneByBarcodenbr($barcode);
-	}
-
-	/**
-	 * Return the first Barcodes filtered by the barcodenbr column
-	 *
-	 * @param  string   $barcode Barcode
-	 * @return Barcodes
-	 */
-	public function findOneByBarcode($barcode) {
-		return $this->findOneByBarcodenbr($barcode);
-	}
-
-	/**
-	 * Return the first Barcodes filtered by the barcodenbr column
-	 *
-	 * @param  string   $barcode Barcode
-	 * @return Barcodes
-	 */
-	public function filterByBarcode($barcode) {
-		return $this->filterByBarcodenbr($barcode);
 	}
 }

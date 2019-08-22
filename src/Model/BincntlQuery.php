@@ -4,20 +4,27 @@ use Base\BincntlQuery as BaseBincntlQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 /**
- * Skeleton subclass for performing query and update operations on the 'bincntl' table.
+ * Class for performing query and update operations on the 'bincntl' table.
  *
  *
+ * NOTE: you can use the findByXXX(), findOneByXXX(), requireOneByXXX(), filterByXXX(), orderByXXX(), and groupByXXX()
+ * methods with an alias
+ * EXAMPLE: findByCustid()
  *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
+ * Magic Methods (NOTE these are the ones in use, not necessarily all the available ones)
+ * -----------------------------------------------------------------------------------------
+ * Filters
+ *
+ * FindOne
+ *
+ * Find
  *
  */
 class BincntlQuery extends BaseBincntlQuery {
 
 	/**
 	 * Returns if bin is a valid bin at the warehouse according to warehouse bin rules
-	 * 
+	 *
 	 * @param  string $whseID Warehouse ID
 	 * @param  string $binID  Bin ID
 	 * @return bool           Is bin valid?
@@ -39,7 +46,7 @@ class BincntlQuery extends BaseBincntlQuery {
 
 	/**
 	 * Return Bincntl objects filtered by warehouse column
-	 * 
+	 *
 	 * @return Bincntl[]|ObjectCollection
 	 */
 	public function get_warehousebins($whseID) {
