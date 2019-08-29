@@ -207,7 +207,39 @@ class Useractions extends BaseUseractions {
 		'R' => 'rescheduled'
 	);
 
-
+	/**
+	 * Aliases for Class Properties
+	 * @var array
+	 */
+	const COLUMN_ALIASES = array(
+		'custid'           => 'customerlink',
+		'custID'           => 'customerlink',
+		'shiptoid'         => 'shiptoid',
+		'shiptoID'         => 'shiptoID',
+		'contact'          => 'contactlink',
+		'contactid'        => 'contactlink',
+		'contactID'        => 'contactlink',
+		'ordn'             => 'salesorderlink',
+		'qnbr'             => 'quotelink',
+		'ponbr'            => 'purchaseorderlink',
+		'vendorid'         => 'vendorlink',
+		'vendorID'         => 'vendorlink',
+		'shipfromID'       => 'vendorshipfromlink',
+		'shipfromid'       => 'vendorshipfromlink',
+		'actionid'         => 'actionlink',
+		'actionID'         => 'actionlink',
+		'date_completed'   => 'datecompleted',
+		'date_updated'     => 'dateupdated',
+		'date_created'     => 'datecreated',
+		'date_due'         => 'duedate',
+		'type'             => 'actiontype',
+		'subtype'          => 'actionsubtype',
+		'assigned_to'      => 'assignedto',
+		'assigned_by'      => 'assignedby',
+		'notes'            => 'textbody',
+		'notes_reflection' => 'reflectnote'
+	);
+	
 	/**
 	 * Returns if UserAction has something in the ID property
 	 * @return bool
@@ -254,6 +286,14 @@ class Useractions extends BaseUseractions {
 	 */
 	public function has_quotelink() {
 		return !empty($this->quotelink);
+	}
+
+	/**
+	 * Returns if UserAction is linked to a Vendor
+	 * @return bool
+	 */
+	public function has_vendorlink() {
+		return !empty($this->vendorlink);
 	}
 
 	/**
@@ -350,5 +390,24 @@ class Useractions extends BaseUseractions {
 			}
 		}
 		return $lineage;
+	}
+
+	/**
+	 * Returns a title that is already given to the UserAction or generates one
+	 * based on the links and their order of specificity
+	 * @return string
+	 */
+	public function get_title() {
+		$desc = '';
+		if (!empty($this->title)) {
+			return $this->title;
+		}
+		$desc = $this->has_customerlink() ? 'CustID: '. CustomerQuery::create()->findOneByCustid($this->customerlink)->name : '';
+		$desc .=  $this->has_shiptolink() ? ' ShipID: '. CustomerShiptoQuery::create()->findOneByCustidShiptoid($this->customerlink, $this->shiptolink)->name : '';
+		$desc .=  $this->has_contactlink() ? ' Contact: '. $this->contactlink : '';
+		$desc .=  $this->has_salesorderlink() ? ' Sales Order #' . $this->salesorderlink : '';
+		$desc .=  $this->has_quotelink() ? ' Quote #' . $this->quotelink : '';
+		$desc .=  $this->has_actionlink() ? ' ActionID: ' . $this->actionlink: '';
+		return $desc;
 	}
 }

@@ -45,4 +45,14 @@ class UseractionsQuery extends BaseUseractionsQuery {
 			return $this;
 		}
 	}
+
+	public function filterByDateCompletedDay($date) {
+		$this->where('DATE(Useractions.DateCompleted) = ?', $date);
+		return $this;
+	}
+
+	public function filterByDateUpdatedDay($date) {
+		$this->where('DATE(Useractions.DateUpdated) = ?', $date);
+		return $this;
+	}
 }
