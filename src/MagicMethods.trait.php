@@ -20,14 +20,6 @@
 				return $this->$method();
 			} elseif (property_exists($this, $column)) {
 				return $this->$column;
-			} elseif (isset($this->column_aliases)) {
-				if (array_key_exists($column, $this->column_aliases)) {
-					$realcolumn = $this->column_aliases[$column];
-					return $this->$realcolumn;
-				} else {
-					$this->error("This column and alias ($column) does not exist");
-					return false;
-				 }
 			} elseif (defined(get_class($this)."::COLUMN_ALIASES")) {
 				if (array_key_exists($column, self::COLUMN_ALIASES)) {
 					$realcolumn = self::COLUMN_ALIASES[$column];
@@ -52,9 +44,7 @@
 			if (isset($this->$column)) {
 				return isset($this->$column);
 			} else {
-				if (isset($this->column_aliases)) {
-					return (array_key_exists($column, $this->column_aliases));
-				} elseif (defined(get_class($this)."::COLUMN_ALIASES")) {
+				if (defined(get_class($this)."::COLUMN_ALIASES")) {
 					return array_key_exists($column, self::COLUMN_ALIASES);
 				} else {
 					return false;
@@ -72,15 +62,6 @@
 			if (property_exists($this, $column)) {
 				$method = "set".ucfirst($column);
 				$this->$method($value);
-			} elseif (isset($this->column_aliases)) {
-				if (array_key_exists($column, $this->column_aliases)) {
-					$realcolumn = $this->column_aliases[$column];
-					$method = "set".ucfirst($realcolumn);
-					$this->$method($value);
-				} else {
-					$this->error("This column or alias ($column) does not exist");
-					return false;
-				}
 			} elseif (defined(get_class($this)."::COLUMN_ALIASES")) {
 				if (array_key_exists($column, self::COLUMN_ALIASES)) {
 					$realcolumn = self::COLUMN_ALIASES[$column];
@@ -109,9 +90,37 @@
 					return self::COLUMN_ALIASES[$alias];
 				}
 			}
-			
 			$throwerror = new ThrowError();
 			$throwerror->error(__CLASS__, "This column or alias ($alias) does not exist", debug_backtrace());
 			return false;
+		}
+
+		/**
+		 * Handle Magic Methods
+		 * 
+		 * Supports setXXX()
+		 * 
+		 * @param  string $name      Method Name ex. setOrdernumber
+		 * @param  string $arguments array of method arguments
+		 * @return mixed
+		 */
+		public function __call($name, $arguments) {
+			// Maybe it's a magic call to one of the methods supporting it, e.g. 'findByTitle'
+			static $methods = ['set'];
+
+			foreach ($methods as $method) {
+				if (0 === strpos($name, $method)) {
+					$property = strtolower(str_replace($method, '', $name));
+					$class_name = $this->getModelName();
+					$class_model = new $class_name();
+
+					if (!property_exists($class_model, $property)) {
+						$class_column = $class_model::get_aliasproperty($property);
+						$name = str_replace(ucfirst($property), ucfirst($class_column), $name);
+					}
+					break;
+				}
+			}
+			return parent::__call($name, $arguments);
 		}
 	}
