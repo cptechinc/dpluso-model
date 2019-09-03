@@ -78,6 +78,7 @@
 						$class_column = $class_model::get_aliasproperty($property);
 						$name = str_replace(ucfirst($property), ucfirst($class_column), $name);
 					}
+					break;
 				}
 			}
 			return parent::__call($name, $arguments);
