@@ -2,6 +2,9 @@
 
 use Base\Cartdet as BaseCartdet;
 
+use Dpluso\Model\ThrowErrorTrait;
+use Dpluso\Model\MagicMethodTraits;
+
 /**
  * Skeleton subclass for representing a row from the 'cartdet' table.
  *
@@ -12,7 +15,15 @@ use Base\Cartdet as BaseCartdet;
  * long as it does not already exist in the output directory.
  *
  */
-class Cartdet extends BaseCartdet
-{
+class Cartdet extends BaseCartdet {
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
 
+	/**
+	 * Column Aliases to lookup / get properties
+	 * @var array
+	 */
+	const COLUMN_ALIASES = array(
+		'rqstshipdate'   => 'rshipdate'
+	);
 }

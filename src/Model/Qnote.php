@@ -54,7 +54,7 @@ class Qnote extends BaseQnote {
 
 	/**
 	 * Returns the value at the form field
-	 * 
+	 *
 	 * @param  string $form pick, pack, invoice, acknowledgement
 	 * @return string       Form Value
 	 */
@@ -75,5 +75,30 @@ class Qnote extends BaseQnote {
 		$form = strtoupper($form);
 		$class = get_class();
 		return constant("$class::SHOW_SALESORDER_$form");
+	}
+
+	/**
+	 * Returns the value at the form field
+	 *
+	 * @param  string $form pick, pack, invoice, acknowledgement
+	 * @return string       Form Value
+	 */
+	public function get_cart_form($form) {
+		$form = strtoupper($form);
+		$class = get_class();
+		$prop = constant("$class::SHOW_CART_$form");
+		return $this->$prop;
+	}
+
+	/**
+	 * Returns formx property the Sales Order Property is tied to
+	 *
+	 * @param string  $form e.g. pick, pack, invoice, acknowledgement
+	 * @return string            property e.g. form 1
+	 */
+	public function get_cart_property($form) {
+		$form = strtoupper($form);
+		$class = get_class();
+		return constant("$class::SHOW_CART_$form");
 	}
 }

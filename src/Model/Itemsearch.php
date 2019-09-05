@@ -25,4 +25,13 @@ class Itemsearch extends BaseItemsearch {
 
 	const ITEMSTATUS_ACTIVE   = 'A';
 	const ITEMSTATUS_INACTIVE = 'I';
+
+	/**
+	 * Returns if Item is Active
+	 *
+	 * @return bool
+	 */
+	public function is_active() {
+		return $this->itemstatus == self::ITEMSTATUS_ACTIVE;
+	}
 }

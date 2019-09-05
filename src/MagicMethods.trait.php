@@ -97,9 +97,9 @@
 
 		/**
 		 * Handle Magic Methods
-		 * 
+		 *
 		 * Supports setXXX()
-		 * 
+		 *
 		 * @param  string $name      Method Name ex. setOrdernumber
 		 * @param  string $arguments array of method arguments
 		 * @return mixed
@@ -111,7 +111,7 @@
 			foreach ($methods as $method) {
 				if (0 === strpos($name, $method)) {
 					$property = strtolower(str_replace($method, '', $name));
-					$class_name = $this->getModelName();
+					$class_name = get_class();
 					$class_model = new $class_name();
 
 					if (!property_exists($class_model, $property)) {
