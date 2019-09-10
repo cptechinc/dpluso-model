@@ -57,6 +57,16 @@ class Ordrhed extends BaseOrdrhed {
 		'salesperson_1'   => 'sp1',
 		'salesperson_2'   => 'sp2',
 		'salesperson_3'   => 'sp3',
-		'shipcomplete'    => 'shipcom'
+		'shipcomplete'    => 'shipcom',
+		'error'           => 'errormsg'
 	);
+
+	/**
+	 * Does Order Have an Error
+	 *
+	 * @return bool
+	 */
+	public function has_error() {
+		return boolval(strlen($this->errormsg));
+	}
 }
