@@ -105,11 +105,12 @@
 		 * @return mixed
 		 */
 		public function __call($name, $arguments) {
-			// Maybe it's a magic call to one of the methods supporting it, e.g. 'findByTitle'
-			static $methods = ['set'];
+			$method = 'set';
 
-			foreach ($methods as $method) {
-				if (0 === strpos($name, $method)) {
+			if (0 === strpos($name, $method)) {
+				if (method_exists($this, $name)) {
+					return parent::__call($name, $arguments);
+				} else {
 					$property = strtolower(str_replace($method, '', $name));
 					$class_name = get_class();
 					$class_model = new $class_name();
@@ -118,7 +119,7 @@
 						$class_column = $class_model::get_aliasproperty($property);
 						$name = str_replace(ucfirst($property), ucfirst($class_column), $name);
 					}
-					break;
+					return $this->$name($arguments[0]);
 				}
 			}
 			return parent::__call($name, $arguments);
