@@ -1876,32 +1876,6 @@
       <parameter name="Engine" value="MyISAM"/>
     </vendor>
   </table>
-  <table name="shipvia" idMethod="native" phpName="Shipvia">
-    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
-    <column name="recno" phpName="Recno" type="INTEGER" size="10" primaryKey="true" required="true"/>
-    <column name="date" phpName="Date" type="VARCHAR" size="20"/>
-    <column name="time" phpName="Time" type="VARCHAR" size="8"/>
-    <column name="code" phpName="Code" type="VARCHAR" size="30"/>
-    <column name="via" phpName="Via" type="VARCHAR" size="30"/>
-    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
-    <vendor type="mysql">
-      <parameter name="Engine" value="MyISAM"/>
-    </vendor>
-  </table>
-  <table name="sidebar" idMethod="native" phpName="Sidebar">
-    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
-    <column name="recno" phpName="Recno" type="INTEGER" primaryKey="true" required="true"/>
-    <column name="date" phpName="Date" type="INTEGER" size="8"/>
-    <column name="time" phpName="Time" type="INTEGER" size="8"/>
-    <column name="code" phpName="Code" type="VARCHAR" size="35"/>
-    <column name="description" phpName="Description" type="VARCHAR" size="50"/>
-    <column name="title" phpName="Title" type="VARCHAR" size="35"/>
-    <column name="type" phpName="Type" type="CHAR" size="2"/>
-    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
-    <vendor type="mysql">
-      <parameter name="Engine" value="MyISAM"/>
-    </vendor>
-  </table>
   <table name="states" idMethod="native" phpName="States">
     <column name="id" phpName="Id" type="INTEGER" primaryKey="true" required="true"/>
     <column name="name" phpName="Name" type="VARCHAR" size="255"/>
