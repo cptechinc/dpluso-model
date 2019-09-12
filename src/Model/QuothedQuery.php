@@ -12,7 +12,30 @@ use Base\QuothedQuery as BaseQuothedQuery;
  * long as it does not already exist in the output directory.
  *
  */
-class QuothedQuery extends BaseQuothedQuery
-{
+class QuothedQuery extends BaseQuothedQuery {
+	/**
+	 * Filter the query on the sessionid, Orderno column
+	 *
+	 * @param  string $sessionID Session ID
+	 * @param  string $qnbr      Quote Number
+	 * @return $this|QuothedQuery The current query, for fluid interface
+	 */
+	public function filterBySessionidQuote($sessionID, $qnbr) {
+		$this->filterBySessionid($sessionID);
+		$this->filterByQuotnbr($qnbr);
+		return $this;
+	}
 
+	/**
+	 * Return the first Ordrhed filtered by the sessionid, orderno column
+	 *
+	 * @param  string $sessionID Session ID
+	 * @param  string $qnbr      Quote Number
+	 * @return Quothed
+	 */
+	public function findOneBySessionidQuote($sessionID, $qnbr) {
+		$this->clear();
+		$this->filterBySessionidQuote($sessionID, $qnbr);
+		return $this->findOne();
+	}
 }
