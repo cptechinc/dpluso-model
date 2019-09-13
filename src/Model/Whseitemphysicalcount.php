@@ -2,6 +2,10 @@
 
 use Base\Whseitemphysicalcount as BaseWhseitemphysicalcount;
 
+use Dpluso\Model\ThrowErrorTrait;
+use Dpluso\Model\MagicMethodTraits;
+use Dpluso\Model\ItemTypeTraits;
+
 /**
  * Skeleton subclass for representing a row from the 'whseitemphysicalcount' table.
  *
@@ -12,7 +16,9 @@ use Base\Whseitemphysicalcount as BaseWhseitemphysicalcount;
  * long as it does not already exist in the output directory.
  *
  */
-class Whseitemphysicalcount extends BaseWhseitemphysicalcount
-{
+class Whseitemphysicalcount extends BaseWhseitemphysicalcount {
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
+	use ItemTypeTraits;
 
 }
