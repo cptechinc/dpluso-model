@@ -2,17 +2,77 @@
 
 use Base\Bookingd as BaseBookingd;
 
+use Dpluso\Model\ThrowErrorTrait;
+use Dpluso\Model\MagicMethodTraits;
+
 /**
- * Skeleton subclass for representing a row from the 'bookingd' table.
- *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
+ * Class for representing a row from the 'bookingd' table.
  *
  */
-class Bookingd extends BaseBookingd
-{
+class Bookingd extends BaseBookingd {
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
 
+	/**
+	 * Returns if Qty Columns are not the same value
+	 *
+	 * @return bool
+	 */
+	public function qty_changed() {
+		return $this->b4qty != $this->afterqty;
+	}
+
+	/**
+	 * Returns if before qty is less than after qty
+	 *
+	 * @return bool
+	 */
+	public function qty_increased() {
+		return $this->b4qty < $this->afterqty;
+	}
+
+	/**
+	 * Returns if before qty is more than after qty
+	 *
+	 * @return bool
+	 */
+	public function qty_decreased() {
+		return $this->b4qty > $this->afterqty;
+	}
+
+	/**
+	 * Returns if before price is different than after price
+	 *
+	 * @return bool
+	 */
+	public function price_changed() {
+		return $this->b4price != $this->afterprice;
+	}
+
+	/**
+	 * Returns if before price is less than after price
+	 *
+	 * @return bool
+	 */
+	public function price_increased() {
+		return $this->b4price < $this->afterprice;
+	}
+
+	/**
+	 * Returns if before price is more than after price
+	 *
+	 * @return bool
+	 */
+	public function price_decreased() {
+		return $this->b4price > $this->afterprice;
+	}
+
+	/**
+	 * Returns if before net amount is less than after net amount
+	 *
+	 * @return bool
+	 */
+	public function netamount_increased() {
+		return $this->netamount > 0;
+	}
 }
