@@ -4,6 +4,7 @@ use Base\Bookingc as BaseBookingc;
 
 use Dpluso\Model\ThrowErrorTrait;
 use Dpluso\Model\MagicMethodTraits;
+use Dpluso\Model\CustIndexTraits;
 
 
 /**
@@ -13,5 +14,6 @@ use Dpluso\Model\MagicMethodTraits;
 class Bookingc extends BaseBookingc {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
+	use CustIndexTraits;
 	
 }

@@ -4,6 +4,7 @@ use Base\Bookingd as BaseBookingd;
 
 use Dpluso\Model\ThrowErrorTrait;
 use Dpluso\Model\MagicMethodTraits;
+use Dpluso\Model\CustIndexTraits;
 
 /**
  * Class for representing a row from the 'bookingd' table.
@@ -12,6 +13,7 @@ use Dpluso\Model\MagicMethodTraits;
 class Bookingd extends BaseBookingd {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
+	use CustIndexTraits;
 
 	/**
 	 * Returns if Qty Columns are not the same value
