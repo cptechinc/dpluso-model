@@ -2,17 +2,12 @@
 
 use Base\CustpermQuery as BaseCustpermQuery;
 
+use Dpluso\Model\QueryTraits;
+
 /**
- * Skeleton subclass for performing query and update operations on the 'custperm' table.
- *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
- *
+ * Class for performing query and update operations on the 'custperm' table.
  */
-class CustpermQuery extends BaseCustpermQuery
-{
+class CustpermQuery extends BaseCustpermQuery {
+	use QueryTraits;
 
 }

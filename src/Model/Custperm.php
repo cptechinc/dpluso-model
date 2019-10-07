@@ -2,17 +2,29 @@
 
 use Base\Custperm as BaseCustperm;
 
-/**
- * Skeleton subclass for representing a row from the 'custperm' table.
- *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
- *
- */
-class Custperm extends BaseCustperm
-{
+use Dpluso\Model\ThrowErrorTrait;
+use Dpluso\Model\MagicMethodTraits;
 
+/**
+ * Class for representing a row from the 'custperm' table.
+ */
+class Custperm extends BaseCustperm {
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
+
+	public function get_name() {
+		$q = CustindexQuery::create();
+		$q->filterByCustid($this->custid);
+
+		if ($this->shiptoid) {
+			$q->filterByShiptoid($this->shiptoid);
+		}
+
+		if ($q->count()) {
+			$q->select('name');
+			return $q->findOne();
+		} else {
+			return 'N/A';
+		}
+	}
 }
