@@ -12,7 +12,6 @@ use Base\Funcperm as BaseFuncperm;
  * long as it does not already exist in the output directory.
  *
  */
-class Funcperm extends BaseFuncperm
-{
-
+class Funcperm extends BaseFuncperm {
+	const HAS_PERMISSION = 'Y';
 }
