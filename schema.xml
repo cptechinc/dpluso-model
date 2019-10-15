@@ -2156,6 +2156,7 @@
     <column name="lotserialref" phpName="Lotserialref" type="VARCHAR" size="45"/>
     <column name="bin" phpName="Bin" type="VARCHAR" size="8"/>
     <column name="qty" phpName="Qty" type="DECIMAL" size="10" scale="2"/>
+    <column name="productiondate" phpName="Productiondate" type="INTEGER" size="8"/>
     <column name="complete" phpName="Complete" type="VARCHAR" size="1"/>
     <column name="status" phpName="Status" type="VARCHAR" size="60"/>
     <column name="date" phpName="Date" type="INTEGER" size="8"/>

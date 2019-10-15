@@ -123,6 +123,13 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
     protected $qty;
 
     /**
+     * The value for the productiondate field.
+     *
+     * @var        int
+     */
+    protected $productiondate;
+
+    /**
      * The value for the complete field.
      *
      * @var        string
@@ -481,6 +488,16 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
     }
 
     /**
+     * Get the [productiondate] column value.
+     *
+     * @return int
+     */
+    public function getProductiondate()
+    {
+        return $this->productiondate;
+    }
+
+    /**
      * Get the [complete] column value.
      *
      * @return string
@@ -711,6 +728,26 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
     } // setQty()
 
     /**
+     * Set the value of [productiondate] column.
+     *
+     * @param int $v new value
+     * @return $this|\Whseitemphysicalcount The current object (for fluent API support)
+     */
+    public function setProductiondate($v)
+    {
+        if ($v !== null) {
+            $v = (int) $v;
+        }
+
+        if ($this->productiondate !== $v) {
+            $this->productiondate = $v;
+            $this->modifiedColumns[WhseitemphysicalcountTableMap::COL_PRODUCTIONDATE] = true;
+        }
+
+        return $this;
+    } // setProductiondate()
+
+    /**
      * Set the value of [complete] column.
      *
      * @param string $v new value
@@ -873,19 +910,22 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Qty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Complete', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Productiondate', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->productiondate = (null !== $col) ? (int) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Complete', TableMap::TYPE_PHPNAME, $indexType)];
             $this->complete = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Status', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Status', TableMap::TYPE_PHPNAME, $indexType)];
             $this->status = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Date', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Date', TableMap::TYPE_PHPNAME, $indexType)];
             $this->date = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Time', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Time', TableMap::TYPE_PHPNAME, $indexType)];
             $this->time = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : WhseitemphysicalcountTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -895,7 +935,7 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 14; // 14 = WhseitemphysicalcountTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 15; // 15 = WhseitemphysicalcountTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\Whseitemphysicalcount'), 0, $e);
@@ -1119,6 +1159,9 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
         if ($this->isColumnModified(WhseitemphysicalcountTableMap::COL_QTY)) {
             $modifiedColumns[':p' . $index++]  = 'qty';
         }
+        if ($this->isColumnModified(WhseitemphysicalcountTableMap::COL_PRODUCTIONDATE)) {
+            $modifiedColumns[':p' . $index++]  = 'productiondate';
+        }
         if ($this->isColumnModified(WhseitemphysicalcountTableMap::COL_COMPLETE)) {
             $modifiedColumns[':p' . $index++]  = 'complete';
         }
@@ -1171,6 +1214,9 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
                         break;
                     case 'qty':
                         $stmt->bindValue($identifier, $this->qty, PDO::PARAM_STR);
+                        break;
+                    case 'productiondate':
+                        $stmt->bindValue($identifier, $this->productiondate, PDO::PARAM_INT);
                         break;
                     case 'complete':
                         $stmt->bindValue($identifier, $this->complete, PDO::PARAM_STR);
@@ -1270,18 +1316,21 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
                 return $this->getQty();
                 break;
             case 9:
-                return $this->getComplete();
+                return $this->getProductiondate();
                 break;
             case 10:
-                return $this->getStatus();
+                return $this->getComplete();
                 break;
             case 11:
-                return $this->getDate();
+                return $this->getStatus();
                 break;
             case 12:
-                return $this->getTime();
+                return $this->getDate();
                 break;
             case 13:
+                return $this->getTime();
+                break;
+            case 14:
                 return $this->getDummy();
                 break;
             default:
@@ -1322,11 +1371,12 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
             $keys[6] => $this->getLotserialref(),
             $keys[7] => $this->getBin(),
             $keys[8] => $this->getQty(),
-            $keys[9] => $this->getComplete(),
-            $keys[10] => $this->getStatus(),
-            $keys[11] => $this->getDate(),
-            $keys[12] => $this->getTime(),
-            $keys[13] => $this->getDummy(),
+            $keys[9] => $this->getProductiondate(),
+            $keys[10] => $this->getComplete(),
+            $keys[11] => $this->getStatus(),
+            $keys[12] => $this->getDate(),
+            $keys[13] => $this->getTime(),
+            $keys[14] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -1394,18 +1444,21 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
                 $this->setQty($value);
                 break;
             case 9:
-                $this->setComplete($value);
+                $this->setProductiondate($value);
                 break;
             case 10:
-                $this->setStatus($value);
+                $this->setComplete($value);
                 break;
             case 11:
-                $this->setDate($value);
+                $this->setStatus($value);
                 break;
             case 12:
-                $this->setTime($value);
+                $this->setDate($value);
                 break;
             case 13:
+                $this->setTime($value);
+                break;
+            case 14:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -1462,19 +1515,22 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
             $this->setQty($arr[$keys[8]]);
         }
         if (array_key_exists($keys[9], $arr)) {
-            $this->setComplete($arr[$keys[9]]);
+            $this->setProductiondate($arr[$keys[9]]);
         }
         if (array_key_exists($keys[10], $arr)) {
-            $this->setStatus($arr[$keys[10]]);
+            $this->setComplete($arr[$keys[10]]);
         }
         if (array_key_exists($keys[11], $arr)) {
-            $this->setDate($arr[$keys[11]]);
+            $this->setStatus($arr[$keys[11]]);
         }
         if (array_key_exists($keys[12], $arr)) {
-            $this->setTime($arr[$keys[12]]);
+            $this->setDate($arr[$keys[12]]);
         }
         if (array_key_exists($keys[13], $arr)) {
-            $this->setDummy($arr[$keys[13]]);
+            $this->setTime($arr[$keys[13]]);
+        }
+        if (array_key_exists($keys[14], $arr)) {
+            $this->setDummy($arr[$keys[14]]);
         }
     }
 
@@ -1543,6 +1599,9 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
         }
         if ($this->isColumnModified(WhseitemphysicalcountTableMap::COL_QTY)) {
             $criteria->add(WhseitemphysicalcountTableMap::COL_QTY, $this->qty);
+        }
+        if ($this->isColumnModified(WhseitemphysicalcountTableMap::COL_PRODUCTIONDATE)) {
+            $criteria->add(WhseitemphysicalcountTableMap::COL_PRODUCTIONDATE, $this->productiondate);
         }
         if ($this->isColumnModified(WhseitemphysicalcountTableMap::COL_COMPLETE)) {
             $criteria->add(WhseitemphysicalcountTableMap::COL_COMPLETE, $this->complete);
@@ -1662,6 +1721,7 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
         $copyObj->setLotserialref($this->getLotserialref());
         $copyObj->setBin($this->getBin());
         $copyObj->setQty($this->getQty());
+        $copyObj->setProductiondate($this->getProductiondate());
         $copyObj->setComplete($this->getComplete());
         $copyObj->setStatus($this->getStatus());
         $copyObj->setDate($this->getDate());
@@ -1710,6 +1770,7 @@ abstract class Whseitemphysicalcount implements ActiveRecordInterface
         $this->lotserialref = null;
         $this->bin = null;
         $this->qty = null;
+        $this->productiondate = null;
         $this->complete = null;
         $this->status = null;
         $this->date = null;

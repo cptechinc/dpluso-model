@@ -28,6 +28,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWhseitemphysicalcountQuery orderByLotserialref($order = Criteria::ASC) Order by the lotserialref column
  * @method     ChildWhseitemphysicalcountQuery orderByBin($order = Criteria::ASC) Order by the bin column
  * @method     ChildWhseitemphysicalcountQuery orderByQty($order = Criteria::ASC) Order by the qty column
+ * @method     ChildWhseitemphysicalcountQuery orderByProductiondate($order = Criteria::ASC) Order by the productiondate column
  * @method     ChildWhseitemphysicalcountQuery orderByComplete($order = Criteria::ASC) Order by the complete column
  * @method     ChildWhseitemphysicalcountQuery orderByStatus($order = Criteria::ASC) Order by the status column
  * @method     ChildWhseitemphysicalcountQuery orderByDate($order = Criteria::ASC) Order by the date column
@@ -43,6 +44,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWhseitemphysicalcountQuery groupByLotserialref() Group by the lotserialref column
  * @method     ChildWhseitemphysicalcountQuery groupByBin() Group by the bin column
  * @method     ChildWhseitemphysicalcountQuery groupByQty() Group by the qty column
+ * @method     ChildWhseitemphysicalcountQuery groupByProductiondate() Group by the productiondate column
  * @method     ChildWhseitemphysicalcountQuery groupByComplete() Group by the complete column
  * @method     ChildWhseitemphysicalcountQuery groupByStatus() Group by the status column
  * @method     ChildWhseitemphysicalcountQuery groupByDate() Group by the date column
@@ -69,6 +71,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWhseitemphysicalcount findOneByLotserialref(string $lotserialref) Return the first ChildWhseitemphysicalcount filtered by the lotserialref column
  * @method     ChildWhseitemphysicalcount findOneByBin(string $bin) Return the first ChildWhseitemphysicalcount filtered by the bin column
  * @method     ChildWhseitemphysicalcount findOneByQty(string $qty) Return the first ChildWhseitemphysicalcount filtered by the qty column
+ * @method     ChildWhseitemphysicalcount findOneByProductiondate(int $productiondate) Return the first ChildWhseitemphysicalcount filtered by the productiondate column
  * @method     ChildWhseitemphysicalcount findOneByComplete(string $complete) Return the first ChildWhseitemphysicalcount filtered by the complete column
  * @method     ChildWhseitemphysicalcount findOneByStatus(string $status) Return the first ChildWhseitemphysicalcount filtered by the status column
  * @method     ChildWhseitemphysicalcount findOneByDate(int $date) Return the first ChildWhseitemphysicalcount filtered by the date column
@@ -87,6 +90,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWhseitemphysicalcount requireOneByLotserialref(string $lotserialref) Return the first ChildWhseitemphysicalcount filtered by the lotserialref column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitemphysicalcount requireOneByBin(string $bin) Return the first ChildWhseitemphysicalcount filtered by the bin column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitemphysicalcount requireOneByQty(string $qty) Return the first ChildWhseitemphysicalcount filtered by the qty column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWhseitemphysicalcount requireOneByProductiondate(int $productiondate) Return the first ChildWhseitemphysicalcount filtered by the productiondate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitemphysicalcount requireOneByComplete(string $complete) Return the first ChildWhseitemphysicalcount filtered by the complete column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitemphysicalcount requireOneByStatus(string $status) Return the first ChildWhseitemphysicalcount filtered by the status column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitemphysicalcount requireOneByDate(int $date) Return the first ChildWhseitemphysicalcount filtered by the date column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -103,6 +107,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByLotserialref(string $lotserialref) Return ChildWhseitemphysicalcount objects filtered by the lotserialref column
  * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByBin(string $bin) Return ChildWhseitemphysicalcount objects filtered by the bin column
  * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByQty(string $qty) Return ChildWhseitemphysicalcount objects filtered by the qty column
+ * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByProductiondate(int $productiondate) Return ChildWhseitemphysicalcount objects filtered by the productiondate column
  * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByComplete(string $complete) Return ChildWhseitemphysicalcount objects filtered by the complete column
  * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByStatus(string $status) Return ChildWhseitemphysicalcount objects filtered by the status column
  * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByDate(int $date) Return ChildWhseitemphysicalcount objects filtered by the date column
@@ -206,7 +211,7 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT sessionid, recno, itemid, scan, type, lotserial, lotserialref, bin, qty, complete, status, date, time, dummy FROM whseitemphysicalcount WHERE sessionid = :p0 AND recno = :p1';
+        $sql = 'SELECT sessionid, recno, itemid, scan, type, lotserial, lotserialref, bin, qty, productiondate, complete, status, date, time, dummy FROM whseitemphysicalcount WHERE sessionid = :p0 AND recno = :p1';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -563,6 +568,47 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_QTY, $qty, $comparison);
+    }
+
+    /**
+     * Filter the query on the productiondate column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByProductiondate(1234); // WHERE productiondate = 1234
+     * $query->filterByProductiondate(array(12, 34)); // WHERE productiondate IN (12, 34)
+     * $query->filterByProductiondate(array('min' => 12)); // WHERE productiondate > 12
+     * </code>
+     *
+     * @param     mixed $productiondate The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildWhseitemphysicalcountQuery The current query, for fluid interface
+     */
+    public function filterByProductiondate($productiondate = null, $comparison = null)
+    {
+        if (is_array($productiondate)) {
+            $useMinMax = false;
+            if (isset($productiondate['min'])) {
+                $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_PRODUCTIONDATE, $productiondate['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($productiondate['max'])) {
+                $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_PRODUCTIONDATE, $productiondate['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_PRODUCTIONDATE, $productiondate, $comparison);
     }
 
     /**
