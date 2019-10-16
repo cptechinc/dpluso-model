@@ -112,6 +112,20 @@ abstract class Invsearch implements ActiveRecordInterface
     protected $lotserial;
 
     /**
+     * The value for the lotreference field.
+     *
+     * @var        string
+     */
+    protected $lotreference;
+
+    /**
+     * The value for the expirationdate field.
+     *
+     * @var        int
+     */
+    protected $expirationdate;
+
+    /**
      * The value for the desc1 field.
      *
      * @var        string
@@ -486,6 +500,26 @@ abstract class Invsearch implements ActiveRecordInterface
     }
 
     /**
+     * Get the [lotreference] column value.
+     *
+     * @return string
+     */
+    public function getLotreference()
+    {
+        return $this->lotreference;
+    }
+
+    /**
+     * Get the [expirationdate] column value.
+     *
+     * @return int
+     */
+    public function getExpirationdate()
+    {
+        return $this->expirationdate;
+    }
+
+    /**
      * Get the [desc1] column value.
      *
      * @return string
@@ -704,6 +738,46 @@ abstract class Invsearch implements ActiveRecordInterface
 
         return $this;
     } // setLotserial()
+
+    /**
+     * Set the value of [lotreference] column.
+     *
+     * @param string $v new value
+     * @return $this|\Invsearch The current object (for fluent API support)
+     */
+    public function setLotreference($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->lotreference !== $v) {
+            $this->lotreference = $v;
+            $this->modifiedColumns[InvsearchTableMap::COL_LOTREFERENCE] = true;
+        }
+
+        return $this;
+    } // setLotreference()
+
+    /**
+     * Set the value of [expirationdate] column.
+     *
+     * @param int $v new value
+     * @return $this|\Invsearch The current object (for fluent API support)
+     */
+    public function setExpirationdate($v)
+    {
+        if ($v !== null) {
+            $v = (int) $v;
+        }
+
+        if ($this->expirationdate !== $v) {
+            $this->expirationdate = $v;
+            $this->modifiedColumns[InvsearchTableMap::COL_EXPIRATIONDATE] = true;
+        }
+
+        return $this;
+    } // setExpirationdate()
 
     /**
      * Set the value of [desc1] column.
@@ -934,28 +1008,34 @@ abstract class Invsearch implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : InvsearchTableMap::translateFieldName('Lotserial', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lotserial = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : InvsearchTableMap::translateFieldName('Desc1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : InvsearchTableMap::translateFieldName('Lotreference', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->lotreference = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : InvsearchTableMap::translateFieldName('Expirationdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->expirationdate = (null !== $col) ? (int) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : InvsearchTableMap::translateFieldName('Desc1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->desc1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : InvsearchTableMap::translateFieldName('Desc2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : InvsearchTableMap::translateFieldName('Desc2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->desc2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : InvsearchTableMap::translateFieldName('Primebin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : InvsearchTableMap::translateFieldName('Primebin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->primebin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : InvsearchTableMap::translateFieldName('Bin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : InvsearchTableMap::translateFieldName('Bin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->bin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : InvsearchTableMap::translateFieldName('Qty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : InvsearchTableMap::translateFieldName('Qty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qty = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : InvsearchTableMap::translateFieldName('Date', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : InvsearchTableMap::translateFieldName('Date', TableMap::TYPE_PHPNAME, $indexType)];
             $this->date = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : InvsearchTableMap::translateFieldName('Time', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : InvsearchTableMap::translateFieldName('Time', TableMap::TYPE_PHPNAME, $indexType)];
             $this->time = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : InvsearchTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : InvsearchTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -965,7 +1045,7 @@ abstract class Invsearch implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 15; // 15 = InvsearchTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 17; // 17 = InvsearchTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\Invsearch'), 0, $e);
@@ -1183,6 +1263,12 @@ abstract class Invsearch implements ActiveRecordInterface
         if ($this->isColumnModified(InvsearchTableMap::COL_LOTSERIAL)) {
             $modifiedColumns[':p' . $index++]  = 'lotserial';
         }
+        if ($this->isColumnModified(InvsearchTableMap::COL_LOTREFERENCE)) {
+            $modifiedColumns[':p' . $index++]  = 'lotreference';
+        }
+        if ($this->isColumnModified(InvsearchTableMap::COL_EXPIRATIONDATE)) {
+            $modifiedColumns[':p' . $index++]  = 'expirationdate';
+        }
         if ($this->isColumnModified(InvsearchTableMap::COL_DESC1)) {
             $modifiedColumns[':p' . $index++]  = 'desc1';
         }
@@ -1238,6 +1324,12 @@ abstract class Invsearch implements ActiveRecordInterface
                         break;
                     case 'lotserial':
                         $stmt->bindValue($identifier, $this->lotserial, PDO::PARAM_STR);
+                        break;
+                    case 'lotreference':
+                        $stmt->bindValue($identifier, $this->lotreference, PDO::PARAM_STR);
+                        break;
+                    case 'expirationdate':
+                        $stmt->bindValue($identifier, $this->expirationdate, PDO::PARAM_INT);
                         break;
                     case 'desc1':
                         $stmt->bindValue($identifier, $this->desc1, PDO::PARAM_STR);
@@ -1340,27 +1432,33 @@ abstract class Invsearch implements ActiveRecordInterface
                 return $this->getLotserial();
                 break;
             case 7:
-                return $this->getDesc1();
+                return $this->getLotreference();
                 break;
             case 8:
-                return $this->getDesc2();
+                return $this->getExpirationdate();
                 break;
             case 9:
-                return $this->getPrimebin();
+                return $this->getDesc1();
                 break;
             case 10:
-                return $this->getBin();
+                return $this->getDesc2();
                 break;
             case 11:
-                return $this->getQty();
+                return $this->getPrimebin();
                 break;
             case 12:
-                return $this->getDate();
+                return $this->getBin();
                 break;
             case 13:
-                return $this->getTime();
+                return $this->getQty();
                 break;
             case 14:
+                return $this->getDate();
+                break;
+            case 15:
+                return $this->getTime();
+                break;
+            case 16:
                 return $this->getDummy();
                 break;
             default:
@@ -1399,14 +1497,16 @@ abstract class Invsearch implements ActiveRecordInterface
             $keys[4] => $this->getXorigin(),
             $keys[5] => $this->getItemtype(),
             $keys[6] => $this->getLotserial(),
-            $keys[7] => $this->getDesc1(),
-            $keys[8] => $this->getDesc2(),
-            $keys[9] => $this->getPrimebin(),
-            $keys[10] => $this->getBin(),
-            $keys[11] => $this->getQty(),
-            $keys[12] => $this->getDate(),
-            $keys[13] => $this->getTime(),
-            $keys[14] => $this->getDummy(),
+            $keys[7] => $this->getLotreference(),
+            $keys[8] => $this->getExpirationdate(),
+            $keys[9] => $this->getDesc1(),
+            $keys[10] => $this->getDesc2(),
+            $keys[11] => $this->getPrimebin(),
+            $keys[12] => $this->getBin(),
+            $keys[13] => $this->getQty(),
+            $keys[14] => $this->getDate(),
+            $keys[15] => $this->getTime(),
+            $keys[16] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -1468,27 +1568,33 @@ abstract class Invsearch implements ActiveRecordInterface
                 $this->setLotserial($value);
                 break;
             case 7:
-                $this->setDesc1($value);
+                $this->setLotreference($value);
                 break;
             case 8:
-                $this->setDesc2($value);
+                $this->setExpirationdate($value);
                 break;
             case 9:
-                $this->setPrimebin($value);
+                $this->setDesc1($value);
                 break;
             case 10:
-                $this->setBin($value);
+                $this->setDesc2($value);
                 break;
             case 11:
-                $this->setQty($value);
+                $this->setPrimebin($value);
                 break;
             case 12:
-                $this->setDate($value);
+                $this->setBin($value);
                 break;
             case 13:
-                $this->setTime($value);
+                $this->setQty($value);
                 break;
             case 14:
+                $this->setDate($value);
+                break;
+            case 15:
+                $this->setTime($value);
+                break;
+            case 16:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -1539,28 +1645,34 @@ abstract class Invsearch implements ActiveRecordInterface
             $this->setLotserial($arr[$keys[6]]);
         }
         if (array_key_exists($keys[7], $arr)) {
-            $this->setDesc1($arr[$keys[7]]);
+            $this->setLotreference($arr[$keys[7]]);
         }
         if (array_key_exists($keys[8], $arr)) {
-            $this->setDesc2($arr[$keys[8]]);
+            $this->setExpirationdate($arr[$keys[8]]);
         }
         if (array_key_exists($keys[9], $arr)) {
-            $this->setPrimebin($arr[$keys[9]]);
+            $this->setDesc1($arr[$keys[9]]);
         }
         if (array_key_exists($keys[10], $arr)) {
-            $this->setBin($arr[$keys[10]]);
+            $this->setDesc2($arr[$keys[10]]);
         }
         if (array_key_exists($keys[11], $arr)) {
-            $this->setQty($arr[$keys[11]]);
+            $this->setPrimebin($arr[$keys[11]]);
         }
         if (array_key_exists($keys[12], $arr)) {
-            $this->setDate($arr[$keys[12]]);
+            $this->setBin($arr[$keys[12]]);
         }
         if (array_key_exists($keys[13], $arr)) {
-            $this->setTime($arr[$keys[13]]);
+            $this->setQty($arr[$keys[13]]);
         }
         if (array_key_exists($keys[14], $arr)) {
-            $this->setDummy($arr[$keys[14]]);
+            $this->setDate($arr[$keys[14]]);
+        }
+        if (array_key_exists($keys[15], $arr)) {
+            $this->setTime($arr[$keys[15]]);
+        }
+        if (array_key_exists($keys[16], $arr)) {
+            $this->setDummy($arr[$keys[16]]);
         }
     }
 
@@ -1623,6 +1735,12 @@ abstract class Invsearch implements ActiveRecordInterface
         }
         if ($this->isColumnModified(InvsearchTableMap::COL_LOTSERIAL)) {
             $criteria->add(InvsearchTableMap::COL_LOTSERIAL, $this->lotserial);
+        }
+        if ($this->isColumnModified(InvsearchTableMap::COL_LOTREFERENCE)) {
+            $criteria->add(InvsearchTableMap::COL_LOTREFERENCE, $this->lotreference);
+        }
+        if ($this->isColumnModified(InvsearchTableMap::COL_EXPIRATIONDATE)) {
+            $criteria->add(InvsearchTableMap::COL_EXPIRATIONDATE, $this->expirationdate);
         }
         if ($this->isColumnModified(InvsearchTableMap::COL_DESC1)) {
             $criteria->add(InvsearchTableMap::COL_DESC1, $this->desc1);
@@ -1753,6 +1871,8 @@ abstract class Invsearch implements ActiveRecordInterface
         $copyObj->setXorigin($this->getXorigin());
         $copyObj->setItemtype($this->getItemtype());
         $copyObj->setLotserial($this->getLotserial());
+        $copyObj->setLotreference($this->getLotreference());
+        $copyObj->setExpirationdate($this->getExpirationdate());
         $copyObj->setDesc1($this->getDesc1());
         $copyObj->setDesc2($this->getDesc2());
         $copyObj->setPrimebin($this->getPrimebin());
@@ -1802,6 +1922,8 @@ abstract class Invsearch implements ActiveRecordInterface
         $this->xorigin = null;
         $this->itemtype = null;
         $this->lotserial = null;
+        $this->lotreference = null;
+        $this->expirationdate = null;
         $this->desc1 = null;
         $this->desc2 = null;
         $this->primebin = null;

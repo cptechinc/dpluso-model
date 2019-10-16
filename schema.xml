@@ -830,6 +830,8 @@
     <column name="xorigin" phpName="Xorigin" type="VARCHAR" size="45"/>
     <column name="itemtype" phpName="Itemtype" type="VARCHAR" size="45"/>
     <column name="lotserial" phpName="Lotserial" type="VARCHAR" size="45"/>
+    <column name="lotreference" phpName="Lotreference" type="VARCHAR" size="20"/>
+    <column name="expirationdate" phpName="Expirationdate" type="INTEGER" size="8"/>
     <column name="desc1" phpName="Desc1" type="VARCHAR" size="45"/>
     <column name="desc2" phpName="Desc2" type="VARCHAR" size="45"/>
     <column name="primebin" phpName="Primebin" type="VARCHAR" size="8"/>

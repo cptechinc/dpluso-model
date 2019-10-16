@@ -26,6 +26,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvsearchQuery orderByXorigin($order = Criteria::ASC) Order by the xorigin column
  * @method     ChildInvsearchQuery orderByItemtype($order = Criteria::ASC) Order by the itemtype column
  * @method     ChildInvsearchQuery orderByLotserial($order = Criteria::ASC) Order by the lotserial column
+ * @method     ChildInvsearchQuery orderByLotreference($order = Criteria::ASC) Order by the lotreference column
+ * @method     ChildInvsearchQuery orderByExpirationdate($order = Criteria::ASC) Order by the expirationdate column
  * @method     ChildInvsearchQuery orderByDesc1($order = Criteria::ASC) Order by the desc1 column
  * @method     ChildInvsearchQuery orderByDesc2($order = Criteria::ASC) Order by the desc2 column
  * @method     ChildInvsearchQuery orderByPrimebin($order = Criteria::ASC) Order by the primebin column
@@ -42,6 +44,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvsearchQuery groupByXorigin() Group by the xorigin column
  * @method     ChildInvsearchQuery groupByItemtype() Group by the itemtype column
  * @method     ChildInvsearchQuery groupByLotserial() Group by the lotserial column
+ * @method     ChildInvsearchQuery groupByLotreference() Group by the lotreference column
+ * @method     ChildInvsearchQuery groupByExpirationdate() Group by the expirationdate column
  * @method     ChildInvsearchQuery groupByDesc1() Group by the desc1 column
  * @method     ChildInvsearchQuery groupByDesc2() Group by the desc2 column
  * @method     ChildInvsearchQuery groupByPrimebin() Group by the primebin column
@@ -69,6 +73,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvsearch findOneByXorigin(string $xorigin) Return the first ChildInvsearch filtered by the xorigin column
  * @method     ChildInvsearch findOneByItemtype(string $itemtype) Return the first ChildInvsearch filtered by the itemtype column
  * @method     ChildInvsearch findOneByLotserial(string $lotserial) Return the first ChildInvsearch filtered by the lotserial column
+ * @method     ChildInvsearch findOneByLotreference(string $lotreference) Return the first ChildInvsearch filtered by the lotreference column
+ * @method     ChildInvsearch findOneByExpirationdate(int $expirationdate) Return the first ChildInvsearch filtered by the expirationdate column
  * @method     ChildInvsearch findOneByDesc1(string $desc1) Return the first ChildInvsearch filtered by the desc1 column
  * @method     ChildInvsearch findOneByDesc2(string $desc2) Return the first ChildInvsearch filtered by the desc2 column
  * @method     ChildInvsearch findOneByPrimebin(string $primebin) Return the first ChildInvsearch filtered by the primebin column
@@ -88,6 +94,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvsearch requireOneByXorigin(string $xorigin) Return the first ChildInvsearch filtered by the xorigin column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvsearch requireOneByItemtype(string $itemtype) Return the first ChildInvsearch filtered by the itemtype column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvsearch requireOneByLotserial(string $lotserial) Return the first ChildInvsearch filtered by the lotserial column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvsearch requireOneByLotreference(string $lotreference) Return the first ChildInvsearch filtered by the lotreference column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvsearch requireOneByExpirationdate(int $expirationdate) Return the first ChildInvsearch filtered by the expirationdate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvsearch requireOneByDesc1(string $desc1) Return the first ChildInvsearch filtered by the desc1 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvsearch requireOneByDesc2(string $desc2) Return the first ChildInvsearch filtered by the desc2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvsearch requireOneByPrimebin(string $primebin) Return the first ChildInvsearch filtered by the primebin column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -105,6 +113,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvsearch[]|ObjectCollection findByXorigin(string $xorigin) Return ChildInvsearch objects filtered by the xorigin column
  * @method     ChildInvsearch[]|ObjectCollection findByItemtype(string $itemtype) Return ChildInvsearch objects filtered by the itemtype column
  * @method     ChildInvsearch[]|ObjectCollection findByLotserial(string $lotserial) Return ChildInvsearch objects filtered by the lotserial column
+ * @method     ChildInvsearch[]|ObjectCollection findByLotreference(string $lotreference) Return ChildInvsearch objects filtered by the lotreference column
+ * @method     ChildInvsearch[]|ObjectCollection findByExpirationdate(int $expirationdate) Return ChildInvsearch objects filtered by the expirationdate column
  * @method     ChildInvsearch[]|ObjectCollection findByDesc1(string $desc1) Return ChildInvsearch objects filtered by the desc1 column
  * @method     ChildInvsearch[]|ObjectCollection findByDesc2(string $desc2) Return ChildInvsearch objects filtered by the desc2 column
  * @method     ChildInvsearch[]|ObjectCollection findByPrimebin(string $primebin) Return ChildInvsearch objects filtered by the primebin column
@@ -211,7 +221,7 @@ abstract class InvsearchQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT sessionid, recno, itemid, xitemid, xorigin, itemtype, lotserial, desc1, desc2, primebin, bin, qty, date, time, dummy FROM invsearch WHERE sessionid = :p0 AND recno = :p1 AND itemid = :p2';
+        $sql = 'SELECT sessionid, recno, itemid, xitemid, xorigin, itemtype, lotserial, lotreference, expirationdate, desc1, desc2, primebin, bin, qty, date, time, dummy FROM invsearch WHERE sessionid = :p0 AND recno = :p1 AND itemid = :p2';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -506,6 +516,72 @@ abstract class InvsearchQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(InvsearchTableMap::COL_LOTSERIAL, $lotserial, $comparison);
+    }
+
+    /**
+     * Filter the query on the lotreference column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByLotreference('fooValue');   // WHERE lotreference = 'fooValue'
+     * $query->filterByLotreference('%fooValue%', Criteria::LIKE); // WHERE lotreference LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $lotreference The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildInvsearchQuery The current query, for fluid interface
+     */
+    public function filterByLotreference($lotreference = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($lotreference)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(InvsearchTableMap::COL_LOTREFERENCE, $lotreference, $comparison);
+    }
+
+    /**
+     * Filter the query on the expirationdate column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByExpirationdate(1234); // WHERE expirationdate = 1234
+     * $query->filterByExpirationdate(array(12, 34)); // WHERE expirationdate IN (12, 34)
+     * $query->filterByExpirationdate(array('min' => 12)); // WHERE expirationdate > 12
+     * </code>
+     *
+     * @param     mixed $expirationdate The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildInvsearchQuery The current query, for fluid interface
+     */
+    public function filterByExpirationdate($expirationdate = null, $comparison = null)
+    {
+        if (is_array($expirationdate)) {
+            $useMinMax = false;
+            if (isset($expirationdate['min'])) {
+                $this->addUsingAlias(InvsearchTableMap::COL_EXPIRATIONDATE, $expirationdate['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($expirationdate['max'])) {
+                $this->addUsingAlias(InvsearchTableMap::COL_EXPIRATIONDATE, $expirationdate['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(InvsearchTableMap::COL_EXPIRATIONDATE, $expirationdate, $comparison);
     }
 
     /**

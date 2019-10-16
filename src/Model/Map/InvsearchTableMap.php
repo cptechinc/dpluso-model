@@ -59,7 +59,7 @@ class InvsearchTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 15;
+    const NUM_COLUMNS = 17;
 
     /**
      * The number of lazy-loaded columns
@@ -69,7 +69,7 @@ class InvsearchTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 15;
+    const NUM_HYDRATE_COLUMNS = 17;
 
     /**
      * the column name for the sessionid field
@@ -105,6 +105,16 @@ class InvsearchTableMap extends TableMap
      * the column name for the lotserial field
      */
     const COL_LOTSERIAL = 'invsearch.lotserial';
+
+    /**
+     * the column name for the lotreference field
+     */
+    const COL_LOTREFERENCE = 'invsearch.lotreference';
+
+    /**
+     * the column name for the expirationdate field
+     */
+    const COL_EXPIRATIONDATE = 'invsearch.expirationdate';
 
     /**
      * the column name for the desc1 field
@@ -158,11 +168,11 @@ class InvsearchTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Sessionid', 'Recno', 'Itemid', 'Xitemid', 'Xorigin', 'Itemtype', 'Lotserial', 'Desc1', 'Desc2', 'Primebin', 'Bin', 'Qty', 'Date', 'Time', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('sessionid', 'recno', 'itemid', 'xitemid', 'xorigin', 'itemtype', 'lotserial', 'desc1', 'desc2', 'primebin', 'bin', 'qty', 'date', 'time', 'dummy', ),
-        self::TYPE_COLNAME       => array(InvsearchTableMap::COL_SESSIONID, InvsearchTableMap::COL_RECNO, InvsearchTableMap::COL_ITEMID, InvsearchTableMap::COL_XITEMID, InvsearchTableMap::COL_XORIGIN, InvsearchTableMap::COL_ITEMTYPE, InvsearchTableMap::COL_LOTSERIAL, InvsearchTableMap::COL_DESC1, InvsearchTableMap::COL_DESC2, InvsearchTableMap::COL_PRIMEBIN, InvsearchTableMap::COL_BIN, InvsearchTableMap::COL_QTY, InvsearchTableMap::COL_DATE, InvsearchTableMap::COL_TIME, InvsearchTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('sessionid', 'recno', 'itemid', 'xitemid', 'xorigin', 'itemtype', 'lotserial', 'desc1', 'desc2', 'primebin', 'bin', 'qty', 'date', 'time', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, )
+        self::TYPE_PHPNAME       => array('Sessionid', 'Recno', 'Itemid', 'Xitemid', 'Xorigin', 'Itemtype', 'Lotserial', 'Lotreference', 'Expirationdate', 'Desc1', 'Desc2', 'Primebin', 'Bin', 'Qty', 'Date', 'Time', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('sessionid', 'recno', 'itemid', 'xitemid', 'xorigin', 'itemtype', 'lotserial', 'lotreference', 'expirationdate', 'desc1', 'desc2', 'primebin', 'bin', 'qty', 'date', 'time', 'dummy', ),
+        self::TYPE_COLNAME       => array(InvsearchTableMap::COL_SESSIONID, InvsearchTableMap::COL_RECNO, InvsearchTableMap::COL_ITEMID, InvsearchTableMap::COL_XITEMID, InvsearchTableMap::COL_XORIGIN, InvsearchTableMap::COL_ITEMTYPE, InvsearchTableMap::COL_LOTSERIAL, InvsearchTableMap::COL_LOTREFERENCE, InvsearchTableMap::COL_EXPIRATIONDATE, InvsearchTableMap::COL_DESC1, InvsearchTableMap::COL_DESC2, InvsearchTableMap::COL_PRIMEBIN, InvsearchTableMap::COL_BIN, InvsearchTableMap::COL_QTY, InvsearchTableMap::COL_DATE, InvsearchTableMap::COL_TIME, InvsearchTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('sessionid', 'recno', 'itemid', 'xitemid', 'xorigin', 'itemtype', 'lotserial', 'lotreference', 'expirationdate', 'desc1', 'desc2', 'primebin', 'bin', 'qty', 'date', 'time', 'dummy', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, )
     );
 
     /**
@@ -172,11 +182,11 @@ class InvsearchTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Recno' => 1, 'Itemid' => 2, 'Xitemid' => 3, 'Xorigin' => 4, 'Itemtype' => 5, 'Lotserial' => 6, 'Desc1' => 7, 'Desc2' => 8, 'Primebin' => 9, 'Bin' => 10, 'Qty' => 11, 'Date' => 12, 'Time' => 13, 'Dummy' => 14, ),
-        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'recno' => 1, 'itemid' => 2, 'xitemid' => 3, 'xorigin' => 4, 'itemtype' => 5, 'lotserial' => 6, 'desc1' => 7, 'desc2' => 8, 'primebin' => 9, 'bin' => 10, 'qty' => 11, 'date' => 12, 'time' => 13, 'dummy' => 14, ),
-        self::TYPE_COLNAME       => array(InvsearchTableMap::COL_SESSIONID => 0, InvsearchTableMap::COL_RECNO => 1, InvsearchTableMap::COL_ITEMID => 2, InvsearchTableMap::COL_XITEMID => 3, InvsearchTableMap::COL_XORIGIN => 4, InvsearchTableMap::COL_ITEMTYPE => 5, InvsearchTableMap::COL_LOTSERIAL => 6, InvsearchTableMap::COL_DESC1 => 7, InvsearchTableMap::COL_DESC2 => 8, InvsearchTableMap::COL_PRIMEBIN => 9, InvsearchTableMap::COL_BIN => 10, InvsearchTableMap::COL_QTY => 11, InvsearchTableMap::COL_DATE => 12, InvsearchTableMap::COL_TIME => 13, InvsearchTableMap::COL_DUMMY => 14, ),
-        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'recno' => 1, 'itemid' => 2, 'xitemid' => 3, 'xorigin' => 4, 'itemtype' => 5, 'lotserial' => 6, 'desc1' => 7, 'desc2' => 8, 'primebin' => 9, 'bin' => 10, 'qty' => 11, 'date' => 12, 'time' => 13, 'dummy' => 14, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, )
+        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Recno' => 1, 'Itemid' => 2, 'Xitemid' => 3, 'Xorigin' => 4, 'Itemtype' => 5, 'Lotserial' => 6, 'Lotreference' => 7, 'Expirationdate' => 8, 'Desc1' => 9, 'Desc2' => 10, 'Primebin' => 11, 'Bin' => 12, 'Qty' => 13, 'Date' => 14, 'Time' => 15, 'Dummy' => 16, ),
+        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'recno' => 1, 'itemid' => 2, 'xitemid' => 3, 'xorigin' => 4, 'itemtype' => 5, 'lotserial' => 6, 'lotreference' => 7, 'expirationdate' => 8, 'desc1' => 9, 'desc2' => 10, 'primebin' => 11, 'bin' => 12, 'qty' => 13, 'date' => 14, 'time' => 15, 'dummy' => 16, ),
+        self::TYPE_COLNAME       => array(InvsearchTableMap::COL_SESSIONID => 0, InvsearchTableMap::COL_RECNO => 1, InvsearchTableMap::COL_ITEMID => 2, InvsearchTableMap::COL_XITEMID => 3, InvsearchTableMap::COL_XORIGIN => 4, InvsearchTableMap::COL_ITEMTYPE => 5, InvsearchTableMap::COL_LOTSERIAL => 6, InvsearchTableMap::COL_LOTREFERENCE => 7, InvsearchTableMap::COL_EXPIRATIONDATE => 8, InvsearchTableMap::COL_DESC1 => 9, InvsearchTableMap::COL_DESC2 => 10, InvsearchTableMap::COL_PRIMEBIN => 11, InvsearchTableMap::COL_BIN => 12, InvsearchTableMap::COL_QTY => 13, InvsearchTableMap::COL_DATE => 14, InvsearchTableMap::COL_TIME => 15, InvsearchTableMap::COL_DUMMY => 16, ),
+        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'recno' => 1, 'itemid' => 2, 'xitemid' => 3, 'xorigin' => 4, 'itemtype' => 5, 'lotserial' => 6, 'lotreference' => 7, 'expirationdate' => 8, 'desc1' => 9, 'desc2' => 10, 'primebin' => 11, 'bin' => 12, 'qty' => 13, 'date' => 14, 'time' => 15, 'dummy' => 16, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, )
     );
 
     /**
@@ -203,6 +213,8 @@ class InvsearchTableMap extends TableMap
         $this->addColumn('xorigin', 'Xorigin', 'VARCHAR', false, 45, null);
         $this->addColumn('itemtype', 'Itemtype', 'VARCHAR', false, 45, null);
         $this->addColumn('lotserial', 'Lotserial', 'VARCHAR', false, 45, null);
+        $this->addColumn('lotreference', 'Lotreference', 'VARCHAR', false, 20, null);
+        $this->addColumn('expirationdate', 'Expirationdate', 'INTEGER', false, 8, null);
         $this->addColumn('desc1', 'Desc1', 'VARCHAR', false, 45, null);
         $this->addColumn('desc2', 'Desc2', 'VARCHAR', false, 45, null);
         $this->addColumn('primebin', 'Primebin', 'VARCHAR', false, 8, null);
@@ -435,6 +447,8 @@ class InvsearchTableMap extends TableMap
             $criteria->addSelectColumn(InvsearchTableMap::COL_XORIGIN);
             $criteria->addSelectColumn(InvsearchTableMap::COL_ITEMTYPE);
             $criteria->addSelectColumn(InvsearchTableMap::COL_LOTSERIAL);
+            $criteria->addSelectColumn(InvsearchTableMap::COL_LOTREFERENCE);
+            $criteria->addSelectColumn(InvsearchTableMap::COL_EXPIRATIONDATE);
             $criteria->addSelectColumn(InvsearchTableMap::COL_DESC1);
             $criteria->addSelectColumn(InvsearchTableMap::COL_DESC2);
             $criteria->addSelectColumn(InvsearchTableMap::COL_PRIMEBIN);
@@ -451,6 +465,8 @@ class InvsearchTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.xorigin');
             $criteria->addSelectColumn($alias . '.itemtype');
             $criteria->addSelectColumn($alias . '.lotserial');
+            $criteria->addSelectColumn($alias . '.lotreference');
+            $criteria->addSelectColumn($alias . '.expirationdate');
             $criteria->addSelectColumn($alias . '.desc1');
             $criteria->addSelectColumn($alias . '.desc2');
             $criteria->addSelectColumn($alias . '.primebin');
