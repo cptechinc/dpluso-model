@@ -1,7 +1,7 @@
 <?php
 	namespace Dpluso\Model;
 	
-	use ItemMasterQuery;
+	use ItemmasterQuery;
 
 	/**
 	 * Provides methods to get Item Type information for $this->itemid
