@@ -4,13 +4,7 @@ use Base\InvsearchQuery as BaseInvsearchQuery;
 use Map\InvsearchTableMap;
 
 /**
- * Skeleton subclass for performing query and update operations on the 'invsearch' table.
- *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
+ * Class for performing query and update operations on the 'invsearch' table.
  *
  */
 class InvsearchQuery extends BaseInvsearchQuery {
@@ -248,7 +242,7 @@ class InvsearchQuery extends BaseInvsearchQuery {
 
 	/**
 	 * Return the Sum of Qty for filtered by sessionid, itemid (& bin)
-	 * 
+	 *
 	 * @param  string $sessionID Session ID
 	 * @param  string $itemID    Item ID
 	 * @param  string $binID     Bin ID (optional)
@@ -275,13 +269,51 @@ class InvsearchQuery extends BaseInvsearchQuery {
 	 * @param  string $binID     Bin ID (optional)
 	 * @return Invsearch[]|ObjectCollection
 	 */
-	public function get_lotserials_itemid($sessionID, $itemID, $binID = '') {
+	public function get_lotserials_itemid($sessionID, $itemID, $binID = '', $orderby = '') {
 		$this->clear();
 		$this->filterByItemid($itemID);
 
 		if (!empty($binID)) {
 			$this->filterByBin($binID);
 		}
+
+		if (!empty($orderby)) {
+			$this->orderBy($orderby);
+		}
+		return $this->findBySessionid($sessionID);
+	}
+
+	/**
+	 * Return Invsearch objects filtered by the sessionid, itemid (& binid if needed) column(s)
+	 *
+	 * @param  string $sessionID Session ID
+	 * @param  string $itemID    Item ID
+	 * @param  string $binID     Bin ID (optional)
+	 * @return Invsearch[]|ObjectCollection
+	 */
+	public function count_lotserials_itemid($sessionID, $itemID, $binID = '') {
+		$this->clear();
+		$this->addAsColumn('lotcount', 'COUNT(DISTINCT(lotserial))');
+		$this->select('lotcount');
+		$this->filterByItemid($itemID);
+
+		if (!empty($binID)) {
+			$this->filterByBin($binID);
+		}
+		return $this->filterBySessionid($sessionID)->findOne();
+	}
+
+	/**
+	 * Return Invsearch records  filtered by Session ID and Item ID, then grouped by Bin
+	 *
+	 * @param  string $sessionID Session ID
+	 * @param  string $itemID    Item ID
+	 * @return Invsearch[]|ObjectCollection
+	 */
+	public function get_bins_itemid($sessionID, $itemID) {
+		$this->clear();
+		$this->filterByItemid($itemID);
+		$this->groupBy('Bin');
 		return $this->findBySessionid($sessionID);
 	}
 }
