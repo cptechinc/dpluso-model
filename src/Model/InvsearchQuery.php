@@ -4,7 +4,13 @@ use Base\InvsearchQuery as BaseInvsearchQuery;
 use Map\InvsearchTableMap;
 
 /**
- * Class for performing query and update operations on the 'invsearch' table.
+ * Skeleton subclass for performing query and update operations on the 'invsearch' table.
+ *
+ *
+ *
+ * You should add additional methods to this class to meet the
+ * application requirements.  This class will only be generated as
+ * long as it does not already exist in the output directory.
  *
  */
 class InvsearchQuery extends BaseInvsearchQuery {
@@ -296,20 +302,13 @@ class InvsearchQuery extends BaseInvsearchQuery {
 		$this->addAsColumn('lotcount', 'COUNT(DISTINCT(lotserial))');
 		$this->select('lotcount');
 		$this->filterByItemid($itemID);
-
 		if (!empty($binID)) {
 			$this->filterByBin($binID);
 		}
+
 		return $this->filterBySessionid($sessionID)->findOne();
 	}
 
-	/**
-	 * Return Invsearch records  filtered by Session ID and Item ID, then grouped by Bin
-	 *
-	 * @param  string $sessionID Session ID
-	 * @param  string $itemID    Item ID
-	 * @return Invsearch[]|ObjectCollection
-	 */
 	public function get_bins_itemid($sessionID, $itemID) {
 		$this->clear();
 		$this->filterByItemid($itemID);
