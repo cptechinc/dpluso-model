@@ -48,4 +48,24 @@ class Whseitemphysicalcount extends BaseWhseitemphysicalcount {
 	public function is_item_normal($itemID) {
 		return $this->type == Itemmaster::ITEMTYPE_NORMAL;
 	}
+
+	/**
+	 * Returns if the Sales Order is finished
+	 * @return bool        Is Order finished?
+	 */
+	public function has_error() {
+		return strpos(strtolower($this->status), 'error:') !== false;
+	}
+
+	/**
+	 * Returns if the Sales Order is finished
+	 * @return bool        Is Order finished?
+	 */
+	public function get_error() {
+		return str_replace('error:', '', strtolower($this->status));
+	}
+
+	public function is_on_po() {
+		return !strpos(strtolower($this->get_error()), 'item is not on po') !== false;
+	}
 }
