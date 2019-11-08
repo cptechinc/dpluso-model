@@ -25,7 +25,7 @@ class Whseitemphysicalcount extends BaseWhseitemphysicalcount {
 	 * @param  string $itemID
 	 * @return bool           Is the Item Serialized
 	 */
-	public function is_item_serialized($itemID) {
+	public function is_item_serialized() {
 		return $this->type == Itemmaster::ITEMTYPE_SERIALIZED;
 	}
 
@@ -35,7 +35,7 @@ class Whseitemphysicalcount extends BaseWhseitemphysicalcount {
 	 * @param  string $itemID
 	 * @return bool           Is the Item lotted
 	 */
-	public function is_item_lotted($itemID) {
+	public function is_item_lotted() {
 		return $this->type == Itemmaster::ITEMTYPE_LOTTED;
 	}
 
@@ -45,7 +45,7 @@ class Whseitemphysicalcount extends BaseWhseitemphysicalcount {
 	 * @param  string $itemID
 	 * @return bool            Is the Item normal
 	 */
-	public function is_item_normal($itemID) {
+	public function is_item_normal() {
 		return $this->type == Itemmaster::ITEMTYPE_NORMAL;
 	}
 
