@@ -116,6 +116,20 @@ abstract class Whseitempick implements ActiveRecordInterface
     protected $barcode;
 
     /**
+     * The value for the lotserial field.
+     *
+     * @var        string
+     */
+    protected $lotserial;
+
+    /**
+     * The value for the lotserialref field.
+     *
+     * @var        string
+     */
+    protected $lotserialref;
+
+    /**
      * The value for the bin field.
      *
      * @var        string
@@ -443,6 +457,26 @@ abstract class Whseitempick implements ActiveRecordInterface
     }
 
     /**
+     * Get the [lotserial] column value.
+     *
+     * @return string
+     */
+    public function getLotserial()
+    {
+        return $this->lotserial;
+    }
+
+    /**
+     * Get the [lotserialref] column value.
+     *
+     * @return string
+     */
+    public function getLotserialref()
+    {
+        return $this->lotserialref;
+    }
+
+    /**
      * Get the [bin] column value.
      *
      * @return string
@@ -623,6 +657,46 @@ abstract class Whseitempick implements ActiveRecordInterface
     } // setBarcode()
 
     /**
+     * Set the value of [lotserial] column.
+     *
+     * @param string $v new value
+     * @return $this|\Whseitempick The current object (for fluent API support)
+     */
+    public function setLotserial($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->lotserial !== $v) {
+            $this->lotserial = $v;
+            $this->modifiedColumns[WhseitempickTableMap::COL_LOTSERIAL] = true;
+        }
+
+        return $this;
+    } // setLotserial()
+
+    /**
+     * Set the value of [lotserialref] column.
+     *
+     * @param string $v new value
+     * @return $this|\Whseitempick The current object (for fluent API support)
+     */
+    public function setLotserialref($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->lotserialref !== $v) {
+            $this->lotserialref = $v;
+            $this->modifiedColumns[WhseitempickTableMap::COL_LOTSERIALREF] = true;
+        }
+
+        return $this;
+    } // setLotserialref()
+
+    /**
      * Set the value of [bin] column.
      *
      * @param string $v new value
@@ -722,10 +796,16 @@ abstract class Whseitempick implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : WhseitempickTableMap::translateFieldName('Barcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->barcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : WhseitempickTableMap::translateFieldName('Bin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : WhseitempickTableMap::translateFieldName('Lotserial', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->lotserial = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : WhseitempickTableMap::translateFieldName('Lotserialref', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->lotserialref = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : WhseitempickTableMap::translateFieldName('Bin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->bin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : WhseitempickTableMap::translateFieldName('Qty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : WhseitempickTableMap::translateFieldName('Qty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qty = (null !== $col) ? (int) $col : null;
             $this->resetModified();
 
@@ -735,7 +815,7 @@ abstract class Whseitempick implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 10; // 10 = WhseitempickTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 12; // 12 = WhseitempickTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\Whseitempick'), 0, $e);
@@ -956,6 +1036,12 @@ abstract class Whseitempick implements ActiveRecordInterface
         if ($this->isColumnModified(WhseitempickTableMap::COL_BARCODE)) {
             $modifiedColumns[':p' . $index++]  = 'barcode';
         }
+        if ($this->isColumnModified(WhseitempickTableMap::COL_LOTSERIAL)) {
+            $modifiedColumns[':p' . $index++]  = 'lotserial';
+        }
+        if ($this->isColumnModified(WhseitempickTableMap::COL_LOTSERIALREF)) {
+            $modifiedColumns[':p' . $index++]  = 'lotserialref';
+        }
         if ($this->isColumnModified(WhseitempickTableMap::COL_BIN)) {
             $modifiedColumns[':p' . $index++]  = 'bin';
         }
@@ -996,6 +1082,12 @@ abstract class Whseitempick implements ActiveRecordInterface
                         break;
                     case 'barcode':
                         $stmt->bindValue($identifier, $this->barcode, PDO::PARAM_STR);
+                        break;
+                    case 'lotserial':
+                        $stmt->bindValue($identifier, $this->lotserial, PDO::PARAM_STR);
+                        break;
+                    case 'lotserialref':
+                        $stmt->bindValue($identifier, $this->lotserialref, PDO::PARAM_STR);
                         break;
                     case 'bin':
                         $stmt->bindValue($identifier, $this->bin, PDO::PARAM_STR);
@@ -1083,9 +1175,15 @@ abstract class Whseitempick implements ActiveRecordInterface
                 return $this->getBarcode();
                 break;
             case 8:
-                return $this->getBin();
+                return $this->getLotserial();
                 break;
             case 9:
+                return $this->getLotserialref();
+                break;
+            case 10:
+                return $this->getBin();
+                break;
+            case 11:
                 return $this->getQty();
                 break;
             default:
@@ -1125,8 +1223,10 @@ abstract class Whseitempick implements ActiveRecordInterface
             $keys[5] => $this->getRecordnumber(),
             $keys[6] => $this->getPalletnbr(),
             $keys[7] => $this->getBarcode(),
-            $keys[8] => $this->getBin(),
-            $keys[9] => $this->getQty(),
+            $keys[8] => $this->getLotserial(),
+            $keys[9] => $this->getLotserialref(),
+            $keys[10] => $this->getBin(),
+            $keys[11] => $this->getQty(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -1191,9 +1291,15 @@ abstract class Whseitempick implements ActiveRecordInterface
                 $this->setBarcode($value);
                 break;
             case 8:
-                $this->setBin($value);
+                $this->setLotserial($value);
                 break;
             case 9:
+                $this->setLotserialref($value);
+                break;
+            case 10:
+                $this->setBin($value);
+                break;
+            case 11:
                 $this->setQty($value);
                 break;
         } // switch()
@@ -1247,10 +1353,16 @@ abstract class Whseitempick implements ActiveRecordInterface
             $this->setBarcode($arr[$keys[7]]);
         }
         if (array_key_exists($keys[8], $arr)) {
-            $this->setBin($arr[$keys[8]]);
+            $this->setLotserial($arr[$keys[8]]);
         }
         if (array_key_exists($keys[9], $arr)) {
-            $this->setQty($arr[$keys[9]]);
+            $this->setLotserialref($arr[$keys[9]]);
+        }
+        if (array_key_exists($keys[10], $arr)) {
+            $this->setBin($arr[$keys[10]]);
+        }
+        if (array_key_exists($keys[11], $arr)) {
+            $this->setQty($arr[$keys[11]]);
         }
     }
 
@@ -1316,6 +1428,12 @@ abstract class Whseitempick implements ActiveRecordInterface
         }
         if ($this->isColumnModified(WhseitempickTableMap::COL_BARCODE)) {
             $criteria->add(WhseitempickTableMap::COL_BARCODE, $this->barcode);
+        }
+        if ($this->isColumnModified(WhseitempickTableMap::COL_LOTSERIAL)) {
+            $criteria->add(WhseitempickTableMap::COL_LOTSERIAL, $this->lotserial);
+        }
+        if ($this->isColumnModified(WhseitempickTableMap::COL_LOTSERIALREF)) {
+            $criteria->add(WhseitempickTableMap::COL_LOTSERIALREF, $this->lotserialref);
         }
         if ($this->isColumnModified(WhseitempickTableMap::COL_BIN)) {
             $criteria->add(WhseitempickTableMap::COL_BIN, $this->bin);
@@ -1433,6 +1551,8 @@ abstract class Whseitempick implements ActiveRecordInterface
         $copyObj->setRecordnumber($this->getRecordnumber());
         $copyObj->setPalletnbr($this->getPalletnbr());
         $copyObj->setBarcode($this->getBarcode());
+        $copyObj->setLotserial($this->getLotserial());
+        $copyObj->setLotserialref($this->getLotserialref());
         $copyObj->setBin($this->getBin());
         $copyObj->setQty($this->getQty());
         if ($makeNew) {
@@ -1477,6 +1597,8 @@ abstract class Whseitempick implements ActiveRecordInterface
         $this->recordnumber = null;
         $this->palletnbr = null;
         $this->barcode = null;
+        $this->lotserial = null;
+        $this->lotserialref = null;
         $this->bin = null;
         $this->qty = null;
         $this->alreadyInSave = false;

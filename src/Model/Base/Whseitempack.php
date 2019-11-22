@@ -109,6 +109,13 @@ abstract class Whseitempack implements ActiveRecordInterface
     protected $lotserial;
 
     /**
+     * The value for the lotserialref field.
+     *
+     * @var        string
+     */
+    protected $lotserialref;
+
+    /**
      * The value for the qty field.
      *
      * @var        int
@@ -419,6 +426,16 @@ abstract class Whseitempack implements ActiveRecordInterface
     }
 
     /**
+     * Get the [lotserialref] column value.
+     *
+     * @return string
+     */
+    public function getLotserialref()
+    {
+        return $this->lotserialref;
+    }
+
+    /**
      * Get the [qty] column value.
      *
      * @return int
@@ -569,6 +586,26 @@ abstract class Whseitempack implements ActiveRecordInterface
     } // setLotserial()
 
     /**
+     * Set the value of [lotserialref] column.
+     *
+     * @param string $v new value
+     * @return $this|\Whseitempack The current object (for fluent API support)
+     */
+    public function setLotserialref($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->lotserialref !== $v) {
+            $this->lotserialref = $v;
+            $this->modifiedColumns[WhseitempackTableMap::COL_LOTSERIALREF] = true;
+        }
+
+        return $this;
+    } // setLotserialref()
+
+    /**
      * Set the value of [qty] column.
      *
      * @param int $v new value
@@ -645,7 +682,10 @@ abstract class Whseitempack implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : WhseitempackTableMap::translateFieldName('Lotserial', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lotserial = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : WhseitempackTableMap::translateFieldName('Qty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : WhseitempackTableMap::translateFieldName('Lotserialref', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->lotserialref = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : WhseitempackTableMap::translateFieldName('Qty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qty = (null !== $col) ? (int) $col : null;
             $this->resetModified();
 
@@ -655,7 +695,7 @@ abstract class Whseitempack implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 8; // 8 = WhseitempackTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 9; // 9 = WhseitempackTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\Whseitempack'), 0, $e);
@@ -873,6 +913,9 @@ abstract class Whseitempack implements ActiveRecordInterface
         if ($this->isColumnModified(WhseitempackTableMap::COL_LOTSERIAL)) {
             $modifiedColumns[':p' . $index++]  = 'lotserial';
         }
+        if ($this->isColumnModified(WhseitempackTableMap::COL_LOTSERIALREF)) {
+            $modifiedColumns[':p' . $index++]  = 'lotserialref';
+        }
         if ($this->isColumnModified(WhseitempackTableMap::COL_QTY)) {
             $modifiedColumns[':p' . $index++]  = 'qty';
         }
@@ -907,6 +950,9 @@ abstract class Whseitempack implements ActiveRecordInterface
                         break;
                     case 'lotserial':
                         $stmt->bindValue($identifier, $this->lotserial, PDO::PARAM_STR);
+                        break;
+                    case 'lotserialref':
+                        $stmt->bindValue($identifier, $this->lotserialref, PDO::PARAM_STR);
                         break;
                     case 'qty':
                         $stmt->bindValue($identifier, $this->qty, PDO::PARAM_INT);
@@ -988,6 +1034,9 @@ abstract class Whseitempack implements ActiveRecordInterface
                 return $this->getLotserial();
                 break;
             case 7:
+                return $this->getLotserialref();
+                break;
+            case 8:
                 return $this->getQty();
                 break;
             default:
@@ -1026,7 +1075,8 @@ abstract class Whseitempack implements ActiveRecordInterface
             $keys[4] => $this->getRecordnumber(),
             $keys[5] => $this->getItemid(),
             $keys[6] => $this->getLotserial(),
-            $keys[7] => $this->getQty(),
+            $keys[7] => $this->getLotserialref(),
+            $keys[8] => $this->getQty(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -1088,6 +1138,9 @@ abstract class Whseitempack implements ActiveRecordInterface
                 $this->setLotserial($value);
                 break;
             case 7:
+                $this->setLotserialref($value);
+                break;
+            case 8:
                 $this->setQty($value);
                 break;
         } // switch()
@@ -1138,7 +1191,10 @@ abstract class Whseitempack implements ActiveRecordInterface
             $this->setLotserial($arr[$keys[6]]);
         }
         if (array_key_exists($keys[7], $arr)) {
-            $this->setQty($arr[$keys[7]]);
+            $this->setLotserialref($arr[$keys[7]]);
+        }
+        if (array_key_exists($keys[8], $arr)) {
+            $this->setQty($arr[$keys[8]]);
         }
     }
 
@@ -1201,6 +1257,9 @@ abstract class Whseitempack implements ActiveRecordInterface
         }
         if ($this->isColumnModified(WhseitempackTableMap::COL_LOTSERIAL)) {
             $criteria->add(WhseitempackTableMap::COL_LOTSERIAL, $this->lotserial);
+        }
+        if ($this->isColumnModified(WhseitempackTableMap::COL_LOTSERIALREF)) {
+            $criteria->add(WhseitempackTableMap::COL_LOTSERIALREF, $this->lotserialref);
         }
         if ($this->isColumnModified(WhseitempackTableMap::COL_QTY)) {
             $criteria->add(WhseitempackTableMap::COL_QTY, $this->qty);
@@ -1318,6 +1377,7 @@ abstract class Whseitempack implements ActiveRecordInterface
         $copyObj->setRecordnumber($this->getRecordnumber());
         $copyObj->setItemid($this->getItemid());
         $copyObj->setLotserial($this->getLotserial());
+        $copyObj->setLotserialref($this->getLotserialref());
         $copyObj->setQty($this->getQty());
         if ($makeNew) {
             $copyObj->setNew(true);
@@ -1360,6 +1420,7 @@ abstract class Whseitempack implements ActiveRecordInterface
         $this->recordnumber = null;
         $this->itemid = null;
         $this->lotserial = null;
+        $this->lotserialref = null;
         $this->qty = null;
         $this->alreadyInSave = false;
         $this->clearAllReferences();

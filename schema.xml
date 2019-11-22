@@ -2143,6 +2143,7 @@
     <column name="recordnumber" phpName="Recordnumber" type="INTEGER" primaryKey="true" required="true"/>
     <column name="itemid" phpName="Itemid" type="VARCHAR" size="45"/>
     <column name="lotserial" phpName="Lotserial" type="VARCHAR" size="45"/>
+    <column name="lotserialref" phpName="Lotserialref" type="VARCHAR" size="45"/>
     <column name="qty" phpName="Qty" type="INTEGER"/>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
@@ -2176,7 +2177,9 @@
     <column name="itemid" phpName="Itemid" type="VARCHAR" size="45" primaryKey="true" required="true"/>
     <column name="recordnumber" phpName="Recordnumber" type="INTEGER" primaryKey="true" required="true"/>
     <column name="palletnbr" phpName="Palletnbr" type="INTEGER" size="5"/>
-    <column name="barcode" phpName="Barcode" type="VARCHAR" size="45"/>
+    <column name="barcode" phpName="Barcode" type="VARCHAR" size="70"/>
+    <column name="lotserial" phpName="Lotserial" type="VARCHAR" size="45"/>
+    <column name="lotserialref" phpName="Lotserialref" type="VARCHAR" size="45"/>
     <column name="bin" phpName="Bin" type="VARCHAR" size="12"/>
     <column name="qty" phpName="Qty" type="INTEGER"/>
     <vendor type="mysql">

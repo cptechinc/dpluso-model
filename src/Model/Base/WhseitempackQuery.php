@@ -26,6 +26,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWhseitempackQuery orderByRecordnumber($order = Criteria::ASC) Order by the recordnumber column
  * @method     ChildWhseitempackQuery orderByItemid($order = Criteria::ASC) Order by the itemid column
  * @method     ChildWhseitempackQuery orderByLotserial($order = Criteria::ASC) Order by the lotserial column
+ * @method     ChildWhseitempackQuery orderByLotserialref($order = Criteria::ASC) Order by the lotserialref column
  * @method     ChildWhseitempackQuery orderByQty($order = Criteria::ASC) Order by the qty column
  *
  * @method     ChildWhseitempackQuery groupBySessionid() Group by the sessionid column
@@ -35,6 +36,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWhseitempackQuery groupByRecordnumber() Group by the recordnumber column
  * @method     ChildWhseitempackQuery groupByItemid() Group by the itemid column
  * @method     ChildWhseitempackQuery groupByLotserial() Group by the lotserial column
+ * @method     ChildWhseitempackQuery groupByLotserialref() Group by the lotserialref column
  * @method     ChildWhseitempackQuery groupByQty() Group by the qty column
  *
  * @method     ChildWhseitempackQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
@@ -55,6 +57,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWhseitempack findOneByRecordnumber(int $recordnumber) Return the first ChildWhseitempack filtered by the recordnumber column
  * @method     ChildWhseitempack findOneByItemid(string $itemid) Return the first ChildWhseitempack filtered by the itemid column
  * @method     ChildWhseitempack findOneByLotserial(string $lotserial) Return the first ChildWhseitempack filtered by the lotserial column
+ * @method     ChildWhseitempack findOneByLotserialref(string $lotserialref) Return the first ChildWhseitempack filtered by the lotserialref column
  * @method     ChildWhseitempack findOneByQty(int $qty) Return the first ChildWhseitempack filtered by the qty column *
 
  * @method     ChildWhseitempack requirePk($key, ConnectionInterface $con = null) Return the ChildWhseitempack by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -67,6 +70,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWhseitempack requireOneByRecordnumber(int $recordnumber) Return the first ChildWhseitempack filtered by the recordnumber column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitempack requireOneByItemid(string $itemid) Return the first ChildWhseitempack filtered by the itemid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitempack requireOneByLotserial(string $lotserial) Return the first ChildWhseitempack filtered by the lotserial column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWhseitempack requireOneByLotserialref(string $lotserialref) Return the first ChildWhseitempack filtered by the lotserialref column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitempack requireOneByQty(int $qty) Return the first ChildWhseitempack filtered by the qty column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildWhseitempack[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildWhseitempack objects based on current ModelCriteria
@@ -77,6 +81,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWhseitempack[]|ObjectCollection findByRecordnumber(int $recordnumber) Return ChildWhseitempack objects filtered by the recordnumber column
  * @method     ChildWhseitempack[]|ObjectCollection findByItemid(string $itemid) Return ChildWhseitempack objects filtered by the itemid column
  * @method     ChildWhseitempack[]|ObjectCollection findByLotserial(string $lotserial) Return ChildWhseitempack objects filtered by the lotserial column
+ * @method     ChildWhseitempack[]|ObjectCollection findByLotserialref(string $lotserialref) Return ChildWhseitempack objects filtered by the lotserialref column
  * @method     ChildWhseitempack[]|ObjectCollection findByQty(int $qty) Return ChildWhseitempack objects filtered by the qty column
  * @method     ChildWhseitempack[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  *
@@ -176,7 +181,7 @@ abstract class WhseitempackQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT sessionid, ordn, linenumber, carton, recordnumber, itemid, lotserial, qty FROM whseitempack WHERE sessionid = :p0 AND ordn = :p1 AND linenumber = :p2 AND carton = :p3 AND recordnumber = :p4';
+        $sql = 'SELECT sessionid, ordn, linenumber, carton, recordnumber, itemid, lotserial, lotserialref, qty FROM whseitempack WHERE sessionid = :p0 AND ordn = :p1 AND linenumber = :p2 AND carton = :p3 AND recordnumber = :p4';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -511,6 +516,31 @@ abstract class WhseitempackQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(WhseitempackTableMap::COL_LOTSERIAL, $lotserial, $comparison);
+    }
+
+    /**
+     * Filter the query on the lotserialref column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByLotserialref('fooValue');   // WHERE lotserialref = 'fooValue'
+     * $query->filterByLotserialref('%fooValue%', Criteria::LIKE); // WHERE lotserialref LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $lotserialref The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildWhseitempackQuery The current query, for fluid interface
+     */
+    public function filterByLotserialref($lotserialref = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($lotserialref)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(WhseitempackTableMap::COL_LOTSERIALREF, $lotserialref, $comparison);
     }
 
     /**
