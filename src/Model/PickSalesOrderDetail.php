@@ -4,6 +4,7 @@ use Base\PickSalesOrderDetail as BasePickSalesOrderDetail;
 
 use Dpluso\Model\ThrowErrorTrait;
 use Dpluso\Model\MagicMethodTraits;
+use Propel\Runtime\ActiveQuery\Criteria;
 
 /**
  * Skeleton subclass for representing a row from the 'wmpickdet' table.
@@ -191,6 +192,37 @@ class PickSalesOrderDetail extends BasePickSalesOrderDetail {
 		$query->filterByLinenbr($this->linenbr);
 		$query->groupByBarcode();
 		return $query->find();
+	}
+
+	/**
+	 * Returns Item's total picked grouped by lotserial
+	 *
+	 * @return array array(array('barcode' => $barcode, bin' => binid, 'qty' => 2))
+	 */
+	public function get_userpickedtotalsbylotserial() {
+		$query = WhseitempickQuery::create();
+		$query->filterBySessionid($this->sessionid);
+		$query->filterByOrdn($this->ordernbr);
+		$query->filterByItemid($this->itemnbr);
+		$query->filterByLinenbr($this->linenbr);
+		$query->groupByLotserial();
+		return $query->find();
+	}
+
+	public function get_pickeditems() {
+		$q = WhseitempickQuery::create();
+		$q->filterByBin('PACK', Criteria::ALT_NOT_EQUAL);
+		$q->filterBySessionidOrder($this->sessionid, $this->ordernbr);
+		$q->filterByLinenbrSublinenbr($this->linenbr, $this->sublinenbr);
+		return $q->find();
+	}
+
+	public function count_pickeditems() {
+		$q = WhseitempickQuery::create();
+		$q->filterByBin('PACK', Criteria::ALT_NOT_EQUAL);
+		$q->filterBySessionidOrder($this->sessionid, $this->ordernbr);
+		$q->filterByLinenbrSublinenbr($this->linenbr, $this->sublinenbr);
+		return $q->count();
 	}
 
 	/**

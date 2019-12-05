@@ -68,4 +68,30 @@ class Whseitemphysicalcount extends BaseWhseitemphysicalcount {
 	public function is_on_po() {
 		return !strpos(strtolower($this->get_error()), 'item is not on po') !== false;
 	}
+
+
+	public function get_lotserials() {
+		$q = WhseitemphysicalcountQuery::create();
+		$q->filterBySessionid($this->sessionid);
+		$q->filterScanItemid($this->scan, $this->itemid);
+		return $q->find();
+	}
+
+	public function count_lotserials() {
+		$q = WhseitemphysicalcountQuery::create();
+		$q->filterBySessionid($this->sessionid);
+		$q->filterScanItemid($this->scan, $this->itemid);
+		return $q->count();
+	}
+
+	public function get_total_qty() {
+		$q = WhseitemphysicalcountQuery::create();
+		$q->withColumn('SUM(qty)', 'total');
+		$q->select('total');
+		$q->filterBySessionid($this->sessionid);
+		$q->filterScanItemid($this->scan, $this->itemid);
+		return $q->findOne();
+	}
+
+
 }

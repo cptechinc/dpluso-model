@@ -12,7 +12,11 @@ use Base\WhseitemphysicalcountQuery as BaseWhseitemphysicalcountQuery;
  * long as it does not already exist in the output directory.
  *
  */
-class WhseitemphysicalcountQuery extends BaseWhseitemphysicalcountQuery
-{
+class WhseitemphysicalcountQuery extends BaseWhseitemphysicalcountQuery {
 
+	public function filterScanItemid($scan, $itemID) {
+		$this->filterByScan($scan);
+		$this->filterByItemid($itemID);
+		return $this;
+	}
 }
