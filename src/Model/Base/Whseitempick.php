@@ -139,7 +139,7 @@ abstract class Whseitempick implements ActiveRecordInterface
     /**
      * The value for the qty field.
      *
-     * @var        int
+     * @var        string
      */
     protected $qty;
 
@@ -489,7 +489,7 @@ abstract class Whseitempick implements ActiveRecordInterface
     /**
      * Get the [qty] column value.
      *
-     * @return int
+     * @return string
      */
     public function getQty()
     {
@@ -719,13 +719,13 @@ abstract class Whseitempick implements ActiveRecordInterface
     /**
      * Set the value of [qty] column.
      *
-     * @param int $v new value
+     * @param string $v new value
      * @return $this|\Whseitempick The current object (for fluent API support)
      */
     public function setQty($v)
     {
         if ($v !== null) {
-            $v = (int) $v;
+            $v = (string) $v;
         }
 
         if ($this->qty !== $v) {
@@ -806,7 +806,7 @@ abstract class Whseitempick implements ActiveRecordInterface
             $this->bin = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : WhseitempickTableMap::translateFieldName('Qty', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->qty = (null !== $col) ? (int) $col : null;
+            $this->qty = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
             $this->setNew(false);
@@ -1093,7 +1093,7 @@ abstract class Whseitempick implements ActiveRecordInterface
                         $stmt->bindValue($identifier, $this->bin, PDO::PARAM_STR);
                         break;
                     case 'qty':
-                        $stmt->bindValue($identifier, $this->qty, PDO::PARAM_INT);
+                        $stmt->bindValue($identifier, $this->qty, PDO::PARAM_STR);
                         break;
                 }
             }

@@ -192,7 +192,7 @@ class WhseitempickTableMap extends TableMap
         $this->addColumn('lotserial', 'Lotserial', 'VARCHAR', false, 45, null);
         $this->addColumn('lotserialref', 'Lotserialref', 'VARCHAR', false, 45, null);
         $this->addColumn('bin', 'Bin', 'VARCHAR', false, 12, null);
-        $this->addColumn('qty', 'Qty', 'INTEGER', false, null, null);
+        $this->addColumn('qty', 'Qty', 'DECIMAL', false, 10, null);
     } // initialize()
 
     /**

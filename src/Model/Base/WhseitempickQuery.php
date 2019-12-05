@@ -67,7 +67,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWhseitempick findOneByLotserial(string $lotserial) Return the first ChildWhseitempick filtered by the lotserial column
  * @method     ChildWhseitempick findOneByLotserialref(string $lotserialref) Return the first ChildWhseitempick filtered by the lotserialref column
  * @method     ChildWhseitempick findOneByBin(string $bin) Return the first ChildWhseitempick filtered by the bin column
- * @method     ChildWhseitempick findOneByQty(int $qty) Return the first ChildWhseitempick filtered by the qty column *
+ * @method     ChildWhseitempick findOneByQty(string $qty) Return the first ChildWhseitempick filtered by the qty column *
 
  * @method     ChildWhseitempick requirePk($key, ConnectionInterface $con = null) Return the ChildWhseitempick by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitempick requireOne(ConnectionInterface $con = null) Return the first ChildWhseitempick matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -83,7 +83,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWhseitempick requireOneByLotserial(string $lotserial) Return the first ChildWhseitempick filtered by the lotserial column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitempick requireOneByLotserialref(string $lotserialref) Return the first ChildWhseitempick filtered by the lotserialref column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitempick requireOneByBin(string $bin) Return the first ChildWhseitempick filtered by the bin column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseitempick requireOneByQty(int $qty) Return the first ChildWhseitempick filtered by the qty column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWhseitempick requireOneByQty(string $qty) Return the first ChildWhseitempick filtered by the qty column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildWhseitempick[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildWhseitempick objects based on current ModelCriteria
  * @method     ChildWhseitempick[]|ObjectCollection findBySessionid(string $sessionid) Return ChildWhseitempick objects filtered by the sessionid column
@@ -97,7 +97,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWhseitempick[]|ObjectCollection findByLotserial(string $lotserial) Return ChildWhseitempick objects filtered by the lotserial column
  * @method     ChildWhseitempick[]|ObjectCollection findByLotserialref(string $lotserialref) Return ChildWhseitempick objects filtered by the lotserialref column
  * @method     ChildWhseitempick[]|ObjectCollection findByBin(string $bin) Return ChildWhseitempick objects filtered by the bin column
- * @method     ChildWhseitempick[]|ObjectCollection findByQty(int $qty) Return ChildWhseitempick objects filtered by the qty column
+ * @method     ChildWhseitempick[]|ObjectCollection findByQty(string $qty) Return ChildWhseitempick objects filtered by the qty column
  * @method     ChildWhseitempick[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  *
  */

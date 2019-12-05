@@ -58,7 +58,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWhseitempack findOneByItemid(string $itemid) Return the first ChildWhseitempack filtered by the itemid column
  * @method     ChildWhseitempack findOneByLotserial(string $lotserial) Return the first ChildWhseitempack filtered by the lotserial column
  * @method     ChildWhseitempack findOneByLotserialref(string $lotserialref) Return the first ChildWhseitempack filtered by the lotserialref column
- * @method     ChildWhseitempack findOneByQty(int $qty) Return the first ChildWhseitempack filtered by the qty column *
+ * @method     ChildWhseitempack findOneByQty(string $qty) Return the first ChildWhseitempack filtered by the qty column *
 
  * @method     ChildWhseitempack requirePk($key, ConnectionInterface $con = null) Return the ChildWhseitempack by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitempack requireOne(ConnectionInterface $con = null) Return the first ChildWhseitempack matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -71,7 +71,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWhseitempack requireOneByItemid(string $itemid) Return the first ChildWhseitempack filtered by the itemid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitempack requireOneByLotserial(string $lotserial) Return the first ChildWhseitempack filtered by the lotserial column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitempack requireOneByLotserialref(string $lotserialref) Return the first ChildWhseitempack filtered by the lotserialref column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseitempack requireOneByQty(int $qty) Return the first ChildWhseitempack filtered by the qty column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWhseitempack requireOneByQty(string $qty) Return the first ChildWhseitempack filtered by the qty column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildWhseitempack[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildWhseitempack objects based on current ModelCriteria
  * @method     ChildWhseitempack[]|ObjectCollection findBySessionid(string $sessionid) Return ChildWhseitempack objects filtered by the sessionid column
@@ -82,7 +82,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWhseitempack[]|ObjectCollection findByItemid(string $itemid) Return ChildWhseitempack objects filtered by the itemid column
  * @method     ChildWhseitempack[]|ObjectCollection findByLotserial(string $lotserial) Return ChildWhseitempack objects filtered by the lotserial column
  * @method     ChildWhseitempack[]|ObjectCollection findByLotserialref(string $lotserialref) Return ChildWhseitempack objects filtered by the lotserialref column
- * @method     ChildWhseitempack[]|ObjectCollection findByQty(int $qty) Return ChildWhseitempack objects filtered by the qty column
+ * @method     ChildWhseitempack[]|ObjectCollection findByQty(string $qty) Return ChildWhseitempack objects filtered by the qty column
  * @method     ChildWhseitempack[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  *
  */
