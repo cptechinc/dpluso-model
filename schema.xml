@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<database name="default" defaultIdMethod="native" defaultPhpNamingMethod="underscore">
+<database name="dplusodb" defaultIdMethod="native" defaultPhpNamingMethod="underscore">
   <table name="additem" idMethod="native" phpName="Additem">
     <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
     <column name="recno" phpName="Recno" type="INTEGER" primaryKey="true" required="true"/>
