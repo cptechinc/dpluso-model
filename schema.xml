@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<database name="dplusodb" defaultIdMethod="native" defaultPhpNamingMethod="underscore">
+<database name="default" defaultIdMethod="native" defaultPhpNamingMethod="underscore">
   <table name="additem" idMethod="native" phpName="Additem">
     <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
     <column name="recno" phpName="Recno" type="INTEGER" primaryKey="true" required="true"/>
@@ -78,6 +78,8 @@
   <table name="barcodes" idMethod="native" phpName="Barcodes">
     <column name="barcodenbr" phpName="Barcodenbr" type="VARCHAR" size="20" primaryKey="true" required="true"/>
     <column name="itemid" phpName="Itemid" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="custvend" phpName="Custvend" type="VARCHAR" size="45" primaryKey="true" required="true"/>
+    <column name="source" phpName="Source" type="VARCHAR" size="1"/>
     <column name="primary" phpName="Primary" type="VARCHAR" size="1"/>
     <column name="unitqty" phpName="Unitqty" type="INTEGER" size="10"/>
     <column name="uom" phpName="Uom" type="VARCHAR" size="4"/>
@@ -393,6 +395,17 @@
     <column name="name" phpName="Name" type="CHAR" size="52" required="true" defaultValue="&quot;&quot;"/>
     <column name="ccode" phpName="Ccode" type="CHAR" size="3" required="true" defaultValue="&quot;&quot;"/>
     <column name="calling_code" phpName="CallingCode" type="VARCHAR" size="8"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="country" idMethod="native" phpName="Country">
+    <column name="iso" phpName="Iso" type="CHAR" size="3" primaryKey="true" required="true"/>
+    <column name="iso2" phpName="Iso2" type="CHAR" size="2" required="true"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="80" required="true"/>
+    <column name="nicename" phpName="Nicename" type="VARCHAR" size="80" required="true"/>
+    <column name="numcode" phpName="Numcode" type="SMALLINT"/>
+    <column name="phonecode" phpName="Phonecode" type="INTEGER" size="5" required="true"/>
     <vendor type="mysql">
       <parameter name="Engine" value="MyISAM"/>
     </vendor>
@@ -844,7 +857,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="itemcartonlabel" idMethod="native" phpName="LabelPrintSession">
+  <table name="itemcartonlabel" idMethod="native" phpName="Itemcartonlabel">
     <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="45" primaryKey="true" required="true"/>
     <column name="date" phpName="Date" type="INTEGER" size="8"/>
     <column name="time" phpName="Time" type="INTEGER" size="8"/>
@@ -1005,19 +1018,6 @@
     <column name="ordernbr" phpName="Ordernbr" type="VARCHAR" size="30"/>
     <column name="restrictaccess" phpName="Restrictaccess" type="VARCHAR" size="1"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
-    <vendor type="mysql">
-      <parameter name="Engine" value="MyISAM"/>
-    </vendor>
-  </table>
-  <table name="modules" idMethod="native" phpName="Modules">
-    <column name="id" phpName="Id" type="INTEGER" size="10" sqlType="int(10) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
-    <column name="class" phpName="Class" type="VARCHAR" size="128" required="true"/>
-    <column name="flags" phpName="Flags" type="INTEGER" required="true" defaultValue="0"/>
-    <column name="data" phpName="Data" type="LONGVARCHAR" required="true"/>
-    <column name="created" phpName="Created" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
-    <unique name="class">
-      <unique-column name="class"/>
-    </unique>
     <vendor type="mysql">
       <parameter name="Engine" value="MyISAM"/>
     </vendor>
@@ -1619,7 +1619,7 @@
       <parameter name="Engine" value="MyISAM"/>
     </vendor>
   </table>
-  <table name="prntctrl" idMethod="native" phpName="WhsePrinter">
+  <table name="prntctrl" idMethod="native" phpName="Prntctrl">
     <column name="id" phpName="Id" type="VARCHAR" size="30" primaryKey="true" required="true"/>
     <column name="desc" phpName="Desc" type="VARCHAR" size="50"/>
     <column name="whse" phpName="Whse" type="VARCHAR" size="6"/>
@@ -1878,6 +1878,32 @@
       <parameter name="Engine" value="MyISAM"/>
     </vendor>
   </table>
+  <table name="shipvia" idMethod="native" phpName="Shipvia">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
+    <column name="recno" phpName="Recno" type="INTEGER" size="10" primaryKey="true" required="true"/>
+    <column name="date" phpName="Date" type="VARCHAR" size="20"/>
+    <column name="time" phpName="Time" type="VARCHAR" size="8"/>
+    <column name="code" phpName="Code" type="VARCHAR" size="30"/>
+    <column name="via" phpName="Via" type="VARCHAR" size="30"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+  <table name="sidebar" idMethod="native" phpName="Sidebar">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
+    <column name="recno" phpName="Recno" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="code" phpName="Code" type="VARCHAR" size="35"/>
+    <column name="description" phpName="Description" type="VARCHAR" size="50"/>
+    <column name="title" phpName="Title" type="VARCHAR" size="35"/>
+    <column name="type" phpName="Type" type="CHAR" size="2"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
   <table name="states" idMethod="native" phpName="States">
     <column name="id" phpName="Id" type="INTEGER" primaryKey="true" required="true"/>
     <column name="name" phpName="Name" type="VARCHAR" size="255"/>
@@ -1924,23 +1950,6 @@
     <column name="contactlink" phpName="Contactlink" type="VARCHAR" size="45"/>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
-    </vendor>
-  </table>
-  <table name="templates" idMethod="native" phpName="Templates">
-    <column name="id" phpName="Id" type="INTEGER" size="10" sqlType="int(10) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
-    <column name="name" phpName="Name" type="VARCHAR" size="250" required="true"/>
-    <column name="fieldgroups_id" phpName="FieldgroupsId" type="INTEGER" size="10" sqlType="int(10) unsigned" required="true" defaultValue="0"/>
-    <column name="flags" phpName="Flags" type="INTEGER" required="true" defaultValue="0"/>
-    <column name="cache_time" phpName="CacheTime" type="SMALLINT" size="9" required="true" defaultValue="0"/>
-    <column name="data" phpName="Data" type="LONGVARCHAR" required="true"/>
-    <index name="fieldgroups_id">
-      <index-column name="fieldgroups_id"/>
-    </index>
-    <unique name="name">
-      <unique-column name="name"/>
-    </unique>
-    <vendor type="mysql">
-      <parameter name="Engine" value="MyISAM"/>
     </vendor>
   </table>
   <table name="thermal_label_format" idMethod="native" phpName="ThermalLabelFormat">
@@ -2143,7 +2152,6 @@
     <column name="recordnumber" phpName="Recordnumber" type="INTEGER" primaryKey="true" required="true"/>
     <column name="itemid" phpName="Itemid" type="VARCHAR" size="45"/>
     <column name="lotserial" phpName="Lotserial" type="VARCHAR" size="45"/>
-    <column name="lotserialref" phpName="Lotserialref" type="VARCHAR" size="45"/>
     <column name="qty" phpName="Qty" type="DECIMAL" size="10" scale="2"/>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
@@ -2172,15 +2180,15 @@
   <table name="whseitempick" idMethod="native" phpName="Whseitempick">
     <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
     <column name="ordn" phpName="Ordn" type="VARCHAR" size="45" primaryKey="true" required="true"/>
-    <column name="linenbr" phpName="Linenbr" type="INTEGER" required="true"/>
-    <column name="sublinenbr" phpName="Sublinenbr" type="INTEGER" size="4"/>
     <column name="itemid" phpName="Itemid" type="VARCHAR" size="45" primaryKey="true" required="true"/>
     <column name="recordnumber" phpName="Recordnumber" type="INTEGER" primaryKey="true" required="true"/>
-    <column name="palletnbr" phpName="Palletnbr" type="INTEGER" size="5"/>
-    <column name="barcode" phpName="Barcode" type="VARCHAR" size="70"/>
-    <column name="lotserial" phpName="Lotserial" type="VARCHAR" size="45"/>
-    <column name="lotserialref" phpName="Lotserialref" type="VARCHAR" size="45"/>
+    <column name="linenbr" phpName="Linenbr" type="INTEGER" size="4"/>
+    <column name="sublinenbr" phpName="Sublinenbr" type="INTEGER" size="4"/>
     <column name="bin" phpName="Bin" type="VARCHAR" size="12"/>
+    <column name="palletnbr" phpName="Palletnbr" type="INTEGER" size="5"/>
+    <column name="barcode" phpName="Barcode" type="VARCHAR" size="45"/>
+    <column name="lotserialref" phpName="Lotserialref" type="VARCHAR" size="45"/>
+    <column name="lotserial" phpName="Lotserial" type="VARCHAR" size="45"/>
     <column name="qty" phpName="Qty" type="DECIMAL" size="10" scale="2"/>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
@@ -2205,7 +2213,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="wmpackdet" idMethod="native" phpName="PackSalesOrderDetail">
+  <table name="wmpackdet" idMethod="native" phpName="Wmpackdet">
     <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="45" primaryKey="true" required="true"/>
     <column name="ordernbr" phpName="Ordernbr" type="VARCHAR" size="45" primaryKey="true" required="true"/>
     <column name="linenbr" phpName="Linenbr" type="INTEGER" size="8" primaryKey="true" required="true"/>
@@ -2213,16 +2221,16 @@
     <column name="lotserial" phpName="Lotserial" type="VARCHAR" size="45" primaryKey="true" required="true"/>
     <column name="desc1" phpName="Desc1" type="VARCHAR" size="45"/>
     <column name="desc2" phpName="Desc2" type="VARCHAR" size="45"/>
-    <column name="qty_toship" phpName="QtyToship" type="INTEGER" size="6"/>
-    <column name="qty_packed" phpName="QtyPacked" type="INTEGER" size="6"/>
-    <column name="qty_remaining" phpName="QtyRemaining" type="INTEGER" size="6"/>
+    <column name="qty_toship" phpName="QtyToship" type="INTEGER"/>
+    <column name="qty_packed" phpName="QtyPacked" type="INTEGER"/>
+    <column name="qty_remaining" phpName="QtyRemaining" type="INTEGER"/>
     <column name="date" phpName="Date" type="INTEGER" size="8"/>
     <column name="time" phpName="Time" type="INTEGER" size="8"/>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="wmpickdet" idMethod="native" phpName="PickSalesOrderDetail">
+  <table name="wmpickdet" idMethod="native" phpName="Wmpickdet">
     <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
     <column name="recno" phpName="Recno" type="INTEGER" primaryKey="true" required="true" defaultValue="0"/>
     <column name="date" phpName="Date" type="INTEGER" size="8"/>
@@ -2250,7 +2258,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="wmpickhed" idMethod="native" phpName="PickSalesOrder">
+  <table name="wmpickhed" idMethod="native" phpName="Wmpickhed">
     <column name="ordernbr" phpName="Ordernbr" type="VARCHAR" size="10" primaryKey="true" required="true"/>
     <column name="recno" phpName="Recno" type="INTEGER" primaryKey="true" required="true"/>
     <column name="date" phpName="Date" type="INTEGER" size="8"/>
