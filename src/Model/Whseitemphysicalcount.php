@@ -5,6 +5,8 @@ use Base\Whseitemphysicalcount as BaseWhseitemphysicalcount;
 use Dpluso\Model\ThrowErrorTrait;
 use Dpluso\Model\MagicMethodTraits;
 
+use Propel\Runtime\ActiveQuery\Criteria;
+
 /**
  * Skeleton subclass for representing a row from the 'whseitemphysicalcount' table.
  *
@@ -69,21 +71,37 @@ class Whseitemphysicalcount extends BaseWhseitemphysicalcount {
 		return !strpos(strtolower($this->get_error()), 'item is not on po') !== false;
 	}
 
-
+	/**
+	 * Return Lot Serial Records for Itemid
+	 *
+	 * @return Whseitemphysicalcount[]|ObjectCollection
+	 */
 	public function get_lotserials() {
 		$q = WhseitemphysicalcountQuery::create();
 		$q->filterBySessionid($this->sessionid);
 		$q->filterScanItemid($this->scan, $this->itemid);
+		$q->filterByBin('PACK', Criteria::ALT_NOT_EQUAL);
 		return $q->find();
 	}
 
+	/**
+	 * Return the number of Lot Serial Records for Itemid
+	 *
+	 * @return int
+	 */
 	public function count_lotserials() {
 		$q = WhseitemphysicalcountQuery::create();
 		$q->filterBySessionid($this->sessionid);
 		$q->filterScanItemid($this->scan, $this->itemid);
+		$q->filterByBin('PACK', Criteria::ALT_NOT_EQUAL);
 		return $q->count();
 	}
 
+	/**
+	 * Return Sum of total Qty
+	 *
+	 * @return float
+	 */
 	public function get_total_qty() {
 		$q = WhseitemphysicalcountQuery::create();
 		$q->withColumn('SUM(qty)', 'total');
@@ -92,6 +110,4 @@ class Whseitemphysicalcount extends BaseWhseitemphysicalcount {
 		$q->filterScanItemid($this->scan, $this->itemid);
 		return $q->findOne();
 	}
-
-
 }
