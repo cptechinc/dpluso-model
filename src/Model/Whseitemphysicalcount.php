@@ -72,9 +72,9 @@ class Whseitemphysicalcount extends BaseWhseitemphysicalcount {
 	}
 
 	/**
-	 * Return Lot Serial Records for Itemid
+	 * Return Lotserials not found in the PACK bin
 	 *
-	 * @return Whseitemphysicalcount[]|ObjectCollection
+	 * @return Whseitemphysicalcount[]
 	 */
 	public function get_lotserials() {
 		$q = WhseitemphysicalcountQuery::create();
@@ -85,7 +85,7 @@ class Whseitemphysicalcount extends BaseWhseitemphysicalcount {
 	}
 
 	/**
-	 * Return the number of Lot Serial Records for Itemid
+	 * Return the number of Lotserials not found in the PACK bin
 	 *
 	 * @return int
 	 */
@@ -98,7 +98,7 @@ class Whseitemphysicalcount extends BaseWhseitemphysicalcount {
 	}
 
 	/**
-	 * Return Sum of total Qty
+	 * Return the total qty found for this itemid and scan
 	 *
 	 * @return float
 	 */
