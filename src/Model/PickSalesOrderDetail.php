@@ -7,7 +7,7 @@ use Dpluso\Model\MagicMethodTraits;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 /**
- * Skeleton subclass for representing a row from the 'wmpickdet' table.
+ * Class for representing a row from the 'wmpickdet' table.
  *
  *
  *
@@ -209,6 +209,11 @@ class PickSalesOrderDetail extends BasePickSalesOrderDetail {
 		return $query->find();
 	}
 
+	/**
+	 * Return PickOrderSalesOrderDetail[] that are not in the bin PACK
+	 *
+	 * @return PickOrderSalesOrderDetail[]
+	 */
 	public function get_pickeditems() {
 		$q = WhseitempickQuery::create();
 		$q->filterByBin('PACK', Criteria::ALT_NOT_EQUAL);
@@ -217,6 +222,26 @@ class PickSalesOrderDetail extends BasePickSalesOrderDetail {
 		return $q->find();
 	}
 
+	/**
+	 * Return the Qty Picked for this Line, Subline Number
+	 *
+	 * @return int
+	 */
+	public function get_qtypicked() {
+		$q = WhseitempickQuery::create();
+		$q->withColumn('SUM(qty)', 'qty');
+		$q->select('qty');
+		$q->filterByBin('PACK', Criteria::ALT_NOT_EQUAL);
+		$q->filterBySessionidOrder($this->sessionid, $this->ordernbr);
+		$q->filterByLinenbrSublinenbr($this->linenbr, $this->sublinenbr);
+		return $q->findOne();
+	}
+
+	/**
+	 * Return the number of picked items not in the bin PACK
+	 *
+	 * @return int
+	 */
 	public function count_pickeditems() {
 		$q = WhseitempickQuery::create();
 		$q->filterByBin('PACK', Criteria::ALT_NOT_EQUAL);
