@@ -21,6 +21,17 @@ class Whseitemphysicalcount extends BaseWhseitemphysicalcount {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
+	public function is_complete() {
+		return $this->complete == 'Y';
+	}
+
+	public function description() {
+		$q = ItemmasterQuery::create();
+		$q->select('name1');
+		$q->filterByItemid($this->itemid);
+		return $q->findOne();
+	}
+
 	/**
 	 * Returns if Item is serialized
 	 *
