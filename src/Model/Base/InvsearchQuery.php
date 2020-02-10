@@ -79,7 +79,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvsearch findOneByDesc2(string $desc2) Return the first ChildInvsearch filtered by the desc2 column
  * @method     ChildInvsearch findOneByPrimebin(string $primebin) Return the first ChildInvsearch filtered by the primebin column
  * @method     ChildInvsearch findOneByBin(string $bin) Return the first ChildInvsearch filtered by the bin column
- * @method     ChildInvsearch findOneByQty(int $qty) Return the first ChildInvsearch filtered by the qty column
+ * @method     ChildInvsearch findOneByQty(string $qty) Return the first ChildInvsearch filtered by the qty column
  * @method     ChildInvsearch findOneByDate(int $date) Return the first ChildInvsearch filtered by the date column
  * @method     ChildInvsearch findOneByTime(int $time) Return the first ChildInvsearch filtered by the time column
  * @method     ChildInvsearch findOneByDummy(string $dummy) Return the first ChildInvsearch filtered by the dummy column *
@@ -100,7 +100,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvsearch requireOneByDesc2(string $desc2) Return the first ChildInvsearch filtered by the desc2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvsearch requireOneByPrimebin(string $primebin) Return the first ChildInvsearch filtered by the primebin column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvsearch requireOneByBin(string $bin) Return the first ChildInvsearch filtered by the bin column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvsearch requireOneByQty(int $qty) Return the first ChildInvsearch filtered by the qty column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvsearch requireOneByQty(string $qty) Return the first ChildInvsearch filtered by the qty column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvsearch requireOneByDate(int $date) Return the first ChildInvsearch filtered by the date column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvsearch requireOneByTime(int $time) Return the first ChildInvsearch filtered by the time column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvsearch requireOneByDummy(string $dummy) Return the first ChildInvsearch filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -119,7 +119,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvsearch[]|ObjectCollection findByDesc2(string $desc2) Return ChildInvsearch objects filtered by the desc2 column
  * @method     ChildInvsearch[]|ObjectCollection findByPrimebin(string $primebin) Return ChildInvsearch objects filtered by the primebin column
  * @method     ChildInvsearch[]|ObjectCollection findByBin(string $bin) Return ChildInvsearch objects filtered by the bin column
- * @method     ChildInvsearch[]|ObjectCollection findByQty(int $qty) Return ChildInvsearch objects filtered by the qty column
+ * @method     ChildInvsearch[]|ObjectCollection findByQty(string $qty) Return ChildInvsearch objects filtered by the qty column
  * @method     ChildInvsearch[]|ObjectCollection findByDate(int $date) Return ChildInvsearch objects filtered by the date column
  * @method     ChildInvsearch[]|ObjectCollection findByTime(int $time) Return ChildInvsearch objects filtered by the time column
  * @method     ChildInvsearch[]|ObjectCollection findByDummy(string $dummy) Return ChildInvsearch objects filtered by the dummy column

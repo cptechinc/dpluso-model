@@ -156,7 +156,7 @@ abstract class Invsearch implements ActiveRecordInterface
     /**
      * The value for the qty field.
      *
-     * @var        int
+     * @var        string
      */
     protected $qty;
 
@@ -562,7 +562,7 @@ abstract class Invsearch implements ActiveRecordInterface
     /**
      * Get the [qty] column value.
      *
-     * @return int
+     * @return string
      */
     public function getQty()
     {
@@ -862,13 +862,13 @@ abstract class Invsearch implements ActiveRecordInterface
     /**
      * Set the value of [qty] column.
      *
-     * @param int $v new value
+     * @param string $v new value
      * @return $this|\Invsearch The current object (for fluent API support)
      */
     public function setQty($v)
     {
         if ($v !== null) {
-            $v = (int) $v;
+            $v = (string) $v;
         }
 
         if ($this->qty !== $v) {
@@ -1027,7 +1027,7 @@ abstract class Invsearch implements ActiveRecordInterface
             $this->bin = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : InvsearchTableMap::translateFieldName('Qty', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->qty = (null !== $col) ? (int) $col : null;
+            $this->qty = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : InvsearchTableMap::translateFieldName('Date', TableMap::TYPE_PHPNAME, $indexType)];
             $this->date = (null !== $col) ? (int) $col : null;
@@ -1344,7 +1344,7 @@ abstract class Invsearch implements ActiveRecordInterface
                         $stmt->bindValue($identifier, $this->bin, PDO::PARAM_STR);
                         break;
                     case 'qty':
-                        $stmt->bindValue($identifier, $this->qty, PDO::PARAM_INT);
+                        $stmt->bindValue($identifier, $this->qty, PDO::PARAM_STR);
                         break;
                     case 'date':
                         $stmt->bindValue($identifier, $this->date, PDO::PARAM_INT);

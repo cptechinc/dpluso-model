@@ -219,7 +219,7 @@ class InvsearchTableMap extends TableMap
         $this->addColumn('desc2', 'Desc2', 'VARCHAR', false, 45, null);
         $this->addColumn('primebin', 'Primebin', 'VARCHAR', false, 8, null);
         $this->addColumn('bin', 'Bin', 'VARCHAR', false, 8, null);
-        $this->addColumn('qty', 'Qty', 'INTEGER', false, 8, null);
+        $this->addColumn('qty', 'Qty', 'DECIMAL', false, 10, null);
         $this->addColumn('date', 'Date', 'INTEGER', false, 8, null);
         $this->addColumn('time', 'Time', 'INTEGER', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
