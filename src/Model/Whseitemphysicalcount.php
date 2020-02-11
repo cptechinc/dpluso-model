@@ -21,10 +21,21 @@ class Whseitemphysicalcount extends BaseWhseitemphysicalcount {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
+	/**
+	 * Return if Transaction was completed
+	 *
+	 * @return bool
+	 */
 	public function is_complete() {
 		return $this->complete == 'Y';
 	}
 
+	/**
+	 * Return Item Description 
+	 * NOTE: Uses Itemmaster
+	 *
+	 * @return string
+	 */
 	public function description() {
 		$q = ItemmasterQuery::create();
 		$q->select('name1');
@@ -63,21 +74,26 @@ class Whseitemphysicalcount extends BaseWhseitemphysicalcount {
 	}
 
 	/**
-	 * Returns if the Sales Order is finished
-	 * @return bool        Is Order finished?
+	 * Returns if there is an error
+	 * @return bool=
 	 */
 	public function has_error() {
 		return strpos(strtolower($this->status), 'error:') !== false;
 	}
 
 	/**
-	 * Returns if the Sales Order is finished
-	 * @return bool        Is Order finished?
+	 * Returns Error Message
+	 * @return string
 	 */
 	public function get_error() {
 		return str_replace('error:', '', strtolower($this->status));
 	}
 
+	/**
+	 * Returns if Item is on PO
+	 * NOTE: Checks against error message making sure there no message about item not being on po
+	 * @return bool
+	 */
 	public function is_on_po() {
 		return !strpos(strtolower($this->get_error()), 'item is not on po') !== false;
 	}
