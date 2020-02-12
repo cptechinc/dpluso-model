@@ -117,6 +117,8 @@ class Whsesession extends BaseWhsesession {
 	 */
 	const PROMPTFUNCTION_FALSE = 'N';
 
+	const PICKING_UNGUIDED = 'PICKUNGUIDED';
+
 	/**
 	 * Returns if the Whse Session has a bin defined
 	 * @return bool Is the bin defined?
@@ -132,9 +134,9 @@ class Whsesession extends BaseWhsesession {
 	public function has_pallet() {
 		return !empty($this->palletnbr);
 	}
-	
+
 	public function is_pickingunguided() {
-		return $this->function == 'PICKUNGUIDED';
+		return $this->function == self::PICKING_UNGUIDED;
 	}
 
 	public function is_picking() {
