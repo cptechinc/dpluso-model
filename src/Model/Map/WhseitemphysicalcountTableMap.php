@@ -204,7 +204,7 @@ class WhseitemphysicalcountTableMap extends TableMap
         $this->addColumn('lotserial', 'Lotserial', 'VARCHAR', false, 45, null);
         $this->addColumn('lotserialref', 'Lotserialref', 'VARCHAR', false, 45, null);
         $this->addColumn('bin', 'Bin', 'VARCHAR', false, 8, null);
-        $this->addColumn('qty', 'Qty', 'DECIMAL', false, 10, null);
+        $this->addColumn('qty', 'Qty', 'DECIMAL', false, 13, null);
         $this->addColumn('productiondate', 'Productiondate', 'INTEGER', false, 8, null);
         $this->addColumn('complete', 'Complete', 'VARCHAR', false, 1, null);
         $this->addColumn('status', 'Status', 'VARCHAR', false, 60, null);

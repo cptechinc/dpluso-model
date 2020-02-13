@@ -21,28 +21,28 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     ChildWhseitempickQuery orderBySessionid($order = Criteria::ASC) Order by the sessionid column
  * @method     ChildWhseitempickQuery orderByOrdn($order = Criteria::ASC) Order by the ordn column
- * @method     ChildWhseitempickQuery orderByLinenbr($order = Criteria::ASC) Order by the linenbr column
- * @method     ChildWhseitempickQuery orderBySublinenbr($order = Criteria::ASC) Order by the sublinenbr column
  * @method     ChildWhseitempickQuery orderByItemid($order = Criteria::ASC) Order by the itemid column
  * @method     ChildWhseitempickQuery orderByRecordnumber($order = Criteria::ASC) Order by the recordnumber column
+ * @method     ChildWhseitempickQuery orderByLinenbr($order = Criteria::ASC) Order by the linenbr column
+ * @method     ChildWhseitempickQuery orderBySublinenbr($order = Criteria::ASC) Order by the sublinenbr column
+ * @method     ChildWhseitempickQuery orderByBin($order = Criteria::ASC) Order by the bin column
  * @method     ChildWhseitempickQuery orderByPalletnbr($order = Criteria::ASC) Order by the palletnbr column
  * @method     ChildWhseitempickQuery orderByBarcode($order = Criteria::ASC) Order by the barcode column
- * @method     ChildWhseitempickQuery orderByLotserial($order = Criteria::ASC) Order by the lotserial column
  * @method     ChildWhseitempickQuery orderByLotserialref($order = Criteria::ASC) Order by the lotserialref column
- * @method     ChildWhseitempickQuery orderByBin($order = Criteria::ASC) Order by the bin column
+ * @method     ChildWhseitempickQuery orderByLotserial($order = Criteria::ASC) Order by the lotserial column
  * @method     ChildWhseitempickQuery orderByQty($order = Criteria::ASC) Order by the qty column
  *
  * @method     ChildWhseitempickQuery groupBySessionid() Group by the sessionid column
  * @method     ChildWhseitempickQuery groupByOrdn() Group by the ordn column
- * @method     ChildWhseitempickQuery groupByLinenbr() Group by the linenbr column
- * @method     ChildWhseitempickQuery groupBySublinenbr() Group by the sublinenbr column
  * @method     ChildWhseitempickQuery groupByItemid() Group by the itemid column
  * @method     ChildWhseitempickQuery groupByRecordnumber() Group by the recordnumber column
+ * @method     ChildWhseitempickQuery groupByLinenbr() Group by the linenbr column
+ * @method     ChildWhseitempickQuery groupBySublinenbr() Group by the sublinenbr column
+ * @method     ChildWhseitempickQuery groupByBin() Group by the bin column
  * @method     ChildWhseitempickQuery groupByPalletnbr() Group by the palletnbr column
  * @method     ChildWhseitempickQuery groupByBarcode() Group by the barcode column
- * @method     ChildWhseitempickQuery groupByLotserial() Group by the lotserial column
  * @method     ChildWhseitempickQuery groupByLotserialref() Group by the lotserialref column
- * @method     ChildWhseitempickQuery groupByBin() Group by the bin column
+ * @method     ChildWhseitempickQuery groupByLotserial() Group by the lotserial column
  * @method     ChildWhseitempickQuery groupByQty() Group by the qty column
  *
  * @method     ChildWhseitempickQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
@@ -58,15 +58,15 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     ChildWhseitempick findOneBySessionid(string $sessionid) Return the first ChildWhseitempick filtered by the sessionid column
  * @method     ChildWhseitempick findOneByOrdn(string $ordn) Return the first ChildWhseitempick filtered by the ordn column
- * @method     ChildWhseitempick findOneByLinenbr(int $linenbr) Return the first ChildWhseitempick filtered by the linenbr column
- * @method     ChildWhseitempick findOneBySublinenbr(int $sublinenbr) Return the first ChildWhseitempick filtered by the sublinenbr column
  * @method     ChildWhseitempick findOneByItemid(string $itemid) Return the first ChildWhseitempick filtered by the itemid column
  * @method     ChildWhseitempick findOneByRecordnumber(int $recordnumber) Return the first ChildWhseitempick filtered by the recordnumber column
+ * @method     ChildWhseitempick findOneByLinenbr(int $linenbr) Return the first ChildWhseitempick filtered by the linenbr column
+ * @method     ChildWhseitempick findOneBySublinenbr(int $sublinenbr) Return the first ChildWhseitempick filtered by the sublinenbr column
+ * @method     ChildWhseitempick findOneByBin(string $bin) Return the first ChildWhseitempick filtered by the bin column
  * @method     ChildWhseitempick findOneByPalletnbr(int $palletnbr) Return the first ChildWhseitempick filtered by the palletnbr column
  * @method     ChildWhseitempick findOneByBarcode(string $barcode) Return the first ChildWhseitempick filtered by the barcode column
- * @method     ChildWhseitempick findOneByLotserial(string $lotserial) Return the first ChildWhseitempick filtered by the lotserial column
  * @method     ChildWhseitempick findOneByLotserialref(string $lotserialref) Return the first ChildWhseitempick filtered by the lotserialref column
- * @method     ChildWhseitempick findOneByBin(string $bin) Return the first ChildWhseitempick filtered by the bin column
+ * @method     ChildWhseitempick findOneByLotserial(string $lotserial) Return the first ChildWhseitempick filtered by the lotserial column
  * @method     ChildWhseitempick findOneByQty(string $qty) Return the first ChildWhseitempick filtered by the qty column *
 
  * @method     ChildWhseitempick requirePk($key, ConnectionInterface $con = null) Return the ChildWhseitempick by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -74,29 +74,29 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     ChildWhseitempick requireOneBySessionid(string $sessionid) Return the first ChildWhseitempick filtered by the sessionid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitempick requireOneByOrdn(string $ordn) Return the first ChildWhseitempick filtered by the ordn column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseitempick requireOneByLinenbr(int $linenbr) Return the first ChildWhseitempick filtered by the linenbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseitempick requireOneBySublinenbr(int $sublinenbr) Return the first ChildWhseitempick filtered by the sublinenbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitempick requireOneByItemid(string $itemid) Return the first ChildWhseitempick filtered by the itemid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitempick requireOneByRecordnumber(int $recordnumber) Return the first ChildWhseitempick filtered by the recordnumber column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWhseitempick requireOneByLinenbr(int $linenbr) Return the first ChildWhseitempick filtered by the linenbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWhseitempick requireOneBySublinenbr(int $sublinenbr) Return the first ChildWhseitempick filtered by the sublinenbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWhseitempick requireOneByBin(string $bin) Return the first ChildWhseitempick filtered by the bin column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitempick requireOneByPalletnbr(int $palletnbr) Return the first ChildWhseitempick filtered by the palletnbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitempick requireOneByBarcode(string $barcode) Return the first ChildWhseitempick filtered by the barcode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseitempick requireOneByLotserial(string $lotserial) Return the first ChildWhseitempick filtered by the lotserial column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitempick requireOneByLotserialref(string $lotserialref) Return the first ChildWhseitempick filtered by the lotserialref column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseitempick requireOneByBin(string $bin) Return the first ChildWhseitempick filtered by the bin column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWhseitempick requireOneByLotserial(string $lotserial) Return the first ChildWhseitempick filtered by the lotserial column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitempick requireOneByQty(string $qty) Return the first ChildWhseitempick filtered by the qty column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildWhseitempick[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildWhseitempick objects based on current ModelCriteria
  * @method     ChildWhseitempick[]|ObjectCollection findBySessionid(string $sessionid) Return ChildWhseitempick objects filtered by the sessionid column
  * @method     ChildWhseitempick[]|ObjectCollection findByOrdn(string $ordn) Return ChildWhseitempick objects filtered by the ordn column
- * @method     ChildWhseitempick[]|ObjectCollection findByLinenbr(int $linenbr) Return ChildWhseitempick objects filtered by the linenbr column
- * @method     ChildWhseitempick[]|ObjectCollection findBySublinenbr(int $sublinenbr) Return ChildWhseitempick objects filtered by the sublinenbr column
  * @method     ChildWhseitempick[]|ObjectCollection findByItemid(string $itemid) Return ChildWhseitempick objects filtered by the itemid column
  * @method     ChildWhseitempick[]|ObjectCollection findByRecordnumber(int $recordnumber) Return ChildWhseitempick objects filtered by the recordnumber column
+ * @method     ChildWhseitempick[]|ObjectCollection findByLinenbr(int $linenbr) Return ChildWhseitempick objects filtered by the linenbr column
+ * @method     ChildWhseitempick[]|ObjectCollection findBySublinenbr(int $sublinenbr) Return ChildWhseitempick objects filtered by the sublinenbr column
+ * @method     ChildWhseitempick[]|ObjectCollection findByBin(string $bin) Return ChildWhseitempick objects filtered by the bin column
  * @method     ChildWhseitempick[]|ObjectCollection findByPalletnbr(int $palletnbr) Return ChildWhseitempick objects filtered by the palletnbr column
  * @method     ChildWhseitempick[]|ObjectCollection findByBarcode(string $barcode) Return ChildWhseitempick objects filtered by the barcode column
- * @method     ChildWhseitempick[]|ObjectCollection findByLotserial(string $lotserial) Return ChildWhseitempick objects filtered by the lotserial column
  * @method     ChildWhseitempick[]|ObjectCollection findByLotserialref(string $lotserialref) Return ChildWhseitempick objects filtered by the lotserialref column
- * @method     ChildWhseitempick[]|ObjectCollection findByBin(string $bin) Return ChildWhseitempick objects filtered by the bin column
+ * @method     ChildWhseitempick[]|ObjectCollection findByLotserial(string $lotserial) Return ChildWhseitempick objects filtered by the lotserial column
  * @method     ChildWhseitempick[]|ObjectCollection findByQty(string $qty) Return ChildWhseitempick objects filtered by the qty column
  * @method     ChildWhseitempick[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  *
@@ -196,7 +196,7 @@ abstract class WhseitempickQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT sessionid, ordn, linenbr, sublinenbr, itemid, recordnumber, palletnbr, barcode, lotserial, lotserialref, bin, qty FROM whseitempick WHERE sessionid = :p0 AND ordn = :p1 AND itemid = :p2 AND recordnumber = :p3';
+        $sql = 'SELECT sessionid, ordn, itemid, recordnumber, linenbr, sublinenbr, bin, palletnbr, barcode, lotserialref, lotserial, qty FROM whseitempick WHERE sessionid = :p0 AND ordn = :p1 AND itemid = :p2 AND recordnumber = :p3';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -357,6 +357,72 @@ abstract class WhseitempickQuery extends ModelCriteria
     }
 
     /**
+     * Filter the query on the itemid column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByItemid('fooValue');   // WHERE itemid = 'fooValue'
+     * $query->filterByItemid('%fooValue%', Criteria::LIKE); // WHERE itemid LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $itemid The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildWhseitempickQuery The current query, for fluid interface
+     */
+    public function filterByItemid($itemid = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($itemid)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(WhseitempickTableMap::COL_ITEMID, $itemid, $comparison);
+    }
+
+    /**
+     * Filter the query on the recordnumber column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByRecordnumber(1234); // WHERE recordnumber = 1234
+     * $query->filterByRecordnumber(array(12, 34)); // WHERE recordnumber IN (12, 34)
+     * $query->filterByRecordnumber(array('min' => 12)); // WHERE recordnumber > 12
+     * </code>
+     *
+     * @param     mixed $recordnumber The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildWhseitempickQuery The current query, for fluid interface
+     */
+    public function filterByRecordnumber($recordnumber = null, $comparison = null)
+    {
+        if (is_array($recordnumber)) {
+            $useMinMax = false;
+            if (isset($recordnumber['min'])) {
+                $this->addUsingAlias(WhseitempickTableMap::COL_RECORDNUMBER, $recordnumber['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($recordnumber['max'])) {
+                $this->addUsingAlias(WhseitempickTableMap::COL_RECORDNUMBER, $recordnumber['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(WhseitempickTableMap::COL_RECORDNUMBER, $recordnumber, $comparison);
+    }
+
+    /**
      * Filter the query on the linenbr column
      *
      * Example usage:
@@ -439,69 +505,28 @@ abstract class WhseitempickQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the itemid column
+     * Filter the query on the bin column
      *
      * Example usage:
      * <code>
-     * $query->filterByItemid('fooValue');   // WHERE itemid = 'fooValue'
-     * $query->filterByItemid('%fooValue%', Criteria::LIKE); // WHERE itemid LIKE '%fooValue%'
+     * $query->filterByBin('fooValue');   // WHERE bin = 'fooValue'
+     * $query->filterByBin('%fooValue%', Criteria::LIKE); // WHERE bin LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $itemid The value to use as filter.
+     * @param     string $bin The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildWhseitempickQuery The current query, for fluid interface
      */
-    public function filterByItemid($itemid = null, $comparison = null)
+    public function filterByBin($bin = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($itemid)) {
+            if (is_array($bin)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(WhseitempickTableMap::COL_ITEMID, $itemid, $comparison);
-    }
-
-    /**
-     * Filter the query on the recordnumber column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByRecordnumber(1234); // WHERE recordnumber = 1234
-     * $query->filterByRecordnumber(array(12, 34)); // WHERE recordnumber IN (12, 34)
-     * $query->filterByRecordnumber(array('min' => 12)); // WHERE recordnumber > 12
-     * </code>
-     *
-     * @param     mixed $recordnumber The value to use as filter.
-     *              Use scalar values for equality.
-     *              Use array values for in_array() equivalent.
-     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return $this|ChildWhseitempickQuery The current query, for fluid interface
-     */
-    public function filterByRecordnumber($recordnumber = null, $comparison = null)
-    {
-        if (is_array($recordnumber)) {
-            $useMinMax = false;
-            if (isset($recordnumber['min'])) {
-                $this->addUsingAlias(WhseitempickTableMap::COL_RECORDNUMBER, $recordnumber['min'], Criteria::GREATER_EQUAL);
-                $useMinMax = true;
-            }
-            if (isset($recordnumber['max'])) {
-                $this->addUsingAlias(WhseitempickTableMap::COL_RECORDNUMBER, $recordnumber['max'], Criteria::LESS_EQUAL);
-                $useMinMax = true;
-            }
-            if ($useMinMax) {
-                return $this;
-            }
-            if (null === $comparison) {
-                $comparison = Criteria::IN;
-            }
-        }
-
-        return $this->addUsingAlias(WhseitempickTableMap::COL_RECORDNUMBER, $recordnumber, $comparison);
+        return $this->addUsingAlias(WhseitempickTableMap::COL_BIN, $bin, $comparison);
     }
 
     /**
@@ -571,31 +596,6 @@ abstract class WhseitempickQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the lotserial column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByLotserial('fooValue');   // WHERE lotserial = 'fooValue'
-     * $query->filterByLotserial('%fooValue%', Criteria::LIKE); // WHERE lotserial LIKE '%fooValue%'
-     * </code>
-     *
-     * @param     string $lotserial The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return $this|ChildWhseitempickQuery The current query, for fluid interface
-     */
-    public function filterByLotserial($lotserial = null, $comparison = null)
-    {
-        if (null === $comparison) {
-            if (is_array($lotserial)) {
-                $comparison = Criteria::IN;
-            }
-        }
-
-        return $this->addUsingAlias(WhseitempickTableMap::COL_LOTSERIAL, $lotserial, $comparison);
-    }
-
-    /**
      * Filter the query on the lotserialref column
      *
      * Example usage:
@@ -621,28 +621,28 @@ abstract class WhseitempickQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the bin column
+     * Filter the query on the lotserial column
      *
      * Example usage:
      * <code>
-     * $query->filterByBin('fooValue');   // WHERE bin = 'fooValue'
-     * $query->filterByBin('%fooValue%', Criteria::LIKE); // WHERE bin LIKE '%fooValue%'
+     * $query->filterByLotserial('fooValue');   // WHERE lotserial = 'fooValue'
+     * $query->filterByLotserial('%fooValue%', Criteria::LIKE); // WHERE lotserial LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $bin The value to use as filter.
+     * @param     string $lotserial The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildWhseitempickQuery The current query, for fluid interface
      */
-    public function filterByBin($bin = null, $comparison = null)
+    public function filterByLotserial($lotserial = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($bin)) {
+            if (is_array($lotserial)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(WhseitempickTableMap::COL_BIN, $bin, $comparison);
+        return $this->addUsingAlias(WhseitempickTableMap::COL_LOTSERIAL, $lotserial, $comparison);
     }
 
     /**

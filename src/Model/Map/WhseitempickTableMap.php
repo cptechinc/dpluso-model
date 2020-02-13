@@ -82,6 +82,16 @@ class WhseitempickTableMap extends TableMap
     const COL_ORDN = 'whseitempick.ordn';
 
     /**
+     * the column name for the itemid field
+     */
+    const COL_ITEMID = 'whseitempick.itemid';
+
+    /**
+     * the column name for the recordnumber field
+     */
+    const COL_RECORDNUMBER = 'whseitempick.recordnumber';
+
+    /**
      * the column name for the linenbr field
      */
     const COL_LINENBR = 'whseitempick.linenbr';
@@ -92,14 +102,9 @@ class WhseitempickTableMap extends TableMap
     const COL_SUBLINENBR = 'whseitempick.sublinenbr';
 
     /**
-     * the column name for the itemid field
+     * the column name for the bin field
      */
-    const COL_ITEMID = 'whseitempick.itemid';
-
-    /**
-     * the column name for the recordnumber field
-     */
-    const COL_RECORDNUMBER = 'whseitempick.recordnumber';
+    const COL_BIN = 'whseitempick.bin';
 
     /**
      * the column name for the palletnbr field
@@ -112,19 +117,14 @@ class WhseitempickTableMap extends TableMap
     const COL_BARCODE = 'whseitempick.barcode';
 
     /**
-     * the column name for the lotserial field
-     */
-    const COL_LOTSERIAL = 'whseitempick.lotserial';
-
-    /**
      * the column name for the lotserialref field
      */
     const COL_LOTSERIALREF = 'whseitempick.lotserialref';
 
     /**
-     * the column name for the bin field
+     * the column name for the lotserial field
      */
-    const COL_BIN = 'whseitempick.bin';
+    const COL_LOTSERIAL = 'whseitempick.lotserial';
 
     /**
      * the column name for the qty field
@@ -143,10 +143,10 @@ class WhseitempickTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Sessionid', 'Ordn', 'Linenbr', 'Sublinenbr', 'Itemid', 'Recordnumber', 'Palletnbr', 'Barcode', 'Lotserial', 'Lotserialref', 'Bin', 'Qty', ),
-        self::TYPE_CAMELNAME     => array('sessionid', 'ordn', 'linenbr', 'sublinenbr', 'itemid', 'recordnumber', 'palletnbr', 'barcode', 'lotserial', 'lotserialref', 'bin', 'qty', ),
-        self::TYPE_COLNAME       => array(WhseitempickTableMap::COL_SESSIONID, WhseitempickTableMap::COL_ORDN, WhseitempickTableMap::COL_LINENBR, WhseitempickTableMap::COL_SUBLINENBR, WhseitempickTableMap::COL_ITEMID, WhseitempickTableMap::COL_RECORDNUMBER, WhseitempickTableMap::COL_PALLETNBR, WhseitempickTableMap::COL_BARCODE, WhseitempickTableMap::COL_LOTSERIAL, WhseitempickTableMap::COL_LOTSERIALREF, WhseitempickTableMap::COL_BIN, WhseitempickTableMap::COL_QTY, ),
-        self::TYPE_FIELDNAME     => array('sessionid', 'ordn', 'linenbr', 'sublinenbr', 'itemid', 'recordnumber', 'palletnbr', 'barcode', 'lotserial', 'lotserialref', 'bin', 'qty', ),
+        self::TYPE_PHPNAME       => array('Sessionid', 'Ordn', 'Itemid', 'Recordnumber', 'Linenbr', 'Sublinenbr', 'Bin', 'Palletnbr', 'Barcode', 'Lotserialref', 'Lotserial', 'Qty', ),
+        self::TYPE_CAMELNAME     => array('sessionid', 'ordn', 'itemid', 'recordnumber', 'linenbr', 'sublinenbr', 'bin', 'palletnbr', 'barcode', 'lotserialref', 'lotserial', 'qty', ),
+        self::TYPE_COLNAME       => array(WhseitempickTableMap::COL_SESSIONID, WhseitempickTableMap::COL_ORDN, WhseitempickTableMap::COL_ITEMID, WhseitempickTableMap::COL_RECORDNUMBER, WhseitempickTableMap::COL_LINENBR, WhseitempickTableMap::COL_SUBLINENBR, WhseitempickTableMap::COL_BIN, WhseitempickTableMap::COL_PALLETNBR, WhseitempickTableMap::COL_BARCODE, WhseitempickTableMap::COL_LOTSERIALREF, WhseitempickTableMap::COL_LOTSERIAL, WhseitempickTableMap::COL_QTY, ),
+        self::TYPE_FIELDNAME     => array('sessionid', 'ordn', 'itemid', 'recordnumber', 'linenbr', 'sublinenbr', 'bin', 'palletnbr', 'barcode', 'lotserialref', 'lotserial', 'qty', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, )
     );
 
@@ -157,10 +157,10 @@ class WhseitempickTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Ordn' => 1, 'Linenbr' => 2, 'Sublinenbr' => 3, 'Itemid' => 4, 'Recordnumber' => 5, 'Palletnbr' => 6, 'Barcode' => 7, 'Lotserial' => 8, 'Lotserialref' => 9, 'Bin' => 10, 'Qty' => 11, ),
-        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'ordn' => 1, 'linenbr' => 2, 'sublinenbr' => 3, 'itemid' => 4, 'recordnumber' => 5, 'palletnbr' => 6, 'barcode' => 7, 'lotserial' => 8, 'lotserialref' => 9, 'bin' => 10, 'qty' => 11, ),
-        self::TYPE_COLNAME       => array(WhseitempickTableMap::COL_SESSIONID => 0, WhseitempickTableMap::COL_ORDN => 1, WhseitempickTableMap::COL_LINENBR => 2, WhseitempickTableMap::COL_SUBLINENBR => 3, WhseitempickTableMap::COL_ITEMID => 4, WhseitempickTableMap::COL_RECORDNUMBER => 5, WhseitempickTableMap::COL_PALLETNBR => 6, WhseitempickTableMap::COL_BARCODE => 7, WhseitempickTableMap::COL_LOTSERIAL => 8, WhseitempickTableMap::COL_LOTSERIALREF => 9, WhseitempickTableMap::COL_BIN => 10, WhseitempickTableMap::COL_QTY => 11, ),
-        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'ordn' => 1, 'linenbr' => 2, 'sublinenbr' => 3, 'itemid' => 4, 'recordnumber' => 5, 'palletnbr' => 6, 'barcode' => 7, 'lotserial' => 8, 'lotserialref' => 9, 'bin' => 10, 'qty' => 11, ),
+        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Ordn' => 1, 'Itemid' => 2, 'Recordnumber' => 3, 'Linenbr' => 4, 'Sublinenbr' => 5, 'Bin' => 6, 'Palletnbr' => 7, 'Barcode' => 8, 'Lotserialref' => 9, 'Lotserial' => 10, 'Qty' => 11, ),
+        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'ordn' => 1, 'itemid' => 2, 'recordnumber' => 3, 'linenbr' => 4, 'sublinenbr' => 5, 'bin' => 6, 'palletnbr' => 7, 'barcode' => 8, 'lotserialref' => 9, 'lotserial' => 10, 'qty' => 11, ),
+        self::TYPE_COLNAME       => array(WhseitempickTableMap::COL_SESSIONID => 0, WhseitempickTableMap::COL_ORDN => 1, WhseitempickTableMap::COL_ITEMID => 2, WhseitempickTableMap::COL_RECORDNUMBER => 3, WhseitempickTableMap::COL_LINENBR => 4, WhseitempickTableMap::COL_SUBLINENBR => 5, WhseitempickTableMap::COL_BIN => 6, WhseitempickTableMap::COL_PALLETNBR => 7, WhseitempickTableMap::COL_BARCODE => 8, WhseitempickTableMap::COL_LOTSERIALREF => 9, WhseitempickTableMap::COL_LOTSERIAL => 10, WhseitempickTableMap::COL_QTY => 11, ),
+        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'ordn' => 1, 'itemid' => 2, 'recordnumber' => 3, 'linenbr' => 4, 'sublinenbr' => 5, 'bin' => 6, 'palletnbr' => 7, 'barcode' => 8, 'lotserialref' => 9, 'lotserial' => 10, 'qty' => 11, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, )
     );
 
@@ -183,16 +183,16 @@ class WhseitempickTableMap extends TableMap
         // columns
         $this->addPrimaryKey('sessionid', 'Sessionid', 'VARCHAR', true, 50, null);
         $this->addPrimaryKey('ordn', 'Ordn', 'VARCHAR', true, 45, null);
-        $this->addColumn('linenbr', 'Linenbr', 'INTEGER', true, null, null);
-        $this->addColumn('sublinenbr', 'Sublinenbr', 'INTEGER', false, 4, null);
         $this->addPrimaryKey('itemid', 'Itemid', 'VARCHAR', true, 45, null);
         $this->addPrimaryKey('recordnumber', 'Recordnumber', 'INTEGER', true, null, null);
-        $this->addColumn('palletnbr', 'Palletnbr', 'INTEGER', false, 5, null);
-        $this->addColumn('barcode', 'Barcode', 'VARCHAR', false, 70, null);
-        $this->addColumn('lotserial', 'Lotserial', 'VARCHAR', false, 45, null);
-        $this->addColumn('lotserialref', 'Lotserialref', 'VARCHAR', false, 45, null);
+        $this->addColumn('linenbr', 'Linenbr', 'INTEGER', false, 4, null);
+        $this->addColumn('sublinenbr', 'Sublinenbr', 'INTEGER', false, 4, null);
         $this->addColumn('bin', 'Bin', 'VARCHAR', false, 12, null);
-        $this->addColumn('qty', 'Qty', 'DECIMAL', false, 10, null);
+        $this->addColumn('palletnbr', 'Palletnbr', 'INTEGER', false, 5, null);
+        $this->addColumn('barcode', 'Barcode', 'VARCHAR', false, 45, null);
+        $this->addColumn('lotserialref', 'Lotserialref', 'VARCHAR', false, 45, null);
+        $this->addColumn('lotserial', 'Lotserial', 'VARCHAR', false, 45, null);
+        $this->addColumn('qty', 'Qty', 'DECIMAL', false, 13, null);
     } // initialize()
 
     /**
@@ -271,11 +271,11 @@ class WhseitempickTableMap extends TableMap
     public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
         // If the PK cannot be derived from the row, return NULL.
-        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Ordn', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Itemid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 5 + $offset : static::translateFieldName('Recordnumber', TableMap::TYPE_PHPNAME, $indexType)] === null) {
+        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Ordn', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Itemid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Recordnumber', TableMap::TYPE_PHPNAME, $indexType)] === null) {
             return null;
         }
 
-        return serialize([(null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Ordn', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Ordn', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Ordn', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Ordn', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Ordn', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Itemid', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Itemid', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Itemid', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Itemid', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Itemid', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 5 + $offset : static::translateFieldName('Recordnumber', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 5 + $offset : static::translateFieldName('Recordnumber', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 5 + $offset : static::translateFieldName('Recordnumber', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 5 + $offset : static::translateFieldName('Recordnumber', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 5 + $offset : static::translateFieldName('Recordnumber', TableMap::TYPE_PHPNAME, $indexType)])]);
+        return serialize([(null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Ordn', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Ordn', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Ordn', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Ordn', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Ordn', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Itemid', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Itemid', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Itemid', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Itemid', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Itemid', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Recordnumber', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Recordnumber', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Recordnumber', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Recordnumber', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Recordnumber', TableMap::TYPE_PHPNAME, $indexType)])]);
     }
 
     /**
@@ -306,12 +306,12 @@ class WhseitempickTableMap extends TableMap
         ];
         $pks[] = (string) $row[
             $indexType == TableMap::TYPE_NUM
-                ? 4 + $offset
+                ? 2 + $offset
                 : self::translateFieldName('Itemid', TableMap::TYPE_PHPNAME, $indexType)
         ];
         $pks[] = (int) $row[
             $indexType == TableMap::TYPE_NUM
-                ? 5 + $offset
+                ? 3 + $offset
                 : self::translateFieldName('Recordnumber', TableMap::TYPE_PHPNAME, $indexType)
         ];
 
@@ -417,28 +417,28 @@ class WhseitempickTableMap extends TableMap
         if (null === $alias) {
             $criteria->addSelectColumn(WhseitempickTableMap::COL_SESSIONID);
             $criteria->addSelectColumn(WhseitempickTableMap::COL_ORDN);
-            $criteria->addSelectColumn(WhseitempickTableMap::COL_LINENBR);
-            $criteria->addSelectColumn(WhseitempickTableMap::COL_SUBLINENBR);
             $criteria->addSelectColumn(WhseitempickTableMap::COL_ITEMID);
             $criteria->addSelectColumn(WhseitempickTableMap::COL_RECORDNUMBER);
+            $criteria->addSelectColumn(WhseitempickTableMap::COL_LINENBR);
+            $criteria->addSelectColumn(WhseitempickTableMap::COL_SUBLINENBR);
+            $criteria->addSelectColumn(WhseitempickTableMap::COL_BIN);
             $criteria->addSelectColumn(WhseitempickTableMap::COL_PALLETNBR);
             $criteria->addSelectColumn(WhseitempickTableMap::COL_BARCODE);
-            $criteria->addSelectColumn(WhseitempickTableMap::COL_LOTSERIAL);
             $criteria->addSelectColumn(WhseitempickTableMap::COL_LOTSERIALREF);
-            $criteria->addSelectColumn(WhseitempickTableMap::COL_BIN);
+            $criteria->addSelectColumn(WhseitempickTableMap::COL_LOTSERIAL);
             $criteria->addSelectColumn(WhseitempickTableMap::COL_QTY);
         } else {
             $criteria->addSelectColumn($alias . '.sessionid');
             $criteria->addSelectColumn($alias . '.ordn');
-            $criteria->addSelectColumn($alias . '.linenbr');
-            $criteria->addSelectColumn($alias . '.sublinenbr');
             $criteria->addSelectColumn($alias . '.itemid');
             $criteria->addSelectColumn($alias . '.recordnumber');
+            $criteria->addSelectColumn($alias . '.linenbr');
+            $criteria->addSelectColumn($alias . '.sublinenbr');
+            $criteria->addSelectColumn($alias . '.bin');
             $criteria->addSelectColumn($alias . '.palletnbr');
             $criteria->addSelectColumn($alias . '.barcode');
-            $criteria->addSelectColumn($alias . '.lotserial');
             $criteria->addSelectColumn($alias . '.lotserialref');
-            $criteria->addSelectColumn($alias . '.bin');
+            $criteria->addSelectColumn($alias . '.lotserial');
             $criteria->addSelectColumn($alias . '.qty');
         }
     }
