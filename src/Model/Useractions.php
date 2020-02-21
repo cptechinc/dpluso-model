@@ -239,7 +239,7 @@ class Useractions extends BaseUseractions {
 		'notes'            => 'textbody',
 		'notes_reflection' => 'reflectnote'
 	);
-	
+
 	/**
 	 * Returns if UserAction has something in the ID property
 	 * @return bool
@@ -327,7 +327,7 @@ class Useractions extends BaseUseractions {
 	public function is_overdue() {
 		if ($this->actiontype == 'task') {
 			if (!$this->is_completed()) {
-				return strtotime($this->duedate) < strtotime("now");
+				return strtotime($this->duedate->format(self::DATEFORMAT)) < strtotime("now");
 			}
 		}
 		return false;
