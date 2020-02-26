@@ -96,6 +96,23 @@
 		}
 
 		/**
+		 * Returns if Alias or Property exists for this class
+		 *
+		 * @param string $alias
+		 * @return bool
+		 */
+		public static function aliasproperty_exists($alias) {
+			if (property_exists(__CLASS__, $alias)) {
+				return true;
+			} elseif (defined(__CLASS__."::COLUMN_ALIASES")) {
+				if (array_key_exists($alias, self::COLUMN_ALIASES)) {
+					return true;
+				}
+			}
+			return false;
+		}
+
+		/**
 		 * Handle Magic Methods
 		 *
 		 * Supports setXXX()
