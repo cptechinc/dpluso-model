@@ -27,10 +27,10 @@ class BininfoQuery extends BaseBininfoQuery {
 	 * @param  string $itemID	   The value to use as filter.
 	 * @return $this|BininfoQuery  The current query, for fluid interface
 	 */
-	function filterByItemid($sessionID, $itemID) {
+	function filterBySessionItemid($sessionID, $itemID) {
 		$item = InvsearchQuery::create()->findOneByItemid($sessionID, $itemID);
-		$this->filterBy('Sessionid', $sessionID);
-		$this->filterBy('Itemid', $itemID);
+		$this->filterBySessionid($sessionID);
+		$this->filterByItemid($itemID);
 
 		if (!$item->is_lotted()) {
 			$this->addAsColumn('qty', 'SUM(qty)');
@@ -46,9 +46,9 @@ class BininfoQuery extends BaseBininfoQuery {
 	 * @param  string $lotserial   The value to use as filter.
 	 * @return $this|BininfoQuery  The current query, for fluid interface
 	 */
-	function filterByLotserial($sessionID, $lotserial) {
-		$this->filterBy('Sessionid', $sessionID);
-		$this->filterBy('Lotserial', $lotserial);
+	function filterBySessionLotserial($sessionID, $lotserial) {
+		$this->filterBySessionid($sessionID);
+		$this->filterByLotserial($lotserial);
 		return $this;
 	}
 
@@ -61,9 +61,9 @@ class BininfoQuery extends BaseBininfoQuery {
 	 */
 	function filterByItem($sessionID, Invsearch $item) {
 		if ($item->is_lotted() || $item->is_serialized()) {
-			$this->filterByLotserial($sessionID, $item->lotserial);
+			$this->filterBySessionLotserial($sessionID, $item->lotserial);
 		} else {
-			$this->filterByItemId($sessionID, $item->itemid);
+			$this->filterBySessionItemId($sessionID, $item->itemid);
 		}
 		return $this;
 	}
