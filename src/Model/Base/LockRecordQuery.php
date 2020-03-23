@@ -21,12 +21,10 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     ChildLockRecordQuery orderByFunction($order = Criteria::ASC) Order by the function column
  * @method     ChildLockRecordQuery orderByKey($order = Criteria::ASC) Order by the key column
- * @method     ChildLockRecordQuery orderBySessionid($order = Criteria::ASC) Order by the sessionid column
  * @method     ChildLockRecordQuery orderByUserid($order = Criteria::ASC) Order by the userid column
  *
  * @method     ChildLockRecordQuery groupByFunction() Group by the function column
  * @method     ChildLockRecordQuery groupByKey() Group by the key column
- * @method     ChildLockRecordQuery groupBySessionid() Group by the sessionid column
  * @method     ChildLockRecordQuery groupByUserid() Group by the userid column
  *
  * @method     ChildLockRecordQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
@@ -42,7 +40,6 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     ChildLockRecord findOneByFunction(string $function) Return the first ChildLockRecord filtered by the function column
  * @method     ChildLockRecord findOneByKey(string $key) Return the first ChildLockRecord filtered by the key column
- * @method     ChildLockRecord findOneBySessionid(string $sessionid) Return the first ChildLockRecord filtered by the sessionid column
  * @method     ChildLockRecord findOneByUserid(string $userid) Return the first ChildLockRecord filtered by the userid column *
 
  * @method     ChildLockRecord requirePk($key, ConnectionInterface $con = null) Return the ChildLockRecord by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -50,13 +47,11 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     ChildLockRecord requireOneByFunction(string $function) Return the first ChildLockRecord filtered by the function column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildLockRecord requireOneByKey(string $key) Return the first ChildLockRecord filtered by the key column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildLockRecord requireOneBySessionid(string $sessionid) Return the first ChildLockRecord filtered by the sessionid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildLockRecord requireOneByUserid(string $userid) Return the first ChildLockRecord filtered by the userid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildLockRecord[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildLockRecord objects based on current ModelCriteria
  * @method     ChildLockRecord[]|ObjectCollection findByFunction(string $function) Return ChildLockRecord objects filtered by the function column
  * @method     ChildLockRecord[]|ObjectCollection findByKey(string $key) Return ChildLockRecord objects filtered by the key column
- * @method     ChildLockRecord[]|ObjectCollection findBySessionid(string $sessionid) Return ChildLockRecord objects filtered by the sessionid column
  * @method     ChildLockRecord[]|ObjectCollection findByUserid(string $userid) Return ChildLockRecord objects filtered by the userid column
  * @method     ChildLockRecord[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  *
@@ -156,7 +151,7 @@ abstract class LockRecordQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT function, key, sessionid, userid FROM lockrecord WHERE function = :p0 AND key = :p1';
+        $sql = 'SELECT function, key, userid FROM lockrecord WHERE function = :p0 AND key = :p1';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -306,31 +301,6 @@ abstract class LockRecordQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(LockRecordTableMap::COL_KEY, $key, $comparison);
-    }
-
-    /**
-     * Filter the query on the sessionid column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterBySessionid('fooValue');   // WHERE sessionid = 'fooValue'
-     * $query->filterBySessionid('%fooValue%', Criteria::LIKE); // WHERE sessionid LIKE '%fooValue%'
-     * </code>
-     *
-     * @param     string $sessionid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return $this|ChildLockRecordQuery The current query, for fluid interface
-     */
-    public function filterBySessionid($sessionid = null, $comparison = null)
-    {
-        if (null === $comparison) {
-            if (is_array($sessionid)) {
-                $comparison = Criteria::IN;
-            }
-        }
-
-        return $this->addUsingAlias(LockRecordTableMap::COL_SESSIONID, $sessionid, $comparison);
     }
 
     /**

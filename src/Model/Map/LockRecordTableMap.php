@@ -59,7 +59,7 @@ class LockRecordTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 4;
+    const NUM_COLUMNS = 3;
 
     /**
      * The number of lazy-loaded columns
@@ -69,7 +69,7 @@ class LockRecordTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 4;
+    const NUM_HYDRATE_COLUMNS = 3;
 
     /**
      * the column name for the function field
@@ -80,11 +80,6 @@ class LockRecordTableMap extends TableMap
      * the column name for the key field
      */
     const COL_KEY = 'lockrecord.key';
-
-    /**
-     * the column name for the sessionid field
-     */
-    const COL_SESSIONID = 'lockrecord.sessionid';
 
     /**
      * the column name for the userid field
@@ -103,11 +98,11 @@ class LockRecordTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Function', 'Key', 'Sessionid', 'Userid', ),
-        self::TYPE_CAMELNAME     => array('function', 'key', 'sessionid', 'userid', ),
-        self::TYPE_COLNAME       => array(LockRecordTableMap::COL_FUNCTION, LockRecordTableMap::COL_KEY, LockRecordTableMap::COL_SESSIONID, LockRecordTableMap::COL_USERID, ),
-        self::TYPE_FIELDNAME     => array('function', 'key', 'sessionid', 'userid', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, )
+        self::TYPE_PHPNAME       => array('Function', 'Key', 'Userid', ),
+        self::TYPE_CAMELNAME     => array('function', 'key', 'userid', ),
+        self::TYPE_COLNAME       => array(LockRecordTableMap::COL_FUNCTION, LockRecordTableMap::COL_KEY, LockRecordTableMap::COL_USERID, ),
+        self::TYPE_FIELDNAME     => array('function', 'key', 'userid', ),
+        self::TYPE_NUM           => array(0, 1, 2, )
     );
 
     /**
@@ -117,11 +112,11 @@ class LockRecordTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Function' => 0, 'Key' => 1, 'Sessionid' => 2, 'Userid' => 3, ),
-        self::TYPE_CAMELNAME     => array('function' => 0, 'key' => 1, 'sessionid' => 2, 'userid' => 3, ),
-        self::TYPE_COLNAME       => array(LockRecordTableMap::COL_FUNCTION => 0, LockRecordTableMap::COL_KEY => 1, LockRecordTableMap::COL_SESSIONID => 2, LockRecordTableMap::COL_USERID => 3, ),
-        self::TYPE_FIELDNAME     => array('function' => 0, 'key' => 1, 'sessionid' => 2, 'userid' => 3, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, )
+        self::TYPE_PHPNAME       => array('Function' => 0, 'Key' => 1, 'Userid' => 2, ),
+        self::TYPE_CAMELNAME     => array('function' => 0, 'key' => 1, 'userid' => 2, ),
+        self::TYPE_COLNAME       => array(LockRecordTableMap::COL_FUNCTION => 0, LockRecordTableMap::COL_KEY => 1, LockRecordTableMap::COL_USERID => 2, ),
+        self::TYPE_FIELDNAME     => array('function' => 0, 'key' => 1, 'userid' => 2, ),
+        self::TYPE_NUM           => array(0, 1, 2, )
     );
 
     /**
@@ -143,7 +138,6 @@ class LockRecordTableMap extends TableMap
         // columns
         $this->addPrimaryKey('function', 'Function', 'VARCHAR', true, 25, null);
         $this->addPrimaryKey('key', 'Key', 'VARCHAR', true, 25, null);
-        $this->addColumn('sessionid', 'Sessionid', 'VARCHAR', true, 40, null);
         $this->addColumn('userid', 'Userid', 'VARCHAR', true, 45, null);
     } // initialize()
 
@@ -359,12 +353,10 @@ class LockRecordTableMap extends TableMap
         if (null === $alias) {
             $criteria->addSelectColumn(LockRecordTableMap::COL_FUNCTION);
             $criteria->addSelectColumn(LockRecordTableMap::COL_KEY);
-            $criteria->addSelectColumn(LockRecordTableMap::COL_SESSIONID);
             $criteria->addSelectColumn(LockRecordTableMap::COL_USERID);
         } else {
             $criteria->addSelectColumn($alias . '.function');
             $criteria->addSelectColumn($alias . '.key');
-            $criteria->addSelectColumn($alias . '.sessionid');
             $criteria->addSelectColumn($alias . '.userid');
         }
     }
