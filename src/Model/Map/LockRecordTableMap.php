@@ -72,16 +72,6 @@ class LockRecordTableMap extends TableMap
     const NUM_HYDRATE_COLUMNS = 4;
 
     /**
-     * the column name for the sessionid field
-     */
-    const COL_SESSIONID = 'lockrecord.sessionid';
-
-    /**
-     * the column name for the userid field
-     */
-    const COL_USERID = 'lockrecord.userid';
-
-    /**
      * the column name for the function field
      */
     const COL_FUNCTION = 'lockrecord.function';
@@ -90,6 +80,16 @@ class LockRecordTableMap extends TableMap
      * the column name for the key field
      */
     const COL_KEY = 'lockrecord.key';
+
+    /**
+     * the column name for the sessionid field
+     */
+    const COL_SESSIONID = 'lockrecord.sessionid';
+
+    /**
+     * the column name for the userid field
+     */
+    const COL_USERID = 'lockrecord.userid';
 
     /**
      * The default string format for model objects of the related table
@@ -103,10 +103,10 @@ class LockRecordTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Sessionid', 'Userid', 'Function', 'Key', ),
-        self::TYPE_CAMELNAME     => array('sessionid', 'userid', 'function', 'key', ),
-        self::TYPE_COLNAME       => array(LockRecordTableMap::COL_SESSIONID, LockRecordTableMap::COL_USERID, LockRecordTableMap::COL_FUNCTION, LockRecordTableMap::COL_KEY, ),
-        self::TYPE_FIELDNAME     => array('sessionid', 'userid', 'function', 'key', ),
+        self::TYPE_PHPNAME       => array('Function', 'Key', 'Sessionid', 'Userid', ),
+        self::TYPE_CAMELNAME     => array('function', 'key', 'sessionid', 'userid', ),
+        self::TYPE_COLNAME       => array(LockRecordTableMap::COL_FUNCTION, LockRecordTableMap::COL_KEY, LockRecordTableMap::COL_SESSIONID, LockRecordTableMap::COL_USERID, ),
+        self::TYPE_FIELDNAME     => array('function', 'key', 'sessionid', 'userid', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, )
     );
 
@@ -117,10 +117,10 @@ class LockRecordTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Userid' => 1, 'Function' => 2, 'Key' => 3, ),
-        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'userid' => 1, 'function' => 2, 'key' => 3, ),
-        self::TYPE_COLNAME       => array(LockRecordTableMap::COL_SESSIONID => 0, LockRecordTableMap::COL_USERID => 1, LockRecordTableMap::COL_FUNCTION => 2, LockRecordTableMap::COL_KEY => 3, ),
-        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'userid' => 1, 'function' => 2, 'key' => 3, ),
+        self::TYPE_PHPNAME       => array('Function' => 0, 'Key' => 1, 'Sessionid' => 2, 'Userid' => 3, ),
+        self::TYPE_CAMELNAME     => array('function' => 0, 'key' => 1, 'sessionid' => 2, 'userid' => 3, ),
+        self::TYPE_COLNAME       => array(LockRecordTableMap::COL_FUNCTION => 0, LockRecordTableMap::COL_KEY => 1, LockRecordTableMap::COL_SESSIONID => 2, LockRecordTableMap::COL_USERID => 3, ),
+        self::TYPE_FIELDNAME     => array('function' => 0, 'key' => 1, 'sessionid' => 2, 'userid' => 3, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, )
     );
 
@@ -141,10 +141,10 @@ class LockRecordTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addPrimaryKey('sessionid', 'Sessionid', 'VARCHAR', true, 40, null);
-        $this->addPrimaryKey('userid', 'Userid', 'VARCHAR', true, 45, null);
         $this->addPrimaryKey('function', 'Function', 'VARCHAR', true, 25, null);
         $this->addPrimaryKey('key', 'Key', 'VARCHAR', true, 25, null);
+        $this->addColumn('sessionid', 'Sessionid', 'VARCHAR', true, 40, null);
+        $this->addColumn('userid', 'Userid', 'VARCHAR', true, 45, null);
     } // initialize()
 
     /**
@@ -169,7 +169,7 @@ class LockRecordTableMap extends TableMap
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
-                $key = serialize([(null === $obj->getSessionid() || is_scalar($obj->getSessionid()) || is_callable([$obj->getSessionid(), '__toString']) ? (string) $obj->getSessionid() : $obj->getSessionid()), (null === $obj->getUserid() || is_scalar($obj->getUserid()) || is_callable([$obj->getUserid(), '__toString']) ? (string) $obj->getUserid() : $obj->getUserid()), (null === $obj->getFunction() || is_scalar($obj->getFunction()) || is_callable([$obj->getFunction(), '__toString']) ? (string) $obj->getFunction() : $obj->getFunction()), (null === $obj->getKey() || is_scalar($obj->getKey()) || is_callable([$obj->getKey(), '__toString']) ? (string) $obj->getKey() : $obj->getKey())]);
+                $key = serialize([(null === $obj->getFunction() || is_scalar($obj->getFunction()) || is_callable([$obj->getFunction(), '__toString']) ? (string) $obj->getFunction() : $obj->getFunction()), (null === $obj->getKey() || is_scalar($obj->getKey()) || is_callable([$obj->getKey(), '__toString']) ? (string) $obj->getKey() : $obj->getKey())]);
             } // if key === null
             self::$instances[$key] = $obj;
         }
@@ -189,11 +189,11 @@ class LockRecordTableMap extends TableMap
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \LockRecord) {
-                $key = serialize([(null === $value->getSessionid() || is_scalar($value->getSessionid()) || is_callable([$value->getSessionid(), '__toString']) ? (string) $value->getSessionid() : $value->getSessionid()), (null === $value->getUserid() || is_scalar($value->getUserid()) || is_callable([$value->getUserid(), '__toString']) ? (string) $value->getUserid() : $value->getUserid()), (null === $value->getFunction() || is_scalar($value->getFunction()) || is_callable([$value->getFunction(), '__toString']) ? (string) $value->getFunction() : $value->getFunction()), (null === $value->getKey() || is_scalar($value->getKey()) || is_callable([$value->getKey(), '__toString']) ? (string) $value->getKey() : $value->getKey())]);
+                $key = serialize([(null === $value->getFunction() || is_scalar($value->getFunction()) || is_callable([$value->getFunction(), '__toString']) ? (string) $value->getFunction() : $value->getFunction()), (null === $value->getKey() || is_scalar($value->getKey()) || is_callable([$value->getKey(), '__toString']) ? (string) $value->getKey() : $value->getKey())]);
 
-            } elseif (is_array($value) && count($value) === 4) {
+            } elseif (is_array($value) && count($value) === 2) {
                 // assume we've been passed a primary key";
-                $key = serialize([(null === $value[0] || is_scalar($value[0]) || is_callable([$value[0], '__toString']) ? (string) $value[0] : $value[0]), (null === $value[1] || is_scalar($value[1]) || is_callable([$value[1], '__toString']) ? (string) $value[1] : $value[1]), (null === $value[2] || is_scalar($value[2]) || is_callable([$value[2], '__toString']) ? (string) $value[2] : $value[2]), (null === $value[3] || is_scalar($value[3]) || is_callable([$value[3], '__toString']) ? (string) $value[3] : $value[3])]);
+                $key = serialize([(null === $value[0] || is_scalar($value[0]) || is_callable([$value[0], '__toString']) ? (string) $value[0] : $value[0]), (null === $value[1] || is_scalar($value[1]) || is_callable([$value[1], '__toString']) ? (string) $value[1] : $value[1])]);
             } elseif ($value instanceof Criteria) {
                 self::$instances = [];
 
@@ -223,11 +223,11 @@ class LockRecordTableMap extends TableMap
     public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
         // If the PK cannot be derived from the row, return NULL.
-        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Userid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Function', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Key', TableMap::TYPE_PHPNAME, $indexType)] === null) {
+        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Function', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Key', TableMap::TYPE_PHPNAME, $indexType)] === null) {
             return null;
         }
 
-        return serialize([(null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Userid', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Userid', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Userid', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Userid', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Userid', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Function', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Function', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Function', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Function', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Function', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Key', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Key', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Key', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Key', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Key', TableMap::TYPE_PHPNAME, $indexType)])]);
+        return serialize([(null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Function', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Function', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Function', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Function', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Function', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Key', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Key', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Key', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Key', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Key', TableMap::TYPE_PHPNAME, $indexType)])]);
     }
 
     /**
@@ -249,21 +249,11 @@ class LockRecordTableMap extends TableMap
         $pks[] = (string) $row[
             $indexType == TableMap::TYPE_NUM
                 ? 0 + $offset
-                : self::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-        $pks[] = (string) $row[
-            $indexType == TableMap::TYPE_NUM
-                ? 1 + $offset
-                : self::translateFieldName('Userid', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-        $pks[] = (string) $row[
-            $indexType == TableMap::TYPE_NUM
-                ? 2 + $offset
                 : self::translateFieldName('Function', TableMap::TYPE_PHPNAME, $indexType)
         ];
         $pks[] = (string) $row[
             $indexType == TableMap::TYPE_NUM
-                ? 3 + $offset
+                ? 1 + $offset
                 : self::translateFieldName('Key', TableMap::TYPE_PHPNAME, $indexType)
         ];
 
@@ -367,15 +357,15 @@ class LockRecordTableMap extends TableMap
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(LockRecordTableMap::COL_SESSIONID);
-            $criteria->addSelectColumn(LockRecordTableMap::COL_USERID);
             $criteria->addSelectColumn(LockRecordTableMap::COL_FUNCTION);
             $criteria->addSelectColumn(LockRecordTableMap::COL_KEY);
+            $criteria->addSelectColumn(LockRecordTableMap::COL_SESSIONID);
+            $criteria->addSelectColumn(LockRecordTableMap::COL_USERID);
         } else {
-            $criteria->addSelectColumn($alias . '.sessionid');
-            $criteria->addSelectColumn($alias . '.userid');
             $criteria->addSelectColumn($alias . '.function');
             $criteria->addSelectColumn($alias . '.key');
+            $criteria->addSelectColumn($alias . '.sessionid');
+            $criteria->addSelectColumn($alias . '.userid');
         }
     }
 
@@ -434,10 +424,8 @@ class LockRecordTableMap extends TableMap
                 $values = array($values);
             }
             foreach ($values as $value) {
-                $criterion = $criteria->getNewCriterion(LockRecordTableMap::COL_SESSIONID, $value[0]);
-                $criterion->addAnd($criteria->getNewCriterion(LockRecordTableMap::COL_USERID, $value[1]));
-                $criterion->addAnd($criteria->getNewCriterion(LockRecordTableMap::COL_FUNCTION, $value[2]));
-                $criterion->addAnd($criteria->getNewCriterion(LockRecordTableMap::COL_KEY, $value[3]));
+                $criterion = $criteria->getNewCriterion(LockRecordTableMap::COL_FUNCTION, $value[0]);
+                $criterion->addAnd($criteria->getNewCriterion(LockRecordTableMap::COL_KEY, $value[1]));
                 $criteria->addOr($criterion);
             }
         }

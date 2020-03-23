@@ -60,20 +60,6 @@ abstract class LockRecord implements ActiveRecordInterface
     protected $virtualColumns = array();
 
     /**
-     * The value for the sessionid field.
-     *
-     * @var        string
-     */
-    protected $sessionid;
-
-    /**
-     * The value for the userid field.
-     *
-     * @var        string
-     */
-    protected $userid;
-
-    /**
      * The value for the function field.
      *
      * @var        string
@@ -86,6 +72,20 @@ abstract class LockRecord implements ActiveRecordInterface
      * @var        string
      */
     protected $key;
+
+    /**
+     * The value for the sessionid field.
+     *
+     * @var        string
+     */
+    protected $sessionid;
+
+    /**
+     * The value for the userid field.
+     *
+     * @var        string
+     */
+    protected $userid;
 
     /**
      * Flag to prevent endless save loop, if this object is referenced
@@ -321,26 +321,6 @@ abstract class LockRecord implements ActiveRecordInterface
     }
 
     /**
-     * Get the [sessionid] column value.
-     *
-     * @return string
-     */
-    public function getSessionid()
-    {
-        return $this->sessionid;
-    }
-
-    /**
-     * Get the [userid] column value.
-     *
-     * @return string
-     */
-    public function getUserid()
-    {
-        return $this->userid;
-    }
-
-    /**
      * Get the [function] column value.
      *
      * @return string
@@ -361,44 +341,24 @@ abstract class LockRecord implements ActiveRecordInterface
     }
 
     /**
-     * Set the value of [sessionid] column.
+     * Get the [sessionid] column value.
      *
-     * @param string $v new value
-     * @return $this|\LockRecord The current object (for fluent API support)
+     * @return string
      */
-    public function setSessionid($v)
+    public function getSessionid()
     {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->sessionid !== $v) {
-            $this->sessionid = $v;
-            $this->modifiedColumns[LockRecordTableMap::COL_SESSIONID] = true;
-        }
-
-        return $this;
-    } // setSessionid()
+        return $this->sessionid;
+    }
 
     /**
-     * Set the value of [userid] column.
+     * Get the [userid] column value.
      *
-     * @param string $v new value
-     * @return $this|\LockRecord The current object (for fluent API support)
+     * @return string
      */
-    public function setUserid($v)
+    public function getUserid()
     {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->userid !== $v) {
-            $this->userid = $v;
-            $this->modifiedColumns[LockRecordTableMap::COL_USERID] = true;
-        }
-
-        return $this;
-    } // setUserid()
+        return $this->userid;
+    }
 
     /**
      * Set the value of [function] column.
@@ -441,6 +401,46 @@ abstract class LockRecord implements ActiveRecordInterface
     } // setKey()
 
     /**
+     * Set the value of [sessionid] column.
+     *
+     * @param string $v new value
+     * @return $this|\LockRecord The current object (for fluent API support)
+     */
+    public function setSessionid($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->sessionid !== $v) {
+            $this->sessionid = $v;
+            $this->modifiedColumns[LockRecordTableMap::COL_SESSIONID] = true;
+        }
+
+        return $this;
+    } // setSessionid()
+
+    /**
+     * Set the value of [userid] column.
+     *
+     * @param string $v new value
+     * @return $this|\LockRecord The current object (for fluent API support)
+     */
+    public function setUserid($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->userid !== $v) {
+            $this->userid = $v;
+            $this->modifiedColumns[LockRecordTableMap::COL_USERID] = true;
+        }
+
+        return $this;
+    } // setUserid()
+
+    /**
      * Indicates whether the columns in this object are only set to default values.
      *
      * This method can be used in conjunction with isModified() to indicate whether an object is both
@@ -476,17 +476,17 @@ abstract class LockRecord implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : LockRecordTableMap::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->sessionid = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : LockRecordTableMap::translateFieldName('Userid', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->userid = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : LockRecordTableMap::translateFieldName('Function', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : LockRecordTableMap::translateFieldName('Function', TableMap::TYPE_PHPNAME, $indexType)];
             $this->function = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : LockRecordTableMap::translateFieldName('Key', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : LockRecordTableMap::translateFieldName('Key', TableMap::TYPE_PHPNAME, $indexType)];
             $this->key = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : LockRecordTableMap::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->sessionid = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : LockRecordTableMap::translateFieldName('Userid', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->userid = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
             $this->setNew(false);
@@ -692,17 +692,17 @@ abstract class LockRecord implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(LockRecordTableMap::COL_SESSIONID)) {
-            $modifiedColumns[':p' . $index++]  = 'sessionid';
-        }
-        if ($this->isColumnModified(LockRecordTableMap::COL_USERID)) {
-            $modifiedColumns[':p' . $index++]  = 'userid';
-        }
         if ($this->isColumnModified(LockRecordTableMap::COL_FUNCTION)) {
             $modifiedColumns[':p' . $index++]  = 'function';
         }
         if ($this->isColumnModified(LockRecordTableMap::COL_KEY)) {
             $modifiedColumns[':p' . $index++]  = 'key';
+        }
+        if ($this->isColumnModified(LockRecordTableMap::COL_SESSIONID)) {
+            $modifiedColumns[':p' . $index++]  = 'sessionid';
+        }
+        if ($this->isColumnModified(LockRecordTableMap::COL_USERID)) {
+            $modifiedColumns[':p' . $index++]  = 'userid';
         }
 
         $sql = sprintf(
@@ -715,17 +715,17 @@ abstract class LockRecord implements ActiveRecordInterface
             $stmt = $con->prepare($sql);
             foreach ($modifiedColumns as $identifier => $columnName) {
                 switch ($columnName) {
-                    case 'sessionid':
-                        $stmt->bindValue($identifier, $this->sessionid, PDO::PARAM_STR);
-                        break;
-                    case 'userid':
-                        $stmt->bindValue($identifier, $this->userid, PDO::PARAM_STR);
-                        break;
                     case 'function':
                         $stmt->bindValue($identifier, $this->function, PDO::PARAM_STR);
                         break;
                     case 'key':
                         $stmt->bindValue($identifier, $this->key, PDO::PARAM_STR);
+                        break;
+                    case 'sessionid':
+                        $stmt->bindValue($identifier, $this->sessionid, PDO::PARAM_STR);
+                        break;
+                    case 'userid':
+                        $stmt->bindValue($identifier, $this->userid, PDO::PARAM_STR);
                         break;
                 }
             }
@@ -783,16 +783,16 @@ abstract class LockRecord implements ActiveRecordInterface
     {
         switch ($pos) {
             case 0:
-                return $this->getSessionid();
-                break;
-            case 1:
-                return $this->getUserid();
-                break;
-            case 2:
                 return $this->getFunction();
                 break;
-            case 3:
+            case 1:
                 return $this->getKey();
+                break;
+            case 2:
+                return $this->getSessionid();
+                break;
+            case 3:
+                return $this->getUserid();
                 break;
             default:
                 return null;
@@ -823,10 +823,10 @@ abstract class LockRecord implements ActiveRecordInterface
         $alreadyDumpedObjects['LockRecord'][$this->hashCode()] = true;
         $keys = LockRecordTableMap::getFieldNames($keyType);
         $result = array(
-            $keys[0] => $this->getSessionid(),
-            $keys[1] => $this->getUserid(),
-            $keys[2] => $this->getFunction(),
-            $keys[3] => $this->getKey(),
+            $keys[0] => $this->getFunction(),
+            $keys[1] => $this->getKey(),
+            $keys[2] => $this->getSessionid(),
+            $keys[3] => $this->getUserid(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -867,16 +867,16 @@ abstract class LockRecord implements ActiveRecordInterface
     {
         switch ($pos) {
             case 0:
-                $this->setSessionid($value);
-                break;
-            case 1:
-                $this->setUserid($value);
-                break;
-            case 2:
                 $this->setFunction($value);
                 break;
-            case 3:
+            case 1:
                 $this->setKey($value);
+                break;
+            case 2:
+                $this->setSessionid($value);
+                break;
+            case 3:
+                $this->setUserid($value);
                 break;
         } // switch()
 
@@ -905,16 +905,16 @@ abstract class LockRecord implements ActiveRecordInterface
         $keys = LockRecordTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
-            $this->setSessionid($arr[$keys[0]]);
+            $this->setFunction($arr[$keys[0]]);
         }
         if (array_key_exists($keys[1], $arr)) {
-            $this->setUserid($arr[$keys[1]]);
+            $this->setKey($arr[$keys[1]]);
         }
         if (array_key_exists($keys[2], $arr)) {
-            $this->setFunction($arr[$keys[2]]);
+            $this->setSessionid($arr[$keys[2]]);
         }
         if (array_key_exists($keys[3], $arr)) {
-            $this->setKey($arr[$keys[3]]);
+            $this->setUserid($arr[$keys[3]]);
         }
     }
 
@@ -957,17 +957,17 @@ abstract class LockRecord implements ActiveRecordInterface
     {
         $criteria = new Criteria(LockRecordTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(LockRecordTableMap::COL_SESSIONID)) {
-            $criteria->add(LockRecordTableMap::COL_SESSIONID, $this->sessionid);
-        }
-        if ($this->isColumnModified(LockRecordTableMap::COL_USERID)) {
-            $criteria->add(LockRecordTableMap::COL_USERID, $this->userid);
-        }
         if ($this->isColumnModified(LockRecordTableMap::COL_FUNCTION)) {
             $criteria->add(LockRecordTableMap::COL_FUNCTION, $this->function);
         }
         if ($this->isColumnModified(LockRecordTableMap::COL_KEY)) {
             $criteria->add(LockRecordTableMap::COL_KEY, $this->key);
+        }
+        if ($this->isColumnModified(LockRecordTableMap::COL_SESSIONID)) {
+            $criteria->add(LockRecordTableMap::COL_SESSIONID, $this->sessionid);
+        }
+        if ($this->isColumnModified(LockRecordTableMap::COL_USERID)) {
+            $criteria->add(LockRecordTableMap::COL_USERID, $this->userid);
         }
 
         return $criteria;
@@ -986,8 +986,6 @@ abstract class LockRecord implements ActiveRecordInterface
     public function buildPkeyCriteria()
     {
         $criteria = ChildLockRecordQuery::create();
-        $criteria->add(LockRecordTableMap::COL_SESSIONID, $this->sessionid);
-        $criteria->add(LockRecordTableMap::COL_USERID, $this->userid);
         $criteria->add(LockRecordTableMap::COL_FUNCTION, $this->function);
         $criteria->add(LockRecordTableMap::COL_KEY, $this->key);
 
@@ -1002,9 +1000,7 @@ abstract class LockRecord implements ActiveRecordInterface
      */
     public function hashCode()
     {
-        $validPk = null !== $this->getSessionid() &&
-            null !== $this->getUserid() &&
-            null !== $this->getFunction() &&
+        $validPk = null !== $this->getFunction() &&
             null !== $this->getKey();
 
         $validPrimaryKeyFKs = 0;
@@ -1027,10 +1023,8 @@ abstract class LockRecord implements ActiveRecordInterface
     public function getPrimaryKey()
     {
         $pks = array();
-        $pks[0] = $this->getSessionid();
-        $pks[1] = $this->getUserid();
-        $pks[2] = $this->getFunction();
-        $pks[3] = $this->getKey();
+        $pks[0] = $this->getFunction();
+        $pks[1] = $this->getKey();
 
         return $pks;
     }
@@ -1043,10 +1037,8 @@ abstract class LockRecord implements ActiveRecordInterface
      */
     public function setPrimaryKey($keys)
     {
-        $this->setSessionid($keys[0]);
-        $this->setUserid($keys[1]);
-        $this->setFunction($keys[2]);
-        $this->setKey($keys[3]);
+        $this->setFunction($keys[0]);
+        $this->setKey($keys[1]);
     }
 
     /**
@@ -1055,7 +1047,7 @@ abstract class LockRecord implements ActiveRecordInterface
      */
     public function isPrimaryKeyNull()
     {
-        return (null === $this->getSessionid()) && (null === $this->getUserid()) && (null === $this->getFunction()) && (null === $this->getKey());
+        return (null === $this->getFunction()) && (null === $this->getKey());
     }
 
     /**
@@ -1071,10 +1063,10 @@ abstract class LockRecord implements ActiveRecordInterface
      */
     public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
     {
-        $copyObj->setSessionid($this->getSessionid());
-        $copyObj->setUserid($this->getUserid());
         $copyObj->setFunction($this->getFunction());
         $copyObj->setKey($this->getKey());
+        $copyObj->setSessionid($this->getSessionid());
+        $copyObj->setUserid($this->getUserid());
         if ($makeNew) {
             $copyObj->setNew(true);
         }
@@ -1109,10 +1101,10 @@ abstract class LockRecord implements ActiveRecordInterface
      */
     public function clear()
     {
-        $this->sessionid = null;
-        $this->userid = null;
         $this->function = null;
         $this->key = null;
+        $this->sessionid = null;
+        $this->userid = null;
         $this->alreadyInSave = false;
         $this->clearAllReferences();
         $this->resetModified();
