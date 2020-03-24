@@ -2,17 +2,12 @@
 
 use Base\LockRecordQuery as BaseLockRecordQuery;
 
+use Dpluso\Model\QueryTraits;
+
 /**
- * Skeleton subclass for performing query and update operations on the 'lockrecord' table.
- *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
+ * Class for performing query and update operations on the 'lockrecord' table.
  *
  */
-class LockRecordQuery extends BaseLockRecordQuery
-{
-
+class LockRecordQuery extends BaseLockRecordQuery {
+	use QueryTraits;
 }

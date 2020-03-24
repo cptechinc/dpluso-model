@@ -19,12 +19,12 @@ use Propel\Runtime\Exception\PropelException;
  *
  *
  *
- * @method     ChildLockRecordQuery orderByFunction($order = Criteria::ASC) Order by the function column
- * @method     ChildLockRecordQuery orderByKey($order = Criteria::ASC) Order by the key column
+ * @method     ChildLockRecordQuery orderByFunctionid($order = Criteria::ASC) Order by the functionid column
+ * @method     ChildLockRecordQuery orderByKeyid($order = Criteria::ASC) Order by the keyid column
  * @method     ChildLockRecordQuery orderByUserid($order = Criteria::ASC) Order by the userid column
  *
- * @method     ChildLockRecordQuery groupByFunction() Group by the function column
- * @method     ChildLockRecordQuery groupByKey() Group by the key column
+ * @method     ChildLockRecordQuery groupByFunctionid() Group by the functionid column
+ * @method     ChildLockRecordQuery groupByKeyid() Group by the keyid column
  * @method     ChildLockRecordQuery groupByUserid() Group by the userid column
  *
  * @method     ChildLockRecordQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
@@ -38,20 +38,20 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildLockRecord findOne(ConnectionInterface $con = null) Return the first ChildLockRecord matching the query
  * @method     ChildLockRecord findOneOrCreate(ConnectionInterface $con = null) Return the first ChildLockRecord matching the query, or a new ChildLockRecord object populated from the query conditions when no match is found
  *
- * @method     ChildLockRecord findOneByFunction(string $function) Return the first ChildLockRecord filtered by the function column
- * @method     ChildLockRecord findOneByKey(string $key) Return the first ChildLockRecord filtered by the key column
+ * @method     ChildLockRecord findOneByFunctionid(string $functionid) Return the first ChildLockRecord filtered by the functionid column
+ * @method     ChildLockRecord findOneByKeyid(string $keyid) Return the first ChildLockRecord filtered by the keyid column
  * @method     ChildLockRecord findOneByUserid(string $userid) Return the first ChildLockRecord filtered by the userid column *
 
  * @method     ChildLockRecord requirePk($key, ConnectionInterface $con = null) Return the ChildLockRecord by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildLockRecord requireOne(ConnectionInterface $con = null) Return the first ChildLockRecord matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildLockRecord requireOneByFunction(string $function) Return the first ChildLockRecord filtered by the function column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildLockRecord requireOneByKey(string $key) Return the first ChildLockRecord filtered by the key column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildLockRecord requireOneByFunctionid(string $functionid) Return the first ChildLockRecord filtered by the functionid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildLockRecord requireOneByKeyid(string $keyid) Return the first ChildLockRecord filtered by the keyid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildLockRecord requireOneByUserid(string $userid) Return the first ChildLockRecord filtered by the userid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildLockRecord[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildLockRecord objects based on current ModelCriteria
- * @method     ChildLockRecord[]|ObjectCollection findByFunction(string $function) Return ChildLockRecord objects filtered by the function column
- * @method     ChildLockRecord[]|ObjectCollection findByKey(string $key) Return ChildLockRecord objects filtered by the key column
+ * @method     ChildLockRecord[]|ObjectCollection findByFunctionid(string $functionid) Return ChildLockRecord objects filtered by the functionid column
+ * @method     ChildLockRecord[]|ObjectCollection findByKeyid(string $keyid) Return ChildLockRecord objects filtered by the keyid column
  * @method     ChildLockRecord[]|ObjectCollection findByUserid(string $userid) Return ChildLockRecord objects filtered by the userid column
  * @method     ChildLockRecord[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  *
@@ -105,7 +105,7 @@ abstract class LockRecordQuery extends ModelCriteria
      * $obj = $c->findPk(array(12, 34), $con);
      * </code>
      *
-     * @param array[$function, $key] $key Primary key to use for the query
+     * @param array[$functionid, $keyid] $key Primary key to use for the query
      * @param ConnectionInterface $con an optional connection object
      *
      * @return ChildLockRecord|array|mixed the result, formatted by the current formatter
@@ -151,7 +151,7 @@ abstract class LockRecordQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT function, key, userid FROM lockrecord WHERE function = :p0 AND key = :p1';
+        $sql = 'SELECT functionid, keyid, userid FROM lockrecord WHERE functionid = :p0 AND keyid = :p1';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -225,8 +225,8 @@ abstract class LockRecordQuery extends ModelCriteria
      */
     public function filterByPrimaryKey($key)
     {
-        $this->addUsingAlias(LockRecordTableMap::COL_FUNCTION, $key[0], Criteria::EQUAL);
-        $this->addUsingAlias(LockRecordTableMap::COL_KEY, $key[1], Criteria::EQUAL);
+        $this->addUsingAlias(LockRecordTableMap::COL_FUNCTIONID, $key[0], Criteria::EQUAL);
+        $this->addUsingAlias(LockRecordTableMap::COL_KEYID, $key[1], Criteria::EQUAL);
 
         return $this;
     }
@@ -244,8 +244,8 @@ abstract class LockRecordQuery extends ModelCriteria
             return $this->add(null, '1<>1', Criteria::CUSTOM);
         }
         foreach ($keys as $key) {
-            $cton0 = $this->getNewCriterion(LockRecordTableMap::COL_FUNCTION, $key[0], Criteria::EQUAL);
-            $cton1 = $this->getNewCriterion(LockRecordTableMap::COL_KEY, $key[1], Criteria::EQUAL);
+            $cton0 = $this->getNewCriterion(LockRecordTableMap::COL_FUNCTIONID, $key[0], Criteria::EQUAL);
+            $cton1 = $this->getNewCriterion(LockRecordTableMap::COL_KEYID, $key[1], Criteria::EQUAL);
             $cton0->addAnd($cton1);
             $this->addOr($cton0);
         }
@@ -254,53 +254,53 @@ abstract class LockRecordQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the function column
+     * Filter the query on the functionid column
      *
      * Example usage:
      * <code>
-     * $query->filterByFunction('fooValue');   // WHERE function = 'fooValue'
-     * $query->filterByFunction('%fooValue%', Criteria::LIKE); // WHERE function LIKE '%fooValue%'
+     * $query->filterByFunctionid('fooValue');   // WHERE functionid = 'fooValue'
+     * $query->filterByFunctionid('%fooValue%', Criteria::LIKE); // WHERE functionid LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $function The value to use as filter.
+     * @param     string $functionid The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildLockRecordQuery The current query, for fluid interface
      */
-    public function filterByFunction($function = null, $comparison = null)
+    public function filterByFunctionid($functionid = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($function)) {
+            if (is_array($functionid)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(LockRecordTableMap::COL_FUNCTION, $function, $comparison);
+        return $this->addUsingAlias(LockRecordTableMap::COL_FUNCTIONID, $functionid, $comparison);
     }
 
     /**
-     * Filter the query on the key column
+     * Filter the query on the keyid column
      *
      * Example usage:
      * <code>
-     * $query->filterByKey('fooValue');   // WHERE key = 'fooValue'
-     * $query->filterByKey('%fooValue%', Criteria::LIKE); // WHERE key LIKE '%fooValue%'
+     * $query->filterByKeyid('fooValue');   // WHERE keyid = 'fooValue'
+     * $query->filterByKeyid('%fooValue%', Criteria::LIKE); // WHERE keyid LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $key The value to use as filter.
+     * @param     string $keyid The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildLockRecordQuery The current query, for fluid interface
      */
-    public function filterByKey($key = null, $comparison = null)
+    public function filterByKeyid($keyid = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($key)) {
+            if (is_array($keyid)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(LockRecordTableMap::COL_KEY, $key, $comparison);
+        return $this->addUsingAlias(LockRecordTableMap::COL_KEYID, $keyid, $comparison);
     }
 
     /**
@@ -338,8 +338,8 @@ abstract class LockRecordQuery extends ModelCriteria
     public function prune($lockRecord = null)
     {
         if ($lockRecord) {
-            $this->addCond('pruneCond0', $this->getAliasedColName(LockRecordTableMap::COL_FUNCTION), $lockRecord->getFunction(), Criteria::NOT_EQUAL);
-            $this->addCond('pruneCond1', $this->getAliasedColName(LockRecordTableMap::COL_KEY), $lockRecord->getKey(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond0', $this->getAliasedColName(LockRecordTableMap::COL_FUNCTIONID), $lockRecord->getFunctionid(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond1', $this->getAliasedColName(LockRecordTableMap::COL_KEYID), $lockRecord->getKeyid(), Criteria::NOT_EQUAL);
             $this->combine(array('pruneCond0', 'pruneCond1'), Criteria::LOGICAL_OR);
         }
 

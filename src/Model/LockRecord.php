@@ -2,6 +2,9 @@
 
 use Base\LockRecord as BaseLockRecord;
 
+use Dpluso\Model\ThrowErrorTrait;
+use Dpluso\Model\MagicMethodTraits;
+
 /**
  * Skeleton subclass for representing a row from the 'lockrecord' table.
  *
@@ -12,7 +15,16 @@ use Base\LockRecord as BaseLockRecord;
  * long as it does not already exist in the output directory.
  *
  */
-class LockRecord extends BaseLockRecord
-{
+class LockRecord extends BaseLockRecord {
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
 
+	/**
+	 * Aliases for Class Properties
+	 * @var array
+	 */
+	const COLUMN_ALIASES = array(
+		'function'  => 'functionid',
+		'key'       => 'keyid'
+	);
 }

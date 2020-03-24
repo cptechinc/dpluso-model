@@ -948,8 +948,8 @@
     </vendor>
   </table>
   <table name="lockrecord" idMethod="native" phpName="LockRecord">
-    <column name="function" phpName="Function" type="VARCHAR" size="25" primaryKey="true" required="true"/>
-    <column name="key" phpName="Key" type="VARCHAR" size="25" primaryKey="true" required="true"/>
+    <column name="functionid" phpName="Functionid" type="VARCHAR" size="25" primaryKey="true" required="true"/>
+    <column name="keyid" phpName="Keyid" type="VARCHAR" size="25" primaryKey="true" required="true"/>
     <column name="userid" phpName="Userid" type="VARCHAR" size="45" required="true"/>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
