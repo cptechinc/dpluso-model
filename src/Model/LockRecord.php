@@ -6,18 +6,15 @@ use Dpluso\Model\ThrowErrorTrait;
 use Dpluso\Model\MagicMethodTraits;
 
 /**
- * Skeleton subclass for representing a row from the 'lockrecord' table.
- *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
- *
+ * Class for representing a row from the 'lockrecord' table.
+ * KEY: functionid, keyid
+ * NOTE: Keyid is case-sensitive
  */
 class LockRecord extends BaseLockRecord {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
+
+	const DATE_FORMAT = 'Y-m-d H:i:s';
 
 	/**
 	 * Aliases for Class Properties
@@ -25,6 +22,7 @@ class LockRecord extends BaseLockRecord {
 	 */
 	const COLUMN_ALIASES = array(
 		'function'  => 'functionid',
-		'key'       => 'keyid'
+		'key'       => 'keyid',
+		'date'      => 'lockdate'
 	);
 }

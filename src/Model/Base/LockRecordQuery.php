@@ -22,10 +22,12 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildLockRecordQuery orderByFunctionid($order = Criteria::ASC) Order by the functionid column
  * @method     ChildLockRecordQuery orderByKeyid($order = Criteria::ASC) Order by the keyid column
  * @method     ChildLockRecordQuery orderByUserid($order = Criteria::ASC) Order by the userid column
+ * @method     ChildLockRecordQuery orderByLockdate($order = Criteria::ASC) Order by the lockdate column
  *
  * @method     ChildLockRecordQuery groupByFunctionid() Group by the functionid column
  * @method     ChildLockRecordQuery groupByKeyid() Group by the keyid column
  * @method     ChildLockRecordQuery groupByUserid() Group by the userid column
+ * @method     ChildLockRecordQuery groupByLockdate() Group by the lockdate column
  *
  * @method     ChildLockRecordQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
  * @method     ChildLockRecordQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
@@ -40,7 +42,8 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     ChildLockRecord findOneByFunctionid(string $functionid) Return the first ChildLockRecord filtered by the functionid column
  * @method     ChildLockRecord findOneByKeyid(string $keyid) Return the first ChildLockRecord filtered by the keyid column
- * @method     ChildLockRecord findOneByUserid(string $userid) Return the first ChildLockRecord filtered by the userid column *
+ * @method     ChildLockRecord findOneByUserid(string $userid) Return the first ChildLockRecord filtered by the userid column
+ * @method     ChildLockRecord findOneByLockdate(string $lockdate) Return the first ChildLockRecord filtered by the lockdate column *
 
  * @method     ChildLockRecord requirePk($key, ConnectionInterface $con = null) Return the ChildLockRecord by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildLockRecord requireOne(ConnectionInterface $con = null) Return the first ChildLockRecord matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -48,11 +51,13 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildLockRecord requireOneByFunctionid(string $functionid) Return the first ChildLockRecord filtered by the functionid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildLockRecord requireOneByKeyid(string $keyid) Return the first ChildLockRecord filtered by the keyid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildLockRecord requireOneByUserid(string $userid) Return the first ChildLockRecord filtered by the userid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildLockRecord requireOneByLockdate(string $lockdate) Return the first ChildLockRecord filtered by the lockdate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildLockRecord[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildLockRecord objects based on current ModelCriteria
  * @method     ChildLockRecord[]|ObjectCollection findByFunctionid(string $functionid) Return ChildLockRecord objects filtered by the functionid column
  * @method     ChildLockRecord[]|ObjectCollection findByKeyid(string $keyid) Return ChildLockRecord objects filtered by the keyid column
  * @method     ChildLockRecord[]|ObjectCollection findByUserid(string $userid) Return ChildLockRecord objects filtered by the userid column
+ * @method     ChildLockRecord[]|ObjectCollection findByLockdate(string $lockdate) Return ChildLockRecord objects filtered by the lockdate column
  * @method     ChildLockRecord[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  *
  */
@@ -151,7 +156,7 @@ abstract class LockRecordQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT functionid, keyid, userid FROM lockrecord WHERE functionid = :p0 AND keyid = :p1';
+        $sql = 'SELECT functionid, keyid, userid, lockdate FROM lockrecord WHERE functionid = :p0 AND keyid = :p1';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -326,6 +331,49 @@ abstract class LockRecordQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(LockRecordTableMap::COL_USERID, $userid, $comparison);
+    }
+
+    /**
+     * Filter the query on the lockdate column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByLockdate('2011-03-14'); // WHERE lockdate = '2011-03-14'
+     * $query->filterByLockdate('now'); // WHERE lockdate = '2011-03-14'
+     * $query->filterByLockdate(array('max' => 'yesterday')); // WHERE lockdate > '2011-03-13'
+     * </code>
+     *
+     * @param     mixed $lockdate The value to use as filter.
+     *              Values can be integers (unix timestamps), DateTime objects, or strings.
+     *              Empty strings are treated as NULL.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildLockRecordQuery The current query, for fluid interface
+     */
+    public function filterByLockdate($lockdate = null, $comparison = null)
+    {
+        if (is_array($lockdate)) {
+            $useMinMax = false;
+            if (isset($lockdate['min'])) {
+                $this->addUsingAlias(LockRecordTableMap::COL_LOCKDATE, $lockdate['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($lockdate['max'])) {
+                $this->addUsingAlias(LockRecordTableMap::COL_LOCKDATE, $lockdate['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(LockRecordTableMap::COL_LOCKDATE, $lockdate, $comparison);
     }
 
     /**

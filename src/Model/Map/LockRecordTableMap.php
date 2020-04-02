@@ -59,7 +59,7 @@ class LockRecordTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 3;
+    const NUM_COLUMNS = 4;
 
     /**
      * The number of lazy-loaded columns
@@ -69,7 +69,7 @@ class LockRecordTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 3;
+    const NUM_HYDRATE_COLUMNS = 4;
 
     /**
      * the column name for the functionid field
@@ -87,6 +87,11 @@ class LockRecordTableMap extends TableMap
     const COL_USERID = 'lockrecord.userid';
 
     /**
+     * the column name for the lockdate field
+     */
+    const COL_LOCKDATE = 'lockrecord.lockdate';
+
+    /**
      * The default string format for model objects of the related table
      */
     const DEFAULT_STRING_FORMAT = 'YAML';
@@ -98,11 +103,11 @@ class LockRecordTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Functionid', 'Keyid', 'Userid', ),
-        self::TYPE_CAMELNAME     => array('functionid', 'keyid', 'userid', ),
-        self::TYPE_COLNAME       => array(LockRecordTableMap::COL_FUNCTIONID, LockRecordTableMap::COL_KEYID, LockRecordTableMap::COL_USERID, ),
-        self::TYPE_FIELDNAME     => array('functionid', 'keyid', 'userid', ),
-        self::TYPE_NUM           => array(0, 1, 2, )
+        self::TYPE_PHPNAME       => array('Functionid', 'Keyid', 'Userid', 'Lockdate', ),
+        self::TYPE_CAMELNAME     => array('functionid', 'keyid', 'userid', 'lockdate', ),
+        self::TYPE_COLNAME       => array(LockRecordTableMap::COL_FUNCTIONID, LockRecordTableMap::COL_KEYID, LockRecordTableMap::COL_USERID, LockRecordTableMap::COL_LOCKDATE, ),
+        self::TYPE_FIELDNAME     => array('functionid', 'keyid', 'userid', 'lockdate', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, )
     );
 
     /**
@@ -112,11 +117,11 @@ class LockRecordTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Functionid' => 0, 'Keyid' => 1, 'Userid' => 2, ),
-        self::TYPE_CAMELNAME     => array('functionid' => 0, 'keyid' => 1, 'userid' => 2, ),
-        self::TYPE_COLNAME       => array(LockRecordTableMap::COL_FUNCTIONID => 0, LockRecordTableMap::COL_KEYID => 1, LockRecordTableMap::COL_USERID => 2, ),
-        self::TYPE_FIELDNAME     => array('functionid' => 0, 'keyid' => 1, 'userid' => 2, ),
-        self::TYPE_NUM           => array(0, 1, 2, )
+        self::TYPE_PHPNAME       => array('Functionid' => 0, 'Keyid' => 1, 'Userid' => 2, 'Lockdate' => 3, ),
+        self::TYPE_CAMELNAME     => array('functionid' => 0, 'keyid' => 1, 'userid' => 2, 'lockdate' => 3, ),
+        self::TYPE_COLNAME       => array(LockRecordTableMap::COL_FUNCTIONID => 0, LockRecordTableMap::COL_KEYID => 1, LockRecordTableMap::COL_USERID => 2, LockRecordTableMap::COL_LOCKDATE => 3, ),
+        self::TYPE_FIELDNAME     => array('functionid' => 0, 'keyid' => 1, 'userid' => 2, 'lockdate' => 3, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, )
     );
 
     /**
@@ -138,7 +143,8 @@ class LockRecordTableMap extends TableMap
         // columns
         $this->addPrimaryKey('functionid', 'Functionid', 'VARCHAR', true, 25, null);
         $this->addPrimaryKey('keyid', 'Keyid', 'VARCHAR', true, 25, null);
-        $this->addColumn('userid', 'Userid', 'VARCHAR', true, 45, null);
+        $this->addColumn('userid', 'Userid', 'VARCHAR', false, 45, null);
+        $this->addColumn('lockdate', 'Lockdate', 'TIMESTAMP', false, null, null);
     } // initialize()
 
     /**
@@ -354,10 +360,12 @@ class LockRecordTableMap extends TableMap
             $criteria->addSelectColumn(LockRecordTableMap::COL_FUNCTIONID);
             $criteria->addSelectColumn(LockRecordTableMap::COL_KEYID);
             $criteria->addSelectColumn(LockRecordTableMap::COL_USERID);
+            $criteria->addSelectColumn(LockRecordTableMap::COL_LOCKDATE);
         } else {
             $criteria->addSelectColumn($alias . '.functionid');
             $criteria->addSelectColumn($alias . '.keyid');
             $criteria->addSelectColumn($alias . '.userid');
+            $criteria->addSelectColumn($alias . '.lockdate');
         }
     }
 

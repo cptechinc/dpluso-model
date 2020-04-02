@@ -3,6 +3,7 @@
 namespace Base;
 
 use \LockRecordQuery as ChildLockRecordQuery;
+use \DateTime;
 use \Exception;
 use \PDO;
 use Map\LockRecordTableMap;
@@ -17,6 +18,7 @@ use Propel\Runtime\Exception\LogicException;
 use Propel\Runtime\Exception\PropelException;
 use Propel\Runtime\Map\TableMap;
 use Propel\Runtime\Parser\AbstractParser;
+use Propel\Runtime\Util\PropelDateTime;
 
 /**
  * Base class that represents a row from the 'lockrecord' table.
@@ -79,6 +81,13 @@ abstract class LockRecord implements ActiveRecordInterface
      * @var        string
      */
     protected $userid;
+
+    /**
+     * The value for the lockdate field.
+     *
+     * @var        DateTime
+     */
+    protected $lockdate;
 
     /**
      * Flag to prevent endless save loop, if this object is referenced
@@ -344,6 +353,26 @@ abstract class LockRecord implements ActiveRecordInterface
     }
 
     /**
+     * Get the [optionally formatted] temporal [lockdate] column value.
+     *
+     *
+     * @param      string|null $format The date/time format string (either date()-style or strftime()-style).
+     *                            If format is NULL, then the raw DateTime object will be returned.
+     *
+     * @return string|DateTime Formatted date/time value as string or DateTime object (if format is NULL), NULL if column is NULL, and 0 if column value is 0000-00-00 00:00:00
+     *
+     * @throws PropelException - if unable to parse/validate the date/time value.
+     */
+    public function getLockdate($format = NULL)
+    {
+        if ($format === null) {
+            return $this->lockdate;
+        } else {
+            return $this->lockdate instanceof \DateTimeInterface ? $this->lockdate->format($format) : null;
+        }
+    }
+
+    /**
      * Set the value of [functionid] column.
      *
      * @param string $v new value
@@ -404,6 +433,26 @@ abstract class LockRecord implements ActiveRecordInterface
     } // setUserid()
 
     /**
+     * Sets the value of [lockdate] column to a normalized version of the date/time value specified.
+     *
+     * @param  mixed $v string, integer (timestamp), or \DateTimeInterface value.
+     *               Empty strings are treated as NULL.
+     * @return $this|\LockRecord The current object (for fluent API support)
+     */
+    public function setLockdate($v)
+    {
+        $dt = PropelDateTime::newInstance($v, null, 'DateTime');
+        if ($this->lockdate !== null || $dt !== null) {
+            if ($this->lockdate === null || $dt === null || $dt->format("Y-m-d H:i:s.u") !== $this->lockdate->format("Y-m-d H:i:s.u")) {
+                $this->lockdate = $dt === null ? null : clone $dt;
+                $this->modifiedColumns[LockRecordTableMap::COL_LOCKDATE] = true;
+            }
+        } // if either are not null
+
+        return $this;
+    } // setLockdate()
+
+    /**
      * Indicates whether the columns in this object are only set to default values.
      *
      * This method can be used in conjunction with isModified() to indicate whether an object is both
@@ -447,6 +496,12 @@ abstract class LockRecord implements ActiveRecordInterface
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : LockRecordTableMap::translateFieldName('Userid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->userid = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : LockRecordTableMap::translateFieldName('Lockdate', TableMap::TYPE_PHPNAME, $indexType)];
+            if ($col === '0000-00-00 00:00:00') {
+                $col = null;
+            }
+            $this->lockdate = (null !== $col) ? PropelDateTime::newInstance($col, null, 'DateTime') : null;
             $this->resetModified();
 
             $this->setNew(false);
@@ -455,7 +510,7 @@ abstract class LockRecord implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 3; // 3 = LockRecordTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 4; // 4 = LockRecordTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\LockRecord'), 0, $e);
@@ -661,6 +716,9 @@ abstract class LockRecord implements ActiveRecordInterface
         if ($this->isColumnModified(LockRecordTableMap::COL_USERID)) {
             $modifiedColumns[':p' . $index++]  = 'userid';
         }
+        if ($this->isColumnModified(LockRecordTableMap::COL_LOCKDATE)) {
+            $modifiedColumns[':p' . $index++]  = 'lockdate';
+        }
 
         $sql = sprintf(
             'INSERT INTO lockrecord (%s) VALUES (%s)',
@@ -680,6 +738,9 @@ abstract class LockRecord implements ActiveRecordInterface
                         break;
                     case 'userid':
                         $stmt->bindValue($identifier, $this->userid, PDO::PARAM_STR);
+                        break;
+                    case 'lockdate':
+                        $stmt->bindValue($identifier, $this->lockdate ? $this->lockdate->format("Y-m-d H:i:s.u") : null, PDO::PARAM_STR);
                         break;
                 }
             }
@@ -745,6 +806,9 @@ abstract class LockRecord implements ActiveRecordInterface
             case 2:
                 return $this->getUserid();
                 break;
+            case 3:
+                return $this->getLockdate();
+                break;
             default:
                 return null;
                 break;
@@ -777,7 +841,12 @@ abstract class LockRecord implements ActiveRecordInterface
             $keys[0] => $this->getFunctionid(),
             $keys[1] => $this->getKeyid(),
             $keys[2] => $this->getUserid(),
+            $keys[3] => $this->getLockdate(),
         );
+        if ($result[$keys[3]] instanceof \DateTimeInterface) {
+            $result[$keys[3]] = $result[$keys[3]]->format('c');
+        }
+
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
             $result[$key] = $virtualColumn;
@@ -825,6 +894,9 @@ abstract class LockRecord implements ActiveRecordInterface
             case 2:
                 $this->setUserid($value);
                 break;
+            case 3:
+                $this->setLockdate($value);
+                break;
         } // switch()
 
         return $this;
@@ -859,6 +931,9 @@ abstract class LockRecord implements ActiveRecordInterface
         }
         if (array_key_exists($keys[2], $arr)) {
             $this->setUserid($arr[$keys[2]]);
+        }
+        if (array_key_exists($keys[3], $arr)) {
+            $this->setLockdate($arr[$keys[3]]);
         }
     }
 
@@ -909,6 +984,9 @@ abstract class LockRecord implements ActiveRecordInterface
         }
         if ($this->isColumnModified(LockRecordTableMap::COL_USERID)) {
             $criteria->add(LockRecordTableMap::COL_USERID, $this->userid);
+        }
+        if ($this->isColumnModified(LockRecordTableMap::COL_LOCKDATE)) {
+            $criteria->add(LockRecordTableMap::COL_LOCKDATE, $this->lockdate);
         }
 
         return $criteria;
@@ -1007,6 +1085,7 @@ abstract class LockRecord implements ActiveRecordInterface
         $copyObj->setFunctionid($this->getFunctionid());
         $copyObj->setKeyid($this->getKeyid());
         $copyObj->setUserid($this->getUserid());
+        $copyObj->setLockdate($this->getLockdate());
         if ($makeNew) {
             $copyObj->setNew(true);
         }
@@ -1044,6 +1123,7 @@ abstract class LockRecord implements ActiveRecordInterface
         $this->functionid = null;
         $this->keyid = null;
         $this->userid = null;
+        $this->lockdate = null;
         $this->alreadyInSave = false;
         $this->clearAllReferences();
         $this->resetModified();
