@@ -21,6 +21,8 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     ChildBarcodesQuery orderByBarcodenbr($order = Criteria::ASC) Order by the barcodenbr column
  * @method     ChildBarcodesQuery orderByItemid($order = Criteria::ASC) Order by the itemid column
+ * @method     ChildBarcodesQuery orderByCustvend($order = Criteria::ASC) Order by the custvend column
+ * @method     ChildBarcodesQuery orderBySource($order = Criteria::ASC) Order by the source column
  * @method     ChildBarcodesQuery orderByPrimary($order = Criteria::ASC) Order by the primary column
  * @method     ChildBarcodesQuery orderByUnitqty($order = Criteria::ASC) Order by the unitqty column
  * @method     ChildBarcodesQuery orderByUom($order = Criteria::ASC) Order by the uom column
@@ -28,6 +30,8 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     ChildBarcodesQuery groupByBarcodenbr() Group by the barcodenbr column
  * @method     ChildBarcodesQuery groupByItemid() Group by the itemid column
+ * @method     ChildBarcodesQuery groupByCustvend() Group by the custvend column
+ * @method     ChildBarcodesQuery groupBySource() Group by the source column
  * @method     ChildBarcodesQuery groupByPrimary() Group by the primary column
  * @method     ChildBarcodesQuery groupByUnitqty() Group by the unitqty column
  * @method     ChildBarcodesQuery groupByUom() Group by the uom column
@@ -46,6 +50,8 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     ChildBarcodes findOneByBarcodenbr(string $barcodenbr) Return the first ChildBarcodes filtered by the barcodenbr column
  * @method     ChildBarcodes findOneByItemid(string $itemid) Return the first ChildBarcodes filtered by the itemid column
+ * @method     ChildBarcodes findOneByCustvend(string $custvend) Return the first ChildBarcodes filtered by the custvend column
+ * @method     ChildBarcodes findOneBySource(string $source) Return the first ChildBarcodes filtered by the source column
  * @method     ChildBarcodes findOneByPrimary(string $primary) Return the first ChildBarcodes filtered by the primary column
  * @method     ChildBarcodes findOneByUnitqty(int $unitqty) Return the first ChildBarcodes filtered by the unitqty column
  * @method     ChildBarcodes findOneByUom(string $uom) Return the first ChildBarcodes filtered by the uom column
@@ -56,6 +62,8 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     ChildBarcodes requireOneByBarcodenbr(string $barcodenbr) Return the first ChildBarcodes filtered by the barcodenbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildBarcodes requireOneByItemid(string $itemid) Return the first ChildBarcodes filtered by the itemid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildBarcodes requireOneByCustvend(string $custvend) Return the first ChildBarcodes filtered by the custvend column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildBarcodes requireOneBySource(string $source) Return the first ChildBarcodes filtered by the source column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildBarcodes requireOneByPrimary(string $primary) Return the first ChildBarcodes filtered by the primary column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildBarcodes requireOneByUnitqty(int $unitqty) Return the first ChildBarcodes filtered by the unitqty column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildBarcodes requireOneByUom(string $uom) Return the first ChildBarcodes filtered by the uom column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -64,6 +72,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildBarcodes[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildBarcodes objects based on current ModelCriteria
  * @method     ChildBarcodes[]|ObjectCollection findByBarcodenbr(string $barcodenbr) Return ChildBarcodes objects filtered by the barcodenbr column
  * @method     ChildBarcodes[]|ObjectCollection findByItemid(string $itemid) Return ChildBarcodes objects filtered by the itemid column
+ * @method     ChildBarcodes[]|ObjectCollection findByCustvend(string $custvend) Return ChildBarcodes objects filtered by the custvend column
+ * @method     ChildBarcodes[]|ObjectCollection findBySource(string $source) Return ChildBarcodes objects filtered by the source column
  * @method     ChildBarcodes[]|ObjectCollection findByPrimary(string $primary) Return ChildBarcodes objects filtered by the primary column
  * @method     ChildBarcodes[]|ObjectCollection findByUnitqty(int $unitqty) Return ChildBarcodes objects filtered by the unitqty column
  * @method     ChildBarcodes[]|ObjectCollection findByUom(string $uom) Return ChildBarcodes objects filtered by the uom column
@@ -117,10 +127,10 @@ abstract class BarcodesQuery extends ModelCriteria
      * Go fast if the query is untouched.
      *
      * <code>
-     * $obj = $c->findPk(array(12, 34), $con);
+     * $obj = $c->findPk(array(12, 34, 56), $con);
      * </code>
      *
-     * @param array[$barcodenbr, $itemid] $key Primary key to use for the query
+     * @param array[$barcodenbr, $itemid, $custvend] $key Primary key to use for the query
      * @param ConnectionInterface $con an optional connection object
      *
      * @return ChildBarcodes|array|mixed the result, formatted by the current formatter
@@ -145,7 +155,7 @@ abstract class BarcodesQuery extends ModelCriteria
             return $this->findPkComplex($key, $con);
         }
 
-        if ((null !== ($obj = BarcodesTableMap::getInstanceFromPool(serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]))))) {
+        if ((null !== ($obj = BarcodesTableMap::getInstanceFromPool(serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2])]))))) {
             // the object is already in the instance pool
             return $obj;
         }
@@ -166,11 +176,12 @@ abstract class BarcodesQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT barcodenbr, itemid, primary, unitqty, uom, dummy FROM barcodes WHERE barcodenbr = :p0 AND itemid = :p1';
+        $sql = 'SELECT barcodenbr, itemid, custvend, source, primary, unitqty, uom, dummy FROM barcodes WHERE barcodenbr = :p0 AND itemid = :p1 AND custvend = :p2';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
             $stmt->bindValue(':p1', $key[1], PDO::PARAM_STR);
+            $stmt->bindValue(':p2', $key[2], PDO::PARAM_STR);
             $stmt->execute();
         } catch (Exception $e) {
             Propel::log($e->getMessage(), Propel::LOG_ERR);
@@ -181,7 +192,7 @@ abstract class BarcodesQuery extends ModelCriteria
             /** @var ChildBarcodes $obj */
             $obj = new ChildBarcodes();
             $obj->hydrate($row);
-            BarcodesTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]));
+            BarcodesTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2])]));
         }
         $stmt->closeCursor();
 
@@ -242,6 +253,7 @@ abstract class BarcodesQuery extends ModelCriteria
     {
         $this->addUsingAlias(BarcodesTableMap::COL_BARCODENBR, $key[0], Criteria::EQUAL);
         $this->addUsingAlias(BarcodesTableMap::COL_ITEMID, $key[1], Criteria::EQUAL);
+        $this->addUsingAlias(BarcodesTableMap::COL_CUSTVEND, $key[2], Criteria::EQUAL);
 
         return $this;
     }
@@ -262,6 +274,8 @@ abstract class BarcodesQuery extends ModelCriteria
             $cton0 = $this->getNewCriterion(BarcodesTableMap::COL_BARCODENBR, $key[0], Criteria::EQUAL);
             $cton1 = $this->getNewCriterion(BarcodesTableMap::COL_ITEMID, $key[1], Criteria::EQUAL);
             $cton0->addAnd($cton1);
+            $cton2 = $this->getNewCriterion(BarcodesTableMap::COL_CUSTVEND, $key[2], Criteria::EQUAL);
+            $cton0->addAnd($cton2);
             $this->addOr($cton0);
         }
 
@@ -316,6 +330,56 @@ abstract class BarcodesQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(BarcodesTableMap::COL_ITEMID, $itemid, $comparison);
+    }
+
+    /**
+     * Filter the query on the custvend column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByCustvend('fooValue');   // WHERE custvend = 'fooValue'
+     * $query->filterByCustvend('%fooValue%', Criteria::LIKE); // WHERE custvend LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $custvend The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildBarcodesQuery The current query, for fluid interface
+     */
+    public function filterByCustvend($custvend = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($custvend)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(BarcodesTableMap::COL_CUSTVEND, $custvend, $comparison);
+    }
+
+    /**
+     * Filter the query on the source column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterBySource('fooValue');   // WHERE source = 'fooValue'
+     * $query->filterBySource('%fooValue%', Criteria::LIKE); // WHERE source LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $source The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildBarcodesQuery The current query, for fluid interface
+     */
+    public function filterBySource($source = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($source)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(BarcodesTableMap::COL_SOURCE, $source, $comparison);
     }
 
     /**
@@ -446,7 +510,8 @@ abstract class BarcodesQuery extends ModelCriteria
         if ($barcodes) {
             $this->addCond('pruneCond0', $this->getAliasedColName(BarcodesTableMap::COL_BARCODENBR), $barcodes->getBarcodenbr(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(BarcodesTableMap::COL_ITEMID), $barcodes->getItemid(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1'), Criteria::LOGICAL_OR);
+            $this->addCond('pruneCond2', $this->getAliasedColName(BarcodesTableMap::COL_CUSTVEND), $barcodes->getCustvend(), Criteria::NOT_EQUAL);
+            $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2'), Criteria::LOGICAL_OR);
         }
 
         return $this;

@@ -2,10 +2,10 @@
 
 namespace Base;
 
-use \WhseitempackQuery as ChildWhseitempackQuery;
+use \ShipviaQuery as ChildShipviaQuery;
 use \Exception;
 use \PDO;
-use Map\WhseitempackTableMap;
+use Map\ShipviaTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -19,18 +19,18 @@ use Propel\Runtime\Map\TableMap;
 use Propel\Runtime\Parser\AbstractParser;
 
 /**
- * Base class that represents a row from the 'whseitempack' table.
+ * Base class that represents a row from the 'shipvia' table.
  *
  *
  *
  * @package    propel.generator..Base
  */
-abstract class Whseitempack implements ActiveRecordInterface
+abstract class Shipvia implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\Map\\WhseitempackTableMap';
+    const TABLE_MAP = '\\Map\\ShipviaTableMap';
 
 
     /**
@@ -67,53 +67,46 @@ abstract class Whseitempack implements ActiveRecordInterface
     protected $sessionid;
 
     /**
-     * The value for the ordn field.
-     *
-     * @var        string
-     */
-    protected $ordn;
-
-    /**
-     * The value for the linenumber field.
+     * The value for the recno field.
      *
      * @var        int
      */
-    protected $linenumber;
+    protected $recno;
 
     /**
-     * The value for the carton field.
-     *
-     * @var        int
-     */
-    protected $carton;
-
-    /**
-     * The value for the recordnumber field.
-     *
-     * @var        int
-     */
-    protected $recordnumber;
-
-    /**
-     * The value for the itemid field.
+     * The value for the date field.
      *
      * @var        string
      */
-    protected $itemid;
+    protected $date;
 
     /**
-     * The value for the lotserial field.
+     * The value for the time field.
      *
      * @var        string
      */
-    protected $lotserial;
+    protected $time;
 
     /**
-     * The value for the qty field.
+     * The value for the code field.
      *
      * @var        string
      */
-    protected $qty;
+    protected $code;
+
+    /**
+     * The value for the via field.
+     *
+     * @var        string
+     */
+    protected $via;
+
+    /**
+     * The value for the dummy field.
+     *
+     * @var        string
+     */
+    protected $dummy;
 
     /**
      * Flag to prevent endless save loop, if this object is referenced
@@ -124,7 +117,7 @@ abstract class Whseitempack implements ActiveRecordInterface
     protected $alreadyInSave = false;
 
     /**
-     * Initializes internal state of Base\Whseitempack object.
+     * Initializes internal state of Base\Shipvia object.
      */
     public function __construct()
     {
@@ -219,9 +212,9 @@ abstract class Whseitempack implements ActiveRecordInterface
     }
 
     /**
-     * Compares this with another <code>Whseitempack</code> instance.  If
-     * <code>obj</code> is an instance of <code>Whseitempack</code>, delegates to
-     * <code>equals(Whseitempack)</code>.  Otherwise, returns <code>false</code>.
+     * Compares this with another <code>Shipvia</code> instance.  If
+     * <code>obj</code> is an instance of <code>Shipvia</code>, delegates to
+     * <code>equals(Shipvia)</code>.  Otherwise, returns <code>false</code>.
      *
      * @param  mixed   $obj The object to compare to.
      * @return boolean Whether equal to the object specified.
@@ -287,7 +280,7 @@ abstract class Whseitempack implements ActiveRecordInterface
      * @param string $name  The virtual column name
      * @param mixed  $value The value to give to the virtual column
      *
-     * @return $this|Whseitempack The current object, for fluid interface
+     * @return $this|Shipvia The current object, for fluid interface
      */
     public function setVirtualColumn($name, $value)
     {
@@ -359,80 +352,70 @@ abstract class Whseitempack implements ActiveRecordInterface
     }
 
     /**
-     * Get the [ordn] column value.
-     *
-     * @return string
-     */
-    public function getOrdn()
-    {
-        return $this->ordn;
-    }
-
-    /**
-     * Get the [linenumber] column value.
+     * Get the [recno] column value.
      *
      * @return int
      */
-    public function getLinenumber()
+    public function getRecno()
     {
-        return $this->linenumber;
+        return $this->recno;
     }
 
     /**
-     * Get the [carton] column value.
-     *
-     * @return int
-     */
-    public function getCarton()
-    {
-        return $this->carton;
-    }
-
-    /**
-     * Get the [recordnumber] column value.
-     *
-     * @return int
-     */
-    public function getRecordnumber()
-    {
-        return $this->recordnumber;
-    }
-
-    /**
-     * Get the [itemid] column value.
+     * Get the [date] column value.
      *
      * @return string
      */
-    public function getItemid()
+    public function getDate()
     {
-        return $this->itemid;
+        return $this->date;
     }
 
     /**
-     * Get the [lotserial] column value.
+     * Get the [time] column value.
      *
      * @return string
      */
-    public function getLotserial()
+    public function getTime()
     {
-        return $this->lotserial;
+        return $this->time;
     }
 
     /**
-     * Get the [qty] column value.
+     * Get the [code] column value.
      *
      * @return string
      */
-    public function getQty()
+    public function getCode()
     {
-        return $this->qty;
+        return $this->code;
+    }
+
+    /**
+     * Get the [via] column value.
+     *
+     * @return string
+     */
+    public function getVia()
+    {
+        return $this->via;
+    }
+
+    /**
+     * Get the [dummy] column value.
+     *
+     * @return string
+     */
+    public function getDummy()
+    {
+        return $this->dummy;
     }
 
     /**
      * Set the value of [sessionid] column.
      *
      * @param string $v new value
-     * @return $this|\Whseitempack The current object (for fluent API support)
+     * @return $this|\Shipvia The current object (for fluent API support)
      */
     public function setSessionid($v)
     {
@@ -442,151 +425,131 @@ abstract class Whseitempack implements ActiveRecordInterface
 
         if ($this->sessionid !== $v) {
             $this->sessionid = $v;
-            $this->modifiedColumns[WhseitempackTableMap::COL_SESSIONID] = true;
+            $this->modifiedColumns[ShipviaTableMap::COL_SESSIONID] = true;
         }
 
         return $this;
     } // setSessionid()
 
     /**
-     * Set the value of [ordn] column.
-     *
-     * @param string $v new value
-     * @return $this|\Whseitempack The current object (for fluent API support)
-     */
-    public function setOrdn($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->ordn !== $v) {
-            $this->ordn = $v;
-            $this->modifiedColumns[WhseitempackTableMap::COL_ORDN] = true;
-        }
-
-        return $this;
-    } // setOrdn()
-
-    /**
-     * Set the value of [linenumber] column.
+     * Set the value of [recno] column.
      *
      * @param int $v new value
-     * @return $this|\Whseitempack The current object (for fluent API support)
+     * @return $this|\Shipvia The current object (for fluent API support)
      */
-    public function setLinenumber($v)
+    public function setRecno($v)
     {
         if ($v !== null) {
             $v = (int) $v;
         }
 
-        if ($this->linenumber !== $v) {
-            $this->linenumber = $v;
-            $this->modifiedColumns[WhseitempackTableMap::COL_LINENUMBER] = true;
+        if ($this->recno !== $v) {
+            $this->recno = $v;
+            $this->modifiedColumns[ShipviaTableMap::COL_RECNO] = true;
         }
 
         return $this;
-    } // setLinenumber()
+    } // setRecno()
 
     /**
-     * Set the value of [carton] column.
-     *
-     * @param int $v new value
-     * @return $this|\Whseitempack The current object (for fluent API support)
-     */
-    public function setCarton($v)
-    {
-        if ($v !== null) {
-            $v = (int) $v;
-        }
-
-        if ($this->carton !== $v) {
-            $this->carton = $v;
-            $this->modifiedColumns[WhseitempackTableMap::COL_CARTON] = true;
-        }
-
-        return $this;
-    } // setCarton()
-
-    /**
-     * Set the value of [recordnumber] column.
-     *
-     * @param int $v new value
-     * @return $this|\Whseitempack The current object (for fluent API support)
-     */
-    public function setRecordnumber($v)
-    {
-        if ($v !== null) {
-            $v = (int) $v;
-        }
-
-        if ($this->recordnumber !== $v) {
-            $this->recordnumber = $v;
-            $this->modifiedColumns[WhseitempackTableMap::COL_RECORDNUMBER] = true;
-        }
-
-        return $this;
-    } // setRecordnumber()
-
-    /**
-     * Set the value of [itemid] column.
+     * Set the value of [date] column.
      *
      * @param string $v new value
-     * @return $this|\Whseitempack The current object (for fluent API support)
+     * @return $this|\Shipvia The current object (for fluent API support)
      */
-    public function setItemid($v)
+    public function setDate($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->itemid !== $v) {
-            $this->itemid = $v;
-            $this->modifiedColumns[WhseitempackTableMap::COL_ITEMID] = true;
+        if ($this->date !== $v) {
+            $this->date = $v;
+            $this->modifiedColumns[ShipviaTableMap::COL_DATE] = true;
         }
 
         return $this;
-    } // setItemid()
+    } // setDate()
 
     /**
-     * Set the value of [lotserial] column.
+     * Set the value of [time] column.
      *
      * @param string $v new value
-     * @return $this|\Whseitempack The current object (for fluent API support)
+     * @return $this|\Shipvia The current object (for fluent API support)
      */
-    public function setLotserial($v)
+    public function setTime($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->lotserial !== $v) {
-            $this->lotserial = $v;
-            $this->modifiedColumns[WhseitempackTableMap::COL_LOTSERIAL] = true;
+        if ($this->time !== $v) {
+            $this->time = $v;
+            $this->modifiedColumns[ShipviaTableMap::COL_TIME] = true;
         }
 
         return $this;
-    } // setLotserial()
+    } // setTime()
 
     /**
-     * Set the value of [qty] column.
+     * Set the value of [code] column.
      *
      * @param string $v new value
-     * @return $this|\Whseitempack The current object (for fluent API support)
+     * @return $this|\Shipvia The current object (for fluent API support)
      */
-    public function setQty($v)
+    public function setCode($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->qty !== $v) {
-            $this->qty = $v;
-            $this->modifiedColumns[WhseitempackTableMap::COL_QTY] = true;
+        if ($this->code !== $v) {
+            $this->code = $v;
+            $this->modifiedColumns[ShipviaTableMap::COL_CODE] = true;
         }
 
         return $this;
-    } // setQty()
+    } // setCode()
+
+    /**
+     * Set the value of [via] column.
+     *
+     * @param string $v new value
+     * @return $this|\Shipvia The current object (for fluent API support)
+     */
+    public function setVia($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->via !== $v) {
+            $this->via = $v;
+            $this->modifiedColumns[ShipviaTableMap::COL_VIA] = true;
+        }
+
+        return $this;
+    } // setVia()
+
+    /**
+     * Set the value of [dummy] column.
+     *
+     * @param string $v new value
+     * @return $this|\Shipvia The current object (for fluent API support)
+     */
+    public function setDummy($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->dummy !== $v) {
+            $this->dummy = $v;
+            $this->modifiedColumns[ShipviaTableMap::COL_DUMMY] = true;
+        }
+
+        return $this;
+    } // setDummy()
 
     /**
      * Indicates whether the columns in this object are only set to default values.
@@ -624,29 +587,26 @@ abstract class Whseitempack implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : WhseitempackTableMap::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : ShipviaTableMap::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->sessionid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : WhseitempackTableMap::translateFieldName('Ordn', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->ordn = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ShipviaTableMap::translateFieldName('Recno', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->recno = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : WhseitempackTableMap::translateFieldName('Linenumber', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->linenumber = (null !== $col) ? (int) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ShipviaTableMap::translateFieldName('Date', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->date = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : WhseitempackTableMap::translateFieldName('Carton', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->carton = (null !== $col) ? (int) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ShipviaTableMap::translateFieldName('Time', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->time = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : WhseitempackTableMap::translateFieldName('Recordnumber', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->recordnumber = (null !== $col) ? (int) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ShipviaTableMap::translateFieldName('Code', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->code = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : WhseitempackTableMap::translateFieldName('Itemid', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->itemid = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : ShipviaTableMap::translateFieldName('Via', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->via = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : WhseitempackTableMap::translateFieldName('Lotserial', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->lotserial = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : WhseitempackTableMap::translateFieldName('Qty', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->qty = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : ShipviaTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
             $this->setNew(false);
@@ -655,10 +615,10 @@ abstract class Whseitempack implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 8; // 8 = WhseitempackTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 7; // 7 = ShipviaTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\Whseitempack'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\Shipvia'), 0, $e);
         }
     }
 
@@ -700,13 +660,13 @@ abstract class Whseitempack implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(WhseitempackTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(ShipviaTableMap::DATABASE_NAME);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $dataFetcher = ChildWhseitempackQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
+        $dataFetcher = ChildShipviaQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
         $row = $dataFetcher->fetch();
         $dataFetcher->close();
         if (!$row) {
@@ -725,8 +685,8 @@ abstract class Whseitempack implements ActiveRecordInterface
      * @param      ConnectionInterface $con
      * @return void
      * @throws PropelException
-     * @see Whseitempack::setDeleted()
-     * @see Whseitempack::isDeleted()
+     * @see Shipvia::setDeleted()
+     * @see Shipvia::isDeleted()
      */
     public function delete(ConnectionInterface $con = null)
     {
@@ -735,11 +695,11 @@ abstract class Whseitempack implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(WhseitempackTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ShipviaTableMap::DATABASE_NAME);
         }
 
         $con->transaction(function () use ($con) {
-            $deleteQuery = ChildWhseitempackQuery::create()
+            $deleteQuery = ChildShipviaQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             if ($ret) {
@@ -774,7 +734,7 @@ abstract class Whseitempack implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(WhseitempackTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ShipviaTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
@@ -793,7 +753,7 @@ abstract class Whseitempack implements ActiveRecordInterface
                     $this->postUpdate($con);
                 }
                 $this->postSave($con);
-                WhseitempackTableMap::addInstanceToPool($this);
+                ShipviaTableMap::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -852,33 +812,30 @@ abstract class Whseitempack implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(WhseitempackTableMap::COL_SESSIONID)) {
+        if ($this->isColumnModified(ShipviaTableMap::COL_SESSIONID)) {
             $modifiedColumns[':p' . $index++]  = 'sessionid';
         }
-        if ($this->isColumnModified(WhseitempackTableMap::COL_ORDN)) {
-            $modifiedColumns[':p' . $index++]  = 'ordn';
+        if ($this->isColumnModified(ShipviaTableMap::COL_RECNO)) {
+            $modifiedColumns[':p' . $index++]  = 'recno';
         }
-        if ($this->isColumnModified(WhseitempackTableMap::COL_LINENUMBER)) {
-            $modifiedColumns[':p' . $index++]  = 'linenumber';
+        if ($this->isColumnModified(ShipviaTableMap::COL_DATE)) {
+            $modifiedColumns[':p' . $index++]  = 'date';
         }
-        if ($this->isColumnModified(WhseitempackTableMap::COL_CARTON)) {
-            $modifiedColumns[':p' . $index++]  = 'carton';
+        if ($this->isColumnModified(ShipviaTableMap::COL_TIME)) {
+            $modifiedColumns[':p' . $index++]  = 'time';
         }
-        if ($this->isColumnModified(WhseitempackTableMap::COL_RECORDNUMBER)) {
-            $modifiedColumns[':p' . $index++]  = 'recordnumber';
+        if ($this->isColumnModified(ShipviaTableMap::COL_CODE)) {
+            $modifiedColumns[':p' . $index++]  = 'code';
         }
-        if ($this->isColumnModified(WhseitempackTableMap::COL_ITEMID)) {
-            $modifiedColumns[':p' . $index++]  = 'itemid';
+        if ($this->isColumnModified(ShipviaTableMap::COL_VIA)) {
+            $modifiedColumns[':p' . $index++]  = 'via';
         }
-        if ($this->isColumnModified(WhseitempackTableMap::COL_LOTSERIAL)) {
-            $modifiedColumns[':p' . $index++]  = 'lotserial';
-        }
-        if ($this->isColumnModified(WhseitempackTableMap::COL_QTY)) {
-            $modifiedColumns[':p' . $index++]  = 'qty';
+        if ($this->isColumnModified(ShipviaTableMap::COL_DUMMY)) {
+            $modifiedColumns[':p' . $index++]  = 'dummy';
         }
 
         $sql = sprintf(
-            'INSERT INTO whseitempack (%s) VALUES (%s)',
+            'INSERT INTO shipvia (%s) VALUES (%s)',
             implode(', ', $modifiedColumns),
             implode(', ', array_keys($modifiedColumns))
         );
@@ -890,26 +847,23 @@ abstract class Whseitempack implements ActiveRecordInterface
                     case 'sessionid':
                         $stmt->bindValue($identifier, $this->sessionid, PDO::PARAM_STR);
                         break;
-                    case 'ordn':
-                        $stmt->bindValue($identifier, $this->ordn, PDO::PARAM_STR);
+                    case 'recno':
+                        $stmt->bindValue($identifier, $this->recno, PDO::PARAM_INT);
                         break;
-                    case 'linenumber':
-                        $stmt->bindValue($identifier, $this->linenumber, PDO::PARAM_INT);
+                    case 'date':
+                        $stmt->bindValue($identifier, $this->date, PDO::PARAM_STR);
                         break;
-                    case 'carton':
-                        $stmt->bindValue($identifier, $this->carton, PDO::PARAM_INT);
+                    case 'time':
+                        $stmt->bindValue($identifier, $this->time, PDO::PARAM_STR);
                         break;
-                    case 'recordnumber':
-                        $stmt->bindValue($identifier, $this->recordnumber, PDO::PARAM_INT);
+                    case 'code':
+                        $stmt->bindValue($identifier, $this->code, PDO::PARAM_STR);
                         break;
-                    case 'itemid':
-                        $stmt->bindValue($identifier, $this->itemid, PDO::PARAM_STR);
+                    case 'via':
+                        $stmt->bindValue($identifier, $this->via, PDO::PARAM_STR);
                         break;
-                    case 'lotserial':
-                        $stmt->bindValue($identifier, $this->lotserial, PDO::PARAM_STR);
-                        break;
-                    case 'qty':
-                        $stmt->bindValue($identifier, $this->qty, PDO::PARAM_STR);
+                    case 'dummy':
+                        $stmt->bindValue($identifier, $this->dummy, PDO::PARAM_STR);
                         break;
                 }
             }
@@ -950,7 +904,7 @@ abstract class Whseitempack implements ActiveRecordInterface
      */
     public function getByName($name, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = WhseitempackTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = ShipviaTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -970,25 +924,22 @@ abstract class Whseitempack implements ActiveRecordInterface
                 return $this->getSessionid();
                 break;
             case 1:
-                return $this->getOrdn();
+                return $this->getRecno();
                 break;
             case 2:
-                return $this->getLinenumber();
+                return $this->getDate();
                 break;
             case 3:
-                return $this->getCarton();
+                return $this->getTime();
                 break;
             case 4:
-                return $this->getRecordnumber();
+                return $this->getCode();
                 break;
             case 5:
-                return $this->getItemid();
+                return $this->getVia();
                 break;
             case 6:
-                return $this->getLotserial();
-                break;
-            case 7:
-                return $this->getQty();
+                return $this->getDummy();
                 break;
             default:
                 return null;
@@ -1013,20 +964,19 @@ abstract class Whseitempack implements ActiveRecordInterface
     public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
     {
 
-        if (isset($alreadyDumpedObjects['Whseitempack'][$this->hashCode()])) {
+        if (isset($alreadyDumpedObjects['Shipvia'][$this->hashCode()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['Whseitempack'][$this->hashCode()] = true;
-        $keys = WhseitempackTableMap::getFieldNames($keyType);
+        $alreadyDumpedObjects['Shipvia'][$this->hashCode()] = true;
+        $keys = ShipviaTableMap::getFieldNames($keyType);
         $result = array(
             $keys[0] => $this->getSessionid(),
-            $keys[1] => $this->getOrdn(),
-            $keys[2] => $this->getLinenumber(),
-            $keys[3] => $this->getCarton(),
-            $keys[4] => $this->getRecordnumber(),
-            $keys[5] => $this->getItemid(),
-            $keys[6] => $this->getLotserial(),
-            $keys[7] => $this->getQty(),
+            $keys[1] => $this->getRecno(),
+            $keys[2] => $this->getDate(),
+            $keys[3] => $this->getTime(),
+            $keys[4] => $this->getCode(),
+            $keys[5] => $this->getVia(),
+            $keys[6] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -1046,11 +996,11 @@ abstract class Whseitempack implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\Whseitempack
+     * @return $this|\Shipvia
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = WhseitempackTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = ShipviaTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
         return $this->setByPosition($pos, $value);
     }
@@ -1061,7 +1011,7 @@ abstract class Whseitempack implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\Whseitempack
+     * @return $this|\Shipvia
      */
     public function setByPosition($pos, $value)
     {
@@ -1070,25 +1020,22 @@ abstract class Whseitempack implements ActiveRecordInterface
                 $this->setSessionid($value);
                 break;
             case 1:
-                $this->setOrdn($value);
+                $this->setRecno($value);
                 break;
             case 2:
-                $this->setLinenumber($value);
+                $this->setDate($value);
                 break;
             case 3:
-                $this->setCarton($value);
+                $this->setTime($value);
                 break;
             case 4:
-                $this->setRecordnumber($value);
+                $this->setCode($value);
                 break;
             case 5:
-                $this->setItemid($value);
+                $this->setVia($value);
                 break;
             case 6:
-                $this->setLotserial($value);
-                break;
-            case 7:
-                $this->setQty($value);
+                $this->setDummy($value);
                 break;
         } // switch()
 
@@ -1114,31 +1061,28 @@ abstract class Whseitempack implements ActiveRecordInterface
      */
     public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
     {
-        $keys = WhseitempackTableMap::getFieldNames($keyType);
+        $keys = ShipviaTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
             $this->setSessionid($arr[$keys[0]]);
         }
         if (array_key_exists($keys[1], $arr)) {
-            $this->setOrdn($arr[$keys[1]]);
+            $this->setRecno($arr[$keys[1]]);
         }
         if (array_key_exists($keys[2], $arr)) {
-            $this->setLinenumber($arr[$keys[2]]);
+            $this->setDate($arr[$keys[2]]);
         }
         if (array_key_exists($keys[3], $arr)) {
-            $this->setCarton($arr[$keys[3]]);
+            $this->setTime($arr[$keys[3]]);
         }
         if (array_key_exists($keys[4], $arr)) {
-            $this->setRecordnumber($arr[$keys[4]]);
+            $this->setCode($arr[$keys[4]]);
         }
         if (array_key_exists($keys[5], $arr)) {
-            $this->setItemid($arr[$keys[5]]);
+            $this->setVia($arr[$keys[5]]);
         }
         if (array_key_exists($keys[6], $arr)) {
-            $this->setLotserial($arr[$keys[6]]);
-        }
-        if (array_key_exists($keys[7], $arr)) {
-            $this->setQty($arr[$keys[7]]);
+            $this->setDummy($arr[$keys[6]]);
         }
     }
 
@@ -1159,7 +1103,7 @@ abstract class Whseitempack implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\Whseitempack The current object, for fluid interface
+     * @return $this|\Shipvia The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -1179,31 +1123,28 @@ abstract class Whseitempack implements ActiveRecordInterface
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(WhseitempackTableMap::DATABASE_NAME);
+        $criteria = new Criteria(ShipviaTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(WhseitempackTableMap::COL_SESSIONID)) {
-            $criteria->add(WhseitempackTableMap::COL_SESSIONID, $this->sessionid);
+        if ($this->isColumnModified(ShipviaTableMap::COL_SESSIONID)) {
+            $criteria->add(ShipviaTableMap::COL_SESSIONID, $this->sessionid);
         }
-        if ($this->isColumnModified(WhseitempackTableMap::COL_ORDN)) {
-            $criteria->add(WhseitempackTableMap::COL_ORDN, $this->ordn);
+        if ($this->isColumnModified(ShipviaTableMap::COL_RECNO)) {
+            $criteria->add(ShipviaTableMap::COL_RECNO, $this->recno);
         }
-        if ($this->isColumnModified(WhseitempackTableMap::COL_LINENUMBER)) {
-            $criteria->add(WhseitempackTableMap::COL_LINENUMBER, $this->linenumber);
+        if ($this->isColumnModified(ShipviaTableMap::COL_DATE)) {
+            $criteria->add(ShipviaTableMap::COL_DATE, $this->date);
         }
-        if ($this->isColumnModified(WhseitempackTableMap::COL_CARTON)) {
-            $criteria->add(WhseitempackTableMap::COL_CARTON, $this->carton);
+        if ($this->isColumnModified(ShipviaTableMap::COL_TIME)) {
+            $criteria->add(ShipviaTableMap::COL_TIME, $this->time);
         }
-        if ($this->isColumnModified(WhseitempackTableMap::COL_RECORDNUMBER)) {
-            $criteria->add(WhseitempackTableMap::COL_RECORDNUMBER, $this->recordnumber);
+        if ($this->isColumnModified(ShipviaTableMap::COL_CODE)) {
+            $criteria->add(ShipviaTableMap::COL_CODE, $this->code);
         }
-        if ($this->isColumnModified(WhseitempackTableMap::COL_ITEMID)) {
-            $criteria->add(WhseitempackTableMap::COL_ITEMID, $this->itemid);
+        if ($this->isColumnModified(ShipviaTableMap::COL_VIA)) {
+            $criteria->add(ShipviaTableMap::COL_VIA, $this->via);
         }
-        if ($this->isColumnModified(WhseitempackTableMap::COL_LOTSERIAL)) {
-            $criteria->add(WhseitempackTableMap::COL_LOTSERIAL, $this->lotserial);
-        }
-        if ($this->isColumnModified(WhseitempackTableMap::COL_QTY)) {
-            $criteria->add(WhseitempackTableMap::COL_QTY, $this->qty);
+        if ($this->isColumnModified(ShipviaTableMap::COL_DUMMY)) {
+            $criteria->add(ShipviaTableMap::COL_DUMMY, $this->dummy);
         }
 
         return $criteria;
@@ -1221,12 +1162,9 @@ abstract class Whseitempack implements ActiveRecordInterface
      */
     public function buildPkeyCriteria()
     {
-        $criteria = ChildWhseitempackQuery::create();
-        $criteria->add(WhseitempackTableMap::COL_SESSIONID, $this->sessionid);
-        $criteria->add(WhseitempackTableMap::COL_ORDN, $this->ordn);
-        $criteria->add(WhseitempackTableMap::COL_LINENUMBER, $this->linenumber);
-        $criteria->add(WhseitempackTableMap::COL_CARTON, $this->carton);
-        $criteria->add(WhseitempackTableMap::COL_RECORDNUMBER, $this->recordnumber);
+        $criteria = ChildShipviaQuery::create();
+        $criteria->add(ShipviaTableMap::COL_SESSIONID, $this->sessionid);
+        $criteria->add(ShipviaTableMap::COL_RECNO, $this->recno);
 
         return $criteria;
     }
@@ -1240,10 +1178,7 @@ abstract class Whseitempack implements ActiveRecordInterface
     public function hashCode()
     {
         $validPk = null !== $this->getSessionid() &&
-            null !== $this->getOrdn() &&
-            null !== $this->getLinenumber() &&
-            null !== $this->getCarton() &&
-            null !== $this->getRecordnumber();
+            null !== $this->getRecno();
 
         $validPrimaryKeyFKs = 0;
         $primaryKeyFKs = [];
@@ -1266,10 +1201,7 @@ abstract class Whseitempack implements ActiveRecordInterface
     {
         $pks = array();
         $pks[0] = $this->getSessionid();
-        $pks[1] = $this->getOrdn();
-        $pks[2] = $this->getLinenumber();
-        $pks[3] = $this->getCarton();
-        $pks[4] = $this->getRecordnumber();
+        $pks[1] = $this->getRecno();
 
         return $pks;
     }
@@ -1283,10 +1215,7 @@ abstract class Whseitempack implements ActiveRecordInterface
     public function setPrimaryKey($keys)
     {
         $this->setSessionid($keys[0]);
-        $this->setOrdn($keys[1]);
-        $this->setLinenumber($keys[2]);
-        $this->setCarton($keys[3]);
-        $this->setRecordnumber($keys[4]);
+        $this->setRecno($keys[1]);
     }
 
     /**
@@ -1295,7 +1224,7 @@ abstract class Whseitempack implements ActiveRecordInterface
      */
     public function isPrimaryKeyNull()
     {
-        return (null === $this->getSessionid()) && (null === $this->getOrdn()) && (null === $this->getLinenumber()) && (null === $this->getCarton()) && (null === $this->getRecordnumber());
+        return (null === $this->getSessionid()) && (null === $this->getRecno());
     }
 
     /**
@@ -1304,7 +1233,7 @@ abstract class Whseitempack implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \Whseitempack (or compatible) type.
+     * @param      object $copyObj An object of \Shipvia (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
@@ -1312,13 +1241,12 @@ abstract class Whseitempack implements ActiveRecordInterface
     public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
     {
         $copyObj->setSessionid($this->getSessionid());
-        $copyObj->setOrdn($this->getOrdn());
-        $copyObj->setLinenumber($this->getLinenumber());
-        $copyObj->setCarton($this->getCarton());
-        $copyObj->setRecordnumber($this->getRecordnumber());
-        $copyObj->setItemid($this->getItemid());
-        $copyObj->setLotserial($this->getLotserial());
-        $copyObj->setQty($this->getQty());
+        $copyObj->setRecno($this->getRecno());
+        $copyObj->setDate($this->getDate());
+        $copyObj->setTime($this->getTime());
+        $copyObj->setCode($this->getCode());
+        $copyObj->setVia($this->getVia());
+        $copyObj->setDummy($this->getDummy());
         if ($makeNew) {
             $copyObj->setNew(true);
         }
@@ -1333,7 +1261,7 @@ abstract class Whseitempack implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \Whseitempack Clone of current object.
+     * @return \Shipvia Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -1354,13 +1282,12 @@ abstract class Whseitempack implements ActiveRecordInterface
     public function clear()
     {
         $this->sessionid = null;
-        $this->ordn = null;
-        $this->linenumber = null;
-        $this->carton = null;
-        $this->recordnumber = null;
-        $this->itemid = null;
-        $this->lotserial = null;
-        $this->qty = null;
+        $this->recno = null;
+        $this->date = null;
+        $this->time = null;
+        $this->code = null;
+        $this->via = null;
+        $this->dummy = null;
         $this->alreadyInSave = false;
         $this->clearAllReferences();
         $this->resetModified();
@@ -1390,7 +1317,7 @@ abstract class Whseitempack implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(WhseitempackTableMap::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(ShipviaTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**

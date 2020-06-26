@@ -59,7 +59,7 @@ class WhseitempackTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 9;
+    const NUM_COLUMNS = 8;
 
     /**
      * The number of lazy-loaded columns
@@ -69,7 +69,7 @@ class WhseitempackTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 9;
+    const NUM_HYDRATE_COLUMNS = 8;
 
     /**
      * the column name for the sessionid field
@@ -107,11 +107,6 @@ class WhseitempackTableMap extends TableMap
     const COL_LOTSERIAL = 'whseitempack.lotserial';
 
     /**
-     * the column name for the lotserialref field
-     */
-    const COL_LOTSERIALREF = 'whseitempack.lotserialref';
-
-    /**
      * the column name for the qty field
      */
     const COL_QTY = 'whseitempack.qty';
@@ -128,11 +123,11 @@ class WhseitempackTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Sessionid', 'Ordn', 'Linenumber', 'Carton', 'Recordnumber', 'Itemid', 'Lotserial', 'Lotserialref', 'Qty', ),
-        self::TYPE_CAMELNAME     => array('sessionid', 'ordn', 'linenumber', 'carton', 'recordnumber', 'itemid', 'lotserial', 'lotserialref', 'qty', ),
-        self::TYPE_COLNAME       => array(WhseitempackTableMap::COL_SESSIONID, WhseitempackTableMap::COL_ORDN, WhseitempackTableMap::COL_LINENUMBER, WhseitempackTableMap::COL_CARTON, WhseitempackTableMap::COL_RECORDNUMBER, WhseitempackTableMap::COL_ITEMID, WhseitempackTableMap::COL_LOTSERIAL, WhseitempackTableMap::COL_LOTSERIALREF, WhseitempackTableMap::COL_QTY, ),
-        self::TYPE_FIELDNAME     => array('sessionid', 'ordn', 'linenumber', 'carton', 'recordnumber', 'itemid', 'lotserial', 'lotserialref', 'qty', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, )
+        self::TYPE_PHPNAME       => array('Sessionid', 'Ordn', 'Linenumber', 'Carton', 'Recordnumber', 'Itemid', 'Lotserial', 'Qty', ),
+        self::TYPE_CAMELNAME     => array('sessionid', 'ordn', 'linenumber', 'carton', 'recordnumber', 'itemid', 'lotserial', 'qty', ),
+        self::TYPE_COLNAME       => array(WhseitempackTableMap::COL_SESSIONID, WhseitempackTableMap::COL_ORDN, WhseitempackTableMap::COL_LINENUMBER, WhseitempackTableMap::COL_CARTON, WhseitempackTableMap::COL_RECORDNUMBER, WhseitempackTableMap::COL_ITEMID, WhseitempackTableMap::COL_LOTSERIAL, WhseitempackTableMap::COL_QTY, ),
+        self::TYPE_FIELDNAME     => array('sessionid', 'ordn', 'linenumber', 'carton', 'recordnumber', 'itemid', 'lotserial', 'qty', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, )
     );
 
     /**
@@ -142,11 +137,11 @@ class WhseitempackTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Ordn' => 1, 'Linenumber' => 2, 'Carton' => 3, 'Recordnumber' => 4, 'Itemid' => 5, 'Lotserial' => 6, 'Lotserialref' => 7, 'Qty' => 8, ),
-        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'ordn' => 1, 'linenumber' => 2, 'carton' => 3, 'recordnumber' => 4, 'itemid' => 5, 'lotserial' => 6, 'lotserialref' => 7, 'qty' => 8, ),
-        self::TYPE_COLNAME       => array(WhseitempackTableMap::COL_SESSIONID => 0, WhseitempackTableMap::COL_ORDN => 1, WhseitempackTableMap::COL_LINENUMBER => 2, WhseitempackTableMap::COL_CARTON => 3, WhseitempackTableMap::COL_RECORDNUMBER => 4, WhseitempackTableMap::COL_ITEMID => 5, WhseitempackTableMap::COL_LOTSERIAL => 6, WhseitempackTableMap::COL_LOTSERIALREF => 7, WhseitempackTableMap::COL_QTY => 8, ),
-        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'ordn' => 1, 'linenumber' => 2, 'carton' => 3, 'recordnumber' => 4, 'itemid' => 5, 'lotserial' => 6, 'lotserialref' => 7, 'qty' => 8, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, )
+        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Ordn' => 1, 'Linenumber' => 2, 'Carton' => 3, 'Recordnumber' => 4, 'Itemid' => 5, 'Lotserial' => 6, 'Qty' => 7, ),
+        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'ordn' => 1, 'linenumber' => 2, 'carton' => 3, 'recordnumber' => 4, 'itemid' => 5, 'lotserial' => 6, 'qty' => 7, ),
+        self::TYPE_COLNAME       => array(WhseitempackTableMap::COL_SESSIONID => 0, WhseitempackTableMap::COL_ORDN => 1, WhseitempackTableMap::COL_LINENUMBER => 2, WhseitempackTableMap::COL_CARTON => 3, WhseitempackTableMap::COL_RECORDNUMBER => 4, WhseitempackTableMap::COL_ITEMID => 5, WhseitempackTableMap::COL_LOTSERIAL => 6, WhseitempackTableMap::COL_QTY => 7, ),
+        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'ordn' => 1, 'linenumber' => 2, 'carton' => 3, 'recordnumber' => 4, 'itemid' => 5, 'lotserial' => 6, 'qty' => 7, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, )
     );
 
     /**
@@ -173,7 +168,6 @@ class WhseitempackTableMap extends TableMap
         $this->addPrimaryKey('recordnumber', 'Recordnumber', 'INTEGER', true, null, null);
         $this->addColumn('itemid', 'Itemid', 'VARCHAR', false, 45, null);
         $this->addColumn('lotserial', 'Lotserial', 'VARCHAR', false, 45, null);
-        $this->addColumn('lotserialref', 'Lotserialref', 'VARCHAR', false, 45, null);
         $this->addColumn('qty', 'Qty', 'DECIMAL', false, 10, null);
     } // initialize()
 
@@ -409,7 +403,6 @@ class WhseitempackTableMap extends TableMap
             $criteria->addSelectColumn(WhseitempackTableMap::COL_RECORDNUMBER);
             $criteria->addSelectColumn(WhseitempackTableMap::COL_ITEMID);
             $criteria->addSelectColumn(WhseitempackTableMap::COL_LOTSERIAL);
-            $criteria->addSelectColumn(WhseitempackTableMap::COL_LOTSERIALREF);
             $criteria->addSelectColumn(WhseitempackTableMap::COL_QTY);
         } else {
             $criteria->addSelectColumn($alias . '.sessionid');
@@ -419,7 +412,6 @@ class WhseitempackTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.recordnumber');
             $criteria->addSelectColumn($alias . '.itemid');
             $criteria->addSelectColumn($alias . '.lotserial');
-            $criteria->addSelectColumn($alias . '.lotserialref');
             $criteria->addSelectColumn($alias . '.qty');
         }
     }

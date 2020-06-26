@@ -25,6 +25,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWmpickdetQuery orderByTime($order = Criteria::ASC) Order by the time column
  * @method     ChildWmpickdetQuery orderByOrdernbr($order = Criteria::ASC) Order by the ordernbr column
  * @method     ChildWmpickdetQuery orderByLinenbr($order = Criteria::ASC) Order by the linenbr column
+ * @method     ChildWmpickdetQuery orderBySublinenbr($order = Criteria::ASC) Order by the sublinenbr column
  * @method     ChildWmpickdetQuery orderByItemnbr($order = Criteria::ASC) Order by the itemnbr column
  * @method     ChildWmpickdetQuery orderByItemdesc1($order = Criteria::ASC) Order by the itemdesc1 column
  * @method     ChildWmpickdetQuery orderByItemdesc2($order = Criteria::ASC) Order by the itemdesc2 column
@@ -48,6 +49,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWmpickdetQuery groupByTime() Group by the time column
  * @method     ChildWmpickdetQuery groupByOrdernbr() Group by the ordernbr column
  * @method     ChildWmpickdetQuery groupByLinenbr() Group by the linenbr column
+ * @method     ChildWmpickdetQuery groupBySublinenbr() Group by the sublinenbr column
  * @method     ChildWmpickdetQuery groupByItemnbr() Group by the itemnbr column
  * @method     ChildWmpickdetQuery groupByItemdesc1() Group by the itemdesc1 column
  * @method     ChildWmpickdetQuery groupByItemdesc2() Group by the itemdesc2 column
@@ -82,6 +84,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWmpickdet findOneByTime(int $time) Return the first ChildWmpickdet filtered by the time column
  * @method     ChildWmpickdet findOneByOrdernbr(string $ordernbr) Return the first ChildWmpickdet filtered by the ordernbr column
  * @method     ChildWmpickdet findOneByLinenbr(int $linenbr) Return the first ChildWmpickdet filtered by the linenbr column
+ * @method     ChildWmpickdet findOneBySublinenbr(int $sublinenbr) Return the first ChildWmpickdet filtered by the sublinenbr column
  * @method     ChildWmpickdet findOneByItemnbr(string $itemnbr) Return the first ChildWmpickdet filtered by the itemnbr column
  * @method     ChildWmpickdet findOneByItemdesc1(string $itemdesc1) Return the first ChildWmpickdet filtered by the itemdesc1 column
  * @method     ChildWmpickdet findOneByItemdesc2(string $itemdesc2) Return the first ChildWmpickdet filtered by the itemdesc2 column
@@ -108,6 +111,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWmpickdet requireOneByTime(int $time) Return the first ChildWmpickdet filtered by the time column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWmpickdet requireOneByOrdernbr(string $ordernbr) Return the first ChildWmpickdet filtered by the ordernbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWmpickdet requireOneByLinenbr(int $linenbr) Return the first ChildWmpickdet filtered by the linenbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWmpickdet requireOneBySublinenbr(int $sublinenbr) Return the first ChildWmpickdet filtered by the sublinenbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWmpickdet requireOneByItemnbr(string $itemnbr) Return the first ChildWmpickdet filtered by the itemnbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWmpickdet requireOneByItemdesc1(string $itemdesc1) Return the first ChildWmpickdet filtered by the itemdesc1 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWmpickdet requireOneByItemdesc2(string $itemdesc2) Return the first ChildWmpickdet filtered by the itemdesc2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -132,6 +136,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWmpickdet[]|ObjectCollection findByTime(int $time) Return ChildWmpickdet objects filtered by the time column
  * @method     ChildWmpickdet[]|ObjectCollection findByOrdernbr(string $ordernbr) Return ChildWmpickdet objects filtered by the ordernbr column
  * @method     ChildWmpickdet[]|ObjectCollection findByLinenbr(int $linenbr) Return ChildWmpickdet objects filtered by the linenbr column
+ * @method     ChildWmpickdet[]|ObjectCollection findBySublinenbr(int $sublinenbr) Return ChildWmpickdet objects filtered by the sublinenbr column
  * @method     ChildWmpickdet[]|ObjectCollection findByItemnbr(string $itemnbr) Return ChildWmpickdet objects filtered by the itemnbr column
  * @method     ChildWmpickdet[]|ObjectCollection findByItemdesc1(string $itemdesc1) Return ChildWmpickdet objects filtered by the itemdesc1 column
  * @method     ChildWmpickdet[]|ObjectCollection findByItemdesc2(string $itemdesc2) Return ChildWmpickdet objects filtered by the itemdesc2 column
@@ -162,7 +167,7 @@ abstract class WmpickdetQuery extends ModelCriteria
      * @param     string $modelName The phpName of a model, e.g. 'Book'
      * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
      */
-    public function __construct($dbName = 'default', $modelName = '\\Wmpickdet', $modelAlias = null)
+    public function __construct($dbName = 'dplusodb', $modelName = '\\Wmpickdet', $modelAlias = null)
     {
         parent::__construct($dbName, $modelName, $modelAlias);
     }
@@ -246,7 +251,7 @@ abstract class WmpickdetQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT sessionid, recno, date, time, ordernbr, linenbr, itemnbr, itemdesc1, itemdesc2, qtyordered, qtypulled, qtyremaining, binnbr, caseqty, innerpack, binqty, overbin1, overbinqty1, overbin2, overbinqty2, statusmsg, dummy FROM wmpickdet WHERE sessionid = :p0 AND recno = :p1';
+        $sql = 'SELECT sessionid, recno, date, time, ordernbr, linenbr, sublinenbr, itemnbr, itemdesc1, itemdesc2, qtyordered, qtypulled, qtyremaining, binnbr, caseqty, innerpack, binqty, overbin1, overbinqty1, overbin2, overbinqty2, statusmsg, dummy FROM wmpickdet WHERE sessionid = :p0 AND recno = :p1';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -560,6 +565,47 @@ abstract class WmpickdetQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(WmpickdetTableMap::COL_LINENBR, $linenbr, $comparison);
+    }
+
+    /**
+     * Filter the query on the sublinenbr column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterBySublinenbr(1234); // WHERE sublinenbr = 1234
+     * $query->filterBySublinenbr(array(12, 34)); // WHERE sublinenbr IN (12, 34)
+     * $query->filterBySublinenbr(array('min' => 12)); // WHERE sublinenbr > 12
+     * </code>
+     *
+     * @param     mixed $sublinenbr The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildWmpickdetQuery The current query, for fluid interface
+     */
+    public function filterBySublinenbr($sublinenbr = null, $comparison = null)
+    {
+        if (is_array($sublinenbr)) {
+            $useMinMax = false;
+            if (isset($sublinenbr['min'])) {
+                $this->addUsingAlias(WmpickdetTableMap::COL_SUBLINENBR, $sublinenbr['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($sublinenbr['max'])) {
+                $this->addUsingAlias(WmpickdetTableMap::COL_SUBLINENBR, $sublinenbr['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(WmpickdetTableMap::COL_SUBLINENBR, $sublinenbr, $comparison);
     }
 
     /**

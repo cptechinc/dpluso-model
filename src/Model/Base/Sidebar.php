@@ -2,10 +2,10 @@
 
 namespace Base;
 
-use \WmpickdetQuery as ChildWmpickdetQuery;
+use \SidebarQuery as ChildSidebarQuery;
 use \Exception;
 use \PDO;
-use Map\WmpickdetTableMap;
+use Map\SidebarTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -19,18 +19,18 @@ use Propel\Runtime\Map\TableMap;
 use Propel\Runtime\Parser\AbstractParser;
 
 /**
- * Base class that represents a row from the 'wmpickdet' table.
+ * Base class that represents a row from the 'sidebar' table.
  *
  *
  *
  * @package    propel.generator..Base
  */
-abstract class Wmpickdet implements ActiveRecordInterface
+abstract class Sidebar implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\Map\\WmpickdetTableMap';
+    const TABLE_MAP = '\\Map\\SidebarTableMap';
 
 
     /**
@@ -62,7 +62,6 @@ abstract class Wmpickdet implements ActiveRecordInterface
     /**
      * The value for the sessionid field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $sessionid;
@@ -70,7 +69,6 @@ abstract class Wmpickdet implements ActiveRecordInterface
     /**
      * The value for the recno field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $recno;
@@ -90,130 +88,32 @@ abstract class Wmpickdet implements ActiveRecordInterface
     protected $time;
 
     /**
-     * The value for the ordernbr field.
+     * The value for the code field.
      *
      * @var        string
      */
-    protected $ordernbr;
+    protected $code;
 
     /**
-     * The value for the linenbr field.
-     *
-     * @var        int
-     */
-    protected $linenbr;
-
-    /**
-     * The value for the sublinenbr field.
-     *
-     * @var        int
-     */
-    protected $sublinenbr;
-
-    /**
-     * The value for the itemnbr field.
+     * The value for the description field.
      *
      * @var        string
      */
-    protected $itemnbr;
+    protected $description;
 
     /**
-     * The value for the itemdesc1 field.
+     * The value for the title field.
      *
      * @var        string
      */
-    protected $itemdesc1;
+    protected $title;
 
     /**
-     * The value for the itemdesc2 field.
+     * The value for the type field.
      *
      * @var        string
      */
-    protected $itemdesc2;
-
-    /**
-     * The value for the qtyordered field.
-     *
-     * @var        int
-     */
-    protected $qtyordered;
-
-    /**
-     * The value for the qtypulled field.
-     *
-     * @var        int
-     */
-    protected $qtypulled;
-
-    /**
-     * The value for the qtyremaining field.
-     *
-     * @var        int
-     */
-    protected $qtyremaining;
-
-    /**
-     * The value for the binnbr field.
-     *
-     * @var        string
-     */
-    protected $binnbr;
-
-    /**
-     * The value for the caseqty field.
-     *
-     * @var        int
-     */
-    protected $caseqty;
-
-    /**
-     * The value for the innerpack field.
-     *
-     * @var        int
-     */
-    protected $innerpack;
-
-    /**
-     * The value for the binqty field.
-     *
-     * @var        int
-     */
-    protected $binqty;
-
-    /**
-     * The value for the overbin1 field.
-     *
-     * @var        string
-     */
-    protected $overbin1;
-
-    /**
-     * The value for the overbinqty1 field.
-     *
-     * @var        int
-     */
-    protected $overbinqty1;
-
-    /**
-     * The value for the overbin2 field.
-     *
-     * @var        string
-     */
-    protected $overbin2;
-
-    /**
-     * The value for the overbinqty2 field.
-     *
-     * @var        int
-     */
-    protected $overbinqty2;
-
-    /**
-     * The value for the statusmsg field.
-     *
-     * @var        string
-     */
-    protected $statusmsg;
+    protected $type;
 
     /**
      * The value for the dummy field.
@@ -231,24 +131,10 @@ abstract class Wmpickdet implements ActiveRecordInterface
     protected $alreadyInSave = false;
 
     /**
-     * Applies default values to this object.
-     * This method should be called from the object's constructor (or
-     * equivalent initialization method).
-     * @see __construct()
-     */
-    public function applyDefaultValues()
-    {
-        $this->sessionid = '';
-        $this->recno = 0;
-    }
-
-    /**
-     * Initializes internal state of Base\Wmpickdet object.
-     * @see applyDefaults()
+     * Initializes internal state of Base\Sidebar object.
      */
     public function __construct()
     {
-        $this->applyDefaultValues();
     }
 
     /**
@@ -340,9 +226,9 @@ abstract class Wmpickdet implements ActiveRecordInterface
     }
 
     /**
-     * Compares this with another <code>Wmpickdet</code> instance.  If
-     * <code>obj</code> is an instance of <code>Wmpickdet</code>, delegates to
-     * <code>equals(Wmpickdet)</code>.  Otherwise, returns <code>false</code>.
+     * Compares this with another <code>Sidebar</code> instance.  If
+     * <code>obj</code> is an instance of <code>Sidebar</code>, delegates to
+     * <code>equals(Sidebar)</code>.  Otherwise, returns <code>false</code>.
      *
      * @param  mixed   $obj The object to compare to.
      * @return boolean Whether equal to the object specified.
@@ -408,7 +294,7 @@ abstract class Wmpickdet implements ActiveRecordInterface
      * @param string $name  The virtual column name
      * @param mixed  $value The value to give to the virtual column
      *
-     * @return $this|Wmpickdet The current object, for fluid interface
+     * @return $this|Sidebar The current object, for fluid interface
      */
     public function setVirtualColumn($name, $value)
     {
@@ -510,183 +396,43 @@ abstract class Wmpickdet implements ActiveRecordInterface
     }
 
     /**
-     * Get the [ordernbr] column value.
+     * Get the [code] column value.
      *
      * @return string
      */
-    public function getOrdernbr()
+    public function getCode()
     {
-        return $this->ordernbr;
+        return $this->code;
     }
 
     /**
-     * Get the [linenbr] column value.
-     *
-     * @return int
-     */
-    public function getLinenbr()
-    {
-        return $this->linenbr;
-    }
-
-    /**
-     * Get the [sublinenbr] column value.
-     *
-     * @return int
-     */
-    public function getSublinenbr()
-    {
-        return $this->sublinenbr;
-    }
-
-    /**
-     * Get the [itemnbr] column value.
+     * Get the [description] column value.
      *
      * @return string
      */
-    public function getItemnbr()
+    public function getDescription()
     {
-        return $this->itemnbr;
+        return $this->description;
     }
 
     /**
-     * Get the [itemdesc1] column value.
+     * Get the [title] column value.
      *
      * @return string
      */
-    public function getItemdesc1()
+    public function getTitle()
     {
-        return $this->itemdesc1;
+        return $this->title;
     }
 
     /**
-     * Get the [itemdesc2] column value.
+     * Get the [type] column value.
      *
      * @return string
      */
-    public function getItemdesc2()
+    public function getType()
     {
-        return $this->itemdesc2;
-    }
-
-    /**
-     * Get the [qtyordered] column value.
-     *
-     * @return int
-     */
-    public function getQtyordered()
-    {
-        return $this->qtyordered;
-    }
-
-    /**
-     * Get the [qtypulled] column value.
-     *
-     * @return int
-     */
-    public function getQtypulled()
-    {
-        return $this->qtypulled;
-    }
-
-    /**
-     * Get the [qtyremaining] column value.
-     *
-     * @return int
-     */
-    public function getQtyremaining()
-    {
-        return $this->qtyremaining;
-    }
-
-    /**
-     * Get the [binnbr] column value.
-     *
-     * @return string
-     */
-    public function getBinnbr()
-    {
-        return $this->binnbr;
-    }
-
-    /**
-     * Get the [caseqty] column value.
-     *
-     * @return int
-     */
-    public function getCaseqty()
-    {
-        return $this->caseqty;
-    }
-
-    /**
-     * Get the [innerpack] column value.
-     *
-     * @return int
-     */
-    public function getInnerpack()
-    {
-        return $this->innerpack;
-    }
-
-    /**
-     * Get the [binqty] column value.
-     *
-     * @return int
-     */
-    public function getBinqty()
-    {
-        return $this->binqty;
-    }
-
-    /**
-     * Get the [overbin1] column value.
-     *
-     * @return string
-     */
-    public function getOverbin1()
-    {
-        return $this->overbin1;
-    }
-
-    /**
-     * Get the [overbinqty1] column value.
-     *
-     * @return int
-     */
-    public function getOverbinqty1()
-    {
-        return $this->overbinqty1;
-    }
-
-    /**
-     * Get the [overbin2] column value.
-     *
-     * @return string
-     */
-    public function getOverbin2()
-    {
-        return $this->overbin2;
-    }
-
-    /**
-     * Get the [overbinqty2] column value.
-     *
-     * @return int
-     */
-    public function getOverbinqty2()
-    {
-        return $this->overbinqty2;
-    }
-
-    /**
-     * Get the [statusmsg] column value.
-     *
-     * @return string
-     */
-    public function getStatusmsg()
-    {
-        return $this->statusmsg;
+        return $this->type;
     }
 
     /**
@@ -703,7 +449,7 @@ abstract class Wmpickdet implements ActiveRecordInterface
      * Set the value of [sessionid] column.
      *
      * @param string $v new value
-     * @return $this|\Wmpickdet The current object (for fluent API support)
+     * @return $this|\Sidebar The current object (for fluent API support)
      */
     public function setSessionid($v)
     {
@@ -713,7 +459,7 @@ abstract class Wmpickdet implements ActiveRecordInterface
 
         if ($this->sessionid !== $v) {
             $this->sessionid = $v;
-            $this->modifiedColumns[WmpickdetTableMap::COL_SESSIONID] = true;
+            $this->modifiedColumns[SidebarTableMap::COL_SESSIONID] = true;
         }
 
         return $this;
@@ -723,7 +469,7 @@ abstract class Wmpickdet implements ActiveRecordInterface
      * Set the value of [recno] column.
      *
      * @param int $v new value
-     * @return $this|\Wmpickdet The current object (for fluent API support)
+     * @return $this|\Sidebar The current object (for fluent API support)
      */
     public function setRecno($v)
     {
@@ -733,7 +479,7 @@ abstract class Wmpickdet implements ActiveRecordInterface
 
         if ($this->recno !== $v) {
             $this->recno = $v;
-            $this->modifiedColumns[WmpickdetTableMap::COL_RECNO] = true;
+            $this->modifiedColumns[SidebarTableMap::COL_RECNO] = true;
         }
 
         return $this;
@@ -743,7 +489,7 @@ abstract class Wmpickdet implements ActiveRecordInterface
      * Set the value of [date] column.
      *
      * @param int $v new value
-     * @return $this|\Wmpickdet The current object (for fluent API support)
+     * @return $this|\Sidebar The current object (for fluent API support)
      */
     public function setDate($v)
     {
@@ -753,7 +499,7 @@ abstract class Wmpickdet implements ActiveRecordInterface
 
         if ($this->date !== $v) {
             $this->date = $v;
-            $this->modifiedColumns[WmpickdetTableMap::COL_DATE] = true;
+            $this->modifiedColumns[SidebarTableMap::COL_DATE] = true;
         }
 
         return $this;
@@ -763,7 +509,7 @@ abstract class Wmpickdet implements ActiveRecordInterface
      * Set the value of [time] column.
      *
      * @param int $v new value
-     * @return $this|\Wmpickdet The current object (for fluent API support)
+     * @return $this|\Sidebar The current object (for fluent API support)
      */
     public function setTime($v)
     {
@@ -773,377 +519,97 @@ abstract class Wmpickdet implements ActiveRecordInterface
 
         if ($this->time !== $v) {
             $this->time = $v;
-            $this->modifiedColumns[WmpickdetTableMap::COL_TIME] = true;
+            $this->modifiedColumns[SidebarTableMap::COL_TIME] = true;
         }
 
         return $this;
     } // setTime()
 
     /**
-     * Set the value of [ordernbr] column.
+     * Set the value of [code] column.
      *
      * @param string $v new value
-     * @return $this|\Wmpickdet The current object (for fluent API support)
+     * @return $this|\Sidebar The current object (for fluent API support)
      */
-    public function setOrdernbr($v)
+    public function setCode($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->ordernbr !== $v) {
-            $this->ordernbr = $v;
-            $this->modifiedColumns[WmpickdetTableMap::COL_ORDERNBR] = true;
+        if ($this->code !== $v) {
+            $this->code = $v;
+            $this->modifiedColumns[SidebarTableMap::COL_CODE] = true;
         }
 
         return $this;
-    } // setOrdernbr()
+    } // setCode()
 
     /**
-     * Set the value of [linenbr] column.
-     *
-     * @param int $v new value
-     * @return $this|\Wmpickdet The current object (for fluent API support)
-     */
-    public function setLinenbr($v)
-    {
-        if ($v !== null) {
-            $v = (int) $v;
-        }
-
-        if ($this->linenbr !== $v) {
-            $this->linenbr = $v;
-            $this->modifiedColumns[WmpickdetTableMap::COL_LINENBR] = true;
-        }
-
-        return $this;
-    } // setLinenbr()
-
-    /**
-     * Set the value of [sublinenbr] column.
-     *
-     * @param int $v new value
-     * @return $this|\Wmpickdet The current object (for fluent API support)
-     */
-    public function setSublinenbr($v)
-    {
-        if ($v !== null) {
-            $v = (int) $v;
-        }
-
-        if ($this->sublinenbr !== $v) {
-            $this->sublinenbr = $v;
-            $this->modifiedColumns[WmpickdetTableMap::COL_SUBLINENBR] = true;
-        }
-
-        return $this;
-    } // setSublinenbr()
-
-    /**
-     * Set the value of [itemnbr] column.
+     * Set the value of [description] column.
      *
      * @param string $v new value
-     * @return $this|\Wmpickdet The current object (for fluent API support)
+     * @return $this|\Sidebar The current object (for fluent API support)
      */
-    public function setItemnbr($v)
+    public function setDescription($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->itemnbr !== $v) {
-            $this->itemnbr = $v;
-            $this->modifiedColumns[WmpickdetTableMap::COL_ITEMNBR] = true;
+        if ($this->description !== $v) {
+            $this->description = $v;
+            $this->modifiedColumns[SidebarTableMap::COL_DESCRIPTION] = true;
         }
 
         return $this;
-    } // setItemnbr()
+    } // setDescription()
 
     /**
-     * Set the value of [itemdesc1] column.
+     * Set the value of [title] column.
      *
      * @param string $v new value
-     * @return $this|\Wmpickdet The current object (for fluent API support)
+     * @return $this|\Sidebar The current object (for fluent API support)
      */
-    public function setItemdesc1($v)
+    public function setTitle($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->itemdesc1 !== $v) {
-            $this->itemdesc1 = $v;
-            $this->modifiedColumns[WmpickdetTableMap::COL_ITEMDESC1] = true;
+        if ($this->title !== $v) {
+            $this->title = $v;
+            $this->modifiedColumns[SidebarTableMap::COL_TITLE] = true;
         }
 
         return $this;
-    } // setItemdesc1()
+    } // setTitle()
 
     /**
-     * Set the value of [itemdesc2] column.
+     * Set the value of [type] column.
      *
      * @param string $v new value
-     * @return $this|\Wmpickdet The current object (for fluent API support)
+     * @return $this|\Sidebar The current object (for fluent API support)
      */
-    public function setItemdesc2($v)
+    public function setType($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->itemdesc2 !== $v) {
-            $this->itemdesc2 = $v;
-            $this->modifiedColumns[WmpickdetTableMap::COL_ITEMDESC2] = true;
+        if ($this->type !== $v) {
+            $this->type = $v;
+            $this->modifiedColumns[SidebarTableMap::COL_TYPE] = true;
         }
 
         return $this;
-    } // setItemdesc2()
-
-    /**
-     * Set the value of [qtyordered] column.
-     *
-     * @param int $v new value
-     * @return $this|\Wmpickdet The current object (for fluent API support)
-     */
-    public function setQtyordered($v)
-    {
-        if ($v !== null) {
-            $v = (int) $v;
-        }
-
-        if ($this->qtyordered !== $v) {
-            $this->qtyordered = $v;
-            $this->modifiedColumns[WmpickdetTableMap::COL_QTYORDERED] = true;
-        }
-
-        return $this;
-    } // setQtyordered()
-
-    /**
-     * Set the value of [qtypulled] column.
-     *
-     * @param int $v new value
-     * @return $this|\Wmpickdet The current object (for fluent API support)
-     */
-    public function setQtypulled($v)
-    {
-        if ($v !== null) {
-            $v = (int) $v;
-        }
-
-        if ($this->qtypulled !== $v) {
-            $this->qtypulled = $v;
-            $this->modifiedColumns[WmpickdetTableMap::COL_QTYPULLED] = true;
-        }
-
-        return $this;
-    } // setQtypulled()
-
-    /**
-     * Set the value of [qtyremaining] column.
-     *
-     * @param int $v new value
-     * @return $this|\Wmpickdet The current object (for fluent API support)
-     */
-    public function setQtyremaining($v)
-    {
-        if ($v !== null) {
-            $v = (int) $v;
-        }
-
-        if ($this->qtyremaining !== $v) {
-            $this->qtyremaining = $v;
-            $this->modifiedColumns[WmpickdetTableMap::COL_QTYREMAINING] = true;
-        }
-
-        return $this;
-    } // setQtyremaining()
-
-    /**
-     * Set the value of [binnbr] column.
-     *
-     * @param string $v new value
-     * @return $this|\Wmpickdet The current object (for fluent API support)
-     */
-    public function setBinnbr($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->binnbr !== $v) {
-            $this->binnbr = $v;
-            $this->modifiedColumns[WmpickdetTableMap::COL_BINNBR] = true;
-        }
-
-        return $this;
-    } // setBinnbr()
-
-    /**
-     * Set the value of [caseqty] column.
-     *
-     * @param int $v new value
-     * @return $this|\Wmpickdet The current object (for fluent API support)
-     */
-    public function setCaseqty($v)
-    {
-        if ($v !== null) {
-            $v = (int) $v;
-        }
-
-        if ($this->caseqty !== $v) {
-            $this->caseqty = $v;
-            $this->modifiedColumns[WmpickdetTableMap::COL_CASEQTY] = true;
-        }
-
-        return $this;
-    } // setCaseqty()
-
-    /**
-     * Set the value of [innerpack] column.
-     *
-     * @param int $v new value
-     * @return $this|\Wmpickdet The current object (for fluent API support)
-     */
-    public function setInnerpack($v)
-    {
-        if ($v !== null) {
-            $v = (int) $v;
-        }
-
-        if ($this->innerpack !== $v) {
-            $this->innerpack = $v;
-            $this->modifiedColumns[WmpickdetTableMap::COL_INNERPACK] = true;
-        }
-
-        return $this;
-    } // setInnerpack()
-
-    /**
-     * Set the value of [binqty] column.
-     *
-     * @param int $v new value
-     * @return $this|\Wmpickdet The current object (for fluent API support)
-     */
-    public function setBinqty($v)
-    {
-        if ($v !== null) {
-            $v = (int) $v;
-        }
-
-        if ($this->binqty !== $v) {
-            $this->binqty = $v;
-            $this->modifiedColumns[WmpickdetTableMap::COL_BINQTY] = true;
-        }
-
-        return $this;
-    } // setBinqty()
-
-    /**
-     * Set the value of [overbin1] column.
-     *
-     * @param string $v new value
-     * @return $this|\Wmpickdet The current object (for fluent API support)
-     */
-    public function setOverbin1($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->overbin1 !== $v) {
-            $this->overbin1 = $v;
-            $this->modifiedColumns[WmpickdetTableMap::COL_OVERBIN1] = true;
-        }
-
-        return $this;
-    } // setOverbin1()
-
-    /**
-     * Set the value of [overbinqty1] column.
-     *
-     * @param int $v new value
-     * @return $this|\Wmpickdet The current object (for fluent API support)
-     */
-    public function setOverbinqty1($v)
-    {
-        if ($v !== null) {
-            $v = (int) $v;
-        }
-
-        if ($this->overbinqty1 !== $v) {
-            $this->overbinqty1 = $v;
-            $this->modifiedColumns[WmpickdetTableMap::COL_OVERBINQTY1] = true;
-        }
-
-        return $this;
-    } // setOverbinqty1()
-
-    /**
-     * Set the value of [overbin2] column.
-     *
-     * @param string $v new value
-     * @return $this|\Wmpickdet The current object (for fluent API support)
-     */
-    public function setOverbin2($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->overbin2 !== $v) {
-            $this->overbin2 = $v;
-            $this->modifiedColumns[WmpickdetTableMap::COL_OVERBIN2] = true;
-        }
-
-        return $this;
-    } // setOverbin2()
-
-    /**
-     * Set the value of [overbinqty2] column.
-     *
-     * @param int $v new value
-     * @return $this|\Wmpickdet The current object (for fluent API support)
-     */
-    public function setOverbinqty2($v)
-    {
-        if ($v !== null) {
-            $v = (int) $v;
-        }
-
-        if ($this->overbinqty2 !== $v) {
-            $this->overbinqty2 = $v;
-            $this->modifiedColumns[WmpickdetTableMap::COL_OVERBINQTY2] = true;
-        }
-
-        return $this;
-    } // setOverbinqty2()
-
-    /**
-     * Set the value of [statusmsg] column.
-     *
-     * @param string $v new value
-     * @return $this|\Wmpickdet The current object (for fluent API support)
-     */
-    public function setStatusmsg($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->statusmsg !== $v) {
-            $this->statusmsg = $v;
-            $this->modifiedColumns[WmpickdetTableMap::COL_STATUSMSG] = true;
-        }
-
-        return $this;
-    } // setStatusmsg()
+    } // setType()
 
     /**
      * Set the value of [dummy] column.
      *
      * @param string $v new value
-     * @return $this|\Wmpickdet The current object (for fluent API support)
+     * @return $this|\Sidebar The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -1153,7 +619,7 @@ abstract class Wmpickdet implements ActiveRecordInterface
 
         if ($this->dummy !== $v) {
             $this->dummy = $v;
-            $this->modifiedColumns[WmpickdetTableMap::COL_DUMMY] = true;
+            $this->modifiedColumns[SidebarTableMap::COL_DUMMY] = true;
         }
 
         return $this;
@@ -1169,14 +635,6 @@ abstract class Wmpickdet implements ActiveRecordInterface
      */
     public function hasOnlyDefaultValues()
     {
-            if ($this->sessionid !== '') {
-                return false;
-            }
-
-            if ($this->recno !== 0) {
-                return false;
-            }
-
         // otherwise, everything was equal, so return TRUE
         return true;
     } // hasOnlyDefaultValues()
@@ -1203,73 +661,31 @@ abstract class Wmpickdet implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : WmpickdetTableMap::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : SidebarTableMap::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->sessionid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : WmpickdetTableMap::translateFieldName('Recno', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : SidebarTableMap::translateFieldName('Recno', TableMap::TYPE_PHPNAME, $indexType)];
             $this->recno = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : WmpickdetTableMap::translateFieldName('Date', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : SidebarTableMap::translateFieldName('Date', TableMap::TYPE_PHPNAME, $indexType)];
             $this->date = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : WmpickdetTableMap::translateFieldName('Time', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : SidebarTableMap::translateFieldName('Time', TableMap::TYPE_PHPNAME, $indexType)];
             $this->time = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : WmpickdetTableMap::translateFieldName('Ordernbr', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->ordernbr = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : SidebarTableMap::translateFieldName('Code', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->code = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : WmpickdetTableMap::translateFieldName('Linenbr', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->linenbr = (null !== $col) ? (int) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : SidebarTableMap::translateFieldName('Description', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->description = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : WmpickdetTableMap::translateFieldName('Sublinenbr', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->sublinenbr = (null !== $col) ? (int) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : SidebarTableMap::translateFieldName('Title', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->title = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : WmpickdetTableMap::translateFieldName('Itemnbr', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->itemnbr = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : SidebarTableMap::translateFieldName('Type', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->type = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : WmpickdetTableMap::translateFieldName('Itemdesc1', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->itemdesc1 = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : WmpickdetTableMap::translateFieldName('Itemdesc2', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->itemdesc2 = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : WmpickdetTableMap::translateFieldName('Qtyordered', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->qtyordered = (null !== $col) ? (int) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : WmpickdetTableMap::translateFieldName('Qtypulled', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->qtypulled = (null !== $col) ? (int) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : WmpickdetTableMap::translateFieldName('Qtyremaining', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->qtyremaining = (null !== $col) ? (int) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : WmpickdetTableMap::translateFieldName('Binnbr', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->binnbr = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : WmpickdetTableMap::translateFieldName('Caseqty', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->caseqty = (null !== $col) ? (int) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : WmpickdetTableMap::translateFieldName('Innerpack', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->innerpack = (null !== $col) ? (int) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : WmpickdetTableMap::translateFieldName('Binqty', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->binqty = (null !== $col) ? (int) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : WmpickdetTableMap::translateFieldName('Overbin1', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->overbin1 = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : WmpickdetTableMap::translateFieldName('Overbinqty1', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->overbinqty1 = (null !== $col) ? (int) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : WmpickdetTableMap::translateFieldName('Overbin2', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->overbin2 = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : WmpickdetTableMap::translateFieldName('Overbinqty2', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->overbinqty2 = (null !== $col) ? (int) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : WmpickdetTableMap::translateFieldName('Statusmsg', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->statusmsg = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : WmpickdetTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : SidebarTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -1279,10 +695,10 @@ abstract class Wmpickdet implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 23; // 23 = WmpickdetTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 9; // 9 = SidebarTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\Wmpickdet'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\Sidebar'), 0, $e);
         }
     }
 
@@ -1324,13 +740,13 @@ abstract class Wmpickdet implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(WmpickdetTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(SidebarTableMap::DATABASE_NAME);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $dataFetcher = ChildWmpickdetQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
+        $dataFetcher = ChildSidebarQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
         $row = $dataFetcher->fetch();
         $dataFetcher->close();
         if (!$row) {
@@ -1349,8 +765,8 @@ abstract class Wmpickdet implements ActiveRecordInterface
      * @param      ConnectionInterface $con
      * @return void
      * @throws PropelException
-     * @see Wmpickdet::setDeleted()
-     * @see Wmpickdet::isDeleted()
+     * @see Sidebar::setDeleted()
+     * @see Sidebar::isDeleted()
      */
     public function delete(ConnectionInterface $con = null)
     {
@@ -1359,11 +775,11 @@ abstract class Wmpickdet implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(WmpickdetTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(SidebarTableMap::DATABASE_NAME);
         }
 
         $con->transaction(function () use ($con) {
-            $deleteQuery = ChildWmpickdetQuery::create()
+            $deleteQuery = ChildSidebarQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             if ($ret) {
@@ -1398,7 +814,7 @@ abstract class Wmpickdet implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(WmpickdetTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(SidebarTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
@@ -1417,7 +833,7 @@ abstract class Wmpickdet implements ActiveRecordInterface
                     $this->postUpdate($con);
                 }
                 $this->postSave($con);
-                WmpickdetTableMap::addInstanceToPool($this);
+                SidebarTableMap::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -1476,78 +892,36 @@ abstract class Wmpickdet implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(WmpickdetTableMap::COL_SESSIONID)) {
+        if ($this->isColumnModified(SidebarTableMap::COL_SESSIONID)) {
             $modifiedColumns[':p' . $index++]  = 'sessionid';
         }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_RECNO)) {
+        if ($this->isColumnModified(SidebarTableMap::COL_RECNO)) {
             $modifiedColumns[':p' . $index++]  = 'recno';
         }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_DATE)) {
+        if ($this->isColumnModified(SidebarTableMap::COL_DATE)) {
             $modifiedColumns[':p' . $index++]  = 'date';
         }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_TIME)) {
+        if ($this->isColumnModified(SidebarTableMap::COL_TIME)) {
             $modifiedColumns[':p' . $index++]  = 'time';
         }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_ORDERNBR)) {
-            $modifiedColumns[':p' . $index++]  = 'ordernbr';
+        if ($this->isColumnModified(SidebarTableMap::COL_CODE)) {
+            $modifiedColumns[':p' . $index++]  = 'code';
         }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_LINENBR)) {
-            $modifiedColumns[':p' . $index++]  = 'linenbr';
+        if ($this->isColumnModified(SidebarTableMap::COL_DESCRIPTION)) {
+            $modifiedColumns[':p' . $index++]  = 'description';
         }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_SUBLINENBR)) {
-            $modifiedColumns[':p' . $index++]  = 'sublinenbr';
+        if ($this->isColumnModified(SidebarTableMap::COL_TITLE)) {
+            $modifiedColumns[':p' . $index++]  = 'title';
         }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_ITEMNBR)) {
-            $modifiedColumns[':p' . $index++]  = 'itemnbr';
+        if ($this->isColumnModified(SidebarTableMap::COL_TYPE)) {
+            $modifiedColumns[':p' . $index++]  = 'type';
         }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_ITEMDESC1)) {
-            $modifiedColumns[':p' . $index++]  = 'itemdesc1';
-        }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_ITEMDESC2)) {
-            $modifiedColumns[':p' . $index++]  = 'itemdesc2';
-        }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_QTYORDERED)) {
-            $modifiedColumns[':p' . $index++]  = 'qtyordered';
-        }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_QTYPULLED)) {
-            $modifiedColumns[':p' . $index++]  = 'qtypulled';
-        }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_QTYREMAINING)) {
-            $modifiedColumns[':p' . $index++]  = 'qtyremaining';
-        }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_BINNBR)) {
-            $modifiedColumns[':p' . $index++]  = 'binnbr';
-        }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_CASEQTY)) {
-            $modifiedColumns[':p' . $index++]  = 'caseqty';
-        }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_INNERPACK)) {
-            $modifiedColumns[':p' . $index++]  = 'innerpack';
-        }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_BINQTY)) {
-            $modifiedColumns[':p' . $index++]  = 'binqty';
-        }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_OVERBIN1)) {
-            $modifiedColumns[':p' . $index++]  = 'overbin1';
-        }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_OVERBINQTY1)) {
-            $modifiedColumns[':p' . $index++]  = 'overbinqty1';
-        }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_OVERBIN2)) {
-            $modifiedColumns[':p' . $index++]  = 'overbin2';
-        }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_OVERBINQTY2)) {
-            $modifiedColumns[':p' . $index++]  = 'overbinqty2';
-        }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_STATUSMSG)) {
-            $modifiedColumns[':p' . $index++]  = 'statusmsg';
-        }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_DUMMY)) {
+        if ($this->isColumnModified(SidebarTableMap::COL_DUMMY)) {
             $modifiedColumns[':p' . $index++]  = 'dummy';
         }
 
         $sql = sprintf(
-            'INSERT INTO wmpickdet (%s) VALUES (%s)',
+            'INSERT INTO sidebar (%s) VALUES (%s)',
             implode(', ', $modifiedColumns),
             implode(', ', array_keys($modifiedColumns))
         );
@@ -1568,59 +942,17 @@ abstract class Wmpickdet implements ActiveRecordInterface
                     case 'time':
                         $stmt->bindValue($identifier, $this->time, PDO::PARAM_INT);
                         break;
-                    case 'ordernbr':
-                        $stmt->bindValue($identifier, $this->ordernbr, PDO::PARAM_STR);
+                    case 'code':
+                        $stmt->bindValue($identifier, $this->code, PDO::PARAM_STR);
                         break;
-                    case 'linenbr':
-                        $stmt->bindValue($identifier, $this->linenbr, PDO::PARAM_INT);
+                    case 'description':
+                        $stmt->bindValue($identifier, $this->description, PDO::PARAM_STR);
                         break;
-                    case 'sublinenbr':
-                        $stmt->bindValue($identifier, $this->sublinenbr, PDO::PARAM_INT);
+                    case 'title':
+                        $stmt->bindValue($identifier, $this->title, PDO::PARAM_STR);
                         break;
-                    case 'itemnbr':
-                        $stmt->bindValue($identifier, $this->itemnbr, PDO::PARAM_STR);
-                        break;
-                    case 'itemdesc1':
-                        $stmt->bindValue($identifier, $this->itemdesc1, PDO::PARAM_STR);
-                        break;
-                    case 'itemdesc2':
-                        $stmt->bindValue($identifier, $this->itemdesc2, PDO::PARAM_STR);
-                        break;
-                    case 'qtyordered':
-                        $stmt->bindValue($identifier, $this->qtyordered, PDO::PARAM_INT);
-                        break;
-                    case 'qtypulled':
-                        $stmt->bindValue($identifier, $this->qtypulled, PDO::PARAM_INT);
-                        break;
-                    case 'qtyremaining':
-                        $stmt->bindValue($identifier, $this->qtyremaining, PDO::PARAM_INT);
-                        break;
-                    case 'binnbr':
-                        $stmt->bindValue($identifier, $this->binnbr, PDO::PARAM_STR);
-                        break;
-                    case 'caseqty':
-                        $stmt->bindValue($identifier, $this->caseqty, PDO::PARAM_INT);
-                        break;
-                    case 'innerpack':
-                        $stmt->bindValue($identifier, $this->innerpack, PDO::PARAM_INT);
-                        break;
-                    case 'binqty':
-                        $stmt->bindValue($identifier, $this->binqty, PDO::PARAM_INT);
-                        break;
-                    case 'overbin1':
-                        $stmt->bindValue($identifier, $this->overbin1, PDO::PARAM_STR);
-                        break;
-                    case 'overbinqty1':
-                        $stmt->bindValue($identifier, $this->overbinqty1, PDO::PARAM_INT);
-                        break;
-                    case 'overbin2':
-                        $stmt->bindValue($identifier, $this->overbin2, PDO::PARAM_STR);
-                        break;
-                    case 'overbinqty2':
-                        $stmt->bindValue($identifier, $this->overbinqty2, PDO::PARAM_INT);
-                        break;
-                    case 'statusmsg':
-                        $stmt->bindValue($identifier, $this->statusmsg, PDO::PARAM_STR);
+                    case 'type':
+                        $stmt->bindValue($identifier, $this->type, PDO::PARAM_STR);
                         break;
                     case 'dummy':
                         $stmt->bindValue($identifier, $this->dummy, PDO::PARAM_STR);
@@ -1664,7 +996,7 @@ abstract class Wmpickdet implements ActiveRecordInterface
      */
     public function getByName($name, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = WmpickdetTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = SidebarTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -1693,60 +1025,18 @@ abstract class Wmpickdet implements ActiveRecordInterface
                 return $this->getTime();
                 break;
             case 4:
-                return $this->getOrdernbr();
+                return $this->getCode();
                 break;
             case 5:
-                return $this->getLinenbr();
+                return $this->getDescription();
                 break;
             case 6:
-                return $this->getSublinenbr();
+                return $this->getTitle();
                 break;
             case 7:
-                return $this->getItemnbr();
+                return $this->getType();
                 break;
             case 8:
-                return $this->getItemdesc1();
-                break;
-            case 9:
-                return $this->getItemdesc2();
-                break;
-            case 10:
-                return $this->getQtyordered();
-                break;
-            case 11:
-                return $this->getQtypulled();
-                break;
-            case 12:
-                return $this->getQtyremaining();
-                break;
-            case 13:
-                return $this->getBinnbr();
-                break;
-            case 14:
-                return $this->getCaseqty();
-                break;
-            case 15:
-                return $this->getInnerpack();
-                break;
-            case 16:
-                return $this->getBinqty();
-                break;
-            case 17:
-                return $this->getOverbin1();
-                break;
-            case 18:
-                return $this->getOverbinqty1();
-                break;
-            case 19:
-                return $this->getOverbin2();
-                break;
-            case 20:
-                return $this->getOverbinqty2();
-                break;
-            case 21:
-                return $this->getStatusmsg();
-                break;
-            case 22:
                 return $this->getDummy();
                 break;
             default:
@@ -1772,35 +1062,21 @@ abstract class Wmpickdet implements ActiveRecordInterface
     public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
     {
 
-        if (isset($alreadyDumpedObjects['Wmpickdet'][$this->hashCode()])) {
+        if (isset($alreadyDumpedObjects['Sidebar'][$this->hashCode()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['Wmpickdet'][$this->hashCode()] = true;
-        $keys = WmpickdetTableMap::getFieldNames($keyType);
+        $alreadyDumpedObjects['Sidebar'][$this->hashCode()] = true;
+        $keys = SidebarTableMap::getFieldNames($keyType);
         $result = array(
             $keys[0] => $this->getSessionid(),
             $keys[1] => $this->getRecno(),
             $keys[2] => $this->getDate(),
             $keys[3] => $this->getTime(),
-            $keys[4] => $this->getOrdernbr(),
-            $keys[5] => $this->getLinenbr(),
-            $keys[6] => $this->getSublinenbr(),
-            $keys[7] => $this->getItemnbr(),
-            $keys[8] => $this->getItemdesc1(),
-            $keys[9] => $this->getItemdesc2(),
-            $keys[10] => $this->getQtyordered(),
-            $keys[11] => $this->getQtypulled(),
-            $keys[12] => $this->getQtyremaining(),
-            $keys[13] => $this->getBinnbr(),
-            $keys[14] => $this->getCaseqty(),
-            $keys[15] => $this->getInnerpack(),
-            $keys[16] => $this->getBinqty(),
-            $keys[17] => $this->getOverbin1(),
-            $keys[18] => $this->getOverbinqty1(),
-            $keys[19] => $this->getOverbin2(),
-            $keys[20] => $this->getOverbinqty2(),
-            $keys[21] => $this->getStatusmsg(),
-            $keys[22] => $this->getDummy(),
+            $keys[4] => $this->getCode(),
+            $keys[5] => $this->getDescription(),
+            $keys[6] => $this->getTitle(),
+            $keys[7] => $this->getType(),
+            $keys[8] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -1820,11 +1096,11 @@ abstract class Wmpickdet implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\Wmpickdet
+     * @return $this|\Sidebar
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = WmpickdetTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = SidebarTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
         return $this->setByPosition($pos, $value);
     }
@@ -1835,7 +1111,7 @@ abstract class Wmpickdet implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\Wmpickdet
+     * @return $this|\Sidebar
      */
     public function setByPosition($pos, $value)
     {
@@ -1853,60 +1129,18 @@ abstract class Wmpickdet implements ActiveRecordInterface
                 $this->setTime($value);
                 break;
             case 4:
-                $this->setOrdernbr($value);
+                $this->setCode($value);
                 break;
             case 5:
-                $this->setLinenbr($value);
+                $this->setDescription($value);
                 break;
             case 6:
-                $this->setSublinenbr($value);
+                $this->setTitle($value);
                 break;
             case 7:
-                $this->setItemnbr($value);
+                $this->setType($value);
                 break;
             case 8:
-                $this->setItemdesc1($value);
-                break;
-            case 9:
-                $this->setItemdesc2($value);
-                break;
-            case 10:
-                $this->setQtyordered($value);
-                break;
-            case 11:
-                $this->setQtypulled($value);
-                break;
-            case 12:
-                $this->setQtyremaining($value);
-                break;
-            case 13:
-                $this->setBinnbr($value);
-                break;
-            case 14:
-                $this->setCaseqty($value);
-                break;
-            case 15:
-                $this->setInnerpack($value);
-                break;
-            case 16:
-                $this->setBinqty($value);
-                break;
-            case 17:
-                $this->setOverbin1($value);
-                break;
-            case 18:
-                $this->setOverbinqty1($value);
-                break;
-            case 19:
-                $this->setOverbin2($value);
-                break;
-            case 20:
-                $this->setOverbinqty2($value);
-                break;
-            case 21:
-                $this->setStatusmsg($value);
-                break;
-            case 22:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -1933,7 +1167,7 @@ abstract class Wmpickdet implements ActiveRecordInterface
      */
     public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
     {
-        $keys = WmpickdetTableMap::getFieldNames($keyType);
+        $keys = SidebarTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
             $this->setSessionid($arr[$keys[0]]);
@@ -1948,61 +1182,19 @@ abstract class Wmpickdet implements ActiveRecordInterface
             $this->setTime($arr[$keys[3]]);
         }
         if (array_key_exists($keys[4], $arr)) {
-            $this->setOrdernbr($arr[$keys[4]]);
+            $this->setCode($arr[$keys[4]]);
         }
         if (array_key_exists($keys[5], $arr)) {
-            $this->setLinenbr($arr[$keys[5]]);
+            $this->setDescription($arr[$keys[5]]);
         }
         if (array_key_exists($keys[6], $arr)) {
-            $this->setSublinenbr($arr[$keys[6]]);
+            $this->setTitle($arr[$keys[6]]);
         }
         if (array_key_exists($keys[7], $arr)) {
-            $this->setItemnbr($arr[$keys[7]]);
+            $this->setType($arr[$keys[7]]);
         }
         if (array_key_exists($keys[8], $arr)) {
-            $this->setItemdesc1($arr[$keys[8]]);
-        }
-        if (array_key_exists($keys[9], $arr)) {
-            $this->setItemdesc2($arr[$keys[9]]);
-        }
-        if (array_key_exists($keys[10], $arr)) {
-            $this->setQtyordered($arr[$keys[10]]);
-        }
-        if (array_key_exists($keys[11], $arr)) {
-            $this->setQtypulled($arr[$keys[11]]);
-        }
-        if (array_key_exists($keys[12], $arr)) {
-            $this->setQtyremaining($arr[$keys[12]]);
-        }
-        if (array_key_exists($keys[13], $arr)) {
-            $this->setBinnbr($arr[$keys[13]]);
-        }
-        if (array_key_exists($keys[14], $arr)) {
-            $this->setCaseqty($arr[$keys[14]]);
-        }
-        if (array_key_exists($keys[15], $arr)) {
-            $this->setInnerpack($arr[$keys[15]]);
-        }
-        if (array_key_exists($keys[16], $arr)) {
-            $this->setBinqty($arr[$keys[16]]);
-        }
-        if (array_key_exists($keys[17], $arr)) {
-            $this->setOverbin1($arr[$keys[17]]);
-        }
-        if (array_key_exists($keys[18], $arr)) {
-            $this->setOverbinqty1($arr[$keys[18]]);
-        }
-        if (array_key_exists($keys[19], $arr)) {
-            $this->setOverbin2($arr[$keys[19]]);
-        }
-        if (array_key_exists($keys[20], $arr)) {
-            $this->setOverbinqty2($arr[$keys[20]]);
-        }
-        if (array_key_exists($keys[21], $arr)) {
-            $this->setStatusmsg($arr[$keys[21]]);
-        }
-        if (array_key_exists($keys[22], $arr)) {
-            $this->setDummy($arr[$keys[22]]);
+            $this->setDummy($arr[$keys[8]]);
         }
     }
 
@@ -2023,7 +1215,7 @@ abstract class Wmpickdet implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\Wmpickdet The current object, for fluid interface
+     * @return $this|\Sidebar The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -2043,76 +1235,34 @@ abstract class Wmpickdet implements ActiveRecordInterface
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(WmpickdetTableMap::DATABASE_NAME);
+        $criteria = new Criteria(SidebarTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(WmpickdetTableMap::COL_SESSIONID)) {
-            $criteria->add(WmpickdetTableMap::COL_SESSIONID, $this->sessionid);
+        if ($this->isColumnModified(SidebarTableMap::COL_SESSIONID)) {
+            $criteria->add(SidebarTableMap::COL_SESSIONID, $this->sessionid);
         }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_RECNO)) {
-            $criteria->add(WmpickdetTableMap::COL_RECNO, $this->recno);
+        if ($this->isColumnModified(SidebarTableMap::COL_RECNO)) {
+            $criteria->add(SidebarTableMap::COL_RECNO, $this->recno);
         }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_DATE)) {
-            $criteria->add(WmpickdetTableMap::COL_DATE, $this->date);
+        if ($this->isColumnModified(SidebarTableMap::COL_DATE)) {
+            $criteria->add(SidebarTableMap::COL_DATE, $this->date);
         }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_TIME)) {
-            $criteria->add(WmpickdetTableMap::COL_TIME, $this->time);
+        if ($this->isColumnModified(SidebarTableMap::COL_TIME)) {
+            $criteria->add(SidebarTableMap::COL_TIME, $this->time);
         }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_ORDERNBR)) {
-            $criteria->add(WmpickdetTableMap::COL_ORDERNBR, $this->ordernbr);
+        if ($this->isColumnModified(SidebarTableMap::COL_CODE)) {
+            $criteria->add(SidebarTableMap::COL_CODE, $this->code);
         }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_LINENBR)) {
-            $criteria->add(WmpickdetTableMap::COL_LINENBR, $this->linenbr);
+        if ($this->isColumnModified(SidebarTableMap::COL_DESCRIPTION)) {
+            $criteria->add(SidebarTableMap::COL_DESCRIPTION, $this->description);
         }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_SUBLINENBR)) {
-            $criteria->add(WmpickdetTableMap::COL_SUBLINENBR, $this->sublinenbr);
+        if ($this->isColumnModified(SidebarTableMap::COL_TITLE)) {
+            $criteria->add(SidebarTableMap::COL_TITLE, $this->title);
         }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_ITEMNBR)) {
-            $criteria->add(WmpickdetTableMap::COL_ITEMNBR, $this->itemnbr);
+        if ($this->isColumnModified(SidebarTableMap::COL_TYPE)) {
+            $criteria->add(SidebarTableMap::COL_TYPE, $this->type);
         }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_ITEMDESC1)) {
-            $criteria->add(WmpickdetTableMap::COL_ITEMDESC1, $this->itemdesc1);
-        }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_ITEMDESC2)) {
-            $criteria->add(WmpickdetTableMap::COL_ITEMDESC2, $this->itemdesc2);
-        }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_QTYORDERED)) {
-            $criteria->add(WmpickdetTableMap::COL_QTYORDERED, $this->qtyordered);
-        }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_QTYPULLED)) {
-            $criteria->add(WmpickdetTableMap::COL_QTYPULLED, $this->qtypulled);
-        }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_QTYREMAINING)) {
-            $criteria->add(WmpickdetTableMap::COL_QTYREMAINING, $this->qtyremaining);
-        }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_BINNBR)) {
-            $criteria->add(WmpickdetTableMap::COL_BINNBR, $this->binnbr);
-        }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_CASEQTY)) {
-            $criteria->add(WmpickdetTableMap::COL_CASEQTY, $this->caseqty);
-        }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_INNERPACK)) {
-            $criteria->add(WmpickdetTableMap::COL_INNERPACK, $this->innerpack);
-        }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_BINQTY)) {
-            $criteria->add(WmpickdetTableMap::COL_BINQTY, $this->binqty);
-        }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_OVERBIN1)) {
-            $criteria->add(WmpickdetTableMap::COL_OVERBIN1, $this->overbin1);
-        }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_OVERBINQTY1)) {
-            $criteria->add(WmpickdetTableMap::COL_OVERBINQTY1, $this->overbinqty1);
-        }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_OVERBIN2)) {
-            $criteria->add(WmpickdetTableMap::COL_OVERBIN2, $this->overbin2);
-        }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_OVERBINQTY2)) {
-            $criteria->add(WmpickdetTableMap::COL_OVERBINQTY2, $this->overbinqty2);
-        }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_STATUSMSG)) {
-            $criteria->add(WmpickdetTableMap::COL_STATUSMSG, $this->statusmsg);
-        }
-        if ($this->isColumnModified(WmpickdetTableMap::COL_DUMMY)) {
-            $criteria->add(WmpickdetTableMap::COL_DUMMY, $this->dummy);
+        if ($this->isColumnModified(SidebarTableMap::COL_DUMMY)) {
+            $criteria->add(SidebarTableMap::COL_DUMMY, $this->dummy);
         }
 
         return $criteria;
@@ -2130,9 +1280,9 @@ abstract class Wmpickdet implements ActiveRecordInterface
      */
     public function buildPkeyCriteria()
     {
-        $criteria = ChildWmpickdetQuery::create();
-        $criteria->add(WmpickdetTableMap::COL_SESSIONID, $this->sessionid);
-        $criteria->add(WmpickdetTableMap::COL_RECNO, $this->recno);
+        $criteria = ChildSidebarQuery::create();
+        $criteria->add(SidebarTableMap::COL_SESSIONID, $this->sessionid);
+        $criteria->add(SidebarTableMap::COL_RECNO, $this->recno);
 
         return $criteria;
     }
@@ -2201,7 +1351,7 @@ abstract class Wmpickdet implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \Wmpickdet (or compatible) type.
+     * @param      object $copyObj An object of \Sidebar (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
@@ -2212,24 +1362,10 @@ abstract class Wmpickdet implements ActiveRecordInterface
         $copyObj->setRecno($this->getRecno());
         $copyObj->setDate($this->getDate());
         $copyObj->setTime($this->getTime());
-        $copyObj->setOrdernbr($this->getOrdernbr());
-        $copyObj->setLinenbr($this->getLinenbr());
-        $copyObj->setSublinenbr($this->getSublinenbr());
-        $copyObj->setItemnbr($this->getItemnbr());
-        $copyObj->setItemdesc1($this->getItemdesc1());
-        $copyObj->setItemdesc2($this->getItemdesc2());
-        $copyObj->setQtyordered($this->getQtyordered());
-        $copyObj->setQtypulled($this->getQtypulled());
-        $copyObj->setQtyremaining($this->getQtyremaining());
-        $copyObj->setBinnbr($this->getBinnbr());
-        $copyObj->setCaseqty($this->getCaseqty());
-        $copyObj->setInnerpack($this->getInnerpack());
-        $copyObj->setBinqty($this->getBinqty());
-        $copyObj->setOverbin1($this->getOverbin1());
-        $copyObj->setOverbinqty1($this->getOverbinqty1());
-        $copyObj->setOverbin2($this->getOverbin2());
-        $copyObj->setOverbinqty2($this->getOverbinqty2());
-        $copyObj->setStatusmsg($this->getStatusmsg());
+        $copyObj->setCode($this->getCode());
+        $copyObj->setDescription($this->getDescription());
+        $copyObj->setTitle($this->getTitle());
+        $copyObj->setType($this->getType());
         $copyObj->setDummy($this->getDummy());
         if ($makeNew) {
             $copyObj->setNew(true);
@@ -2245,7 +1381,7 @@ abstract class Wmpickdet implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \Wmpickdet Clone of current object.
+     * @return \Sidebar Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -2269,28 +1405,13 @@ abstract class Wmpickdet implements ActiveRecordInterface
         $this->recno = null;
         $this->date = null;
         $this->time = null;
-        $this->ordernbr = null;
-        $this->linenbr = null;
-        $this->sublinenbr = null;
-        $this->itemnbr = null;
-        $this->itemdesc1 = null;
-        $this->itemdesc2 = null;
-        $this->qtyordered = null;
-        $this->qtypulled = null;
-        $this->qtyremaining = null;
-        $this->binnbr = null;
-        $this->caseqty = null;
-        $this->innerpack = null;
-        $this->binqty = null;
-        $this->overbin1 = null;
-        $this->overbinqty1 = null;
-        $this->overbin2 = null;
-        $this->overbinqty2 = null;
-        $this->statusmsg = null;
+        $this->code = null;
+        $this->description = null;
+        $this->title = null;
+        $this->type = null;
         $this->dummy = null;
         $this->alreadyInSave = false;
         $this->clearAllReferences();
-        $this->applyDefaultValues();
         $this->resetModified();
         $this->setNew(true);
         $this->setDeleted(false);
@@ -2318,7 +1439,7 @@ abstract class Wmpickdet implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(WmpickdetTableMap::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(SidebarTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**

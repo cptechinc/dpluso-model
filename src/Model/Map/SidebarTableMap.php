@@ -2,8 +2,8 @@
 
 namespace Map;
 
-use \Wmpickdet;
-use \WmpickdetQuery;
+use \Sidebar;
+use \SidebarQuery;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\InstancePoolTrait;
@@ -16,7 +16,7 @@ use Propel\Runtime\Map\TableMapTrait;
 
 
 /**
- * This class defines the structure of the 'wmpickdet' table.
+ * This class defines the structure of the 'sidebar' table.
  *
  *
  *
@@ -26,7 +26,7 @@ use Propel\Runtime\Map\TableMapTrait;
  * (i.e. if it's a text column type).
  *
  */
-class WmpickdetTableMap extends TableMap
+class SidebarTableMap extends TableMap
 {
     use InstancePoolTrait;
     use TableMapTrait;
@@ -34,7 +34,7 @@ class WmpickdetTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.WmpickdetTableMap';
+    const CLASS_NAME = '.Map.SidebarTableMap';
 
     /**
      * The default database name for this class
@@ -44,22 +44,22 @@ class WmpickdetTableMap extends TableMap
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'wmpickdet';
+    const TABLE_NAME = 'sidebar';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\Wmpickdet';
+    const OM_CLASS = '\\Sidebar';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'Wmpickdet';
+    const CLASS_DEFAULT = 'Sidebar';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 23;
+    const NUM_COLUMNS = 9;
 
     /**
      * The number of lazy-loaded columns
@@ -69,122 +69,52 @@ class WmpickdetTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 23;
+    const NUM_HYDRATE_COLUMNS = 9;
 
     /**
      * the column name for the sessionid field
      */
-    const COL_SESSIONID = 'wmpickdet.sessionid';
+    const COL_SESSIONID = 'sidebar.sessionid';
 
     /**
      * the column name for the recno field
      */
-    const COL_RECNO = 'wmpickdet.recno';
+    const COL_RECNO = 'sidebar.recno';
 
     /**
      * the column name for the date field
      */
-    const COL_DATE = 'wmpickdet.date';
+    const COL_DATE = 'sidebar.date';
 
     /**
      * the column name for the time field
      */
-    const COL_TIME = 'wmpickdet.time';
+    const COL_TIME = 'sidebar.time';
 
     /**
-     * the column name for the ordernbr field
+     * the column name for the code field
      */
-    const COL_ORDERNBR = 'wmpickdet.ordernbr';
+    const COL_CODE = 'sidebar.code';
 
     /**
-     * the column name for the linenbr field
+     * the column name for the description field
      */
-    const COL_LINENBR = 'wmpickdet.linenbr';
+    const COL_DESCRIPTION = 'sidebar.description';
 
     /**
-     * the column name for the sublinenbr field
+     * the column name for the title field
      */
-    const COL_SUBLINENBR = 'wmpickdet.sublinenbr';
+    const COL_TITLE = 'sidebar.title';
 
     /**
-     * the column name for the itemnbr field
+     * the column name for the type field
      */
-    const COL_ITEMNBR = 'wmpickdet.itemnbr';
-
-    /**
-     * the column name for the itemdesc1 field
-     */
-    const COL_ITEMDESC1 = 'wmpickdet.itemdesc1';
-
-    /**
-     * the column name for the itemdesc2 field
-     */
-    const COL_ITEMDESC2 = 'wmpickdet.itemdesc2';
-
-    /**
-     * the column name for the qtyordered field
-     */
-    const COL_QTYORDERED = 'wmpickdet.qtyordered';
-
-    /**
-     * the column name for the qtypulled field
-     */
-    const COL_QTYPULLED = 'wmpickdet.qtypulled';
-
-    /**
-     * the column name for the qtyremaining field
-     */
-    const COL_QTYREMAINING = 'wmpickdet.qtyremaining';
-
-    /**
-     * the column name for the binnbr field
-     */
-    const COL_BINNBR = 'wmpickdet.binnbr';
-
-    /**
-     * the column name for the caseqty field
-     */
-    const COL_CASEQTY = 'wmpickdet.caseqty';
-
-    /**
-     * the column name for the innerpack field
-     */
-    const COL_INNERPACK = 'wmpickdet.innerpack';
-
-    /**
-     * the column name for the binqty field
-     */
-    const COL_BINQTY = 'wmpickdet.binqty';
-
-    /**
-     * the column name for the overbin1 field
-     */
-    const COL_OVERBIN1 = 'wmpickdet.overbin1';
-
-    /**
-     * the column name for the overbinqty1 field
-     */
-    const COL_OVERBINQTY1 = 'wmpickdet.overbinqty1';
-
-    /**
-     * the column name for the overbin2 field
-     */
-    const COL_OVERBIN2 = 'wmpickdet.overbin2';
-
-    /**
-     * the column name for the overbinqty2 field
-     */
-    const COL_OVERBINQTY2 = 'wmpickdet.overbinqty2';
-
-    /**
-     * the column name for the statusmsg field
-     */
-    const COL_STATUSMSG = 'wmpickdet.statusmsg';
+    const COL_TYPE = 'sidebar.type';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'wmpickdet.dummy';
+    const COL_DUMMY = 'sidebar.dummy';
 
     /**
      * The default string format for model objects of the related table
@@ -198,11 +128,11 @@ class WmpickdetTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Sessionid', 'Recno', 'Date', 'Time', 'Ordernbr', 'Linenbr', 'Sublinenbr', 'Itemnbr', 'Itemdesc1', 'Itemdesc2', 'Qtyordered', 'Qtypulled', 'Qtyremaining', 'Binnbr', 'Caseqty', 'Innerpack', 'Binqty', 'Overbin1', 'Overbinqty1', 'Overbin2', 'Overbinqty2', 'Statusmsg', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('sessionid', 'recno', 'date', 'time', 'ordernbr', 'linenbr', 'sublinenbr', 'itemnbr', 'itemdesc1', 'itemdesc2', 'qtyordered', 'qtypulled', 'qtyremaining', 'binnbr', 'caseqty', 'innerpack', 'binqty', 'overbin1', 'overbinqty1', 'overbin2', 'overbinqty2', 'statusmsg', 'dummy', ),
-        self::TYPE_COLNAME       => array(WmpickdetTableMap::COL_SESSIONID, WmpickdetTableMap::COL_RECNO, WmpickdetTableMap::COL_DATE, WmpickdetTableMap::COL_TIME, WmpickdetTableMap::COL_ORDERNBR, WmpickdetTableMap::COL_LINENBR, WmpickdetTableMap::COL_SUBLINENBR, WmpickdetTableMap::COL_ITEMNBR, WmpickdetTableMap::COL_ITEMDESC1, WmpickdetTableMap::COL_ITEMDESC2, WmpickdetTableMap::COL_QTYORDERED, WmpickdetTableMap::COL_QTYPULLED, WmpickdetTableMap::COL_QTYREMAINING, WmpickdetTableMap::COL_BINNBR, WmpickdetTableMap::COL_CASEQTY, WmpickdetTableMap::COL_INNERPACK, WmpickdetTableMap::COL_BINQTY, WmpickdetTableMap::COL_OVERBIN1, WmpickdetTableMap::COL_OVERBINQTY1, WmpickdetTableMap::COL_OVERBIN2, WmpickdetTableMap::COL_OVERBINQTY2, WmpickdetTableMap::COL_STATUSMSG, WmpickdetTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('sessionid', 'recno', 'date', 'time', 'ordernbr', 'linenbr', 'sublinenbr', 'itemnbr', 'itemdesc1', 'itemdesc2', 'qtyordered', 'qtypulled', 'qtyremaining', 'binnbr', 'caseqty', 'innerpack', 'binqty', 'overbin1', 'overbinqty1', 'overbin2', 'overbinqty2', 'statusmsg', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, )
+        self::TYPE_PHPNAME       => array('Sessionid', 'Recno', 'Date', 'Time', 'Code', 'Description', 'Title', 'Type', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('sessionid', 'recno', 'date', 'time', 'code', 'description', 'title', 'type', 'dummy', ),
+        self::TYPE_COLNAME       => array(SidebarTableMap::COL_SESSIONID, SidebarTableMap::COL_RECNO, SidebarTableMap::COL_DATE, SidebarTableMap::COL_TIME, SidebarTableMap::COL_CODE, SidebarTableMap::COL_DESCRIPTION, SidebarTableMap::COL_TITLE, SidebarTableMap::COL_TYPE, SidebarTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('sessionid', 'recno', 'date', 'time', 'code', 'description', 'title', 'type', 'dummy', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, )
     );
 
     /**
@@ -212,11 +142,11 @@ class WmpickdetTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Recno' => 1, 'Date' => 2, 'Time' => 3, 'Ordernbr' => 4, 'Linenbr' => 5, 'Sublinenbr' => 6, 'Itemnbr' => 7, 'Itemdesc1' => 8, 'Itemdesc2' => 9, 'Qtyordered' => 10, 'Qtypulled' => 11, 'Qtyremaining' => 12, 'Binnbr' => 13, 'Caseqty' => 14, 'Innerpack' => 15, 'Binqty' => 16, 'Overbin1' => 17, 'Overbinqty1' => 18, 'Overbin2' => 19, 'Overbinqty2' => 20, 'Statusmsg' => 21, 'Dummy' => 22, ),
-        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'ordernbr' => 4, 'linenbr' => 5, 'sublinenbr' => 6, 'itemnbr' => 7, 'itemdesc1' => 8, 'itemdesc2' => 9, 'qtyordered' => 10, 'qtypulled' => 11, 'qtyremaining' => 12, 'binnbr' => 13, 'caseqty' => 14, 'innerpack' => 15, 'binqty' => 16, 'overbin1' => 17, 'overbinqty1' => 18, 'overbin2' => 19, 'overbinqty2' => 20, 'statusmsg' => 21, 'dummy' => 22, ),
-        self::TYPE_COLNAME       => array(WmpickdetTableMap::COL_SESSIONID => 0, WmpickdetTableMap::COL_RECNO => 1, WmpickdetTableMap::COL_DATE => 2, WmpickdetTableMap::COL_TIME => 3, WmpickdetTableMap::COL_ORDERNBR => 4, WmpickdetTableMap::COL_LINENBR => 5, WmpickdetTableMap::COL_SUBLINENBR => 6, WmpickdetTableMap::COL_ITEMNBR => 7, WmpickdetTableMap::COL_ITEMDESC1 => 8, WmpickdetTableMap::COL_ITEMDESC2 => 9, WmpickdetTableMap::COL_QTYORDERED => 10, WmpickdetTableMap::COL_QTYPULLED => 11, WmpickdetTableMap::COL_QTYREMAINING => 12, WmpickdetTableMap::COL_BINNBR => 13, WmpickdetTableMap::COL_CASEQTY => 14, WmpickdetTableMap::COL_INNERPACK => 15, WmpickdetTableMap::COL_BINQTY => 16, WmpickdetTableMap::COL_OVERBIN1 => 17, WmpickdetTableMap::COL_OVERBINQTY1 => 18, WmpickdetTableMap::COL_OVERBIN2 => 19, WmpickdetTableMap::COL_OVERBINQTY2 => 20, WmpickdetTableMap::COL_STATUSMSG => 21, WmpickdetTableMap::COL_DUMMY => 22, ),
-        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'ordernbr' => 4, 'linenbr' => 5, 'sublinenbr' => 6, 'itemnbr' => 7, 'itemdesc1' => 8, 'itemdesc2' => 9, 'qtyordered' => 10, 'qtypulled' => 11, 'qtyremaining' => 12, 'binnbr' => 13, 'caseqty' => 14, 'innerpack' => 15, 'binqty' => 16, 'overbin1' => 17, 'overbinqty1' => 18, 'overbin2' => 19, 'overbinqty2' => 20, 'statusmsg' => 21, 'dummy' => 22, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, )
+        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Recno' => 1, 'Date' => 2, 'Time' => 3, 'Code' => 4, 'Description' => 5, 'Title' => 6, 'Type' => 7, 'Dummy' => 8, ),
+        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'code' => 4, 'description' => 5, 'title' => 6, 'type' => 7, 'dummy' => 8, ),
+        self::TYPE_COLNAME       => array(SidebarTableMap::COL_SESSIONID => 0, SidebarTableMap::COL_RECNO => 1, SidebarTableMap::COL_DATE => 2, SidebarTableMap::COL_TIME => 3, SidebarTableMap::COL_CODE => 4, SidebarTableMap::COL_DESCRIPTION => 5, SidebarTableMap::COL_TITLE => 6, SidebarTableMap::COL_TYPE => 7, SidebarTableMap::COL_DUMMY => 8, ),
+        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'code' => 4, 'description' => 5, 'title' => 6, 'type' => 7, 'dummy' => 8, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, )
     );
 
     /**
@@ -229,35 +159,21 @@ class WmpickdetTableMap extends TableMap
     public function initialize()
     {
         // attributes
-        $this->setName('wmpickdet');
-        $this->setPhpName('Wmpickdet');
+        $this->setName('sidebar');
+        $this->setPhpName('Sidebar');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\Wmpickdet');
+        $this->setClassName('\\Sidebar');
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addPrimaryKey('sessionid', 'Sessionid', 'VARCHAR', true, 30, '');
-        $this->addPrimaryKey('recno', 'Recno', 'INTEGER', true, null, 0);
+        $this->addPrimaryKey('sessionid', 'Sessionid', 'VARCHAR', true, 50, null);
+        $this->addPrimaryKey('recno', 'Recno', 'INTEGER', true, null, null);
         $this->addColumn('date', 'Date', 'INTEGER', false, 8, null);
         $this->addColumn('time', 'Time', 'INTEGER', false, 8, null);
-        $this->addColumn('ordernbr', 'Ordernbr', 'VARCHAR', false, 10, null);
-        $this->addColumn('linenbr', 'Linenbr', 'INTEGER', true, 4, null);
-        $this->addColumn('sublinenbr', 'Sublinenbr', 'INTEGER', true, 4, null);
-        $this->addColumn('itemnbr', 'Itemnbr', 'VARCHAR', false, 30, null);
-        $this->addColumn('itemdesc1', 'Itemdesc1', 'VARCHAR', false, 35, null);
-        $this->addColumn('itemdesc2', 'Itemdesc2', 'VARCHAR', false, 35, null);
-        $this->addColumn('qtyordered', 'Qtyordered', 'INTEGER', false, 12, null);
-        $this->addColumn('qtypulled', 'Qtypulled', 'INTEGER', false, 12, null);
-        $this->addColumn('qtyremaining', 'Qtyremaining', 'INTEGER', false, 12, null);
-        $this->addColumn('binnbr', 'Binnbr', 'VARCHAR', false, 8, null);
-        $this->addColumn('caseqty', 'Caseqty', 'INTEGER', true, 8, null);
-        $this->addColumn('innerpack', 'Innerpack', 'INTEGER', true, 8, null);
-        $this->addColumn('binqty', 'Binqty', 'INTEGER', false, 9, null);
-        $this->addColumn('overbin1', 'Overbin1', 'VARCHAR', false, 8, null);
-        $this->addColumn('overbinqty1', 'Overbinqty1', 'INTEGER', false, 9, null);
-        $this->addColumn('overbin2', 'Overbin2', 'VARCHAR', false, 8, null);
-        $this->addColumn('overbinqty2', 'Overbinqty2', 'INTEGER', false, 9, null);
-        $this->addColumn('statusmsg', 'Statusmsg', 'VARCHAR', false, 50, null);
+        $this->addColumn('code', 'Code', 'VARCHAR', false, 35, null);
+        $this->addColumn('description', 'Description', 'VARCHAR', false, 50, null);
+        $this->addColumn('title', 'Title', 'VARCHAR', false, 35, null);
+        $this->addColumn('type', 'Type', 'CHAR', false, 2, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
     } // initialize()
 
@@ -276,7 +192,7 @@ class WmpickdetTableMap extends TableMap
      * to the cache in order to ensure that the same objects are always returned by find*()
      * and findPk*() calls.
      *
-     * @param \Wmpickdet $obj A \Wmpickdet object.
+     * @param \Sidebar $obj A \Sidebar object.
      * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
      */
     public static function addInstanceToPool($obj, $key = null)
@@ -297,12 +213,12 @@ class WmpickdetTableMap extends TableMap
      * methods in your stub classes -- you may need to explicitly remove objects
      * from the cache in order to prevent returning objects that no longer exist.
      *
-     * @param mixed $value A \Wmpickdet object or a primary key value.
+     * @param mixed $value A \Sidebar object or a primary key value.
      */
     public static function removeInstanceFromPool($value)
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
-            if (is_object($value) && $value instanceof \Wmpickdet) {
+            if (is_object($value) && $value instanceof \Sidebar) {
                 $key = serialize([(null === $value->getSessionid() || is_scalar($value->getSessionid()) || is_callable([$value->getSessionid(), '__toString']) ? (string) $value->getSessionid() : $value->getSessionid()), (null === $value->getRecno() || is_scalar($value->getRecno()) || is_callable([$value->getRecno(), '__toString']) ? (string) $value->getRecno() : $value->getRecno())]);
 
             } elseif (is_array($value) && count($value) === 2) {
@@ -313,7 +229,7 @@ class WmpickdetTableMap extends TableMap
 
                 return;
             } else {
-                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or \Wmpickdet object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value, true)));
+                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or \Sidebar object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value, true)));
                 throw $e;
             }
 
@@ -387,7 +303,7 @@ class WmpickdetTableMap extends TableMap
      */
     public static function getOMClass($withPrefix = true)
     {
-        return $withPrefix ? WmpickdetTableMap::CLASS_DEFAULT : WmpickdetTableMap::OM_CLASS;
+        return $withPrefix ? SidebarTableMap::CLASS_DEFAULT : SidebarTableMap::OM_CLASS;
     }
 
     /**
@@ -401,22 +317,22 @@ class WmpickdetTableMap extends TableMap
      *
      * @throws PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (Wmpickdet object, last column rank)
+     * @return array           (Sidebar object, last column rank)
      */
     public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
-        $key = WmpickdetTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
-        if (null !== ($obj = WmpickdetTableMap::getInstanceFromPool($key))) {
+        $key = SidebarTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
+        if (null !== ($obj = SidebarTableMap::getInstanceFromPool($key))) {
             // We no longer rehydrate the object, since this can cause data loss.
             // See http://www.propelorm.org/ticket/509
             // $obj->hydrate($row, $offset, true); // rehydrate
-            $col = $offset + WmpickdetTableMap::NUM_HYDRATE_COLUMNS;
+            $col = $offset + SidebarTableMap::NUM_HYDRATE_COLUMNS;
         } else {
-            $cls = WmpickdetTableMap::OM_CLASS;
-            /** @var Wmpickdet $obj */
+            $cls = SidebarTableMap::OM_CLASS;
+            /** @var Sidebar $obj */
             $obj = new $cls();
             $col = $obj->hydrate($row, $offset, false, $indexType);
-            WmpickdetTableMap::addInstanceToPool($obj, $key);
+            SidebarTableMap::addInstanceToPool($obj, $key);
         }
 
         return array($obj, $col);
@@ -439,18 +355,18 @@ class WmpickdetTableMap extends TableMap
         $cls = static::getOMClass(false);
         // populate the object(s)
         while ($row = $dataFetcher->fetch()) {
-            $key = WmpickdetTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
-            if (null !== ($obj = WmpickdetTableMap::getInstanceFromPool($key))) {
+            $key = SidebarTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
+            if (null !== ($obj = SidebarTableMap::getInstanceFromPool($key))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj->hydrate($row, 0, true); // rehydrate
                 $results[] = $obj;
             } else {
-                /** @var Wmpickdet $obj */
+                /** @var Sidebar $obj */
                 $obj = new $cls();
                 $obj->hydrate($row);
                 $results[] = $obj;
-                WmpickdetTableMap::addInstanceToPool($obj, $key);
+                SidebarTableMap::addInstanceToPool($obj, $key);
             } // if key exists
         }
 
@@ -471,52 +387,24 @@ class WmpickdetTableMap extends TableMap
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(WmpickdetTableMap::COL_SESSIONID);
-            $criteria->addSelectColumn(WmpickdetTableMap::COL_RECNO);
-            $criteria->addSelectColumn(WmpickdetTableMap::COL_DATE);
-            $criteria->addSelectColumn(WmpickdetTableMap::COL_TIME);
-            $criteria->addSelectColumn(WmpickdetTableMap::COL_ORDERNBR);
-            $criteria->addSelectColumn(WmpickdetTableMap::COL_LINENBR);
-            $criteria->addSelectColumn(WmpickdetTableMap::COL_SUBLINENBR);
-            $criteria->addSelectColumn(WmpickdetTableMap::COL_ITEMNBR);
-            $criteria->addSelectColumn(WmpickdetTableMap::COL_ITEMDESC1);
-            $criteria->addSelectColumn(WmpickdetTableMap::COL_ITEMDESC2);
-            $criteria->addSelectColumn(WmpickdetTableMap::COL_QTYORDERED);
-            $criteria->addSelectColumn(WmpickdetTableMap::COL_QTYPULLED);
-            $criteria->addSelectColumn(WmpickdetTableMap::COL_QTYREMAINING);
-            $criteria->addSelectColumn(WmpickdetTableMap::COL_BINNBR);
-            $criteria->addSelectColumn(WmpickdetTableMap::COL_CASEQTY);
-            $criteria->addSelectColumn(WmpickdetTableMap::COL_INNERPACK);
-            $criteria->addSelectColumn(WmpickdetTableMap::COL_BINQTY);
-            $criteria->addSelectColumn(WmpickdetTableMap::COL_OVERBIN1);
-            $criteria->addSelectColumn(WmpickdetTableMap::COL_OVERBINQTY1);
-            $criteria->addSelectColumn(WmpickdetTableMap::COL_OVERBIN2);
-            $criteria->addSelectColumn(WmpickdetTableMap::COL_OVERBINQTY2);
-            $criteria->addSelectColumn(WmpickdetTableMap::COL_STATUSMSG);
-            $criteria->addSelectColumn(WmpickdetTableMap::COL_DUMMY);
+            $criteria->addSelectColumn(SidebarTableMap::COL_SESSIONID);
+            $criteria->addSelectColumn(SidebarTableMap::COL_RECNO);
+            $criteria->addSelectColumn(SidebarTableMap::COL_DATE);
+            $criteria->addSelectColumn(SidebarTableMap::COL_TIME);
+            $criteria->addSelectColumn(SidebarTableMap::COL_CODE);
+            $criteria->addSelectColumn(SidebarTableMap::COL_DESCRIPTION);
+            $criteria->addSelectColumn(SidebarTableMap::COL_TITLE);
+            $criteria->addSelectColumn(SidebarTableMap::COL_TYPE);
+            $criteria->addSelectColumn(SidebarTableMap::COL_DUMMY);
         } else {
             $criteria->addSelectColumn($alias . '.sessionid');
             $criteria->addSelectColumn($alias . '.recno');
             $criteria->addSelectColumn($alias . '.date');
             $criteria->addSelectColumn($alias . '.time');
-            $criteria->addSelectColumn($alias . '.ordernbr');
-            $criteria->addSelectColumn($alias . '.linenbr');
-            $criteria->addSelectColumn($alias . '.sublinenbr');
-            $criteria->addSelectColumn($alias . '.itemnbr');
-            $criteria->addSelectColumn($alias . '.itemdesc1');
-            $criteria->addSelectColumn($alias . '.itemdesc2');
-            $criteria->addSelectColumn($alias . '.qtyordered');
-            $criteria->addSelectColumn($alias . '.qtypulled');
-            $criteria->addSelectColumn($alias . '.qtyremaining');
-            $criteria->addSelectColumn($alias . '.binnbr');
-            $criteria->addSelectColumn($alias . '.caseqty');
-            $criteria->addSelectColumn($alias . '.innerpack');
-            $criteria->addSelectColumn($alias . '.binqty');
-            $criteria->addSelectColumn($alias . '.overbin1');
-            $criteria->addSelectColumn($alias . '.overbinqty1');
-            $criteria->addSelectColumn($alias . '.overbin2');
-            $criteria->addSelectColumn($alias . '.overbinqty2');
-            $criteria->addSelectColumn($alias . '.statusmsg');
+            $criteria->addSelectColumn($alias . '.code');
+            $criteria->addSelectColumn($alias . '.description');
+            $criteria->addSelectColumn($alias . '.title');
+            $criteria->addSelectColumn($alias . '.type');
             $criteria->addSelectColumn($alias . '.dummy');
         }
     }
@@ -530,7 +418,7 @@ class WmpickdetTableMap extends TableMap
      */
     public static function getTableMap()
     {
-        return Propel::getServiceContainer()->getDatabaseMap(WmpickdetTableMap::DATABASE_NAME)->getTable(WmpickdetTableMap::TABLE_NAME);
+        return Propel::getServiceContainer()->getDatabaseMap(SidebarTableMap::DATABASE_NAME)->getTable(SidebarTableMap::TABLE_NAME);
     }
 
     /**
@@ -538,16 +426,16 @@ class WmpickdetTableMap extends TableMap
      */
     public static function buildTableMap()
     {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(WmpickdetTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(WmpickdetTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new WmpickdetTableMap());
+        $dbMap = Propel::getServiceContainer()->getDatabaseMap(SidebarTableMap::DATABASE_NAME);
+        if (!$dbMap->hasTable(SidebarTableMap::TABLE_NAME)) {
+            $dbMap->addTableObject(new SidebarTableMap());
         }
     }
 
     /**
-     * Performs a DELETE on the database, given a Wmpickdet or Criteria object OR a primary key value.
+     * Performs a DELETE on the database, given a Sidebar or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or Wmpickdet object or primary key or array of primary keys
+     * @param mixed               $values Criteria or Sidebar object or primary key or array of primary keys
      *              which is used to create the DELETE statement
      * @param  ConnectionInterface $con the connection to use
      * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
@@ -558,17 +446,17 @@ class WmpickdetTableMap extends TableMap
      public static function doDelete($values, ConnectionInterface $con = null)
      {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(WmpickdetTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(SidebarTableMap::DATABASE_NAME);
         }
 
         if ($values instanceof Criteria) {
             // rename for clarity
             $criteria = $values;
-        } elseif ($values instanceof \Wmpickdet) { // it's a model object
+        } elseif ($values instanceof \Sidebar) { // it's a model object
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(WmpickdetTableMap::DATABASE_NAME);
+            $criteria = new Criteria(SidebarTableMap::DATABASE_NAME);
             // primary key is composite; we therefore, expect
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
@@ -576,19 +464,19 @@ class WmpickdetTableMap extends TableMap
                 $values = array($values);
             }
             foreach ($values as $value) {
-                $criterion = $criteria->getNewCriterion(WmpickdetTableMap::COL_SESSIONID, $value[0]);
-                $criterion->addAnd($criteria->getNewCriterion(WmpickdetTableMap::COL_RECNO, $value[1]));
+                $criterion = $criteria->getNewCriterion(SidebarTableMap::COL_SESSIONID, $value[0]);
+                $criterion->addAnd($criteria->getNewCriterion(SidebarTableMap::COL_RECNO, $value[1]));
                 $criteria->addOr($criterion);
             }
         }
 
-        $query = WmpickdetQuery::create()->mergeWith($criteria);
+        $query = SidebarQuery::create()->mergeWith($criteria);
 
         if ($values instanceof Criteria) {
-            WmpickdetTableMap::clearInstancePool();
+            SidebarTableMap::clearInstancePool();
         } elseif (!is_object($values)) { // it's a primary key, or an array of pks
             foreach ((array) $values as $singleval) {
-                WmpickdetTableMap::removeInstanceFromPool($singleval);
+                SidebarTableMap::removeInstanceFromPool($singleval);
             }
         }
 
@@ -596,20 +484,20 @@ class WmpickdetTableMap extends TableMap
     }
 
     /**
-     * Deletes all rows from the wmpickdet table.
+     * Deletes all rows from the sidebar table.
      *
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
     public static function doDeleteAll(ConnectionInterface $con = null)
     {
-        return WmpickdetQuery::create()->doDeleteAll($con);
+        return SidebarQuery::create()->doDeleteAll($con);
     }
 
     /**
-     * Performs an INSERT on the database, given a Wmpickdet or Criteria object.
+     * Performs an INSERT on the database, given a Sidebar or Criteria object.
      *
-     * @param mixed               $criteria Criteria or Wmpickdet object containing data that is used to create the INSERT statement.
+     * @param mixed               $criteria Criteria or Sidebar object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
      * @return mixed           The new primary key.
      * @throws PropelException Any exceptions caught during processing will be
@@ -618,18 +506,18 @@ class WmpickdetTableMap extends TableMap
     public static function doInsert($criteria, ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(WmpickdetTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(SidebarTableMap::DATABASE_NAME);
         }
 
         if ($criteria instanceof Criteria) {
             $criteria = clone $criteria; // rename for clarity
         } else {
-            $criteria = $criteria->buildCriteria(); // build Criteria from Wmpickdet object
+            $criteria = $criteria->buildCriteria(); // build Criteria from Sidebar object
         }
 
 
         // Set the correct dbName
-        $query = WmpickdetQuery::create()->mergeWith($criteria);
+        $query = SidebarQuery::create()->mergeWith($criteria);
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
@@ -638,7 +526,7 @@ class WmpickdetTableMap extends TableMap
         });
     }
 
-} // WmpickdetTableMap
+} // SidebarTableMap
 // This is the static code needed to register the TableMap for this table with the main Propel class.
 //
-WmpickdetTableMap::buildTableMap();
+SidebarTableMap::buildTableMap();

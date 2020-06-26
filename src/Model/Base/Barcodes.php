@@ -75,6 +75,20 @@ abstract class Barcodes implements ActiveRecordInterface
     protected $itemid;
 
     /**
+     * The value for the custvend field.
+     *
+     * @var        string
+     */
+    protected $custvend;
+
+    /**
+     * The value for the source field.
+     *
+     * @var        string
+     */
+    protected $source;
+
+    /**
      * The value for the primary field.
      *
      * @var        string
@@ -369,6 +383,26 @@ abstract class Barcodes implements ActiveRecordInterface
     }
 
     /**
+     * Get the [custvend] column value.
+     *
+     * @return string
+     */
+    public function getCustvend()
+    {
+        return $this->custvend;
+    }
+
+    /**
+     * Get the [source] column value.
+     *
+     * @return string
+     */
+    public function getSource()
+    {
+        return $this->source;
+    }
+
+    /**
      * Get the [primary] column value.
      *
      * @return string
@@ -447,6 +481,46 @@ abstract class Barcodes implements ActiveRecordInterface
 
         return $this;
     } // setItemid()
+
+    /**
+     * Set the value of [custvend] column.
+     *
+     * @param string $v new value
+     * @return $this|\Barcodes The current object (for fluent API support)
+     */
+    public function setCustvend($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->custvend !== $v) {
+            $this->custvend = $v;
+            $this->modifiedColumns[BarcodesTableMap::COL_CUSTVEND] = true;
+        }
+
+        return $this;
+    } // setCustvend()
+
+    /**
+     * Set the value of [source] column.
+     *
+     * @param string $v new value
+     * @return $this|\Barcodes The current object (for fluent API support)
+     */
+    public function setSource($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->source !== $v) {
+            $this->source = $v;
+            $this->modifiedColumns[BarcodesTableMap::COL_SOURCE] = true;
+        }
+
+        return $this;
+    } // setSource()
 
     /**
      * Set the value of [primary] column.
@@ -574,16 +648,22 @@ abstract class Barcodes implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : BarcodesTableMap::translateFieldName('Itemid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->itemid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : BarcodesTableMap::translateFieldName('Primary', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : BarcodesTableMap::translateFieldName('Custvend', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->custvend = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : BarcodesTableMap::translateFieldName('Source', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->source = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : BarcodesTableMap::translateFieldName('Primary', TableMap::TYPE_PHPNAME, $indexType)];
             $this->primary = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : BarcodesTableMap::translateFieldName('Unitqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : BarcodesTableMap::translateFieldName('Unitqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->unitqty = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : BarcodesTableMap::translateFieldName('Uom', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : BarcodesTableMap::translateFieldName('Uom', TableMap::TYPE_PHPNAME, $indexType)];
             $this->uom = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : BarcodesTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : BarcodesTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -593,7 +673,7 @@ abstract class Barcodes implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 6; // 6 = BarcodesTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 8; // 8 = BarcodesTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\Barcodes'), 0, $e);
@@ -796,6 +876,12 @@ abstract class Barcodes implements ActiveRecordInterface
         if ($this->isColumnModified(BarcodesTableMap::COL_ITEMID)) {
             $modifiedColumns[':p' . $index++]  = 'itemid';
         }
+        if ($this->isColumnModified(BarcodesTableMap::COL_CUSTVEND)) {
+            $modifiedColumns[':p' . $index++]  = 'custvend';
+        }
+        if ($this->isColumnModified(BarcodesTableMap::COL_SOURCE)) {
+            $modifiedColumns[':p' . $index++]  = 'source';
+        }
         if ($this->isColumnModified(BarcodesTableMap::COL_PRIMARY)) {
             $modifiedColumns[':p' . $index++]  = 'primary';
         }
@@ -824,6 +910,12 @@ abstract class Barcodes implements ActiveRecordInterface
                         break;
                     case 'itemid':
                         $stmt->bindValue($identifier, $this->itemid, PDO::PARAM_STR);
+                        break;
+                    case 'custvend':
+                        $stmt->bindValue($identifier, $this->custvend, PDO::PARAM_STR);
+                        break;
+                    case 'source':
+                        $stmt->bindValue($identifier, $this->source, PDO::PARAM_STR);
                         break;
                     case 'primary':
                         $stmt->bindValue($identifier, $this->primary, PDO::PARAM_STR);
@@ -899,15 +991,21 @@ abstract class Barcodes implements ActiveRecordInterface
                 return $this->getItemid();
                 break;
             case 2:
-                return $this->getPrimary();
+                return $this->getCustvend();
                 break;
             case 3:
-                return $this->getUnitqty();
+                return $this->getSource();
                 break;
             case 4:
-                return $this->getUom();
+                return $this->getPrimary();
                 break;
             case 5:
+                return $this->getUnitqty();
+                break;
+            case 6:
+                return $this->getUom();
+                break;
+            case 7:
                 return $this->getDummy();
                 break;
             default:
@@ -941,10 +1039,12 @@ abstract class Barcodes implements ActiveRecordInterface
         $result = array(
             $keys[0] => $this->getBarcodenbr(),
             $keys[1] => $this->getItemid(),
-            $keys[2] => $this->getPrimary(),
-            $keys[3] => $this->getUnitqty(),
-            $keys[4] => $this->getUom(),
-            $keys[5] => $this->getDummy(),
+            $keys[2] => $this->getCustvend(),
+            $keys[3] => $this->getSource(),
+            $keys[4] => $this->getPrimary(),
+            $keys[5] => $this->getUnitqty(),
+            $keys[6] => $this->getUom(),
+            $keys[7] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -991,15 +1091,21 @@ abstract class Barcodes implements ActiveRecordInterface
                 $this->setItemid($value);
                 break;
             case 2:
-                $this->setPrimary($value);
+                $this->setCustvend($value);
                 break;
             case 3:
-                $this->setUnitqty($value);
+                $this->setSource($value);
                 break;
             case 4:
-                $this->setUom($value);
+                $this->setPrimary($value);
                 break;
             case 5:
+                $this->setUnitqty($value);
+                break;
+            case 6:
+                $this->setUom($value);
+                break;
+            case 7:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -1035,16 +1141,22 @@ abstract class Barcodes implements ActiveRecordInterface
             $this->setItemid($arr[$keys[1]]);
         }
         if (array_key_exists($keys[2], $arr)) {
-            $this->setPrimary($arr[$keys[2]]);
+            $this->setCustvend($arr[$keys[2]]);
         }
         if (array_key_exists($keys[3], $arr)) {
-            $this->setUnitqty($arr[$keys[3]]);
+            $this->setSource($arr[$keys[3]]);
         }
         if (array_key_exists($keys[4], $arr)) {
-            $this->setUom($arr[$keys[4]]);
+            $this->setPrimary($arr[$keys[4]]);
         }
         if (array_key_exists($keys[5], $arr)) {
-            $this->setDummy($arr[$keys[5]]);
+            $this->setUnitqty($arr[$keys[5]]);
+        }
+        if (array_key_exists($keys[6], $arr)) {
+            $this->setUom($arr[$keys[6]]);
+        }
+        if (array_key_exists($keys[7], $arr)) {
+            $this->setDummy($arr[$keys[7]]);
         }
     }
 
@@ -1093,6 +1205,12 @@ abstract class Barcodes implements ActiveRecordInterface
         if ($this->isColumnModified(BarcodesTableMap::COL_ITEMID)) {
             $criteria->add(BarcodesTableMap::COL_ITEMID, $this->itemid);
         }
+        if ($this->isColumnModified(BarcodesTableMap::COL_CUSTVEND)) {
+            $criteria->add(BarcodesTableMap::COL_CUSTVEND, $this->custvend);
+        }
+        if ($this->isColumnModified(BarcodesTableMap::COL_SOURCE)) {
+            $criteria->add(BarcodesTableMap::COL_SOURCE, $this->source);
+        }
         if ($this->isColumnModified(BarcodesTableMap::COL_PRIMARY)) {
             $criteria->add(BarcodesTableMap::COL_PRIMARY, $this->primary);
         }
@@ -1124,6 +1242,7 @@ abstract class Barcodes implements ActiveRecordInterface
         $criteria = ChildBarcodesQuery::create();
         $criteria->add(BarcodesTableMap::COL_BARCODENBR, $this->barcodenbr);
         $criteria->add(BarcodesTableMap::COL_ITEMID, $this->itemid);
+        $criteria->add(BarcodesTableMap::COL_CUSTVEND, $this->custvend);
 
         return $criteria;
     }
@@ -1137,7 +1256,8 @@ abstract class Barcodes implements ActiveRecordInterface
     public function hashCode()
     {
         $validPk = null !== $this->getBarcodenbr() &&
-            null !== $this->getItemid();
+            null !== $this->getItemid() &&
+            null !== $this->getCustvend();
 
         $validPrimaryKeyFKs = 0;
         $primaryKeyFKs = [];
@@ -1161,6 +1281,7 @@ abstract class Barcodes implements ActiveRecordInterface
         $pks = array();
         $pks[0] = $this->getBarcodenbr();
         $pks[1] = $this->getItemid();
+        $pks[2] = $this->getCustvend();
 
         return $pks;
     }
@@ -1175,6 +1296,7 @@ abstract class Barcodes implements ActiveRecordInterface
     {
         $this->setBarcodenbr($keys[0]);
         $this->setItemid($keys[1]);
+        $this->setCustvend($keys[2]);
     }
 
     /**
@@ -1183,7 +1305,7 @@ abstract class Barcodes implements ActiveRecordInterface
      */
     public function isPrimaryKeyNull()
     {
-        return (null === $this->getBarcodenbr()) && (null === $this->getItemid());
+        return (null === $this->getBarcodenbr()) && (null === $this->getItemid()) && (null === $this->getCustvend());
     }
 
     /**
@@ -1201,6 +1323,8 @@ abstract class Barcodes implements ActiveRecordInterface
     {
         $copyObj->setBarcodenbr($this->getBarcodenbr());
         $copyObj->setItemid($this->getItemid());
+        $copyObj->setCustvend($this->getCustvend());
+        $copyObj->setSource($this->getSource());
         $copyObj->setPrimary($this->getPrimary());
         $copyObj->setUnitqty($this->getUnitqty());
         $copyObj->setUom($this->getUom());
@@ -1241,6 +1365,8 @@ abstract class Barcodes implements ActiveRecordInterface
     {
         $this->barcodenbr = null;
         $this->itemid = null;
+        $this->custvend = null;
+        $this->source = null;
         $this->primary = null;
         $this->unitqty = null;
         $this->uom = null;
