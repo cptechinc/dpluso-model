@@ -2,6 +2,9 @@
 
 use Base\Login as BaseLogin;
 
+use Dpluso\Model\ThrowErrorTrait;
+use Dpluso\Model\MagicMethodTraits;
+
 /**
  * Skeleton subclass for representing a row from the 'login' table.
  *
@@ -12,7 +15,11 @@ use Base\Login as BaseLogin;
  * long as it does not already exist in the output directory.
  *
  */
-class Login extends BaseLogin
-{
+class Login extends BaseLogin {
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
 
+	public function is_loggedin() {
+		return strtoupper($this->validlogin) == 'Y';
+	}
 }
