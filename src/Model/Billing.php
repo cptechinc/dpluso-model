@@ -18,4 +18,8 @@ use Dpluso\Model\MagicMethodTraits;
 class Billing extends BaseBilling {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
+
+	public function has_error() {
+		return $this->error == 'Y';	
+	}
 }
