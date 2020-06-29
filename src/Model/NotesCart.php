@@ -1,12 +1,12 @@
 <?php
 
-use Base\Billing as BaseBilling;
+use Base\NotesCart as BaseNotesCart;
 
 use Dpluso\Model\ThrowErrorTrait;
 use Dpluso\Model\MagicMethodTraits;
 
 /**
- * Skeleton subclass for representing a row from the 'billing' table.
+ * Skeleton subclass for representing a row from the 'notes_cart' table.
  *
  *
  *
@@ -15,7 +15,7 @@ use Dpluso\Model\MagicMethodTraits;
  * long as it does not already exist in the output directory.
  *
  */
-class Billing extends BaseBilling {
+class NotesCart extends BaseNotesCart {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 }

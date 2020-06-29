@@ -554,6 +554,18 @@
       <parameter name="Engine" value="MyISAM"/>
     </vendor>
   </table>
+  <table name="notes_cart" idMethod="native" phpName="NotesCart">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
+    <column name="itemid" phpName="Itemid" type="VARCHAR" size="40" primaryKey="true" required="true"/>
+    <column name="sequence" phpName="Sequence" type="INTEGER" size="3" primaryKey="true" required="true"/>
+    <column name="note" phpName="Note" type="VARCHAR" size="45"/>
+    <column name="form" phpName="Form" type="VARCHAR" size="45"/>
+    <column name="date" phpName="Date" type="VARCHAR" size="8"/>
+    <column name="time" phpName="Time" type="VARCHAR" size="8"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="ordlock" idMethod="native" phpName="Ordlock">
     <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
     <column name="recno" phpName="Recno" type="INTEGER" primaryKey="true" required="true"/>
