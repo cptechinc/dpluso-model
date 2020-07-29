@@ -375,6 +375,119 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="edit_po_detail" idMethod="native" phpName="EditPoDetail">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
+    <column name="PohdNbr" phpName="Pohdnbr" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="PodtLine" phpName="Podtline" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30"/>
+    <column name="PodtDesc1" phpName="Podtdesc1" type="VARCHAR" size="35"/>
+    <column name="PodtDesc2" phpName="Podtdesc2" type="VARCHAR" size="35"/>
+    <column name="PodtVendItemNbr" phpName="Podtvenditemnbr" type="VARCHAR" size="30"/>
+    <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="2"/>
+    <column name="PodtShipDate" phpName="Podtshipdate" type="VARCHAR" size="8"/>
+    <column name="PodtExptDate" phpName="Podtexptdate" type="VARCHAR" size="8"/>
+    <column name="PodtCancDate" phpName="Podtcancdate" type="VARCHAR" size="8"/>
+    <column name="IntbUomPur" phpName="Intbuompur" type="VARCHAR" size="4"/>
+    <column name="PodtQtyOrd" phpName="Podtqtyord" type="DECIMAL" size="20" scale="7"/>
+    <column name="PodtCost" phpName="Podtcost" type="DECIMAL" size="20" scale="7"/>
+    <column name="PodtCostTot" phpName="Podtcosttot" type="DECIMAL" size="20" scale="7"/>
+    <column name="PodtRel" phpName="Podtrel" type="VARCHAR" size="1"/>
+    <column name="PodtSpecOrdr" phpName="Podtspecordr" type="VARCHAR" size="1"/>
+    <column name="PodtGlAcct" phpName="Podtglacct" type="VARCHAR" size="9"/>
+    <column name="PodtSoNbr" phpName="Podtsonbr" type="VARCHAR" size="8"/>
+    <column name="PodtStat" phpName="Podtstat" type="VARCHAR" size="1"/>
+    <column name="PodtOrigSoLine" phpName="Podtorigsoline" type="INTEGER" size="4"/>
+    <column name="PodtQtyDueIn" phpName="Podtqtyduein" type="DECIMAL" size="20" scale="2"/>
+    <column name="PodtType" phpName="Podttype" type="VARCHAR" size="1"/>
+    <column name="PodtWghtTot" phpName="Podtwghttot" type="DECIMAL" size="20" scale="7"/>
+    <column name="PodtForeignCost" phpName="Podtforeigncost" type="DECIMAL" size="20" scale="4"/>
+    <column name="PodtForeignCostTot" phpName="Podtforeigncosttot" type="DECIMAL" size="20" scale="4"/>
+    <column name="PodtStanUnitCost" phpName="Podtstanunitcost" type="DECIMAL" size="20" scale="4"/>
+    <column name="PodtAckDate" phpName="Podtackdate" type="VARCHAR" size="8"/>
+    <column name="PodtInvcClearFlag" phpName="Podtinvcclearflag" type="VARCHAR" size="1"/>
+    <column name="PodtPrtKitDet" phpName="Podtprtkitdet" type="VARCHAR" size="1"/>
+    <column name="PodtDestWhse" phpName="Podtdestwhse" type="VARCHAR" size="2"/>
+    <column name="PodtRevision" phpName="Podtrevision" type="VARCHAR" size="10"/>
+    <column name="PodtPrtPoEOrU" phpName="Podtprtpoeoru" type="VARCHAR" size="1"/>
+    <column name="PotbCnfmCode" phpName="Potbcnfmcode" type="VARCHAR" size="4"/>
+    <column name="PodtRcptNbr" phpName="Podtrcptnbr" type="VARCHAR" size="8"/>
+    <column name="PodtWipNbr" phpName="Podtwipnbr" type="VARCHAR" size="8"/>
+    <column name="PodtOrdrAs" phpName="Podtordras" type="VARCHAR" size="1"/>
+    <column name="PodtBolDate" phpName="Podtboldate" type="VARCHAR" size="8"/>
+    <column name="PodtListPric" phpName="Podtlistpric" type="DECIMAL" size="20" scale="4"/>
+    <column name="PodtDeliveredDate" phpName="Podtdelivereddate" type="VARCHAR" size="8"/>
+    <column name="PodtLandCost" phpName="Podtlandcost" type="DECIMAL" size="20" scale="5"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="status" phpName="Status" type="VARCHAR" size="50"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="edit_po_head" idMethod="native" phpName="EditPoHead">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true"/>
+    <column name="PohdNbr" phpName="Pohdnbr" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="PohdStat" phpName="Pohdstat" type="VARCHAR" size="1"/>
+    <column name="PohdRef" phpName="Pohdref" type="VARCHAR" size="15"/>
+    <column name="ApveVendId" phpName="Apvevendid" type="VARCHAR" size="6"/>
+    <column name="ApfmShipId" phpName="Apfmshipid" type="VARCHAR" size="6"/>
+    <column name="PohdToName" phpName="Pohdtoname" type="VARCHAR" size="30"/>
+    <column name="PohdToAdr1" phpName="Pohdtoadr1" type="VARCHAR" size="30"/>
+    <column name="PohdToAdr2" phpName="Pohdtoadr2" type="VARCHAR" size="30"/>
+    <column name="PohdToAdr3" phpName="Pohdtoadr3" type="VARCHAR" size="30"/>
+    <column name="PohdToCtry" phpName="Pohdtoctry" type="VARCHAR" size="4"/>
+    <column name="PohdToCity" phpName="Pohdtocity" type="VARCHAR" size="16"/>
+    <column name="PohdToStat" phpName="Pohdtostat" type="VARCHAR" size="2"/>
+    <column name="PohdToZipCode" phpName="Pohdtozipcode" type="VARCHAR" size="10"/>
+    <column name="PohdPtName" phpName="Pohdptname" type="VARCHAR" size="30"/>
+    <column name="PohdPtAdr1" phpName="Pohdptadr1" type="VARCHAR" size="30"/>
+    <column name="PohdPtAdr2" phpName="Pohdptadr2" type="VARCHAR" size="30"/>
+    <column name="PohdPtAdr3" phpName="Pohdptadr3" type="VARCHAR" size="30"/>
+    <column name="PohdPtCtry" phpName="Pohdptctry" type="VARCHAR" size="4"/>
+    <column name="PohdPtCity" phpName="Pohdptcity" type="VARCHAR" size="16"/>
+    <column name="PohdPtStat" phpName="Pohdptstat" type="VARCHAR" size="2"/>
+    <column name="PohdPtZipCode" phpName="Pohdptzipcode" type="VARCHAR" size="10"/>
+    <column name="PohdCont" phpName="Pohdcont" type="VARCHAR" size="20"/>
+    <column name="PohdOrdrDate" phpName="Pohdordrdate" type="VARCHAR" size="8"/>
+    <column name="AptmTermCode" phpName="Aptmtermcode" type="VARCHAR" size="4"/>
+    <column name="ArtbSviaCode" phpName="Artbsviacode" type="VARCHAR" size="4"/>
+    <column name="PohdOldFob" phpName="Pohdoldfob" type="VARCHAR" size="1"/>
+    <column name="AptbBuyrCode" phpName="Aptbbuyrcode" type="VARCHAR" size="6"/>
+    <column name="PohdColPpd" phpName="Pohdcolppd" type="VARCHAR" size="1"/>
+    <column name="PohdTeleIntl" phpName="Pohdteleintl" type="VARCHAR" size="1"/>
+    <column name="PohdTeleNbr" phpName="Pohdtelenbr" type="VARCHAR" size="22"/>
+    <column name="PohdTeleExt" phpName="Pohdteleext" type="VARCHAR" size="7"/>
+    <column name="PohdFaxIntl" phpName="Pohdfaxintl" type="VARCHAR" size="1"/>
+    <column name="PohdFaxNbr" phpName="Pohdfaxnbr" type="VARCHAR" size="22"/>
+    <column name="PohdRCnt" phpName="Pohdrcnt" type="VARCHAR" size="1"/>
+    <column name="PohdTaxExem" phpName="Pohdtaxexem" type="VARCHAR" size="1"/>
+    <column name="PohdExchCtry" phpName="Pohdexchctry" type="VARCHAR" size="4"/>
+    <column name="PohdExchRate" phpName="Pohdexchrate" type="DECIMAL" size="20" scale="7"/>
+    <column name="PohdExptDate" phpName="Pohdexptdate" type="VARCHAR" size="8"/>
+    <column name="PohdCancDate" phpName="Pohdcancdate" type="VARCHAR" size="8"/>
+    <column name="PohdICnt" phpName="Pohdicnt" type="VARCHAR" size="1"/>
+    <column name="PohdFob" phpName="Pohdfob" type="VARCHAR" size="20"/>
+    <column name="PohdPickQueue" phpName="Pohdpickqueue" type="VARCHAR" size="1"/>
+    <column name="PohdPackedBy" phpName="Pohdpackedby" type="VARCHAR" size="12"/>
+    <column name="PohdPackDate" phpName="Pohdpackdate" type="VARCHAR" size="8"/>
+    <column name="PohdPackTime" phpName="Pohdpacktime" type="VARCHAR" size="8"/>
+    <column name="PohdLandCost" phpName="Pohdlandcost" type="DECIMAL" size="20" scale="7"/>
+    <column name="PohdEdiPoDate" phpName="Pohdedipodate" type="VARCHAR" size="8"/>
+    <column name="PohdFutureBuy" phpName="Pohdfuturebuy" type="VARCHAR" size="1"/>
+    <column name="PohdEmailAddr" phpName="Pohdemailaddr" type="VARCHAR" size="50"/>
+    <column name="PohdShipDate" phpName="Pohdshipdate" type="VARCHAR" size="8"/>
+    <column name="PohdAckDate" phpName="Pohdackdate" type="VARCHAR" size="8"/>
+    <column name="PohdReleaseNbr" phpName="Pohdreleasenbr" type="INTEGER" size="4"/>
+    <column name="PohdReturnsPo" phpName="Pohdreturnspo" type="VARCHAR" size="1"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="status" phpName="Status" type="VARCHAR" size="50"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="funcperm" idMethod="native" phpName="Funcperm">
     <column name="loginid" phpName="Loginid" type="VARCHAR" size="12" primaryKey="true" required="true"/>
     <column name="function" phpName="Function" type="VARCHAR" size="6" primaryKey="true" required="true"/>
