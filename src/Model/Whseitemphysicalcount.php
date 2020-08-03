@@ -8,14 +8,7 @@ use Dpluso\Model\MagicMethodTraits;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 /**
- * Skeleton subclass for representing a row from the 'whseitemphysicalcount' table.
- *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
- *
+ * Class for representing a row from the 'whseitemphysicalcount' table.
  */
 class Whseitemphysicalcount extends BaseWhseitemphysicalcount {
 	use ThrowErrorTrait;
@@ -28,49 +21,6 @@ class Whseitemphysicalcount extends BaseWhseitemphysicalcount {
 	 */
 	public function is_complete() {
 		return $this->complete == 'Y';
-	}
-
-	/**
-	 * Return Item Description 
-	 * NOTE: Uses Itemmaster
-	 *
-	 * @return string
-	 */
-	public function description() {
-		$q = ItemmasterQuery::create();
-		$q->select('name1');
-		$q->filterByItemid($this->itemid);
-		return $q->findOne();
-	}
-
-	/**
-	 * Returns if Item is serialized
-	 *
-	 * @param  string $itemID
-	 * @return bool           Is the Item Serialized
-	 */
-	public function is_item_serialized() {
-		return $this->type == Itemmaster::ITEMTYPE_SERIALIZED;
-	}
-
-	/**
-	 * Returns if Item is lotted
-	 *
-	 * @param  string $itemID
-	 * @return bool           Is the Item lotted
-	 */
-	public function is_item_lotted() {
-		return $this->type == Itemmaster::ITEMTYPE_LOTTED;
-	}
-
-	/**
-	 * Returns if Item is normal
-	 *
-	 * @param  string $itemID
-	 * @return bool            Is the Item normal
-	 */
-	public function is_item_normal() {
-		return $this->type == Itemmaster::ITEMTYPE_NORMAL;
 	}
 
 	/**

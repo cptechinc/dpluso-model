@@ -290,40 +290,4 @@ class PickSalesOrderDetail extends BasePickSalesOrderDetail {
 		$caseqty = $this->get_casecount($qty);
 		return $caseqty == 1 ? "$caseqty case &nbsp;" : "$caseqty cases";
 	}
-
-	/**
-	 * Return is Item is serialized
-	 *
-	 * @return bool Is item Serialized?
-	 */
-	public function is_item_serialized() {
-		return ItemmasterQuery::create()->is_item_serialized($this->itemnbr);
-	}
-
-	/**
-	 * Return is Item is lotted
-	 *
-	 * @return bool Is item Lotted?
-	 */
-	public function is_item_lotted() {
-		return ItemmasterQuery::create()->is_item_lotted($this->itemnbr);
-	}
-
-	/**
-	 * Return is Item is Normal
-	 *
-	 * @return bool Is item Normal?
-	 */
-	public function is_item_normal() {
-		return ItemmasterQuery::create()->is_item_normal($this->itemnbr);
-	}
-
-	/**
-	 * Return if item is a Non Stock
-	 *
-	 * @return bool
-	 */
-	public function is_item_nonstock() {
-		return Itemmaster::is_itemid_nonstock($this->itemid);
-	}
 }
