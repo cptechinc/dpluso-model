@@ -2,6 +2,8 @@
 
 use Base\EditPoDetailQuery as BaseEditPoDetailQuery;
 
+use Dpluso\Model\QueryTraits;
+
 /**
  * Skeleton subclass for performing query and update operations on the 'edit_po_detail' table.
  *
@@ -12,7 +14,6 @@ use Base\EditPoDetailQuery as BaseEditPoDetailQuery;
  * long as it does not already exist in the output directory.
  *
  */
-class EditPoDetailQuery extends BaseEditPoDetailQuery
-{
-
+class EditPoDetailQuery extends BaseEditPoDetailQuery {
+	use QueryTraits;
 }
