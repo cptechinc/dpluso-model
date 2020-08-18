@@ -151,6 +151,53 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="bookingc" idMethod="native" phpName="Bookingc">
+    <column name="custid" phpName="Custid" type="VARCHAR" size="45" primaryKey="true" required="true"/>
+    <column name="shiptoid" phpName="Shiptoid" type="VARCHAR" size="45" primaryKey="true" required="true"/>
+    <column name="bookdate" phpName="Bookdate" type="INTEGER" size="8" primaryKey="true" required="true"/>
+    <column name="salesrep" phpName="Salesrep" type="VARCHAR" size="45" primaryKey="true" required="true"/>
+    <column name="amount" phpName="Amount" type="DECIMAL" size="10" scale="2"/>
+    <column name="dateupdated" phpName="Dateupdated" type="INTEGER" size="8"/>
+    <column name="timeupdated" phpName="Timeupdated" type="VARCHAR" size="8"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="bookingd" idMethod="native" phpName="Bookingd">
+    <column name="bookdate" phpName="Bookdate" type="VARCHAR" size="8" primaryKey="true" required="true"/>
+    <column name="custid" phpName="Custid" type="VARCHAR" size="6" primaryKey="true" required="true"/>
+    <column name="shiptoid" phpName="Shiptoid" type="VARCHAR" size="6" primaryKey="true" required="true"/>
+    <column name="salesorderbase" phpName="Salesorderbase" type="INTEGER" size="8" primaryKey="true" required="true"/>
+    <column name="origorderline" phpName="Origorderline" type="INTEGER" size="4" primaryKey="true" required="true"/>
+    <column name="itemid" phpName="Itemid" type="VARCHAR" size="30" primaryKey="true" required="true"/>
+    <column name="salesordernbr" phpName="Salesordernbr" type="INTEGER" size="10" required="true"/>
+    <column name="salesperson1" phpName="Salesperson1" type="VARCHAR" size="6"/>
+    <column name="b4qty" phpName="B4qty" type="DECIMAL" size="9" scale="3" required="true" defaultValue="0.000"/>
+    <column name="b4price" phpName="B4price" type="DECIMAL" size="9" scale="3" required="true" defaultValue="0.000"/>
+    <column name="b4uom" phpName="B4uom" type="VARCHAR" size="4"/>
+    <column name="afterqty" phpName="Afterqty" type="DECIMAL" size="9" scale="3" required="true" defaultValue="0.000"/>
+    <column name="afterprice" phpName="Afterprice" type="DECIMAL" size="9" scale="3" required="true" defaultValue="0.000"/>
+    <column name="afteruom" phpName="Afteruom" type="VARCHAR" size="4"/>
+    <column name="netamount" phpName="Netamount" type="DECIMAL" size="9" scale="2" required="true" defaultValue="0.00"/>
+    <column name="createdate" phpName="Createdate" type="VARCHAR" size="8"/>
+    <column name="createtime" phpName="Createtime" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="bookingr" idMethod="native" phpName="Bookingsr">
+    <column name="salesrep" phpName="Salesrep" type="VARCHAR" size="45" primaryKey="true" required="true"/>
+    <column name="bookdate" phpName="Bookdate" type="INTEGER" size="8" primaryKey="true" required="true"/>
+    <column name="whse" phpName="Whse" type="VARCHAR" size="45"/>
+    <column name="amount" phpName="Amount" type="DECIMAL" size="10" scale="2"/>
+    <column name="salesgroup" phpName="Salesgroup" type="VARCHAR" size="6"/>
+    <column name="dateupdated" phpName="Dateupdated" type="INTEGER" size="8"/>
+    <column name="timeupdated" phpName="Timeupdated" type="VARCHAR" size="8"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="cart" idMethod="native" phpName="Cart">
     <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true" defaultValue=""/>
     <column name="recordno" phpName="Recordno" type="INTEGER" primaryKey="true" required="true" defaultValue="0"/>
