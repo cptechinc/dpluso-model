@@ -22,4 +22,12 @@ class Login extends BaseLogin {
 	public function is_loggedin() {
 		return strtoupper($this->validlogin) == 'Y';
 	}
+
+	public function needs_setup_recovery() {
+		return strtoupper($this->ermes) == 'FIRST LOGIN';
+	}
+
+	public function updated_password() {
+		return strtoupper($this->ermes) == 'PASSWORD CHANGED';
+	}
 }
