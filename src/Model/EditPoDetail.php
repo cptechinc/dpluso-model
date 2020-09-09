@@ -12,6 +12,16 @@ class EditPoDetail extends BaseEditPoDetail {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
+	const STATUS_DESCRIPTIONS = array(
+		'N' => 'not printed',
+		'C' => 'closed',
+		'O' => 'open',
+		'P' => 'printed'
+	);
+
+	const STATUS_OPEN   = 'O';
+	const STATUS_CLOSED = 'C';
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
@@ -35,4 +45,12 @@ class EditPoDetail extends BaseEditPoDetail {
 		'weight'        => 'podtwghttot',
 		'whse_destination' => 'podtdestwhse',
 	);
+
+	/**
+	 * Returns if PO is in a closed status
+	 * @return bool
+	 */
+	public function is_closed() {
+		return $this->status == self::STATUS_CLOSED;
+	}
 }

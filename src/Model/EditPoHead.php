@@ -12,8 +12,28 @@ class EditPoHead extends BaseEditPoHead {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
+	const STATUS_DESCRIPTIONS = array(
+		'N' => 'not printed',
+		'C' => 'closed',
+		'O' => 'open',
+		'P' => 'printed'
+	);
+
 	const STATUS_OPEN   = 'O';
 	const STATUS_CLOSED = 'C';
+
+	const FREIGHTPAIDBY_DESCRIPTIONS = array(
+		'C' => 'collect',
+		'P' => 'prepaid',
+		'A' => 'prepaid & add',
+		'T' => 'third party'
+	);
+
+	const FOB_DESCRIPTIONS = array(
+		'D' => 'destination',
+		'O' => 'origin',
+		'P' => 'prepaid + add'
+	);
 
 	/**
 	 * Column Aliases to lookup / get properties
@@ -23,6 +43,7 @@ class EditPoHead extends BaseEditPoHead {
 		'ponbr'              => 'pohdnbr',
 		'status'             => 'pohdstat',
 		'poref'              => 'pohdref',
+		'reference'          => 'pohdref',
 		'vendorID'           => 'apvevendid',
 		'vendorid'           => 'apvevendid',
 		'shipto_name'        => 'pohdtoname',
@@ -38,7 +59,8 @@ class EditPoHead extends BaseEditPoHead {
 		'date_ordered'       => 'pohdordrdate',
 		'date_expected'      => 'pohdexptdate',
 		'date_shipped'       => 'pohdshipdate',
-		'date_cancelled'     => 'pohdcancdate',
+		'date_cancel'        => 'pohdcancdate',
+		'date_acknowledged'  => 'pohdackdate',
 		'shipvia'            => 'artbsviacode',
 		'phone'              => 'pohdtelenbr',
 		'phone_intl'         => 'pohdteleintl',
@@ -46,17 +68,23 @@ class EditPoHead extends BaseEditPoHead {
 		'fax'                => 'pohdfaxnbr',
 		'fax_intl'           => 'pohdfaxintl',
 		'shipfromid'         => 'apfmshipid',
-		'shipfrom_name'      => 'pohdptname',
-		'shipfrom_address'   => 'pohdptadr1',
-		'shipfrom_address2'  => 'pohdptadr2',
-		'shipfrom_address3'  => 'pohdptadr3',
-		'shipfrom_country'   => 'pohdptctry',
-		'shipfrom_city'      => 'pohdptcity',
-		'shipfrom_state'     => 'pohdptstat',
-		'shipfrom_zip'       => 'pohdptzipcode',
+		'payto_name'      => 'pohdptname',
+		'payto_address'   => 'pohdptadr1',
+		'payto_address2'  => 'pohdptadr2',
+		'payto_address3'  => 'pohdptadr3',
+		'payto_country'   => 'pohdptctry',
+		'payto_city'      => 'pohdptcity',
+		'payto_state'     => 'pohdptstat',
+		'payto_zip'       => 'pohdptzipcode',
 		'fob'                => 'pohdfob',
 		'tax_exempt'         => 'pohdtaxexem',
-		'releasenbr'         => 'pohdreleasenbr'
+		'releasenbr'         => 'pohdreleasenbr',
+		'freightpaidby'      => 'pohdcolppd',
+		'termscode'          => 'aptmtermcode',
+		'futurebuy'          => 'pohdfuturebuy',
+		'landedcost'         => 'pohdlandcost',
+		'exchange_country'   => 'pohdexchctry',
+		'exchange_rate'      => 'pohdexchrate'
 	);
 
 	/**
@@ -76,6 +104,38 @@ class EditPoHead extends BaseEditPoHead {
 	 */
 	public function status() {
 		return self::STATUS_DESCRIPTIONS[$this->status];
+	}
+
+	/**
+	 * Return Freight Paid By Description
+	 * @return string
+	 */
+	public function freightpaidby() {
+		return self::FREIGHTPAIDBY_DESCRIPTIONS[$this->freightpaidby];
+	}
+
+	/**
+	 * Return FOB descriptions
+	 * @return string
+	 */
+	public function fob() {
+		return self::FOB_DESCRIPTIONS[$this->fob];
+	}
+
+	/**
+	 * Return Options for Freight Paid By
+	 * @return array
+	 */
+	public function get_options_freightpaidby() {
+		return self::FREIGHTPAIDBY_DESCRIPTIONS;
+	}
+
+	/**
+	 * Return Options for FOB
+	 * @return array
+	 */
+	public function get_options_fob() {
+		return self::FOB_DESCRIPTIONS;
 	}
 
 	/**
