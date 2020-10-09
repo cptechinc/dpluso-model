@@ -146,6 +146,13 @@ class Whsesession extends BaseWhsesession {
 	public function is_pickingpacking() {
 		return $this->function == 'PACKING';
 	}
+	public function has_message() {
+		return strlen($this->status) > 0;
+	}
+
+	public function has_warning() {
+		return strpos(strtolower($this->status), 'warning:') !== false;
+	}
 
 	/**
 	 * Returns if the Sales Order is finished
