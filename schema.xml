@@ -1242,6 +1242,23 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="vmiorder" idMethod="native" phpName="Vmiorder">
+    <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50"/>
+    <column name="userid" phpName="Userid" type="VARCHAR" size="12"/>
+    <column name="custid" phpName="Custid" type="VARCHAR" size="6"/>
+    <column name="shiptoid" phpName="Shiptoid" type="VARCHAR" size="6"/>
+    <column name="cell" phpName="Cell" type="VARCHAR" size="8"/>
+    <column name="itemid" phpName="Itemid" type="VARCHAR" size="30"/>
+    <column name="custitemid" phpName="Custitemid" type="VARCHAR" size="30"/>
+    <column name="cases" phpName="Cases" type="INTEGER"/>
+    <column name="qty" phpName="Qty" type="INTEGER"/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="whseavail" idMethod="native" phpName="Whseavail">
     <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="30" primaryKey="true" required="true"/>
     <column name="recno" phpName="Recno" type="INTEGER" primaryKey="true" required="true"/>
