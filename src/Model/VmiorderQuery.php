@@ -1,12 +1,12 @@
 <?php
 
-use Base\VmiorderQuery as BaseVmiorderQuery;
+use Base\VmiOrderQuery as BaseVmiOrderQuery;
 
 use Dpluso\Model\QueryTraits;
 
 /**
  * Class for performing query and update operations on the 'vmiorder' table.
  */
-class VmiorderQuery extends BaseVmiorderQuery {
+class VmiOrderQuery extends BaseVmiOrderQuery {
 	use QueryTraits;
 }

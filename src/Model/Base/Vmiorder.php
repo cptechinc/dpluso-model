@@ -2,10 +2,10 @@
 
 namespace Base;
 
-use \VmiorderQuery as ChildVmiorderQuery;
+use \VmiOrderQuery as ChildVmiOrderQuery;
 use \Exception;
 use \PDO;
-use Map\VmiorderTableMap;
+use Map\VmiOrderTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -25,12 +25,12 @@ use Propel\Runtime\Parser\AbstractParser;
  *
  * @package    propel.generator..Base
  */
-abstract class Vmiorder implements ActiveRecordInterface
+abstract class VmiOrder implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\Map\\VmiorderTableMap';
+    const TABLE_MAP = '\\Map\\VmiOrderTableMap';
 
 
     /**
@@ -152,7 +152,7 @@ abstract class Vmiorder implements ActiveRecordInterface
     protected $alreadyInSave = false;
 
     /**
-     * Initializes internal state of Base\Vmiorder object.
+     * Initializes internal state of Base\VmiOrder object.
      */
     public function __construct()
     {
@@ -247,9 +247,9 @@ abstract class Vmiorder implements ActiveRecordInterface
     }
 
     /**
-     * Compares this with another <code>Vmiorder</code> instance.  If
-     * <code>obj</code> is an instance of <code>Vmiorder</code>, delegates to
-     * <code>equals(Vmiorder)</code>.  Otherwise, returns <code>false</code>.
+     * Compares this with another <code>VmiOrder</code> instance.  If
+     * <code>obj</code> is an instance of <code>VmiOrder</code>, delegates to
+     * <code>equals(VmiOrder)</code>.  Otherwise, returns <code>false</code>.
      *
      * @param  mixed   $obj The object to compare to.
      * @return boolean Whether equal to the object specified.
@@ -315,7 +315,7 @@ abstract class Vmiorder implements ActiveRecordInterface
      * @param string $name  The virtual column name
      * @param mixed  $value The value to give to the virtual column
      *
-     * @return $this|Vmiorder The current object, for fluid interface
+     * @return $this|VmiOrder The current object, for fluid interface
      */
     public function setVirtualColumn($name, $value)
     {
@@ -500,7 +500,7 @@ abstract class Vmiorder implements ActiveRecordInterface
      * Set the value of [id] column.
      *
      * @param int $v new value
-     * @return $this|\Vmiorder The current object (for fluent API support)
+     * @return $this|\VmiOrder The current object (for fluent API support)
      */
     public function setId($v)
     {
@@ -510,7 +510,7 @@ abstract class Vmiorder implements ActiveRecordInterface
 
         if ($this->id !== $v) {
             $this->id = $v;
-            $this->modifiedColumns[VmiorderTableMap::COL_ID] = true;
+            $this->modifiedColumns[VmiOrderTableMap::COL_ID] = true;
         }
 
         return $this;
@@ -520,7 +520,7 @@ abstract class Vmiorder implements ActiveRecordInterface
      * Set the value of [sessionid] column.
      *
      * @param string $v new value
-     * @return $this|\Vmiorder The current object (for fluent API support)
+     * @return $this|\VmiOrder The current object (for fluent API support)
      */
     public function setSessionid($v)
     {
@@ -530,7 +530,7 @@ abstract class Vmiorder implements ActiveRecordInterface
 
         if ($this->sessionid !== $v) {
             $this->sessionid = $v;
-            $this->modifiedColumns[VmiorderTableMap::COL_SESSIONID] = true;
+            $this->modifiedColumns[VmiOrderTableMap::COL_SESSIONID] = true;
         }
 
         return $this;
@@ -540,7 +540,7 @@ abstract class Vmiorder implements ActiveRecordInterface
      * Set the value of [userid] column.
      *
      * @param string $v new value
-     * @return $this|\Vmiorder The current object (for fluent API support)
+     * @return $this|\VmiOrder The current object (for fluent API support)
      */
     public function setUserid($v)
     {
@@ -550,7 +550,7 @@ abstract class Vmiorder implements ActiveRecordInterface
 
         if ($this->userid !== $v) {
             $this->userid = $v;
-            $this->modifiedColumns[VmiorderTableMap::COL_USERID] = true;
+            $this->modifiedColumns[VmiOrderTableMap::COL_USERID] = true;
         }
 
         return $this;
@@ -560,7 +560,7 @@ abstract class Vmiorder implements ActiveRecordInterface
      * Set the value of [custid] column.
      *
      * @param string $v new value
-     * @return $this|\Vmiorder The current object (for fluent API support)
+     * @return $this|\VmiOrder The current object (for fluent API support)
      */
     public function setCustid($v)
     {
@@ -570,7 +570,7 @@ abstract class Vmiorder implements ActiveRecordInterface
 
         if ($this->custid !== $v) {
             $this->custid = $v;
-            $this->modifiedColumns[VmiorderTableMap::COL_CUSTID] = true;
+            $this->modifiedColumns[VmiOrderTableMap::COL_CUSTID] = true;
         }
 
         return $this;
@@ -580,7 +580,7 @@ abstract class Vmiorder implements ActiveRecordInterface
      * Set the value of [shiptoid] column.
      *
      * @param string $v new value
-     * @return $this|\Vmiorder The current object (for fluent API support)
+     * @return $this|\VmiOrder The current object (for fluent API support)
      */
     public function setShiptoid($v)
     {
@@ -590,7 +590,7 @@ abstract class Vmiorder implements ActiveRecordInterface
 
         if ($this->shiptoid !== $v) {
             $this->shiptoid = $v;
-            $this->modifiedColumns[VmiorderTableMap::COL_SHIPTOID] = true;
+            $this->modifiedColumns[VmiOrderTableMap::COL_SHIPTOID] = true;
         }
 
         return $this;
@@ -600,7 +600,7 @@ abstract class Vmiorder implements ActiveRecordInterface
      * Set the value of [cell] column.
      *
      * @param string $v new value
-     * @return $this|\Vmiorder The current object (for fluent API support)
+     * @return $this|\VmiOrder The current object (for fluent API support)
      */
     public function setCell($v)
     {
@@ -610,7 +610,7 @@ abstract class Vmiorder implements ActiveRecordInterface
 
         if ($this->cell !== $v) {
             $this->cell = $v;
-            $this->modifiedColumns[VmiorderTableMap::COL_CELL] = true;
+            $this->modifiedColumns[VmiOrderTableMap::COL_CELL] = true;
         }
 
         return $this;
@@ -620,7 +620,7 @@ abstract class Vmiorder implements ActiveRecordInterface
      * Set the value of [itemid] column.
      *
      * @param string $v new value
-     * @return $this|\Vmiorder The current object (for fluent API support)
+     * @return $this|\VmiOrder The current object (for fluent API support)
      */
     public function setItemid($v)
     {
@@ -630,7 +630,7 @@ abstract class Vmiorder implements ActiveRecordInterface
 
         if ($this->itemid !== $v) {
             $this->itemid = $v;
-            $this->modifiedColumns[VmiorderTableMap::COL_ITEMID] = true;
+            $this->modifiedColumns[VmiOrderTableMap::COL_ITEMID] = true;
         }
 
         return $this;
@@ -640,7 +640,7 @@ abstract class Vmiorder implements ActiveRecordInterface
      * Set the value of [custitemid] column.
      *
      * @param string $v new value
-     * @return $this|\Vmiorder The current object (for fluent API support)
+     * @return $this|\VmiOrder The current object (for fluent API support)
      */
     public function setCustitemid($v)
     {
@@ -650,7 +650,7 @@ abstract class Vmiorder implements ActiveRecordInterface
 
         if ($this->custitemid !== $v) {
             $this->custitemid = $v;
-            $this->modifiedColumns[VmiorderTableMap::COL_CUSTITEMID] = true;
+            $this->modifiedColumns[VmiOrderTableMap::COL_CUSTITEMID] = true;
         }
 
         return $this;
@@ -660,7 +660,7 @@ abstract class Vmiorder implements ActiveRecordInterface
      * Set the value of [cases] column.
      *
      * @param int $v new value
-     * @return $this|\Vmiorder The current object (for fluent API support)
+     * @return $this|\VmiOrder The current object (for fluent API support)
      */
     public function setCases($v)
     {
@@ -670,7 +670,7 @@ abstract class Vmiorder implements ActiveRecordInterface
 
         if ($this->cases !== $v) {
             $this->cases = $v;
-            $this->modifiedColumns[VmiorderTableMap::COL_CASES] = true;
+            $this->modifiedColumns[VmiOrderTableMap::COL_CASES] = true;
         }
 
         return $this;
@@ -680,7 +680,7 @@ abstract class Vmiorder implements ActiveRecordInterface
      * Set the value of [qty] column.
      *
      * @param int $v new value
-     * @return $this|\Vmiorder The current object (for fluent API support)
+     * @return $this|\VmiOrder The current object (for fluent API support)
      */
     public function setQty($v)
     {
@@ -690,7 +690,7 @@ abstract class Vmiorder implements ActiveRecordInterface
 
         if ($this->qty !== $v) {
             $this->qty = $v;
-            $this->modifiedColumns[VmiorderTableMap::COL_QTY] = true;
+            $this->modifiedColumns[VmiOrderTableMap::COL_QTY] = true;
         }
 
         return $this;
@@ -700,7 +700,7 @@ abstract class Vmiorder implements ActiveRecordInterface
      * Set the value of [date] column.
      *
      * @param int $v new value
-     * @return $this|\Vmiorder The current object (for fluent API support)
+     * @return $this|\VmiOrder The current object (for fluent API support)
      */
     public function setDate($v)
     {
@@ -710,7 +710,7 @@ abstract class Vmiorder implements ActiveRecordInterface
 
         if ($this->date !== $v) {
             $this->date = $v;
-            $this->modifiedColumns[VmiorderTableMap::COL_DATE] = true;
+            $this->modifiedColumns[VmiOrderTableMap::COL_DATE] = true;
         }
 
         return $this;
@@ -720,7 +720,7 @@ abstract class Vmiorder implements ActiveRecordInterface
      * Set the value of [time] column.
      *
      * @param int $v new value
-     * @return $this|\Vmiorder The current object (for fluent API support)
+     * @return $this|\VmiOrder The current object (for fluent API support)
      */
     public function setTime($v)
     {
@@ -730,7 +730,7 @@ abstract class Vmiorder implements ActiveRecordInterface
 
         if ($this->time !== $v) {
             $this->time = $v;
-            $this->modifiedColumns[VmiorderTableMap::COL_TIME] = true;
+            $this->modifiedColumns[VmiOrderTableMap::COL_TIME] = true;
         }
 
         return $this;
@@ -772,40 +772,40 @@ abstract class Vmiorder implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : VmiorderTableMap::translateFieldName('Id', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : VmiOrderTableMap::translateFieldName('Id', TableMap::TYPE_PHPNAME, $indexType)];
             $this->id = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : VmiorderTableMap::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : VmiOrderTableMap::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->sessionid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : VmiorderTableMap::translateFieldName('Userid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : VmiOrderTableMap::translateFieldName('Userid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->userid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : VmiorderTableMap::translateFieldName('Custid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : VmiOrderTableMap::translateFieldName('Custid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->custid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : VmiorderTableMap::translateFieldName('Shiptoid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : VmiOrderTableMap::translateFieldName('Shiptoid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->shiptoid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : VmiorderTableMap::translateFieldName('Cell', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : VmiOrderTableMap::translateFieldName('Cell', TableMap::TYPE_PHPNAME, $indexType)];
             $this->cell = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : VmiorderTableMap::translateFieldName('Itemid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : VmiOrderTableMap::translateFieldName('Itemid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->itemid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : VmiorderTableMap::translateFieldName('Custitemid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : VmiOrderTableMap::translateFieldName('Custitemid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->custitemid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : VmiorderTableMap::translateFieldName('Cases', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : VmiOrderTableMap::translateFieldName('Cases', TableMap::TYPE_PHPNAME, $indexType)];
             $this->cases = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : VmiorderTableMap::translateFieldName('Qty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : VmiOrderTableMap::translateFieldName('Qty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qty = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : VmiorderTableMap::translateFieldName('Date', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : VmiOrderTableMap::translateFieldName('Date', TableMap::TYPE_PHPNAME, $indexType)];
             $this->date = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : VmiorderTableMap::translateFieldName('Time', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : VmiOrderTableMap::translateFieldName('Time', TableMap::TYPE_PHPNAME, $indexType)];
             $this->time = (null !== $col) ? (int) $col : null;
             $this->resetModified();
 
@@ -815,10 +815,10 @@ abstract class Vmiorder implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 12; // 12 = VmiorderTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 12; // 12 = VmiOrderTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\Vmiorder'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\VmiOrder'), 0, $e);
         }
     }
 
@@ -860,13 +860,13 @@ abstract class Vmiorder implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(VmiorderTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(VmiOrderTableMap::DATABASE_NAME);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $dataFetcher = ChildVmiorderQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
+        $dataFetcher = ChildVmiOrderQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
         $row = $dataFetcher->fetch();
         $dataFetcher->close();
         if (!$row) {
@@ -885,8 +885,8 @@ abstract class Vmiorder implements ActiveRecordInterface
      * @param      ConnectionInterface $con
      * @return void
      * @throws PropelException
-     * @see Vmiorder::setDeleted()
-     * @see Vmiorder::isDeleted()
+     * @see VmiOrder::setDeleted()
+     * @see VmiOrder::isDeleted()
      */
     public function delete(ConnectionInterface $con = null)
     {
@@ -895,11 +895,11 @@ abstract class Vmiorder implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(VmiorderTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(VmiOrderTableMap::DATABASE_NAME);
         }
 
         $con->transaction(function () use ($con) {
-            $deleteQuery = ChildVmiorderQuery::create()
+            $deleteQuery = ChildVmiOrderQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             if ($ret) {
@@ -934,7 +934,7 @@ abstract class Vmiorder implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(VmiorderTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(VmiOrderTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
@@ -953,7 +953,7 @@ abstract class Vmiorder implements ActiveRecordInterface
                     $this->postUpdate($con);
                 }
                 $this->postSave($con);
-                VmiorderTableMap::addInstanceToPool($this);
+                VmiOrderTableMap::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -1010,46 +1010,46 @@ abstract class Vmiorder implements ActiveRecordInterface
         $modifiedColumns = array();
         $index = 0;
 
-        $this->modifiedColumns[VmiorderTableMap::COL_ID] = true;
+        $this->modifiedColumns[VmiOrderTableMap::COL_ID] = true;
         if (null !== $this->id) {
-            throw new PropelException('Cannot insert a value for auto-increment primary key (' . VmiorderTableMap::COL_ID . ')');
+            throw new PropelException('Cannot insert a value for auto-increment primary key (' . VmiOrderTableMap::COL_ID . ')');
         }
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(VmiorderTableMap::COL_ID)) {
+        if ($this->isColumnModified(VmiOrderTableMap::COL_ID)) {
             $modifiedColumns[':p' . $index++]  = 'id';
         }
-        if ($this->isColumnModified(VmiorderTableMap::COL_SESSIONID)) {
+        if ($this->isColumnModified(VmiOrderTableMap::COL_SESSIONID)) {
             $modifiedColumns[':p' . $index++]  = 'sessionid';
         }
-        if ($this->isColumnModified(VmiorderTableMap::COL_USERID)) {
+        if ($this->isColumnModified(VmiOrderTableMap::COL_USERID)) {
             $modifiedColumns[':p' . $index++]  = 'userid';
         }
-        if ($this->isColumnModified(VmiorderTableMap::COL_CUSTID)) {
+        if ($this->isColumnModified(VmiOrderTableMap::COL_CUSTID)) {
             $modifiedColumns[':p' . $index++]  = 'custid';
         }
-        if ($this->isColumnModified(VmiorderTableMap::COL_SHIPTOID)) {
+        if ($this->isColumnModified(VmiOrderTableMap::COL_SHIPTOID)) {
             $modifiedColumns[':p' . $index++]  = 'shiptoid';
         }
-        if ($this->isColumnModified(VmiorderTableMap::COL_CELL)) {
+        if ($this->isColumnModified(VmiOrderTableMap::COL_CELL)) {
             $modifiedColumns[':p' . $index++]  = 'cell';
         }
-        if ($this->isColumnModified(VmiorderTableMap::COL_ITEMID)) {
+        if ($this->isColumnModified(VmiOrderTableMap::COL_ITEMID)) {
             $modifiedColumns[':p' . $index++]  = 'itemid';
         }
-        if ($this->isColumnModified(VmiorderTableMap::COL_CUSTITEMID)) {
+        if ($this->isColumnModified(VmiOrderTableMap::COL_CUSTITEMID)) {
             $modifiedColumns[':p' . $index++]  = 'custitemid';
         }
-        if ($this->isColumnModified(VmiorderTableMap::COL_CASES)) {
+        if ($this->isColumnModified(VmiOrderTableMap::COL_CASES)) {
             $modifiedColumns[':p' . $index++]  = 'cases';
         }
-        if ($this->isColumnModified(VmiorderTableMap::COL_QTY)) {
+        if ($this->isColumnModified(VmiOrderTableMap::COL_QTY)) {
             $modifiedColumns[':p' . $index++]  = 'qty';
         }
-        if ($this->isColumnModified(VmiorderTableMap::COL_DATE)) {
+        if ($this->isColumnModified(VmiOrderTableMap::COL_DATE)) {
             $modifiedColumns[':p' . $index++]  = 'date';
         }
-        if ($this->isColumnModified(VmiorderTableMap::COL_TIME)) {
+        if ($this->isColumnModified(VmiOrderTableMap::COL_TIME)) {
             $modifiedColumns[':p' . $index++]  = 'time';
         }
 
@@ -1145,7 +1145,7 @@ abstract class Vmiorder implements ActiveRecordInterface
      */
     public function getByName($name, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = VmiorderTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = VmiOrderTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -1220,11 +1220,11 @@ abstract class Vmiorder implements ActiveRecordInterface
     public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
     {
 
-        if (isset($alreadyDumpedObjects['Vmiorder'][$this->hashCode()])) {
+        if (isset($alreadyDumpedObjects['VmiOrder'][$this->hashCode()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['Vmiorder'][$this->hashCode()] = true;
-        $keys = VmiorderTableMap::getFieldNames($keyType);
+        $alreadyDumpedObjects['VmiOrder'][$this->hashCode()] = true;
+        $keys = VmiOrderTableMap::getFieldNames($keyType);
         $result = array(
             $keys[0] => $this->getId(),
             $keys[1] => $this->getSessionid(),
@@ -1257,11 +1257,11 @@ abstract class Vmiorder implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\Vmiorder
+     * @return $this|\VmiOrder
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = VmiorderTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = VmiOrderTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
         return $this->setByPosition($pos, $value);
     }
@@ -1272,7 +1272,7 @@ abstract class Vmiorder implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\Vmiorder
+     * @return $this|\VmiOrder
      */
     public function setByPosition($pos, $value)
     {
@@ -1337,7 +1337,7 @@ abstract class Vmiorder implements ActiveRecordInterface
      */
     public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
     {
-        $keys = VmiorderTableMap::getFieldNames($keyType);
+        $keys = VmiOrderTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
             $this->setId($arr[$keys[0]]);
@@ -1394,7 +1394,7 @@ abstract class Vmiorder implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\Vmiorder The current object, for fluid interface
+     * @return $this|\VmiOrder The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -1414,43 +1414,43 @@ abstract class Vmiorder implements ActiveRecordInterface
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(VmiorderTableMap::DATABASE_NAME);
+        $criteria = new Criteria(VmiOrderTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(VmiorderTableMap::COL_ID)) {
-            $criteria->add(VmiorderTableMap::COL_ID, $this->id);
+        if ($this->isColumnModified(VmiOrderTableMap::COL_ID)) {
+            $criteria->add(VmiOrderTableMap::COL_ID, $this->id);
         }
-        if ($this->isColumnModified(VmiorderTableMap::COL_SESSIONID)) {
-            $criteria->add(VmiorderTableMap::COL_SESSIONID, $this->sessionid);
+        if ($this->isColumnModified(VmiOrderTableMap::COL_SESSIONID)) {
+            $criteria->add(VmiOrderTableMap::COL_SESSIONID, $this->sessionid);
         }
-        if ($this->isColumnModified(VmiorderTableMap::COL_USERID)) {
-            $criteria->add(VmiorderTableMap::COL_USERID, $this->userid);
+        if ($this->isColumnModified(VmiOrderTableMap::COL_USERID)) {
+            $criteria->add(VmiOrderTableMap::COL_USERID, $this->userid);
         }
-        if ($this->isColumnModified(VmiorderTableMap::COL_CUSTID)) {
-            $criteria->add(VmiorderTableMap::COL_CUSTID, $this->custid);
+        if ($this->isColumnModified(VmiOrderTableMap::COL_CUSTID)) {
+            $criteria->add(VmiOrderTableMap::COL_CUSTID, $this->custid);
         }
-        if ($this->isColumnModified(VmiorderTableMap::COL_SHIPTOID)) {
-            $criteria->add(VmiorderTableMap::COL_SHIPTOID, $this->shiptoid);
+        if ($this->isColumnModified(VmiOrderTableMap::COL_SHIPTOID)) {
+            $criteria->add(VmiOrderTableMap::COL_SHIPTOID, $this->shiptoid);
         }
-        if ($this->isColumnModified(VmiorderTableMap::COL_CELL)) {
-            $criteria->add(VmiorderTableMap::COL_CELL, $this->cell);
+        if ($this->isColumnModified(VmiOrderTableMap::COL_CELL)) {
+            $criteria->add(VmiOrderTableMap::COL_CELL, $this->cell);
         }
-        if ($this->isColumnModified(VmiorderTableMap::COL_ITEMID)) {
-            $criteria->add(VmiorderTableMap::COL_ITEMID, $this->itemid);
+        if ($this->isColumnModified(VmiOrderTableMap::COL_ITEMID)) {
+            $criteria->add(VmiOrderTableMap::COL_ITEMID, $this->itemid);
         }
-        if ($this->isColumnModified(VmiorderTableMap::COL_CUSTITEMID)) {
-            $criteria->add(VmiorderTableMap::COL_CUSTITEMID, $this->custitemid);
+        if ($this->isColumnModified(VmiOrderTableMap::COL_CUSTITEMID)) {
+            $criteria->add(VmiOrderTableMap::COL_CUSTITEMID, $this->custitemid);
         }
-        if ($this->isColumnModified(VmiorderTableMap::COL_CASES)) {
-            $criteria->add(VmiorderTableMap::COL_CASES, $this->cases);
+        if ($this->isColumnModified(VmiOrderTableMap::COL_CASES)) {
+            $criteria->add(VmiOrderTableMap::COL_CASES, $this->cases);
         }
-        if ($this->isColumnModified(VmiorderTableMap::COL_QTY)) {
-            $criteria->add(VmiorderTableMap::COL_QTY, $this->qty);
+        if ($this->isColumnModified(VmiOrderTableMap::COL_QTY)) {
+            $criteria->add(VmiOrderTableMap::COL_QTY, $this->qty);
         }
-        if ($this->isColumnModified(VmiorderTableMap::COL_DATE)) {
-            $criteria->add(VmiorderTableMap::COL_DATE, $this->date);
+        if ($this->isColumnModified(VmiOrderTableMap::COL_DATE)) {
+            $criteria->add(VmiOrderTableMap::COL_DATE, $this->date);
         }
-        if ($this->isColumnModified(VmiorderTableMap::COL_TIME)) {
-            $criteria->add(VmiorderTableMap::COL_TIME, $this->time);
+        if ($this->isColumnModified(VmiOrderTableMap::COL_TIME)) {
+            $criteria->add(VmiOrderTableMap::COL_TIME, $this->time);
         }
 
         return $criteria;
@@ -1468,8 +1468,8 @@ abstract class Vmiorder implements ActiveRecordInterface
      */
     public function buildPkeyCriteria()
     {
-        $criteria = ChildVmiorderQuery::create();
-        $criteria->add(VmiorderTableMap::COL_ID, $this->id);
+        $criteria = ChildVmiOrderQuery::create();
+        $criteria->add(VmiOrderTableMap::COL_ID, $this->id);
 
         return $criteria;
     }
@@ -1531,7 +1531,7 @@ abstract class Vmiorder implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \Vmiorder (or compatible) type.
+     * @param      object $copyObj An object of \VmiOrder (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
@@ -1564,7 +1564,7 @@ abstract class Vmiorder implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \Vmiorder Clone of current object.
+     * @return \VmiOrder Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -1625,7 +1625,7 @@ abstract class Vmiorder implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(VmiorderTableMap::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(VmiOrderTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**

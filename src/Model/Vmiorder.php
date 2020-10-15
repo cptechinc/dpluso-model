@@ -1,6 +1,6 @@
 <?php
 
-use Base\Vmiorder as BaseVmiorder;
+use Base\VmiOrder as BaseVmiOrder;
 
 use Dpluso\Model\ThrowErrorTrait;
 use Dpluso\Model\MagicMethodTraits;
@@ -8,7 +8,7 @@ use Dpluso\Model\MagicMethodTraits;
 /**
  * Class for representing a row from the 'vmiorder' table.
  */
-class Vmiorder extends BaseVmiorder {
+class VmiOrder extends BaseVmiOrder {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 }

@@ -2,8 +2,8 @@
 
 namespace Map;
 
-use \Vmiorder;
-use \VmiorderQuery;
+use \VmiOrder;
+use \VmiOrderQuery;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\InstancePoolTrait;
@@ -26,7 +26,7 @@ use Propel\Runtime\Map\TableMapTrait;
  * (i.e. if it's a text column type).
  *
  */
-class VmiorderTableMap extends TableMap
+class VmiOrderTableMap extends TableMap
 {
     use InstancePoolTrait;
     use TableMapTrait;
@@ -34,7 +34,7 @@ class VmiorderTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.VmiorderTableMap';
+    const CLASS_NAME = '.Map.VmiOrderTableMap';
 
     /**
      * The default database name for this class
@@ -49,12 +49,12 @@ class VmiorderTableMap extends TableMap
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\Vmiorder';
+    const OM_CLASS = '\\VmiOrder';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'Vmiorder';
+    const CLASS_DEFAULT = 'VmiOrder';
 
     /**
      * The total number of columns
@@ -145,7 +145,7 @@ class VmiorderTableMap extends TableMap
     protected static $fieldNames = array (
         self::TYPE_PHPNAME       => array('Id', 'Sessionid', 'Userid', 'Custid', 'Shiptoid', 'Cell', 'Itemid', 'Custitemid', 'Cases', 'Qty', 'Date', 'Time', ),
         self::TYPE_CAMELNAME     => array('id', 'sessionid', 'userid', 'custid', 'shiptoid', 'cell', 'itemid', 'custitemid', 'cases', 'qty', 'date', 'time', ),
-        self::TYPE_COLNAME       => array(VmiorderTableMap::COL_ID, VmiorderTableMap::COL_SESSIONID, VmiorderTableMap::COL_USERID, VmiorderTableMap::COL_CUSTID, VmiorderTableMap::COL_SHIPTOID, VmiorderTableMap::COL_CELL, VmiorderTableMap::COL_ITEMID, VmiorderTableMap::COL_CUSTITEMID, VmiorderTableMap::COL_CASES, VmiorderTableMap::COL_QTY, VmiorderTableMap::COL_DATE, VmiorderTableMap::COL_TIME, ),
+        self::TYPE_COLNAME       => array(VmiOrderTableMap::COL_ID, VmiOrderTableMap::COL_SESSIONID, VmiOrderTableMap::COL_USERID, VmiOrderTableMap::COL_CUSTID, VmiOrderTableMap::COL_SHIPTOID, VmiOrderTableMap::COL_CELL, VmiOrderTableMap::COL_ITEMID, VmiOrderTableMap::COL_CUSTITEMID, VmiOrderTableMap::COL_CASES, VmiOrderTableMap::COL_QTY, VmiOrderTableMap::COL_DATE, VmiOrderTableMap::COL_TIME, ),
         self::TYPE_FIELDNAME     => array('id', 'sessionid', 'userid', 'custid', 'shiptoid', 'cell', 'itemid', 'custitemid', 'cases', 'qty', 'date', 'time', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, )
     );
@@ -159,7 +159,7 @@ class VmiorderTableMap extends TableMap
     protected static $fieldKeys = array (
         self::TYPE_PHPNAME       => array('Id' => 0, 'Sessionid' => 1, 'Userid' => 2, 'Custid' => 3, 'Shiptoid' => 4, 'Cell' => 5, 'Itemid' => 6, 'Custitemid' => 7, 'Cases' => 8, 'Qty' => 9, 'Date' => 10, 'Time' => 11, ),
         self::TYPE_CAMELNAME     => array('id' => 0, 'sessionid' => 1, 'userid' => 2, 'custid' => 3, 'shiptoid' => 4, 'cell' => 5, 'itemid' => 6, 'custitemid' => 7, 'cases' => 8, 'qty' => 9, 'date' => 10, 'time' => 11, ),
-        self::TYPE_COLNAME       => array(VmiorderTableMap::COL_ID => 0, VmiorderTableMap::COL_SESSIONID => 1, VmiorderTableMap::COL_USERID => 2, VmiorderTableMap::COL_CUSTID => 3, VmiorderTableMap::COL_SHIPTOID => 4, VmiorderTableMap::COL_CELL => 5, VmiorderTableMap::COL_ITEMID => 6, VmiorderTableMap::COL_CUSTITEMID => 7, VmiorderTableMap::COL_CASES => 8, VmiorderTableMap::COL_QTY => 9, VmiorderTableMap::COL_DATE => 10, VmiorderTableMap::COL_TIME => 11, ),
+        self::TYPE_COLNAME       => array(VmiOrderTableMap::COL_ID => 0, VmiOrderTableMap::COL_SESSIONID => 1, VmiOrderTableMap::COL_USERID => 2, VmiOrderTableMap::COL_CUSTID => 3, VmiOrderTableMap::COL_SHIPTOID => 4, VmiOrderTableMap::COL_CELL => 5, VmiOrderTableMap::COL_ITEMID => 6, VmiOrderTableMap::COL_CUSTITEMID => 7, VmiOrderTableMap::COL_CASES => 8, VmiOrderTableMap::COL_QTY => 9, VmiOrderTableMap::COL_DATE => 10, VmiOrderTableMap::COL_TIME => 11, ),
         self::TYPE_FIELDNAME     => array('id' => 0, 'sessionid' => 1, 'userid' => 2, 'custid' => 3, 'shiptoid' => 4, 'cell' => 5, 'itemid' => 6, 'custitemid' => 7, 'cases' => 8, 'qty' => 9, 'date' => 10, 'time' => 11, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, )
     );
@@ -175,9 +175,9 @@ class VmiorderTableMap extends TableMap
     {
         // attributes
         $this->setName('vmiorder');
-        $this->setPhpName('Vmiorder');
+        $this->setPhpName('VmiOrder');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\Vmiorder');
+        $this->setClassName('\\VmiOrder');
         $this->setPackage('');
         $this->setUseIdGenerator(true);
         // columns
@@ -259,7 +259,7 @@ class VmiorderTableMap extends TableMap
      */
     public static function getOMClass($withPrefix = true)
     {
-        return $withPrefix ? VmiorderTableMap::CLASS_DEFAULT : VmiorderTableMap::OM_CLASS;
+        return $withPrefix ? VmiOrderTableMap::CLASS_DEFAULT : VmiOrderTableMap::OM_CLASS;
     }
 
     /**
@@ -273,22 +273,22 @@ class VmiorderTableMap extends TableMap
      *
      * @throws PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (Vmiorder object, last column rank)
+     * @return array           (VmiOrder object, last column rank)
      */
     public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
-        $key = VmiorderTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
-        if (null !== ($obj = VmiorderTableMap::getInstanceFromPool($key))) {
+        $key = VmiOrderTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
+        if (null !== ($obj = VmiOrderTableMap::getInstanceFromPool($key))) {
             // We no longer rehydrate the object, since this can cause data loss.
             // See http://www.propelorm.org/ticket/509
             // $obj->hydrate($row, $offset, true); // rehydrate
-            $col = $offset + VmiorderTableMap::NUM_HYDRATE_COLUMNS;
+            $col = $offset + VmiOrderTableMap::NUM_HYDRATE_COLUMNS;
         } else {
-            $cls = VmiorderTableMap::OM_CLASS;
-            /** @var Vmiorder $obj */
+            $cls = VmiOrderTableMap::OM_CLASS;
+            /** @var VmiOrder $obj */
             $obj = new $cls();
             $col = $obj->hydrate($row, $offset, false, $indexType);
-            VmiorderTableMap::addInstanceToPool($obj, $key);
+            VmiOrderTableMap::addInstanceToPool($obj, $key);
         }
 
         return array($obj, $col);
@@ -311,18 +311,18 @@ class VmiorderTableMap extends TableMap
         $cls = static::getOMClass(false);
         // populate the object(s)
         while ($row = $dataFetcher->fetch()) {
-            $key = VmiorderTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
-            if (null !== ($obj = VmiorderTableMap::getInstanceFromPool($key))) {
+            $key = VmiOrderTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
+            if (null !== ($obj = VmiOrderTableMap::getInstanceFromPool($key))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj->hydrate($row, 0, true); // rehydrate
                 $results[] = $obj;
             } else {
-                /** @var Vmiorder $obj */
+                /** @var VmiOrder $obj */
                 $obj = new $cls();
                 $obj->hydrate($row);
                 $results[] = $obj;
-                VmiorderTableMap::addInstanceToPool($obj, $key);
+                VmiOrderTableMap::addInstanceToPool($obj, $key);
             } // if key exists
         }
 
@@ -343,18 +343,18 @@ class VmiorderTableMap extends TableMap
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(VmiorderTableMap::COL_ID);
-            $criteria->addSelectColumn(VmiorderTableMap::COL_SESSIONID);
-            $criteria->addSelectColumn(VmiorderTableMap::COL_USERID);
-            $criteria->addSelectColumn(VmiorderTableMap::COL_CUSTID);
-            $criteria->addSelectColumn(VmiorderTableMap::COL_SHIPTOID);
-            $criteria->addSelectColumn(VmiorderTableMap::COL_CELL);
-            $criteria->addSelectColumn(VmiorderTableMap::COL_ITEMID);
-            $criteria->addSelectColumn(VmiorderTableMap::COL_CUSTITEMID);
-            $criteria->addSelectColumn(VmiorderTableMap::COL_CASES);
-            $criteria->addSelectColumn(VmiorderTableMap::COL_QTY);
-            $criteria->addSelectColumn(VmiorderTableMap::COL_DATE);
-            $criteria->addSelectColumn(VmiorderTableMap::COL_TIME);
+            $criteria->addSelectColumn(VmiOrderTableMap::COL_ID);
+            $criteria->addSelectColumn(VmiOrderTableMap::COL_SESSIONID);
+            $criteria->addSelectColumn(VmiOrderTableMap::COL_USERID);
+            $criteria->addSelectColumn(VmiOrderTableMap::COL_CUSTID);
+            $criteria->addSelectColumn(VmiOrderTableMap::COL_SHIPTOID);
+            $criteria->addSelectColumn(VmiOrderTableMap::COL_CELL);
+            $criteria->addSelectColumn(VmiOrderTableMap::COL_ITEMID);
+            $criteria->addSelectColumn(VmiOrderTableMap::COL_CUSTITEMID);
+            $criteria->addSelectColumn(VmiOrderTableMap::COL_CASES);
+            $criteria->addSelectColumn(VmiOrderTableMap::COL_QTY);
+            $criteria->addSelectColumn(VmiOrderTableMap::COL_DATE);
+            $criteria->addSelectColumn(VmiOrderTableMap::COL_TIME);
         } else {
             $criteria->addSelectColumn($alias . '.id');
             $criteria->addSelectColumn($alias . '.sessionid');
@@ -380,7 +380,7 @@ class VmiorderTableMap extends TableMap
      */
     public static function getTableMap()
     {
-        return Propel::getServiceContainer()->getDatabaseMap(VmiorderTableMap::DATABASE_NAME)->getTable(VmiorderTableMap::TABLE_NAME);
+        return Propel::getServiceContainer()->getDatabaseMap(VmiOrderTableMap::DATABASE_NAME)->getTable(VmiOrderTableMap::TABLE_NAME);
     }
 
     /**
@@ -388,16 +388,16 @@ class VmiorderTableMap extends TableMap
      */
     public static function buildTableMap()
     {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(VmiorderTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(VmiorderTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new VmiorderTableMap());
+        $dbMap = Propel::getServiceContainer()->getDatabaseMap(VmiOrderTableMap::DATABASE_NAME);
+        if (!$dbMap->hasTable(VmiOrderTableMap::TABLE_NAME)) {
+            $dbMap->addTableObject(new VmiOrderTableMap());
         }
     }
 
     /**
-     * Performs a DELETE on the database, given a Vmiorder or Criteria object OR a primary key value.
+     * Performs a DELETE on the database, given a VmiOrder or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or Vmiorder object or primary key or array of primary keys
+     * @param mixed               $values Criteria or VmiOrder object or primary key or array of primary keys
      *              which is used to create the DELETE statement
      * @param  ConnectionInterface $con the connection to use
      * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
@@ -408,27 +408,27 @@ class VmiorderTableMap extends TableMap
      public static function doDelete($values, ConnectionInterface $con = null)
      {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(VmiorderTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(VmiOrderTableMap::DATABASE_NAME);
         }
 
         if ($values instanceof Criteria) {
             // rename for clarity
             $criteria = $values;
-        } elseif ($values instanceof \Vmiorder) { // it's a model object
+        } elseif ($values instanceof \VmiOrder) { // it's a model object
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(VmiorderTableMap::DATABASE_NAME);
-            $criteria->add(VmiorderTableMap::COL_ID, (array) $values, Criteria::IN);
+            $criteria = new Criteria(VmiOrderTableMap::DATABASE_NAME);
+            $criteria->add(VmiOrderTableMap::COL_ID, (array) $values, Criteria::IN);
         }
 
-        $query = VmiorderQuery::create()->mergeWith($criteria);
+        $query = VmiOrderQuery::create()->mergeWith($criteria);
 
         if ($values instanceof Criteria) {
-            VmiorderTableMap::clearInstancePool();
+            VmiOrderTableMap::clearInstancePool();
         } elseif (!is_object($values)) { // it's a primary key, or an array of pks
             foreach ((array) $values as $singleval) {
-                VmiorderTableMap::removeInstanceFromPool($singleval);
+                VmiOrderTableMap::removeInstanceFromPool($singleval);
             }
         }
 
@@ -443,13 +443,13 @@ class VmiorderTableMap extends TableMap
      */
     public static function doDeleteAll(ConnectionInterface $con = null)
     {
-        return VmiorderQuery::create()->doDeleteAll($con);
+        return VmiOrderQuery::create()->doDeleteAll($con);
     }
 
     /**
-     * Performs an INSERT on the database, given a Vmiorder or Criteria object.
+     * Performs an INSERT on the database, given a VmiOrder or Criteria object.
      *
-     * @param mixed               $criteria Criteria or Vmiorder object containing data that is used to create the INSERT statement.
+     * @param mixed               $criteria Criteria or VmiOrder object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
      * @return mixed           The new primary key.
      * @throws PropelException Any exceptions caught during processing will be
@@ -458,22 +458,22 @@ class VmiorderTableMap extends TableMap
     public static function doInsert($criteria, ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(VmiorderTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(VmiOrderTableMap::DATABASE_NAME);
         }
 
         if ($criteria instanceof Criteria) {
             $criteria = clone $criteria; // rename for clarity
         } else {
-            $criteria = $criteria->buildCriteria(); // build Criteria from Vmiorder object
+            $criteria = $criteria->buildCriteria(); // build Criteria from VmiOrder object
         }
 
-        if ($criteria->containsKey(VmiorderTableMap::COL_ID) && $criteria->keyContainsValue(VmiorderTableMap::COL_ID) ) {
-            throw new PropelException('Cannot insert a value for auto-increment primary key ('.VmiorderTableMap::COL_ID.')');
+        if ($criteria->containsKey(VmiOrderTableMap::COL_ID) && $criteria->keyContainsValue(VmiOrderTableMap::COL_ID) ) {
+            throw new PropelException('Cannot insert a value for auto-increment primary key ('.VmiOrderTableMap::COL_ID.')');
         }
 
 
         // Set the correct dbName
-        $query = VmiorderQuery::create()->mergeWith($criteria);
+        $query = VmiOrderQuery::create()->mergeWith($criteria);
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
@@ -482,7 +482,7 @@ class VmiorderTableMap extends TableMap
         });
     }
 
-} // VmiorderTableMap
+} // VmiOrderTableMap
 // This is the static code needed to register the TableMap for this table with the main Propel class.
 //
-VmiorderTableMap::buildTableMap();
+VmiOrderTableMap::buildTableMap();
