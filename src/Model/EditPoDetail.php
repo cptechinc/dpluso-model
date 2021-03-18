@@ -44,6 +44,7 @@ class EditPoDetail extends BaseEditPoDetail {
 		'glaccount'     => 'podtglacct',
 		'weight'        => 'podtwghttot',
 		'whse_destination' => 'podtdestwhse',
+		'qtyduein'         => 'podtqtyduein',
 	);
 
 	/**
