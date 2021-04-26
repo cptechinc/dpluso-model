@@ -16,17 +16,26 @@
 		 * @param  array       $params Parameters and their values
 		 * @return PDOStatement        PDO Statement to get results
 		 */
-		public function execute_query($sql, $params) {
-			$database = $this->dbName;
-			$con = Propel::getWriteConnection($database);
+		public function execute_query($sql, $params = []) {
+			return $this->executeQuery($sql, $params);
+		}
+
+		/**
+		 * Executes Query for Query Class
+		 * @uses  self::$dbName
+		 *
+		 * @param  string      $sql    SQL to Execute, parameterized if need be
+		 * @param  array       $params Parameters and their values
+		 * @return PDOStatement        PDO Statement to get results
+		 */
+		public function executeQuery($sql, $params = []) {
+			$con = Propel::getWriteConnection($this->dbName);
 			$stmt = $con->prepare($sql);
 
 			if (empty($params)){
-				$stmt->execute();
-			} else {
-				$stmt->execute($params);
+				return $stmt->execute();
 			}
-			return $stmt;
+			return $stmt->execute($params);
 		}
 
 		/**
