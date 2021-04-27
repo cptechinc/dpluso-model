@@ -46,7 +46,7 @@
 		 */
 		public function search_filter(array $columns, $q) {
 			foreach ($columns as $column) {
-				$tablecolumn = $this->get_tablecolumn($column);
+				$tablecolumn = $this->tablecolumn($column);
 				$this->condition($column, "$tablecolumn LIKE ?", "%$q%");
 			}
 			$this->where($columns, Criteria::LOGICAL_OR);
@@ -55,11 +55,19 @@
 
 		/**
 		 * Returns Table Map Column
-		 *
 		 * @param  string $prop  Property to lookup column
 		 * @return string        column
 		 */
 		public function get_tablecolumn($prop) {
+			return $this->tablecolumn($prop);
+		}
+
+		/**
+		 * Returns Table Map Column
+		 * @param  string $prop  Property to lookup column
+		 * @return string        column
+		 */
+		public function tablecolumn($prop) {
 			$tablemap_column = "COL_".strtoupper($prop);
 			$mapclass = get_class($this->tableMap);
 			return constant("$mapclass::$tablemap_column");
