@@ -20,19 +20,23 @@ use Propel\Runtime\Exception\PropelException;
  *
  *
  * @method     ChildItemMakeModelYearQuery orderById($order = Criteria::ASC) Order by the id column
+ * @method     ChildItemMakeModelYearQuery orderByCatalog($order = Criteria::ASC) Order by the catalog column
  * @method     ChildItemMakeModelYearQuery orderByFromyear($order = Criteria::ASC) Order by the fromyear column
  * @method     ChildItemMakeModelYearQuery orderByThroughyear($order = Criteria::ASC) Order by the throughyear column
  * @method     ChildItemMakeModelYearQuery orderByMake($order = Criteria::ASC) Order by the make column
  * @method     ChildItemMakeModelYearQuery orderByModel($order = Criteria::ASC) Order by the model column
+ * @method     ChildItemMakeModelYearQuery orderBySubmodel($order = Criteria::ASC) Order by the submodel column
  * @method     ChildItemMakeModelYearQuery orderByItemid($order = Criteria::ASC) Order by the itemid column
  * @method     ChildItemMakeModelYearQuery orderByDate($order = Criteria::ASC) Order by the date column
  * @method     ChildItemMakeModelYearQuery orderByTime($order = Criteria::ASC) Order by the time column
  *
  * @method     ChildItemMakeModelYearQuery groupById() Group by the id column
+ * @method     ChildItemMakeModelYearQuery groupByCatalog() Group by the catalog column
  * @method     ChildItemMakeModelYearQuery groupByFromyear() Group by the fromyear column
  * @method     ChildItemMakeModelYearQuery groupByThroughyear() Group by the throughyear column
  * @method     ChildItemMakeModelYearQuery groupByMake() Group by the make column
  * @method     ChildItemMakeModelYearQuery groupByModel() Group by the model column
+ * @method     ChildItemMakeModelYearQuery groupBySubmodel() Group by the submodel column
  * @method     ChildItemMakeModelYearQuery groupByItemid() Group by the itemid column
  * @method     ChildItemMakeModelYearQuery groupByDate() Group by the date column
  * @method     ChildItemMakeModelYearQuery groupByTime() Group by the time column
@@ -49,10 +53,12 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMakeModelYear findOneOrCreate(ConnectionInterface $con = null) Return the first ChildItemMakeModelYear matching the query, or a new ChildItemMakeModelYear object populated from the query conditions when no match is found
  *
  * @method     ChildItemMakeModelYear findOneById(int $id) Return the first ChildItemMakeModelYear filtered by the id column
+ * @method     ChildItemMakeModelYear findOneByCatalog(string $catalog) Return the first ChildItemMakeModelYear filtered by the catalog column
  * @method     ChildItemMakeModelYear findOneByFromyear(int $fromyear) Return the first ChildItemMakeModelYear filtered by the fromyear column
  * @method     ChildItemMakeModelYear findOneByThroughyear(int $throughyear) Return the first ChildItemMakeModelYear filtered by the throughyear column
  * @method     ChildItemMakeModelYear findOneByMake(string $make) Return the first ChildItemMakeModelYear filtered by the make column
  * @method     ChildItemMakeModelYear findOneByModel(string $model) Return the first ChildItemMakeModelYear filtered by the model column
+ * @method     ChildItemMakeModelYear findOneBySubmodel(string $submodel) Return the first ChildItemMakeModelYear filtered by the submodel column
  * @method     ChildItemMakeModelYear findOneByItemid(string $itemid) Return the first ChildItemMakeModelYear filtered by the itemid column
  * @method     ChildItemMakeModelYear findOneByDate(int $date) Return the first ChildItemMakeModelYear filtered by the date column
  * @method     ChildItemMakeModelYear findOneByTime(int $time) Return the first ChildItemMakeModelYear filtered by the time column *
@@ -61,20 +67,24 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMakeModelYear requireOne(ConnectionInterface $con = null) Return the first ChildItemMakeModelYear matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildItemMakeModelYear requireOneById(int $id) Return the first ChildItemMakeModelYear filtered by the id column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildItemMakeModelYear requireOneByCatalog(string $catalog) Return the first ChildItemMakeModelYear filtered by the catalog column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemMakeModelYear requireOneByFromyear(int $fromyear) Return the first ChildItemMakeModelYear filtered by the fromyear column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemMakeModelYear requireOneByThroughyear(int $throughyear) Return the first ChildItemMakeModelYear filtered by the throughyear column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemMakeModelYear requireOneByMake(string $make) Return the first ChildItemMakeModelYear filtered by the make column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemMakeModelYear requireOneByModel(string $model) Return the first ChildItemMakeModelYear filtered by the model column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildItemMakeModelYear requireOneBySubmodel(string $submodel) Return the first ChildItemMakeModelYear filtered by the submodel column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemMakeModelYear requireOneByItemid(string $itemid) Return the first ChildItemMakeModelYear filtered by the itemid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemMakeModelYear requireOneByDate(int $date) Return the first ChildItemMakeModelYear filtered by the date column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemMakeModelYear requireOneByTime(int $time) Return the first ChildItemMakeModelYear filtered by the time column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildItemMakeModelYear[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildItemMakeModelYear objects based on current ModelCriteria
  * @method     ChildItemMakeModelYear[]|ObjectCollection findById(int $id) Return ChildItemMakeModelYear objects filtered by the id column
+ * @method     ChildItemMakeModelYear[]|ObjectCollection findByCatalog(string $catalog) Return ChildItemMakeModelYear objects filtered by the catalog column
  * @method     ChildItemMakeModelYear[]|ObjectCollection findByFromyear(int $fromyear) Return ChildItemMakeModelYear objects filtered by the fromyear column
  * @method     ChildItemMakeModelYear[]|ObjectCollection findByThroughyear(int $throughyear) Return ChildItemMakeModelYear objects filtered by the throughyear column
  * @method     ChildItemMakeModelYear[]|ObjectCollection findByMake(string $make) Return ChildItemMakeModelYear objects filtered by the make column
  * @method     ChildItemMakeModelYear[]|ObjectCollection findByModel(string $model) Return ChildItemMakeModelYear objects filtered by the model column
+ * @method     ChildItemMakeModelYear[]|ObjectCollection findBySubmodel(string $submodel) Return ChildItemMakeModelYear objects filtered by the submodel column
  * @method     ChildItemMakeModelYear[]|ObjectCollection findByItemid(string $itemid) Return ChildItemMakeModelYear objects filtered by the itemid column
  * @method     ChildItemMakeModelYear[]|ObjectCollection findByDate(int $date) Return ChildItemMakeModelYear objects filtered by the date column
  * @method     ChildItemMakeModelYear[]|ObjectCollection findByTime(int $time) Return ChildItemMakeModelYear objects filtered by the time column
@@ -176,7 +186,7 @@ abstract class ItemMakeModelYearQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT id, fromyear, throughyear, make, model, itemid, date, time FROM item_make_model WHERE id = :p0';
+        $sql = 'SELECT id, catalog, fromyear, throughyear, make, model, submodel, itemid, date, time FROM item_make_model WHERE id = :p0';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key, PDO::PARAM_INT);
@@ -305,6 +315,31 @@ abstract class ItemMakeModelYearQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(ItemMakeModelYearTableMap::COL_ID, $id, $comparison);
+    }
+
+    /**
+     * Filter the query on the catalog column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByCatalog('fooValue');   // WHERE catalog = 'fooValue'
+     * $query->filterByCatalog('%fooValue%', Criteria::LIKE); // WHERE catalog LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $catalog The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildItemMakeModelYearQuery The current query, for fluid interface
+     */
+    public function filterByCatalog($catalog = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($catalog)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(ItemMakeModelYearTableMap::COL_CATALOG, $catalog, $comparison);
     }
 
     /**
@@ -437,6 +472,31 @@ abstract class ItemMakeModelYearQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(ItemMakeModelYearTableMap::COL_MODEL, $model, $comparison);
+    }
+
+    /**
+     * Filter the query on the submodel column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterBySubmodel('fooValue');   // WHERE submodel = 'fooValue'
+     * $query->filterBySubmodel('%fooValue%', Criteria::LIKE); // WHERE submodel LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $submodel The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildItemMakeModelYearQuery The current query, for fluid interface
+     */
+    public function filterBySubmodel($submodel = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($submodel)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(ItemMakeModelYearTableMap::COL_SUBMODEL, $submodel, $comparison);
     }
 
     /**

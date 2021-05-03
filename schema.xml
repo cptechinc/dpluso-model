@@ -570,10 +570,12 @@
   </table>
   <table name="item_make_model" idMethod="native" phpName="ItemMakeModelYear">
     <column name="id" phpName="Id" type="INTEGER" size="11" primaryKey="true" required="true" />
+    <column name="catalog" phpName="Catalog" type="VARCHAR" size="10"/>
     <column name="fromyear" phpName="Fromyear" type="INTEGER" size="4"/>
     <column name="throughyear" phpName="Throughyear" type="INTEGER" size="4"/>
     <column name="make" phpName="Make" type="VARCHAR" size="45"/>
     <column name="model" phpName="Model" type="VARCHAR" size="45"/>
+    <column name="submodel" phpName="Submodel" type="VARCHAR" size="45"/>
     <column name="itemid" phpName="Itemid" type="VARCHAR" size="45"/>
     <column name="date" phpName="Date" type="INTEGER" size="8"/>
     <column name="time" phpName="Time" type="INTEGER" size="8"/>

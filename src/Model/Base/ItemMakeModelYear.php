@@ -67,6 +67,13 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
     protected $id;
 
     /**
+     * The value for the catalog field.
+     *
+     * @var        string
+     */
+    protected $catalog;
+
+    /**
      * The value for the fromyear field.
      *
      * @var        int
@@ -93,6 +100,13 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
      * @var        string
      */
     protected $model;
+
+    /**
+     * The value for the submodel field.
+     *
+     * @var        string
+     */
+    protected $submodel;
 
     /**
      * The value for the itemid field.
@@ -359,6 +373,16 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
     }
 
     /**
+     * Get the [catalog] column value.
+     *
+     * @return string
+     */
+    public function getCatalog()
+    {
+        return $this->catalog;
+    }
+
+    /**
      * Get the [fromyear] column value.
      *
      * @return int
@@ -396,6 +420,16 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
     public function getModel()
     {
         return $this->model;
+    }
+
+    /**
+     * Get the [submodel] column value.
+     *
+     * @return string
+     */
+    public function getSubmodel()
+    {
+        return $this->submodel;
     }
 
     /**
@@ -447,6 +481,26 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
 
         return $this;
     } // setId()
+
+    /**
+     * Set the value of [catalog] column.
+     *
+     * @param string $v new value
+     * @return $this|\ItemMakeModelYear The current object (for fluent API support)
+     */
+    public function setCatalog($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->catalog !== $v) {
+            $this->catalog = $v;
+            $this->modifiedColumns[ItemMakeModelYearTableMap::COL_CATALOG] = true;
+        }
+
+        return $this;
+    } // setCatalog()
 
     /**
      * Set the value of [fromyear] column.
@@ -527,6 +581,26 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
 
         return $this;
     } // setModel()
+
+    /**
+     * Set the value of [submodel] column.
+     *
+     * @param string $v new value
+     * @return $this|\ItemMakeModelYear The current object (for fluent API support)
+     */
+    public function setSubmodel($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->submodel !== $v) {
+            $this->submodel = $v;
+            $this->modifiedColumns[ItemMakeModelYearTableMap::COL_SUBMODEL] = true;
+        }
+
+        return $this;
+    } // setSubmodel()
 
     /**
      * Set the value of [itemid] column.
@@ -627,25 +701,31 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : ItemMakeModelYearTableMap::translateFieldName('Id', TableMap::TYPE_PHPNAME, $indexType)];
             $this->id = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ItemMakeModelYearTableMap::translateFieldName('Fromyear', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ItemMakeModelYearTableMap::translateFieldName('Catalog', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->catalog = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ItemMakeModelYearTableMap::translateFieldName('Fromyear', TableMap::TYPE_PHPNAME, $indexType)];
             $this->fromyear = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ItemMakeModelYearTableMap::translateFieldName('Throughyear', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ItemMakeModelYearTableMap::translateFieldName('Throughyear', TableMap::TYPE_PHPNAME, $indexType)];
             $this->throughyear = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ItemMakeModelYearTableMap::translateFieldName('Make', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ItemMakeModelYearTableMap::translateFieldName('Make', TableMap::TYPE_PHPNAME, $indexType)];
             $this->make = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ItemMakeModelYearTableMap::translateFieldName('Model', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : ItemMakeModelYearTableMap::translateFieldName('Model', TableMap::TYPE_PHPNAME, $indexType)];
             $this->model = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : ItemMakeModelYearTableMap::translateFieldName('Itemid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : ItemMakeModelYearTableMap::translateFieldName('Submodel', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->submodel = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : ItemMakeModelYearTableMap::translateFieldName('Itemid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->itemid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : ItemMakeModelYearTableMap::translateFieldName('Date', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : ItemMakeModelYearTableMap::translateFieldName('Date', TableMap::TYPE_PHPNAME, $indexType)];
             $this->date = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : ItemMakeModelYearTableMap::translateFieldName('Time', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : ItemMakeModelYearTableMap::translateFieldName('Time', TableMap::TYPE_PHPNAME, $indexType)];
             $this->time = (null !== $col) ? (int) $col : null;
             $this->resetModified();
 
@@ -655,7 +735,7 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 8; // 8 = ItemMakeModelYearTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 10; // 10 = ItemMakeModelYearTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\ItemMakeModelYear'), 0, $e);
@@ -855,6 +935,9 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
         if ($this->isColumnModified(ItemMakeModelYearTableMap::COL_ID)) {
             $modifiedColumns[':p' . $index++]  = 'id';
         }
+        if ($this->isColumnModified(ItemMakeModelYearTableMap::COL_CATALOG)) {
+            $modifiedColumns[':p' . $index++]  = 'catalog';
+        }
         if ($this->isColumnModified(ItemMakeModelYearTableMap::COL_FROMYEAR)) {
             $modifiedColumns[':p' . $index++]  = 'fromyear';
         }
@@ -866,6 +949,9 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
         }
         if ($this->isColumnModified(ItemMakeModelYearTableMap::COL_MODEL)) {
             $modifiedColumns[':p' . $index++]  = 'model';
+        }
+        if ($this->isColumnModified(ItemMakeModelYearTableMap::COL_SUBMODEL)) {
+            $modifiedColumns[':p' . $index++]  = 'submodel';
         }
         if ($this->isColumnModified(ItemMakeModelYearTableMap::COL_ITEMID)) {
             $modifiedColumns[':p' . $index++]  = 'itemid';
@@ -890,6 +976,9 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
                     case 'id':
                         $stmt->bindValue($identifier, $this->id, PDO::PARAM_INT);
                         break;
+                    case 'catalog':
+                        $stmt->bindValue($identifier, $this->catalog, PDO::PARAM_STR);
+                        break;
                     case 'fromyear':
                         $stmt->bindValue($identifier, $this->fromyear, PDO::PARAM_INT);
                         break;
@@ -901,6 +990,9 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
                         break;
                     case 'model':
                         $stmt->bindValue($identifier, $this->model, PDO::PARAM_STR);
+                        break;
+                    case 'submodel':
+                        $stmt->bindValue($identifier, $this->submodel, PDO::PARAM_STR);
                         break;
                     case 'itemid':
                         $stmt->bindValue($identifier, $this->itemid, PDO::PARAM_STR);
@@ -970,24 +1062,30 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
                 return $this->getId();
                 break;
             case 1:
-                return $this->getFromyear();
+                return $this->getCatalog();
                 break;
             case 2:
-                return $this->getThroughyear();
+                return $this->getFromyear();
                 break;
             case 3:
-                return $this->getMake();
+                return $this->getThroughyear();
                 break;
             case 4:
-                return $this->getModel();
+                return $this->getMake();
                 break;
             case 5:
-                return $this->getItemid();
+                return $this->getModel();
                 break;
             case 6:
-                return $this->getDate();
+                return $this->getSubmodel();
                 break;
             case 7:
+                return $this->getItemid();
+                break;
+            case 8:
+                return $this->getDate();
+                break;
+            case 9:
                 return $this->getTime();
                 break;
             default:
@@ -1020,13 +1118,15 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
         $keys = ItemMakeModelYearTableMap::getFieldNames($keyType);
         $result = array(
             $keys[0] => $this->getId(),
-            $keys[1] => $this->getFromyear(),
-            $keys[2] => $this->getThroughyear(),
-            $keys[3] => $this->getMake(),
-            $keys[4] => $this->getModel(),
-            $keys[5] => $this->getItemid(),
-            $keys[6] => $this->getDate(),
-            $keys[7] => $this->getTime(),
+            $keys[1] => $this->getCatalog(),
+            $keys[2] => $this->getFromyear(),
+            $keys[3] => $this->getThroughyear(),
+            $keys[4] => $this->getMake(),
+            $keys[5] => $this->getModel(),
+            $keys[6] => $this->getSubmodel(),
+            $keys[7] => $this->getItemid(),
+            $keys[8] => $this->getDate(),
+            $keys[9] => $this->getTime(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -1070,24 +1170,30 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
                 $this->setId($value);
                 break;
             case 1:
-                $this->setFromyear($value);
+                $this->setCatalog($value);
                 break;
             case 2:
-                $this->setThroughyear($value);
+                $this->setFromyear($value);
                 break;
             case 3:
-                $this->setMake($value);
+                $this->setThroughyear($value);
                 break;
             case 4:
-                $this->setModel($value);
+                $this->setMake($value);
                 break;
             case 5:
-                $this->setItemid($value);
+                $this->setModel($value);
                 break;
             case 6:
-                $this->setDate($value);
+                $this->setSubmodel($value);
                 break;
             case 7:
+                $this->setItemid($value);
+                break;
+            case 8:
+                $this->setDate($value);
+                break;
+            case 9:
                 $this->setTime($value);
                 break;
         } // switch()
@@ -1120,25 +1226,31 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
             $this->setId($arr[$keys[0]]);
         }
         if (array_key_exists($keys[1], $arr)) {
-            $this->setFromyear($arr[$keys[1]]);
+            $this->setCatalog($arr[$keys[1]]);
         }
         if (array_key_exists($keys[2], $arr)) {
-            $this->setThroughyear($arr[$keys[2]]);
+            $this->setFromyear($arr[$keys[2]]);
         }
         if (array_key_exists($keys[3], $arr)) {
-            $this->setMake($arr[$keys[3]]);
+            $this->setThroughyear($arr[$keys[3]]);
         }
         if (array_key_exists($keys[4], $arr)) {
-            $this->setModel($arr[$keys[4]]);
+            $this->setMake($arr[$keys[4]]);
         }
         if (array_key_exists($keys[5], $arr)) {
-            $this->setItemid($arr[$keys[5]]);
+            $this->setModel($arr[$keys[5]]);
         }
         if (array_key_exists($keys[6], $arr)) {
-            $this->setDate($arr[$keys[6]]);
+            $this->setSubmodel($arr[$keys[6]]);
         }
         if (array_key_exists($keys[7], $arr)) {
-            $this->setTime($arr[$keys[7]]);
+            $this->setItemid($arr[$keys[7]]);
+        }
+        if (array_key_exists($keys[8], $arr)) {
+            $this->setDate($arr[$keys[8]]);
+        }
+        if (array_key_exists($keys[9], $arr)) {
+            $this->setTime($arr[$keys[9]]);
         }
     }
 
@@ -1184,6 +1296,9 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
         if ($this->isColumnModified(ItemMakeModelYearTableMap::COL_ID)) {
             $criteria->add(ItemMakeModelYearTableMap::COL_ID, $this->id);
         }
+        if ($this->isColumnModified(ItemMakeModelYearTableMap::COL_CATALOG)) {
+            $criteria->add(ItemMakeModelYearTableMap::COL_CATALOG, $this->catalog);
+        }
         if ($this->isColumnModified(ItemMakeModelYearTableMap::COL_FROMYEAR)) {
             $criteria->add(ItemMakeModelYearTableMap::COL_FROMYEAR, $this->fromyear);
         }
@@ -1195,6 +1310,9 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
         }
         if ($this->isColumnModified(ItemMakeModelYearTableMap::COL_MODEL)) {
             $criteria->add(ItemMakeModelYearTableMap::COL_MODEL, $this->model);
+        }
+        if ($this->isColumnModified(ItemMakeModelYearTableMap::COL_SUBMODEL)) {
+            $criteria->add(ItemMakeModelYearTableMap::COL_SUBMODEL, $this->submodel);
         }
         if ($this->isColumnModified(ItemMakeModelYearTableMap::COL_ITEMID)) {
             $criteria->add(ItemMakeModelYearTableMap::COL_ITEMID, $this->itemid);
@@ -1292,10 +1410,12 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
     public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
     {
         $copyObj->setId($this->getId());
+        $copyObj->setCatalog($this->getCatalog());
         $copyObj->setFromyear($this->getFromyear());
         $copyObj->setThroughyear($this->getThroughyear());
         $copyObj->setMake($this->getMake());
         $copyObj->setModel($this->getModel());
+        $copyObj->setSubmodel($this->getSubmodel());
         $copyObj->setItemid($this->getItemid());
         $copyObj->setDate($this->getDate());
         $copyObj->setTime($this->getTime());
@@ -1334,10 +1454,12 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
     public function clear()
     {
         $this->id = null;
+        $this->catalog = null;
         $this->fromyear = null;
         $this->throughyear = null;
         $this->make = null;
         $this->model = null;
+        $this->submodel = null;
         $this->itemid = null;
         $this->date = null;
         $this->time = null;
