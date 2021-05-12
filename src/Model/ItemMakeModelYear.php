@@ -8,7 +8,6 @@ use Dpluso\Model\MagicMethodTraits;
 
 /**
  * Class for representing a row from the 'item_make_model' table.
- *
  */
 class ItemMakeModelYear extends BaseItemMakeModelYear {
 	use ThrowErrorTrait;
@@ -24,7 +23,7 @@ class ItemMakeModelYear extends BaseItemMakeModelYear {
 	}
 
 	/**
-	 * Return 4-character year 
+	 * Return 4-character year
 	 * @param   int $year
 	 * @return string
 	 */
