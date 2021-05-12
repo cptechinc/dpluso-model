@@ -153,4 +153,12 @@ class Billing extends BaseBilling {
 	public function encryptCvc() {
 		BillingQuery::create()->encryptColumn('vc', $this->salt, $this->sessionid);
 	}
+
+	/**
+	 * Encrypts Credit Card Fields
+	 * @return void
+	 */
+	public function encryptPayment() {
+		BillingQuery::create()->encryptPayment($this->salt, $this->sessionid);
+	}
 }
