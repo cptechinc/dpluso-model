@@ -95,6 +95,13 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
     protected $make;
 
     /**
+     * The value for the engine field.
+     *
+     * @var        int
+     */
+    protected $engine;
+
+    /**
      * The value for the model field.
      *
      * @var        string
@@ -107,13 +114,6 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
      * @var        string
      */
     protected $submodel;
-
-    /**
-     * The value for the engine field.
-     *
-     * @var        int
-     */
-    protected $engine;
 
     /**
      * The value for the itemid field.
@@ -420,6 +420,16 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
     }
 
     /**
+     * Get the [engine] column value.
+     *
+     * @return int
+     */
+    public function getEngine()
+    {
+        return $this->engine;
+    }
+
+    /**
      * Get the [model] column value.
      *
      * @return string
@@ -437,16 +447,6 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
     public function getSubmodel()
     {
         return $this->submodel;
-    }
-
-    /**
-     * Get the [engine] column value.
-     *
-     * @return int
-     */
-    public function getEngine()
-    {
-        return $this->engine;
     }
 
     /**
@@ -580,6 +580,26 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
     } // setMake()
 
     /**
+     * Set the value of [engine] column.
+     *
+     * @param int $v new value
+     * @return $this|\ItemMakeModelYear The current object (for fluent API support)
+     */
+    public function setEngine($v)
+    {
+        if ($v !== null) {
+            $v = (int) $v;
+        }
+
+        if ($this->engine !== $v) {
+            $this->engine = $v;
+            $this->modifiedColumns[ItemMakeModelYearTableMap::COL_ENGINE] = true;
+        }
+
+        return $this;
+    } // setEngine()
+
+    /**
      * Set the value of [model] column.
      *
      * @param string $v new value
@@ -618,26 +638,6 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
 
         return $this;
     } // setSubmodel()
-
-    /**
-     * Set the value of [engine] column.
-     *
-     * @param int $v new value
-     * @return $this|\ItemMakeModelYear The current object (for fluent API support)
-     */
-    public function setEngine($v)
-    {
-        if ($v !== null) {
-            $v = (int) $v;
-        }
-
-        if ($this->engine !== $v) {
-            $this->engine = $v;
-            $this->modifiedColumns[ItemMakeModelYearTableMap::COL_ENGINE] = true;
-        }
-
-        return $this;
-    } // setEngine()
 
     /**
      * Set the value of [itemid] column.
@@ -750,14 +750,14 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ItemMakeModelYearTableMap::translateFieldName('Make', TableMap::TYPE_PHPNAME, $indexType)];
             $this->make = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : ItemMakeModelYearTableMap::translateFieldName('Model', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : ItemMakeModelYearTableMap::translateFieldName('Engine', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->engine = (null !== $col) ? (int) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : ItemMakeModelYearTableMap::translateFieldName('Model', TableMap::TYPE_PHPNAME, $indexType)];
             $this->model = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : ItemMakeModelYearTableMap::translateFieldName('Submodel', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : ItemMakeModelYearTableMap::translateFieldName('Submodel', TableMap::TYPE_PHPNAME, $indexType)];
             $this->submodel = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : ItemMakeModelYearTableMap::translateFieldName('Engine', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->engine = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : ItemMakeModelYearTableMap::translateFieldName('Itemid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->itemid = (null !== $col) ? (string) $col : null;
@@ -987,14 +987,14 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
         if ($this->isColumnModified(ItemMakeModelYearTableMap::COL_MAKE)) {
             $modifiedColumns[':p' . $index++]  = 'make';
         }
+        if ($this->isColumnModified(ItemMakeModelYearTableMap::COL_ENGINE)) {
+            $modifiedColumns[':p' . $index++]  = 'engine';
+        }
         if ($this->isColumnModified(ItemMakeModelYearTableMap::COL_MODEL)) {
             $modifiedColumns[':p' . $index++]  = 'model';
         }
         if ($this->isColumnModified(ItemMakeModelYearTableMap::COL_SUBMODEL)) {
             $modifiedColumns[':p' . $index++]  = 'submodel';
-        }
-        if ($this->isColumnModified(ItemMakeModelYearTableMap::COL_ENGINE)) {
-            $modifiedColumns[':p' . $index++]  = 'engine';
         }
         if ($this->isColumnModified(ItemMakeModelYearTableMap::COL_ITEMID)) {
             $modifiedColumns[':p' . $index++]  = 'itemid';
@@ -1031,14 +1031,14 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
                     case 'make':
                         $stmt->bindValue($identifier, $this->make, PDO::PARAM_STR);
                         break;
+                    case 'engine':
+                        $stmt->bindValue($identifier, $this->engine, PDO::PARAM_INT);
+                        break;
                     case 'model':
                         $stmt->bindValue($identifier, $this->model, PDO::PARAM_STR);
                         break;
                     case 'submodel':
                         $stmt->bindValue($identifier, $this->submodel, PDO::PARAM_STR);
-                        break;
-                    case 'engine':
-                        $stmt->bindValue($identifier, $this->engine, PDO::PARAM_INT);
                         break;
                     case 'itemid':
                         $stmt->bindValue($identifier, $this->itemid, PDO::PARAM_STR);
@@ -1120,13 +1120,13 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
                 return $this->getMake();
                 break;
             case 5:
-                return $this->getModel();
+                return $this->getEngine();
                 break;
             case 6:
-                return $this->getSubmodel();
+                return $this->getModel();
                 break;
             case 7:
-                return $this->getEngine();
+                return $this->getSubmodel();
                 break;
             case 8:
                 return $this->getItemid();
@@ -1171,9 +1171,9 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
             $keys[2] => $this->getFromyear(),
             $keys[3] => $this->getThroughyear(),
             $keys[4] => $this->getMake(),
-            $keys[5] => $this->getModel(),
-            $keys[6] => $this->getSubmodel(),
-            $keys[7] => $this->getEngine(),
+            $keys[5] => $this->getEngine(),
+            $keys[6] => $this->getModel(),
+            $keys[7] => $this->getSubmodel(),
             $keys[8] => $this->getItemid(),
             $keys[9] => $this->getDate(),
             $keys[10] => $this->getTime(),
@@ -1232,13 +1232,13 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
                 $this->setMake($value);
                 break;
             case 5:
-                $this->setModel($value);
+                $this->setEngine($value);
                 break;
             case 6:
-                $this->setSubmodel($value);
+                $this->setModel($value);
                 break;
             case 7:
-                $this->setEngine($value);
+                $this->setSubmodel($value);
                 break;
             case 8:
                 $this->setItemid($value);
@@ -1291,13 +1291,13 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
             $this->setMake($arr[$keys[4]]);
         }
         if (array_key_exists($keys[5], $arr)) {
-            $this->setModel($arr[$keys[5]]);
+            $this->setEngine($arr[$keys[5]]);
         }
         if (array_key_exists($keys[6], $arr)) {
-            $this->setSubmodel($arr[$keys[6]]);
+            $this->setModel($arr[$keys[6]]);
         }
         if (array_key_exists($keys[7], $arr)) {
-            $this->setEngine($arr[$keys[7]]);
+            $this->setSubmodel($arr[$keys[7]]);
         }
         if (array_key_exists($keys[8], $arr)) {
             $this->setItemid($arr[$keys[8]]);
@@ -1364,14 +1364,14 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
         if ($this->isColumnModified(ItemMakeModelYearTableMap::COL_MAKE)) {
             $criteria->add(ItemMakeModelYearTableMap::COL_MAKE, $this->make);
         }
+        if ($this->isColumnModified(ItemMakeModelYearTableMap::COL_ENGINE)) {
+            $criteria->add(ItemMakeModelYearTableMap::COL_ENGINE, $this->engine);
+        }
         if ($this->isColumnModified(ItemMakeModelYearTableMap::COL_MODEL)) {
             $criteria->add(ItemMakeModelYearTableMap::COL_MODEL, $this->model);
         }
         if ($this->isColumnModified(ItemMakeModelYearTableMap::COL_SUBMODEL)) {
             $criteria->add(ItemMakeModelYearTableMap::COL_SUBMODEL, $this->submodel);
-        }
-        if ($this->isColumnModified(ItemMakeModelYearTableMap::COL_ENGINE)) {
-            $criteria->add(ItemMakeModelYearTableMap::COL_ENGINE, $this->engine);
         }
         if ($this->isColumnModified(ItemMakeModelYearTableMap::COL_ITEMID)) {
             $criteria->add(ItemMakeModelYearTableMap::COL_ITEMID, $this->itemid);
@@ -1473,9 +1473,9 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
         $copyObj->setFromyear($this->getFromyear());
         $copyObj->setThroughyear($this->getThroughyear());
         $copyObj->setMake($this->getMake());
+        $copyObj->setEngine($this->getEngine());
         $copyObj->setModel($this->getModel());
         $copyObj->setSubmodel($this->getSubmodel());
-        $copyObj->setEngine($this->getEngine());
         $copyObj->setItemid($this->getItemid());
         $copyObj->setDate($this->getDate());
         $copyObj->setTime($this->getTime());
@@ -1518,9 +1518,9 @@ abstract class ItemMakeModelYear implements ActiveRecordInterface
         $this->fromyear = null;
         $this->throughyear = null;
         $this->make = null;
+        $this->engine = null;
         $this->model = null;
         $this->submodel = null;
-        $this->engine = null;
         $this->itemid = null;
         $this->date = null;
         $this->time = null;
