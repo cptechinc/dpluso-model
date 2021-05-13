@@ -59,7 +59,7 @@ class ItemMakeModelYearTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 10;
+    const NUM_COLUMNS = 11;
 
     /**
      * The number of lazy-loaded columns
@@ -69,7 +69,7 @@ class ItemMakeModelYearTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 10;
+    const NUM_HYDRATE_COLUMNS = 11;
 
     /**
      * the column name for the id field
@@ -107,6 +107,11 @@ class ItemMakeModelYearTableMap extends TableMap
     const COL_SUBMODEL = 'item_make_model.submodel';
 
     /**
+     * the column name for the engine field
+     */
+    const COL_ENGINE = 'item_make_model.engine';
+
+    /**
      * the column name for the itemid field
      */
     const COL_ITEMID = 'item_make_model.itemid';
@@ -133,11 +138,11 @@ class ItemMakeModelYearTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Id', 'Catalog', 'Fromyear', 'Throughyear', 'Make', 'Model', 'Submodel', 'Itemid', 'Date', 'Time', ),
-        self::TYPE_CAMELNAME     => array('id', 'catalog', 'fromyear', 'throughyear', 'make', 'model', 'submodel', 'itemid', 'date', 'time', ),
-        self::TYPE_COLNAME       => array(ItemMakeModelYearTableMap::COL_ID, ItemMakeModelYearTableMap::COL_CATALOG, ItemMakeModelYearTableMap::COL_FROMYEAR, ItemMakeModelYearTableMap::COL_THROUGHYEAR, ItemMakeModelYearTableMap::COL_MAKE, ItemMakeModelYearTableMap::COL_MODEL, ItemMakeModelYearTableMap::COL_SUBMODEL, ItemMakeModelYearTableMap::COL_ITEMID, ItemMakeModelYearTableMap::COL_DATE, ItemMakeModelYearTableMap::COL_TIME, ),
-        self::TYPE_FIELDNAME     => array('id', 'catalog', 'fromyear', 'throughyear', 'make', 'model', 'submodel', 'itemid', 'date', 'time', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, )
+        self::TYPE_PHPNAME       => array('Id', 'Catalog', 'Fromyear', 'Throughyear', 'Make', 'Model', 'Submodel', 'Engine', 'Itemid', 'Date', 'Time', ),
+        self::TYPE_CAMELNAME     => array('id', 'catalog', 'fromyear', 'throughyear', 'make', 'model', 'submodel', 'engine', 'itemid', 'date', 'time', ),
+        self::TYPE_COLNAME       => array(ItemMakeModelYearTableMap::COL_ID, ItemMakeModelYearTableMap::COL_CATALOG, ItemMakeModelYearTableMap::COL_FROMYEAR, ItemMakeModelYearTableMap::COL_THROUGHYEAR, ItemMakeModelYearTableMap::COL_MAKE, ItemMakeModelYearTableMap::COL_MODEL, ItemMakeModelYearTableMap::COL_SUBMODEL, ItemMakeModelYearTableMap::COL_ENGINE, ItemMakeModelYearTableMap::COL_ITEMID, ItemMakeModelYearTableMap::COL_DATE, ItemMakeModelYearTableMap::COL_TIME, ),
+        self::TYPE_FIELDNAME     => array('id', 'catalog', 'fromyear', 'throughyear', 'make', 'model', 'submodel', 'engine', 'itemid', 'date', 'time', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, )
     );
 
     /**
@@ -147,11 +152,11 @@ class ItemMakeModelYearTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Id' => 0, 'Catalog' => 1, 'Fromyear' => 2, 'Throughyear' => 3, 'Make' => 4, 'Model' => 5, 'Submodel' => 6, 'Itemid' => 7, 'Date' => 8, 'Time' => 9, ),
-        self::TYPE_CAMELNAME     => array('id' => 0, 'catalog' => 1, 'fromyear' => 2, 'throughyear' => 3, 'make' => 4, 'model' => 5, 'submodel' => 6, 'itemid' => 7, 'date' => 8, 'time' => 9, ),
-        self::TYPE_COLNAME       => array(ItemMakeModelYearTableMap::COL_ID => 0, ItemMakeModelYearTableMap::COL_CATALOG => 1, ItemMakeModelYearTableMap::COL_FROMYEAR => 2, ItemMakeModelYearTableMap::COL_THROUGHYEAR => 3, ItemMakeModelYearTableMap::COL_MAKE => 4, ItemMakeModelYearTableMap::COL_MODEL => 5, ItemMakeModelYearTableMap::COL_SUBMODEL => 6, ItemMakeModelYearTableMap::COL_ITEMID => 7, ItemMakeModelYearTableMap::COL_DATE => 8, ItemMakeModelYearTableMap::COL_TIME => 9, ),
-        self::TYPE_FIELDNAME     => array('id' => 0, 'catalog' => 1, 'fromyear' => 2, 'throughyear' => 3, 'make' => 4, 'model' => 5, 'submodel' => 6, 'itemid' => 7, 'date' => 8, 'time' => 9, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, )
+        self::TYPE_PHPNAME       => array('Id' => 0, 'Catalog' => 1, 'Fromyear' => 2, 'Throughyear' => 3, 'Make' => 4, 'Model' => 5, 'Submodel' => 6, 'Engine' => 7, 'Itemid' => 8, 'Date' => 9, 'Time' => 10, ),
+        self::TYPE_CAMELNAME     => array('id' => 0, 'catalog' => 1, 'fromyear' => 2, 'throughyear' => 3, 'make' => 4, 'model' => 5, 'submodel' => 6, 'engine' => 7, 'itemid' => 8, 'date' => 9, 'time' => 10, ),
+        self::TYPE_COLNAME       => array(ItemMakeModelYearTableMap::COL_ID => 0, ItemMakeModelYearTableMap::COL_CATALOG => 1, ItemMakeModelYearTableMap::COL_FROMYEAR => 2, ItemMakeModelYearTableMap::COL_THROUGHYEAR => 3, ItemMakeModelYearTableMap::COL_MAKE => 4, ItemMakeModelYearTableMap::COL_MODEL => 5, ItemMakeModelYearTableMap::COL_SUBMODEL => 6, ItemMakeModelYearTableMap::COL_ENGINE => 7, ItemMakeModelYearTableMap::COL_ITEMID => 8, ItemMakeModelYearTableMap::COL_DATE => 9, ItemMakeModelYearTableMap::COL_TIME => 10, ),
+        self::TYPE_FIELDNAME     => array('id' => 0, 'catalog' => 1, 'fromyear' => 2, 'throughyear' => 3, 'make' => 4, 'model' => 5, 'submodel' => 6, 'engine' => 7, 'itemid' => 8, 'date' => 9, 'time' => 10, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, )
     );
 
     /**
@@ -178,6 +183,7 @@ class ItemMakeModelYearTableMap extends TableMap
         $this->addColumn('make', 'Make', 'VARCHAR', false, 45, null);
         $this->addColumn('model', 'Model', 'VARCHAR', false, 45, null);
         $this->addColumn('submodel', 'Submodel', 'VARCHAR', false, 45, null);
+        $this->addColumn('engine', 'Engine', 'INTEGER', false, 11, null);
         $this->addColumn('itemid', 'Itemid', 'VARCHAR', false, 45, null);
         $this->addColumn('date', 'Date', 'INTEGER', false, 8, null);
         $this->addColumn('time', 'Time', 'INTEGER', false, 8, null);
@@ -338,6 +344,7 @@ class ItemMakeModelYearTableMap extends TableMap
             $criteria->addSelectColumn(ItemMakeModelYearTableMap::COL_MAKE);
             $criteria->addSelectColumn(ItemMakeModelYearTableMap::COL_MODEL);
             $criteria->addSelectColumn(ItemMakeModelYearTableMap::COL_SUBMODEL);
+            $criteria->addSelectColumn(ItemMakeModelYearTableMap::COL_ENGINE);
             $criteria->addSelectColumn(ItemMakeModelYearTableMap::COL_ITEMID);
             $criteria->addSelectColumn(ItemMakeModelYearTableMap::COL_DATE);
             $criteria->addSelectColumn(ItemMakeModelYearTableMap::COL_TIME);
@@ -349,6 +356,7 @@ class ItemMakeModelYearTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.make');
             $criteria->addSelectColumn($alias . '.model');
             $criteria->addSelectColumn($alias . '.submodel');
+            $criteria->addSelectColumn($alias . '.engine');
             $criteria->addSelectColumn($alias . '.itemid');
             $criteria->addSelectColumn($alias . '.date');
             $criteria->addSelectColumn($alias . '.time');

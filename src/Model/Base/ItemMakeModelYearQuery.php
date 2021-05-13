@@ -26,6 +26,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMakeModelYearQuery orderByMake($order = Criteria::ASC) Order by the make column
  * @method     ChildItemMakeModelYearQuery orderByModel($order = Criteria::ASC) Order by the model column
  * @method     ChildItemMakeModelYearQuery orderBySubmodel($order = Criteria::ASC) Order by the submodel column
+ * @method     ChildItemMakeModelYearQuery orderByEngine($order = Criteria::ASC) Order by the engine column
  * @method     ChildItemMakeModelYearQuery orderByItemid($order = Criteria::ASC) Order by the itemid column
  * @method     ChildItemMakeModelYearQuery orderByDate($order = Criteria::ASC) Order by the date column
  * @method     ChildItemMakeModelYearQuery orderByTime($order = Criteria::ASC) Order by the time column
@@ -37,6 +38,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMakeModelYearQuery groupByMake() Group by the make column
  * @method     ChildItemMakeModelYearQuery groupByModel() Group by the model column
  * @method     ChildItemMakeModelYearQuery groupBySubmodel() Group by the submodel column
+ * @method     ChildItemMakeModelYearQuery groupByEngine() Group by the engine column
  * @method     ChildItemMakeModelYearQuery groupByItemid() Group by the itemid column
  * @method     ChildItemMakeModelYearQuery groupByDate() Group by the date column
  * @method     ChildItemMakeModelYearQuery groupByTime() Group by the time column
@@ -59,6 +61,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMakeModelYear findOneByMake(string $make) Return the first ChildItemMakeModelYear filtered by the make column
  * @method     ChildItemMakeModelYear findOneByModel(string $model) Return the first ChildItemMakeModelYear filtered by the model column
  * @method     ChildItemMakeModelYear findOneBySubmodel(string $submodel) Return the first ChildItemMakeModelYear filtered by the submodel column
+ * @method     ChildItemMakeModelYear findOneByEngine(int $engine) Return the first ChildItemMakeModelYear filtered by the engine column
  * @method     ChildItemMakeModelYear findOneByItemid(string $itemid) Return the first ChildItemMakeModelYear filtered by the itemid column
  * @method     ChildItemMakeModelYear findOneByDate(int $date) Return the first ChildItemMakeModelYear filtered by the date column
  * @method     ChildItemMakeModelYear findOneByTime(int $time) Return the first ChildItemMakeModelYear filtered by the time column *
@@ -73,6 +76,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMakeModelYear requireOneByMake(string $make) Return the first ChildItemMakeModelYear filtered by the make column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemMakeModelYear requireOneByModel(string $model) Return the first ChildItemMakeModelYear filtered by the model column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemMakeModelYear requireOneBySubmodel(string $submodel) Return the first ChildItemMakeModelYear filtered by the submodel column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildItemMakeModelYear requireOneByEngine(int $engine) Return the first ChildItemMakeModelYear filtered by the engine column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemMakeModelYear requireOneByItemid(string $itemid) Return the first ChildItemMakeModelYear filtered by the itemid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemMakeModelYear requireOneByDate(int $date) Return the first ChildItemMakeModelYear filtered by the date column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemMakeModelYear requireOneByTime(int $time) Return the first ChildItemMakeModelYear filtered by the time column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -85,6 +89,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMakeModelYear[]|ObjectCollection findByMake(string $make) Return ChildItemMakeModelYear objects filtered by the make column
  * @method     ChildItemMakeModelYear[]|ObjectCollection findByModel(string $model) Return ChildItemMakeModelYear objects filtered by the model column
  * @method     ChildItemMakeModelYear[]|ObjectCollection findBySubmodel(string $submodel) Return ChildItemMakeModelYear objects filtered by the submodel column
+ * @method     ChildItemMakeModelYear[]|ObjectCollection findByEngine(int $engine) Return ChildItemMakeModelYear objects filtered by the engine column
  * @method     ChildItemMakeModelYear[]|ObjectCollection findByItemid(string $itemid) Return ChildItemMakeModelYear objects filtered by the itemid column
  * @method     ChildItemMakeModelYear[]|ObjectCollection findByDate(int $date) Return ChildItemMakeModelYear objects filtered by the date column
  * @method     ChildItemMakeModelYear[]|ObjectCollection findByTime(int $time) Return ChildItemMakeModelYear objects filtered by the time column
@@ -186,7 +191,7 @@ abstract class ItemMakeModelYearQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT id, catalog, fromyear, throughyear, make, model, submodel, itemid, date, time FROM item_make_model WHERE id = :p0';
+        $sql = 'SELECT id, catalog, fromyear, throughyear, make, model, submodel, engine, itemid, date, time FROM item_make_model WHERE id = :p0';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key, PDO::PARAM_INT);
@@ -497,6 +502,47 @@ abstract class ItemMakeModelYearQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(ItemMakeModelYearTableMap::COL_SUBMODEL, $submodel, $comparison);
+    }
+
+    /**
+     * Filter the query on the engine column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByEngine(1234); // WHERE engine = 1234
+     * $query->filterByEngine(array(12, 34)); // WHERE engine IN (12, 34)
+     * $query->filterByEngine(array('min' => 12)); // WHERE engine > 12
+     * </code>
+     *
+     * @param     mixed $engine The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildItemMakeModelYearQuery The current query, for fluid interface
+     */
+    public function filterByEngine($engine = null, $comparison = null)
+    {
+        if (is_array($engine)) {
+            $useMinMax = false;
+            if (isset($engine['min'])) {
+                $this->addUsingAlias(ItemMakeModelYearTableMap::COL_ENGINE, $engine['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($engine['max'])) {
+                $this->addUsingAlias(ItemMakeModelYearTableMap::COL_ENGINE, $engine['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(ItemMakeModelYearTableMap::COL_ENGINE, $engine, $comparison);
     }
 
     /**

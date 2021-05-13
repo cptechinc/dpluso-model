@@ -576,6 +576,7 @@
     <column name="make" phpName="Make" type="VARCHAR" size="45"/>
     <column name="model" phpName="Model" type="VARCHAR" size="45"/>
     <column name="submodel" phpName="Submodel" type="VARCHAR" size="45"/>
+    <column name="engine" phpName="Engine" type="INTEGER" size="11"/>
     <column name="itemid" phpName="Itemid" type="VARCHAR" size="45"/>
     <column name="date" phpName="Date" type="INTEGER" size="8"/>
     <column name="time" phpName="Time" type="INTEGER" size="8"/>
