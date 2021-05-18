@@ -214,9 +214,12 @@ class PickSalesOrderDetail extends BasePickSalesOrderDetail {
 	 *
 	 * @return PickOrderSalesOrderDetail[]
 	 */
-	public function get_pickeditems() {
+	public function get_pickeditems($includepackbin = true) {
 		$q = WhseitempickQuery::create();
-		$q->filterByBin('PACK', Criteria::ALT_NOT_EQUAL);
+		if ($includepackbin === false) {
+			$q->filterByBin('PACK', Criteria::ALT_NOT_EQUAL);
+		}
+
 		$q->filterBySessionidOrder($this->sessionid, $this->ordernbr);
 		$q->filterByLinenbrSublinenbr($this->linenbr, $this->sublinenbr);
 		return $q->find();
@@ -227,11 +230,13 @@ class PickSalesOrderDetail extends BasePickSalesOrderDetail {
 	 *
 	 * @return int
 	 */
-	public function get_qtypicked() {
+	public function get_qtypicked($includepackbin = false) {
 		$q = WhseitempickQuery::create();
 		$q->withColumn('SUM(qty)', 'qty');
 		$q->select('qty');
-		$q->filterByBin('PACK', Criteria::ALT_NOT_EQUAL);
+		if ($includepackbin === false) {
+			$q->filterByBin('PACK', Criteria::ALT_NOT_EQUAL);
+		}
 		$q->filterBySessionidOrder($this->sessionid, $this->ordernbr);
 		$q->filterByLinenbrSublinenbr($this->linenbr, $this->sublinenbr);
 		return $q->findOne();
@@ -242,9 +247,11 @@ class PickSalesOrderDetail extends BasePickSalesOrderDetail {
 	 *
 	 * @return int
 	 */
-	public function count_pickeditems() {
+	public function count_pickeditems($includepackbin = false) {
 		$q = WhseitempickQuery::create();
-		$q->filterByBin('PACK', Criteria::ALT_NOT_EQUAL);
+		if ($includepackbin === false) {
+			$q->filterByBin('PACK', Criteria::ALT_NOT_EQUAL);
+		}
 		$q->filterBySessionidOrder($this->sessionid, $this->ordernbr);
 		$q->filterByLinenbrSublinenbr($this->linenbr, $this->sublinenbr);
 		return $q->count();
