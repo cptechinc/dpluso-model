@@ -60,7 +60,7 @@ class BininfoQuery extends BaseBininfoQuery {
 	 * @return $this|BininfoQuery  The current query, for fluid interface
 	 */
 	function filterByItem($sessionID, Invsearch $item) {
-		if ($item->is_lotted() || $item->is_serialized()) {
+		if (($item->is_lotted() || $item->is_serialized()) && $item->lotserial != '') {
 			$this->filterBySessionLotserial($sessionID, $item->lotserial);
 		} else {
 			$this->filterBySessionItemId($sessionID, $item->itemid);
