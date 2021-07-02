@@ -123,6 +123,13 @@ abstract class VehicleItem implements ActiveRecordInterface
     protected $itemid;
 
     /**
+     * The value for the application field.
+     *
+     * @var        string
+     */
+    protected $application;
+
+    /**
      * The value for the notes field.
      *
      * @var        string
@@ -467,6 +474,16 @@ abstract class VehicleItem implements ActiveRecordInterface
     }
 
     /**
+     * Get the [application] column value.
+     *
+     * @return string
+     */
+    public function getApplication()
+    {
+        return $this->application;
+    }
+
+    /**
      * Get the [notes] column value.
      *
      * @return string
@@ -677,6 +694,26 @@ abstract class VehicleItem implements ActiveRecordInterface
     } // setItemid()
 
     /**
+     * Set the value of [application] column.
+     *
+     * @param string $v new value
+     * @return $this|\VehicleItem The current object (for fluent API support)
+     */
+    public function setApplication($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->application !== $v) {
+            $this->application = $v;
+            $this->modifiedColumns[VehicleItemTableMap::COL_APPLICATION] = true;
+        }
+
+        return $this;
+    } // setApplication()
+
+    /**
      * Set the value of [notes] column.
      *
      * @param string $v new value
@@ -799,13 +836,16 @@ abstract class VehicleItem implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : VehicleItemTableMap::translateFieldName('Itemid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->itemid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : VehicleItemTableMap::translateFieldName('notes', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : VehicleItemTableMap::translateFieldName('Application', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->application = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : VehicleItemTableMap::translateFieldName('notes', TableMap::TYPE_PHPNAME, $indexType)];
             $this->notes = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : VehicleItemTableMap::translateFieldName('Date', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : VehicleItemTableMap::translateFieldName('Date', TableMap::TYPE_PHPNAME, $indexType)];
             $this->date = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : VehicleItemTableMap::translateFieldName('Time', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : VehicleItemTableMap::translateFieldName('Time', TableMap::TYPE_PHPNAME, $indexType)];
             $this->time = (null !== $col) ? (int) $col : null;
             $this->resetModified();
 
@@ -815,7 +855,7 @@ abstract class VehicleItem implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 12; // 12 = VehicleItemTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 13; // 13 = VehicleItemTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\VehicleItem'), 0, $e);
@@ -1039,6 +1079,9 @@ abstract class VehicleItem implements ActiveRecordInterface
         if ($this->isColumnModified(VehicleItemTableMap::COL_ITEMID)) {
             $modifiedColumns[':p' . $index++]  = 'itemid';
         }
+        if ($this->isColumnModified(VehicleItemTableMap::COL_APPLICATION)) {
+            $modifiedColumns[':p' . $index++]  = 'application';
+        }
         if ($this->isColumnModified(VehicleItemTableMap::COL_NOTES)) {
             $modifiedColumns[':p' . $index++]  = 'notes';
         }
@@ -1085,6 +1128,9 @@ abstract class VehicleItem implements ActiveRecordInterface
                         break;
                     case 'itemid':
                         $stmt->bindValue($identifier, $this->itemid, PDO::PARAM_STR);
+                        break;
+                    case 'application':
+                        $stmt->bindValue($identifier, $this->application, PDO::PARAM_STR);
                         break;
                     case 'notes':
                         $stmt->bindValue($identifier, $this->notes, PDO::PARAM_STR);
@@ -1178,12 +1224,15 @@ abstract class VehicleItem implements ActiveRecordInterface
                 return $this->getItemid();
                 break;
             case 9:
-                return $this->getnotes();
+                return $this->getApplication();
                 break;
             case 10:
-                return $this->getDate();
+                return $this->getnotes();
                 break;
             case 11:
+                return $this->getDate();
+                break;
+            case 12:
                 return $this->getTime();
                 break;
             default:
@@ -1224,9 +1273,10 @@ abstract class VehicleItem implements ActiveRecordInterface
             $keys[6] => $this->getModel(),
             $keys[7] => $this->getSubmodel(),
             $keys[8] => $this->getItemid(),
-            $keys[9] => $this->getnotes(),
-            $keys[10] => $this->getDate(),
-            $keys[11] => $this->getTime(),
+            $keys[9] => $this->getApplication(),
+            $keys[10] => $this->getnotes(),
+            $keys[11] => $this->getDate(),
+            $keys[12] => $this->getTime(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -1294,12 +1344,15 @@ abstract class VehicleItem implements ActiveRecordInterface
                 $this->setItemid($value);
                 break;
             case 9:
-                $this->setnotes($value);
+                $this->setApplication($value);
                 break;
             case 10:
-                $this->setDate($value);
+                $this->setnotes($value);
                 break;
             case 11:
+                $this->setDate($value);
+                break;
+            case 12:
                 $this->setTime($value);
                 break;
         } // switch()
@@ -1356,13 +1409,16 @@ abstract class VehicleItem implements ActiveRecordInterface
             $this->setItemid($arr[$keys[8]]);
         }
         if (array_key_exists($keys[9], $arr)) {
-            $this->setnotes($arr[$keys[9]]);
+            $this->setApplication($arr[$keys[9]]);
         }
         if (array_key_exists($keys[10], $arr)) {
-            $this->setDate($arr[$keys[10]]);
+            $this->setnotes($arr[$keys[10]]);
         }
         if (array_key_exists($keys[11], $arr)) {
-            $this->setTime($arr[$keys[11]]);
+            $this->setDate($arr[$keys[11]]);
+        }
+        if (array_key_exists($keys[12], $arr)) {
+            $this->setTime($arr[$keys[12]]);
         }
     }
 
@@ -1431,6 +1487,9 @@ abstract class VehicleItem implements ActiveRecordInterface
         }
         if ($this->isColumnModified(VehicleItemTableMap::COL_ITEMID)) {
             $criteria->add(VehicleItemTableMap::COL_ITEMID, $this->itemid);
+        }
+        if ($this->isColumnModified(VehicleItemTableMap::COL_APPLICATION)) {
+            $criteria->add(VehicleItemTableMap::COL_APPLICATION, $this->application);
         }
         if ($this->isColumnModified(VehicleItemTableMap::COL_NOTES)) {
             $criteria->add(VehicleItemTableMap::COL_NOTES, $this->notes);
@@ -1536,6 +1595,7 @@ abstract class VehicleItem implements ActiveRecordInterface
         $copyObj->setModel($this->getModel());
         $copyObj->setSubmodel($this->getSubmodel());
         $copyObj->setItemid($this->getItemid());
+        $copyObj->setApplication($this->getApplication());
         $copyObj->setnotes($this->getnotes());
         $copyObj->setDate($this->getDate());
         $copyObj->setTime($this->getTime());
@@ -1582,6 +1642,7 @@ abstract class VehicleItem implements ActiveRecordInterface
         $this->model = null;
         $this->submodel = null;
         $this->itemid = null;
+        $this->application = null;
         $this->notes = null;
         $this->date = null;
         $this->time = null;

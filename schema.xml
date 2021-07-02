@@ -1268,6 +1268,7 @@
     <column name="model" phpName="Model" type="VARCHAR" size="45"/>
     <column name="submodel" phpName="Submodel" type="VARCHAR" size="45"/>
     <column name="itemid" phpName="Itemid" type="VARCHAR" size="45"/>
+    <column name="application" phpName="Application" type="VARCHAR" size="45"/>
     <column name="notes" phpName="notes" type="LONGVARCHAR"/>
     <column name="date" phpName="Date" type="INTEGER" size="8"/>
     <column name="time" phpName="Time" type="INTEGER" size="8"/>

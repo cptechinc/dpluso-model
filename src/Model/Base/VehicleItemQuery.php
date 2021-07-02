@@ -28,6 +28,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildVehicleItemQuery orderByModel($order = Criteria::ASC) Order by the model column
  * @method     ChildVehicleItemQuery orderBySubmodel($order = Criteria::ASC) Order by the submodel column
  * @method     ChildVehicleItemQuery orderByItemid($order = Criteria::ASC) Order by the itemid column
+ * @method     ChildVehicleItemQuery orderByApplication($order = Criteria::ASC) Order by the application column
  * @method     ChildVehicleItemQuery orderBynotes($order = Criteria::ASC) Order by the notes column
  * @method     ChildVehicleItemQuery orderByDate($order = Criteria::ASC) Order by the date column
  * @method     ChildVehicleItemQuery orderByTime($order = Criteria::ASC) Order by the time column
@@ -41,6 +42,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildVehicleItemQuery groupByModel() Group by the model column
  * @method     ChildVehicleItemQuery groupBySubmodel() Group by the submodel column
  * @method     ChildVehicleItemQuery groupByItemid() Group by the itemid column
+ * @method     ChildVehicleItemQuery groupByApplication() Group by the application column
  * @method     ChildVehicleItemQuery groupBynotes() Group by the notes column
  * @method     ChildVehicleItemQuery groupByDate() Group by the date column
  * @method     ChildVehicleItemQuery groupByTime() Group by the time column
@@ -65,6 +67,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildVehicleItem findOneByModel(string $model) Return the first ChildVehicleItem filtered by the model column
  * @method     ChildVehicleItem findOneBySubmodel(string $submodel) Return the first ChildVehicleItem filtered by the submodel column
  * @method     ChildVehicleItem findOneByItemid(string $itemid) Return the first ChildVehicleItem filtered by the itemid column
+ * @method     ChildVehicleItem findOneByApplication(string $application) Return the first ChildVehicleItem filtered by the application column
  * @method     ChildVehicleItem findOneBynotes(string $notes) Return the first ChildVehicleItem filtered by the notes column
  * @method     ChildVehicleItem findOneByDate(int $date) Return the first ChildVehicleItem filtered by the date column
  * @method     ChildVehicleItem findOneByTime(int $time) Return the first ChildVehicleItem filtered by the time column *
@@ -81,6 +84,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildVehicleItem requireOneByModel(string $model) Return the first ChildVehicleItem filtered by the model column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildVehicleItem requireOneBySubmodel(string $submodel) Return the first ChildVehicleItem filtered by the submodel column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildVehicleItem requireOneByItemid(string $itemid) Return the first ChildVehicleItem filtered by the itemid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildVehicleItem requireOneByApplication(string $application) Return the first ChildVehicleItem filtered by the application column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildVehicleItem requireOneBynotes(string $notes) Return the first ChildVehicleItem filtered by the notes column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildVehicleItem requireOneByDate(int $date) Return the first ChildVehicleItem filtered by the date column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildVehicleItem requireOneByTime(int $time) Return the first ChildVehicleItem filtered by the time column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -95,6 +99,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildVehicleItem[]|ObjectCollection findByModel(string $model) Return ChildVehicleItem objects filtered by the model column
  * @method     ChildVehicleItem[]|ObjectCollection findBySubmodel(string $submodel) Return ChildVehicleItem objects filtered by the submodel column
  * @method     ChildVehicleItem[]|ObjectCollection findByItemid(string $itemid) Return ChildVehicleItem objects filtered by the itemid column
+ * @method     ChildVehicleItem[]|ObjectCollection findByApplication(string $application) Return ChildVehicleItem objects filtered by the application column
  * @method     ChildVehicleItem[]|ObjectCollection findBynotes(string $notes) Return ChildVehicleItem objects filtered by the notes column
  * @method     ChildVehicleItem[]|ObjectCollection findByDate(int $date) Return ChildVehicleItem objects filtered by the date column
  * @method     ChildVehicleItem[]|ObjectCollection findByTime(int $time) Return ChildVehicleItem objects filtered by the time column
@@ -196,7 +201,7 @@ abstract class VehicleItemQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT id, catalog, fromyear, throughyear, make, engine, model, submodel, itemid, notes, date, time FROM vehicle_catalog WHERE id = :p0';
+        $sql = 'SELECT id, catalog, fromyear, throughyear, make, engine, model, submodel, itemid, application, notes, date, time FROM vehicle_catalog WHERE id = :p0';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key, PDO::PARAM_INT);
@@ -573,6 +578,31 @@ abstract class VehicleItemQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(VehicleItemTableMap::COL_ITEMID, $itemid, $comparison);
+    }
+
+    /**
+     * Filter the query on the application column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByApplication('fooValue');   // WHERE application = 'fooValue'
+     * $query->filterByApplication('%fooValue%', Criteria::LIKE); // WHERE application LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $application The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildVehicleItemQuery The current query, for fluid interface
+     */
+    public function filterByApplication($application = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($application)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(VehicleItemTableMap::COL_APPLICATION, $application, $comparison);
     }
 
     /**
