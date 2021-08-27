@@ -20,7 +20,7 @@ class Login extends BaseLogin {
 	use MagicMethodTraits;
 
 	public function is_loggedin() {
-		return strtoupper($this->validlogin) == 'Y';
+		return $this->isLoggedIn();
 	}
 
 	public function needs_setup_recovery() {
@@ -29,5 +29,24 @@ class Login extends BaseLogin {
 
 	public function updated_password() {
 		return strtoupper($this->ermes) == 'PASSWORD CHANGED';
+	}
+
+	public function isLoggedIn() {
+		return strtoupper($this->validlogin) == 'Y';
+	}
+
+	public function invalidPasswordInfo() {
+		return strtoupper($this->ermes) == 'INVALID PASSWORD INFO';
+	}
+
+	public function invalidCustomer() {
+		return strtoupper($this->ermes) == 'INVALID CUST ID';
+	}
+
+	public function invalidAccount() {
+		if ($this->invalidPasswordInfo() === false && $this->invalidCustomer() === false) {
+			return false;
+		}
+		return empty($this->custid);
 	}
 }
