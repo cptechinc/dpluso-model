@@ -1,12 +1,14 @@
 <?php
 
 use Base\CustindexQuery as BaseCustindexQuery;
+use Dpluso\Model\QueryTraits;
 
 /**
  * Class for performing query and update operations on the 'custindex' table.
  *
  */
 class CustindexQuery extends BaseCustindexQuery {
+	use QueryTraits;
 
 	/**
 	 * Adds Custom WHERE MATCH filter using the the index
