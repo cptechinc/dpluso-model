@@ -326,6 +326,21 @@
       <parameter name="Engine" value="MyISAM"/>
     </vendor>
   </table>
+  <table name="cartlots" idMethod="native" phpName="CartLot">
+    <column name="sessionid" phpName="Sessionid" type="VARCHAR" size="50" primaryKey="true" required="true" defaultValue=""/>
+    <column name="linenbr" phpName="Linenbr" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="sequence" phpName="Sequence" type="INTEGER" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="itemid" phpName="Itemid" type="VARCHAR" size="30"/>
+    <column name="lotserial" phpName="Lotserial" type="VARCHAR" size="45"/>
+    <column name="qty" phpName="Qty" type="INTEGER" size="8"/>
+    <column name="errormes" phpName="Errormes" type="VARCHAR" size="50"/>
+    <column name="date" phpName="Date" type="VARCHAR" size="20"/>
+    <column name="time" phpName="Time" type="INTEGER" size="6"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
   <table name="countries" idMethod="native" phpName="Countries">
     <column name="name" phpName="Name" type="CHAR" size="52" required="true" defaultValue="&quot;&quot;"/>
     <column name="ccode" phpName="Ccode" type="CHAR" size="3" required="true" defaultValue="&quot;&quot;"/>
