@@ -1276,6 +1276,7 @@
   <table name="vehicle_catalog" idMethod="native" phpName="VehicleItem">
     <column name="id" phpName="Id" type="INTEGER" size="11" primaryKey="true" required="true" />
     <column name="catalog" phpName="Catalog" type="VARCHAR" size="10"/>
+    <column name="categoryid" phpName="Categoryid" type="VARCHAR" size="100"/>
     <column name="fromyear" phpName="Fromyear" type="INTEGER" size="4"/>
     <column name="throughyear" phpName="Throughyear" type="INTEGER" size="4"/>
     <column name="make" phpName="Make" type="VARCHAR" size="45"/>
