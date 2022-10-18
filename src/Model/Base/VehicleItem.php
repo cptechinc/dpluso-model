@@ -74,6 +74,13 @@ abstract class VehicleItem implements ActiveRecordInterface
     protected $catalog;
 
     /**
+     * The value for the categoryid field.
+     *
+     * @var        string
+     */
+    protected $categoryid;
+
+    /**
      * The value for the fromyear field.
      *
      * @var        int
@@ -404,6 +411,16 @@ abstract class VehicleItem implements ActiveRecordInterface
     }
 
     /**
+     * Get the [categoryid] column value.
+     *
+     * @return string
+     */
+    public function getCategoryid()
+    {
+        return $this->categoryid;
+    }
+
+    /**
      * Get the [fromyear] column value.
      *
      * @return int
@@ -552,6 +569,26 @@ abstract class VehicleItem implements ActiveRecordInterface
 
         return $this;
     } // setCatalog()
+
+    /**
+     * Set the value of [categoryid] column.
+     *
+     * @param string $v new value
+     * @return $this|\VehicleItem The current object (for fluent API support)
+     */
+    public function setCategoryid($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->categoryid !== $v) {
+            $this->categoryid = $v;
+            $this->modifiedColumns[VehicleItemTableMap::COL_CATEGORYID] = true;
+        }
+
+        return $this;
+    } // setCategoryid()
 
     /**
      * Set the value of [fromyear] column.
@@ -815,37 +852,40 @@ abstract class VehicleItem implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : VehicleItemTableMap::translateFieldName('Catalog', TableMap::TYPE_PHPNAME, $indexType)];
             $this->catalog = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : VehicleItemTableMap::translateFieldName('Fromyear', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : VehicleItemTableMap::translateFieldName('Categoryid', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->categoryid = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : VehicleItemTableMap::translateFieldName('Fromyear', TableMap::TYPE_PHPNAME, $indexType)];
             $this->fromyear = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : VehicleItemTableMap::translateFieldName('Throughyear', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : VehicleItemTableMap::translateFieldName('Throughyear', TableMap::TYPE_PHPNAME, $indexType)];
             $this->throughyear = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : VehicleItemTableMap::translateFieldName('Make', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : VehicleItemTableMap::translateFieldName('Make', TableMap::TYPE_PHPNAME, $indexType)];
             $this->make = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : VehicleItemTableMap::translateFieldName('Engine', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : VehicleItemTableMap::translateFieldName('Engine', TableMap::TYPE_PHPNAME, $indexType)];
             $this->engine = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : VehicleItemTableMap::translateFieldName('Model', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : VehicleItemTableMap::translateFieldName('Model', TableMap::TYPE_PHPNAME, $indexType)];
             $this->model = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : VehicleItemTableMap::translateFieldName('Submodel', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : VehicleItemTableMap::translateFieldName('Submodel', TableMap::TYPE_PHPNAME, $indexType)];
             $this->submodel = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : VehicleItemTableMap::translateFieldName('Itemid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : VehicleItemTableMap::translateFieldName('Itemid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->itemid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : VehicleItemTableMap::translateFieldName('Application', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : VehicleItemTableMap::translateFieldName('Application', TableMap::TYPE_PHPNAME, $indexType)];
             $this->application = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : VehicleItemTableMap::translateFieldName('notes', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : VehicleItemTableMap::translateFieldName('notes', TableMap::TYPE_PHPNAME, $indexType)];
             $this->notes = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : VehicleItemTableMap::translateFieldName('Date', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : VehicleItemTableMap::translateFieldName('Date', TableMap::TYPE_PHPNAME, $indexType)];
             $this->date = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : VehicleItemTableMap::translateFieldName('Time', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : VehicleItemTableMap::translateFieldName('Time', TableMap::TYPE_PHPNAME, $indexType)];
             $this->time = (null !== $col) ? (int) $col : null;
             $this->resetModified();
 
@@ -855,7 +895,7 @@ abstract class VehicleItem implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 13; // 13 = VehicleItemTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 14; // 14 = VehicleItemTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\VehicleItem'), 0, $e);
@@ -1058,6 +1098,9 @@ abstract class VehicleItem implements ActiveRecordInterface
         if ($this->isColumnModified(VehicleItemTableMap::COL_CATALOG)) {
             $modifiedColumns[':p' . $index++]  = 'catalog';
         }
+        if ($this->isColumnModified(VehicleItemTableMap::COL_CATEGORYID)) {
+            $modifiedColumns[':p' . $index++]  = 'categoryid';
+        }
         if ($this->isColumnModified(VehicleItemTableMap::COL_FROMYEAR)) {
             $modifiedColumns[':p' . $index++]  = 'fromyear';
         }
@@ -1107,6 +1150,9 @@ abstract class VehicleItem implements ActiveRecordInterface
                         break;
                     case 'catalog':
                         $stmt->bindValue($identifier, $this->catalog, PDO::PARAM_STR);
+                        break;
+                    case 'categoryid':
+                        $stmt->bindValue($identifier, $this->categoryid, PDO::PARAM_STR);
                         break;
                     case 'fromyear':
                         $stmt->bindValue($identifier, $this->fromyear, PDO::PARAM_INT);
@@ -1203,36 +1249,39 @@ abstract class VehicleItem implements ActiveRecordInterface
                 return $this->getCatalog();
                 break;
             case 2:
-                return $this->getFromyear();
+                return $this->getCategoryid();
                 break;
             case 3:
-                return $this->getThroughyear();
+                return $this->getFromyear();
                 break;
             case 4:
-                return $this->getMake();
+                return $this->getThroughyear();
                 break;
             case 5:
-                return $this->getEngine();
+                return $this->getMake();
                 break;
             case 6:
-                return $this->getModel();
+                return $this->getEngine();
                 break;
             case 7:
-                return $this->getSubmodel();
+                return $this->getModel();
                 break;
             case 8:
-                return $this->getItemid();
+                return $this->getSubmodel();
                 break;
             case 9:
-                return $this->getApplication();
+                return $this->getItemid();
                 break;
             case 10:
-                return $this->getnotes();
+                return $this->getApplication();
                 break;
             case 11:
-                return $this->getDate();
+                return $this->getnotes();
                 break;
             case 12:
+                return $this->getDate();
+                break;
+            case 13:
                 return $this->getTime();
                 break;
             default:
@@ -1266,17 +1315,18 @@ abstract class VehicleItem implements ActiveRecordInterface
         $result = array(
             $keys[0] => $this->getId(),
             $keys[1] => $this->getCatalog(),
-            $keys[2] => $this->getFromyear(),
-            $keys[3] => $this->getThroughyear(),
-            $keys[4] => $this->getMake(),
-            $keys[5] => $this->getEngine(),
-            $keys[6] => $this->getModel(),
-            $keys[7] => $this->getSubmodel(),
-            $keys[8] => $this->getItemid(),
-            $keys[9] => $this->getApplication(),
-            $keys[10] => $this->getnotes(),
-            $keys[11] => $this->getDate(),
-            $keys[12] => $this->getTime(),
+            $keys[2] => $this->getCategoryid(),
+            $keys[3] => $this->getFromyear(),
+            $keys[4] => $this->getThroughyear(),
+            $keys[5] => $this->getMake(),
+            $keys[6] => $this->getEngine(),
+            $keys[7] => $this->getModel(),
+            $keys[8] => $this->getSubmodel(),
+            $keys[9] => $this->getItemid(),
+            $keys[10] => $this->getApplication(),
+            $keys[11] => $this->getnotes(),
+            $keys[12] => $this->getDate(),
+            $keys[13] => $this->getTime(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -1323,36 +1373,39 @@ abstract class VehicleItem implements ActiveRecordInterface
                 $this->setCatalog($value);
                 break;
             case 2:
-                $this->setFromyear($value);
+                $this->setCategoryid($value);
                 break;
             case 3:
-                $this->setThroughyear($value);
+                $this->setFromyear($value);
                 break;
             case 4:
-                $this->setMake($value);
+                $this->setThroughyear($value);
                 break;
             case 5:
-                $this->setEngine($value);
+                $this->setMake($value);
                 break;
             case 6:
-                $this->setModel($value);
+                $this->setEngine($value);
                 break;
             case 7:
-                $this->setSubmodel($value);
+                $this->setModel($value);
                 break;
             case 8:
-                $this->setItemid($value);
+                $this->setSubmodel($value);
                 break;
             case 9:
-                $this->setApplication($value);
+                $this->setItemid($value);
                 break;
             case 10:
-                $this->setnotes($value);
+                $this->setApplication($value);
                 break;
             case 11:
-                $this->setDate($value);
+                $this->setnotes($value);
                 break;
             case 12:
+                $this->setDate($value);
+                break;
+            case 13:
                 $this->setTime($value);
                 break;
         } // switch()
@@ -1388,37 +1441,40 @@ abstract class VehicleItem implements ActiveRecordInterface
             $this->setCatalog($arr[$keys[1]]);
         }
         if (array_key_exists($keys[2], $arr)) {
-            $this->setFromyear($arr[$keys[2]]);
+            $this->setCategoryid($arr[$keys[2]]);
         }
         if (array_key_exists($keys[3], $arr)) {
-            $this->setThroughyear($arr[$keys[3]]);
+            $this->setFromyear($arr[$keys[3]]);
         }
         if (array_key_exists($keys[4], $arr)) {
-            $this->setMake($arr[$keys[4]]);
+            $this->setThroughyear($arr[$keys[4]]);
         }
         if (array_key_exists($keys[5], $arr)) {
-            $this->setEngine($arr[$keys[5]]);
+            $this->setMake($arr[$keys[5]]);
         }
         if (array_key_exists($keys[6], $arr)) {
-            $this->setModel($arr[$keys[6]]);
+            $this->setEngine($arr[$keys[6]]);
         }
         if (array_key_exists($keys[7], $arr)) {
-            $this->setSubmodel($arr[$keys[7]]);
+            $this->setModel($arr[$keys[7]]);
         }
         if (array_key_exists($keys[8], $arr)) {
-            $this->setItemid($arr[$keys[8]]);
+            $this->setSubmodel($arr[$keys[8]]);
         }
         if (array_key_exists($keys[9], $arr)) {
-            $this->setApplication($arr[$keys[9]]);
+            $this->setItemid($arr[$keys[9]]);
         }
         if (array_key_exists($keys[10], $arr)) {
-            $this->setnotes($arr[$keys[10]]);
+            $this->setApplication($arr[$keys[10]]);
         }
         if (array_key_exists($keys[11], $arr)) {
-            $this->setDate($arr[$keys[11]]);
+            $this->setnotes($arr[$keys[11]]);
         }
         if (array_key_exists($keys[12], $arr)) {
-            $this->setTime($arr[$keys[12]]);
+            $this->setDate($arr[$keys[12]]);
+        }
+        if (array_key_exists($keys[13], $arr)) {
+            $this->setTime($arr[$keys[13]]);
         }
     }
 
@@ -1466,6 +1522,9 @@ abstract class VehicleItem implements ActiveRecordInterface
         }
         if ($this->isColumnModified(VehicleItemTableMap::COL_CATALOG)) {
             $criteria->add(VehicleItemTableMap::COL_CATALOG, $this->catalog);
+        }
+        if ($this->isColumnModified(VehicleItemTableMap::COL_CATEGORYID)) {
+            $criteria->add(VehicleItemTableMap::COL_CATEGORYID, $this->categoryid);
         }
         if ($this->isColumnModified(VehicleItemTableMap::COL_FROMYEAR)) {
             $criteria->add(VehicleItemTableMap::COL_FROMYEAR, $this->fromyear);
@@ -1588,6 +1647,7 @@ abstract class VehicleItem implements ActiveRecordInterface
     {
         $copyObj->setId($this->getId());
         $copyObj->setCatalog($this->getCatalog());
+        $copyObj->setCategoryid($this->getCategoryid());
         $copyObj->setFromyear($this->getFromyear());
         $copyObj->setThroughyear($this->getThroughyear());
         $copyObj->setMake($this->getMake());
@@ -1635,6 +1695,7 @@ abstract class VehicleItem implements ActiveRecordInterface
     {
         $this->id = null;
         $this->catalog = null;
+        $this->categoryid = null;
         $this->fromyear = null;
         $this->throughyear = null;
         $this->make = null;

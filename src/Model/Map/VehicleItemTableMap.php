@@ -59,7 +59,7 @@ class VehicleItemTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 13;
+    const NUM_COLUMNS = 14;
 
     /**
      * The number of lazy-loaded columns
@@ -69,7 +69,7 @@ class VehicleItemTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 13;
+    const NUM_HYDRATE_COLUMNS = 14;
 
     /**
      * the column name for the id field
@@ -80,6 +80,11 @@ class VehicleItemTableMap extends TableMap
      * the column name for the catalog field
      */
     const COL_CATALOG = 'vehicle_catalog.catalog';
+
+    /**
+     * the column name for the categoryid field
+     */
+    const COL_CATEGORYID = 'vehicle_catalog.categoryid';
 
     /**
      * the column name for the fromyear field
@@ -148,11 +153,11 @@ class VehicleItemTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Id', 'Catalog', 'Fromyear', 'Throughyear', 'Make', 'Engine', 'Model', 'Submodel', 'Itemid', 'Application', 'notes', 'Date', 'Time', ),
-        self::TYPE_CAMELNAME     => array('id', 'catalog', 'fromyear', 'throughyear', 'make', 'engine', 'model', 'submodel', 'itemid', 'application', 'notes', 'date', 'time', ),
-        self::TYPE_COLNAME       => array(VehicleItemTableMap::COL_ID, VehicleItemTableMap::COL_CATALOG, VehicleItemTableMap::COL_FROMYEAR, VehicleItemTableMap::COL_THROUGHYEAR, VehicleItemTableMap::COL_MAKE, VehicleItemTableMap::COL_ENGINE, VehicleItemTableMap::COL_MODEL, VehicleItemTableMap::COL_SUBMODEL, VehicleItemTableMap::COL_ITEMID, VehicleItemTableMap::COL_APPLICATION, VehicleItemTableMap::COL_NOTES, VehicleItemTableMap::COL_DATE, VehicleItemTableMap::COL_TIME, ),
-        self::TYPE_FIELDNAME     => array('id', 'catalog', 'fromyear', 'throughyear', 'make', 'engine', 'model', 'submodel', 'itemid', 'application', 'notes', 'date', 'time', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, )
+        self::TYPE_PHPNAME       => array('Id', 'Catalog', 'Categoryid', 'Fromyear', 'Throughyear', 'Make', 'Engine', 'Model', 'Submodel', 'Itemid', 'Application', 'notes', 'Date', 'Time', ),
+        self::TYPE_CAMELNAME     => array('id', 'catalog', 'categoryid', 'fromyear', 'throughyear', 'make', 'engine', 'model', 'submodel', 'itemid', 'application', 'notes', 'date', 'time', ),
+        self::TYPE_COLNAME       => array(VehicleItemTableMap::COL_ID, VehicleItemTableMap::COL_CATALOG, VehicleItemTableMap::COL_CATEGORYID, VehicleItemTableMap::COL_FROMYEAR, VehicleItemTableMap::COL_THROUGHYEAR, VehicleItemTableMap::COL_MAKE, VehicleItemTableMap::COL_ENGINE, VehicleItemTableMap::COL_MODEL, VehicleItemTableMap::COL_SUBMODEL, VehicleItemTableMap::COL_ITEMID, VehicleItemTableMap::COL_APPLICATION, VehicleItemTableMap::COL_NOTES, VehicleItemTableMap::COL_DATE, VehicleItemTableMap::COL_TIME, ),
+        self::TYPE_FIELDNAME     => array('id', 'catalog', 'categoryid', 'fromyear', 'throughyear', 'make', 'engine', 'model', 'submodel', 'itemid', 'application', 'notes', 'date', 'time', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, )
     );
 
     /**
@@ -162,11 +167,11 @@ class VehicleItemTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Id' => 0, 'Catalog' => 1, 'Fromyear' => 2, 'Throughyear' => 3, 'Make' => 4, 'Engine' => 5, 'Model' => 6, 'Submodel' => 7, 'Itemid' => 8, 'Application' => 9, 'notes' => 10, 'Date' => 11, 'Time' => 12, ),
-        self::TYPE_CAMELNAME     => array('id' => 0, 'catalog' => 1, 'fromyear' => 2, 'throughyear' => 3, 'make' => 4, 'engine' => 5, 'model' => 6, 'submodel' => 7, 'itemid' => 8, 'application' => 9, 'notes' => 10, 'date' => 11, 'time' => 12, ),
-        self::TYPE_COLNAME       => array(VehicleItemTableMap::COL_ID => 0, VehicleItemTableMap::COL_CATALOG => 1, VehicleItemTableMap::COL_FROMYEAR => 2, VehicleItemTableMap::COL_THROUGHYEAR => 3, VehicleItemTableMap::COL_MAKE => 4, VehicleItemTableMap::COL_ENGINE => 5, VehicleItemTableMap::COL_MODEL => 6, VehicleItemTableMap::COL_SUBMODEL => 7, VehicleItemTableMap::COL_ITEMID => 8, VehicleItemTableMap::COL_APPLICATION => 9, VehicleItemTableMap::COL_NOTES => 10, VehicleItemTableMap::COL_DATE => 11, VehicleItemTableMap::COL_TIME => 12, ),
-        self::TYPE_FIELDNAME     => array('id' => 0, 'catalog' => 1, 'fromyear' => 2, 'throughyear' => 3, 'make' => 4, 'engine' => 5, 'model' => 6, 'submodel' => 7, 'itemid' => 8, 'application' => 9, 'notes' => 10, 'date' => 11, 'time' => 12, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, )
+        self::TYPE_PHPNAME       => array('Id' => 0, 'Catalog' => 1, 'Categoryid' => 2, 'Fromyear' => 3, 'Throughyear' => 4, 'Make' => 5, 'Engine' => 6, 'Model' => 7, 'Submodel' => 8, 'Itemid' => 9, 'Application' => 10, 'notes' => 11, 'Date' => 12, 'Time' => 13, ),
+        self::TYPE_CAMELNAME     => array('id' => 0, 'catalog' => 1, 'categoryid' => 2, 'fromyear' => 3, 'throughyear' => 4, 'make' => 5, 'engine' => 6, 'model' => 7, 'submodel' => 8, 'itemid' => 9, 'application' => 10, 'notes' => 11, 'date' => 12, 'time' => 13, ),
+        self::TYPE_COLNAME       => array(VehicleItemTableMap::COL_ID => 0, VehicleItemTableMap::COL_CATALOG => 1, VehicleItemTableMap::COL_CATEGORYID => 2, VehicleItemTableMap::COL_FROMYEAR => 3, VehicleItemTableMap::COL_THROUGHYEAR => 4, VehicleItemTableMap::COL_MAKE => 5, VehicleItemTableMap::COL_ENGINE => 6, VehicleItemTableMap::COL_MODEL => 7, VehicleItemTableMap::COL_SUBMODEL => 8, VehicleItemTableMap::COL_ITEMID => 9, VehicleItemTableMap::COL_APPLICATION => 10, VehicleItemTableMap::COL_NOTES => 11, VehicleItemTableMap::COL_DATE => 12, VehicleItemTableMap::COL_TIME => 13, ),
+        self::TYPE_FIELDNAME     => array('id' => 0, 'catalog' => 1, 'categoryid' => 2, 'fromyear' => 3, 'throughyear' => 4, 'make' => 5, 'engine' => 6, 'model' => 7, 'submodel' => 8, 'itemid' => 9, 'application' => 10, 'notes' => 11, 'date' => 12, 'time' => 13, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, )
     );
 
     /**
@@ -188,6 +193,7 @@ class VehicleItemTableMap extends TableMap
         // columns
         $this->addPrimaryKey('id', 'Id', 'INTEGER', true, 11, null);
         $this->addColumn('catalog', 'Catalog', 'VARCHAR', false, 10, null);
+        $this->addColumn('categoryid', 'Categoryid', 'VARCHAR', false, 100, null);
         $this->addColumn('fromyear', 'Fromyear', 'INTEGER', false, 4, null);
         $this->addColumn('throughyear', 'Throughyear', 'INTEGER', false, 4, null);
         $this->addColumn('make', 'Make', 'VARCHAR', false, 45, null);
@@ -351,6 +357,7 @@ class VehicleItemTableMap extends TableMap
         if (null === $alias) {
             $criteria->addSelectColumn(VehicleItemTableMap::COL_ID);
             $criteria->addSelectColumn(VehicleItemTableMap::COL_CATALOG);
+            $criteria->addSelectColumn(VehicleItemTableMap::COL_CATEGORYID);
             $criteria->addSelectColumn(VehicleItemTableMap::COL_FROMYEAR);
             $criteria->addSelectColumn(VehicleItemTableMap::COL_THROUGHYEAR);
             $criteria->addSelectColumn(VehicleItemTableMap::COL_MAKE);
@@ -365,6 +372,7 @@ class VehicleItemTableMap extends TableMap
         } else {
             $criteria->addSelectColumn($alias . '.id');
             $criteria->addSelectColumn($alias . '.catalog');
+            $criteria->addSelectColumn($alias . '.categoryid');
             $criteria->addSelectColumn($alias . '.fromyear');
             $criteria->addSelectColumn($alias . '.throughyear');
             $criteria->addSelectColumn($alias . '.make');

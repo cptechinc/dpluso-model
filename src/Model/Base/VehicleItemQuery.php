@@ -21,6 +21,7 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     ChildVehicleItemQuery orderById($order = Criteria::ASC) Order by the id column
  * @method     ChildVehicleItemQuery orderByCatalog($order = Criteria::ASC) Order by the catalog column
+ * @method     ChildVehicleItemQuery orderByCategoryid($order = Criteria::ASC) Order by the categoryid column
  * @method     ChildVehicleItemQuery orderByFromyear($order = Criteria::ASC) Order by the fromyear column
  * @method     ChildVehicleItemQuery orderByThroughyear($order = Criteria::ASC) Order by the throughyear column
  * @method     ChildVehicleItemQuery orderByMake($order = Criteria::ASC) Order by the make column
@@ -35,6 +36,7 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     ChildVehicleItemQuery groupById() Group by the id column
  * @method     ChildVehicleItemQuery groupByCatalog() Group by the catalog column
+ * @method     ChildVehicleItemQuery groupByCategoryid() Group by the categoryid column
  * @method     ChildVehicleItemQuery groupByFromyear() Group by the fromyear column
  * @method     ChildVehicleItemQuery groupByThroughyear() Group by the throughyear column
  * @method     ChildVehicleItemQuery groupByMake() Group by the make column
@@ -60,6 +62,7 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     ChildVehicleItem findOneById(int $id) Return the first ChildVehicleItem filtered by the id column
  * @method     ChildVehicleItem findOneByCatalog(string $catalog) Return the first ChildVehicleItem filtered by the catalog column
+ * @method     ChildVehicleItem findOneByCategoryid(string $categoryid) Return the first ChildVehicleItem filtered by the categoryid column
  * @method     ChildVehicleItem findOneByFromyear(int $fromyear) Return the first ChildVehicleItem filtered by the fromyear column
  * @method     ChildVehicleItem findOneByThroughyear(int $throughyear) Return the first ChildVehicleItem filtered by the throughyear column
  * @method     ChildVehicleItem findOneByMake(string $make) Return the first ChildVehicleItem filtered by the make column
@@ -77,6 +80,7 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     ChildVehicleItem requireOneById(int $id) Return the first ChildVehicleItem filtered by the id column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildVehicleItem requireOneByCatalog(string $catalog) Return the first ChildVehicleItem filtered by the catalog column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildVehicleItem requireOneByCategoryid(string $categoryid) Return the first ChildVehicleItem filtered by the categoryid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildVehicleItem requireOneByFromyear(int $fromyear) Return the first ChildVehicleItem filtered by the fromyear column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildVehicleItem requireOneByThroughyear(int $throughyear) Return the first ChildVehicleItem filtered by the throughyear column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildVehicleItem requireOneByMake(string $make) Return the first ChildVehicleItem filtered by the make column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -92,6 +96,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildVehicleItem[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildVehicleItem objects based on current ModelCriteria
  * @method     ChildVehicleItem[]|ObjectCollection findById(int $id) Return ChildVehicleItem objects filtered by the id column
  * @method     ChildVehicleItem[]|ObjectCollection findByCatalog(string $catalog) Return ChildVehicleItem objects filtered by the catalog column
+ * @method     ChildVehicleItem[]|ObjectCollection findByCategoryid(string $categoryid) Return ChildVehicleItem objects filtered by the categoryid column
  * @method     ChildVehicleItem[]|ObjectCollection findByFromyear(int $fromyear) Return ChildVehicleItem objects filtered by the fromyear column
  * @method     ChildVehicleItem[]|ObjectCollection findByThroughyear(int $throughyear) Return ChildVehicleItem objects filtered by the throughyear column
  * @method     ChildVehicleItem[]|ObjectCollection findByMake(string $make) Return ChildVehicleItem objects filtered by the make column
@@ -201,7 +206,7 @@ abstract class VehicleItemQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT id, catalog, fromyear, throughyear, make, engine, model, submodel, itemid, application, notes, date, time FROM vehicle_catalog WHERE id = :p0';
+        $sql = 'SELECT id, catalog, categoryid, fromyear, throughyear, make, engine, model, submodel, itemid, application, notes, date, time FROM vehicle_catalog WHERE id = :p0';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key, PDO::PARAM_INT);
@@ -355,6 +360,31 @@ abstract class VehicleItemQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(VehicleItemTableMap::COL_CATALOG, $catalog, $comparison);
+    }
+
+    /**
+     * Filter the query on the categoryid column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByCategoryid('fooValue');   // WHERE categoryid = 'fooValue'
+     * $query->filterByCategoryid('%fooValue%', Criteria::LIKE); // WHERE categoryid LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $categoryid The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildVehicleItemQuery The current query, for fluid interface
+     */
+    public function filterByCategoryid($categoryid = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($categoryid)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(VehicleItemTableMap::COL_CATEGORYID, $categoryid, $comparison);
     }
 
     /**
