@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class UseractionsTableMap extends TableMap
 {
@@ -34,204 +33,365 @@ class UseractionsTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.UseractionsTableMap';
+    public const CLASS_NAME = '.Map.UseractionsTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'dplusodb';
+    public const DATABASE_NAME = 'dplusodb';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'useractions';
+    public const TABLE_NAME = 'useractions';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'Useractions';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\Useractions';
+    public const OM_CLASS = '\\Useractions';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'Useractions';
+    public const CLASS_DEFAULT = 'Useractions';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 24;
+    public const NUM_COLUMNS = 24;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 24;
+    public const NUM_HYDRATE_COLUMNS = 24;
 
     /**
      * the column name for the id field
      */
-    const COL_ID = 'useractions.id';
+    public const COL_ID = 'useractions.id';
 
     /**
      * the column name for the datecreated field
      */
-    const COL_DATECREATED = 'useractions.datecreated';
+    public const COL_DATECREATED = 'useractions.datecreated';
 
     /**
      * the column name for the actiontype field
      */
-    const COL_ACTIONTYPE = 'useractions.actiontype';
+    public const COL_ACTIONTYPE = 'useractions.actiontype';
 
     /**
      * the column name for the actionsubtype field
      */
-    const COL_ACTIONSUBTYPE = 'useractions.actionsubtype';
+    public const COL_ACTIONSUBTYPE = 'useractions.actionsubtype';
 
     /**
      * the column name for the duedate field
      */
-    const COL_DUEDATE = 'useractions.duedate';
+    public const COL_DUEDATE = 'useractions.duedate';
 
     /**
      * the column name for the createdby field
      */
-    const COL_CREATEDBY = 'useractions.createdby';
+    public const COL_CREATEDBY = 'useractions.createdby';
 
     /**
      * the column name for the assignedto field
      */
-    const COL_ASSIGNEDTO = 'useractions.assignedto';
+    public const COL_ASSIGNEDTO = 'useractions.assignedto';
 
     /**
      * the column name for the assignedby field
      */
-    const COL_ASSIGNEDBY = 'useractions.assignedby';
+    public const COL_ASSIGNEDBY = 'useractions.assignedby';
 
     /**
      * the column name for the title field
      */
-    const COL_TITLE = 'useractions.title';
+    public const COL_TITLE = 'useractions.title';
 
     /**
      * the column name for the textbody field
      */
-    const COL_TEXTBODY = 'useractions.textbody';
+    public const COL_TEXTBODY = 'useractions.textbody';
 
     /**
      * the column name for the reflectnote field
      */
-    const COL_REFLECTNOTE = 'useractions.reflectnote';
+    public const COL_REFLECTNOTE = 'useractions.reflectnote';
 
     /**
      * the column name for the completed field
      */
-    const COL_COMPLETED = 'useractions.completed';
+    public const COL_COMPLETED = 'useractions.completed';
 
     /**
      * the column name for the datecompleted field
      */
-    const COL_DATECOMPLETED = 'useractions.datecompleted';
+    public const COL_DATECOMPLETED = 'useractions.datecompleted';
 
     /**
      * the column name for the dateupdated field
      */
-    const COL_DATEUPDATED = 'useractions.dateupdated';
+    public const COL_DATEUPDATED = 'useractions.dateupdated';
 
     /**
      * the column name for the customerlink field
      */
-    const COL_CUSTOMERLINK = 'useractions.customerlink';
+    public const COL_CUSTOMERLINK = 'useractions.customerlink';
 
     /**
      * the column name for the shiptolink field
      */
-    const COL_SHIPTOLINK = 'useractions.shiptolink';
+    public const COL_SHIPTOLINK = 'useractions.shiptolink';
 
     /**
      * the column name for the contactlink field
      */
-    const COL_CONTACTLINK = 'useractions.contactlink';
+    public const COL_CONTACTLINK = 'useractions.contactlink';
 
     /**
      * the column name for the salesorderlink field
      */
-    const COL_SALESORDERLINK = 'useractions.salesorderlink';
+    public const COL_SALESORDERLINK = 'useractions.salesorderlink';
 
     /**
      * the column name for the quotelink field
      */
-    const COL_QUOTELINK = 'useractions.quotelink';
+    public const COL_QUOTELINK = 'useractions.quotelink';
 
     /**
      * the column name for the vendorlink field
      */
-    const COL_VENDORLINK = 'useractions.vendorlink';
+    public const COL_VENDORLINK = 'useractions.vendorlink';
 
     /**
      * the column name for the vendorshipfromlink field
      */
-    const COL_VENDORSHIPFROMLINK = 'useractions.vendorshipfromlink';
+    public const COL_VENDORSHIPFROMLINK = 'useractions.vendorshipfromlink';
 
     /**
      * the column name for the purchaseorderlink field
      */
-    const COL_PURCHASEORDERLINK = 'useractions.purchaseorderlink';
+    public const COL_PURCHASEORDERLINK = 'useractions.purchaseorderlink';
 
     /**
      * the column name for the actionlink field
      */
-    const COL_ACTIONLINK = 'useractions.actionlink';
+    public const COL_ACTIONLINK = 'useractions.actionlink';
 
     /**
      * the column name for the rescheduledlink field
      */
-    const COL_RESCHEDULEDLINK = 'useractions.rescheduledlink';
+    public const COL_RESCHEDULEDLINK = 'useractions.rescheduledlink';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Id', 'Datecreated', 'Actiontype', 'Actionsubtype', 'Duedate', 'Createdby', 'Assignedto', 'Assignedby', 'Title', 'Textbody', 'Reflectnote', 'Completed', 'Datecompleted', 'Dateupdated', 'Customerlink', 'Shiptolink', 'Contactlink', 'Salesorderlink', 'Quotelink', 'Vendorlink', 'Vendorshipfromlink', 'Purchaseorderlink', 'Actionlink', 'Rescheduledlink', ),
-        self::TYPE_CAMELNAME     => array('id', 'datecreated', 'actiontype', 'actionsubtype', 'duedate', 'createdby', 'assignedto', 'assignedby', 'title', 'textbody', 'reflectnote', 'completed', 'datecompleted', 'dateupdated', 'customerlink', 'shiptolink', 'contactlink', 'salesorderlink', 'quotelink', 'vendorlink', 'vendorshipfromlink', 'purchaseorderlink', 'actionlink', 'rescheduledlink', ),
-        self::TYPE_COLNAME       => array(UseractionsTableMap::COL_ID, UseractionsTableMap::COL_DATECREATED, UseractionsTableMap::COL_ACTIONTYPE, UseractionsTableMap::COL_ACTIONSUBTYPE, UseractionsTableMap::COL_DUEDATE, UseractionsTableMap::COL_CREATEDBY, UseractionsTableMap::COL_ASSIGNEDTO, UseractionsTableMap::COL_ASSIGNEDBY, UseractionsTableMap::COL_TITLE, UseractionsTableMap::COL_TEXTBODY, UseractionsTableMap::COL_REFLECTNOTE, UseractionsTableMap::COL_COMPLETED, UseractionsTableMap::COL_DATECOMPLETED, UseractionsTableMap::COL_DATEUPDATED, UseractionsTableMap::COL_CUSTOMERLINK, UseractionsTableMap::COL_SHIPTOLINK, UseractionsTableMap::COL_CONTACTLINK, UseractionsTableMap::COL_SALESORDERLINK, UseractionsTableMap::COL_QUOTELINK, UseractionsTableMap::COL_VENDORLINK, UseractionsTableMap::COL_VENDORSHIPFROMLINK, UseractionsTableMap::COL_PURCHASEORDERLINK, UseractionsTableMap::COL_ACTIONLINK, UseractionsTableMap::COL_RESCHEDULEDLINK, ),
-        self::TYPE_FIELDNAME     => array('id', 'datecreated', 'actiontype', 'actionsubtype', 'duedate', 'createdby', 'assignedto', 'assignedby', 'title', 'textbody', 'reflectnote', 'completed', 'datecompleted', 'dateupdated', 'customerlink', 'shiptolink', 'contactlink', 'salesorderlink', 'quotelink', 'vendorlink', 'vendorshipfromlink', 'purchaseorderlink', 'actionlink', 'rescheduledlink', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Id', 'Datecreated', 'Actiontype', 'Actionsubtype', 'Duedate', 'Createdby', 'Assignedto', 'Assignedby', 'Title', 'Textbody', 'Reflectnote', 'Completed', 'Datecompleted', 'Dateupdated', 'Customerlink', 'Shiptolink', 'Contactlink', 'Salesorderlink', 'Quotelink', 'Vendorlink', 'Vendorshipfromlink', 'Purchaseorderlink', 'Actionlink', 'Rescheduledlink', ],
+        self::TYPE_CAMELNAME     => ['id', 'datecreated', 'actiontype', 'actionsubtype', 'duedate', 'createdby', 'assignedto', 'assignedby', 'title', 'textbody', 'reflectnote', 'completed', 'datecompleted', 'dateupdated', 'customerlink', 'shiptolink', 'contactlink', 'salesorderlink', 'quotelink', 'vendorlink', 'vendorshipfromlink', 'purchaseorderlink', 'actionlink', 'rescheduledlink', ],
+        self::TYPE_COLNAME       => [UseractionsTableMap::COL_ID, UseractionsTableMap::COL_DATECREATED, UseractionsTableMap::COL_ACTIONTYPE, UseractionsTableMap::COL_ACTIONSUBTYPE, UseractionsTableMap::COL_DUEDATE, UseractionsTableMap::COL_CREATEDBY, UseractionsTableMap::COL_ASSIGNEDTO, UseractionsTableMap::COL_ASSIGNEDBY, UseractionsTableMap::COL_TITLE, UseractionsTableMap::COL_TEXTBODY, UseractionsTableMap::COL_REFLECTNOTE, UseractionsTableMap::COL_COMPLETED, UseractionsTableMap::COL_DATECOMPLETED, UseractionsTableMap::COL_DATEUPDATED, UseractionsTableMap::COL_CUSTOMERLINK, UseractionsTableMap::COL_SHIPTOLINK, UseractionsTableMap::COL_CONTACTLINK, UseractionsTableMap::COL_SALESORDERLINK, UseractionsTableMap::COL_QUOTELINK, UseractionsTableMap::COL_VENDORLINK, UseractionsTableMap::COL_VENDORSHIPFROMLINK, UseractionsTableMap::COL_PURCHASEORDERLINK, UseractionsTableMap::COL_ACTIONLINK, UseractionsTableMap::COL_RESCHEDULEDLINK, ],
+        self::TYPE_FIELDNAME     => ['id', 'datecreated', 'actiontype', 'actionsubtype', 'duedate', 'createdby', 'assignedto', 'assignedby', 'title', 'textbody', 'reflectnote', 'completed', 'datecompleted', 'dateupdated', 'customerlink', 'shiptolink', 'contactlink', 'salesorderlink', 'quotelink', 'vendorlink', 'vendorshipfromlink', 'purchaseorderlink', 'actionlink', 'rescheduledlink', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Id' => 0, 'Datecreated' => 1, 'Actiontype' => 2, 'Actionsubtype' => 3, 'Duedate' => 4, 'Createdby' => 5, 'Assignedto' => 6, 'Assignedby' => 7, 'Title' => 8, 'Textbody' => 9, 'Reflectnote' => 10, 'Completed' => 11, 'Datecompleted' => 12, 'Dateupdated' => 13, 'Customerlink' => 14, 'Shiptolink' => 15, 'Contactlink' => 16, 'Salesorderlink' => 17, 'Quotelink' => 18, 'Vendorlink' => 19, 'Vendorshipfromlink' => 20, 'Purchaseorderlink' => 21, 'Actionlink' => 22, 'Rescheduledlink' => 23, ),
-        self::TYPE_CAMELNAME     => array('id' => 0, 'datecreated' => 1, 'actiontype' => 2, 'actionsubtype' => 3, 'duedate' => 4, 'createdby' => 5, 'assignedto' => 6, 'assignedby' => 7, 'title' => 8, 'textbody' => 9, 'reflectnote' => 10, 'completed' => 11, 'datecompleted' => 12, 'dateupdated' => 13, 'customerlink' => 14, 'shiptolink' => 15, 'contactlink' => 16, 'salesorderlink' => 17, 'quotelink' => 18, 'vendorlink' => 19, 'vendorshipfromlink' => 20, 'purchaseorderlink' => 21, 'actionlink' => 22, 'rescheduledlink' => 23, ),
-        self::TYPE_COLNAME       => array(UseractionsTableMap::COL_ID => 0, UseractionsTableMap::COL_DATECREATED => 1, UseractionsTableMap::COL_ACTIONTYPE => 2, UseractionsTableMap::COL_ACTIONSUBTYPE => 3, UseractionsTableMap::COL_DUEDATE => 4, UseractionsTableMap::COL_CREATEDBY => 5, UseractionsTableMap::COL_ASSIGNEDTO => 6, UseractionsTableMap::COL_ASSIGNEDBY => 7, UseractionsTableMap::COL_TITLE => 8, UseractionsTableMap::COL_TEXTBODY => 9, UseractionsTableMap::COL_REFLECTNOTE => 10, UseractionsTableMap::COL_COMPLETED => 11, UseractionsTableMap::COL_DATECOMPLETED => 12, UseractionsTableMap::COL_DATEUPDATED => 13, UseractionsTableMap::COL_CUSTOMERLINK => 14, UseractionsTableMap::COL_SHIPTOLINK => 15, UseractionsTableMap::COL_CONTACTLINK => 16, UseractionsTableMap::COL_SALESORDERLINK => 17, UseractionsTableMap::COL_QUOTELINK => 18, UseractionsTableMap::COL_VENDORLINK => 19, UseractionsTableMap::COL_VENDORSHIPFROMLINK => 20, UseractionsTableMap::COL_PURCHASEORDERLINK => 21, UseractionsTableMap::COL_ACTIONLINK => 22, UseractionsTableMap::COL_RESCHEDULEDLINK => 23, ),
-        self::TYPE_FIELDNAME     => array('id' => 0, 'datecreated' => 1, 'actiontype' => 2, 'actionsubtype' => 3, 'duedate' => 4, 'createdby' => 5, 'assignedto' => 6, 'assignedby' => 7, 'title' => 8, 'textbody' => 9, 'reflectnote' => 10, 'completed' => 11, 'datecompleted' => 12, 'dateupdated' => 13, 'customerlink' => 14, 'shiptolink' => 15, 'contactlink' => 16, 'salesorderlink' => 17, 'quotelink' => 18, 'vendorlink' => 19, 'vendorshipfromlink' => 20, 'purchaseorderlink' => 21, 'actionlink' => 22, 'rescheduledlink' => 23, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Id' => 0, 'Datecreated' => 1, 'Actiontype' => 2, 'Actionsubtype' => 3, 'Duedate' => 4, 'Createdby' => 5, 'Assignedto' => 6, 'Assignedby' => 7, 'Title' => 8, 'Textbody' => 9, 'Reflectnote' => 10, 'Completed' => 11, 'Datecompleted' => 12, 'Dateupdated' => 13, 'Customerlink' => 14, 'Shiptolink' => 15, 'Contactlink' => 16, 'Salesorderlink' => 17, 'Quotelink' => 18, 'Vendorlink' => 19, 'Vendorshipfromlink' => 20, 'Purchaseorderlink' => 21, 'Actionlink' => 22, 'Rescheduledlink' => 23, ],
+        self::TYPE_CAMELNAME     => ['id' => 0, 'datecreated' => 1, 'actiontype' => 2, 'actionsubtype' => 3, 'duedate' => 4, 'createdby' => 5, 'assignedto' => 6, 'assignedby' => 7, 'title' => 8, 'textbody' => 9, 'reflectnote' => 10, 'completed' => 11, 'datecompleted' => 12, 'dateupdated' => 13, 'customerlink' => 14, 'shiptolink' => 15, 'contactlink' => 16, 'salesorderlink' => 17, 'quotelink' => 18, 'vendorlink' => 19, 'vendorshipfromlink' => 20, 'purchaseorderlink' => 21, 'actionlink' => 22, 'rescheduledlink' => 23, ],
+        self::TYPE_COLNAME       => [UseractionsTableMap::COL_ID => 0, UseractionsTableMap::COL_DATECREATED => 1, UseractionsTableMap::COL_ACTIONTYPE => 2, UseractionsTableMap::COL_ACTIONSUBTYPE => 3, UseractionsTableMap::COL_DUEDATE => 4, UseractionsTableMap::COL_CREATEDBY => 5, UseractionsTableMap::COL_ASSIGNEDTO => 6, UseractionsTableMap::COL_ASSIGNEDBY => 7, UseractionsTableMap::COL_TITLE => 8, UseractionsTableMap::COL_TEXTBODY => 9, UseractionsTableMap::COL_REFLECTNOTE => 10, UseractionsTableMap::COL_COMPLETED => 11, UseractionsTableMap::COL_DATECOMPLETED => 12, UseractionsTableMap::COL_DATEUPDATED => 13, UseractionsTableMap::COL_CUSTOMERLINK => 14, UseractionsTableMap::COL_SHIPTOLINK => 15, UseractionsTableMap::COL_CONTACTLINK => 16, UseractionsTableMap::COL_SALESORDERLINK => 17, UseractionsTableMap::COL_QUOTELINK => 18, UseractionsTableMap::COL_VENDORLINK => 19, UseractionsTableMap::COL_VENDORSHIPFROMLINK => 20, UseractionsTableMap::COL_PURCHASEORDERLINK => 21, UseractionsTableMap::COL_ACTIONLINK => 22, UseractionsTableMap::COL_RESCHEDULEDLINK => 23, ],
+        self::TYPE_FIELDNAME     => ['id' => 0, 'datecreated' => 1, 'actiontype' => 2, 'actionsubtype' => 3, 'duedate' => 4, 'createdby' => 5, 'assignedto' => 6, 'assignedby' => 7, 'title' => 8, 'textbody' => 9, 'reflectnote' => 10, 'completed' => 11, 'datecompleted' => 12, 'dateupdated' => 13, 'customerlink' => 14, 'shiptolink' => 15, 'contactlink' => 16, 'salesorderlink' => 17, 'quotelink' => 18, 'vendorlink' => 19, 'vendorshipfromlink' => 20, 'purchaseorderlink' => 21, 'actionlink' => 22, 'rescheduledlink' => 23, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Id' => 'ID',
+        'Useractions.Id' => 'ID',
+        'id' => 'ID',
+        'useractions.id' => 'ID',
+        'UseractionsTableMap::COL_ID' => 'ID',
+        'COL_ID' => 'ID',
+        'Datecreated' => 'DATECREATED',
+        'Useractions.Datecreated' => 'DATECREATED',
+        'datecreated' => 'DATECREATED',
+        'useractions.datecreated' => 'DATECREATED',
+        'UseractionsTableMap::COL_DATECREATED' => 'DATECREATED',
+        'COL_DATECREATED' => 'DATECREATED',
+        'Actiontype' => 'ACTIONTYPE',
+        'Useractions.Actiontype' => 'ACTIONTYPE',
+        'actiontype' => 'ACTIONTYPE',
+        'useractions.actiontype' => 'ACTIONTYPE',
+        'UseractionsTableMap::COL_ACTIONTYPE' => 'ACTIONTYPE',
+        'COL_ACTIONTYPE' => 'ACTIONTYPE',
+        'Actionsubtype' => 'ACTIONSUBTYPE',
+        'Useractions.Actionsubtype' => 'ACTIONSUBTYPE',
+        'actionsubtype' => 'ACTIONSUBTYPE',
+        'useractions.actionsubtype' => 'ACTIONSUBTYPE',
+        'UseractionsTableMap::COL_ACTIONSUBTYPE' => 'ACTIONSUBTYPE',
+        'COL_ACTIONSUBTYPE' => 'ACTIONSUBTYPE',
+        'Duedate' => 'DUEDATE',
+        'Useractions.Duedate' => 'DUEDATE',
+        'duedate' => 'DUEDATE',
+        'useractions.duedate' => 'DUEDATE',
+        'UseractionsTableMap::COL_DUEDATE' => 'DUEDATE',
+        'COL_DUEDATE' => 'DUEDATE',
+        'Createdby' => 'CREATEDBY',
+        'Useractions.Createdby' => 'CREATEDBY',
+        'createdby' => 'CREATEDBY',
+        'useractions.createdby' => 'CREATEDBY',
+        'UseractionsTableMap::COL_CREATEDBY' => 'CREATEDBY',
+        'COL_CREATEDBY' => 'CREATEDBY',
+        'Assignedto' => 'ASSIGNEDTO',
+        'Useractions.Assignedto' => 'ASSIGNEDTO',
+        'assignedto' => 'ASSIGNEDTO',
+        'useractions.assignedto' => 'ASSIGNEDTO',
+        'UseractionsTableMap::COL_ASSIGNEDTO' => 'ASSIGNEDTO',
+        'COL_ASSIGNEDTO' => 'ASSIGNEDTO',
+        'Assignedby' => 'ASSIGNEDBY',
+        'Useractions.Assignedby' => 'ASSIGNEDBY',
+        'assignedby' => 'ASSIGNEDBY',
+        'useractions.assignedby' => 'ASSIGNEDBY',
+        'UseractionsTableMap::COL_ASSIGNEDBY' => 'ASSIGNEDBY',
+        'COL_ASSIGNEDBY' => 'ASSIGNEDBY',
+        'Title' => 'TITLE',
+        'Useractions.Title' => 'TITLE',
+        'title' => 'TITLE',
+        'useractions.title' => 'TITLE',
+        'UseractionsTableMap::COL_TITLE' => 'TITLE',
+        'COL_TITLE' => 'TITLE',
+        'Textbody' => 'TEXTBODY',
+        'Useractions.Textbody' => 'TEXTBODY',
+        'textbody' => 'TEXTBODY',
+        'useractions.textbody' => 'TEXTBODY',
+        'UseractionsTableMap::COL_TEXTBODY' => 'TEXTBODY',
+        'COL_TEXTBODY' => 'TEXTBODY',
+        'Reflectnote' => 'REFLECTNOTE',
+        'Useractions.Reflectnote' => 'REFLECTNOTE',
+        'reflectnote' => 'REFLECTNOTE',
+        'useractions.reflectnote' => 'REFLECTNOTE',
+        'UseractionsTableMap::COL_REFLECTNOTE' => 'REFLECTNOTE',
+        'COL_REFLECTNOTE' => 'REFLECTNOTE',
+        'Completed' => 'COMPLETED',
+        'Useractions.Completed' => 'COMPLETED',
+        'completed' => 'COMPLETED',
+        'useractions.completed' => 'COMPLETED',
+        'UseractionsTableMap::COL_COMPLETED' => 'COMPLETED',
+        'COL_COMPLETED' => 'COMPLETED',
+        'Datecompleted' => 'DATECOMPLETED',
+        'Useractions.Datecompleted' => 'DATECOMPLETED',
+        'datecompleted' => 'DATECOMPLETED',
+        'useractions.datecompleted' => 'DATECOMPLETED',
+        'UseractionsTableMap::COL_DATECOMPLETED' => 'DATECOMPLETED',
+        'COL_DATECOMPLETED' => 'DATECOMPLETED',
+        'Dateupdated' => 'DATEUPDATED',
+        'Useractions.Dateupdated' => 'DATEUPDATED',
+        'dateupdated' => 'DATEUPDATED',
+        'useractions.dateupdated' => 'DATEUPDATED',
+        'UseractionsTableMap::COL_DATEUPDATED' => 'DATEUPDATED',
+        'COL_DATEUPDATED' => 'DATEUPDATED',
+        'Customerlink' => 'CUSTOMERLINK',
+        'Useractions.Customerlink' => 'CUSTOMERLINK',
+        'customerlink' => 'CUSTOMERLINK',
+        'useractions.customerlink' => 'CUSTOMERLINK',
+        'UseractionsTableMap::COL_CUSTOMERLINK' => 'CUSTOMERLINK',
+        'COL_CUSTOMERLINK' => 'CUSTOMERLINK',
+        'Shiptolink' => 'SHIPTOLINK',
+        'Useractions.Shiptolink' => 'SHIPTOLINK',
+        'shiptolink' => 'SHIPTOLINK',
+        'useractions.shiptolink' => 'SHIPTOLINK',
+        'UseractionsTableMap::COL_SHIPTOLINK' => 'SHIPTOLINK',
+        'COL_SHIPTOLINK' => 'SHIPTOLINK',
+        'Contactlink' => 'CONTACTLINK',
+        'Useractions.Contactlink' => 'CONTACTLINK',
+        'contactlink' => 'CONTACTLINK',
+        'useractions.contactlink' => 'CONTACTLINK',
+        'UseractionsTableMap::COL_CONTACTLINK' => 'CONTACTLINK',
+        'COL_CONTACTLINK' => 'CONTACTLINK',
+        'Salesorderlink' => 'SALESORDERLINK',
+        'Useractions.Salesorderlink' => 'SALESORDERLINK',
+        'salesorderlink' => 'SALESORDERLINK',
+        'useractions.salesorderlink' => 'SALESORDERLINK',
+        'UseractionsTableMap::COL_SALESORDERLINK' => 'SALESORDERLINK',
+        'COL_SALESORDERLINK' => 'SALESORDERLINK',
+        'Quotelink' => 'QUOTELINK',
+        'Useractions.Quotelink' => 'QUOTELINK',
+        'quotelink' => 'QUOTELINK',
+        'useractions.quotelink' => 'QUOTELINK',
+        'UseractionsTableMap::COL_QUOTELINK' => 'QUOTELINK',
+        'COL_QUOTELINK' => 'QUOTELINK',
+        'Vendorlink' => 'VENDORLINK',
+        'Useractions.Vendorlink' => 'VENDORLINK',
+        'vendorlink' => 'VENDORLINK',
+        'useractions.vendorlink' => 'VENDORLINK',
+        'UseractionsTableMap::COL_VENDORLINK' => 'VENDORLINK',
+        'COL_VENDORLINK' => 'VENDORLINK',
+        'Vendorshipfromlink' => 'VENDORSHIPFROMLINK',
+        'Useractions.Vendorshipfromlink' => 'VENDORSHIPFROMLINK',
+        'vendorshipfromlink' => 'VENDORSHIPFROMLINK',
+        'useractions.vendorshipfromlink' => 'VENDORSHIPFROMLINK',
+        'UseractionsTableMap::COL_VENDORSHIPFROMLINK' => 'VENDORSHIPFROMLINK',
+        'COL_VENDORSHIPFROMLINK' => 'VENDORSHIPFROMLINK',
+        'Purchaseorderlink' => 'PURCHASEORDERLINK',
+        'Useractions.Purchaseorderlink' => 'PURCHASEORDERLINK',
+        'purchaseorderlink' => 'PURCHASEORDERLINK',
+        'useractions.purchaseorderlink' => 'PURCHASEORDERLINK',
+        'UseractionsTableMap::COL_PURCHASEORDERLINK' => 'PURCHASEORDERLINK',
+        'COL_PURCHASEORDERLINK' => 'PURCHASEORDERLINK',
+        'Actionlink' => 'ACTIONLINK',
+        'Useractions.Actionlink' => 'ACTIONLINK',
+        'actionlink' => 'ACTIONLINK',
+        'useractions.actionlink' => 'ACTIONLINK',
+        'UseractionsTableMap::COL_ACTIONLINK' => 'ACTIONLINK',
+        'COL_ACTIONLINK' => 'ACTIONLINK',
+        'Rescheduledlink' => 'RESCHEDULEDLINK',
+        'Useractions.Rescheduledlink' => 'RESCHEDULEDLINK',
+        'rescheduledlink' => 'RESCHEDULEDLINK',
+        'useractions.rescheduledlink' => 'RESCHEDULEDLINK',
+        'UseractionsTableMap::COL_RESCHEDULEDLINK' => 'RESCHEDULEDLINK',
+        'COL_RESCHEDULEDLINK' => 'RESCHEDULEDLINK',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('useractions');
@@ -265,14 +425,16 @@ class UseractionsTableMap extends TableMap
         $this->addColumn('purchaseorderlink', 'Purchaseorderlink', 'VARCHAR', false, 30, null);
         $this->addColumn('actionlink', 'Actionlink', 'VARCHAR', true, 30, null);
         $this->addColumn('rescheduledlink', 'Rescheduledlink', 'VARCHAR', true, 30, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Retrieves a string version of the primary key from the DB resultset row that can be used to uniquely identify a row in this table.
@@ -280,14 +442,14 @@ class UseractionsTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Id', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -302,14 +464,14 @@ class UseractionsTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
         return (int) $row[
             $indexType == TableMap::TYPE_NUM
@@ -326,10 +488,10 @@ class UseractionsTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? UseractionsTableMap::CLASS_DEFAULT : UseractionsTableMap::OM_CLASS;
     }
@@ -337,17 +499,17 @@ class UseractionsTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (Useractions object, last column rank)
+     * @return array (Useractions object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = UseractionsTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = UseractionsTableMap::getInstanceFromPool($key))) {
@@ -363,7 +525,7 @@ class UseractionsTableMap extends TableMap
             UseractionsTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -371,13 +533,13 @@ class UseractionsTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -407,12 +569,13 @@ class UseractionsTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(UseractionsTableMap::COL_ID);
@@ -468,40 +631,96 @@ class UseractionsTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(UseractionsTableMap::COL_ID);
+            $criteria->removeSelectColumn(UseractionsTableMap::COL_DATECREATED);
+            $criteria->removeSelectColumn(UseractionsTableMap::COL_ACTIONTYPE);
+            $criteria->removeSelectColumn(UseractionsTableMap::COL_ACTIONSUBTYPE);
+            $criteria->removeSelectColumn(UseractionsTableMap::COL_DUEDATE);
+            $criteria->removeSelectColumn(UseractionsTableMap::COL_CREATEDBY);
+            $criteria->removeSelectColumn(UseractionsTableMap::COL_ASSIGNEDTO);
+            $criteria->removeSelectColumn(UseractionsTableMap::COL_ASSIGNEDBY);
+            $criteria->removeSelectColumn(UseractionsTableMap::COL_TITLE);
+            $criteria->removeSelectColumn(UseractionsTableMap::COL_TEXTBODY);
+            $criteria->removeSelectColumn(UseractionsTableMap::COL_REFLECTNOTE);
+            $criteria->removeSelectColumn(UseractionsTableMap::COL_COMPLETED);
+            $criteria->removeSelectColumn(UseractionsTableMap::COL_DATECOMPLETED);
+            $criteria->removeSelectColumn(UseractionsTableMap::COL_DATEUPDATED);
+            $criteria->removeSelectColumn(UseractionsTableMap::COL_CUSTOMERLINK);
+            $criteria->removeSelectColumn(UseractionsTableMap::COL_SHIPTOLINK);
+            $criteria->removeSelectColumn(UseractionsTableMap::COL_CONTACTLINK);
+            $criteria->removeSelectColumn(UseractionsTableMap::COL_SALESORDERLINK);
+            $criteria->removeSelectColumn(UseractionsTableMap::COL_QUOTELINK);
+            $criteria->removeSelectColumn(UseractionsTableMap::COL_VENDORLINK);
+            $criteria->removeSelectColumn(UseractionsTableMap::COL_VENDORSHIPFROMLINK);
+            $criteria->removeSelectColumn(UseractionsTableMap::COL_PURCHASEORDERLINK);
+            $criteria->removeSelectColumn(UseractionsTableMap::COL_ACTIONLINK);
+            $criteria->removeSelectColumn(UseractionsTableMap::COL_RESCHEDULEDLINK);
+        } else {
+            $criteria->removeSelectColumn($alias . '.id');
+            $criteria->removeSelectColumn($alias . '.datecreated');
+            $criteria->removeSelectColumn($alias . '.actiontype');
+            $criteria->removeSelectColumn($alias . '.actionsubtype');
+            $criteria->removeSelectColumn($alias . '.duedate');
+            $criteria->removeSelectColumn($alias . '.createdby');
+            $criteria->removeSelectColumn($alias . '.assignedto');
+            $criteria->removeSelectColumn($alias . '.assignedby');
+            $criteria->removeSelectColumn($alias . '.title');
+            $criteria->removeSelectColumn($alias . '.textbody');
+            $criteria->removeSelectColumn($alias . '.reflectnote');
+            $criteria->removeSelectColumn($alias . '.completed');
+            $criteria->removeSelectColumn($alias . '.datecompleted');
+            $criteria->removeSelectColumn($alias . '.dateupdated');
+            $criteria->removeSelectColumn($alias . '.customerlink');
+            $criteria->removeSelectColumn($alias . '.shiptolink');
+            $criteria->removeSelectColumn($alias . '.contactlink');
+            $criteria->removeSelectColumn($alias . '.salesorderlink');
+            $criteria->removeSelectColumn($alias . '.quotelink');
+            $criteria->removeSelectColumn($alias . '.vendorlink');
+            $criteria->removeSelectColumn($alias . '.vendorshipfromlink');
+            $criteria->removeSelectColumn($alias . '.purchaseorderlink');
+            $criteria->removeSelectColumn($alias . '.actionlink');
+            $criteria->removeSelectColumn($alias . '.rescheduledlink');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(UseractionsTableMap::DATABASE_NAME)->getTable(UseractionsTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(UseractionsTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(UseractionsTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new UseractionsTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a Useractions or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or Useractions object or primary key or array of primary keys
+     * @param mixed $values Criteria or Useractions object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(UseractionsTableMap::DATABASE_NAME);
@@ -537,7 +756,7 @@ class UseractionsTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return UseractionsQuery::create()->doDeleteAll($con);
     }
@@ -545,13 +764,13 @@ class UseractionsTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a Useractions or Criteria object.
      *
-     * @param mixed               $criteria Criteria or Useractions object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or Useractions object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(UseractionsTableMap::DATABASE_NAME);
@@ -578,7 +797,4 @@ class UseractionsTableMap extends TableMap
         });
     }
 
-} // UseractionsTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-UseractionsTableMap::buildTableMap();
+}

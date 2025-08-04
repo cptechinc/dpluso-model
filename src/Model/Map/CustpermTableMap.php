@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class CustpermTableMap extends TableMap
 {
@@ -34,129 +33,200 @@ class CustpermTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.CustpermTableMap';
+    public const CLASS_NAME = '.Map.CustpermTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'dplusodb';
+    public const DATABASE_NAME = 'dplusodb';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'custperm';
+    public const TABLE_NAME = 'custperm';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'Custperm';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\Custperm';
+    public const OM_CLASS = '\\Custperm';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'Custperm';
+    public const CLASS_DEFAULT = 'Custperm';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 9;
+    public const NUM_COLUMNS = 9;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 9;
+    public const NUM_HYDRATE_COLUMNS = 9;
 
     /**
      * the column name for the loginid field
      */
-    const COL_LOGINID = 'custperm.loginid';
+    public const COL_LOGINID = 'custperm.loginid';
 
     /**
      * the column name for the custid field
      */
-    const COL_CUSTID = 'custperm.custid';
+    public const COL_CUSTID = 'custperm.custid';
 
     /**
      * the column name for the shiptoid field
      */
-    const COL_SHIPTOID = 'custperm.shiptoid';
+    public const COL_SHIPTOID = 'custperm.shiptoid';
 
     /**
      * the column name for the salesper1 field
      */
-    const COL_SALESPER1 = 'custperm.salesper1';
+    public const COL_SALESPER1 = 'custperm.salesper1';
 
     /**
      * the column name for the restrictaccess field
      */
-    const COL_RESTRICTACCESS = 'custperm.restrictaccess';
+    public const COL_RESTRICTACCESS = 'custperm.restrictaccess';
 
     /**
      * the column name for the amountsold field
      */
-    const COL_AMOUNTSOLD = 'custperm.amountsold';
+    public const COL_AMOUNTSOLD = 'custperm.amountsold';
 
     /**
      * the column name for the timesold field
      */
-    const COL_TIMESOLD = 'custperm.timesold';
+    public const COL_TIMESOLD = 'custperm.timesold';
 
     /**
      * the column name for the lastsaledate field
      */
-    const COL_LASTSALEDATE = 'custperm.lastsaledate';
+    public const COL_LASTSALEDATE = 'custperm.lastsaledate';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'custperm.dummy';
+    public const COL_DUMMY = 'custperm.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Loginid', 'Custid', 'Shiptoid', 'Salesper1', 'Restrictaccess', 'Amountsold', 'Timesold', 'Lastsaledate', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('loginid', 'custid', 'shiptoid', 'salesper1', 'restrictaccess', 'amountsold', 'timesold', 'lastsaledate', 'dummy', ),
-        self::TYPE_COLNAME       => array(CustpermTableMap::COL_LOGINID, CustpermTableMap::COL_CUSTID, CustpermTableMap::COL_SHIPTOID, CustpermTableMap::COL_SALESPER1, CustpermTableMap::COL_RESTRICTACCESS, CustpermTableMap::COL_AMOUNTSOLD, CustpermTableMap::COL_TIMESOLD, CustpermTableMap::COL_LASTSALEDATE, CustpermTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('loginid', 'custid', 'shiptoid', 'salesper1', 'restrictaccess', 'amountsold', 'timesold', 'lastsaledate', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Loginid', 'Custid', 'Shiptoid', 'Salesper1', 'Restrictaccess', 'Amountsold', 'Timesold', 'Lastsaledate', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['loginid', 'custid', 'shiptoid', 'salesper1', 'restrictaccess', 'amountsold', 'timesold', 'lastsaledate', 'dummy', ],
+        self::TYPE_COLNAME       => [CustpermTableMap::COL_LOGINID, CustpermTableMap::COL_CUSTID, CustpermTableMap::COL_SHIPTOID, CustpermTableMap::COL_SALESPER1, CustpermTableMap::COL_RESTRICTACCESS, CustpermTableMap::COL_AMOUNTSOLD, CustpermTableMap::COL_TIMESOLD, CustpermTableMap::COL_LASTSALEDATE, CustpermTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['loginid', 'custid', 'shiptoid', 'salesper1', 'restrictaccess', 'amountsold', 'timesold', 'lastsaledate', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Loginid' => 0, 'Custid' => 1, 'Shiptoid' => 2, 'Salesper1' => 3, 'Restrictaccess' => 4, 'Amountsold' => 5, 'Timesold' => 6, 'Lastsaledate' => 7, 'Dummy' => 8, ),
-        self::TYPE_CAMELNAME     => array('loginid' => 0, 'custid' => 1, 'shiptoid' => 2, 'salesper1' => 3, 'restrictaccess' => 4, 'amountsold' => 5, 'timesold' => 6, 'lastsaledate' => 7, 'dummy' => 8, ),
-        self::TYPE_COLNAME       => array(CustpermTableMap::COL_LOGINID => 0, CustpermTableMap::COL_CUSTID => 1, CustpermTableMap::COL_SHIPTOID => 2, CustpermTableMap::COL_SALESPER1 => 3, CustpermTableMap::COL_RESTRICTACCESS => 4, CustpermTableMap::COL_AMOUNTSOLD => 5, CustpermTableMap::COL_TIMESOLD => 6, CustpermTableMap::COL_LASTSALEDATE => 7, CustpermTableMap::COL_DUMMY => 8, ),
-        self::TYPE_FIELDNAME     => array('loginid' => 0, 'custid' => 1, 'shiptoid' => 2, 'salesper1' => 3, 'restrictaccess' => 4, 'amountsold' => 5, 'timesold' => 6, 'lastsaledate' => 7, 'dummy' => 8, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Loginid' => 0, 'Custid' => 1, 'Shiptoid' => 2, 'Salesper1' => 3, 'Restrictaccess' => 4, 'Amountsold' => 5, 'Timesold' => 6, 'Lastsaledate' => 7, 'Dummy' => 8, ],
+        self::TYPE_CAMELNAME     => ['loginid' => 0, 'custid' => 1, 'shiptoid' => 2, 'salesper1' => 3, 'restrictaccess' => 4, 'amountsold' => 5, 'timesold' => 6, 'lastsaledate' => 7, 'dummy' => 8, ],
+        self::TYPE_COLNAME       => [CustpermTableMap::COL_LOGINID => 0, CustpermTableMap::COL_CUSTID => 1, CustpermTableMap::COL_SHIPTOID => 2, CustpermTableMap::COL_SALESPER1 => 3, CustpermTableMap::COL_RESTRICTACCESS => 4, CustpermTableMap::COL_AMOUNTSOLD => 5, CustpermTableMap::COL_TIMESOLD => 6, CustpermTableMap::COL_LASTSALEDATE => 7, CustpermTableMap::COL_DUMMY => 8, ],
+        self::TYPE_FIELDNAME     => ['loginid' => 0, 'custid' => 1, 'shiptoid' => 2, 'salesper1' => 3, 'restrictaccess' => 4, 'amountsold' => 5, 'timesold' => 6, 'lastsaledate' => 7, 'dummy' => 8, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Loginid' => 'LOGINID',
+        'Custperm.Loginid' => 'LOGINID',
+        'loginid' => 'LOGINID',
+        'custperm.loginid' => 'LOGINID',
+        'CustpermTableMap::COL_LOGINID' => 'LOGINID',
+        'COL_LOGINID' => 'LOGINID',
+        'Custid' => 'CUSTID',
+        'Custperm.Custid' => 'CUSTID',
+        'custid' => 'CUSTID',
+        'custperm.custid' => 'CUSTID',
+        'CustpermTableMap::COL_CUSTID' => 'CUSTID',
+        'COL_CUSTID' => 'CUSTID',
+        'Shiptoid' => 'SHIPTOID',
+        'Custperm.Shiptoid' => 'SHIPTOID',
+        'shiptoid' => 'SHIPTOID',
+        'custperm.shiptoid' => 'SHIPTOID',
+        'CustpermTableMap::COL_SHIPTOID' => 'SHIPTOID',
+        'COL_SHIPTOID' => 'SHIPTOID',
+        'Salesper1' => 'SALESPER1',
+        'Custperm.Salesper1' => 'SALESPER1',
+        'salesper1' => 'SALESPER1',
+        'custperm.salesper1' => 'SALESPER1',
+        'CustpermTableMap::COL_SALESPER1' => 'SALESPER1',
+        'COL_SALESPER1' => 'SALESPER1',
+        'Restrictaccess' => 'RESTRICTACCESS',
+        'Custperm.Restrictaccess' => 'RESTRICTACCESS',
+        'restrictaccess' => 'RESTRICTACCESS',
+        'custperm.restrictaccess' => 'RESTRICTACCESS',
+        'CustpermTableMap::COL_RESTRICTACCESS' => 'RESTRICTACCESS',
+        'COL_RESTRICTACCESS' => 'RESTRICTACCESS',
+        'Amountsold' => 'AMOUNTSOLD',
+        'Custperm.Amountsold' => 'AMOUNTSOLD',
+        'amountsold' => 'AMOUNTSOLD',
+        'custperm.amountsold' => 'AMOUNTSOLD',
+        'CustpermTableMap::COL_AMOUNTSOLD' => 'AMOUNTSOLD',
+        'COL_AMOUNTSOLD' => 'AMOUNTSOLD',
+        'Timesold' => 'TIMESOLD',
+        'Custperm.Timesold' => 'TIMESOLD',
+        'timesold' => 'TIMESOLD',
+        'custperm.timesold' => 'TIMESOLD',
+        'CustpermTableMap::COL_TIMESOLD' => 'TIMESOLD',
+        'COL_TIMESOLD' => 'TIMESOLD',
+        'Lastsaledate' => 'LASTSALEDATE',
+        'Custperm.Lastsaledate' => 'LASTSALEDATE',
+        'lastsaledate' => 'LASTSALEDATE',
+        'custperm.lastsaledate' => 'LASTSALEDATE',
+        'CustpermTableMap::COL_LASTSALEDATE' => 'LASTSALEDATE',
+        'COL_LASTSALEDATE' => 'LASTSALEDATE',
+        'Dummy' => 'DUMMY',
+        'Custperm.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'custperm.dummy' => 'DUMMY',
+        'CustpermTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('custperm');
@@ -175,14 +245,16 @@ class CustpermTableMap extends TableMap
         $this->addColumn('timesold', 'Timesold', 'INTEGER', false, null, null);
         $this->addColumn('lastsaledate', 'Lastsaledate', 'INTEGER', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -193,9 +265,11 @@ class CustpermTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \Custperm $obj A \Custperm object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(Custperm $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -214,8 +288,10 @@ class CustpermTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \Custperm object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \Custperm) {
@@ -243,14 +319,14 @@ class CustpermTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Loginid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Custid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Shiptoid', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -265,14 +341,14 @@ class CustpermTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -303,10 +379,10 @@ class CustpermTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? CustpermTableMap::CLASS_DEFAULT : CustpermTableMap::OM_CLASS;
     }
@@ -314,17 +390,17 @@ class CustpermTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (Custperm object, last column rank)
+     * @return array (Custperm object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = CustpermTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = CustpermTableMap::getInstanceFromPool($key))) {
@@ -340,7 +416,7 @@ class CustpermTableMap extends TableMap
             CustpermTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -348,13 +424,13 @@ class CustpermTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -384,12 +460,13 @@ class CustpermTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(CustpermTableMap::COL_LOGINID);
@@ -415,40 +492,66 @@ class CustpermTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(CustpermTableMap::COL_LOGINID);
+            $criteria->removeSelectColumn(CustpermTableMap::COL_CUSTID);
+            $criteria->removeSelectColumn(CustpermTableMap::COL_SHIPTOID);
+            $criteria->removeSelectColumn(CustpermTableMap::COL_SALESPER1);
+            $criteria->removeSelectColumn(CustpermTableMap::COL_RESTRICTACCESS);
+            $criteria->removeSelectColumn(CustpermTableMap::COL_AMOUNTSOLD);
+            $criteria->removeSelectColumn(CustpermTableMap::COL_TIMESOLD);
+            $criteria->removeSelectColumn(CustpermTableMap::COL_LASTSALEDATE);
+            $criteria->removeSelectColumn(CustpermTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.loginid');
+            $criteria->removeSelectColumn($alias . '.custid');
+            $criteria->removeSelectColumn($alias . '.shiptoid');
+            $criteria->removeSelectColumn($alias . '.salesper1');
+            $criteria->removeSelectColumn($alias . '.restrictaccess');
+            $criteria->removeSelectColumn($alias . '.amountsold');
+            $criteria->removeSelectColumn($alias . '.timesold');
+            $criteria->removeSelectColumn($alias . '.lastsaledate');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(CustpermTableMap::DATABASE_NAME)->getTable(CustpermTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(CustpermTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(CustpermTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new CustpermTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a Custperm or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or Custperm object or primary key or array of primary keys
+     * @param mixed $values Criteria or Custperm object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CustpermTableMap::DATABASE_NAME);
@@ -466,7 +569,7 @@ class CustpermTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(CustpermTableMap::COL_LOGINID, $value[0]);
@@ -495,7 +598,7 @@ class CustpermTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return CustpermQuery::create()->doDeleteAll($con);
     }
@@ -503,13 +606,13 @@ class CustpermTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a Custperm or Criteria object.
      *
-     * @param mixed               $criteria Criteria or Custperm object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or Custperm object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CustpermTableMap::DATABASE_NAME);
@@ -532,7 +635,4 @@ class CustpermTableMap extends TableMap
         });
     }
 
-} // CustpermTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-CustpermTableMap::buildTableMap();
+}

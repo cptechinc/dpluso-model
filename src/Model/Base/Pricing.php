@@ -29,19 +29,21 @@ abstract class Pricing implements ActiveRecordInterface
 {
     /**
      * TableMap class name
+     *
+     * @var string
      */
-    const TABLE_MAP = '\\Map\\PricingTableMap';
+    public const TABLE_MAP = '\\Map\\PricingTableMap';
 
 
     /**
      * attribute to determine if this object has previously been saved.
-     * @var boolean
+     * @var bool
      */
     protected $new = true;
 
     /**
      * attribute to determine whether this object has been deleted.
-     * @var boolean
+     * @var bool
      */
     protected $deleted = false;
 
@@ -50,14 +52,14 @@ abstract class Pricing implements ActiveRecordInterface
      * Tracking modified columns allows us to only update modified columns.
      * @var array
      */
-    protected $modifiedColumns = array();
+    protected $modifiedColumns = [];
 
     /**
      * The (virtual) columns that are added at runtime
      * The formatters can add supplementary columns based on a resultset
      * @var array
      */
-    protected $virtualColumns = array();
+    protected $virtualColumns = [];
 
     /**
      * The value for the sessionid field.
@@ -76,441 +78,441 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * The value for the date field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $date;
 
     /**
      * The value for the time field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $time;
 
     /**
      * The value for the itemid field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $itemid;
 
     /**
      * The value for the price field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $price;
 
     /**
      * The value for the qty field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $qty;
 
     /**
      * The value for the priceqty1 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $priceqty1;
 
     /**
      * The value for the priceqty2 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $priceqty2;
 
     /**
      * The value for the priceqty3 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $priceqty3;
 
     /**
      * The value for the priceqty4 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $priceqty4;
 
     /**
      * The value for the priceqty5 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $priceqty5;
 
     /**
      * The value for the priceqty6 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $priceqty6;
 
     /**
      * The value for the priceprice1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $priceprice1;
 
     /**
      * The value for the priceprice2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $priceprice2;
 
     /**
      * The value for the priceprice3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $priceprice3;
 
     /**
      * The value for the priceprice4 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $priceprice4;
 
     /**
      * The value for the priceprice5 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $priceprice5;
 
     /**
      * The value for the priceprice6 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $priceprice6;
 
     /**
      * The value for the unit field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $unit;
 
     /**
      * The value for the listprice field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $listprice;
 
     /**
      * The value for the name1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $name1;
 
     /**
      * The value for the name2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $name2;
 
     /**
      * The value for the shortdesc field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $shortdesc;
 
     /**
      * The value for the image field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $image;
 
     /**
      * The value for the familyid field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $familyid;
 
     /**
      * The value for the ermes field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $ermes;
 
     /**
      * The value for the speca field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $speca;
 
     /**
      * The value for the specb field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $specb;
 
     /**
      * The value for the specc field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $specc;
 
     /**
      * The value for the specd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $specd;
 
     /**
      * The value for the spece field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $spece;
 
     /**
      * The value for the specf field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $specf;
 
     /**
      * The value for the specg field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $specg;
 
     /**
      * The value for the spech field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $spech;
 
     /**
      * The value for the longdesc field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $longdesc;
 
     /**
      * The value for the orderno field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $orderno;
 
     /**
      * The value for the name3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $name3;
 
     /**
      * The value for the name4 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $name4;
 
     /**
      * The value for the thumb field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $thumb;
 
     /**
      * The value for the width field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $width;
 
     /**
      * The value for the height field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $height;
 
     /**
      * The value for the familydes field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $familydes;
 
     /**
      * The value for the keywords field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $keywords;
 
     /**
      * The value for the vpn field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $vpn;
 
     /**
      * The value for the uomdesc field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $uomdesc;
 
     /**
      * The value for the vidinffg field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $vidinffg;
 
     /**
      * The value for the vidinflk field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $vidinflk;
 
     /**
      * The value for the additemflag field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $additemflag;
 
     /**
      * The value for the schemafam field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $schemafam;
 
     /**
      * The value for the origitemid field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $origitemid;
 
     /**
      * The value for the techspecflg field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $techspecflg;
 
     /**
      * The value for the techspecname field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $techspecname;
 
     /**
      * The value for the cost field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $cost;
 
     /**
      * The value for the prop65 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $prop65;
 
     /**
      * The value for the leadfree field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $leadfree;
 
     /**
      * The value for the extendesc field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $extendesc;
 
     /**
      * The value for the minprice field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $minprice;
 
     /**
      * The value for the spcord field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $spcord;
 
     /**
      * The value for the vendorid field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $vendorid;
 
     /**
      * The value for the vendoritemid field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $vendoritemid;
 
     /**
      * The value for the shipfromid field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $shipfromid;
 
     /**
      * The value for the nsitemgroup field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $nsitemgroup;
 
     /**
      * The value for the itemtype field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $itemtype;
 
     /**
      * The value for the dummy field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $dummy;
 
@@ -518,7 +520,7 @@ abstract class Pricing implements ActiveRecordInterface
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
-     * @var boolean
+     * @var bool
      */
     protected $alreadyInSave = false;
 
@@ -532,9 +534,9 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Returns whether the object has been modified.
      *
-     * @return boolean True if the object has been modified.
+     * @return bool True if the object has been modified.
      */
-    public function isModified()
+    public function isModified(): bool
     {
         return !!$this->modifiedColumns;
     }
@@ -542,10 +544,10 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Has specified column been modified?
      *
-     * @param  string  $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
-     * @return boolean True if $col has been modified.
+     * @param string $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
+     * @return bool True if $col has been modified.
      */
-    public function isColumnModified($col)
+    public function isColumnModified(string $col): bool
     {
         return $this->modifiedColumns && isset($this->modifiedColumns[$col]);
     }
@@ -554,7 +556,7 @@ abstract class Pricing implements ActiveRecordInterface
      * Get the columns that have been modified in this object.
      * @return array A unique list of the modified column names for this object.
      */
-    public function getModifiedColumns()
+    public function getModifiedColumns(): array
     {
         return $this->modifiedColumns ? array_keys($this->modifiedColumns) : [];
     }
@@ -564,9 +566,9 @@ abstract class Pricing implements ActiveRecordInterface
      * be false, if the object was retrieved from storage or was created
      * and then saved.
      *
-     * @return boolean true, if the object has never been persisted.
+     * @return bool True, if the object has never been persisted.
      */
-    public function isNew()
+    public function isNew(): bool
     {
         return $this->new;
     }
@@ -575,45 +577,43 @@ abstract class Pricing implements ActiveRecordInterface
      * Setter for the isNew attribute.  This method will be called
      * by Propel-generated children and objects.
      *
-     * @param boolean $b the state of the object.
+     * @param bool $b the state of the object.
      */
-    public function setNew($b)
+    public function setNew(bool $b): void
     {
-        $this->new = (boolean) $b;
+        $this->new = $b;
     }
 
     /**
      * Whether this object has been deleted.
-     * @return boolean The deleted state of this object.
+     * @return bool The deleted state of this object.
      */
-    public function isDeleted()
+    public function isDeleted(): bool
     {
         return $this->deleted;
     }
 
     /**
      * Specify whether this object has been deleted.
-     * @param  boolean $b The deleted state of this object.
+     * @param bool $b The deleted state of this object.
      * @return void
      */
-    public function setDeleted($b)
+    public function setDeleted(bool $b): void
     {
-        $this->deleted = (boolean) $b;
+        $this->deleted = $b;
     }
 
     /**
      * Sets the modified state for the object to be false.
-     * @param  string $col If supplied, only the specified column is reset.
+     * @param string $col If supplied, only the specified column is reset.
      * @return void
      */
-    public function resetModified($col = null)
+    public function resetModified(?string $col = null): void
     {
         if (null !== $col) {
-            if (isset($this->modifiedColumns[$col])) {
-                unset($this->modifiedColumns[$col]);
-            }
+            unset($this->modifiedColumns[$col]);
         } else {
-            $this->modifiedColumns = array();
+            $this->modifiedColumns = [];
         }
     }
 
@@ -622,10 +622,10 @@ abstract class Pricing implements ActiveRecordInterface
      * <code>obj</code> is an instance of <code>Pricing</code>, delegates to
      * <code>equals(Pricing)</code>.  Otherwise, returns <code>false</code>.
      *
-     * @param  mixed   $obj The object to compare to.
-     * @return boolean Whether equal to the object specified.
+     * @param mixed $obj The object to compare to.
+     * @return bool Whether equal to the object specified.
      */
-    public function equals($obj)
+    public function equals($obj): bool
     {
         if (!$obj instanceof static) {
             return false;
@@ -647,7 +647,7 @@ abstract class Pricing implements ActiveRecordInterface
      *
      * @return array
      */
-    public function getVirtualColumns()
+    public function getVirtualColumns(): array
     {
         return $this->virtualColumns;
     }
@@ -655,10 +655,10 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Checks the existence of a virtual column in this object
      *
-     * @param  string  $name The virtual column name
-     * @return boolean
+     * @param string $name The virtual column name
+     * @return bool
      */
-    public function hasVirtualColumn($name)
+    public function hasVirtualColumn(string $name): bool
     {
         return array_key_exists($name, $this->virtualColumns);
     }
@@ -666,15 +666,15 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the value of a virtual column in this object
      *
-     * @param  string $name The virtual column name
+     * @param string $name The virtual column name
      * @return mixed
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getVirtualColumn($name)
+    public function getVirtualColumn(string $name)
     {
         if (!$this->hasVirtualColumn($name)) {
-            throw new PropelException(sprintf('Cannot get value of inexistent virtual column %s.', $name));
+            throw new PropelException(sprintf('Cannot get value of nonexistent virtual column `%s`.', $name));
         }
 
         return $this->virtualColumns[$name];
@@ -683,12 +683,12 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Set the value of a virtual column in this object
      *
-     * @param string $name  The virtual column name
-     * @param mixed  $value The value to give to the virtual column
+     * @param string $name The virtual column name
+     * @param mixed $value The value to give to the virtual column
      *
-     * @return $this|Pricing The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function setVirtualColumn($name, $value)
+    public function setVirtualColumn(string $name, $value)
     {
         $this->virtualColumns[$name] = $value;
 
@@ -698,13 +698,13 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param  string  $msg
-     * @param  int     $priority One of the Propel::LOG_* logging levels
-     * @return boolean
+     * @param string $msg
+     * @param int $priority One of the Propel::LOG_* logging levels
+     * @return void
      */
-    protected function log($msg, $priority = Propel::LOG_INFO)
+    protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
-        return Propel::log(get_class($this) . ': ' . $msg, $priority);
+        Propel::log(get_class($this) . ': ' . $msg, $priority);
     }
 
     /**
@@ -715,24 +715,27 @@ abstract class Pricing implements ActiveRecordInterface
      *  => {"Id":9012,"Title":"Don Juan","ISBN":"0140422161","Price":12.99,"PublisherId":1234,"AuthorId":5678}');
      * </code>
      *
-     * @param  mixed   $parser                 A AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
-     * @param  boolean $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
-     * @return string  The exported data
+     * @param \Propel\Runtime\Parser\AbstractParser|string $parser An AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME, TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM. Defaults to TableMap::TYPE_PHPNAME.
+     * @return string The exported data
      */
-    public function exportTo($parser, $includeLazyLoadColumns = true)
+    public function exportTo($parser, bool $includeLazyLoadColumns = true, string $keyType = TableMap::TYPE_PHPNAME): string
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray(TableMap::TYPE_PHPNAME, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
     }
 
     /**
      * Clean up internal collections prior to serializing
      * Avoids recursive loops that turn into segmentation faults when serializing
+     *
+     * @return array<string>
      */
-    public function __sleep()
+    public function __sleep(): array
     {
         $this->clearAllReferences();
 
@@ -770,7 +773,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [date] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getDate()
     {
@@ -780,7 +783,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [time] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getTime()
     {
@@ -790,7 +793,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [itemid] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getItemid()
     {
@@ -800,7 +803,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [price] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getPrice()
     {
@@ -810,7 +813,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [qty] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getQty()
     {
@@ -820,7 +823,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [priceqty1] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getPriceqty1()
     {
@@ -830,7 +833,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [priceqty2] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getPriceqty2()
     {
@@ -840,7 +843,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [priceqty3] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getPriceqty3()
     {
@@ -850,7 +853,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [priceqty4] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getPriceqty4()
     {
@@ -860,7 +863,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [priceqty5] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getPriceqty5()
     {
@@ -870,7 +873,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [priceqty6] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getPriceqty6()
     {
@@ -880,7 +883,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [priceprice1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getPriceprice1()
     {
@@ -890,7 +893,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [priceprice2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getPriceprice2()
     {
@@ -900,7 +903,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [priceprice3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getPriceprice3()
     {
@@ -910,7 +913,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [priceprice4] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getPriceprice4()
     {
@@ -920,7 +923,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [priceprice5] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getPriceprice5()
     {
@@ -930,7 +933,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [priceprice6] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getPriceprice6()
     {
@@ -940,7 +943,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [unit] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUnit()
     {
@@ -950,7 +953,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [listprice] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getListprice()
     {
@@ -960,7 +963,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [name1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getName1()
     {
@@ -970,7 +973,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [name2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getName2()
     {
@@ -980,7 +983,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [shortdesc] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getShortdesc()
     {
@@ -990,7 +993,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [image] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getImage()
     {
@@ -1000,7 +1003,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [familyid] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getFamilyid()
     {
@@ -1010,7 +1013,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [ermes] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getErmes()
     {
@@ -1020,7 +1023,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [speca] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getSpeca()
     {
@@ -1030,7 +1033,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [specb] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getSpecb()
     {
@@ -1040,7 +1043,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [specc] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getSpecc()
     {
@@ -1050,7 +1053,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [specd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getSpecd()
     {
@@ -1060,7 +1063,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [spece] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getSpece()
     {
@@ -1070,7 +1073,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [specf] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getSpecf()
     {
@@ -1080,7 +1083,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [specg] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getSpecg()
     {
@@ -1090,7 +1093,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [spech] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getSpech()
     {
@@ -1100,7 +1103,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [longdesc] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getLongdesc()
     {
@@ -1110,7 +1113,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [orderno] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getOrderno()
     {
@@ -1120,7 +1123,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [name3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getName3()
     {
@@ -1130,7 +1133,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [name4] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getName4()
     {
@@ -1140,7 +1143,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [thumb] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getThumb()
     {
@@ -1150,7 +1153,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [width] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getWidth()
     {
@@ -1160,7 +1163,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [height] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getHeight()
     {
@@ -1170,7 +1173,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [familydes] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getFamilydes()
     {
@@ -1180,7 +1183,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [keywords] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getKeywords()
     {
@@ -1190,7 +1193,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [vpn] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getVpn()
     {
@@ -1200,7 +1203,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [uomdesc] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUomdesc()
     {
@@ -1210,7 +1213,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [vidinffg] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getVidinffg()
     {
@@ -1220,7 +1223,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [vidinflk] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getVidinflk()
     {
@@ -1230,7 +1233,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [additemflag] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAdditemflag()
     {
@@ -1240,7 +1243,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [schemafam] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getSchemafam()
     {
@@ -1250,7 +1253,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [origitemid] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getOrigitemid()
     {
@@ -1260,7 +1263,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [techspecflg] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getTechspecflg()
     {
@@ -1270,7 +1273,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [techspecname] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getTechspecname()
     {
@@ -1280,7 +1283,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [cost] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getCost()
     {
@@ -1290,7 +1293,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [prop65] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getProp65()
     {
@@ -1300,7 +1303,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [leadfree] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getLeadfree()
     {
@@ -1310,7 +1313,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [extendesc] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getExtendesc()
     {
@@ -1320,7 +1323,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [minprice] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getMinprice()
     {
@@ -1330,7 +1333,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [spcord] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getSpcord()
     {
@@ -1340,7 +1343,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [vendorid] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getVendorid()
     {
@@ -1350,7 +1353,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [vendoritemid] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getVendoritemid()
     {
@@ -1360,7 +1363,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [shipfromid] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getShipfromid()
     {
@@ -1370,7 +1373,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [nsitemgroup] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getNsitemgroup()
     {
@@ -1380,7 +1383,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [itemtype] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getItemtype()
     {
@@ -1390,7 +1393,7 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Get the [dummy] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getDummy()
     {
@@ -1400,8 +1403,8 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Set the value of [sessionid] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setSessionid($v)
     {
@@ -1415,13 +1418,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setSessionid()
+    }
 
     /**
      * Set the value of [recno] column.
      *
-     * @param int $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setRecno($v)
     {
@@ -1435,13 +1438,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setRecno()
+    }
 
     /**
      * Set the value of [date] column.
      *
-     * @param int $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDate($v)
     {
@@ -1455,13 +1458,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDate()
+    }
 
     /**
      * Set the value of [time] column.
      *
-     * @param int $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTime($v)
     {
@@ -1475,13 +1478,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTime()
+    }
 
     /**
      * Set the value of [itemid] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setItemid($v)
     {
@@ -1495,13 +1498,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setItemid()
+    }
 
     /**
      * Set the value of [price] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPrice($v)
     {
@@ -1515,13 +1518,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPrice()
+    }
 
     /**
      * Set the value of [qty] column.
      *
-     * @param int $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQty($v)
     {
@@ -1535,13 +1538,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQty()
+    }
 
     /**
      * Set the value of [priceqty1] column.
      *
-     * @param int $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPriceqty1($v)
     {
@@ -1555,13 +1558,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPriceqty1()
+    }
 
     /**
      * Set the value of [priceqty2] column.
      *
-     * @param int $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPriceqty2($v)
     {
@@ -1575,13 +1578,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPriceqty2()
+    }
 
     /**
      * Set the value of [priceqty3] column.
      *
-     * @param int $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPriceqty3($v)
     {
@@ -1595,13 +1598,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPriceqty3()
+    }
 
     /**
      * Set the value of [priceqty4] column.
      *
-     * @param int $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPriceqty4($v)
     {
@@ -1615,13 +1618,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPriceqty4()
+    }
 
     /**
      * Set the value of [priceqty5] column.
      *
-     * @param int $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPriceqty5($v)
     {
@@ -1635,13 +1638,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPriceqty5()
+    }
 
     /**
      * Set the value of [priceqty6] column.
      *
-     * @param int $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPriceqty6($v)
     {
@@ -1655,13 +1658,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPriceqty6()
+    }
 
     /**
      * Set the value of [priceprice1] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPriceprice1($v)
     {
@@ -1675,13 +1678,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPriceprice1()
+    }
 
     /**
      * Set the value of [priceprice2] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPriceprice2($v)
     {
@@ -1695,13 +1698,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPriceprice2()
+    }
 
     /**
      * Set the value of [priceprice3] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPriceprice3($v)
     {
@@ -1715,13 +1718,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPriceprice3()
+    }
 
     /**
      * Set the value of [priceprice4] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPriceprice4($v)
     {
@@ -1735,13 +1738,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPriceprice4()
+    }
 
     /**
      * Set the value of [priceprice5] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPriceprice5($v)
     {
@@ -1755,13 +1758,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPriceprice5()
+    }
 
     /**
      * Set the value of [priceprice6] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPriceprice6($v)
     {
@@ -1775,13 +1778,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPriceprice6()
+    }
 
     /**
      * Set the value of [unit] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUnit($v)
     {
@@ -1795,13 +1798,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUnit()
+    }
 
     /**
      * Set the value of [listprice] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setListprice($v)
     {
@@ -1815,13 +1818,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setListprice()
+    }
 
     /**
      * Set the value of [name1] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setName1($v)
     {
@@ -1835,13 +1838,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setName1()
+    }
 
     /**
      * Set the value of [name2] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setName2($v)
     {
@@ -1855,13 +1858,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setName2()
+    }
 
     /**
      * Set the value of [shortdesc] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setShortdesc($v)
     {
@@ -1875,13 +1878,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setShortdesc()
+    }
 
     /**
      * Set the value of [image] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setImage($v)
     {
@@ -1895,13 +1898,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setImage()
+    }
 
     /**
      * Set the value of [familyid] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setFamilyid($v)
     {
@@ -1915,13 +1918,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setFamilyid()
+    }
 
     /**
      * Set the value of [ermes] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setErmes($v)
     {
@@ -1935,13 +1938,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setErmes()
+    }
 
     /**
      * Set the value of [speca] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setSpeca($v)
     {
@@ -1955,13 +1958,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setSpeca()
+    }
 
     /**
      * Set the value of [specb] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setSpecb($v)
     {
@@ -1975,13 +1978,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setSpecb()
+    }
 
     /**
      * Set the value of [specc] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setSpecc($v)
     {
@@ -1995,13 +1998,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setSpecc()
+    }
 
     /**
      * Set the value of [specd] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setSpecd($v)
     {
@@ -2015,13 +2018,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setSpecd()
+    }
 
     /**
      * Set the value of [spece] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setSpece($v)
     {
@@ -2035,13 +2038,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setSpece()
+    }
 
     /**
      * Set the value of [specf] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setSpecf($v)
     {
@@ -2055,13 +2058,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setSpecf()
+    }
 
     /**
      * Set the value of [specg] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setSpecg($v)
     {
@@ -2075,13 +2078,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setSpecg()
+    }
 
     /**
      * Set the value of [spech] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setSpech($v)
     {
@@ -2095,13 +2098,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setSpech()
+    }
 
     /**
      * Set the value of [longdesc] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setLongdesc($v)
     {
@@ -2115,13 +2118,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setLongdesc()
+    }
 
     /**
      * Set the value of [orderno] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOrderno($v)
     {
@@ -2135,13 +2138,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOrderno()
+    }
 
     /**
      * Set the value of [name3] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setName3($v)
     {
@@ -2155,13 +2158,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setName3()
+    }
 
     /**
      * Set the value of [name4] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setName4($v)
     {
@@ -2175,13 +2178,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setName4()
+    }
 
     /**
      * Set the value of [thumb] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setThumb($v)
     {
@@ -2195,13 +2198,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setThumb()
+    }
 
     /**
      * Set the value of [width] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setWidth($v)
     {
@@ -2215,13 +2218,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setWidth()
+    }
 
     /**
      * Set the value of [height] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setHeight($v)
     {
@@ -2235,13 +2238,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setHeight()
+    }
 
     /**
      * Set the value of [familydes] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setFamilydes($v)
     {
@@ -2255,13 +2258,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setFamilydes()
+    }
 
     /**
      * Set the value of [keywords] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setKeywords($v)
     {
@@ -2275,13 +2278,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setKeywords()
+    }
 
     /**
      * Set the value of [vpn] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setVpn($v)
     {
@@ -2295,13 +2298,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setVpn()
+    }
 
     /**
      * Set the value of [uomdesc] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUomdesc($v)
     {
@@ -2315,13 +2318,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUomdesc()
+    }
 
     /**
      * Set the value of [vidinffg] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setVidinffg($v)
     {
@@ -2335,13 +2338,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setVidinffg()
+    }
 
     /**
      * Set the value of [vidinflk] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setVidinflk($v)
     {
@@ -2355,13 +2358,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setVidinflk()
+    }
 
     /**
      * Set the value of [additemflag] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAdditemflag($v)
     {
@@ -2375,13 +2378,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAdditemflag()
+    }
 
     /**
      * Set the value of [schemafam] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setSchemafam($v)
     {
@@ -2395,13 +2398,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setSchemafam()
+    }
 
     /**
      * Set the value of [origitemid] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOrigitemid($v)
     {
@@ -2415,13 +2418,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOrigitemid()
+    }
 
     /**
      * Set the value of [techspecflg] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTechspecflg($v)
     {
@@ -2435,13 +2438,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTechspecflg()
+    }
 
     /**
      * Set the value of [techspecname] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTechspecname($v)
     {
@@ -2455,13 +2458,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTechspecname()
+    }
 
     /**
      * Set the value of [cost] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setCost($v)
     {
@@ -2475,13 +2478,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setCost()
+    }
 
     /**
      * Set the value of [prop65] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setProp65($v)
     {
@@ -2495,13 +2498,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setProp65()
+    }
 
     /**
      * Set the value of [leadfree] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setLeadfree($v)
     {
@@ -2515,13 +2518,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setLeadfree()
+    }
 
     /**
      * Set the value of [extendesc] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setExtendesc($v)
     {
@@ -2535,13 +2538,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setExtendesc()
+    }
 
     /**
      * Set the value of [minprice] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setMinprice($v)
     {
@@ -2555,13 +2558,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setMinprice()
+    }
 
     /**
      * Set the value of [spcord] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setSpcord($v)
     {
@@ -2575,13 +2578,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setSpcord()
+    }
 
     /**
      * Set the value of [vendorid] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setVendorid($v)
     {
@@ -2595,13 +2598,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setVendorid()
+    }
 
     /**
      * Set the value of [vendoritemid] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setVendoritemid($v)
     {
@@ -2615,13 +2618,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setVendoritemid()
+    }
 
     /**
      * Set the value of [shipfromid] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setShipfromid($v)
     {
@@ -2635,13 +2638,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setShipfromid()
+    }
 
     /**
      * Set the value of [nsitemgroup] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setNsitemgroup($v)
     {
@@ -2655,13 +2658,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setNsitemgroup()
+    }
 
     /**
      * Set the value of [itemtype] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setItemtype($v)
     {
@@ -2675,13 +2678,13 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setItemtype()
+    }
 
     /**
      * Set the value of [dummy] column.
      *
-     * @param string $v new value
-     * @return $this|\Pricing The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -2695,7 +2698,7 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDummy()
+    }
 
     /**
      * Indicates whether the columns in this object are only set to default values.
@@ -2703,13 +2706,13 @@ abstract class Pricing implements ActiveRecordInterface
      * This method can be used in conjunction with isModified() to indicate whether an object is both
      * modified _and_ has some values set which are non-default.
      *
-     * @return boolean Whether the columns in this object are only been set with default values.
+     * @return bool Whether the columns in this object are only been set with default values.
      */
-    public function hasOnlyDefaultValues()
+    public function hasOnlyDefaultValues(): bool
     {
         // otherwise, everything was equal, so return TRUE
         return true;
-    } // hasOnlyDefaultValues()
+    }
 
     /**
      * Hydrates (populates) the object variables with values from the database resultset.
@@ -2719,17 +2722,17 @@ abstract class Pricing implements ActiveRecordInterface
      * for results of JOIN queries where the resultset row includes columns from two or
      * more tables.
      *
-     * @param array   $row       The row returned by DataFetcher->fetch().
-     * @param int     $startcol  0-based offset column which indicates which restultset column to start with.
-     * @param boolean $rehydrate Whether this object is being re-hydrated from the database.
-     * @param string  $indexType The index type of $row. Mostly DataFetcher->getIndexType().
+     * @param array $row The row returned by DataFetcher->fetch().
+     * @param int $startcol 0-based offset column which indicates which resultset column to start with.
+     * @param bool $rehydrate Whether this object is being re-hydrated from the database.
+     * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                   One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                            TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @return int             next starting column
-     * @throws PropelException - Any caught Exception will be rewrapped as a PropelException.
+     * @return int next starting column
+     * @throws \Propel\Runtime\Exception\PropelException - Any caught Exception will be rewrapped as a PropelException.
      */
-    public function hydrate($row, $startcol = 0, $rehydrate = false, $indexType = TableMap::TYPE_NUM)
+    public function hydrate(array $row, int $startcol = 0, bool $rehydrate = false, string $indexType = TableMap::TYPE_NUM): int
     {
         try {
 
@@ -2927,8 +2930,8 @@ abstract class Pricing implements ActiveRecordInterface
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : PricingTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
-            $this->resetModified();
 
+            $this->resetModified();
             $this->setNew(false);
 
             if ($rehydrate) {
@@ -2953,23 +2956,24 @@ abstract class Pricing implements ActiveRecordInterface
      * the base method from the overridden method (i.e. parent::ensureConsistency()),
      * in case your model changes.
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function ensureConsistency()
+    public function ensureConsistency(): void
     {
-    } // ensureConsistency
+    }
 
     /**
      * Reloads this object from datastore based on primary key and (optionally) resets all associated objects.
      *
      * This will only work if the object has been saved and has a valid primary key set.
      *
-     * @param      boolean $deep (optional) Whether to also de-associated any related objects.
-     * @param      ConnectionInterface $con (optional) The ConnectionInterface connection to use.
+     * @param bool $deep (optional) Whether to also de-associated any related objects.
+     * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
      * @return void
-     * @throws PropelException - if this object is deleted, unsaved or doesn't have pk match in db
+     * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
-    public function reload($deep = false, ConnectionInterface $con = null)
+    public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("Cannot reload a deleted object.");
@@ -3002,13 +3006,13 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Removes this object from datastore and sets delete attribute.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see Pricing::setDeleted()
      * @see Pricing::isDeleted()
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("This object has already been deleted.");
@@ -3038,12 +3042,12 @@ abstract class Pricing implements ActiveRecordInterface
      * method.  This method wraps all precipitate database operations in a
      * single transaction.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    public function save(ConnectionInterface $con = null)
+    public function save(?ConnectionInterface $con = null): int
     {
         if ($this->isDeleted()) {
             throw new PropelException("You cannot save an object that has been deleted.");
@@ -3088,12 +3092,12 @@ abstract class Pricing implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
      */
-    protected function doSave(ConnectionInterface $con)
+    protected function doSave(ConnectionInterface $con): int
     {
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
@@ -3115,19 +3119,19 @@ abstract class Pricing implements ActiveRecordInterface
         }
 
         return $affectedRows;
-    } // doSave()
+    }
 
     /**
      * Insert the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    protected function doInsert(ConnectionInterface $con)
+    protected function doInsert(ConnectionInterface $con): void
     {
-        $modifiedColumns = array();
+        $modifiedColumns = [];
         $index = 0;
 
 
@@ -3340,198 +3344,263 @@ abstract class Pricing implements ActiveRecordInterface
                 switch ($columnName) {
                     case 'sessionid':
                         $stmt->bindValue($identifier, $this->sessionid, PDO::PARAM_STR);
+
                         break;
                     case 'recno':
                         $stmt->bindValue($identifier, $this->recno, PDO::PARAM_INT);
+
                         break;
                     case 'date':
                         $stmt->bindValue($identifier, $this->date, PDO::PARAM_INT);
+
                         break;
                     case 'time':
                         $stmt->bindValue($identifier, $this->time, PDO::PARAM_INT);
+
                         break;
                     case 'itemid':
                         $stmt->bindValue($identifier, $this->itemid, PDO::PARAM_STR);
+
                         break;
                     case 'price':
                         $stmt->bindValue($identifier, $this->price, PDO::PARAM_STR);
+
                         break;
                     case 'qty':
                         $stmt->bindValue($identifier, $this->qty, PDO::PARAM_INT);
+
                         break;
                     case 'priceqty1':
                         $stmt->bindValue($identifier, $this->priceqty1, PDO::PARAM_INT);
+
                         break;
                     case 'priceqty2':
                         $stmt->bindValue($identifier, $this->priceqty2, PDO::PARAM_INT);
+
                         break;
                     case 'priceqty3':
                         $stmt->bindValue($identifier, $this->priceqty3, PDO::PARAM_INT);
+
                         break;
                     case 'priceqty4':
                         $stmt->bindValue($identifier, $this->priceqty4, PDO::PARAM_INT);
+
                         break;
                     case 'priceqty5':
                         $stmt->bindValue($identifier, $this->priceqty5, PDO::PARAM_INT);
+
                         break;
                     case 'priceqty6':
                         $stmt->bindValue($identifier, $this->priceqty6, PDO::PARAM_INT);
+
                         break;
                     case 'priceprice1':
                         $stmt->bindValue($identifier, $this->priceprice1, PDO::PARAM_STR);
+
                         break;
                     case 'priceprice2':
                         $stmt->bindValue($identifier, $this->priceprice2, PDO::PARAM_STR);
+
                         break;
                     case 'priceprice3':
                         $stmt->bindValue($identifier, $this->priceprice3, PDO::PARAM_STR);
+
                         break;
                     case 'priceprice4':
                         $stmt->bindValue($identifier, $this->priceprice4, PDO::PARAM_STR);
+
                         break;
                     case 'priceprice5':
                         $stmt->bindValue($identifier, $this->priceprice5, PDO::PARAM_STR);
+
                         break;
                     case 'priceprice6':
                         $stmt->bindValue($identifier, $this->priceprice6, PDO::PARAM_STR);
+
                         break;
                     case 'unit':
                         $stmt->bindValue($identifier, $this->unit, PDO::PARAM_STR);
+
                         break;
                     case 'listprice':
                         $stmt->bindValue($identifier, $this->listprice, PDO::PARAM_STR);
+
                         break;
                     case 'name1':
                         $stmt->bindValue($identifier, $this->name1, PDO::PARAM_STR);
+
                         break;
                     case 'name2':
                         $stmt->bindValue($identifier, $this->name2, PDO::PARAM_STR);
+
                         break;
                     case 'shortdesc':
                         $stmt->bindValue($identifier, $this->shortdesc, PDO::PARAM_STR);
+
                         break;
                     case 'image':
                         $stmt->bindValue($identifier, $this->image, PDO::PARAM_STR);
+
                         break;
                     case 'familyid':
                         $stmt->bindValue($identifier, $this->familyid, PDO::PARAM_STR);
+
                         break;
                     case 'ermes':
                         $stmt->bindValue($identifier, $this->ermes, PDO::PARAM_STR);
+
                         break;
                     case 'speca':
                         $stmt->bindValue($identifier, $this->speca, PDO::PARAM_STR);
+
                         break;
                     case 'specb':
                         $stmt->bindValue($identifier, $this->specb, PDO::PARAM_STR);
+
                         break;
                     case 'specc':
                         $stmt->bindValue($identifier, $this->specc, PDO::PARAM_STR);
+
                         break;
                     case 'specd':
                         $stmt->bindValue($identifier, $this->specd, PDO::PARAM_STR);
+
                         break;
                     case 'spece':
                         $stmt->bindValue($identifier, $this->spece, PDO::PARAM_STR);
+
                         break;
                     case 'specf':
                         $stmt->bindValue($identifier, $this->specf, PDO::PARAM_STR);
+
                         break;
                     case 'specg':
                         $stmt->bindValue($identifier, $this->specg, PDO::PARAM_STR);
+
                         break;
                     case 'spech':
                         $stmt->bindValue($identifier, $this->spech, PDO::PARAM_STR);
+
                         break;
                     case 'longdesc':
                         $stmt->bindValue($identifier, $this->longdesc, PDO::PARAM_STR);
+
                         break;
                     case 'orderno':
                         $stmt->bindValue($identifier, $this->orderno, PDO::PARAM_STR);
+
                         break;
                     case 'name3':
                         $stmt->bindValue($identifier, $this->name3, PDO::PARAM_STR);
+
                         break;
                     case 'name4':
                         $stmt->bindValue($identifier, $this->name4, PDO::PARAM_STR);
+
                         break;
                     case 'thumb':
                         $stmt->bindValue($identifier, $this->thumb, PDO::PARAM_STR);
+
                         break;
                     case 'width':
                         $stmt->bindValue($identifier, $this->width, PDO::PARAM_STR);
+
                         break;
                     case 'height':
                         $stmt->bindValue($identifier, $this->height, PDO::PARAM_STR);
+
                         break;
                     case 'familydes':
                         $stmt->bindValue($identifier, $this->familydes, PDO::PARAM_STR);
+
                         break;
                     case 'keywords':
                         $stmt->bindValue($identifier, $this->keywords, PDO::PARAM_STR);
+
                         break;
                     case 'vpn':
                         $stmt->bindValue($identifier, $this->vpn, PDO::PARAM_STR);
+
                         break;
                     case 'uomdesc':
                         $stmt->bindValue($identifier, $this->uomdesc, PDO::PARAM_STR);
+
                         break;
                     case 'vidinffg':
                         $stmt->bindValue($identifier, $this->vidinffg, PDO::PARAM_STR);
+
                         break;
                     case 'vidinflk':
                         $stmt->bindValue($identifier, $this->vidinflk, PDO::PARAM_STR);
+
                         break;
                     case 'additemflag':
                         $stmt->bindValue($identifier, $this->additemflag, PDO::PARAM_STR);
+
                         break;
                     case 'schemafam':
                         $stmt->bindValue($identifier, $this->schemafam, PDO::PARAM_STR);
+
                         break;
                     case 'origitemid':
                         $stmt->bindValue($identifier, $this->origitemid, PDO::PARAM_STR);
+
                         break;
                     case 'techspecflg':
                         $stmt->bindValue($identifier, $this->techspecflg, PDO::PARAM_STR);
+
                         break;
                     case 'techspecname':
                         $stmt->bindValue($identifier, $this->techspecname, PDO::PARAM_STR);
+
                         break;
                     case 'cost':
                         $stmt->bindValue($identifier, $this->cost, PDO::PARAM_STR);
+
                         break;
                     case 'prop65':
                         $stmt->bindValue($identifier, $this->prop65, PDO::PARAM_STR);
+
                         break;
                     case 'leadfree':
                         $stmt->bindValue($identifier, $this->leadfree, PDO::PARAM_STR);
+
                         break;
                     case 'extendesc':
                         $stmt->bindValue($identifier, $this->extendesc, PDO::PARAM_STR);
+
                         break;
                     case 'minprice':
                         $stmt->bindValue($identifier, $this->minprice, PDO::PARAM_STR);
+
                         break;
                     case 'spcord':
                         $stmt->bindValue($identifier, $this->spcord, PDO::PARAM_STR);
+
                         break;
                     case 'vendorid':
                         $stmt->bindValue($identifier, $this->vendorid, PDO::PARAM_STR);
+
                         break;
                     case 'vendoritemid':
                         $stmt->bindValue($identifier, $this->vendoritemid, PDO::PARAM_STR);
+
                         break;
                     case 'shipfromid':
                         $stmt->bindValue($identifier, $this->shipfromid, PDO::PARAM_STR);
+
                         break;
                     case 'nsitemgroup':
                         $stmt->bindValue($identifier, $this->nsitemgroup, PDO::PARAM_STR);
+
                         break;
                     case 'itemtype':
                         $stmt->bindValue($identifier, $this->itemtype, PDO::PARAM_STR);
+
                         break;
                     case 'dummy':
                         $stmt->bindValue($identifier, $this->dummy, PDO::PARAM_STR);
+
                         break;
                 }
             }
@@ -3547,12 +3616,12 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @return Integer Number of updated rows
+     * @return int Number of updated rows
      * @see doSave()
      */
-    protected function doUpdate(ConnectionInterface $con)
+    protected function doUpdate(ConnectionInterface $con): int
     {
         $selectCriteria = $this->buildPkeyCriteria();
         $valuesCriteria = $this->buildCriteria();
@@ -3563,14 +3632,14 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Retrieves a field from the object by name passed in as a string.
      *
-     * @param      string $name name
-     * @param      string $type The type of fieldname the $name is of:
+     * @param string $name name
+     * @param string $type The type of fieldname the $name is of:
      *                     one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                     TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                     Defaults to TableMap::TYPE_PHPNAME.
      * @return mixed Value of field.
      */
-    public function getByName($name, $type = TableMap::TYPE_PHPNAME)
+    public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = PricingTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
@@ -3582,210 +3651,209 @@ abstract class Pricing implements ActiveRecordInterface
      * Retrieves a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param      int $pos position in xml schema
+     * @param int $pos Position in XML schema
      * @return mixed Value of field at $pos
      */
-    public function getByPosition($pos)
+    public function getByPosition(int $pos)
     {
         switch ($pos) {
             case 0:
                 return $this->getSessionid();
-                break;
+
             case 1:
                 return $this->getRecno();
-                break;
+
             case 2:
                 return $this->getDate();
-                break;
+
             case 3:
                 return $this->getTime();
-                break;
+
             case 4:
                 return $this->getItemid();
-                break;
+
             case 5:
                 return $this->getPrice();
-                break;
+
             case 6:
                 return $this->getQty();
-                break;
+
             case 7:
                 return $this->getPriceqty1();
-                break;
+
             case 8:
                 return $this->getPriceqty2();
-                break;
+
             case 9:
                 return $this->getPriceqty3();
-                break;
+
             case 10:
                 return $this->getPriceqty4();
-                break;
+
             case 11:
                 return $this->getPriceqty5();
-                break;
+
             case 12:
                 return $this->getPriceqty6();
-                break;
+
             case 13:
                 return $this->getPriceprice1();
-                break;
+
             case 14:
                 return $this->getPriceprice2();
-                break;
+
             case 15:
                 return $this->getPriceprice3();
-                break;
+
             case 16:
                 return $this->getPriceprice4();
-                break;
+
             case 17:
                 return $this->getPriceprice5();
-                break;
+
             case 18:
                 return $this->getPriceprice6();
-                break;
+
             case 19:
                 return $this->getUnit();
-                break;
+
             case 20:
                 return $this->getListprice();
-                break;
+
             case 21:
                 return $this->getName1();
-                break;
+
             case 22:
                 return $this->getName2();
-                break;
+
             case 23:
                 return $this->getShortdesc();
-                break;
+
             case 24:
                 return $this->getImage();
-                break;
+
             case 25:
                 return $this->getFamilyid();
-                break;
+
             case 26:
                 return $this->getErmes();
-                break;
+
             case 27:
                 return $this->getSpeca();
-                break;
+
             case 28:
                 return $this->getSpecb();
-                break;
+
             case 29:
                 return $this->getSpecc();
-                break;
+
             case 30:
                 return $this->getSpecd();
-                break;
+
             case 31:
                 return $this->getSpece();
-                break;
+
             case 32:
                 return $this->getSpecf();
-                break;
+
             case 33:
                 return $this->getSpecg();
-                break;
+
             case 34:
                 return $this->getSpech();
-                break;
+
             case 35:
                 return $this->getLongdesc();
-                break;
+
             case 36:
                 return $this->getOrderno();
-                break;
+
             case 37:
                 return $this->getName3();
-                break;
+
             case 38:
                 return $this->getName4();
-                break;
+
             case 39:
                 return $this->getThumb();
-                break;
+
             case 40:
                 return $this->getWidth();
-                break;
+
             case 41:
                 return $this->getHeight();
-                break;
+
             case 42:
                 return $this->getFamilydes();
-                break;
+
             case 43:
                 return $this->getKeywords();
-                break;
+
             case 44:
                 return $this->getVpn();
-                break;
+
             case 45:
                 return $this->getUomdesc();
-                break;
+
             case 46:
                 return $this->getVidinffg();
-                break;
+
             case 47:
                 return $this->getVidinflk();
-                break;
+
             case 48:
                 return $this->getAdditemflag();
-                break;
+
             case 49:
                 return $this->getSchemafam();
-                break;
+
             case 50:
                 return $this->getOrigitemid();
-                break;
+
             case 51:
                 return $this->getTechspecflg();
-                break;
+
             case 52:
                 return $this->getTechspecname();
-                break;
+
             case 53:
                 return $this->getCost();
-                break;
+
             case 54:
                 return $this->getProp65();
-                break;
+
             case 55:
                 return $this->getLeadfree();
-                break;
+
             case 56:
                 return $this->getExtendesc();
-                break;
+
             case 57:
                 return $this->getMinprice();
-                break;
+
             case 58:
                 return $this->getSpcord();
-                break;
+
             case 59:
                 return $this->getVendorid();
-                break;
+
             case 60:
                 return $this->getVendoritemid();
-                break;
+
             case 61:
                 return $this->getShipfromid();
-                break;
+
             case 62:
                 return $this->getNsitemgroup();
-                break;
+
             case 63:
                 return $this->getItemtype();
-                break;
+
             case 64:
                 return $this->getDummy();
-                break;
+
             default:
                 return null;
-                break;
         } // switch()
     }
 
@@ -3795,23 +3863,22 @@ abstract class Pricing implements ActiveRecordInterface
      * You can specify the key type of the array by passing one of the class
      * type constants.
      *
-     * @param     string  $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
      *                    TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                    Defaults to TableMap::TYPE_PHPNAME.
-     * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
-     * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
+     * @param array $alreadyDumpedObjects List of objects to skip to avoid recursion
      *
-     * @return array an associative array containing the field names (as keys) and field values
+     * @return array An associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray(string $keyType = TableMap::TYPE_PHPNAME, bool $includeLazyLoadColumns = true, array $alreadyDumpedObjects = []): array
     {
-
         if (isset($alreadyDumpedObjects['Pricing'][$this->hashCode()])) {
-            return '*RECURSION*';
+            return ['*RECURSION*'];
         }
         $alreadyDumpedObjects['Pricing'][$this->hashCode()] = true;
         $keys = PricingTableMap::getFieldNames($keyType);
-        $result = array(
+        $result = [
             $keys[0] => $this->getSessionid(),
             $keys[1] => $this->getRecno(),
             $keys[2] => $this->getDate(),
@@ -3877,7 +3944,7 @@ abstract class Pricing implements ActiveRecordInterface
             $keys[62] => $this->getNsitemgroup(),
             $keys[63] => $this->getItemtype(),
             $keys[64] => $this->getDummy(),
-        );
+        ];
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
             $result[$key] = $virtualColumn;
@@ -3890,30 +3957,32 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param  string $name
-     * @param  mixed  $value field value
-     * @param  string $type The type of fieldname the $name is of:
+     * @param string $name
+     * @param mixed $value field value
+     * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\Pricing
+     * @return $this
      */
-    public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
+    public function setByName(string $name, $value, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = PricingTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
-        return $this->setByPosition($pos, $value);
+        $this->setByPosition($pos, $value);
+
+        return $this;
     }
 
     /**
      * Sets a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param  int $pos position in xml schema
-     * @param  mixed $value field value
-     * @return $this|\Pricing
+     * @param int $pos position in xml schema
+     * @param mixed $value field value
+     * @return $this
      */
-    public function setByPosition($pos, $value)
+    public function setByPosition(int $pos, $value)
     {
         switch ($pos) {
             case 0:
@@ -4129,11 +4198,11 @@ abstract class Pricing implements ActiveRecordInterface
      * TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      * The default key type is the column's TableMap::TYPE_PHPNAME.
      *
-     * @param      array  $arr     An array to populate the object from.
-     * @param      string $keyType The type of keys the array uses.
-     * @return void
+     * @param array $arr An array to populate the object from.
+     * @param string $keyType The type of keys the array uses.
+     * @return $this
      */
-    public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
+    public function fromArray(array $arr, string $keyType = TableMap::TYPE_PHPNAME)
     {
         $keys = PricingTableMap::getFieldNames($keyType);
 
@@ -4332,6 +4401,8 @@ abstract class Pricing implements ActiveRecordInterface
         if (array_key_exists($keys[64], $arr)) {
             $this->setDummy($arr[$keys[64]]);
         }
+
+        return $this;
     }
 
      /**
@@ -4351,9 +4422,9 @@ abstract class Pricing implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\Pricing The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
+    public function importFrom($parser, string $data, string $keyType = TableMap::TYPE_PHPNAME)
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
@@ -4367,9 +4438,9 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Build a Criteria object containing the values of all modified columns in this object.
      *
-     * @return Criteria The Criteria object containing all modified values.
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing all modified values.
      */
-    public function buildCriteria()
+    public function buildCriteria(): Criteria
     {
         $criteria = new Criteria(PricingTableMap::DATABASE_NAME);
 
@@ -4576,13 +4647,13 @@ abstract class Pricing implements ActiveRecordInterface
      * Builds a Criteria object containing the primary key for this object.
      *
      * Unlike buildCriteria() this method includes the primary key values regardless
-     * of whether or not they have been modified.
+     * of whether they have been modified.
      *
      * @throws LogicException if no primary key is defined
      *
-     * @return Criteria The Criteria object containing value(s) for primary key(s).
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing value(s) for primary key(s).
      */
-    public function buildPkeyCriteria()
+    public function buildPkeyCriteria(): Criteria
     {
         $criteria = ChildPricingQuery::create();
         $criteria->add(PricingTableMap::COL_SESSIONID, $this->sessionid);
@@ -4595,7 +4666,7 @@ abstract class Pricing implements ActiveRecordInterface
      * If the primary key is not null, return the hashcode of the
      * primary key. Otherwise, return the hash code of the object.
      *
-     * @return int Hashcode
+     * @return int|string Hashcode
      */
     public function hashCode()
     {
@@ -4621,7 +4692,7 @@ abstract class Pricing implements ActiveRecordInterface
      */
     public function getPrimaryKey()
     {
-        $pks = array();
+        $pks = [];
         $pks[0] = $this->getSessionid();
         $pks[1] = $this->getRecno();
 
@@ -4631,10 +4702,10 @@ abstract class Pricing implements ActiveRecordInterface
     /**
      * Set the [composite] primary key.
      *
-     * @param      array $keys The elements of the composite key (order must match the order in XML file).
+     * @param array $keys The elements of the composite key (order must match the order in XML file).
      * @return void
      */
-    public function setPrimaryKey($keys)
+    public function setPrimaryKey(array $keys): void
     {
         $this->setSessionid($keys[0]);
         $this->setRecno($keys[1]);
@@ -4642,9 +4713,10 @@ abstract class Pricing implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     * @return boolean
+     *
+     * @return bool
      */
-    public function isPrimaryKeyNull()
+    public function isPrimaryKeyNull(): bool
     {
         return (null === $this->getSessionid()) && (null === $this->getRecno());
     }
@@ -4655,12 +4727,13 @@ abstract class Pricing implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \Pricing (or compatible) type.
-     * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
-     * @throws PropelException
+     * @param object $copyObj An object of \Pricing (or compatible) type.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
+    public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
         $copyObj->setSessionid($this->getSessionid());
         $copyObj->setRecno($this->getRecno());
@@ -4740,11 +4813,11 @@ abstract class Pricing implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @return \Pricing Clone of current object.
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function copy($deepCopy = false)
+    public function copy(bool $deepCopy = false)
     {
         // we use get_class(), because this might be a subclass
         $clazz = get_class($this);
@@ -4758,6 +4831,8 @@ abstract class Pricing implements ActiveRecordInterface
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
+     *
+     * @return $this
      */
     public function clear()
     {
@@ -4831,6 +4906,8 @@ abstract class Pricing implements ActiveRecordInterface
         $this->resetModified();
         $this->setNew(true);
         $this->setDeleted(false);
+
+        return $this;
     }
 
     /**
@@ -4839,13 +4916,15 @@ abstract class Pricing implements ActiveRecordInterface
      * This method is used to reset all php object references (not the actual reference in the database).
      * Necessary for object serialisation.
      *
-     * @param      boolean $deep Whether to also clear the references on all referrer objects.
+     * @param bool $deep Whether to also clear the references on all referrer objects.
+     * @return $this
      */
-    public function clearAllReferences($deep = false)
+    public function clearAllReferences(bool $deep = false)
     {
         if ($deep) {
         } // if ($deep)
 
+        return $this;
     }
 
     /**
@@ -4860,99 +4939,79 @@ abstract class Pricing implements ActiveRecordInterface
 
     /**
      * Code to be run before persisting the object
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preSave(ConnectionInterface $con = null)
+    public function preSave(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preSave')) {
-            return parent::preSave($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postSave(ConnectionInterface $con = null)
+    public function postSave(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postSave')) {
-            parent::postSave($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before inserting to database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preInsert(ConnectionInterface $con = null)
+    public function preInsert(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preInsert')) {
-            return parent::preInsert($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postInsert(ConnectionInterface $con = null)
+    public function postInsert(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postInsert')) {
-            parent::postInsert($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before updating the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preUpdate(ConnectionInterface $con = null)
+    public function preUpdate(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preUpdate')) {
-            return parent::preUpdate($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postUpdate(ConnectionInterface $con = null)
+    public function postUpdate(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postUpdate')) {
-            parent::postUpdate($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before deleting the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preDelete(ConnectionInterface $con = null)
+    public function preDelete(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preDelete')) {
-            return parent::preDelete($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postDelete(ConnectionInterface $con = null)
+    public function postDelete(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postDelete')) {
-            parent::postDelete($con);
-        }
-    }
+            }
 
 
     /**
@@ -4962,7 +5021,7 @@ abstract class Pricing implements ActiveRecordInterface
      * Allows to define default __call() behavior if you overwrite __call()
      *
      * @param string $name
-     * @param mixed  $params
+     * @param mixed $params
      *
      * @return array|string
      */
@@ -4982,15 +5041,18 @@ abstract class Pricing implements ActiveRecordInterface
 
         if (0 === strpos($name, 'from')) {
             $format = substr($name, 4);
+            $inputData = $params[0];
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->importFrom($format, reset($params));
+            return $this->importFrom($format, $inputData, $keyType);
         }
 
         if (0 === strpos($name, 'to')) {
             $format = substr($name, 2);
-            $includeLazyLoadColumns = isset($params[0]) ? $params[0] : true;
+            $includeLazyLoadColumns = $params[0] ?? true;
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->exportTo($format, $includeLazyLoadColumns);
+            return $this->exportTo($format, $includeLazyLoadColumns, $keyType);
         }
 
         throw new BadMethodCallException(sprintf('Call to undefined method: %s.', $name));

@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class BinrsessionTableMap extends TableMap
 {
@@ -34,159 +33,266 @@ class BinrsessionTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.BinrsessionTableMap';
+    public const CLASS_NAME = '.Map.BinrsessionTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'dplusodb';
+    public const DATABASE_NAME = 'dplusodb';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'binrsession';
+    public const TABLE_NAME = 'binrsession';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'Binrsession';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\Binrsession';
+    public const OM_CLASS = '\\Binrsession';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'Binrsession';
+    public const CLASS_DEFAULT = 'Binrsession';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 15;
+    public const NUM_COLUMNS = 15;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 15;
+    public const NUM_HYDRATE_COLUMNS = 15;
 
     /**
      * the column name for the sessionid field
      */
-    const COL_SESSIONID = 'binrsession.sessionid';
+    public const COL_SESSIONID = 'binrsession.sessionid';
 
     /**
      * the column name for the loginid field
      */
-    const COL_LOGINID = 'binrsession.loginid';
+    public const COL_LOGINID = 'binrsession.loginid';
 
     /**
      * the column name for the whseid field
      */
-    const COL_WHSEID = 'binrsession.whseid';
+    public const COL_WHSEID = 'binrsession.whseid';
 
     /**
      * the column name for the itemid field
      */
-    const COL_ITEMID = 'binrsession.itemid';
+    public const COL_ITEMID = 'binrsession.itemid';
 
     /**
      * the column name for the itemtype field
      */
-    const COL_ITEMTYPE = 'binrsession.itemtype';
+    public const COL_ITEMTYPE = 'binrsession.itemtype';
 
     /**
      * the column name for the lotserial field
      */
-    const COL_LOTSERIAL = 'binrsession.lotserial';
+    public const COL_LOTSERIAL = 'binrsession.lotserial';
 
     /**
      * the column name for the frombin field
      */
-    const COL_FROMBIN = 'binrsession.frombin';
+    public const COL_FROMBIN = 'binrsession.frombin';
 
     /**
      * the column name for the frombinqty field
      */
-    const COL_FROMBINQTY = 'binrsession.frombinqty';
+    public const COL_FROMBINQTY = 'binrsession.frombinqty';
 
     /**
      * the column name for the tobin field
      */
-    const COL_TOBIN = 'binrsession.tobin';
+    public const COL_TOBIN = 'binrsession.tobin';
 
     /**
      * the column name for the tobinqty field
      */
-    const COL_TOBINQTY = 'binrsession.tobinqty';
+    public const COL_TOBINQTY = 'binrsession.tobinqty';
 
     /**
      * the column name for the function field
      */
-    const COL_FUNCTION = 'binrsession.function';
+    public const COL_FUNCTION = 'binrsession.function';
 
     /**
      * the column name for the status field
      */
-    const COL_STATUS = 'binrsession.status';
+    public const COL_STATUS = 'binrsession.status';
 
     /**
      * the column name for the date field
      */
-    const COL_DATE = 'binrsession.date';
+    public const COL_DATE = 'binrsession.date';
 
     /**
      * the column name for the time field
      */
-    const COL_TIME = 'binrsession.time';
+    public const COL_TIME = 'binrsession.time';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'binrsession.dummy';
+    public const COL_DUMMY = 'binrsession.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Sessionid', 'Loginid', 'Whseid', 'Itemid', 'Itemtype', 'Lotserial', 'Frombin', 'Frombinqty', 'Tobin', 'Tobinqty', 'Function', 'Status', 'Date', 'Time', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('sessionid', 'loginid', 'whseid', 'itemid', 'itemtype', 'lotserial', 'frombin', 'frombinqty', 'tobin', 'tobinqty', 'function', 'status', 'date', 'time', 'dummy', ),
-        self::TYPE_COLNAME       => array(BinrsessionTableMap::COL_SESSIONID, BinrsessionTableMap::COL_LOGINID, BinrsessionTableMap::COL_WHSEID, BinrsessionTableMap::COL_ITEMID, BinrsessionTableMap::COL_ITEMTYPE, BinrsessionTableMap::COL_LOTSERIAL, BinrsessionTableMap::COL_FROMBIN, BinrsessionTableMap::COL_FROMBINQTY, BinrsessionTableMap::COL_TOBIN, BinrsessionTableMap::COL_TOBINQTY, BinrsessionTableMap::COL_FUNCTION, BinrsessionTableMap::COL_STATUS, BinrsessionTableMap::COL_DATE, BinrsessionTableMap::COL_TIME, BinrsessionTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('sessionid', 'loginid', 'whseid', 'itemid', 'itemtype', 'lotserial', 'frombin', 'frombinqty', 'tobin', 'tobinqty', 'function', 'status', 'date', 'time', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Sessionid', 'Loginid', 'Whseid', 'Itemid', 'Itemtype', 'Lotserial', 'Frombin', 'Frombinqty', 'Tobin', 'Tobinqty', 'Function', 'Status', 'Date', 'Time', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['sessionid', 'loginid', 'whseid', 'itemid', 'itemtype', 'lotserial', 'frombin', 'frombinqty', 'tobin', 'tobinqty', 'function', 'status', 'date', 'time', 'dummy', ],
+        self::TYPE_COLNAME       => [BinrsessionTableMap::COL_SESSIONID, BinrsessionTableMap::COL_LOGINID, BinrsessionTableMap::COL_WHSEID, BinrsessionTableMap::COL_ITEMID, BinrsessionTableMap::COL_ITEMTYPE, BinrsessionTableMap::COL_LOTSERIAL, BinrsessionTableMap::COL_FROMBIN, BinrsessionTableMap::COL_FROMBINQTY, BinrsessionTableMap::COL_TOBIN, BinrsessionTableMap::COL_TOBINQTY, BinrsessionTableMap::COL_FUNCTION, BinrsessionTableMap::COL_STATUS, BinrsessionTableMap::COL_DATE, BinrsessionTableMap::COL_TIME, BinrsessionTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['sessionid', 'loginid', 'whseid', 'itemid', 'itemtype', 'lotserial', 'frombin', 'frombinqty', 'tobin', 'tobinqty', 'function', 'status', 'date', 'time', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Loginid' => 1, 'Whseid' => 2, 'Itemid' => 3, 'Itemtype' => 4, 'Lotserial' => 5, 'Frombin' => 6, 'Frombinqty' => 7, 'Tobin' => 8, 'Tobinqty' => 9, 'Function' => 10, 'Status' => 11, 'Date' => 12, 'Time' => 13, 'Dummy' => 14, ),
-        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'loginid' => 1, 'whseid' => 2, 'itemid' => 3, 'itemtype' => 4, 'lotserial' => 5, 'frombin' => 6, 'frombinqty' => 7, 'tobin' => 8, 'tobinqty' => 9, 'function' => 10, 'status' => 11, 'date' => 12, 'time' => 13, 'dummy' => 14, ),
-        self::TYPE_COLNAME       => array(BinrsessionTableMap::COL_SESSIONID => 0, BinrsessionTableMap::COL_LOGINID => 1, BinrsessionTableMap::COL_WHSEID => 2, BinrsessionTableMap::COL_ITEMID => 3, BinrsessionTableMap::COL_ITEMTYPE => 4, BinrsessionTableMap::COL_LOTSERIAL => 5, BinrsessionTableMap::COL_FROMBIN => 6, BinrsessionTableMap::COL_FROMBINQTY => 7, BinrsessionTableMap::COL_TOBIN => 8, BinrsessionTableMap::COL_TOBINQTY => 9, BinrsessionTableMap::COL_FUNCTION => 10, BinrsessionTableMap::COL_STATUS => 11, BinrsessionTableMap::COL_DATE => 12, BinrsessionTableMap::COL_TIME => 13, BinrsessionTableMap::COL_DUMMY => 14, ),
-        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'loginid' => 1, 'whseid' => 2, 'itemid' => 3, 'itemtype' => 4, 'lotserial' => 5, 'frombin' => 6, 'frombinqty' => 7, 'tobin' => 8, 'tobinqty' => 9, 'function' => 10, 'status' => 11, 'date' => 12, 'time' => 13, 'dummy' => 14, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Sessionid' => 0, 'Loginid' => 1, 'Whseid' => 2, 'Itemid' => 3, 'Itemtype' => 4, 'Lotserial' => 5, 'Frombin' => 6, 'Frombinqty' => 7, 'Tobin' => 8, 'Tobinqty' => 9, 'Function' => 10, 'Status' => 11, 'Date' => 12, 'Time' => 13, 'Dummy' => 14, ],
+        self::TYPE_CAMELNAME     => ['sessionid' => 0, 'loginid' => 1, 'whseid' => 2, 'itemid' => 3, 'itemtype' => 4, 'lotserial' => 5, 'frombin' => 6, 'frombinqty' => 7, 'tobin' => 8, 'tobinqty' => 9, 'function' => 10, 'status' => 11, 'date' => 12, 'time' => 13, 'dummy' => 14, ],
+        self::TYPE_COLNAME       => [BinrsessionTableMap::COL_SESSIONID => 0, BinrsessionTableMap::COL_LOGINID => 1, BinrsessionTableMap::COL_WHSEID => 2, BinrsessionTableMap::COL_ITEMID => 3, BinrsessionTableMap::COL_ITEMTYPE => 4, BinrsessionTableMap::COL_LOTSERIAL => 5, BinrsessionTableMap::COL_FROMBIN => 6, BinrsessionTableMap::COL_FROMBINQTY => 7, BinrsessionTableMap::COL_TOBIN => 8, BinrsessionTableMap::COL_TOBINQTY => 9, BinrsessionTableMap::COL_FUNCTION => 10, BinrsessionTableMap::COL_STATUS => 11, BinrsessionTableMap::COL_DATE => 12, BinrsessionTableMap::COL_TIME => 13, BinrsessionTableMap::COL_DUMMY => 14, ],
+        self::TYPE_FIELDNAME     => ['sessionid' => 0, 'loginid' => 1, 'whseid' => 2, 'itemid' => 3, 'itemtype' => 4, 'lotserial' => 5, 'frombin' => 6, 'frombinqty' => 7, 'tobin' => 8, 'tobinqty' => 9, 'function' => 10, 'status' => 11, 'date' => 12, 'time' => 13, 'dummy' => 14, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Sessionid' => 'SESSIONID',
+        'Binrsession.Sessionid' => 'SESSIONID',
+        'sessionid' => 'SESSIONID',
+        'binrsession.sessionid' => 'SESSIONID',
+        'BinrsessionTableMap::COL_SESSIONID' => 'SESSIONID',
+        'COL_SESSIONID' => 'SESSIONID',
+        'Loginid' => 'LOGINID',
+        'Binrsession.Loginid' => 'LOGINID',
+        'loginid' => 'LOGINID',
+        'binrsession.loginid' => 'LOGINID',
+        'BinrsessionTableMap::COL_LOGINID' => 'LOGINID',
+        'COL_LOGINID' => 'LOGINID',
+        'Whseid' => 'WHSEID',
+        'Binrsession.Whseid' => 'WHSEID',
+        'whseid' => 'WHSEID',
+        'binrsession.whseid' => 'WHSEID',
+        'BinrsessionTableMap::COL_WHSEID' => 'WHSEID',
+        'COL_WHSEID' => 'WHSEID',
+        'Itemid' => 'ITEMID',
+        'Binrsession.Itemid' => 'ITEMID',
+        'itemid' => 'ITEMID',
+        'binrsession.itemid' => 'ITEMID',
+        'BinrsessionTableMap::COL_ITEMID' => 'ITEMID',
+        'COL_ITEMID' => 'ITEMID',
+        'Itemtype' => 'ITEMTYPE',
+        'Binrsession.Itemtype' => 'ITEMTYPE',
+        'itemtype' => 'ITEMTYPE',
+        'binrsession.itemtype' => 'ITEMTYPE',
+        'BinrsessionTableMap::COL_ITEMTYPE' => 'ITEMTYPE',
+        'COL_ITEMTYPE' => 'ITEMTYPE',
+        'Lotserial' => 'LOTSERIAL',
+        'Binrsession.Lotserial' => 'LOTSERIAL',
+        'lotserial' => 'LOTSERIAL',
+        'binrsession.lotserial' => 'LOTSERIAL',
+        'BinrsessionTableMap::COL_LOTSERIAL' => 'LOTSERIAL',
+        'COL_LOTSERIAL' => 'LOTSERIAL',
+        'Frombin' => 'FROMBIN',
+        'Binrsession.Frombin' => 'FROMBIN',
+        'frombin' => 'FROMBIN',
+        'binrsession.frombin' => 'FROMBIN',
+        'BinrsessionTableMap::COL_FROMBIN' => 'FROMBIN',
+        'COL_FROMBIN' => 'FROMBIN',
+        'Frombinqty' => 'FROMBINQTY',
+        'Binrsession.Frombinqty' => 'FROMBINQTY',
+        'frombinqty' => 'FROMBINQTY',
+        'binrsession.frombinqty' => 'FROMBINQTY',
+        'BinrsessionTableMap::COL_FROMBINQTY' => 'FROMBINQTY',
+        'COL_FROMBINQTY' => 'FROMBINQTY',
+        'Tobin' => 'TOBIN',
+        'Binrsession.Tobin' => 'TOBIN',
+        'tobin' => 'TOBIN',
+        'binrsession.tobin' => 'TOBIN',
+        'BinrsessionTableMap::COL_TOBIN' => 'TOBIN',
+        'COL_TOBIN' => 'TOBIN',
+        'Tobinqty' => 'TOBINQTY',
+        'Binrsession.Tobinqty' => 'TOBINQTY',
+        'tobinqty' => 'TOBINQTY',
+        'binrsession.tobinqty' => 'TOBINQTY',
+        'BinrsessionTableMap::COL_TOBINQTY' => 'TOBINQTY',
+        'COL_TOBINQTY' => 'TOBINQTY',
+        'Function' => 'FUNCTION',
+        'Binrsession.Function' => 'FUNCTION',
+        'function' => 'FUNCTION',
+        'binrsession.function' => 'FUNCTION',
+        'BinrsessionTableMap::COL_FUNCTION' => 'FUNCTION',
+        'COL_FUNCTION' => 'FUNCTION',
+        'Status' => 'STATUS',
+        'Binrsession.Status' => 'STATUS',
+        'status' => 'STATUS',
+        'binrsession.status' => 'STATUS',
+        'BinrsessionTableMap::COL_STATUS' => 'STATUS',
+        'COL_STATUS' => 'STATUS',
+        'Date' => 'DATE',
+        'Binrsession.Date' => 'DATE',
+        'date' => 'DATE',
+        'binrsession.date' => 'DATE',
+        'BinrsessionTableMap::COL_DATE' => 'DATE',
+        'COL_DATE' => 'DATE',
+        'Time' => 'TIME',
+        'Binrsession.Time' => 'TIME',
+        'time' => 'TIME',
+        'binrsession.time' => 'TIME',
+        'BinrsessionTableMap::COL_TIME' => 'TIME',
+        'COL_TIME' => 'TIME',
+        'Dummy' => 'DUMMY',
+        'Binrsession.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'binrsession.dummy' => 'DUMMY',
+        'BinrsessionTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('binrsession');
@@ -211,14 +317,16 @@ class BinrsessionTableMap extends TableMap
         $this->addColumn('date', 'Date', 'INTEGER', false, 8, null);
         $this->addColumn('time', 'Time', 'INTEGER', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Retrieves a string version of the primary key from the DB resultset row that can be used to uniquely identify a row in this table.
@@ -226,14 +334,14 @@ class BinrsessionTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -248,14 +356,14 @@ class BinrsessionTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
         return (string) $row[
             $indexType == TableMap::TYPE_NUM
@@ -272,10 +380,10 @@ class BinrsessionTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? BinrsessionTableMap::CLASS_DEFAULT : BinrsessionTableMap::OM_CLASS;
     }
@@ -283,17 +391,17 @@ class BinrsessionTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (Binrsession object, last column rank)
+     * @return array (Binrsession object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = BinrsessionTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = BinrsessionTableMap::getInstanceFromPool($key))) {
@@ -309,7 +417,7 @@ class BinrsessionTableMap extends TableMap
             BinrsessionTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -317,13 +425,13 @@ class BinrsessionTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -353,12 +461,13 @@ class BinrsessionTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(BinrsessionTableMap::COL_SESSIONID);
@@ -396,40 +505,78 @@ class BinrsessionTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(BinrsessionTableMap::COL_SESSIONID);
+            $criteria->removeSelectColumn(BinrsessionTableMap::COL_LOGINID);
+            $criteria->removeSelectColumn(BinrsessionTableMap::COL_WHSEID);
+            $criteria->removeSelectColumn(BinrsessionTableMap::COL_ITEMID);
+            $criteria->removeSelectColumn(BinrsessionTableMap::COL_ITEMTYPE);
+            $criteria->removeSelectColumn(BinrsessionTableMap::COL_LOTSERIAL);
+            $criteria->removeSelectColumn(BinrsessionTableMap::COL_FROMBIN);
+            $criteria->removeSelectColumn(BinrsessionTableMap::COL_FROMBINQTY);
+            $criteria->removeSelectColumn(BinrsessionTableMap::COL_TOBIN);
+            $criteria->removeSelectColumn(BinrsessionTableMap::COL_TOBINQTY);
+            $criteria->removeSelectColumn(BinrsessionTableMap::COL_FUNCTION);
+            $criteria->removeSelectColumn(BinrsessionTableMap::COL_STATUS);
+            $criteria->removeSelectColumn(BinrsessionTableMap::COL_DATE);
+            $criteria->removeSelectColumn(BinrsessionTableMap::COL_TIME);
+            $criteria->removeSelectColumn(BinrsessionTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.sessionid');
+            $criteria->removeSelectColumn($alias . '.loginid');
+            $criteria->removeSelectColumn($alias . '.whseid');
+            $criteria->removeSelectColumn($alias . '.itemid');
+            $criteria->removeSelectColumn($alias . '.itemtype');
+            $criteria->removeSelectColumn($alias . '.lotserial');
+            $criteria->removeSelectColumn($alias . '.frombin');
+            $criteria->removeSelectColumn($alias . '.frombinqty');
+            $criteria->removeSelectColumn($alias . '.tobin');
+            $criteria->removeSelectColumn($alias . '.tobinqty');
+            $criteria->removeSelectColumn($alias . '.function');
+            $criteria->removeSelectColumn($alias . '.status');
+            $criteria->removeSelectColumn($alias . '.date');
+            $criteria->removeSelectColumn($alias . '.time');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(BinrsessionTableMap::DATABASE_NAME)->getTable(BinrsessionTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(BinrsessionTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(BinrsessionTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new BinrsessionTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a Binrsession or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or Binrsession object or primary key or array of primary keys
+     * @param mixed $values Criteria or Binrsession object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(BinrsessionTableMap::DATABASE_NAME);
@@ -465,7 +612,7 @@ class BinrsessionTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return BinrsessionQuery::create()->doDeleteAll($con);
     }
@@ -473,13 +620,13 @@ class BinrsessionTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a Binrsession or Criteria object.
      *
-     * @param mixed               $criteria Criteria or Binrsession object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or Binrsession object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(BinrsessionTableMap::DATABASE_NAME);
@@ -502,7 +649,4 @@ class BinrsessionTableMap extends TableMap
         });
     }
 
-} // BinrsessionTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-BinrsessionTableMap::buildTableMap();
+}

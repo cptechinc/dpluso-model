@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class LoginTableMap extends TableMap
 {
@@ -34,219 +33,398 @@ class LoginTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.LoginTableMap';
+    public const CLASS_NAME = '.Map.LoginTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'dplusodb';
+    public const DATABASE_NAME = 'dplusodb';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'login';
+    public const TABLE_NAME = 'login';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'Login';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\Login';
+    public const OM_CLASS = '\\Login';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'Login';
+    public const CLASS_DEFAULT = 'Login';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 27;
+    public const NUM_COLUMNS = 27;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 27;
+    public const NUM_HYDRATE_COLUMNS = 27;
 
     /**
      * the column name for the sessionid field
      */
-    const COL_SESSIONID = 'login.sessionid';
+    public const COL_SESSIONID = 'login.sessionid';
 
     /**
      * the column name for the recordno field
      */
-    const COL_RECORDNO = 'login.recordno';
+    public const COL_RECORDNO = 'login.recordno';
 
     /**
      * the column name for the date field
      */
-    const COL_DATE = 'login.date';
+    public const COL_DATE = 'login.date';
 
     /**
      * the column name for the time field
      */
-    const COL_TIME = 'login.time';
+    public const COL_TIME = 'login.time';
 
     /**
      * the column name for the custid field
      */
-    const COL_CUSTID = 'login.custid';
+    public const COL_CUSTID = 'login.custid';
 
     /**
      * the column name for the shiptoid field
      */
-    const COL_SHIPTOID = 'login.shiptoid';
+    public const COL_SHIPTOID = 'login.shiptoid';
 
     /**
      * the column name for the name field
      */
-    const COL_NAME = 'login.name';
+    public const COL_NAME = 'login.name';
 
     /**
      * the column name for the address1 field
      */
-    const COL_ADDRESS1 = 'login.address1';
+    public const COL_ADDRESS1 = 'login.address1';
 
     /**
      * the column name for the address2 field
      */
-    const COL_ADDRESS2 = 'login.address2';
+    public const COL_ADDRESS2 = 'login.address2';
 
     /**
      * the column name for the city field
      */
-    const COL_CITY = 'login.city';
+    public const COL_CITY = 'login.city';
 
     /**
      * the column name for the st field
      */
-    const COL_ST = 'login.st';
+    public const COL_ST = 'login.st';
 
     /**
      * the column name for the zip field
      */
-    const COL_ZIP = 'login.zip';
+    public const COL_ZIP = 'login.zip';
 
     /**
      * the column name for the phone field
      */
-    const COL_PHONE = 'login.phone';
+    public const COL_PHONE = 'login.phone';
 
     /**
      * the column name for the email field
      */
-    const COL_EMAIL = 'login.email';
+    public const COL_EMAIL = 'login.email';
 
     /**
      * the column name for the contact field
      */
-    const COL_CONTACT = 'login.contact';
+    public const COL_CONTACT = 'login.contact';
 
     /**
      * the column name for the validlogin field
      */
-    const COL_VALIDLOGIN = 'login.validlogin';
+    public const COL_VALIDLOGIN = 'login.validlogin';
 
     /**
      * the column name for the cconly field
      */
-    const COL_CCONLY = 'login.cconly';
+    public const COL_CCONLY = 'login.cconly';
 
     /**
      * the column name for the ermes field
      */
-    const COL_ERMES = 'login.ermes';
+    public const COL_ERMES = 'login.ermes';
 
     /**
      * the column name for the passwd field
      */
-    const COL_PASSWD = 'login.passwd';
+    public const COL_PASSWD = 'login.passwd';
 
     /**
      * the column name for the cbi field
      */
-    const COL_CBI = 'login.cbi';
+    public const COL_CBI = 'login.cbi';
 
     /**
      * the column name for the mmn field
      */
-    const COL_MMN = 'login.mmn';
+    public const COL_MMN = 'login.mmn';
 
     /**
      * the column name for the country field
      */
-    const COL_COUNTRY = 'login.country';
+    public const COL_COUNTRY = 'login.country';
 
     /**
      * the column name for the type field
      */
-    const COL_TYPE = 'login.type';
+    public const COL_TYPE = 'login.type';
 
     /**
      * the column name for the address3 field
      */
-    const COL_ADDRESS3 = 'login.address3';
+    public const COL_ADDRESS3 = 'login.address3';
 
     /**
      * the column name for the vpromo field
      */
-    const COL_VPROMO = 'login.vpromo';
+    public const COL_VPROMO = 'login.vpromo';
 
     /**
      * the column name for the promocode field
      */
-    const COL_PROMOCODE = 'login.promocode';
+    public const COL_PROMOCODE = 'login.promocode';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'login.dummy';
+    public const COL_DUMMY = 'login.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Sessionid', 'Recordno', 'Date', 'Time', 'Custid', 'Shiptoid', 'Name', 'Address1', 'Address2', 'City', 'St', 'Zip', 'Phone', 'Email', 'Contact', 'Validlogin', 'Cconly', 'Ermes', 'Passwd', 'Cbi', 'Mmn', 'Country', 'Type', 'Address3', 'Vpromo', 'Promocode', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('sessionid', 'recordno', 'date', 'time', 'custid', 'shiptoid', 'name', 'address1', 'address2', 'city', 'st', 'zip', 'phone', 'email', 'contact', 'validlogin', 'cconly', 'ermes', 'passwd', 'cbi', 'mmn', 'country', 'type', 'address3', 'vpromo', 'promocode', 'dummy', ),
-        self::TYPE_COLNAME       => array(LoginTableMap::COL_SESSIONID, LoginTableMap::COL_RECORDNO, LoginTableMap::COL_DATE, LoginTableMap::COL_TIME, LoginTableMap::COL_CUSTID, LoginTableMap::COL_SHIPTOID, LoginTableMap::COL_NAME, LoginTableMap::COL_ADDRESS1, LoginTableMap::COL_ADDRESS2, LoginTableMap::COL_CITY, LoginTableMap::COL_ST, LoginTableMap::COL_ZIP, LoginTableMap::COL_PHONE, LoginTableMap::COL_EMAIL, LoginTableMap::COL_CONTACT, LoginTableMap::COL_VALIDLOGIN, LoginTableMap::COL_CCONLY, LoginTableMap::COL_ERMES, LoginTableMap::COL_PASSWD, LoginTableMap::COL_CBI, LoginTableMap::COL_MMN, LoginTableMap::COL_COUNTRY, LoginTableMap::COL_TYPE, LoginTableMap::COL_ADDRESS3, LoginTableMap::COL_VPROMO, LoginTableMap::COL_PROMOCODE, LoginTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('sessionid', 'recordno', 'date', 'time', 'custid', 'shiptoid', 'name', 'address1', 'address2', 'city', 'st', 'zip', 'phone', 'email', 'contact', 'validlogin', 'cconly', 'ermes', 'passwd', 'cbi', 'mmn', 'country', 'type', 'address3', 'vpromo', 'promocode', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Sessionid', 'Recordno', 'Date', 'Time', 'Custid', 'Shiptoid', 'Name', 'Address1', 'Address2', 'City', 'St', 'Zip', 'Phone', 'Email', 'Contact', 'Validlogin', 'Cconly', 'Ermes', 'Passwd', 'Cbi', 'Mmn', 'Country', 'Type', 'Address3', 'Vpromo', 'Promocode', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['sessionid', 'recordno', 'date', 'time', 'custid', 'shiptoid', 'name', 'address1', 'address2', 'city', 'st', 'zip', 'phone', 'email', 'contact', 'validlogin', 'cconly', 'ermes', 'passwd', 'cbi', 'mmn', 'country', 'type', 'address3', 'vpromo', 'promocode', 'dummy', ],
+        self::TYPE_COLNAME       => [LoginTableMap::COL_SESSIONID, LoginTableMap::COL_RECORDNO, LoginTableMap::COL_DATE, LoginTableMap::COL_TIME, LoginTableMap::COL_CUSTID, LoginTableMap::COL_SHIPTOID, LoginTableMap::COL_NAME, LoginTableMap::COL_ADDRESS1, LoginTableMap::COL_ADDRESS2, LoginTableMap::COL_CITY, LoginTableMap::COL_ST, LoginTableMap::COL_ZIP, LoginTableMap::COL_PHONE, LoginTableMap::COL_EMAIL, LoginTableMap::COL_CONTACT, LoginTableMap::COL_VALIDLOGIN, LoginTableMap::COL_CCONLY, LoginTableMap::COL_ERMES, LoginTableMap::COL_PASSWD, LoginTableMap::COL_CBI, LoginTableMap::COL_MMN, LoginTableMap::COL_COUNTRY, LoginTableMap::COL_TYPE, LoginTableMap::COL_ADDRESS3, LoginTableMap::COL_VPROMO, LoginTableMap::COL_PROMOCODE, LoginTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['sessionid', 'recordno', 'date', 'time', 'custid', 'shiptoid', 'name', 'address1', 'address2', 'city', 'st', 'zip', 'phone', 'email', 'contact', 'validlogin', 'cconly', 'ermes', 'passwd', 'cbi', 'mmn', 'country', 'type', 'address3', 'vpromo', 'promocode', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Recordno' => 1, 'Date' => 2, 'Time' => 3, 'Custid' => 4, 'Shiptoid' => 5, 'Name' => 6, 'Address1' => 7, 'Address2' => 8, 'City' => 9, 'St' => 10, 'Zip' => 11, 'Phone' => 12, 'Email' => 13, 'Contact' => 14, 'Validlogin' => 15, 'Cconly' => 16, 'Ermes' => 17, 'Passwd' => 18, 'Cbi' => 19, 'Mmn' => 20, 'Country' => 21, 'Type' => 22, 'Address3' => 23, 'Vpromo' => 24, 'Promocode' => 25, 'Dummy' => 26, ),
-        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'recordno' => 1, 'date' => 2, 'time' => 3, 'custid' => 4, 'shiptoid' => 5, 'name' => 6, 'address1' => 7, 'address2' => 8, 'city' => 9, 'st' => 10, 'zip' => 11, 'phone' => 12, 'email' => 13, 'contact' => 14, 'validlogin' => 15, 'cconly' => 16, 'ermes' => 17, 'passwd' => 18, 'cbi' => 19, 'mmn' => 20, 'country' => 21, 'type' => 22, 'address3' => 23, 'vpromo' => 24, 'promocode' => 25, 'dummy' => 26, ),
-        self::TYPE_COLNAME       => array(LoginTableMap::COL_SESSIONID => 0, LoginTableMap::COL_RECORDNO => 1, LoginTableMap::COL_DATE => 2, LoginTableMap::COL_TIME => 3, LoginTableMap::COL_CUSTID => 4, LoginTableMap::COL_SHIPTOID => 5, LoginTableMap::COL_NAME => 6, LoginTableMap::COL_ADDRESS1 => 7, LoginTableMap::COL_ADDRESS2 => 8, LoginTableMap::COL_CITY => 9, LoginTableMap::COL_ST => 10, LoginTableMap::COL_ZIP => 11, LoginTableMap::COL_PHONE => 12, LoginTableMap::COL_EMAIL => 13, LoginTableMap::COL_CONTACT => 14, LoginTableMap::COL_VALIDLOGIN => 15, LoginTableMap::COL_CCONLY => 16, LoginTableMap::COL_ERMES => 17, LoginTableMap::COL_PASSWD => 18, LoginTableMap::COL_CBI => 19, LoginTableMap::COL_MMN => 20, LoginTableMap::COL_COUNTRY => 21, LoginTableMap::COL_TYPE => 22, LoginTableMap::COL_ADDRESS3 => 23, LoginTableMap::COL_VPROMO => 24, LoginTableMap::COL_PROMOCODE => 25, LoginTableMap::COL_DUMMY => 26, ),
-        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'recordno' => 1, 'date' => 2, 'time' => 3, 'custid' => 4, 'shiptoid' => 5, 'name' => 6, 'address1' => 7, 'address2' => 8, 'city' => 9, 'st' => 10, 'zip' => 11, 'phone' => 12, 'email' => 13, 'contact' => 14, 'validlogin' => 15, 'cconly' => 16, 'ermes' => 17, 'passwd' => 18, 'cbi' => 19, 'mmn' => 20, 'country' => 21, 'type' => 22, 'address3' => 23, 'vpromo' => 24, 'promocode' => 25, 'dummy' => 26, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Sessionid' => 0, 'Recordno' => 1, 'Date' => 2, 'Time' => 3, 'Custid' => 4, 'Shiptoid' => 5, 'Name' => 6, 'Address1' => 7, 'Address2' => 8, 'City' => 9, 'St' => 10, 'Zip' => 11, 'Phone' => 12, 'Email' => 13, 'Contact' => 14, 'Validlogin' => 15, 'Cconly' => 16, 'Ermes' => 17, 'Passwd' => 18, 'Cbi' => 19, 'Mmn' => 20, 'Country' => 21, 'Type' => 22, 'Address3' => 23, 'Vpromo' => 24, 'Promocode' => 25, 'Dummy' => 26, ],
+        self::TYPE_CAMELNAME     => ['sessionid' => 0, 'recordno' => 1, 'date' => 2, 'time' => 3, 'custid' => 4, 'shiptoid' => 5, 'name' => 6, 'address1' => 7, 'address2' => 8, 'city' => 9, 'st' => 10, 'zip' => 11, 'phone' => 12, 'email' => 13, 'contact' => 14, 'validlogin' => 15, 'cconly' => 16, 'ermes' => 17, 'passwd' => 18, 'cbi' => 19, 'mmn' => 20, 'country' => 21, 'type' => 22, 'address3' => 23, 'vpromo' => 24, 'promocode' => 25, 'dummy' => 26, ],
+        self::TYPE_COLNAME       => [LoginTableMap::COL_SESSIONID => 0, LoginTableMap::COL_RECORDNO => 1, LoginTableMap::COL_DATE => 2, LoginTableMap::COL_TIME => 3, LoginTableMap::COL_CUSTID => 4, LoginTableMap::COL_SHIPTOID => 5, LoginTableMap::COL_NAME => 6, LoginTableMap::COL_ADDRESS1 => 7, LoginTableMap::COL_ADDRESS2 => 8, LoginTableMap::COL_CITY => 9, LoginTableMap::COL_ST => 10, LoginTableMap::COL_ZIP => 11, LoginTableMap::COL_PHONE => 12, LoginTableMap::COL_EMAIL => 13, LoginTableMap::COL_CONTACT => 14, LoginTableMap::COL_VALIDLOGIN => 15, LoginTableMap::COL_CCONLY => 16, LoginTableMap::COL_ERMES => 17, LoginTableMap::COL_PASSWD => 18, LoginTableMap::COL_CBI => 19, LoginTableMap::COL_MMN => 20, LoginTableMap::COL_COUNTRY => 21, LoginTableMap::COL_TYPE => 22, LoginTableMap::COL_ADDRESS3 => 23, LoginTableMap::COL_VPROMO => 24, LoginTableMap::COL_PROMOCODE => 25, LoginTableMap::COL_DUMMY => 26, ],
+        self::TYPE_FIELDNAME     => ['sessionid' => 0, 'recordno' => 1, 'date' => 2, 'time' => 3, 'custid' => 4, 'shiptoid' => 5, 'name' => 6, 'address1' => 7, 'address2' => 8, 'city' => 9, 'st' => 10, 'zip' => 11, 'phone' => 12, 'email' => 13, 'contact' => 14, 'validlogin' => 15, 'cconly' => 16, 'ermes' => 17, 'passwd' => 18, 'cbi' => 19, 'mmn' => 20, 'country' => 21, 'type' => 22, 'address3' => 23, 'vpromo' => 24, 'promocode' => 25, 'dummy' => 26, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Sessionid' => 'SESSIONID',
+        'Login.Sessionid' => 'SESSIONID',
+        'sessionid' => 'SESSIONID',
+        'login.sessionid' => 'SESSIONID',
+        'LoginTableMap::COL_SESSIONID' => 'SESSIONID',
+        'COL_SESSIONID' => 'SESSIONID',
+        'Recordno' => 'RECORDNO',
+        'Login.Recordno' => 'RECORDNO',
+        'recordno' => 'RECORDNO',
+        'login.recordno' => 'RECORDNO',
+        'LoginTableMap::COL_RECORDNO' => 'RECORDNO',
+        'COL_RECORDNO' => 'RECORDNO',
+        'Date' => 'DATE',
+        'Login.Date' => 'DATE',
+        'date' => 'DATE',
+        'login.date' => 'DATE',
+        'LoginTableMap::COL_DATE' => 'DATE',
+        'COL_DATE' => 'DATE',
+        'Time' => 'TIME',
+        'Login.Time' => 'TIME',
+        'time' => 'TIME',
+        'login.time' => 'TIME',
+        'LoginTableMap::COL_TIME' => 'TIME',
+        'COL_TIME' => 'TIME',
+        'Custid' => 'CUSTID',
+        'Login.Custid' => 'CUSTID',
+        'custid' => 'CUSTID',
+        'login.custid' => 'CUSTID',
+        'LoginTableMap::COL_CUSTID' => 'CUSTID',
+        'COL_CUSTID' => 'CUSTID',
+        'Shiptoid' => 'SHIPTOID',
+        'Login.Shiptoid' => 'SHIPTOID',
+        'shiptoid' => 'SHIPTOID',
+        'login.shiptoid' => 'SHIPTOID',
+        'LoginTableMap::COL_SHIPTOID' => 'SHIPTOID',
+        'COL_SHIPTOID' => 'SHIPTOID',
+        'Name' => 'NAME',
+        'Login.Name' => 'NAME',
+        'name' => 'NAME',
+        'login.name' => 'NAME',
+        'LoginTableMap::COL_NAME' => 'NAME',
+        'COL_NAME' => 'NAME',
+        'Address1' => 'ADDRESS1',
+        'Login.Address1' => 'ADDRESS1',
+        'address1' => 'ADDRESS1',
+        'login.address1' => 'ADDRESS1',
+        'LoginTableMap::COL_ADDRESS1' => 'ADDRESS1',
+        'COL_ADDRESS1' => 'ADDRESS1',
+        'Address2' => 'ADDRESS2',
+        'Login.Address2' => 'ADDRESS2',
+        'address2' => 'ADDRESS2',
+        'login.address2' => 'ADDRESS2',
+        'LoginTableMap::COL_ADDRESS2' => 'ADDRESS2',
+        'COL_ADDRESS2' => 'ADDRESS2',
+        'City' => 'CITY',
+        'Login.City' => 'CITY',
+        'city' => 'CITY',
+        'login.city' => 'CITY',
+        'LoginTableMap::COL_CITY' => 'CITY',
+        'COL_CITY' => 'CITY',
+        'St' => 'ST',
+        'Login.St' => 'ST',
+        'st' => 'ST',
+        'login.st' => 'ST',
+        'LoginTableMap::COL_ST' => 'ST',
+        'COL_ST' => 'ST',
+        'Zip' => 'ZIP',
+        'Login.Zip' => 'ZIP',
+        'zip' => 'ZIP',
+        'login.zip' => 'ZIP',
+        'LoginTableMap::COL_ZIP' => 'ZIP',
+        'COL_ZIP' => 'ZIP',
+        'Phone' => 'PHONE',
+        'Login.Phone' => 'PHONE',
+        'phone' => 'PHONE',
+        'login.phone' => 'PHONE',
+        'LoginTableMap::COL_PHONE' => 'PHONE',
+        'COL_PHONE' => 'PHONE',
+        'Email' => 'EMAIL',
+        'Login.Email' => 'EMAIL',
+        'email' => 'EMAIL',
+        'login.email' => 'EMAIL',
+        'LoginTableMap::COL_EMAIL' => 'EMAIL',
+        'COL_EMAIL' => 'EMAIL',
+        'Contact' => 'CONTACT',
+        'Login.Contact' => 'CONTACT',
+        'contact' => 'CONTACT',
+        'login.contact' => 'CONTACT',
+        'LoginTableMap::COL_CONTACT' => 'CONTACT',
+        'COL_CONTACT' => 'CONTACT',
+        'Validlogin' => 'VALIDLOGIN',
+        'Login.Validlogin' => 'VALIDLOGIN',
+        'validlogin' => 'VALIDLOGIN',
+        'login.validlogin' => 'VALIDLOGIN',
+        'LoginTableMap::COL_VALIDLOGIN' => 'VALIDLOGIN',
+        'COL_VALIDLOGIN' => 'VALIDLOGIN',
+        'Cconly' => 'CCONLY',
+        'Login.Cconly' => 'CCONLY',
+        'cconly' => 'CCONLY',
+        'login.cconly' => 'CCONLY',
+        'LoginTableMap::COL_CCONLY' => 'CCONLY',
+        'COL_CCONLY' => 'CCONLY',
+        'Ermes' => 'ERMES',
+        'Login.Ermes' => 'ERMES',
+        'ermes' => 'ERMES',
+        'login.ermes' => 'ERMES',
+        'LoginTableMap::COL_ERMES' => 'ERMES',
+        'COL_ERMES' => 'ERMES',
+        'Passwd' => 'PASSWD',
+        'Login.Passwd' => 'PASSWD',
+        'passwd' => 'PASSWD',
+        'login.passwd' => 'PASSWD',
+        'LoginTableMap::COL_PASSWD' => 'PASSWD',
+        'COL_PASSWD' => 'PASSWD',
+        'Cbi' => 'CBI',
+        'Login.Cbi' => 'CBI',
+        'cbi' => 'CBI',
+        'login.cbi' => 'CBI',
+        'LoginTableMap::COL_CBI' => 'CBI',
+        'COL_CBI' => 'CBI',
+        'Mmn' => 'MMN',
+        'Login.Mmn' => 'MMN',
+        'mmn' => 'MMN',
+        'login.mmn' => 'MMN',
+        'LoginTableMap::COL_MMN' => 'MMN',
+        'COL_MMN' => 'MMN',
+        'Country' => 'COUNTRY',
+        'Login.Country' => 'COUNTRY',
+        'country' => 'COUNTRY',
+        'login.country' => 'COUNTRY',
+        'LoginTableMap::COL_COUNTRY' => 'COUNTRY',
+        'COL_COUNTRY' => 'COUNTRY',
+        'Type' => 'TYPE',
+        'Login.Type' => 'TYPE',
+        'type' => 'TYPE',
+        'login.type' => 'TYPE',
+        'LoginTableMap::COL_TYPE' => 'TYPE',
+        'COL_TYPE' => 'TYPE',
+        'Address3' => 'ADDRESS3',
+        'Login.Address3' => 'ADDRESS3',
+        'address3' => 'ADDRESS3',
+        'login.address3' => 'ADDRESS3',
+        'LoginTableMap::COL_ADDRESS3' => 'ADDRESS3',
+        'COL_ADDRESS3' => 'ADDRESS3',
+        'Vpromo' => 'VPROMO',
+        'Login.Vpromo' => 'VPROMO',
+        'vpromo' => 'VPROMO',
+        'login.vpromo' => 'VPROMO',
+        'LoginTableMap::COL_VPROMO' => 'VPROMO',
+        'COL_VPROMO' => 'VPROMO',
+        'Promocode' => 'PROMOCODE',
+        'Login.Promocode' => 'PROMOCODE',
+        'promocode' => 'PROMOCODE',
+        'login.promocode' => 'PROMOCODE',
+        'LoginTableMap::COL_PROMOCODE' => 'PROMOCODE',
+        'COL_PROMOCODE' => 'PROMOCODE',
+        'Dummy' => 'DUMMY',
+        'Login.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'login.dummy' => 'DUMMY',
+        'LoginTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('login');
@@ -283,14 +461,16 @@ class LoginTableMap extends TableMap
         $this->addColumn('vpromo', 'Vpromo', 'VARCHAR', false, 1, null);
         $this->addColumn('promocode', 'Promocode', 'VARCHAR', false, 30, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Retrieves a string version of the primary key from the DB resultset row that can be used to uniquely identify a row in this table.
@@ -298,14 +478,14 @@ class LoginTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -320,14 +500,14 @@ class LoginTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
         return (string) $row[
             $indexType == TableMap::TYPE_NUM
@@ -344,10 +524,10 @@ class LoginTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? LoginTableMap::CLASS_DEFAULT : LoginTableMap::OM_CLASS;
     }
@@ -355,17 +535,17 @@ class LoginTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (Login object, last column rank)
+     * @return array (Login object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = LoginTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = LoginTableMap::getInstanceFromPool($key))) {
@@ -381,7 +561,7 @@ class LoginTableMap extends TableMap
             LoginTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -389,13 +569,13 @@ class LoginTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -425,12 +605,13 @@ class LoginTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(LoginTableMap::COL_SESSIONID);
@@ -492,40 +673,102 @@ class LoginTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(LoginTableMap::COL_SESSIONID);
+            $criteria->removeSelectColumn(LoginTableMap::COL_RECORDNO);
+            $criteria->removeSelectColumn(LoginTableMap::COL_DATE);
+            $criteria->removeSelectColumn(LoginTableMap::COL_TIME);
+            $criteria->removeSelectColumn(LoginTableMap::COL_CUSTID);
+            $criteria->removeSelectColumn(LoginTableMap::COL_SHIPTOID);
+            $criteria->removeSelectColumn(LoginTableMap::COL_NAME);
+            $criteria->removeSelectColumn(LoginTableMap::COL_ADDRESS1);
+            $criteria->removeSelectColumn(LoginTableMap::COL_ADDRESS2);
+            $criteria->removeSelectColumn(LoginTableMap::COL_CITY);
+            $criteria->removeSelectColumn(LoginTableMap::COL_ST);
+            $criteria->removeSelectColumn(LoginTableMap::COL_ZIP);
+            $criteria->removeSelectColumn(LoginTableMap::COL_PHONE);
+            $criteria->removeSelectColumn(LoginTableMap::COL_EMAIL);
+            $criteria->removeSelectColumn(LoginTableMap::COL_CONTACT);
+            $criteria->removeSelectColumn(LoginTableMap::COL_VALIDLOGIN);
+            $criteria->removeSelectColumn(LoginTableMap::COL_CCONLY);
+            $criteria->removeSelectColumn(LoginTableMap::COL_ERMES);
+            $criteria->removeSelectColumn(LoginTableMap::COL_PASSWD);
+            $criteria->removeSelectColumn(LoginTableMap::COL_CBI);
+            $criteria->removeSelectColumn(LoginTableMap::COL_MMN);
+            $criteria->removeSelectColumn(LoginTableMap::COL_COUNTRY);
+            $criteria->removeSelectColumn(LoginTableMap::COL_TYPE);
+            $criteria->removeSelectColumn(LoginTableMap::COL_ADDRESS3);
+            $criteria->removeSelectColumn(LoginTableMap::COL_VPROMO);
+            $criteria->removeSelectColumn(LoginTableMap::COL_PROMOCODE);
+            $criteria->removeSelectColumn(LoginTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.sessionid');
+            $criteria->removeSelectColumn($alias . '.recordno');
+            $criteria->removeSelectColumn($alias . '.date');
+            $criteria->removeSelectColumn($alias . '.time');
+            $criteria->removeSelectColumn($alias . '.custid');
+            $criteria->removeSelectColumn($alias . '.shiptoid');
+            $criteria->removeSelectColumn($alias . '.name');
+            $criteria->removeSelectColumn($alias . '.address1');
+            $criteria->removeSelectColumn($alias . '.address2');
+            $criteria->removeSelectColumn($alias . '.city');
+            $criteria->removeSelectColumn($alias . '.st');
+            $criteria->removeSelectColumn($alias . '.zip');
+            $criteria->removeSelectColumn($alias . '.phone');
+            $criteria->removeSelectColumn($alias . '.email');
+            $criteria->removeSelectColumn($alias . '.contact');
+            $criteria->removeSelectColumn($alias . '.validlogin');
+            $criteria->removeSelectColumn($alias . '.cconly');
+            $criteria->removeSelectColumn($alias . '.ermes');
+            $criteria->removeSelectColumn($alias . '.passwd');
+            $criteria->removeSelectColumn($alias . '.cbi');
+            $criteria->removeSelectColumn($alias . '.mmn');
+            $criteria->removeSelectColumn($alias . '.country');
+            $criteria->removeSelectColumn($alias . '.type');
+            $criteria->removeSelectColumn($alias . '.address3');
+            $criteria->removeSelectColumn($alias . '.vpromo');
+            $criteria->removeSelectColumn($alias . '.promocode');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(LoginTableMap::DATABASE_NAME)->getTable(LoginTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(LoginTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(LoginTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new LoginTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a Login or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or Login object or primary key or array of primary keys
+     * @param mixed $values Criteria or Login object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(LoginTableMap::DATABASE_NAME);
@@ -561,7 +804,7 @@ class LoginTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return LoginQuery::create()->doDeleteAll($con);
     }
@@ -569,13 +812,13 @@ class LoginTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a Login or Criteria object.
      *
-     * @param mixed               $criteria Criteria or Login object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or Login object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(LoginTableMap::DATABASE_NAME);
@@ -598,7 +841,4 @@ class LoginTableMap extends TableMap
         });
     }
 
-} // LoginTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-LoginTableMap::buildTableMap();
+}

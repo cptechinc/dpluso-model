@@ -10,14 +10,12 @@ use Map\VehicleItemTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'vehicle_catalog' table.
- *
- *
+ * Base class that represents a query for the `vehicle_catalog` table.
  *
  * @method     ChildVehicleItemQuery orderById($order = Criteria::ASC) Order by the id column
  * @method     ChildVehicleItemQuery orderByCatalog($order = Criteria::ASC) Order by the catalog column
@@ -55,25 +53,25 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildVehicleItemQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildVehicleItemQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildVehicleItem findOne(ConnectionInterface $con = null) Return the first ChildVehicleItem matching the query
- * @method     ChildVehicleItem findOneOrCreate(ConnectionInterface $con = null) Return the first ChildVehicleItem matching the query, or a new ChildVehicleItem object populated from the query conditions when no match is found
+ * @method     ChildVehicleItem|null findOne(?ConnectionInterface $con = null) Return the first ChildVehicleItem matching the query
+ * @method     ChildVehicleItem findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildVehicleItem matching the query, or a new ChildVehicleItem object populated from the query conditions when no match is found
  *
- * @method     ChildVehicleItem findOneById(int $id) Return the first ChildVehicleItem filtered by the id column
- * @method     ChildVehicleItem findOneByCatalog(string $catalog) Return the first ChildVehicleItem filtered by the catalog column
- * @method     ChildVehicleItem findOneByFromyear(int $fromyear) Return the first ChildVehicleItem filtered by the fromyear column
- * @method     ChildVehicleItem findOneByThroughyear(int $throughyear) Return the first ChildVehicleItem filtered by the throughyear column
- * @method     ChildVehicleItem findOneByMake(string $make) Return the first ChildVehicleItem filtered by the make column
- * @method     ChildVehicleItem findOneByEngine(int $engine) Return the first ChildVehicleItem filtered by the engine column
- * @method     ChildVehicleItem findOneByModel(string $model) Return the first ChildVehicleItem filtered by the model column
- * @method     ChildVehicleItem findOneBySubmodel(string $submodel) Return the first ChildVehicleItem filtered by the submodel column
- * @method     ChildVehicleItem findOneByItemid(string $itemid) Return the first ChildVehicleItem filtered by the itemid column
- * @method     ChildVehicleItem findOneByApplication(string $application) Return the first ChildVehicleItem filtered by the application column
- * @method     ChildVehicleItem findOneBynotes(string $notes) Return the first ChildVehicleItem filtered by the notes column
- * @method     ChildVehicleItem findOneByDate(int $date) Return the first ChildVehicleItem filtered by the date column
- * @method     ChildVehicleItem findOneByTime(int $time) Return the first ChildVehicleItem filtered by the time column *
-
- * @method     ChildVehicleItem requirePk($key, ConnectionInterface $con = null) Return the ChildVehicleItem by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildVehicleItem requireOne(ConnectionInterface $con = null) Return the first ChildVehicleItem matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildVehicleItem|null findOneById(int $id) Return the first ChildVehicleItem filtered by the id column
+ * @method     ChildVehicleItem|null findOneByCatalog(string $catalog) Return the first ChildVehicleItem filtered by the catalog column
+ * @method     ChildVehicleItem|null findOneByFromyear(int $fromyear) Return the first ChildVehicleItem filtered by the fromyear column
+ * @method     ChildVehicleItem|null findOneByThroughyear(int $throughyear) Return the first ChildVehicleItem filtered by the throughyear column
+ * @method     ChildVehicleItem|null findOneByMake(string $make) Return the first ChildVehicleItem filtered by the make column
+ * @method     ChildVehicleItem|null findOneByEngine(int $engine) Return the first ChildVehicleItem filtered by the engine column
+ * @method     ChildVehicleItem|null findOneByModel(string $model) Return the first ChildVehicleItem filtered by the model column
+ * @method     ChildVehicleItem|null findOneBySubmodel(string $submodel) Return the first ChildVehicleItem filtered by the submodel column
+ * @method     ChildVehicleItem|null findOneByItemid(string $itemid) Return the first ChildVehicleItem filtered by the itemid column
+ * @method     ChildVehicleItem|null findOneByApplication(string $application) Return the first ChildVehicleItem filtered by the application column
+ * @method     ChildVehicleItem|null findOneBynotes(string $notes) Return the first ChildVehicleItem filtered by the notes column
+ * @method     ChildVehicleItem|null findOneByDate(int $date) Return the first ChildVehicleItem filtered by the date column
+ * @method     ChildVehicleItem|null findOneByTime(int $time) Return the first ChildVehicleItem filtered by the time column
+ *
+ * @method     ChildVehicleItem requirePk($key, ?ConnectionInterface $con = null) Return the ChildVehicleItem by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildVehicleItem requireOne(?ConnectionInterface $con = null) Return the first ChildVehicleItem matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildVehicleItem requireOneById(int $id) Return the first ChildVehicleItem filtered by the id column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildVehicleItem requireOneByCatalog(string $catalog) Return the first ChildVehicleItem filtered by the catalog column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -89,22 +87,38 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildVehicleItem requireOneByDate(int $date) Return the first ChildVehicleItem filtered by the date column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildVehicleItem requireOneByTime(int $time) Return the first ChildVehicleItem filtered by the time column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildVehicleItem[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildVehicleItem objects based on current ModelCriteria
- * @method     ChildVehicleItem[]|ObjectCollection findById(int $id) Return ChildVehicleItem objects filtered by the id column
- * @method     ChildVehicleItem[]|ObjectCollection findByCatalog(string $catalog) Return ChildVehicleItem objects filtered by the catalog column
- * @method     ChildVehicleItem[]|ObjectCollection findByFromyear(int $fromyear) Return ChildVehicleItem objects filtered by the fromyear column
- * @method     ChildVehicleItem[]|ObjectCollection findByThroughyear(int $throughyear) Return ChildVehicleItem objects filtered by the throughyear column
- * @method     ChildVehicleItem[]|ObjectCollection findByMake(string $make) Return ChildVehicleItem objects filtered by the make column
- * @method     ChildVehicleItem[]|ObjectCollection findByEngine(int $engine) Return ChildVehicleItem objects filtered by the engine column
- * @method     ChildVehicleItem[]|ObjectCollection findByModel(string $model) Return ChildVehicleItem objects filtered by the model column
- * @method     ChildVehicleItem[]|ObjectCollection findBySubmodel(string $submodel) Return ChildVehicleItem objects filtered by the submodel column
- * @method     ChildVehicleItem[]|ObjectCollection findByItemid(string $itemid) Return ChildVehicleItem objects filtered by the itemid column
- * @method     ChildVehicleItem[]|ObjectCollection findByApplication(string $application) Return ChildVehicleItem objects filtered by the application column
- * @method     ChildVehicleItem[]|ObjectCollection findBynotes(string $notes) Return ChildVehicleItem objects filtered by the notes column
- * @method     ChildVehicleItem[]|ObjectCollection findByDate(int $date) Return ChildVehicleItem objects filtered by the date column
- * @method     ChildVehicleItem[]|ObjectCollection findByTime(int $time) Return ChildVehicleItem objects filtered by the time column
- * @method     ChildVehicleItem[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildVehicleItem[]|Collection find(?ConnectionInterface $con = null) Return ChildVehicleItem objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildVehicleItem> find(?ConnectionInterface $con = null) Return ChildVehicleItem objects based on current ModelCriteria
  *
+ * @method     ChildVehicleItem[]|Collection findById(int|array<int> $id) Return ChildVehicleItem objects filtered by the id column
+ * @psalm-method Collection&\Traversable<ChildVehicleItem> findById(int|array<int> $id) Return ChildVehicleItem objects filtered by the id column
+ * @method     ChildVehicleItem[]|Collection findByCatalog(string|array<string> $catalog) Return ChildVehicleItem objects filtered by the catalog column
+ * @psalm-method Collection&\Traversable<ChildVehicleItem> findByCatalog(string|array<string> $catalog) Return ChildVehicleItem objects filtered by the catalog column
+ * @method     ChildVehicleItem[]|Collection findByFromyear(int|array<int> $fromyear) Return ChildVehicleItem objects filtered by the fromyear column
+ * @psalm-method Collection&\Traversable<ChildVehicleItem> findByFromyear(int|array<int> $fromyear) Return ChildVehicleItem objects filtered by the fromyear column
+ * @method     ChildVehicleItem[]|Collection findByThroughyear(int|array<int> $throughyear) Return ChildVehicleItem objects filtered by the throughyear column
+ * @psalm-method Collection&\Traversable<ChildVehicleItem> findByThroughyear(int|array<int> $throughyear) Return ChildVehicleItem objects filtered by the throughyear column
+ * @method     ChildVehicleItem[]|Collection findByMake(string|array<string> $make) Return ChildVehicleItem objects filtered by the make column
+ * @psalm-method Collection&\Traversable<ChildVehicleItem> findByMake(string|array<string> $make) Return ChildVehicleItem objects filtered by the make column
+ * @method     ChildVehicleItem[]|Collection findByEngine(int|array<int> $engine) Return ChildVehicleItem objects filtered by the engine column
+ * @psalm-method Collection&\Traversable<ChildVehicleItem> findByEngine(int|array<int> $engine) Return ChildVehicleItem objects filtered by the engine column
+ * @method     ChildVehicleItem[]|Collection findByModel(string|array<string> $model) Return ChildVehicleItem objects filtered by the model column
+ * @psalm-method Collection&\Traversable<ChildVehicleItem> findByModel(string|array<string> $model) Return ChildVehicleItem objects filtered by the model column
+ * @method     ChildVehicleItem[]|Collection findBySubmodel(string|array<string> $submodel) Return ChildVehicleItem objects filtered by the submodel column
+ * @psalm-method Collection&\Traversable<ChildVehicleItem> findBySubmodel(string|array<string> $submodel) Return ChildVehicleItem objects filtered by the submodel column
+ * @method     ChildVehicleItem[]|Collection findByItemid(string|array<string> $itemid) Return ChildVehicleItem objects filtered by the itemid column
+ * @psalm-method Collection&\Traversable<ChildVehicleItem> findByItemid(string|array<string> $itemid) Return ChildVehicleItem objects filtered by the itemid column
+ * @method     ChildVehicleItem[]|Collection findByApplication(string|array<string> $application) Return ChildVehicleItem objects filtered by the application column
+ * @psalm-method Collection&\Traversable<ChildVehicleItem> findByApplication(string|array<string> $application) Return ChildVehicleItem objects filtered by the application column
+ * @method     ChildVehicleItem[]|Collection findBynotes(string|array<string> $notes) Return ChildVehicleItem objects filtered by the notes column
+ * @psalm-method Collection&\Traversable<ChildVehicleItem> findBynotes(string|array<string> $notes) Return ChildVehicleItem objects filtered by the notes column
+ * @method     ChildVehicleItem[]|Collection findByDate(int|array<int> $date) Return ChildVehicleItem objects filtered by the date column
+ * @psalm-method Collection&\Traversable<ChildVehicleItem> findByDate(int|array<int> $date) Return ChildVehicleItem objects filtered by the date column
+ * @method     ChildVehicleItem[]|Collection findByTime(int|array<int> $time) Return ChildVehicleItem objects filtered by the time column
+ * @psalm-method Collection&\Traversable<ChildVehicleItem> findByTime(int|array<int> $time) Return ChildVehicleItem objects filtered by the time column
+ *
+ * @method     ChildVehicleItem[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildVehicleItem> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class VehicleItemQuery extends ModelCriteria
 {
@@ -113,9 +127,9 @@ abstract class VehicleItemQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\VehicleItemQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'dplusodb', $modelName = '\\VehicleItem', $modelAlias = null)
     {
@@ -125,12 +139,12 @@ abstract class VehicleItemQuery extends ModelCriteria
     /**
      * Returns a new ChildVehicleItemQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildVehicleItemQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildVehicleItemQuery) {
             return $criteria;
@@ -160,7 +174,7 @@ abstract class VehicleItemQuery extends ModelCriteria
      *
      * @return ChildVehicleItem|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -192,8 +206,8 @@ abstract class VehicleItemQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -225,8 +239,8 @@ abstract class VehicleItemQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildVehicleItem|array|mixed the result, formatted by the current formatter
      */
@@ -246,12 +260,12 @@ abstract class VehicleItemQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -268,27 +282,31 @@ abstract class VehicleItemQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildVehicleItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(VehicleItemTableMap::COL_ID, $key, Criteria::EQUAL);
+        $this->addUsingAlias(VehicleItemTableMap::COL_ID, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildVehicleItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(VehicleItemTableMap::COL_ID, $keys, Criteria::IN);
+        $this->addUsingAlias(VehicleItemTableMap::COL_ID, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -301,15 +319,15 @@ abstract class VehicleItemQuery extends ModelCriteria
      * $query->filterById(array('min' => 12)); // WHERE id > 12
      * </code>
      *
-     * @param     mixed $id The value to use as filter.
+     * @param mixed $id The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVehicleItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterById($id = null, $comparison = null)
+    public function filterById($id = null, ?string $comparison = null)
     {
         if (is_array($id)) {
             $useMinMax = false;
@@ -329,7 +347,9 @@ abstract class VehicleItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VehicleItemTableMap::COL_ID, $id, $comparison);
+        $this->addUsingAlias(VehicleItemTableMap::COL_ID, $id, $comparison);
+
+        return $this;
     }
 
     /**
@@ -339,14 +359,15 @@ abstract class VehicleItemQuery extends ModelCriteria
      * <code>
      * $query->filterByCatalog('fooValue');   // WHERE catalog = 'fooValue'
      * $query->filterByCatalog('%fooValue%', Criteria::LIKE); // WHERE catalog LIKE '%fooValue%'
+     * $query->filterByCatalog(['foo', 'bar']); // WHERE catalog IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $catalog The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $catalog The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVehicleItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCatalog($catalog = null, $comparison = null)
+    public function filterByCatalog($catalog = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($catalog)) {
@@ -354,7 +375,9 @@ abstract class VehicleItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VehicleItemTableMap::COL_CATALOG, $catalog, $comparison);
+        $this->addUsingAlias(VehicleItemTableMap::COL_CATALOG, $catalog, $comparison);
+
+        return $this;
     }
 
     /**
@@ -367,15 +390,15 @@ abstract class VehicleItemQuery extends ModelCriteria
      * $query->filterByFromyear(array('min' => 12)); // WHERE fromyear > 12
      * </code>
      *
-     * @param     mixed $fromyear The value to use as filter.
+     * @param mixed $fromyear The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVehicleItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByFromyear($fromyear = null, $comparison = null)
+    public function filterByFromyear($fromyear = null, ?string $comparison = null)
     {
         if (is_array($fromyear)) {
             $useMinMax = false;
@@ -395,7 +418,9 @@ abstract class VehicleItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VehicleItemTableMap::COL_FROMYEAR, $fromyear, $comparison);
+        $this->addUsingAlias(VehicleItemTableMap::COL_FROMYEAR, $fromyear, $comparison);
+
+        return $this;
     }
 
     /**
@@ -408,15 +433,15 @@ abstract class VehicleItemQuery extends ModelCriteria
      * $query->filterByThroughyear(array('min' => 12)); // WHERE throughyear > 12
      * </code>
      *
-     * @param     mixed $throughyear The value to use as filter.
+     * @param mixed $throughyear The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVehicleItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByThroughyear($throughyear = null, $comparison = null)
+    public function filterByThroughyear($throughyear = null, ?string $comparison = null)
     {
         if (is_array($throughyear)) {
             $useMinMax = false;
@@ -436,7 +461,9 @@ abstract class VehicleItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VehicleItemTableMap::COL_THROUGHYEAR, $throughyear, $comparison);
+        $this->addUsingAlias(VehicleItemTableMap::COL_THROUGHYEAR, $throughyear, $comparison);
+
+        return $this;
     }
 
     /**
@@ -446,14 +473,15 @@ abstract class VehicleItemQuery extends ModelCriteria
      * <code>
      * $query->filterByMake('fooValue');   // WHERE make = 'fooValue'
      * $query->filterByMake('%fooValue%', Criteria::LIKE); // WHERE make LIKE '%fooValue%'
+     * $query->filterByMake(['foo', 'bar']); // WHERE make IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $make The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $make The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVehicleItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByMake($make = null, $comparison = null)
+    public function filterByMake($make = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($make)) {
@@ -461,7 +489,9 @@ abstract class VehicleItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VehicleItemTableMap::COL_MAKE, $make, $comparison);
+        $this->addUsingAlias(VehicleItemTableMap::COL_MAKE, $make, $comparison);
+
+        return $this;
     }
 
     /**
@@ -474,15 +504,15 @@ abstract class VehicleItemQuery extends ModelCriteria
      * $query->filterByEngine(array('min' => 12)); // WHERE engine > 12
      * </code>
      *
-     * @param     mixed $engine The value to use as filter.
+     * @param mixed $engine The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVehicleItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByEngine($engine = null, $comparison = null)
+    public function filterByEngine($engine = null, ?string $comparison = null)
     {
         if (is_array($engine)) {
             $useMinMax = false;
@@ -502,7 +532,9 @@ abstract class VehicleItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VehicleItemTableMap::COL_ENGINE, $engine, $comparison);
+        $this->addUsingAlias(VehicleItemTableMap::COL_ENGINE, $engine, $comparison);
+
+        return $this;
     }
 
     /**
@@ -512,14 +544,15 @@ abstract class VehicleItemQuery extends ModelCriteria
      * <code>
      * $query->filterByModel('fooValue');   // WHERE model = 'fooValue'
      * $query->filterByModel('%fooValue%', Criteria::LIKE); // WHERE model LIKE '%fooValue%'
+     * $query->filterByModel(['foo', 'bar']); // WHERE model IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $model The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $model The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVehicleItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByModel($model = null, $comparison = null)
+    public function filterByModel($model = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($model)) {
@@ -527,7 +560,9 @@ abstract class VehicleItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VehicleItemTableMap::COL_MODEL, $model, $comparison);
+        $this->addUsingAlias(VehicleItemTableMap::COL_MODEL, $model, $comparison);
+
+        return $this;
     }
 
     /**
@@ -537,14 +572,15 @@ abstract class VehicleItemQuery extends ModelCriteria
      * <code>
      * $query->filterBySubmodel('fooValue');   // WHERE submodel = 'fooValue'
      * $query->filterBySubmodel('%fooValue%', Criteria::LIKE); // WHERE submodel LIKE '%fooValue%'
+     * $query->filterBySubmodel(['foo', 'bar']); // WHERE submodel IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $submodel The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $submodel The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVehicleItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySubmodel($submodel = null, $comparison = null)
+    public function filterBySubmodel($submodel = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($submodel)) {
@@ -552,7 +588,9 @@ abstract class VehicleItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VehicleItemTableMap::COL_SUBMODEL, $submodel, $comparison);
+        $this->addUsingAlias(VehicleItemTableMap::COL_SUBMODEL, $submodel, $comparison);
+
+        return $this;
     }
 
     /**
@@ -562,14 +600,15 @@ abstract class VehicleItemQuery extends ModelCriteria
      * <code>
      * $query->filterByItemid('fooValue');   // WHERE itemid = 'fooValue'
      * $query->filterByItemid('%fooValue%', Criteria::LIKE); // WHERE itemid LIKE '%fooValue%'
+     * $query->filterByItemid(['foo', 'bar']); // WHERE itemid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itemid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itemid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVehicleItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemid($itemid = null, $comparison = null)
+    public function filterByItemid($itemid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itemid)) {
@@ -577,7 +616,9 @@ abstract class VehicleItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VehicleItemTableMap::COL_ITEMID, $itemid, $comparison);
+        $this->addUsingAlias(VehicleItemTableMap::COL_ITEMID, $itemid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -587,14 +628,15 @@ abstract class VehicleItemQuery extends ModelCriteria
      * <code>
      * $query->filterByApplication('fooValue');   // WHERE application = 'fooValue'
      * $query->filterByApplication('%fooValue%', Criteria::LIKE); // WHERE application LIKE '%fooValue%'
+     * $query->filterByApplication(['foo', 'bar']); // WHERE application IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $application The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $application The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVehicleItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApplication($application = null, $comparison = null)
+    public function filterByApplication($application = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($application)) {
@@ -602,7 +644,9 @@ abstract class VehicleItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VehicleItemTableMap::COL_APPLICATION, $application, $comparison);
+        $this->addUsingAlias(VehicleItemTableMap::COL_APPLICATION, $application, $comparison);
+
+        return $this;
     }
 
     /**
@@ -612,14 +656,15 @@ abstract class VehicleItemQuery extends ModelCriteria
      * <code>
      * $query->filterBynotes('fooValue');   // WHERE notes = 'fooValue'
      * $query->filterBynotes('%fooValue%', Criteria::LIKE); // WHERE notes LIKE '%fooValue%'
+     * $query->filterBynotes(['foo', 'bar']); // WHERE notes IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $notes The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $notes The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVehicleItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBynotes($notes = null, $comparison = null)
+    public function filterBynotes($notes = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($notes)) {
@@ -627,7 +672,9 @@ abstract class VehicleItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VehicleItemTableMap::COL_NOTES, $notes, $comparison);
+        $this->addUsingAlias(VehicleItemTableMap::COL_NOTES, $notes, $comparison);
+
+        return $this;
     }
 
     /**
@@ -640,15 +687,15 @@ abstract class VehicleItemQuery extends ModelCriteria
      * $query->filterByDate(array('min' => 12)); // WHERE date > 12
      * </code>
      *
-     * @param     mixed $date The value to use as filter.
+     * @param mixed $date The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVehicleItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDate($date = null, $comparison = null)
+    public function filterByDate($date = null, ?string $comparison = null)
     {
         if (is_array($date)) {
             $useMinMax = false;
@@ -668,7 +715,9 @@ abstract class VehicleItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VehicleItemTableMap::COL_DATE, $date, $comparison);
+        $this->addUsingAlias(VehicleItemTableMap::COL_DATE, $date, $comparison);
+
+        return $this;
     }
 
     /**
@@ -681,15 +730,15 @@ abstract class VehicleItemQuery extends ModelCriteria
      * $query->filterByTime(array('min' => 12)); // WHERE time > 12
      * </code>
      *
-     * @param     mixed $time The value to use as filter.
+     * @param mixed $time The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVehicleItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTime($time = null, $comparison = null)
+    public function filterByTime($time = null, ?string $comparison = null)
     {
         if (is_array($time)) {
             $useMinMax = false;
@@ -709,15 +758,17 @@ abstract class VehicleItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VehicleItemTableMap::COL_TIME, $time, $comparison);
+        $this->addUsingAlias(VehicleItemTableMap::COL_TIME, $time, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildVehicleItem $vehicleItem Object to remove from the list of results
+     * @param ChildVehicleItem $vehicleItem Object to remove from the list of results
      *
-     * @return $this|ChildVehicleItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($vehicleItem = null)
     {
@@ -734,7 +785,7 @@ abstract class VehicleItemQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(VehicleItemTableMap::DATABASE_NAME);
@@ -759,12 +810,12 @@ abstract class VehicleItemQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(VehicleItemTableMap::DATABASE_NAME);
@@ -789,4 +840,4 @@ abstract class VehicleItemQuery extends ModelCriteria
         });
     }
 
-} // VehicleItemQuery
+}

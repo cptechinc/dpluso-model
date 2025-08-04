@@ -10,14 +10,12 @@ use Map\NotesCartTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'notes_cart' table.
- *
- *
+ * Base class that represents a query for the `notes_cart` table.
  *
  * @method     ChildNotesCartQuery orderBySessionid($order = Criteria::ASC) Order by the sessionid column
  * @method     ChildNotesCartQuery orderByItemid($order = Criteria::ASC) Order by the itemid column
@@ -43,19 +41,19 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildNotesCartQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildNotesCartQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildNotesCart findOne(ConnectionInterface $con = null) Return the first ChildNotesCart matching the query
- * @method     ChildNotesCart findOneOrCreate(ConnectionInterface $con = null) Return the first ChildNotesCart matching the query, or a new ChildNotesCart object populated from the query conditions when no match is found
+ * @method     ChildNotesCart|null findOne(?ConnectionInterface $con = null) Return the first ChildNotesCart matching the query
+ * @method     ChildNotesCart findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildNotesCart matching the query, or a new ChildNotesCart object populated from the query conditions when no match is found
  *
- * @method     ChildNotesCart findOneBySessionid(string $sessionid) Return the first ChildNotesCart filtered by the sessionid column
- * @method     ChildNotesCart findOneByItemid(string $itemid) Return the first ChildNotesCart filtered by the itemid column
- * @method     ChildNotesCart findOneBySequence(int $sequence) Return the first ChildNotesCart filtered by the sequence column
- * @method     ChildNotesCart findOneByNote(string $note) Return the first ChildNotesCart filtered by the note column
- * @method     ChildNotesCart findOneByForm(string $form) Return the first ChildNotesCart filtered by the form column
- * @method     ChildNotesCart findOneByDate(string $date) Return the first ChildNotesCart filtered by the date column
- * @method     ChildNotesCart findOneByTime(string $time) Return the first ChildNotesCart filtered by the time column *
-
- * @method     ChildNotesCart requirePk($key, ConnectionInterface $con = null) Return the ChildNotesCart by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildNotesCart requireOne(ConnectionInterface $con = null) Return the first ChildNotesCart matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildNotesCart|null findOneBySessionid(string $sessionid) Return the first ChildNotesCart filtered by the sessionid column
+ * @method     ChildNotesCart|null findOneByItemid(string $itemid) Return the first ChildNotesCart filtered by the itemid column
+ * @method     ChildNotesCart|null findOneBySequence(int $sequence) Return the first ChildNotesCart filtered by the sequence column
+ * @method     ChildNotesCart|null findOneByNote(string $note) Return the first ChildNotesCart filtered by the note column
+ * @method     ChildNotesCart|null findOneByForm(string $form) Return the first ChildNotesCart filtered by the form column
+ * @method     ChildNotesCart|null findOneByDate(string $date) Return the first ChildNotesCart filtered by the date column
+ * @method     ChildNotesCart|null findOneByTime(string $time) Return the first ChildNotesCart filtered by the time column
+ *
+ * @method     ChildNotesCart requirePk($key, ?ConnectionInterface $con = null) Return the ChildNotesCart by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildNotesCart requireOne(?ConnectionInterface $con = null) Return the first ChildNotesCart matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildNotesCart requireOneBySessionid(string $sessionid) Return the first ChildNotesCart filtered by the sessionid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildNotesCart requireOneByItemid(string $itemid) Return the first ChildNotesCart filtered by the itemid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -65,16 +63,26 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildNotesCart requireOneByDate(string $date) Return the first ChildNotesCart filtered by the date column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildNotesCart requireOneByTime(string $time) Return the first ChildNotesCart filtered by the time column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildNotesCart[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildNotesCart objects based on current ModelCriteria
- * @method     ChildNotesCart[]|ObjectCollection findBySessionid(string $sessionid) Return ChildNotesCart objects filtered by the sessionid column
- * @method     ChildNotesCart[]|ObjectCollection findByItemid(string $itemid) Return ChildNotesCart objects filtered by the itemid column
- * @method     ChildNotesCart[]|ObjectCollection findBySequence(int $sequence) Return ChildNotesCart objects filtered by the sequence column
- * @method     ChildNotesCart[]|ObjectCollection findByNote(string $note) Return ChildNotesCart objects filtered by the note column
- * @method     ChildNotesCart[]|ObjectCollection findByForm(string $form) Return ChildNotesCart objects filtered by the form column
- * @method     ChildNotesCart[]|ObjectCollection findByDate(string $date) Return ChildNotesCart objects filtered by the date column
- * @method     ChildNotesCart[]|ObjectCollection findByTime(string $time) Return ChildNotesCart objects filtered by the time column
- * @method     ChildNotesCart[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildNotesCart[]|Collection find(?ConnectionInterface $con = null) Return ChildNotesCart objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildNotesCart> find(?ConnectionInterface $con = null) Return ChildNotesCart objects based on current ModelCriteria
  *
+ * @method     ChildNotesCart[]|Collection findBySessionid(string|array<string> $sessionid) Return ChildNotesCart objects filtered by the sessionid column
+ * @psalm-method Collection&\Traversable<ChildNotesCart> findBySessionid(string|array<string> $sessionid) Return ChildNotesCart objects filtered by the sessionid column
+ * @method     ChildNotesCart[]|Collection findByItemid(string|array<string> $itemid) Return ChildNotesCart objects filtered by the itemid column
+ * @psalm-method Collection&\Traversable<ChildNotesCart> findByItemid(string|array<string> $itemid) Return ChildNotesCart objects filtered by the itemid column
+ * @method     ChildNotesCart[]|Collection findBySequence(int|array<int> $sequence) Return ChildNotesCart objects filtered by the sequence column
+ * @psalm-method Collection&\Traversable<ChildNotesCart> findBySequence(int|array<int> $sequence) Return ChildNotesCart objects filtered by the sequence column
+ * @method     ChildNotesCart[]|Collection findByNote(string|array<string> $note) Return ChildNotesCart objects filtered by the note column
+ * @psalm-method Collection&\Traversable<ChildNotesCart> findByNote(string|array<string> $note) Return ChildNotesCart objects filtered by the note column
+ * @method     ChildNotesCart[]|Collection findByForm(string|array<string> $form) Return ChildNotesCart objects filtered by the form column
+ * @psalm-method Collection&\Traversable<ChildNotesCart> findByForm(string|array<string> $form) Return ChildNotesCart objects filtered by the form column
+ * @method     ChildNotesCart[]|Collection findByDate(string|array<string> $date) Return ChildNotesCart objects filtered by the date column
+ * @psalm-method Collection&\Traversable<ChildNotesCart> findByDate(string|array<string> $date) Return ChildNotesCart objects filtered by the date column
+ * @method     ChildNotesCart[]|Collection findByTime(string|array<string> $time) Return ChildNotesCart objects filtered by the time column
+ * @psalm-method Collection&\Traversable<ChildNotesCart> findByTime(string|array<string> $time) Return ChildNotesCart objects filtered by the time column
+ *
+ * @method     ChildNotesCart[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildNotesCart> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class NotesCartQuery extends ModelCriteria
 {
@@ -83,9 +91,9 @@ abstract class NotesCartQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\NotesCartQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'dplusodb', $modelName = '\\NotesCart', $modelAlias = null)
     {
@@ -95,12 +103,12 @@ abstract class NotesCartQuery extends ModelCriteria
     /**
      * Returns a new ChildNotesCartQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildNotesCartQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildNotesCartQuery) {
             return $criteria;
@@ -130,7 +138,7 @@ abstract class NotesCartQuery extends ModelCriteria
      *
      * @return ChildNotesCart|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -162,8 +170,8 @@ abstract class NotesCartQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -197,8 +205,8 @@ abstract class NotesCartQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildNotesCart|array|mixed the result, formatted by the current formatter
      */
@@ -218,12 +226,12 @@ abstract class NotesCartQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -240,9 +248,9 @@ abstract class NotesCartQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildNotesCartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -256,14 +264,16 @@ abstract class NotesCartQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildNotesCartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(NotesCartTableMap::COL_SESSIONID, $key[0], Criteria::EQUAL);
@@ -284,14 +294,15 @@ abstract class NotesCartQuery extends ModelCriteria
      * <code>
      * $query->filterBySessionid('fooValue');   // WHERE sessionid = 'fooValue'
      * $query->filterBySessionid('%fooValue%', Criteria::LIKE); // WHERE sessionid LIKE '%fooValue%'
+     * $query->filterBySessionid(['foo', 'bar']); // WHERE sessionid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sessionid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sessionid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNotesCartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySessionid($sessionid = null, $comparison = null)
+    public function filterBySessionid($sessionid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sessionid)) {
@@ -299,7 +310,9 @@ abstract class NotesCartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NotesCartTableMap::COL_SESSIONID, $sessionid, $comparison);
+        $this->addUsingAlias(NotesCartTableMap::COL_SESSIONID, $sessionid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -309,14 +322,15 @@ abstract class NotesCartQuery extends ModelCriteria
      * <code>
      * $query->filterByItemid('fooValue');   // WHERE itemid = 'fooValue'
      * $query->filterByItemid('%fooValue%', Criteria::LIKE); // WHERE itemid LIKE '%fooValue%'
+     * $query->filterByItemid(['foo', 'bar']); // WHERE itemid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itemid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itemid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNotesCartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemid($itemid = null, $comparison = null)
+    public function filterByItemid($itemid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itemid)) {
@@ -324,7 +338,9 @@ abstract class NotesCartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NotesCartTableMap::COL_ITEMID, $itemid, $comparison);
+        $this->addUsingAlias(NotesCartTableMap::COL_ITEMID, $itemid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -337,15 +353,15 @@ abstract class NotesCartQuery extends ModelCriteria
      * $query->filterBySequence(array('min' => 12)); // WHERE sequence > 12
      * </code>
      *
-     * @param     mixed $sequence The value to use as filter.
+     * @param mixed $sequence The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNotesCartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySequence($sequence = null, $comparison = null)
+    public function filterBySequence($sequence = null, ?string $comparison = null)
     {
         if (is_array($sequence)) {
             $useMinMax = false;
@@ -365,7 +381,9 @@ abstract class NotesCartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NotesCartTableMap::COL_SEQUENCE, $sequence, $comparison);
+        $this->addUsingAlias(NotesCartTableMap::COL_SEQUENCE, $sequence, $comparison);
+
+        return $this;
     }
 
     /**
@@ -375,14 +393,15 @@ abstract class NotesCartQuery extends ModelCriteria
      * <code>
      * $query->filterByNote('fooValue');   // WHERE note = 'fooValue'
      * $query->filterByNote('%fooValue%', Criteria::LIKE); // WHERE note LIKE '%fooValue%'
+     * $query->filterByNote(['foo', 'bar']); // WHERE note IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $note The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $note The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNotesCartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByNote($note = null, $comparison = null)
+    public function filterByNote($note = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($note)) {
@@ -390,7 +409,9 @@ abstract class NotesCartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NotesCartTableMap::COL_NOTE, $note, $comparison);
+        $this->addUsingAlias(NotesCartTableMap::COL_NOTE, $note, $comparison);
+
+        return $this;
     }
 
     /**
@@ -400,14 +421,15 @@ abstract class NotesCartQuery extends ModelCriteria
      * <code>
      * $query->filterByForm('fooValue');   // WHERE form = 'fooValue'
      * $query->filterByForm('%fooValue%', Criteria::LIKE); // WHERE form LIKE '%fooValue%'
+     * $query->filterByForm(['foo', 'bar']); // WHERE form IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $form The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $form The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNotesCartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByForm($form = null, $comparison = null)
+    public function filterByForm($form = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($form)) {
@@ -415,7 +437,9 @@ abstract class NotesCartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NotesCartTableMap::COL_FORM, $form, $comparison);
+        $this->addUsingAlias(NotesCartTableMap::COL_FORM, $form, $comparison);
+
+        return $this;
     }
 
     /**
@@ -425,14 +449,15 @@ abstract class NotesCartQuery extends ModelCriteria
      * <code>
      * $query->filterByDate('fooValue');   // WHERE date = 'fooValue'
      * $query->filterByDate('%fooValue%', Criteria::LIKE); // WHERE date LIKE '%fooValue%'
+     * $query->filterByDate(['foo', 'bar']); // WHERE date IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $date The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $date The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNotesCartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDate($date = null, $comparison = null)
+    public function filterByDate($date = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($date)) {
@@ -440,7 +465,9 @@ abstract class NotesCartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NotesCartTableMap::COL_DATE, $date, $comparison);
+        $this->addUsingAlias(NotesCartTableMap::COL_DATE, $date, $comparison);
+
+        return $this;
     }
 
     /**
@@ -450,14 +477,15 @@ abstract class NotesCartQuery extends ModelCriteria
      * <code>
      * $query->filterByTime('fooValue');   // WHERE time = 'fooValue'
      * $query->filterByTime('%fooValue%', Criteria::LIKE); // WHERE time LIKE '%fooValue%'
+     * $query->filterByTime(['foo', 'bar']); // WHERE time IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $time The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $time The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNotesCartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTime($time = null, $comparison = null)
+    public function filterByTime($time = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($time)) {
@@ -465,15 +493,17 @@ abstract class NotesCartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NotesCartTableMap::COL_TIME, $time, $comparison);
+        $this->addUsingAlias(NotesCartTableMap::COL_TIME, $time, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildNotesCart $notesCart Object to remove from the list of results
+     * @param ChildNotesCart $notesCart Object to remove from the list of results
      *
-     * @return $this|ChildNotesCartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($notesCart = null)
     {
@@ -493,7 +523,7 @@ abstract class NotesCartQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(NotesCartTableMap::DATABASE_NAME);
@@ -518,12 +548,12 @@ abstract class NotesCartQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(NotesCartTableMap::DATABASE_NAME);
@@ -548,4 +578,4 @@ abstract class NotesCartQuery extends ModelCriteria
         });
     }
 
-} // NotesCartQuery
+}

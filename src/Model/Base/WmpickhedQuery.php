@@ -10,14 +10,12 @@ use Map\WmpickhedTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'wmpickhed' table.
- *
- *
+ * Base class that represents a query for the `wmpickhed` table.
  *
  * @method     ChildWmpickhedQuery orderByOrdernbr($order = Criteria::ASC) Order by the ordernbr column
  * @method     ChildWmpickhedQuery orderByRecno($order = Criteria::ASC) Order by the recno column
@@ -49,22 +47,22 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWmpickhedQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildWmpickhedQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildWmpickhed findOne(ConnectionInterface $con = null) Return the first ChildWmpickhed matching the query
- * @method     ChildWmpickhed findOneOrCreate(ConnectionInterface $con = null) Return the first ChildWmpickhed matching the query, or a new ChildWmpickhed object populated from the query conditions when no match is found
+ * @method     ChildWmpickhed|null findOne(?ConnectionInterface $con = null) Return the first ChildWmpickhed matching the query
+ * @method     ChildWmpickhed findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildWmpickhed matching the query, or a new ChildWmpickhed object populated from the query conditions when no match is found
  *
- * @method     ChildWmpickhed findOneByOrdernbr(string $ordernbr) Return the first ChildWmpickhed filtered by the ordernbr column
- * @method     ChildWmpickhed findOneByRecno(int $recno) Return the first ChildWmpickhed filtered by the recno column
- * @method     ChildWmpickhed findOneByDate(int $date) Return the first ChildWmpickhed filtered by the date column
- * @method     ChildWmpickhed findOneByTime(int $time) Return the first ChildWmpickhed filtered by the time column
- * @method     ChildWmpickhed findOneByCustomerid(string $customerid) Return the first ChildWmpickhed filtered by the customerid column
- * @method     ChildWmpickhed findOneByCustomername(string $customername) Return the first ChildWmpickhed filtered by the customername column
- * @method     ChildWmpickhed findOneByStatusmsg(string $statusmsg) Return the first ChildWmpickhed filtered by the statusmsg column
- * @method     ChildWmpickhed findOneByLastpalletnbr(int $lastpalletnbr) Return the first ChildWmpickhed filtered by the lastpalletnbr column
- * @method     ChildWmpickhed findOneByFunction(string $function) Return the first ChildWmpickhed filtered by the function column
- * @method     ChildWmpickhed findOneByDummy(string $dummy) Return the first ChildWmpickhed filtered by the dummy column *
-
- * @method     ChildWmpickhed requirePk($key, ConnectionInterface $con = null) Return the ChildWmpickhed by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWmpickhed requireOne(ConnectionInterface $con = null) Return the first ChildWmpickhed matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWmpickhed|null findOneByOrdernbr(string $ordernbr) Return the first ChildWmpickhed filtered by the ordernbr column
+ * @method     ChildWmpickhed|null findOneByRecno(int $recno) Return the first ChildWmpickhed filtered by the recno column
+ * @method     ChildWmpickhed|null findOneByDate(int $date) Return the first ChildWmpickhed filtered by the date column
+ * @method     ChildWmpickhed|null findOneByTime(int $time) Return the first ChildWmpickhed filtered by the time column
+ * @method     ChildWmpickhed|null findOneByCustomerid(string $customerid) Return the first ChildWmpickhed filtered by the customerid column
+ * @method     ChildWmpickhed|null findOneByCustomername(string $customername) Return the first ChildWmpickhed filtered by the customername column
+ * @method     ChildWmpickhed|null findOneByStatusmsg(string $statusmsg) Return the first ChildWmpickhed filtered by the statusmsg column
+ * @method     ChildWmpickhed|null findOneByLastpalletnbr(int $lastpalletnbr) Return the first ChildWmpickhed filtered by the lastpalletnbr column
+ * @method     ChildWmpickhed|null findOneByFunction(string $function) Return the first ChildWmpickhed filtered by the function column
+ * @method     ChildWmpickhed|null findOneByDummy(string $dummy) Return the first ChildWmpickhed filtered by the dummy column
+ *
+ * @method     ChildWmpickhed requirePk($key, ?ConnectionInterface $con = null) Return the ChildWmpickhed by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWmpickhed requireOne(?ConnectionInterface $con = null) Return the first ChildWmpickhed matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildWmpickhed requireOneByOrdernbr(string $ordernbr) Return the first ChildWmpickhed filtered by the ordernbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWmpickhed requireOneByRecno(int $recno) Return the first ChildWmpickhed filtered by the recno column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -77,19 +75,32 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWmpickhed requireOneByFunction(string $function) Return the first ChildWmpickhed filtered by the function column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWmpickhed requireOneByDummy(string $dummy) Return the first ChildWmpickhed filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildWmpickhed[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildWmpickhed objects based on current ModelCriteria
- * @method     ChildWmpickhed[]|ObjectCollection findByOrdernbr(string $ordernbr) Return ChildWmpickhed objects filtered by the ordernbr column
- * @method     ChildWmpickhed[]|ObjectCollection findByRecno(int $recno) Return ChildWmpickhed objects filtered by the recno column
- * @method     ChildWmpickhed[]|ObjectCollection findByDate(int $date) Return ChildWmpickhed objects filtered by the date column
- * @method     ChildWmpickhed[]|ObjectCollection findByTime(int $time) Return ChildWmpickhed objects filtered by the time column
- * @method     ChildWmpickhed[]|ObjectCollection findByCustomerid(string $customerid) Return ChildWmpickhed objects filtered by the customerid column
- * @method     ChildWmpickhed[]|ObjectCollection findByCustomername(string $customername) Return ChildWmpickhed objects filtered by the customername column
- * @method     ChildWmpickhed[]|ObjectCollection findByStatusmsg(string $statusmsg) Return ChildWmpickhed objects filtered by the statusmsg column
- * @method     ChildWmpickhed[]|ObjectCollection findByLastpalletnbr(int $lastpalletnbr) Return ChildWmpickhed objects filtered by the lastpalletnbr column
- * @method     ChildWmpickhed[]|ObjectCollection findByFunction(string $function) Return ChildWmpickhed objects filtered by the function column
- * @method     ChildWmpickhed[]|ObjectCollection findByDummy(string $dummy) Return ChildWmpickhed objects filtered by the dummy column
- * @method     ChildWmpickhed[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildWmpickhed[]|Collection find(?ConnectionInterface $con = null) Return ChildWmpickhed objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildWmpickhed> find(?ConnectionInterface $con = null) Return ChildWmpickhed objects based on current ModelCriteria
  *
+ * @method     ChildWmpickhed[]|Collection findByOrdernbr(string|array<string> $ordernbr) Return ChildWmpickhed objects filtered by the ordernbr column
+ * @psalm-method Collection&\Traversable<ChildWmpickhed> findByOrdernbr(string|array<string> $ordernbr) Return ChildWmpickhed objects filtered by the ordernbr column
+ * @method     ChildWmpickhed[]|Collection findByRecno(int|array<int> $recno) Return ChildWmpickhed objects filtered by the recno column
+ * @psalm-method Collection&\Traversable<ChildWmpickhed> findByRecno(int|array<int> $recno) Return ChildWmpickhed objects filtered by the recno column
+ * @method     ChildWmpickhed[]|Collection findByDate(int|array<int> $date) Return ChildWmpickhed objects filtered by the date column
+ * @psalm-method Collection&\Traversable<ChildWmpickhed> findByDate(int|array<int> $date) Return ChildWmpickhed objects filtered by the date column
+ * @method     ChildWmpickhed[]|Collection findByTime(int|array<int> $time) Return ChildWmpickhed objects filtered by the time column
+ * @psalm-method Collection&\Traversable<ChildWmpickhed> findByTime(int|array<int> $time) Return ChildWmpickhed objects filtered by the time column
+ * @method     ChildWmpickhed[]|Collection findByCustomerid(string|array<string> $customerid) Return ChildWmpickhed objects filtered by the customerid column
+ * @psalm-method Collection&\Traversable<ChildWmpickhed> findByCustomerid(string|array<string> $customerid) Return ChildWmpickhed objects filtered by the customerid column
+ * @method     ChildWmpickhed[]|Collection findByCustomername(string|array<string> $customername) Return ChildWmpickhed objects filtered by the customername column
+ * @psalm-method Collection&\Traversable<ChildWmpickhed> findByCustomername(string|array<string> $customername) Return ChildWmpickhed objects filtered by the customername column
+ * @method     ChildWmpickhed[]|Collection findByStatusmsg(string|array<string> $statusmsg) Return ChildWmpickhed objects filtered by the statusmsg column
+ * @psalm-method Collection&\Traversable<ChildWmpickhed> findByStatusmsg(string|array<string> $statusmsg) Return ChildWmpickhed objects filtered by the statusmsg column
+ * @method     ChildWmpickhed[]|Collection findByLastpalletnbr(int|array<int> $lastpalletnbr) Return ChildWmpickhed objects filtered by the lastpalletnbr column
+ * @psalm-method Collection&\Traversable<ChildWmpickhed> findByLastpalletnbr(int|array<int> $lastpalletnbr) Return ChildWmpickhed objects filtered by the lastpalletnbr column
+ * @method     ChildWmpickhed[]|Collection findByFunction(string|array<string> $function) Return ChildWmpickhed objects filtered by the function column
+ * @psalm-method Collection&\Traversable<ChildWmpickhed> findByFunction(string|array<string> $function) Return ChildWmpickhed objects filtered by the function column
+ * @method     ChildWmpickhed[]|Collection findByDummy(string|array<string> $dummy) Return ChildWmpickhed objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildWmpickhed> findByDummy(string|array<string> $dummy) Return ChildWmpickhed objects filtered by the dummy column
+ *
+ * @method     ChildWmpickhed[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildWmpickhed> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class WmpickhedQuery extends ModelCriteria
 {
@@ -98,9 +109,9 @@ abstract class WmpickhedQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\WmpickhedQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'dplusodb', $modelName = '\\Wmpickhed', $modelAlias = null)
     {
@@ -110,12 +121,12 @@ abstract class WmpickhedQuery extends ModelCriteria
     /**
      * Returns a new ChildWmpickhedQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildWmpickhedQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildWmpickhedQuery) {
             return $criteria;
@@ -145,7 +156,7 @@ abstract class WmpickhedQuery extends ModelCriteria
      *
      * @return ChildWmpickhed|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -177,8 +188,8 @@ abstract class WmpickhedQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -211,8 +222,8 @@ abstract class WmpickhedQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildWmpickhed|array|mixed the result, formatted by the current formatter
      */
@@ -232,12 +243,12 @@ abstract class WmpickhedQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -254,9 +265,9 @@ abstract class WmpickhedQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildWmpickhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -269,14 +280,16 @@ abstract class WmpickhedQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildWmpickhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(WmpickhedTableMap::COL_ORDERNBR, $key[0], Criteria::EQUAL);
@@ -295,14 +308,15 @@ abstract class WmpickhedQuery extends ModelCriteria
      * <code>
      * $query->filterByOrdernbr('fooValue');   // WHERE ordernbr = 'fooValue'
      * $query->filterByOrdernbr('%fooValue%', Criteria::LIKE); // WHERE ordernbr LIKE '%fooValue%'
+     * $query->filterByOrdernbr(['foo', 'bar']); // WHERE ordernbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $ordernbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $ordernbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWmpickhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOrdernbr($ordernbr = null, $comparison = null)
+    public function filterByOrdernbr($ordernbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($ordernbr)) {
@@ -310,7 +324,9 @@ abstract class WmpickhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WmpickhedTableMap::COL_ORDERNBR, $ordernbr, $comparison);
+        $this->addUsingAlias(WmpickhedTableMap::COL_ORDERNBR, $ordernbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -323,15 +339,15 @@ abstract class WmpickhedQuery extends ModelCriteria
      * $query->filterByRecno(array('min' => 12)); // WHERE recno > 12
      * </code>
      *
-     * @param     mixed $recno The value to use as filter.
+     * @param mixed $recno The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWmpickhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByRecno($recno = null, $comparison = null)
+    public function filterByRecno($recno = null, ?string $comparison = null)
     {
         if (is_array($recno)) {
             $useMinMax = false;
@@ -351,7 +367,9 @@ abstract class WmpickhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WmpickhedTableMap::COL_RECNO, $recno, $comparison);
+        $this->addUsingAlias(WmpickhedTableMap::COL_RECNO, $recno, $comparison);
+
+        return $this;
     }
 
     /**
@@ -364,15 +382,15 @@ abstract class WmpickhedQuery extends ModelCriteria
      * $query->filterByDate(array('min' => 12)); // WHERE date > 12
      * </code>
      *
-     * @param     mixed $date The value to use as filter.
+     * @param mixed $date The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWmpickhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDate($date = null, $comparison = null)
+    public function filterByDate($date = null, ?string $comparison = null)
     {
         if (is_array($date)) {
             $useMinMax = false;
@@ -392,7 +410,9 @@ abstract class WmpickhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WmpickhedTableMap::COL_DATE, $date, $comparison);
+        $this->addUsingAlias(WmpickhedTableMap::COL_DATE, $date, $comparison);
+
+        return $this;
     }
 
     /**
@@ -405,15 +425,15 @@ abstract class WmpickhedQuery extends ModelCriteria
      * $query->filterByTime(array('min' => 12)); // WHERE time > 12
      * </code>
      *
-     * @param     mixed $time The value to use as filter.
+     * @param mixed $time The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWmpickhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTime($time = null, $comparison = null)
+    public function filterByTime($time = null, ?string $comparison = null)
     {
         if (is_array($time)) {
             $useMinMax = false;
@@ -433,7 +453,9 @@ abstract class WmpickhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WmpickhedTableMap::COL_TIME, $time, $comparison);
+        $this->addUsingAlias(WmpickhedTableMap::COL_TIME, $time, $comparison);
+
+        return $this;
     }
 
     /**
@@ -443,14 +465,15 @@ abstract class WmpickhedQuery extends ModelCriteria
      * <code>
      * $query->filterByCustomerid('fooValue');   // WHERE customerid = 'fooValue'
      * $query->filterByCustomerid('%fooValue%', Criteria::LIKE); // WHERE customerid LIKE '%fooValue%'
+     * $query->filterByCustomerid(['foo', 'bar']); // WHERE customerid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $customerid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $customerid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWmpickhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustomerid($customerid = null, $comparison = null)
+    public function filterByCustomerid($customerid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($customerid)) {
@@ -458,7 +481,9 @@ abstract class WmpickhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WmpickhedTableMap::COL_CUSTOMERID, $customerid, $comparison);
+        $this->addUsingAlias(WmpickhedTableMap::COL_CUSTOMERID, $customerid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -468,14 +493,15 @@ abstract class WmpickhedQuery extends ModelCriteria
      * <code>
      * $query->filterByCustomername('fooValue');   // WHERE customername = 'fooValue'
      * $query->filterByCustomername('%fooValue%', Criteria::LIKE); // WHERE customername LIKE '%fooValue%'
+     * $query->filterByCustomername(['foo', 'bar']); // WHERE customername IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $customername The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $customername The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWmpickhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustomername($customername = null, $comparison = null)
+    public function filterByCustomername($customername = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($customername)) {
@@ -483,7 +509,9 @@ abstract class WmpickhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WmpickhedTableMap::COL_CUSTOMERNAME, $customername, $comparison);
+        $this->addUsingAlias(WmpickhedTableMap::COL_CUSTOMERNAME, $customername, $comparison);
+
+        return $this;
     }
 
     /**
@@ -493,14 +521,15 @@ abstract class WmpickhedQuery extends ModelCriteria
      * <code>
      * $query->filterByStatusmsg('fooValue');   // WHERE statusmsg = 'fooValue'
      * $query->filterByStatusmsg('%fooValue%', Criteria::LIKE); // WHERE statusmsg LIKE '%fooValue%'
+     * $query->filterByStatusmsg(['foo', 'bar']); // WHERE statusmsg IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $statusmsg The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $statusmsg The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWmpickhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByStatusmsg($statusmsg = null, $comparison = null)
+    public function filterByStatusmsg($statusmsg = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($statusmsg)) {
@@ -508,7 +537,9 @@ abstract class WmpickhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WmpickhedTableMap::COL_STATUSMSG, $statusmsg, $comparison);
+        $this->addUsingAlias(WmpickhedTableMap::COL_STATUSMSG, $statusmsg, $comparison);
+
+        return $this;
     }
 
     /**
@@ -521,15 +552,15 @@ abstract class WmpickhedQuery extends ModelCriteria
      * $query->filterByLastpalletnbr(array('min' => 12)); // WHERE lastpalletnbr > 12
      * </code>
      *
-     * @param     mixed $lastpalletnbr The value to use as filter.
+     * @param mixed $lastpalletnbr The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWmpickhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLastpalletnbr($lastpalletnbr = null, $comparison = null)
+    public function filterByLastpalletnbr($lastpalletnbr = null, ?string $comparison = null)
     {
         if (is_array($lastpalletnbr)) {
             $useMinMax = false;
@@ -549,7 +580,9 @@ abstract class WmpickhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WmpickhedTableMap::COL_LASTPALLETNBR, $lastpalletnbr, $comparison);
+        $this->addUsingAlias(WmpickhedTableMap::COL_LASTPALLETNBR, $lastpalletnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -559,14 +592,15 @@ abstract class WmpickhedQuery extends ModelCriteria
      * <code>
      * $query->filterByFunction('fooValue');   // WHERE function = 'fooValue'
      * $query->filterByFunction('%fooValue%', Criteria::LIKE); // WHERE function LIKE '%fooValue%'
+     * $query->filterByFunction(['foo', 'bar']); // WHERE function IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $function The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $function The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWmpickhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByFunction($function = null, $comparison = null)
+    public function filterByFunction($function = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($function)) {
@@ -574,7 +608,9 @@ abstract class WmpickhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WmpickhedTableMap::COL_FUNCTION, $function, $comparison);
+        $this->addUsingAlias(WmpickhedTableMap::COL_FUNCTION, $function, $comparison);
+
+        return $this;
     }
 
     /**
@@ -584,14 +620,15 @@ abstract class WmpickhedQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWmpickhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -599,15 +636,17 @@ abstract class WmpickhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WmpickhedTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(WmpickhedTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildWmpickhed $wmpickhed Object to remove from the list of results
+     * @param ChildWmpickhed $wmpickhed Object to remove from the list of results
      *
-     * @return $this|ChildWmpickhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($wmpickhed = null)
     {
@@ -626,7 +665,7 @@ abstract class WmpickhedQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(WmpickhedTableMap::DATABASE_NAME);
@@ -651,12 +690,12 @@ abstract class WmpickhedQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(WmpickhedTableMap::DATABASE_NAME);
@@ -681,4 +720,4 @@ abstract class WmpickhedQuery extends ModelCriteria
         });
     }
 
-} // WmpickhedQuery
+}

@@ -10,14 +10,12 @@ use Map\OrdrhedTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'ordrhed' table.
- *
- *
+ * Base class that represents a query for the `ordrhed` table.
  *
  * @method     ChildOrdrhedQuery orderBySessionid($order = Criteria::ASC) Order by the sessionid column
  * @method     ChildOrdrhedQuery orderByRecno($order = Criteria::ASC) Order by the recno column
@@ -207,101 +205,101 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildOrdrhedQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildOrdrhedQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildOrdrhed findOne(ConnectionInterface $con = null) Return the first ChildOrdrhed matching the query
- * @method     ChildOrdrhed findOneOrCreate(ConnectionInterface $con = null) Return the first ChildOrdrhed matching the query, or a new ChildOrdrhed object populated from the query conditions when no match is found
+ * @method     ChildOrdrhed|null findOne(?ConnectionInterface $con = null) Return the first ChildOrdrhed matching the query
+ * @method     ChildOrdrhed findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildOrdrhed matching the query, or a new ChildOrdrhed object populated from the query conditions when no match is found
  *
- * @method     ChildOrdrhed findOneBySessionid(string $sessionid) Return the first ChildOrdrhed filtered by the sessionid column
- * @method     ChildOrdrhed findOneByRecno(int $recno) Return the first ChildOrdrhed filtered by the recno column
- * @method     ChildOrdrhed findOneByDate(int $date) Return the first ChildOrdrhed filtered by the date column
- * @method     ChildOrdrhed findOneByTime(int $time) Return the first ChildOrdrhed filtered by the time column
- * @method     ChildOrdrhed findOneByType(string $type) Return the first ChildOrdrhed filtered by the type column
- * @method     ChildOrdrhed findOneByCustid(string $custid) Return the first ChildOrdrhed filtered by the custid column
- * @method     ChildOrdrhed findOneByShiptoid(string $shiptoid) Return the first ChildOrdrhed filtered by the shiptoid column
- * @method     ChildOrdrhed findOneByCustname(string $custname) Return the first ChildOrdrhed filtered by the custname column
- * @method     ChildOrdrhed findOneByOrderno(string $orderno) Return the first ChildOrdrhed filtered by the orderno column
- * @method     ChildOrdrhed findOneByCustpo(string $custpo) Return the first ChildOrdrhed filtered by the custpo column
- * @method     ChildOrdrhed findOneByCustref(string $custref) Return the first ChildOrdrhed filtered by the custref column
- * @method     ChildOrdrhed findOneByStatus(string $status) Return the first ChildOrdrhed filtered by the status column
- * @method     ChildOrdrhed findOneByOrderdate(string $orderdate) Return the first ChildOrdrhed filtered by the orderdate column
- * @method     ChildOrdrhed findOneByCareof(string $careof) Return the first ChildOrdrhed filtered by the careof column
- * @method     ChildOrdrhed findOneByQuotdate(string $quotdate) Return the first ChildOrdrhed filtered by the quotdate column
- * @method     ChildOrdrhed findOneByInvdate(string $invdate) Return the first ChildOrdrhed filtered by the invdate column
- * @method     ChildOrdrhed findOneByShipdate(string $shipdate) Return the first ChildOrdrhed filtered by the shipdate column
- * @method     ChildOrdrhed findOneByRevdate(string $revdate) Return the first ChildOrdrhed filtered by the revdate column
- * @method     ChildOrdrhed findOneByExpdate(string $expdate) Return the first ChildOrdrhed filtered by the expdate column
- * @method     ChildOrdrhed findOneByHasdocuments(string $hasdocuments) Return the first ChildOrdrhed filtered by the hasdocuments column
- * @method     ChildOrdrhed findOneByHastracking(string $hastracking) Return the first ChildOrdrhed filtered by the hastracking column
- * @method     ChildOrdrhed findOneBySubtotal(string $subtotal) Return the first ChildOrdrhed filtered by the subtotal column
- * @method     ChildOrdrhed findOneBySalestax(string $salestax) Return the first ChildOrdrhed filtered by the salestax column
- * @method     ChildOrdrhed findOneByFreight(string $freight) Return the first ChildOrdrhed filtered by the freight column
- * @method     ChildOrdrhed findOneByMisccost(string $misccost) Return the first ChildOrdrhed filtered by the misccost column
- * @method     ChildOrdrhed findOneByOrdertotal(string $ordertotal) Return the first ChildOrdrhed filtered by the ordertotal column
- * @method     ChildOrdrhed findOneByHasnotes(string $hasnotes) Return the first ChildOrdrhed filtered by the hasnotes column
- * @method     ChildOrdrhed findOneByEditord(string $editord) Return the first ChildOrdrhed filtered by the editord column
- * @method     ChildOrdrhed findOneByError(string $error) Return the first ChildOrdrhed filtered by the error column
- * @method     ChildOrdrhed findOneByErrormsg(string $errormsg) Return the first ChildOrdrhed filtered by the errormsg column
- * @method     ChildOrdrhed findOneBySconame(string $sconame) Return the first ChildOrdrhed filtered by the sconame column
- * @method     ChildOrdrhed findOneByShipname(string $shipname) Return the first ChildOrdrhed filtered by the shipname column
- * @method     ChildOrdrhed findOneByShipaddress(string $shipaddress) Return the first ChildOrdrhed filtered by the shipaddress column
- * @method     ChildOrdrhed findOneByShipaddress2(string $shipaddress2) Return the first ChildOrdrhed filtered by the shipaddress2 column
- * @method     ChildOrdrhed findOneByShipcity(string $shipcity) Return the first ChildOrdrhed filtered by the shipcity column
- * @method     ChildOrdrhed findOneByShipstate(string $shipstate) Return the first ChildOrdrhed filtered by the shipstate column
- * @method     ChildOrdrhed findOneByShipzip(string $shipzip) Return the first ChildOrdrhed filtered by the shipzip column
- * @method     ChildOrdrhed findOneByShipcountry(string $shipcountry) Return the first ChildOrdrhed filtered by the shipcountry column
- * @method     ChildOrdrhed findOneByContact(string $contact) Return the first ChildOrdrhed filtered by the contact column
- * @method     ChildOrdrhed findOneByPhintl(string $phintl) Return the first ChildOrdrhed filtered by the phintl column
- * @method     ChildOrdrhed findOneByPhone(string $phone) Return the first ChildOrdrhed filtered by the phone column
- * @method     ChildOrdrhed findOneByExtension(string $extension) Return the first ChildOrdrhed filtered by the extension column
- * @method     ChildOrdrhed findOneByFaxnbr(string $faxnbr) Return the first ChildOrdrhed filtered by the faxnbr column
- * @method     ChildOrdrhed findOneByEmail(string $email) Return the first ChildOrdrhed filtered by the email column
- * @method     ChildOrdrhed findOneByReleasenbr(string $releasenbr) Return the first ChildOrdrhed filtered by the releasenbr column
- * @method     ChildOrdrhed findOneByShipviacd(string $shipviacd) Return the first ChildOrdrhed filtered by the shipviacd column
- * @method     ChildOrdrhed findOneByShipviadesc(string $shipviadesc) Return the first ChildOrdrhed filtered by the shipviadesc column
- * @method     ChildOrdrhed findOneByPricecode(string $pricecode) Return the first ChildOrdrhed filtered by the pricecode column
- * @method     ChildOrdrhed findOneByPricecodedesc(string $pricecodedesc) Return the first ChildOrdrhed filtered by the pricecodedesc column
- * @method     ChildOrdrhed findOneByPricedisp(string $pricedisp) Return the first ChildOrdrhed filtered by the pricedisp column
- * @method     ChildOrdrhed findOneByTaxcode(string $taxcode) Return the first ChildOrdrhed filtered by the taxcode column
- * @method     ChildOrdrhed findOneByTaxcodedesc(string $taxcodedesc) Return the first ChildOrdrhed filtered by the taxcodedesc column
- * @method     ChildOrdrhed findOneByTaxcodedisp(string $taxcodedisp) Return the first ChildOrdrhed filtered by the taxcodedisp column
- * @method     ChildOrdrhed findOneByTermcode(string $termcode) Return the first ChildOrdrhed filtered by the termcode column
- * @method     ChildOrdrhed findOneByTermtype(string $termtype) Return the first ChildOrdrhed filtered by the termtype column
- * @method     ChildOrdrhed findOneByTermcodedesc(string $termcodedesc) Return the first ChildOrdrhed filtered by the termcodedesc column
- * @method     ChildOrdrhed findOneByRqstdate(string $rqstdate) Return the first ChildOrdrhed filtered by the rqstdate column
- * @method     ChildOrdrhed findOneByShipcom(string $shipcom) Return the first ChildOrdrhed filtered by the shipcom column
- * @method     ChildOrdrhed findOneBySp1(string $sp1) Return the first ChildOrdrhed filtered by the sp1 column
- * @method     ChildOrdrhed findOneBySp1name(string $sp1name) Return the first ChildOrdrhed filtered by the sp1name column
- * @method     ChildOrdrhed findOneBySp2(string $sp2) Return the first ChildOrdrhed filtered by the sp2 column
- * @method     ChildOrdrhed findOneBySp2name(string $sp2name) Return the first ChildOrdrhed filtered by the sp2name column
- * @method     ChildOrdrhed findOneBySp2disp(string $sp2disp) Return the first ChildOrdrhed filtered by the sp2disp column
- * @method     ChildOrdrhed findOneBySp3(string $sp3) Return the first ChildOrdrhed filtered by the sp3 column
- * @method     ChildOrdrhed findOneBySp3name(string $sp3name) Return the first ChildOrdrhed filtered by the sp3name column
- * @method     ChildOrdrhed findOneBySp3disp(string $sp3disp) Return the first ChildOrdrhed filtered by the sp3disp column
- * @method     ChildOrdrhed findOneByFob(string $fob) Return the first ChildOrdrhed filtered by the fob column
- * @method     ChildOrdrhed findOneByDeliverydesc(string $deliverydesc) Return the first ChildOrdrhed filtered by the deliverydesc column
- * @method     ChildOrdrhed findOneByWhse(string $whse) Return the first ChildOrdrhed filtered by the whse column
- * @method     ChildOrdrhed findOneByCardnumber(string $cardnumber) Return the first ChildOrdrhed filtered by the cardnumber column
- * @method     ChildOrdrhed findOneByCardexpire(string $cardexpire) Return the first ChildOrdrhed filtered by the cardexpire column
- * @method     ChildOrdrhed findOneByCardcode(string $cardcode) Return the first ChildOrdrhed filtered by the cardcode column
- * @method     ChildOrdrhed findOneByCardapproval(string $cardapproval) Return the first ChildOrdrhed filtered by the cardapproval column
- * @method     ChildOrdrhed findOneByTotalcost(string $totalcost) Return the first ChildOrdrhed filtered by the totalcost column
- * @method     ChildOrdrhed findOneByTotaldiscount(string $totaldiscount) Return the first ChildOrdrhed filtered by the totaldiscount column
- * @method     ChildOrdrhed findOneByPaymenttype(string $paymenttype) Return the first ChildOrdrhed filtered by the paymenttype column
- * @method     ChildOrdrhed findOneBySrcdatefrom(string $srcdatefrom) Return the first ChildOrdrhed filtered by the srcdatefrom column
- * @method     ChildOrdrhed findOneBySrcdatethru(string $srcdatethru) Return the first ChildOrdrhed filtered by the srcdatethru column
- * @method     ChildOrdrhed findOneByBillname(string $billname) Return the first ChildOrdrhed filtered by the billname column
- * @method     ChildOrdrhed findOneByBilladdress(string $billaddress) Return the first ChildOrdrhed filtered by the billaddress column
- * @method     ChildOrdrhed findOneByBilladdress2(string $billaddress2) Return the first ChildOrdrhed filtered by the billaddress2 column
- * @method     ChildOrdrhed findOneByBilladdress3(string $billaddress3) Return the first ChildOrdrhed filtered by the billaddress3 column
- * @method     ChildOrdrhed findOneByBillcountry(string $billcountry) Return the first ChildOrdrhed filtered by the billcountry column
- * @method     ChildOrdrhed findOneByBillcity(string $billcity) Return the first ChildOrdrhed filtered by the billcity column
- * @method     ChildOrdrhed findOneByBillstate(string $billstate) Return the first ChildOrdrhed filtered by the billstate column
- * @method     ChildOrdrhed findOneByBillzip(string $billzip) Return the first ChildOrdrhed filtered by the billzip column
- * @method     ChildOrdrhed findOneByPrntfmt(string $prntfmt) Return the first ChildOrdrhed filtered by the prntfmt column
- * @method     ChildOrdrhed findOneByPrntfmtdisp(string $prntfmtdisp) Return the first ChildOrdrhed filtered by the prntfmtdisp column
- * @method     ChildOrdrhed findOneByDummy(string $dummy) Return the first ChildOrdrhed filtered by the dummy column *
-
- * @method     ChildOrdrhed requirePk($key, ConnectionInterface $con = null) Return the ChildOrdrhed by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildOrdrhed requireOne(ConnectionInterface $con = null) Return the first ChildOrdrhed matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildOrdrhed|null findOneBySessionid(string $sessionid) Return the first ChildOrdrhed filtered by the sessionid column
+ * @method     ChildOrdrhed|null findOneByRecno(int $recno) Return the first ChildOrdrhed filtered by the recno column
+ * @method     ChildOrdrhed|null findOneByDate(int $date) Return the first ChildOrdrhed filtered by the date column
+ * @method     ChildOrdrhed|null findOneByTime(int $time) Return the first ChildOrdrhed filtered by the time column
+ * @method     ChildOrdrhed|null findOneByType(string $type) Return the first ChildOrdrhed filtered by the type column
+ * @method     ChildOrdrhed|null findOneByCustid(string $custid) Return the first ChildOrdrhed filtered by the custid column
+ * @method     ChildOrdrhed|null findOneByShiptoid(string $shiptoid) Return the first ChildOrdrhed filtered by the shiptoid column
+ * @method     ChildOrdrhed|null findOneByCustname(string $custname) Return the first ChildOrdrhed filtered by the custname column
+ * @method     ChildOrdrhed|null findOneByOrderno(string $orderno) Return the first ChildOrdrhed filtered by the orderno column
+ * @method     ChildOrdrhed|null findOneByCustpo(string $custpo) Return the first ChildOrdrhed filtered by the custpo column
+ * @method     ChildOrdrhed|null findOneByCustref(string $custref) Return the first ChildOrdrhed filtered by the custref column
+ * @method     ChildOrdrhed|null findOneByStatus(string $status) Return the first ChildOrdrhed filtered by the status column
+ * @method     ChildOrdrhed|null findOneByOrderdate(string $orderdate) Return the first ChildOrdrhed filtered by the orderdate column
+ * @method     ChildOrdrhed|null findOneByCareof(string $careof) Return the first ChildOrdrhed filtered by the careof column
+ * @method     ChildOrdrhed|null findOneByQuotdate(string $quotdate) Return the first ChildOrdrhed filtered by the quotdate column
+ * @method     ChildOrdrhed|null findOneByInvdate(string $invdate) Return the first ChildOrdrhed filtered by the invdate column
+ * @method     ChildOrdrhed|null findOneByShipdate(string $shipdate) Return the first ChildOrdrhed filtered by the shipdate column
+ * @method     ChildOrdrhed|null findOneByRevdate(string $revdate) Return the first ChildOrdrhed filtered by the revdate column
+ * @method     ChildOrdrhed|null findOneByExpdate(string $expdate) Return the first ChildOrdrhed filtered by the expdate column
+ * @method     ChildOrdrhed|null findOneByHasdocuments(string $hasdocuments) Return the first ChildOrdrhed filtered by the hasdocuments column
+ * @method     ChildOrdrhed|null findOneByHastracking(string $hastracking) Return the first ChildOrdrhed filtered by the hastracking column
+ * @method     ChildOrdrhed|null findOneBySubtotal(string $subtotal) Return the first ChildOrdrhed filtered by the subtotal column
+ * @method     ChildOrdrhed|null findOneBySalestax(string $salestax) Return the first ChildOrdrhed filtered by the salestax column
+ * @method     ChildOrdrhed|null findOneByFreight(string $freight) Return the first ChildOrdrhed filtered by the freight column
+ * @method     ChildOrdrhed|null findOneByMisccost(string $misccost) Return the first ChildOrdrhed filtered by the misccost column
+ * @method     ChildOrdrhed|null findOneByOrdertotal(string $ordertotal) Return the first ChildOrdrhed filtered by the ordertotal column
+ * @method     ChildOrdrhed|null findOneByHasnotes(string $hasnotes) Return the first ChildOrdrhed filtered by the hasnotes column
+ * @method     ChildOrdrhed|null findOneByEditord(string $editord) Return the first ChildOrdrhed filtered by the editord column
+ * @method     ChildOrdrhed|null findOneByError(string $error) Return the first ChildOrdrhed filtered by the error column
+ * @method     ChildOrdrhed|null findOneByErrormsg(string $errormsg) Return the first ChildOrdrhed filtered by the errormsg column
+ * @method     ChildOrdrhed|null findOneBySconame(string $sconame) Return the first ChildOrdrhed filtered by the sconame column
+ * @method     ChildOrdrhed|null findOneByShipname(string $shipname) Return the first ChildOrdrhed filtered by the shipname column
+ * @method     ChildOrdrhed|null findOneByShipaddress(string $shipaddress) Return the first ChildOrdrhed filtered by the shipaddress column
+ * @method     ChildOrdrhed|null findOneByShipaddress2(string $shipaddress2) Return the first ChildOrdrhed filtered by the shipaddress2 column
+ * @method     ChildOrdrhed|null findOneByShipcity(string $shipcity) Return the first ChildOrdrhed filtered by the shipcity column
+ * @method     ChildOrdrhed|null findOneByShipstate(string $shipstate) Return the first ChildOrdrhed filtered by the shipstate column
+ * @method     ChildOrdrhed|null findOneByShipzip(string $shipzip) Return the first ChildOrdrhed filtered by the shipzip column
+ * @method     ChildOrdrhed|null findOneByShipcountry(string $shipcountry) Return the first ChildOrdrhed filtered by the shipcountry column
+ * @method     ChildOrdrhed|null findOneByContact(string $contact) Return the first ChildOrdrhed filtered by the contact column
+ * @method     ChildOrdrhed|null findOneByPhintl(string $phintl) Return the first ChildOrdrhed filtered by the phintl column
+ * @method     ChildOrdrhed|null findOneByPhone(string $phone) Return the first ChildOrdrhed filtered by the phone column
+ * @method     ChildOrdrhed|null findOneByExtension(string $extension) Return the first ChildOrdrhed filtered by the extension column
+ * @method     ChildOrdrhed|null findOneByFaxnbr(string $faxnbr) Return the first ChildOrdrhed filtered by the faxnbr column
+ * @method     ChildOrdrhed|null findOneByEmail(string $email) Return the first ChildOrdrhed filtered by the email column
+ * @method     ChildOrdrhed|null findOneByReleasenbr(string $releasenbr) Return the first ChildOrdrhed filtered by the releasenbr column
+ * @method     ChildOrdrhed|null findOneByShipviacd(string $shipviacd) Return the first ChildOrdrhed filtered by the shipviacd column
+ * @method     ChildOrdrhed|null findOneByShipviadesc(string $shipviadesc) Return the first ChildOrdrhed filtered by the shipviadesc column
+ * @method     ChildOrdrhed|null findOneByPricecode(string $pricecode) Return the first ChildOrdrhed filtered by the pricecode column
+ * @method     ChildOrdrhed|null findOneByPricecodedesc(string $pricecodedesc) Return the first ChildOrdrhed filtered by the pricecodedesc column
+ * @method     ChildOrdrhed|null findOneByPricedisp(string $pricedisp) Return the first ChildOrdrhed filtered by the pricedisp column
+ * @method     ChildOrdrhed|null findOneByTaxcode(string $taxcode) Return the first ChildOrdrhed filtered by the taxcode column
+ * @method     ChildOrdrhed|null findOneByTaxcodedesc(string $taxcodedesc) Return the first ChildOrdrhed filtered by the taxcodedesc column
+ * @method     ChildOrdrhed|null findOneByTaxcodedisp(string $taxcodedisp) Return the first ChildOrdrhed filtered by the taxcodedisp column
+ * @method     ChildOrdrhed|null findOneByTermcode(string $termcode) Return the first ChildOrdrhed filtered by the termcode column
+ * @method     ChildOrdrhed|null findOneByTermtype(string $termtype) Return the first ChildOrdrhed filtered by the termtype column
+ * @method     ChildOrdrhed|null findOneByTermcodedesc(string $termcodedesc) Return the first ChildOrdrhed filtered by the termcodedesc column
+ * @method     ChildOrdrhed|null findOneByRqstdate(string $rqstdate) Return the first ChildOrdrhed filtered by the rqstdate column
+ * @method     ChildOrdrhed|null findOneByShipcom(string $shipcom) Return the first ChildOrdrhed filtered by the shipcom column
+ * @method     ChildOrdrhed|null findOneBySp1(string $sp1) Return the first ChildOrdrhed filtered by the sp1 column
+ * @method     ChildOrdrhed|null findOneBySp1name(string $sp1name) Return the first ChildOrdrhed filtered by the sp1name column
+ * @method     ChildOrdrhed|null findOneBySp2(string $sp2) Return the first ChildOrdrhed filtered by the sp2 column
+ * @method     ChildOrdrhed|null findOneBySp2name(string $sp2name) Return the first ChildOrdrhed filtered by the sp2name column
+ * @method     ChildOrdrhed|null findOneBySp2disp(string $sp2disp) Return the first ChildOrdrhed filtered by the sp2disp column
+ * @method     ChildOrdrhed|null findOneBySp3(string $sp3) Return the first ChildOrdrhed filtered by the sp3 column
+ * @method     ChildOrdrhed|null findOneBySp3name(string $sp3name) Return the first ChildOrdrhed filtered by the sp3name column
+ * @method     ChildOrdrhed|null findOneBySp3disp(string $sp3disp) Return the first ChildOrdrhed filtered by the sp3disp column
+ * @method     ChildOrdrhed|null findOneByFob(string $fob) Return the first ChildOrdrhed filtered by the fob column
+ * @method     ChildOrdrhed|null findOneByDeliverydesc(string $deliverydesc) Return the first ChildOrdrhed filtered by the deliverydesc column
+ * @method     ChildOrdrhed|null findOneByWhse(string $whse) Return the first ChildOrdrhed filtered by the whse column
+ * @method     ChildOrdrhed|null findOneByCardnumber(string $cardnumber) Return the first ChildOrdrhed filtered by the cardnumber column
+ * @method     ChildOrdrhed|null findOneByCardexpire(string $cardexpire) Return the first ChildOrdrhed filtered by the cardexpire column
+ * @method     ChildOrdrhed|null findOneByCardcode(string $cardcode) Return the first ChildOrdrhed filtered by the cardcode column
+ * @method     ChildOrdrhed|null findOneByCardapproval(string $cardapproval) Return the first ChildOrdrhed filtered by the cardapproval column
+ * @method     ChildOrdrhed|null findOneByTotalcost(string $totalcost) Return the first ChildOrdrhed filtered by the totalcost column
+ * @method     ChildOrdrhed|null findOneByTotaldiscount(string $totaldiscount) Return the first ChildOrdrhed filtered by the totaldiscount column
+ * @method     ChildOrdrhed|null findOneByPaymenttype(string $paymenttype) Return the first ChildOrdrhed filtered by the paymenttype column
+ * @method     ChildOrdrhed|null findOneBySrcdatefrom(string $srcdatefrom) Return the first ChildOrdrhed filtered by the srcdatefrom column
+ * @method     ChildOrdrhed|null findOneBySrcdatethru(string $srcdatethru) Return the first ChildOrdrhed filtered by the srcdatethru column
+ * @method     ChildOrdrhed|null findOneByBillname(string $billname) Return the first ChildOrdrhed filtered by the billname column
+ * @method     ChildOrdrhed|null findOneByBilladdress(string $billaddress) Return the first ChildOrdrhed filtered by the billaddress column
+ * @method     ChildOrdrhed|null findOneByBilladdress2(string $billaddress2) Return the first ChildOrdrhed filtered by the billaddress2 column
+ * @method     ChildOrdrhed|null findOneByBilladdress3(string $billaddress3) Return the first ChildOrdrhed filtered by the billaddress3 column
+ * @method     ChildOrdrhed|null findOneByBillcountry(string $billcountry) Return the first ChildOrdrhed filtered by the billcountry column
+ * @method     ChildOrdrhed|null findOneByBillcity(string $billcity) Return the first ChildOrdrhed filtered by the billcity column
+ * @method     ChildOrdrhed|null findOneByBillstate(string $billstate) Return the first ChildOrdrhed filtered by the billstate column
+ * @method     ChildOrdrhed|null findOneByBillzip(string $billzip) Return the first ChildOrdrhed filtered by the billzip column
+ * @method     ChildOrdrhed|null findOneByPrntfmt(string $prntfmt) Return the first ChildOrdrhed filtered by the prntfmt column
+ * @method     ChildOrdrhed|null findOneByPrntfmtdisp(string $prntfmtdisp) Return the first ChildOrdrhed filtered by the prntfmtdisp column
+ * @method     ChildOrdrhed|null findOneByDummy(string $dummy) Return the first ChildOrdrhed filtered by the dummy column
+ *
+ * @method     ChildOrdrhed requirePk($key, ?ConnectionInterface $con = null) Return the ChildOrdrhed by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildOrdrhed requireOne(?ConnectionInterface $con = null) Return the first ChildOrdrhed matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildOrdrhed requireOneBySessionid(string $sessionid) Return the first ChildOrdrhed filtered by the sessionid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildOrdrhed requireOneByRecno(int $recno) Return the first ChildOrdrhed filtered by the recno column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -393,98 +391,190 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildOrdrhed requireOneByPrntfmtdisp(string $prntfmtdisp) Return the first ChildOrdrhed filtered by the prntfmtdisp column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildOrdrhed requireOneByDummy(string $dummy) Return the first ChildOrdrhed filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildOrdrhed[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildOrdrhed objects based on current ModelCriteria
- * @method     ChildOrdrhed[]|ObjectCollection findBySessionid(string $sessionid) Return ChildOrdrhed objects filtered by the sessionid column
- * @method     ChildOrdrhed[]|ObjectCollection findByRecno(int $recno) Return ChildOrdrhed objects filtered by the recno column
- * @method     ChildOrdrhed[]|ObjectCollection findByDate(int $date) Return ChildOrdrhed objects filtered by the date column
- * @method     ChildOrdrhed[]|ObjectCollection findByTime(int $time) Return ChildOrdrhed objects filtered by the time column
- * @method     ChildOrdrhed[]|ObjectCollection findByType(string $type) Return ChildOrdrhed objects filtered by the type column
- * @method     ChildOrdrhed[]|ObjectCollection findByCustid(string $custid) Return ChildOrdrhed objects filtered by the custid column
- * @method     ChildOrdrhed[]|ObjectCollection findByShiptoid(string $shiptoid) Return ChildOrdrhed objects filtered by the shiptoid column
- * @method     ChildOrdrhed[]|ObjectCollection findByCustname(string $custname) Return ChildOrdrhed objects filtered by the custname column
- * @method     ChildOrdrhed[]|ObjectCollection findByOrderno(string $orderno) Return ChildOrdrhed objects filtered by the orderno column
- * @method     ChildOrdrhed[]|ObjectCollection findByCustpo(string $custpo) Return ChildOrdrhed objects filtered by the custpo column
- * @method     ChildOrdrhed[]|ObjectCollection findByCustref(string $custref) Return ChildOrdrhed objects filtered by the custref column
- * @method     ChildOrdrhed[]|ObjectCollection findByStatus(string $status) Return ChildOrdrhed objects filtered by the status column
- * @method     ChildOrdrhed[]|ObjectCollection findByOrderdate(string $orderdate) Return ChildOrdrhed objects filtered by the orderdate column
- * @method     ChildOrdrhed[]|ObjectCollection findByCareof(string $careof) Return ChildOrdrhed objects filtered by the careof column
- * @method     ChildOrdrhed[]|ObjectCollection findByQuotdate(string $quotdate) Return ChildOrdrhed objects filtered by the quotdate column
- * @method     ChildOrdrhed[]|ObjectCollection findByInvdate(string $invdate) Return ChildOrdrhed objects filtered by the invdate column
- * @method     ChildOrdrhed[]|ObjectCollection findByShipdate(string $shipdate) Return ChildOrdrhed objects filtered by the shipdate column
- * @method     ChildOrdrhed[]|ObjectCollection findByRevdate(string $revdate) Return ChildOrdrhed objects filtered by the revdate column
- * @method     ChildOrdrhed[]|ObjectCollection findByExpdate(string $expdate) Return ChildOrdrhed objects filtered by the expdate column
- * @method     ChildOrdrhed[]|ObjectCollection findByHasdocuments(string $hasdocuments) Return ChildOrdrhed objects filtered by the hasdocuments column
- * @method     ChildOrdrhed[]|ObjectCollection findByHastracking(string $hastracking) Return ChildOrdrhed objects filtered by the hastracking column
- * @method     ChildOrdrhed[]|ObjectCollection findBySubtotal(string $subtotal) Return ChildOrdrhed objects filtered by the subtotal column
- * @method     ChildOrdrhed[]|ObjectCollection findBySalestax(string $salestax) Return ChildOrdrhed objects filtered by the salestax column
- * @method     ChildOrdrhed[]|ObjectCollection findByFreight(string $freight) Return ChildOrdrhed objects filtered by the freight column
- * @method     ChildOrdrhed[]|ObjectCollection findByMisccost(string $misccost) Return ChildOrdrhed objects filtered by the misccost column
- * @method     ChildOrdrhed[]|ObjectCollection findByOrdertotal(string $ordertotal) Return ChildOrdrhed objects filtered by the ordertotal column
- * @method     ChildOrdrhed[]|ObjectCollection findByHasnotes(string $hasnotes) Return ChildOrdrhed objects filtered by the hasnotes column
- * @method     ChildOrdrhed[]|ObjectCollection findByEditord(string $editord) Return ChildOrdrhed objects filtered by the editord column
- * @method     ChildOrdrhed[]|ObjectCollection findByError(string $error) Return ChildOrdrhed objects filtered by the error column
- * @method     ChildOrdrhed[]|ObjectCollection findByErrormsg(string $errormsg) Return ChildOrdrhed objects filtered by the errormsg column
- * @method     ChildOrdrhed[]|ObjectCollection findBySconame(string $sconame) Return ChildOrdrhed objects filtered by the sconame column
- * @method     ChildOrdrhed[]|ObjectCollection findByShipname(string $shipname) Return ChildOrdrhed objects filtered by the shipname column
- * @method     ChildOrdrhed[]|ObjectCollection findByShipaddress(string $shipaddress) Return ChildOrdrhed objects filtered by the shipaddress column
- * @method     ChildOrdrhed[]|ObjectCollection findByShipaddress2(string $shipaddress2) Return ChildOrdrhed objects filtered by the shipaddress2 column
- * @method     ChildOrdrhed[]|ObjectCollection findByShipcity(string $shipcity) Return ChildOrdrhed objects filtered by the shipcity column
- * @method     ChildOrdrhed[]|ObjectCollection findByShipstate(string $shipstate) Return ChildOrdrhed objects filtered by the shipstate column
- * @method     ChildOrdrhed[]|ObjectCollection findByShipzip(string $shipzip) Return ChildOrdrhed objects filtered by the shipzip column
- * @method     ChildOrdrhed[]|ObjectCollection findByShipcountry(string $shipcountry) Return ChildOrdrhed objects filtered by the shipcountry column
- * @method     ChildOrdrhed[]|ObjectCollection findByContact(string $contact) Return ChildOrdrhed objects filtered by the contact column
- * @method     ChildOrdrhed[]|ObjectCollection findByPhintl(string $phintl) Return ChildOrdrhed objects filtered by the phintl column
- * @method     ChildOrdrhed[]|ObjectCollection findByPhone(string $phone) Return ChildOrdrhed objects filtered by the phone column
- * @method     ChildOrdrhed[]|ObjectCollection findByExtension(string $extension) Return ChildOrdrhed objects filtered by the extension column
- * @method     ChildOrdrhed[]|ObjectCollection findByFaxnbr(string $faxnbr) Return ChildOrdrhed objects filtered by the faxnbr column
- * @method     ChildOrdrhed[]|ObjectCollection findByEmail(string $email) Return ChildOrdrhed objects filtered by the email column
- * @method     ChildOrdrhed[]|ObjectCollection findByReleasenbr(string $releasenbr) Return ChildOrdrhed objects filtered by the releasenbr column
- * @method     ChildOrdrhed[]|ObjectCollection findByShipviacd(string $shipviacd) Return ChildOrdrhed objects filtered by the shipviacd column
- * @method     ChildOrdrhed[]|ObjectCollection findByShipviadesc(string $shipviadesc) Return ChildOrdrhed objects filtered by the shipviadesc column
- * @method     ChildOrdrhed[]|ObjectCollection findByPricecode(string $pricecode) Return ChildOrdrhed objects filtered by the pricecode column
- * @method     ChildOrdrhed[]|ObjectCollection findByPricecodedesc(string $pricecodedesc) Return ChildOrdrhed objects filtered by the pricecodedesc column
- * @method     ChildOrdrhed[]|ObjectCollection findByPricedisp(string $pricedisp) Return ChildOrdrhed objects filtered by the pricedisp column
- * @method     ChildOrdrhed[]|ObjectCollection findByTaxcode(string $taxcode) Return ChildOrdrhed objects filtered by the taxcode column
- * @method     ChildOrdrhed[]|ObjectCollection findByTaxcodedesc(string $taxcodedesc) Return ChildOrdrhed objects filtered by the taxcodedesc column
- * @method     ChildOrdrhed[]|ObjectCollection findByTaxcodedisp(string $taxcodedisp) Return ChildOrdrhed objects filtered by the taxcodedisp column
- * @method     ChildOrdrhed[]|ObjectCollection findByTermcode(string $termcode) Return ChildOrdrhed objects filtered by the termcode column
- * @method     ChildOrdrhed[]|ObjectCollection findByTermtype(string $termtype) Return ChildOrdrhed objects filtered by the termtype column
- * @method     ChildOrdrhed[]|ObjectCollection findByTermcodedesc(string $termcodedesc) Return ChildOrdrhed objects filtered by the termcodedesc column
- * @method     ChildOrdrhed[]|ObjectCollection findByRqstdate(string $rqstdate) Return ChildOrdrhed objects filtered by the rqstdate column
- * @method     ChildOrdrhed[]|ObjectCollection findByShipcom(string $shipcom) Return ChildOrdrhed objects filtered by the shipcom column
- * @method     ChildOrdrhed[]|ObjectCollection findBySp1(string $sp1) Return ChildOrdrhed objects filtered by the sp1 column
- * @method     ChildOrdrhed[]|ObjectCollection findBySp1name(string $sp1name) Return ChildOrdrhed objects filtered by the sp1name column
- * @method     ChildOrdrhed[]|ObjectCollection findBySp2(string $sp2) Return ChildOrdrhed objects filtered by the sp2 column
- * @method     ChildOrdrhed[]|ObjectCollection findBySp2name(string $sp2name) Return ChildOrdrhed objects filtered by the sp2name column
- * @method     ChildOrdrhed[]|ObjectCollection findBySp2disp(string $sp2disp) Return ChildOrdrhed objects filtered by the sp2disp column
- * @method     ChildOrdrhed[]|ObjectCollection findBySp3(string $sp3) Return ChildOrdrhed objects filtered by the sp3 column
- * @method     ChildOrdrhed[]|ObjectCollection findBySp3name(string $sp3name) Return ChildOrdrhed objects filtered by the sp3name column
- * @method     ChildOrdrhed[]|ObjectCollection findBySp3disp(string $sp3disp) Return ChildOrdrhed objects filtered by the sp3disp column
- * @method     ChildOrdrhed[]|ObjectCollection findByFob(string $fob) Return ChildOrdrhed objects filtered by the fob column
- * @method     ChildOrdrhed[]|ObjectCollection findByDeliverydesc(string $deliverydesc) Return ChildOrdrhed objects filtered by the deliverydesc column
- * @method     ChildOrdrhed[]|ObjectCollection findByWhse(string $whse) Return ChildOrdrhed objects filtered by the whse column
- * @method     ChildOrdrhed[]|ObjectCollection findByCardnumber(string $cardnumber) Return ChildOrdrhed objects filtered by the cardnumber column
- * @method     ChildOrdrhed[]|ObjectCollection findByCardexpire(string $cardexpire) Return ChildOrdrhed objects filtered by the cardexpire column
- * @method     ChildOrdrhed[]|ObjectCollection findByCardcode(string $cardcode) Return ChildOrdrhed objects filtered by the cardcode column
- * @method     ChildOrdrhed[]|ObjectCollection findByCardapproval(string $cardapproval) Return ChildOrdrhed objects filtered by the cardapproval column
- * @method     ChildOrdrhed[]|ObjectCollection findByTotalcost(string $totalcost) Return ChildOrdrhed objects filtered by the totalcost column
- * @method     ChildOrdrhed[]|ObjectCollection findByTotaldiscount(string $totaldiscount) Return ChildOrdrhed objects filtered by the totaldiscount column
- * @method     ChildOrdrhed[]|ObjectCollection findByPaymenttype(string $paymenttype) Return ChildOrdrhed objects filtered by the paymenttype column
- * @method     ChildOrdrhed[]|ObjectCollection findBySrcdatefrom(string $srcdatefrom) Return ChildOrdrhed objects filtered by the srcdatefrom column
- * @method     ChildOrdrhed[]|ObjectCollection findBySrcdatethru(string $srcdatethru) Return ChildOrdrhed objects filtered by the srcdatethru column
- * @method     ChildOrdrhed[]|ObjectCollection findByBillname(string $billname) Return ChildOrdrhed objects filtered by the billname column
- * @method     ChildOrdrhed[]|ObjectCollection findByBilladdress(string $billaddress) Return ChildOrdrhed objects filtered by the billaddress column
- * @method     ChildOrdrhed[]|ObjectCollection findByBilladdress2(string $billaddress2) Return ChildOrdrhed objects filtered by the billaddress2 column
- * @method     ChildOrdrhed[]|ObjectCollection findByBilladdress3(string $billaddress3) Return ChildOrdrhed objects filtered by the billaddress3 column
- * @method     ChildOrdrhed[]|ObjectCollection findByBillcountry(string $billcountry) Return ChildOrdrhed objects filtered by the billcountry column
- * @method     ChildOrdrhed[]|ObjectCollection findByBillcity(string $billcity) Return ChildOrdrhed objects filtered by the billcity column
- * @method     ChildOrdrhed[]|ObjectCollection findByBillstate(string $billstate) Return ChildOrdrhed objects filtered by the billstate column
- * @method     ChildOrdrhed[]|ObjectCollection findByBillzip(string $billzip) Return ChildOrdrhed objects filtered by the billzip column
- * @method     ChildOrdrhed[]|ObjectCollection findByPrntfmt(string $prntfmt) Return ChildOrdrhed objects filtered by the prntfmt column
- * @method     ChildOrdrhed[]|ObjectCollection findByPrntfmtdisp(string $prntfmtdisp) Return ChildOrdrhed objects filtered by the prntfmtdisp column
- * @method     ChildOrdrhed[]|ObjectCollection findByDummy(string $dummy) Return ChildOrdrhed objects filtered by the dummy column
- * @method     ChildOrdrhed[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildOrdrhed[]|Collection find(?ConnectionInterface $con = null) Return ChildOrdrhed objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> find(?ConnectionInterface $con = null) Return ChildOrdrhed objects based on current ModelCriteria
  *
+ * @method     ChildOrdrhed[]|Collection findBySessionid(string|array<string> $sessionid) Return ChildOrdrhed objects filtered by the sessionid column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findBySessionid(string|array<string> $sessionid) Return ChildOrdrhed objects filtered by the sessionid column
+ * @method     ChildOrdrhed[]|Collection findByRecno(int|array<int> $recno) Return ChildOrdrhed objects filtered by the recno column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByRecno(int|array<int> $recno) Return ChildOrdrhed objects filtered by the recno column
+ * @method     ChildOrdrhed[]|Collection findByDate(int|array<int> $date) Return ChildOrdrhed objects filtered by the date column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByDate(int|array<int> $date) Return ChildOrdrhed objects filtered by the date column
+ * @method     ChildOrdrhed[]|Collection findByTime(int|array<int> $time) Return ChildOrdrhed objects filtered by the time column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByTime(int|array<int> $time) Return ChildOrdrhed objects filtered by the time column
+ * @method     ChildOrdrhed[]|Collection findByType(string|array<string> $type) Return ChildOrdrhed objects filtered by the type column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByType(string|array<string> $type) Return ChildOrdrhed objects filtered by the type column
+ * @method     ChildOrdrhed[]|Collection findByCustid(string|array<string> $custid) Return ChildOrdrhed objects filtered by the custid column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByCustid(string|array<string> $custid) Return ChildOrdrhed objects filtered by the custid column
+ * @method     ChildOrdrhed[]|Collection findByShiptoid(string|array<string> $shiptoid) Return ChildOrdrhed objects filtered by the shiptoid column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByShiptoid(string|array<string> $shiptoid) Return ChildOrdrhed objects filtered by the shiptoid column
+ * @method     ChildOrdrhed[]|Collection findByCustname(string|array<string> $custname) Return ChildOrdrhed objects filtered by the custname column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByCustname(string|array<string> $custname) Return ChildOrdrhed objects filtered by the custname column
+ * @method     ChildOrdrhed[]|Collection findByOrderno(string|array<string> $orderno) Return ChildOrdrhed objects filtered by the orderno column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByOrderno(string|array<string> $orderno) Return ChildOrdrhed objects filtered by the orderno column
+ * @method     ChildOrdrhed[]|Collection findByCustpo(string|array<string> $custpo) Return ChildOrdrhed objects filtered by the custpo column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByCustpo(string|array<string> $custpo) Return ChildOrdrhed objects filtered by the custpo column
+ * @method     ChildOrdrhed[]|Collection findByCustref(string|array<string> $custref) Return ChildOrdrhed objects filtered by the custref column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByCustref(string|array<string> $custref) Return ChildOrdrhed objects filtered by the custref column
+ * @method     ChildOrdrhed[]|Collection findByStatus(string|array<string> $status) Return ChildOrdrhed objects filtered by the status column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByStatus(string|array<string> $status) Return ChildOrdrhed objects filtered by the status column
+ * @method     ChildOrdrhed[]|Collection findByOrderdate(string|array<string> $orderdate) Return ChildOrdrhed objects filtered by the orderdate column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByOrderdate(string|array<string> $orderdate) Return ChildOrdrhed objects filtered by the orderdate column
+ * @method     ChildOrdrhed[]|Collection findByCareof(string|array<string> $careof) Return ChildOrdrhed objects filtered by the careof column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByCareof(string|array<string> $careof) Return ChildOrdrhed objects filtered by the careof column
+ * @method     ChildOrdrhed[]|Collection findByQuotdate(string|array<string> $quotdate) Return ChildOrdrhed objects filtered by the quotdate column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByQuotdate(string|array<string> $quotdate) Return ChildOrdrhed objects filtered by the quotdate column
+ * @method     ChildOrdrhed[]|Collection findByInvdate(string|array<string> $invdate) Return ChildOrdrhed objects filtered by the invdate column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByInvdate(string|array<string> $invdate) Return ChildOrdrhed objects filtered by the invdate column
+ * @method     ChildOrdrhed[]|Collection findByShipdate(string|array<string> $shipdate) Return ChildOrdrhed objects filtered by the shipdate column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByShipdate(string|array<string> $shipdate) Return ChildOrdrhed objects filtered by the shipdate column
+ * @method     ChildOrdrhed[]|Collection findByRevdate(string|array<string> $revdate) Return ChildOrdrhed objects filtered by the revdate column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByRevdate(string|array<string> $revdate) Return ChildOrdrhed objects filtered by the revdate column
+ * @method     ChildOrdrhed[]|Collection findByExpdate(string|array<string> $expdate) Return ChildOrdrhed objects filtered by the expdate column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByExpdate(string|array<string> $expdate) Return ChildOrdrhed objects filtered by the expdate column
+ * @method     ChildOrdrhed[]|Collection findByHasdocuments(string|array<string> $hasdocuments) Return ChildOrdrhed objects filtered by the hasdocuments column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByHasdocuments(string|array<string> $hasdocuments) Return ChildOrdrhed objects filtered by the hasdocuments column
+ * @method     ChildOrdrhed[]|Collection findByHastracking(string|array<string> $hastracking) Return ChildOrdrhed objects filtered by the hastracking column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByHastracking(string|array<string> $hastracking) Return ChildOrdrhed objects filtered by the hastracking column
+ * @method     ChildOrdrhed[]|Collection findBySubtotal(string|array<string> $subtotal) Return ChildOrdrhed objects filtered by the subtotal column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findBySubtotal(string|array<string> $subtotal) Return ChildOrdrhed objects filtered by the subtotal column
+ * @method     ChildOrdrhed[]|Collection findBySalestax(string|array<string> $salestax) Return ChildOrdrhed objects filtered by the salestax column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findBySalestax(string|array<string> $salestax) Return ChildOrdrhed objects filtered by the salestax column
+ * @method     ChildOrdrhed[]|Collection findByFreight(string|array<string> $freight) Return ChildOrdrhed objects filtered by the freight column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByFreight(string|array<string> $freight) Return ChildOrdrhed objects filtered by the freight column
+ * @method     ChildOrdrhed[]|Collection findByMisccost(string|array<string> $misccost) Return ChildOrdrhed objects filtered by the misccost column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByMisccost(string|array<string> $misccost) Return ChildOrdrhed objects filtered by the misccost column
+ * @method     ChildOrdrhed[]|Collection findByOrdertotal(string|array<string> $ordertotal) Return ChildOrdrhed objects filtered by the ordertotal column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByOrdertotal(string|array<string> $ordertotal) Return ChildOrdrhed objects filtered by the ordertotal column
+ * @method     ChildOrdrhed[]|Collection findByHasnotes(string|array<string> $hasnotes) Return ChildOrdrhed objects filtered by the hasnotes column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByHasnotes(string|array<string> $hasnotes) Return ChildOrdrhed objects filtered by the hasnotes column
+ * @method     ChildOrdrhed[]|Collection findByEditord(string|array<string> $editord) Return ChildOrdrhed objects filtered by the editord column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByEditord(string|array<string> $editord) Return ChildOrdrhed objects filtered by the editord column
+ * @method     ChildOrdrhed[]|Collection findByError(string|array<string> $error) Return ChildOrdrhed objects filtered by the error column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByError(string|array<string> $error) Return ChildOrdrhed objects filtered by the error column
+ * @method     ChildOrdrhed[]|Collection findByErrormsg(string|array<string> $errormsg) Return ChildOrdrhed objects filtered by the errormsg column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByErrormsg(string|array<string> $errormsg) Return ChildOrdrhed objects filtered by the errormsg column
+ * @method     ChildOrdrhed[]|Collection findBySconame(string|array<string> $sconame) Return ChildOrdrhed objects filtered by the sconame column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findBySconame(string|array<string> $sconame) Return ChildOrdrhed objects filtered by the sconame column
+ * @method     ChildOrdrhed[]|Collection findByShipname(string|array<string> $shipname) Return ChildOrdrhed objects filtered by the shipname column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByShipname(string|array<string> $shipname) Return ChildOrdrhed objects filtered by the shipname column
+ * @method     ChildOrdrhed[]|Collection findByShipaddress(string|array<string> $shipaddress) Return ChildOrdrhed objects filtered by the shipaddress column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByShipaddress(string|array<string> $shipaddress) Return ChildOrdrhed objects filtered by the shipaddress column
+ * @method     ChildOrdrhed[]|Collection findByShipaddress2(string|array<string> $shipaddress2) Return ChildOrdrhed objects filtered by the shipaddress2 column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByShipaddress2(string|array<string> $shipaddress2) Return ChildOrdrhed objects filtered by the shipaddress2 column
+ * @method     ChildOrdrhed[]|Collection findByShipcity(string|array<string> $shipcity) Return ChildOrdrhed objects filtered by the shipcity column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByShipcity(string|array<string> $shipcity) Return ChildOrdrhed objects filtered by the shipcity column
+ * @method     ChildOrdrhed[]|Collection findByShipstate(string|array<string> $shipstate) Return ChildOrdrhed objects filtered by the shipstate column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByShipstate(string|array<string> $shipstate) Return ChildOrdrhed objects filtered by the shipstate column
+ * @method     ChildOrdrhed[]|Collection findByShipzip(string|array<string> $shipzip) Return ChildOrdrhed objects filtered by the shipzip column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByShipzip(string|array<string> $shipzip) Return ChildOrdrhed objects filtered by the shipzip column
+ * @method     ChildOrdrhed[]|Collection findByShipcountry(string|array<string> $shipcountry) Return ChildOrdrhed objects filtered by the shipcountry column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByShipcountry(string|array<string> $shipcountry) Return ChildOrdrhed objects filtered by the shipcountry column
+ * @method     ChildOrdrhed[]|Collection findByContact(string|array<string> $contact) Return ChildOrdrhed objects filtered by the contact column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByContact(string|array<string> $contact) Return ChildOrdrhed objects filtered by the contact column
+ * @method     ChildOrdrhed[]|Collection findByPhintl(string|array<string> $phintl) Return ChildOrdrhed objects filtered by the phintl column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByPhintl(string|array<string> $phintl) Return ChildOrdrhed objects filtered by the phintl column
+ * @method     ChildOrdrhed[]|Collection findByPhone(string|array<string> $phone) Return ChildOrdrhed objects filtered by the phone column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByPhone(string|array<string> $phone) Return ChildOrdrhed objects filtered by the phone column
+ * @method     ChildOrdrhed[]|Collection findByExtension(string|array<string> $extension) Return ChildOrdrhed objects filtered by the extension column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByExtension(string|array<string> $extension) Return ChildOrdrhed objects filtered by the extension column
+ * @method     ChildOrdrhed[]|Collection findByFaxnbr(string|array<string> $faxnbr) Return ChildOrdrhed objects filtered by the faxnbr column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByFaxnbr(string|array<string> $faxnbr) Return ChildOrdrhed objects filtered by the faxnbr column
+ * @method     ChildOrdrhed[]|Collection findByEmail(string|array<string> $email) Return ChildOrdrhed objects filtered by the email column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByEmail(string|array<string> $email) Return ChildOrdrhed objects filtered by the email column
+ * @method     ChildOrdrhed[]|Collection findByReleasenbr(string|array<string> $releasenbr) Return ChildOrdrhed objects filtered by the releasenbr column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByReleasenbr(string|array<string> $releasenbr) Return ChildOrdrhed objects filtered by the releasenbr column
+ * @method     ChildOrdrhed[]|Collection findByShipviacd(string|array<string> $shipviacd) Return ChildOrdrhed objects filtered by the shipviacd column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByShipviacd(string|array<string> $shipviacd) Return ChildOrdrhed objects filtered by the shipviacd column
+ * @method     ChildOrdrhed[]|Collection findByShipviadesc(string|array<string> $shipviadesc) Return ChildOrdrhed objects filtered by the shipviadesc column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByShipviadesc(string|array<string> $shipviadesc) Return ChildOrdrhed objects filtered by the shipviadesc column
+ * @method     ChildOrdrhed[]|Collection findByPricecode(string|array<string> $pricecode) Return ChildOrdrhed objects filtered by the pricecode column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByPricecode(string|array<string> $pricecode) Return ChildOrdrhed objects filtered by the pricecode column
+ * @method     ChildOrdrhed[]|Collection findByPricecodedesc(string|array<string> $pricecodedesc) Return ChildOrdrhed objects filtered by the pricecodedesc column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByPricecodedesc(string|array<string> $pricecodedesc) Return ChildOrdrhed objects filtered by the pricecodedesc column
+ * @method     ChildOrdrhed[]|Collection findByPricedisp(string|array<string> $pricedisp) Return ChildOrdrhed objects filtered by the pricedisp column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByPricedisp(string|array<string> $pricedisp) Return ChildOrdrhed objects filtered by the pricedisp column
+ * @method     ChildOrdrhed[]|Collection findByTaxcode(string|array<string> $taxcode) Return ChildOrdrhed objects filtered by the taxcode column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByTaxcode(string|array<string> $taxcode) Return ChildOrdrhed objects filtered by the taxcode column
+ * @method     ChildOrdrhed[]|Collection findByTaxcodedesc(string|array<string> $taxcodedesc) Return ChildOrdrhed objects filtered by the taxcodedesc column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByTaxcodedesc(string|array<string> $taxcodedesc) Return ChildOrdrhed objects filtered by the taxcodedesc column
+ * @method     ChildOrdrhed[]|Collection findByTaxcodedisp(string|array<string> $taxcodedisp) Return ChildOrdrhed objects filtered by the taxcodedisp column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByTaxcodedisp(string|array<string> $taxcodedisp) Return ChildOrdrhed objects filtered by the taxcodedisp column
+ * @method     ChildOrdrhed[]|Collection findByTermcode(string|array<string> $termcode) Return ChildOrdrhed objects filtered by the termcode column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByTermcode(string|array<string> $termcode) Return ChildOrdrhed objects filtered by the termcode column
+ * @method     ChildOrdrhed[]|Collection findByTermtype(string|array<string> $termtype) Return ChildOrdrhed objects filtered by the termtype column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByTermtype(string|array<string> $termtype) Return ChildOrdrhed objects filtered by the termtype column
+ * @method     ChildOrdrhed[]|Collection findByTermcodedesc(string|array<string> $termcodedesc) Return ChildOrdrhed objects filtered by the termcodedesc column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByTermcodedesc(string|array<string> $termcodedesc) Return ChildOrdrhed objects filtered by the termcodedesc column
+ * @method     ChildOrdrhed[]|Collection findByRqstdate(string|array<string> $rqstdate) Return ChildOrdrhed objects filtered by the rqstdate column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByRqstdate(string|array<string> $rqstdate) Return ChildOrdrhed objects filtered by the rqstdate column
+ * @method     ChildOrdrhed[]|Collection findByShipcom(string|array<string> $shipcom) Return ChildOrdrhed objects filtered by the shipcom column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByShipcom(string|array<string> $shipcom) Return ChildOrdrhed objects filtered by the shipcom column
+ * @method     ChildOrdrhed[]|Collection findBySp1(string|array<string> $sp1) Return ChildOrdrhed objects filtered by the sp1 column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findBySp1(string|array<string> $sp1) Return ChildOrdrhed objects filtered by the sp1 column
+ * @method     ChildOrdrhed[]|Collection findBySp1name(string|array<string> $sp1name) Return ChildOrdrhed objects filtered by the sp1name column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findBySp1name(string|array<string> $sp1name) Return ChildOrdrhed objects filtered by the sp1name column
+ * @method     ChildOrdrhed[]|Collection findBySp2(string|array<string> $sp2) Return ChildOrdrhed objects filtered by the sp2 column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findBySp2(string|array<string> $sp2) Return ChildOrdrhed objects filtered by the sp2 column
+ * @method     ChildOrdrhed[]|Collection findBySp2name(string|array<string> $sp2name) Return ChildOrdrhed objects filtered by the sp2name column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findBySp2name(string|array<string> $sp2name) Return ChildOrdrhed objects filtered by the sp2name column
+ * @method     ChildOrdrhed[]|Collection findBySp2disp(string|array<string> $sp2disp) Return ChildOrdrhed objects filtered by the sp2disp column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findBySp2disp(string|array<string> $sp2disp) Return ChildOrdrhed objects filtered by the sp2disp column
+ * @method     ChildOrdrhed[]|Collection findBySp3(string|array<string> $sp3) Return ChildOrdrhed objects filtered by the sp3 column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findBySp3(string|array<string> $sp3) Return ChildOrdrhed objects filtered by the sp3 column
+ * @method     ChildOrdrhed[]|Collection findBySp3name(string|array<string> $sp3name) Return ChildOrdrhed objects filtered by the sp3name column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findBySp3name(string|array<string> $sp3name) Return ChildOrdrhed objects filtered by the sp3name column
+ * @method     ChildOrdrhed[]|Collection findBySp3disp(string|array<string> $sp3disp) Return ChildOrdrhed objects filtered by the sp3disp column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findBySp3disp(string|array<string> $sp3disp) Return ChildOrdrhed objects filtered by the sp3disp column
+ * @method     ChildOrdrhed[]|Collection findByFob(string|array<string> $fob) Return ChildOrdrhed objects filtered by the fob column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByFob(string|array<string> $fob) Return ChildOrdrhed objects filtered by the fob column
+ * @method     ChildOrdrhed[]|Collection findByDeliverydesc(string|array<string> $deliverydesc) Return ChildOrdrhed objects filtered by the deliverydesc column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByDeliverydesc(string|array<string> $deliverydesc) Return ChildOrdrhed objects filtered by the deliverydesc column
+ * @method     ChildOrdrhed[]|Collection findByWhse(string|array<string> $whse) Return ChildOrdrhed objects filtered by the whse column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByWhse(string|array<string> $whse) Return ChildOrdrhed objects filtered by the whse column
+ * @method     ChildOrdrhed[]|Collection findByCardnumber(string|array<string> $cardnumber) Return ChildOrdrhed objects filtered by the cardnumber column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByCardnumber(string|array<string> $cardnumber) Return ChildOrdrhed objects filtered by the cardnumber column
+ * @method     ChildOrdrhed[]|Collection findByCardexpire(string|array<string> $cardexpire) Return ChildOrdrhed objects filtered by the cardexpire column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByCardexpire(string|array<string> $cardexpire) Return ChildOrdrhed objects filtered by the cardexpire column
+ * @method     ChildOrdrhed[]|Collection findByCardcode(string|array<string> $cardcode) Return ChildOrdrhed objects filtered by the cardcode column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByCardcode(string|array<string> $cardcode) Return ChildOrdrhed objects filtered by the cardcode column
+ * @method     ChildOrdrhed[]|Collection findByCardapproval(string|array<string> $cardapproval) Return ChildOrdrhed objects filtered by the cardapproval column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByCardapproval(string|array<string> $cardapproval) Return ChildOrdrhed objects filtered by the cardapproval column
+ * @method     ChildOrdrhed[]|Collection findByTotalcost(string|array<string> $totalcost) Return ChildOrdrhed objects filtered by the totalcost column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByTotalcost(string|array<string> $totalcost) Return ChildOrdrhed objects filtered by the totalcost column
+ * @method     ChildOrdrhed[]|Collection findByTotaldiscount(string|array<string> $totaldiscount) Return ChildOrdrhed objects filtered by the totaldiscount column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByTotaldiscount(string|array<string> $totaldiscount) Return ChildOrdrhed objects filtered by the totaldiscount column
+ * @method     ChildOrdrhed[]|Collection findByPaymenttype(string|array<string> $paymenttype) Return ChildOrdrhed objects filtered by the paymenttype column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByPaymenttype(string|array<string> $paymenttype) Return ChildOrdrhed objects filtered by the paymenttype column
+ * @method     ChildOrdrhed[]|Collection findBySrcdatefrom(string|array<string> $srcdatefrom) Return ChildOrdrhed objects filtered by the srcdatefrom column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findBySrcdatefrom(string|array<string> $srcdatefrom) Return ChildOrdrhed objects filtered by the srcdatefrom column
+ * @method     ChildOrdrhed[]|Collection findBySrcdatethru(string|array<string> $srcdatethru) Return ChildOrdrhed objects filtered by the srcdatethru column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findBySrcdatethru(string|array<string> $srcdatethru) Return ChildOrdrhed objects filtered by the srcdatethru column
+ * @method     ChildOrdrhed[]|Collection findByBillname(string|array<string> $billname) Return ChildOrdrhed objects filtered by the billname column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByBillname(string|array<string> $billname) Return ChildOrdrhed objects filtered by the billname column
+ * @method     ChildOrdrhed[]|Collection findByBilladdress(string|array<string> $billaddress) Return ChildOrdrhed objects filtered by the billaddress column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByBilladdress(string|array<string> $billaddress) Return ChildOrdrhed objects filtered by the billaddress column
+ * @method     ChildOrdrhed[]|Collection findByBilladdress2(string|array<string> $billaddress2) Return ChildOrdrhed objects filtered by the billaddress2 column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByBilladdress2(string|array<string> $billaddress2) Return ChildOrdrhed objects filtered by the billaddress2 column
+ * @method     ChildOrdrhed[]|Collection findByBilladdress3(string|array<string> $billaddress3) Return ChildOrdrhed objects filtered by the billaddress3 column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByBilladdress3(string|array<string> $billaddress3) Return ChildOrdrhed objects filtered by the billaddress3 column
+ * @method     ChildOrdrhed[]|Collection findByBillcountry(string|array<string> $billcountry) Return ChildOrdrhed objects filtered by the billcountry column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByBillcountry(string|array<string> $billcountry) Return ChildOrdrhed objects filtered by the billcountry column
+ * @method     ChildOrdrhed[]|Collection findByBillcity(string|array<string> $billcity) Return ChildOrdrhed objects filtered by the billcity column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByBillcity(string|array<string> $billcity) Return ChildOrdrhed objects filtered by the billcity column
+ * @method     ChildOrdrhed[]|Collection findByBillstate(string|array<string> $billstate) Return ChildOrdrhed objects filtered by the billstate column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByBillstate(string|array<string> $billstate) Return ChildOrdrhed objects filtered by the billstate column
+ * @method     ChildOrdrhed[]|Collection findByBillzip(string|array<string> $billzip) Return ChildOrdrhed objects filtered by the billzip column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByBillzip(string|array<string> $billzip) Return ChildOrdrhed objects filtered by the billzip column
+ * @method     ChildOrdrhed[]|Collection findByPrntfmt(string|array<string> $prntfmt) Return ChildOrdrhed objects filtered by the prntfmt column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByPrntfmt(string|array<string> $prntfmt) Return ChildOrdrhed objects filtered by the prntfmt column
+ * @method     ChildOrdrhed[]|Collection findByPrntfmtdisp(string|array<string> $prntfmtdisp) Return ChildOrdrhed objects filtered by the prntfmtdisp column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByPrntfmtdisp(string|array<string> $prntfmtdisp) Return ChildOrdrhed objects filtered by the prntfmtdisp column
+ * @method     ChildOrdrhed[]|Collection findByDummy(string|array<string> $dummy) Return ChildOrdrhed objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildOrdrhed> findByDummy(string|array<string> $dummy) Return ChildOrdrhed objects filtered by the dummy column
+ *
+ * @method     ChildOrdrhed[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildOrdrhed> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class OrdrhedQuery extends ModelCriteria
 {
@@ -493,9 +583,9 @@ abstract class OrdrhedQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\OrdrhedQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'dplusodb', $modelName = '\\Ordrhed', $modelAlias = null)
     {
@@ -505,12 +595,12 @@ abstract class OrdrhedQuery extends ModelCriteria
     /**
      * Returns a new ChildOrdrhedQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildOrdrhedQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildOrdrhedQuery) {
             return $criteria;
@@ -540,7 +630,7 @@ abstract class OrdrhedQuery extends ModelCriteria
      *
      * @return ChildOrdrhed|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -572,8 +662,8 @@ abstract class OrdrhedQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -607,8 +697,8 @@ abstract class OrdrhedQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildOrdrhed|array|mixed the result, formatted by the current formatter
      */
@@ -628,12 +718,12 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -650,9 +740,9 @@ abstract class OrdrhedQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -666,14 +756,16 @@ abstract class OrdrhedQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(OrdrhedTableMap::COL_SESSIONID, $key[0], Criteria::EQUAL);
@@ -694,14 +786,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterBySessionid('fooValue');   // WHERE sessionid = 'fooValue'
      * $query->filterBySessionid('%fooValue%', Criteria::LIKE); // WHERE sessionid LIKE '%fooValue%'
+     * $query->filterBySessionid(['foo', 'bar']); // WHERE sessionid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sessionid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sessionid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySessionid($sessionid = null, $comparison = null)
+    public function filterBySessionid($sessionid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sessionid)) {
@@ -709,7 +802,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_SESSIONID, $sessionid, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_SESSIONID, $sessionid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -722,15 +817,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * $query->filterByRecno(array('min' => 12)); // WHERE recno > 12
      * </code>
      *
-     * @param     mixed $recno The value to use as filter.
+     * @param mixed $recno The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByRecno($recno = null, $comparison = null)
+    public function filterByRecno($recno = null, ?string $comparison = null)
     {
         if (is_array($recno)) {
             $useMinMax = false;
@@ -750,7 +845,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_RECNO, $recno, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_RECNO, $recno, $comparison);
+
+        return $this;
     }
 
     /**
@@ -763,15 +860,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * $query->filterByDate(array('min' => 12)); // WHERE date > 12
      * </code>
      *
-     * @param     mixed $date The value to use as filter.
+     * @param mixed $date The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDate($date = null, $comparison = null)
+    public function filterByDate($date = null, ?string $comparison = null)
     {
         if (is_array($date)) {
             $useMinMax = false;
@@ -791,7 +888,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_DATE, $date, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_DATE, $date, $comparison);
+
+        return $this;
     }
 
     /**
@@ -804,15 +903,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * $query->filterByTime(array('min' => 12)); // WHERE time > 12
      * </code>
      *
-     * @param     mixed $time The value to use as filter.
+     * @param mixed $time The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTime($time = null, $comparison = null)
+    public function filterByTime($time = null, ?string $comparison = null)
     {
         if (is_array($time)) {
             $useMinMax = false;
@@ -832,7 +931,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_TIME, $time, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_TIME, $time, $comparison);
+
+        return $this;
     }
 
     /**
@@ -842,14 +943,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByType('fooValue');   // WHERE type = 'fooValue'
      * $query->filterByType('%fooValue%', Criteria::LIKE); // WHERE type LIKE '%fooValue%'
+     * $query->filterByType(['foo', 'bar']); // WHERE type IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $type The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $type The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByType($type = null, $comparison = null)
+    public function filterByType($type = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($type)) {
@@ -857,7 +959,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_TYPE, $type, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_TYPE, $type, $comparison);
+
+        return $this;
     }
 
     /**
@@ -867,14 +971,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByCustid('fooValue');   // WHERE custid = 'fooValue'
      * $query->filterByCustid('%fooValue%', Criteria::LIKE); // WHERE custid LIKE '%fooValue%'
+     * $query->filterByCustid(['foo', 'bar']); // WHERE custid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $custid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $custid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustid($custid = null, $comparison = null)
+    public function filterByCustid($custid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($custid)) {
@@ -882,7 +987,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_CUSTID, $custid, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_CUSTID, $custid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -892,14 +999,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByShiptoid('fooValue');   // WHERE shiptoid = 'fooValue'
      * $query->filterByShiptoid('%fooValue%', Criteria::LIKE); // WHERE shiptoid LIKE '%fooValue%'
+     * $query->filterByShiptoid(['foo', 'bar']); // WHERE shiptoid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shiptoid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shiptoid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShiptoid($shiptoid = null, $comparison = null)
+    public function filterByShiptoid($shiptoid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shiptoid)) {
@@ -907,7 +1015,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_SHIPTOID, $shiptoid, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_SHIPTOID, $shiptoid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -917,14 +1027,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByCustname('fooValue');   // WHERE custname = 'fooValue'
      * $query->filterByCustname('%fooValue%', Criteria::LIKE); // WHERE custname LIKE '%fooValue%'
+     * $query->filterByCustname(['foo', 'bar']); // WHERE custname IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $custname The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $custname The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustname($custname = null, $comparison = null)
+    public function filterByCustname($custname = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($custname)) {
@@ -932,7 +1043,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_CUSTNAME, $custname, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_CUSTNAME, $custname, $comparison);
+
+        return $this;
     }
 
     /**
@@ -942,14 +1055,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByOrderno('fooValue');   // WHERE orderno = 'fooValue'
      * $query->filterByOrderno('%fooValue%', Criteria::LIKE); // WHERE orderno LIKE '%fooValue%'
+     * $query->filterByOrderno(['foo', 'bar']); // WHERE orderno IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $orderno The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $orderno The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOrderno($orderno = null, $comparison = null)
+    public function filterByOrderno($orderno = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($orderno)) {
@@ -957,7 +1071,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_ORDERNO, $orderno, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_ORDERNO, $orderno, $comparison);
+
+        return $this;
     }
 
     /**
@@ -967,14 +1083,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByCustpo('fooValue');   // WHERE custpo = 'fooValue'
      * $query->filterByCustpo('%fooValue%', Criteria::LIKE); // WHERE custpo LIKE '%fooValue%'
+     * $query->filterByCustpo(['foo', 'bar']); // WHERE custpo IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $custpo The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $custpo The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustpo($custpo = null, $comparison = null)
+    public function filterByCustpo($custpo = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($custpo)) {
@@ -982,7 +1099,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_CUSTPO, $custpo, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_CUSTPO, $custpo, $comparison);
+
+        return $this;
     }
 
     /**
@@ -992,14 +1111,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByCustref('fooValue');   // WHERE custref = 'fooValue'
      * $query->filterByCustref('%fooValue%', Criteria::LIKE); // WHERE custref LIKE '%fooValue%'
+     * $query->filterByCustref(['foo', 'bar']); // WHERE custref IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $custref The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $custref The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustref($custref = null, $comparison = null)
+    public function filterByCustref($custref = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($custref)) {
@@ -1007,7 +1127,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_CUSTREF, $custref, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_CUSTREF, $custref, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1017,14 +1139,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByStatus('fooValue');   // WHERE status = 'fooValue'
      * $query->filterByStatus('%fooValue%', Criteria::LIKE); // WHERE status LIKE '%fooValue%'
+     * $query->filterByStatus(['foo', 'bar']); // WHERE status IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $status The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $status The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByStatus($status = null, $comparison = null)
+    public function filterByStatus($status = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($status)) {
@@ -1032,7 +1155,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_STATUS, $status, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_STATUS, $status, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1042,14 +1167,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByOrderdate('fooValue');   // WHERE orderdate = 'fooValue'
      * $query->filterByOrderdate('%fooValue%', Criteria::LIKE); // WHERE orderdate LIKE '%fooValue%'
+     * $query->filterByOrderdate(['foo', 'bar']); // WHERE orderdate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $orderdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $orderdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOrderdate($orderdate = null, $comparison = null)
+    public function filterByOrderdate($orderdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($orderdate)) {
@@ -1057,7 +1183,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_ORDERDATE, $orderdate, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_ORDERDATE, $orderdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1067,14 +1195,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByCareof('fooValue');   // WHERE careof = 'fooValue'
      * $query->filterByCareof('%fooValue%', Criteria::LIKE); // WHERE careof LIKE '%fooValue%'
+     * $query->filterByCareof(['foo', 'bar']); // WHERE careof IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $careof The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $careof The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCareof($careof = null, $comparison = null)
+    public function filterByCareof($careof = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($careof)) {
@@ -1082,7 +1211,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_CAREOF, $careof, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_CAREOF, $careof, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1092,14 +1223,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByQuotdate('fooValue');   // WHERE quotdate = 'fooValue'
      * $query->filterByQuotdate('%fooValue%', Criteria::LIKE); // WHERE quotdate LIKE '%fooValue%'
+     * $query->filterByQuotdate(['foo', 'bar']); // WHERE quotdate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $quotdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $quotdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQuotdate($quotdate = null, $comparison = null)
+    public function filterByQuotdate($quotdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($quotdate)) {
@@ -1107,7 +1239,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_QUOTDATE, $quotdate, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_QUOTDATE, $quotdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1117,14 +1251,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByInvdate('fooValue');   // WHERE invdate = 'fooValue'
      * $query->filterByInvdate('%fooValue%', Criteria::LIKE); // WHERE invdate LIKE '%fooValue%'
+     * $query->filterByInvdate(['foo', 'bar']); // WHERE invdate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $invdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $invdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvdate($invdate = null, $comparison = null)
+    public function filterByInvdate($invdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($invdate)) {
@@ -1132,7 +1267,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_INVDATE, $invdate, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_INVDATE, $invdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1142,14 +1279,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByShipdate('fooValue');   // WHERE shipdate = 'fooValue'
      * $query->filterByShipdate('%fooValue%', Criteria::LIKE); // WHERE shipdate LIKE '%fooValue%'
+     * $query->filterByShipdate(['foo', 'bar']); // WHERE shipdate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shipdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shipdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipdate($shipdate = null, $comparison = null)
+    public function filterByShipdate($shipdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shipdate)) {
@@ -1157,7 +1295,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_SHIPDATE, $shipdate, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_SHIPDATE, $shipdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1167,14 +1307,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByRevdate('fooValue');   // WHERE revdate = 'fooValue'
      * $query->filterByRevdate('%fooValue%', Criteria::LIKE); // WHERE revdate LIKE '%fooValue%'
+     * $query->filterByRevdate(['foo', 'bar']); // WHERE revdate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $revdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $revdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByRevdate($revdate = null, $comparison = null)
+    public function filterByRevdate($revdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($revdate)) {
@@ -1182,7 +1323,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_REVDATE, $revdate, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_REVDATE, $revdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1192,14 +1335,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByExpdate('fooValue');   // WHERE expdate = 'fooValue'
      * $query->filterByExpdate('%fooValue%', Criteria::LIKE); // WHERE expdate LIKE '%fooValue%'
+     * $query->filterByExpdate(['foo', 'bar']); // WHERE expdate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $expdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $expdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByExpdate($expdate = null, $comparison = null)
+    public function filterByExpdate($expdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($expdate)) {
@@ -1207,7 +1351,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_EXPDATE, $expdate, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_EXPDATE, $expdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1217,14 +1363,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByHasdocuments('fooValue');   // WHERE hasdocuments = 'fooValue'
      * $query->filterByHasdocuments('%fooValue%', Criteria::LIKE); // WHERE hasdocuments LIKE '%fooValue%'
+     * $query->filterByHasdocuments(['foo', 'bar']); // WHERE hasdocuments IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $hasdocuments The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $hasdocuments The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByHasdocuments($hasdocuments = null, $comparison = null)
+    public function filterByHasdocuments($hasdocuments = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($hasdocuments)) {
@@ -1232,7 +1379,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_HASDOCUMENTS, $hasdocuments, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_HASDOCUMENTS, $hasdocuments, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1242,14 +1391,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByHastracking('fooValue');   // WHERE hastracking = 'fooValue'
      * $query->filterByHastracking('%fooValue%', Criteria::LIKE); // WHERE hastracking LIKE '%fooValue%'
+     * $query->filterByHastracking(['foo', 'bar']); // WHERE hastracking IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $hastracking The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $hastracking The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByHastracking($hastracking = null, $comparison = null)
+    public function filterByHastracking($hastracking = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($hastracking)) {
@@ -1257,7 +1407,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_HASTRACKING, $hastracking, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_HASTRACKING, $hastracking, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1270,15 +1422,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * $query->filterBySubtotal(array('min' => 12)); // WHERE subtotal > 12
      * </code>
      *
-     * @param     mixed $subtotal The value to use as filter.
+     * @param mixed $subtotal The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySubtotal($subtotal = null, $comparison = null)
+    public function filterBySubtotal($subtotal = null, ?string $comparison = null)
     {
         if (is_array($subtotal)) {
             $useMinMax = false;
@@ -1298,7 +1450,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_SUBTOTAL, $subtotal, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_SUBTOTAL, $subtotal, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1311,15 +1465,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * $query->filterBySalestax(array('min' => 12)); // WHERE salestax > 12
      * </code>
      *
-     * @param     mixed $salestax The value to use as filter.
+     * @param mixed $salestax The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalestax($salestax = null, $comparison = null)
+    public function filterBySalestax($salestax = null, ?string $comparison = null)
     {
         if (is_array($salestax)) {
             $useMinMax = false;
@@ -1339,7 +1493,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_SALESTAX, $salestax, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_SALESTAX, $salestax, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1352,15 +1508,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * $query->filterByFreight(array('min' => 12)); // WHERE freight > 12
      * </code>
      *
-     * @param     mixed $freight The value to use as filter.
+     * @param mixed $freight The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByFreight($freight = null, $comparison = null)
+    public function filterByFreight($freight = null, ?string $comparison = null)
     {
         if (is_array($freight)) {
             $useMinMax = false;
@@ -1380,7 +1536,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_FREIGHT, $freight, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_FREIGHT, $freight, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1393,15 +1551,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * $query->filterByMisccost(array('min' => 12)); // WHERE misccost > 12
      * </code>
      *
-     * @param     mixed $misccost The value to use as filter.
+     * @param mixed $misccost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByMisccost($misccost = null, $comparison = null)
+    public function filterByMisccost($misccost = null, ?string $comparison = null)
     {
         if (is_array($misccost)) {
             $useMinMax = false;
@@ -1421,7 +1579,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_MISCCOST, $misccost, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_MISCCOST, $misccost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1434,15 +1594,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * $query->filterByOrdertotal(array('min' => 12)); // WHERE ordertotal > 12
      * </code>
      *
-     * @param     mixed $ordertotal The value to use as filter.
+     * @param mixed $ordertotal The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOrdertotal($ordertotal = null, $comparison = null)
+    public function filterByOrdertotal($ordertotal = null, ?string $comparison = null)
     {
         if (is_array($ordertotal)) {
             $useMinMax = false;
@@ -1462,7 +1622,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_ORDERTOTAL, $ordertotal, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_ORDERTOTAL, $ordertotal, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1472,14 +1634,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByHasnotes('fooValue');   // WHERE hasnotes = 'fooValue'
      * $query->filterByHasnotes('%fooValue%', Criteria::LIKE); // WHERE hasnotes LIKE '%fooValue%'
+     * $query->filterByHasnotes(['foo', 'bar']); // WHERE hasnotes IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $hasnotes The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $hasnotes The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByHasnotes($hasnotes = null, $comparison = null)
+    public function filterByHasnotes($hasnotes = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($hasnotes)) {
@@ -1487,7 +1650,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_HASNOTES, $hasnotes, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_HASNOTES, $hasnotes, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1497,14 +1662,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByEditord('fooValue');   // WHERE editord = 'fooValue'
      * $query->filterByEditord('%fooValue%', Criteria::LIKE); // WHERE editord LIKE '%fooValue%'
+     * $query->filterByEditord(['foo', 'bar']); // WHERE editord IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $editord The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $editord The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByEditord($editord = null, $comparison = null)
+    public function filterByEditord($editord = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($editord)) {
@@ -1512,7 +1678,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_EDITORD, $editord, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_EDITORD, $editord, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1522,14 +1690,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByError('fooValue');   // WHERE error = 'fooValue'
      * $query->filterByError('%fooValue%', Criteria::LIKE); // WHERE error LIKE '%fooValue%'
+     * $query->filterByError(['foo', 'bar']); // WHERE error IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $error The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $error The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByError($error = null, $comparison = null)
+    public function filterByError($error = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($error)) {
@@ -1537,7 +1706,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_ERROR, $error, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_ERROR, $error, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1547,14 +1718,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByErrormsg('fooValue');   // WHERE errormsg = 'fooValue'
      * $query->filterByErrormsg('%fooValue%', Criteria::LIKE); // WHERE errormsg LIKE '%fooValue%'
+     * $query->filterByErrormsg(['foo', 'bar']); // WHERE errormsg IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $errormsg The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $errormsg The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByErrormsg($errormsg = null, $comparison = null)
+    public function filterByErrormsg($errormsg = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($errormsg)) {
@@ -1562,7 +1734,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_ERRORMSG, $errormsg, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_ERRORMSG, $errormsg, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1572,14 +1746,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterBySconame('fooValue');   // WHERE sconame = 'fooValue'
      * $query->filterBySconame('%fooValue%', Criteria::LIKE); // WHERE sconame LIKE '%fooValue%'
+     * $query->filterBySconame(['foo', 'bar']); // WHERE sconame IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sconame The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sconame The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySconame($sconame = null, $comparison = null)
+    public function filterBySconame($sconame = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sconame)) {
@@ -1587,7 +1762,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_SCONAME, $sconame, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_SCONAME, $sconame, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1597,14 +1774,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByShipname('fooValue');   // WHERE shipname = 'fooValue'
      * $query->filterByShipname('%fooValue%', Criteria::LIKE); // WHERE shipname LIKE '%fooValue%'
+     * $query->filterByShipname(['foo', 'bar']); // WHERE shipname IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shipname The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shipname The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipname($shipname = null, $comparison = null)
+    public function filterByShipname($shipname = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shipname)) {
@@ -1612,7 +1790,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_SHIPNAME, $shipname, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_SHIPNAME, $shipname, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1622,14 +1802,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByShipaddress('fooValue');   // WHERE shipaddress = 'fooValue'
      * $query->filterByShipaddress('%fooValue%', Criteria::LIKE); // WHERE shipaddress LIKE '%fooValue%'
+     * $query->filterByShipaddress(['foo', 'bar']); // WHERE shipaddress IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shipaddress The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shipaddress The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipaddress($shipaddress = null, $comparison = null)
+    public function filterByShipaddress($shipaddress = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shipaddress)) {
@@ -1637,7 +1818,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_SHIPADDRESS, $shipaddress, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_SHIPADDRESS, $shipaddress, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1647,14 +1830,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByShipaddress2('fooValue');   // WHERE shipaddress2 = 'fooValue'
      * $query->filterByShipaddress2('%fooValue%', Criteria::LIKE); // WHERE shipaddress2 LIKE '%fooValue%'
+     * $query->filterByShipaddress2(['foo', 'bar']); // WHERE shipaddress2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shipaddress2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shipaddress2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipaddress2($shipaddress2 = null, $comparison = null)
+    public function filterByShipaddress2($shipaddress2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shipaddress2)) {
@@ -1662,7 +1846,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_SHIPADDRESS2, $shipaddress2, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_SHIPADDRESS2, $shipaddress2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1672,14 +1858,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByShipcity('fooValue');   // WHERE shipcity = 'fooValue'
      * $query->filterByShipcity('%fooValue%', Criteria::LIKE); // WHERE shipcity LIKE '%fooValue%'
+     * $query->filterByShipcity(['foo', 'bar']); // WHERE shipcity IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shipcity The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shipcity The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipcity($shipcity = null, $comparison = null)
+    public function filterByShipcity($shipcity = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shipcity)) {
@@ -1687,7 +1874,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_SHIPCITY, $shipcity, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_SHIPCITY, $shipcity, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1697,14 +1886,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByShipstate('fooValue');   // WHERE shipstate = 'fooValue'
      * $query->filterByShipstate('%fooValue%', Criteria::LIKE); // WHERE shipstate LIKE '%fooValue%'
+     * $query->filterByShipstate(['foo', 'bar']); // WHERE shipstate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shipstate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shipstate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipstate($shipstate = null, $comparison = null)
+    public function filterByShipstate($shipstate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shipstate)) {
@@ -1712,7 +1902,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_SHIPSTATE, $shipstate, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_SHIPSTATE, $shipstate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1722,14 +1914,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByShipzip('fooValue');   // WHERE shipzip = 'fooValue'
      * $query->filterByShipzip('%fooValue%', Criteria::LIKE); // WHERE shipzip LIKE '%fooValue%'
+     * $query->filterByShipzip(['foo', 'bar']); // WHERE shipzip IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shipzip The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shipzip The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipzip($shipzip = null, $comparison = null)
+    public function filterByShipzip($shipzip = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shipzip)) {
@@ -1737,7 +1930,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_SHIPZIP, $shipzip, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_SHIPZIP, $shipzip, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1747,14 +1942,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByShipcountry('fooValue');   // WHERE shipcountry = 'fooValue'
      * $query->filterByShipcountry('%fooValue%', Criteria::LIKE); // WHERE shipcountry LIKE '%fooValue%'
+     * $query->filterByShipcountry(['foo', 'bar']); // WHERE shipcountry IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shipcountry The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shipcountry The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipcountry($shipcountry = null, $comparison = null)
+    public function filterByShipcountry($shipcountry = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shipcountry)) {
@@ -1762,7 +1958,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_SHIPCOUNTRY, $shipcountry, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_SHIPCOUNTRY, $shipcountry, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1772,14 +1970,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByContact('fooValue');   // WHERE contact = 'fooValue'
      * $query->filterByContact('%fooValue%', Criteria::LIKE); // WHERE contact LIKE '%fooValue%'
+     * $query->filterByContact(['foo', 'bar']); // WHERE contact IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $contact The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $contact The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByContact($contact = null, $comparison = null)
+    public function filterByContact($contact = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($contact)) {
@@ -1787,7 +1986,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_CONTACT, $contact, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_CONTACT, $contact, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1797,14 +1998,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByPhintl('fooValue');   // WHERE phintl = 'fooValue'
      * $query->filterByPhintl('%fooValue%', Criteria::LIKE); // WHERE phintl LIKE '%fooValue%'
+     * $query->filterByPhintl(['foo', 'bar']); // WHERE phintl IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $phintl The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $phintl The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPhintl($phintl = null, $comparison = null)
+    public function filterByPhintl($phintl = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($phintl)) {
@@ -1812,7 +2014,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_PHINTL, $phintl, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_PHINTL, $phintl, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1822,14 +2026,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByPhone('fooValue');   // WHERE phone = 'fooValue'
      * $query->filterByPhone('%fooValue%', Criteria::LIKE); // WHERE phone LIKE '%fooValue%'
+     * $query->filterByPhone(['foo', 'bar']); // WHERE phone IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $phone The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $phone The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPhone($phone = null, $comparison = null)
+    public function filterByPhone($phone = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($phone)) {
@@ -1837,7 +2042,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_PHONE, $phone, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_PHONE, $phone, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1847,14 +2054,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByExtension('fooValue');   // WHERE extension = 'fooValue'
      * $query->filterByExtension('%fooValue%', Criteria::LIKE); // WHERE extension LIKE '%fooValue%'
+     * $query->filterByExtension(['foo', 'bar']); // WHERE extension IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $extension The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $extension The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByExtension($extension = null, $comparison = null)
+    public function filterByExtension($extension = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($extension)) {
@@ -1862,7 +2070,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_EXTENSION, $extension, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_EXTENSION, $extension, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1872,14 +2082,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByFaxnbr('fooValue');   // WHERE faxnbr = 'fooValue'
      * $query->filterByFaxnbr('%fooValue%', Criteria::LIKE); // WHERE faxnbr LIKE '%fooValue%'
+     * $query->filterByFaxnbr(['foo', 'bar']); // WHERE faxnbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $faxnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $faxnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByFaxnbr($faxnbr = null, $comparison = null)
+    public function filterByFaxnbr($faxnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($faxnbr)) {
@@ -1887,7 +2098,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_FAXNBR, $faxnbr, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_FAXNBR, $faxnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1897,14 +2110,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByEmail('fooValue');   // WHERE email = 'fooValue'
      * $query->filterByEmail('%fooValue%', Criteria::LIKE); // WHERE email LIKE '%fooValue%'
+     * $query->filterByEmail(['foo', 'bar']); // WHERE email IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $email The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $email The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByEmail($email = null, $comparison = null)
+    public function filterByEmail($email = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($email)) {
@@ -1912,7 +2126,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_EMAIL, $email, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_EMAIL, $email, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1922,14 +2138,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByReleasenbr('fooValue');   // WHERE releasenbr = 'fooValue'
      * $query->filterByReleasenbr('%fooValue%', Criteria::LIKE); // WHERE releasenbr LIKE '%fooValue%'
+     * $query->filterByReleasenbr(['foo', 'bar']); // WHERE releasenbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $releasenbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $releasenbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByReleasenbr($releasenbr = null, $comparison = null)
+    public function filterByReleasenbr($releasenbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($releasenbr)) {
@@ -1937,7 +2154,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_RELEASENBR, $releasenbr, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_RELEASENBR, $releasenbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1947,14 +2166,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByShipviacd('fooValue');   // WHERE shipviacd = 'fooValue'
      * $query->filterByShipviacd('%fooValue%', Criteria::LIKE); // WHERE shipviacd LIKE '%fooValue%'
+     * $query->filterByShipviacd(['foo', 'bar']); // WHERE shipviacd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shipviacd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shipviacd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipviacd($shipviacd = null, $comparison = null)
+    public function filterByShipviacd($shipviacd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shipviacd)) {
@@ -1962,7 +2182,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_SHIPVIACD, $shipviacd, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_SHIPVIACD, $shipviacd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1972,14 +2194,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByShipviadesc('fooValue');   // WHERE shipviadesc = 'fooValue'
      * $query->filterByShipviadesc('%fooValue%', Criteria::LIKE); // WHERE shipviadesc LIKE '%fooValue%'
+     * $query->filterByShipviadesc(['foo', 'bar']); // WHERE shipviadesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shipviadesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shipviadesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipviadesc($shipviadesc = null, $comparison = null)
+    public function filterByShipviadesc($shipviadesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shipviadesc)) {
@@ -1987,7 +2210,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_SHIPVIADESC, $shipviadesc, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_SHIPVIADESC, $shipviadesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1997,14 +2222,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByPricecode('fooValue');   // WHERE pricecode = 'fooValue'
      * $query->filterByPricecode('%fooValue%', Criteria::LIKE); // WHERE pricecode LIKE '%fooValue%'
+     * $query->filterByPricecode(['foo', 'bar']); // WHERE pricecode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $pricecode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $pricecode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPricecode($pricecode = null, $comparison = null)
+    public function filterByPricecode($pricecode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($pricecode)) {
@@ -2012,7 +2238,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_PRICECODE, $pricecode, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_PRICECODE, $pricecode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2022,14 +2250,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByPricecodedesc('fooValue');   // WHERE pricecodedesc = 'fooValue'
      * $query->filterByPricecodedesc('%fooValue%', Criteria::LIKE); // WHERE pricecodedesc LIKE '%fooValue%'
+     * $query->filterByPricecodedesc(['foo', 'bar']); // WHERE pricecodedesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $pricecodedesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $pricecodedesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPricecodedesc($pricecodedesc = null, $comparison = null)
+    public function filterByPricecodedesc($pricecodedesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($pricecodedesc)) {
@@ -2037,7 +2266,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_PRICECODEDESC, $pricecodedesc, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_PRICECODEDESC, $pricecodedesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2047,14 +2278,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByPricedisp('fooValue');   // WHERE pricedisp = 'fooValue'
      * $query->filterByPricedisp('%fooValue%', Criteria::LIKE); // WHERE pricedisp LIKE '%fooValue%'
+     * $query->filterByPricedisp(['foo', 'bar']); // WHERE pricedisp IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $pricedisp The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $pricedisp The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPricedisp($pricedisp = null, $comparison = null)
+    public function filterByPricedisp($pricedisp = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($pricedisp)) {
@@ -2062,7 +2294,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_PRICEDISP, $pricedisp, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_PRICEDISP, $pricedisp, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2072,14 +2306,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByTaxcode('fooValue');   // WHERE taxcode = 'fooValue'
      * $query->filterByTaxcode('%fooValue%', Criteria::LIKE); // WHERE taxcode LIKE '%fooValue%'
+     * $query->filterByTaxcode(['foo', 'bar']); // WHERE taxcode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $taxcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $taxcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTaxcode($taxcode = null, $comparison = null)
+    public function filterByTaxcode($taxcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($taxcode)) {
@@ -2087,7 +2322,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_TAXCODE, $taxcode, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_TAXCODE, $taxcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2097,14 +2334,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByTaxcodedesc('fooValue');   // WHERE taxcodedesc = 'fooValue'
      * $query->filterByTaxcodedesc('%fooValue%', Criteria::LIKE); // WHERE taxcodedesc LIKE '%fooValue%'
+     * $query->filterByTaxcodedesc(['foo', 'bar']); // WHERE taxcodedesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $taxcodedesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $taxcodedesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTaxcodedesc($taxcodedesc = null, $comparison = null)
+    public function filterByTaxcodedesc($taxcodedesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($taxcodedesc)) {
@@ -2112,7 +2350,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_TAXCODEDESC, $taxcodedesc, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_TAXCODEDESC, $taxcodedesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2122,14 +2362,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByTaxcodedisp('fooValue');   // WHERE taxcodedisp = 'fooValue'
      * $query->filterByTaxcodedisp('%fooValue%', Criteria::LIKE); // WHERE taxcodedisp LIKE '%fooValue%'
+     * $query->filterByTaxcodedisp(['foo', 'bar']); // WHERE taxcodedisp IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $taxcodedisp The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $taxcodedisp The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTaxcodedisp($taxcodedisp = null, $comparison = null)
+    public function filterByTaxcodedisp($taxcodedisp = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($taxcodedisp)) {
@@ -2137,7 +2378,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_TAXCODEDISP, $taxcodedisp, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_TAXCODEDISP, $taxcodedisp, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2147,14 +2390,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByTermcode('fooValue');   // WHERE termcode = 'fooValue'
      * $query->filterByTermcode('%fooValue%', Criteria::LIKE); // WHERE termcode LIKE '%fooValue%'
+     * $query->filterByTermcode(['foo', 'bar']); // WHERE termcode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $termcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $termcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTermcode($termcode = null, $comparison = null)
+    public function filterByTermcode($termcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($termcode)) {
@@ -2162,7 +2406,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_TERMCODE, $termcode, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_TERMCODE, $termcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2172,14 +2418,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByTermtype('fooValue');   // WHERE termtype = 'fooValue'
      * $query->filterByTermtype('%fooValue%', Criteria::LIKE); // WHERE termtype LIKE '%fooValue%'
+     * $query->filterByTermtype(['foo', 'bar']); // WHERE termtype IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $termtype The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $termtype The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTermtype($termtype = null, $comparison = null)
+    public function filterByTermtype($termtype = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($termtype)) {
@@ -2187,7 +2434,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_TERMTYPE, $termtype, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_TERMTYPE, $termtype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2197,14 +2446,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByTermcodedesc('fooValue');   // WHERE termcodedesc = 'fooValue'
      * $query->filterByTermcodedesc('%fooValue%', Criteria::LIKE); // WHERE termcodedesc LIKE '%fooValue%'
+     * $query->filterByTermcodedesc(['foo', 'bar']); // WHERE termcodedesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $termcodedesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $termcodedesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTermcodedesc($termcodedesc = null, $comparison = null)
+    public function filterByTermcodedesc($termcodedesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($termcodedesc)) {
@@ -2212,7 +2462,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_TERMCODEDESC, $termcodedesc, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_TERMCODEDESC, $termcodedesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2222,14 +2474,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByRqstdate('fooValue');   // WHERE rqstdate = 'fooValue'
      * $query->filterByRqstdate('%fooValue%', Criteria::LIKE); // WHERE rqstdate LIKE '%fooValue%'
+     * $query->filterByRqstdate(['foo', 'bar']); // WHERE rqstdate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $rqstdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $rqstdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByRqstdate($rqstdate = null, $comparison = null)
+    public function filterByRqstdate($rqstdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($rqstdate)) {
@@ -2237,7 +2490,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_RQSTDATE, $rqstdate, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_RQSTDATE, $rqstdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2247,14 +2502,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByShipcom('fooValue');   // WHERE shipcom = 'fooValue'
      * $query->filterByShipcom('%fooValue%', Criteria::LIKE); // WHERE shipcom LIKE '%fooValue%'
+     * $query->filterByShipcom(['foo', 'bar']); // WHERE shipcom IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shipcom The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shipcom The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipcom($shipcom = null, $comparison = null)
+    public function filterByShipcom($shipcom = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shipcom)) {
@@ -2262,7 +2518,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_SHIPCOM, $shipcom, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_SHIPCOM, $shipcom, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2272,14 +2530,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterBySp1('fooValue');   // WHERE sp1 = 'fooValue'
      * $query->filterBySp1('%fooValue%', Criteria::LIKE); // WHERE sp1 LIKE '%fooValue%'
+     * $query->filterBySp1(['foo', 'bar']); // WHERE sp1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sp1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sp1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySp1($sp1 = null, $comparison = null)
+    public function filterBySp1($sp1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sp1)) {
@@ -2287,7 +2546,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_SP1, $sp1, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_SP1, $sp1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2297,14 +2558,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterBySp1name('fooValue');   // WHERE sp1name = 'fooValue'
      * $query->filterBySp1name('%fooValue%', Criteria::LIKE); // WHERE sp1name LIKE '%fooValue%'
+     * $query->filterBySp1name(['foo', 'bar']); // WHERE sp1name IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sp1name The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sp1name The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySp1name($sp1name = null, $comparison = null)
+    public function filterBySp1name($sp1name = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sp1name)) {
@@ -2312,7 +2574,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_SP1NAME, $sp1name, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_SP1NAME, $sp1name, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2322,14 +2586,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterBySp2('fooValue');   // WHERE sp2 = 'fooValue'
      * $query->filterBySp2('%fooValue%', Criteria::LIKE); // WHERE sp2 LIKE '%fooValue%'
+     * $query->filterBySp2(['foo', 'bar']); // WHERE sp2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sp2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sp2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySp2($sp2 = null, $comparison = null)
+    public function filterBySp2($sp2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sp2)) {
@@ -2337,7 +2602,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_SP2, $sp2, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_SP2, $sp2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2347,14 +2614,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterBySp2name('fooValue');   // WHERE sp2name = 'fooValue'
      * $query->filterBySp2name('%fooValue%', Criteria::LIKE); // WHERE sp2name LIKE '%fooValue%'
+     * $query->filterBySp2name(['foo', 'bar']); // WHERE sp2name IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sp2name The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sp2name The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySp2name($sp2name = null, $comparison = null)
+    public function filterBySp2name($sp2name = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sp2name)) {
@@ -2362,7 +2630,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_SP2NAME, $sp2name, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_SP2NAME, $sp2name, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2372,14 +2642,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterBySp2disp('fooValue');   // WHERE sp2disp = 'fooValue'
      * $query->filterBySp2disp('%fooValue%', Criteria::LIKE); // WHERE sp2disp LIKE '%fooValue%'
+     * $query->filterBySp2disp(['foo', 'bar']); // WHERE sp2disp IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sp2disp The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sp2disp The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySp2disp($sp2disp = null, $comparison = null)
+    public function filterBySp2disp($sp2disp = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sp2disp)) {
@@ -2387,7 +2658,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_SP2DISP, $sp2disp, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_SP2DISP, $sp2disp, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2397,14 +2670,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterBySp3('fooValue');   // WHERE sp3 = 'fooValue'
      * $query->filterBySp3('%fooValue%', Criteria::LIKE); // WHERE sp3 LIKE '%fooValue%'
+     * $query->filterBySp3(['foo', 'bar']); // WHERE sp3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sp3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sp3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySp3($sp3 = null, $comparison = null)
+    public function filterBySp3($sp3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sp3)) {
@@ -2412,7 +2686,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_SP3, $sp3, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_SP3, $sp3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2422,14 +2698,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterBySp3name('fooValue');   // WHERE sp3name = 'fooValue'
      * $query->filterBySp3name('%fooValue%', Criteria::LIKE); // WHERE sp3name LIKE '%fooValue%'
+     * $query->filterBySp3name(['foo', 'bar']); // WHERE sp3name IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sp3name The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sp3name The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySp3name($sp3name = null, $comparison = null)
+    public function filterBySp3name($sp3name = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sp3name)) {
@@ -2437,7 +2714,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_SP3NAME, $sp3name, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_SP3NAME, $sp3name, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2447,14 +2726,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterBySp3disp('fooValue');   // WHERE sp3disp = 'fooValue'
      * $query->filterBySp3disp('%fooValue%', Criteria::LIKE); // WHERE sp3disp LIKE '%fooValue%'
+     * $query->filterBySp3disp(['foo', 'bar']); // WHERE sp3disp IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sp3disp The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sp3disp The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySp3disp($sp3disp = null, $comparison = null)
+    public function filterBySp3disp($sp3disp = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sp3disp)) {
@@ -2462,7 +2742,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_SP3DISP, $sp3disp, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_SP3DISP, $sp3disp, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2472,14 +2754,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByFob('fooValue');   // WHERE fob = 'fooValue'
      * $query->filterByFob('%fooValue%', Criteria::LIKE); // WHERE fob LIKE '%fooValue%'
+     * $query->filterByFob(['foo', 'bar']); // WHERE fob IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $fob The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $fob The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByFob($fob = null, $comparison = null)
+    public function filterByFob($fob = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($fob)) {
@@ -2487,7 +2770,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_FOB, $fob, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_FOB, $fob, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2497,14 +2782,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByDeliverydesc('fooValue');   // WHERE deliverydesc = 'fooValue'
      * $query->filterByDeliverydesc('%fooValue%', Criteria::LIKE); // WHERE deliverydesc LIKE '%fooValue%'
+     * $query->filterByDeliverydesc(['foo', 'bar']); // WHERE deliverydesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $deliverydesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $deliverydesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDeliverydesc($deliverydesc = null, $comparison = null)
+    public function filterByDeliverydesc($deliverydesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($deliverydesc)) {
@@ -2512,7 +2798,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_DELIVERYDESC, $deliverydesc, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_DELIVERYDESC, $deliverydesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2522,14 +2810,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByWhse('fooValue');   // WHERE whse = 'fooValue'
      * $query->filterByWhse('%fooValue%', Criteria::LIKE); // WHERE whse LIKE '%fooValue%'
+     * $query->filterByWhse(['foo', 'bar']); // WHERE whse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $whse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $whse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByWhse($whse = null, $comparison = null)
+    public function filterByWhse($whse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($whse)) {
@@ -2537,7 +2826,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_WHSE, $whse, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_WHSE, $whse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2547,14 +2838,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByCardnumber('fooValue');   // WHERE cardnumber = 'fooValue'
      * $query->filterByCardnumber('%fooValue%', Criteria::LIKE); // WHERE cardnumber LIKE '%fooValue%'
+     * $query->filterByCardnumber(['foo', 'bar']); // WHERE cardnumber IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cardnumber The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cardnumber The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCardnumber($cardnumber = null, $comparison = null)
+    public function filterByCardnumber($cardnumber = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cardnumber)) {
@@ -2562,7 +2854,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_CARDNUMBER, $cardnumber, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_CARDNUMBER, $cardnumber, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2572,14 +2866,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByCardexpire('fooValue');   // WHERE cardexpire = 'fooValue'
      * $query->filterByCardexpire('%fooValue%', Criteria::LIKE); // WHERE cardexpire LIKE '%fooValue%'
+     * $query->filterByCardexpire(['foo', 'bar']); // WHERE cardexpire IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cardexpire The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cardexpire The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCardexpire($cardexpire = null, $comparison = null)
+    public function filterByCardexpire($cardexpire = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cardexpire)) {
@@ -2587,7 +2882,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_CARDEXPIRE, $cardexpire, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_CARDEXPIRE, $cardexpire, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2597,14 +2894,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByCardcode('fooValue');   // WHERE cardcode = 'fooValue'
      * $query->filterByCardcode('%fooValue%', Criteria::LIKE); // WHERE cardcode LIKE '%fooValue%'
+     * $query->filterByCardcode(['foo', 'bar']); // WHERE cardcode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cardcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cardcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCardcode($cardcode = null, $comparison = null)
+    public function filterByCardcode($cardcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cardcode)) {
@@ -2612,7 +2910,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_CARDCODE, $cardcode, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_CARDCODE, $cardcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2622,14 +2922,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByCardapproval('fooValue');   // WHERE cardapproval = 'fooValue'
      * $query->filterByCardapproval('%fooValue%', Criteria::LIKE); // WHERE cardapproval LIKE '%fooValue%'
+     * $query->filterByCardapproval(['foo', 'bar']); // WHERE cardapproval IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cardapproval The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cardapproval The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCardapproval($cardapproval = null, $comparison = null)
+    public function filterByCardapproval($cardapproval = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cardapproval)) {
@@ -2637,7 +2938,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_CARDAPPROVAL, $cardapproval, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_CARDAPPROVAL, $cardapproval, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2647,14 +2950,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByTotalcost('fooValue');   // WHERE totalcost = 'fooValue'
      * $query->filterByTotalcost('%fooValue%', Criteria::LIKE); // WHERE totalcost LIKE '%fooValue%'
+     * $query->filterByTotalcost(['foo', 'bar']); // WHERE totalcost IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $totalcost The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $totalcost The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTotalcost($totalcost = null, $comparison = null)
+    public function filterByTotalcost($totalcost = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($totalcost)) {
@@ -2662,7 +2966,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_TOTALCOST, $totalcost, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_TOTALCOST, $totalcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2672,14 +2978,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByTotaldiscount('fooValue');   // WHERE totaldiscount = 'fooValue'
      * $query->filterByTotaldiscount('%fooValue%', Criteria::LIKE); // WHERE totaldiscount LIKE '%fooValue%'
+     * $query->filterByTotaldiscount(['foo', 'bar']); // WHERE totaldiscount IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $totaldiscount The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $totaldiscount The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTotaldiscount($totaldiscount = null, $comparison = null)
+    public function filterByTotaldiscount($totaldiscount = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($totaldiscount)) {
@@ -2687,7 +2994,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_TOTALDISCOUNT, $totaldiscount, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_TOTALDISCOUNT, $totaldiscount, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2697,14 +3006,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByPaymenttype('fooValue');   // WHERE paymenttype = 'fooValue'
      * $query->filterByPaymenttype('%fooValue%', Criteria::LIKE); // WHERE paymenttype LIKE '%fooValue%'
+     * $query->filterByPaymenttype(['foo', 'bar']); // WHERE paymenttype IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $paymenttype The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $paymenttype The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPaymenttype($paymenttype = null, $comparison = null)
+    public function filterByPaymenttype($paymenttype = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($paymenttype)) {
@@ -2712,7 +3022,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_PAYMENTTYPE, $paymenttype, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_PAYMENTTYPE, $paymenttype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2722,14 +3034,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterBySrcdatefrom('fooValue');   // WHERE srcdatefrom = 'fooValue'
      * $query->filterBySrcdatefrom('%fooValue%', Criteria::LIKE); // WHERE srcdatefrom LIKE '%fooValue%'
+     * $query->filterBySrcdatefrom(['foo', 'bar']); // WHERE srcdatefrom IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $srcdatefrom The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $srcdatefrom The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySrcdatefrom($srcdatefrom = null, $comparison = null)
+    public function filterBySrcdatefrom($srcdatefrom = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($srcdatefrom)) {
@@ -2737,7 +3050,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_SRCDATEFROM, $srcdatefrom, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_SRCDATEFROM, $srcdatefrom, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2747,14 +3062,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterBySrcdatethru('fooValue');   // WHERE srcdatethru = 'fooValue'
      * $query->filterBySrcdatethru('%fooValue%', Criteria::LIKE); // WHERE srcdatethru LIKE '%fooValue%'
+     * $query->filterBySrcdatethru(['foo', 'bar']); // WHERE srcdatethru IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $srcdatethru The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $srcdatethru The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySrcdatethru($srcdatethru = null, $comparison = null)
+    public function filterBySrcdatethru($srcdatethru = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($srcdatethru)) {
@@ -2762,7 +3078,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_SRCDATETHRU, $srcdatethru, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_SRCDATETHRU, $srcdatethru, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2772,14 +3090,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByBillname('fooValue');   // WHERE billname = 'fooValue'
      * $query->filterByBillname('%fooValue%', Criteria::LIKE); // WHERE billname LIKE '%fooValue%'
+     * $query->filterByBillname(['foo', 'bar']); // WHERE billname IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $billname The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $billname The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBillname($billname = null, $comparison = null)
+    public function filterByBillname($billname = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($billname)) {
@@ -2787,7 +3106,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_BILLNAME, $billname, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_BILLNAME, $billname, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2797,14 +3118,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByBilladdress('fooValue');   // WHERE billaddress = 'fooValue'
      * $query->filterByBilladdress('%fooValue%', Criteria::LIKE); // WHERE billaddress LIKE '%fooValue%'
+     * $query->filterByBilladdress(['foo', 'bar']); // WHERE billaddress IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $billaddress The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $billaddress The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBilladdress($billaddress = null, $comparison = null)
+    public function filterByBilladdress($billaddress = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($billaddress)) {
@@ -2812,7 +3134,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_BILLADDRESS, $billaddress, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_BILLADDRESS, $billaddress, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2822,14 +3146,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByBilladdress2('fooValue');   // WHERE billaddress2 = 'fooValue'
      * $query->filterByBilladdress2('%fooValue%', Criteria::LIKE); // WHERE billaddress2 LIKE '%fooValue%'
+     * $query->filterByBilladdress2(['foo', 'bar']); // WHERE billaddress2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $billaddress2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $billaddress2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBilladdress2($billaddress2 = null, $comparison = null)
+    public function filterByBilladdress2($billaddress2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($billaddress2)) {
@@ -2837,7 +3162,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_BILLADDRESS2, $billaddress2, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_BILLADDRESS2, $billaddress2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2847,14 +3174,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByBilladdress3('fooValue');   // WHERE billaddress3 = 'fooValue'
      * $query->filterByBilladdress3('%fooValue%', Criteria::LIKE); // WHERE billaddress3 LIKE '%fooValue%'
+     * $query->filterByBilladdress3(['foo', 'bar']); // WHERE billaddress3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $billaddress3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $billaddress3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBilladdress3($billaddress3 = null, $comparison = null)
+    public function filterByBilladdress3($billaddress3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($billaddress3)) {
@@ -2862,7 +3190,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_BILLADDRESS3, $billaddress3, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_BILLADDRESS3, $billaddress3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2872,14 +3202,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByBillcountry('fooValue');   // WHERE billcountry = 'fooValue'
      * $query->filterByBillcountry('%fooValue%', Criteria::LIKE); // WHERE billcountry LIKE '%fooValue%'
+     * $query->filterByBillcountry(['foo', 'bar']); // WHERE billcountry IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $billcountry The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $billcountry The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBillcountry($billcountry = null, $comparison = null)
+    public function filterByBillcountry($billcountry = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($billcountry)) {
@@ -2887,7 +3218,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_BILLCOUNTRY, $billcountry, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_BILLCOUNTRY, $billcountry, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2897,14 +3230,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByBillcity('fooValue');   // WHERE billcity = 'fooValue'
      * $query->filterByBillcity('%fooValue%', Criteria::LIKE); // WHERE billcity LIKE '%fooValue%'
+     * $query->filterByBillcity(['foo', 'bar']); // WHERE billcity IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $billcity The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $billcity The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBillcity($billcity = null, $comparison = null)
+    public function filterByBillcity($billcity = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($billcity)) {
@@ -2912,7 +3246,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_BILLCITY, $billcity, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_BILLCITY, $billcity, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2922,14 +3258,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByBillstate('fooValue');   // WHERE billstate = 'fooValue'
      * $query->filterByBillstate('%fooValue%', Criteria::LIKE); // WHERE billstate LIKE '%fooValue%'
+     * $query->filterByBillstate(['foo', 'bar']); // WHERE billstate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $billstate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $billstate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBillstate($billstate = null, $comparison = null)
+    public function filterByBillstate($billstate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($billstate)) {
@@ -2937,7 +3274,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_BILLSTATE, $billstate, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_BILLSTATE, $billstate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2947,14 +3286,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByBillzip('fooValue');   // WHERE billzip = 'fooValue'
      * $query->filterByBillzip('%fooValue%', Criteria::LIKE); // WHERE billzip LIKE '%fooValue%'
+     * $query->filterByBillzip(['foo', 'bar']); // WHERE billzip IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $billzip The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $billzip The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBillzip($billzip = null, $comparison = null)
+    public function filterByBillzip($billzip = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($billzip)) {
@@ -2962,7 +3302,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_BILLZIP, $billzip, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_BILLZIP, $billzip, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2972,14 +3314,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByPrntfmt('fooValue');   // WHERE prntfmt = 'fooValue'
      * $query->filterByPrntfmt('%fooValue%', Criteria::LIKE); // WHERE prntfmt LIKE '%fooValue%'
+     * $query->filterByPrntfmt(['foo', 'bar']); // WHERE prntfmt IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $prntfmt The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $prntfmt The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPrntfmt($prntfmt = null, $comparison = null)
+    public function filterByPrntfmt($prntfmt = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($prntfmt)) {
@@ -2987,7 +3330,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_PRNTFMT, $prntfmt, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_PRNTFMT, $prntfmt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2997,14 +3342,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByPrntfmtdisp('fooValue');   // WHERE prntfmtdisp = 'fooValue'
      * $query->filterByPrntfmtdisp('%fooValue%', Criteria::LIKE); // WHERE prntfmtdisp LIKE '%fooValue%'
+     * $query->filterByPrntfmtdisp(['foo', 'bar']); // WHERE prntfmtdisp IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $prntfmtdisp The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $prntfmtdisp The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPrntfmtdisp($prntfmtdisp = null, $comparison = null)
+    public function filterByPrntfmtdisp($prntfmtdisp = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($prntfmtdisp)) {
@@ -3012,7 +3358,9 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_PRNTFMTDISP, $prntfmtdisp, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_PRNTFMTDISP, $prntfmtdisp, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3022,14 +3370,15 @@ abstract class OrdrhedQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -3037,15 +3386,17 @@ abstract class OrdrhedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrhedTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(OrdrhedTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildOrdrhed $ordrhed Object to remove from the list of results
+     * @param ChildOrdrhed $ordrhed Object to remove from the list of results
      *
-     * @return $this|ChildOrdrhedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($ordrhed = null)
     {
@@ -3065,7 +3416,7 @@ abstract class OrdrhedQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(OrdrhedTableMap::DATABASE_NAME);
@@ -3090,12 +3441,12 @@ abstract class OrdrhedQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(OrdrhedTableMap::DATABASE_NAME);
@@ -3120,4 +3471,4 @@ abstract class OrdrhedQuery extends ModelCriteria
         });
     }
 
-} // OrdrhedQuery
+}

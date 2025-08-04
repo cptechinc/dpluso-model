@@ -29,19 +29,21 @@ abstract class Ordrdet implements ActiveRecordInterface
 {
     /**
      * TableMap class name
+     *
+     * @var string
      */
-    const TABLE_MAP = '\\Map\\OrdrdetTableMap';
+    public const TABLE_MAP = '\\Map\\OrdrdetTableMap';
 
 
     /**
      * attribute to determine if this object has previously been saved.
-     * @var boolean
+     * @var bool
      */
     protected $new = true;
 
     /**
      * attribute to determine whether this object has been deleted.
-     * @var boolean
+     * @var bool
      */
     protected $deleted = false;
 
@@ -50,14 +52,14 @@ abstract class Ordrdet implements ActiveRecordInterface
      * Tracking modified columns allows us to only update modified columns.
      * @var array
      */
-    protected $modifiedColumns = array();
+    protected $modifiedColumns = [];
 
     /**
      * The (virtual) columns that are added at runtime
      * The formatters can add supplementary columns based on a resultset
      * @var array
      */
-    protected $virtualColumns = array();
+    protected $virtualColumns = [];
 
     /**
      * The value for the sessionid field.
@@ -78,14 +80,14 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * The value for the date field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $date;
 
     /**
      * The value for the time field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $time;
 
@@ -93,7 +95,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the type field.
      *
      * Note: this column has a database default value of: 'O'
-     * @var        string
+     * @var        string|null
      */
     protected $type;
 
@@ -109,7 +111,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the linenbr field.
      *
      * Note: this column has a database default value of: '0'
-     * @var        string
+     * @var        string|null
      */
     protected $linenbr;
 
@@ -117,7 +119,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the sublinenbr field.
      *
      * Note: this column has a database default value of: '0'
-     * @var        string
+     * @var        string|null
      */
     protected $sublinenbr;
 
@@ -125,7 +127,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the itemid field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $itemid;
 
@@ -133,7 +135,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the custid field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $custid;
 
@@ -141,7 +143,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the custitemid field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $custitemid;
 
@@ -149,7 +151,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the desc1 field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $desc1;
 
@@ -157,7 +159,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the desc2 field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $desc2;
 
@@ -165,7 +167,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the price field.
      *
      * Note: this column has a database default value of: '0.00'
-     * @var        string
+     * @var        string|null
      */
     protected $price;
 
@@ -173,7 +175,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the totalprice field.
      *
      * Note: this column has a database default value of: '0.00'
-     * @var        string
+     * @var        string|null
      */
     protected $totalprice;
 
@@ -181,7 +183,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the qty field.
      *
      * Note: this column has a database default value of: '0'
-     * @var        string
+     * @var        string|null
      */
     protected $qty;
 
@@ -189,7 +191,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the qtyshipped field.
      *
      * Note: this column has a database default value of: '0'
-     * @var        string
+     * @var        string|null
      */
     protected $qtyshipped;
 
@@ -197,7 +199,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the qtybackord field.
      *
      * Note: this column has a database default value of: '0'
-     * @var        string
+     * @var        string|null
      */
     protected $qtybackord;
 
@@ -205,7 +207,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the rshipdate field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $rshipdate;
 
@@ -213,7 +215,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the hasdocuments field.
      *
      * Note: this column has a database default value of: 'N'
-     * @var        string
+     * @var        string|null
      */
     protected $hasdocuments;
 
@@ -221,7 +223,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the qtyavail field.
      *
      * Note: this column has a database default value of: '0'
-     * @var        string
+     * @var        string|null
      */
     protected $qtyavail;
 
@@ -229,7 +231,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the hasnotes field.
      *
      * Note: this column has a database default value of: 'N'
-     * @var        string
+     * @var        string|null
      */
     protected $hasnotes;
 
@@ -237,7 +239,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the cost field.
      *
      * Note: this column has a database default value of: '0.00'
-     * @var        string
+     * @var        string|null
      */
     protected $cost;
 
@@ -245,7 +247,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the whse field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $whse;
 
@@ -253,7 +255,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the uom field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $uom;
 
@@ -261,7 +263,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the spcord field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $spcord;
 
@@ -269,7 +271,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the kititemflag field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $kititemflag;
 
@@ -277,7 +279,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the promocode field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $promocode;
 
@@ -285,7 +287,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the taxcode field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $taxcode;
 
@@ -293,7 +295,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the taxcodeperc field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $taxcodeperc;
 
@@ -301,7 +303,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the discpct field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $discpct;
 
@@ -309,7 +311,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the listprice field.
      *
      * Note: this column has a database default value of: '0.00'
-     * @var        string
+     * @var        string|null
      */
     protected $listprice;
 
@@ -317,7 +319,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the uomconv field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $uomconv;
 
@@ -325,7 +327,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the vendorid field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $vendorid;
 
@@ -333,7 +335,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the vendoritemid field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $vendoritemid;
 
@@ -341,7 +343,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the mfgid field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $mfgid;
 
@@ -349,7 +351,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the mfgitemid field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $mfgitemid;
 
@@ -357,7 +359,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the status field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $status;
 
@@ -365,7 +367,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the lostreason field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $lostreason;
 
@@ -373,7 +375,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the lostdate field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $lostdate;
 
@@ -381,14 +383,14 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the notes field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $notes;
 
     /**
      * The value for the leaddays field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $leaddays;
 
@@ -396,7 +398,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the ordrtotalcost field.
      *
      * Note: this column has a database default value of: '0.00'
-     * @var        string
+     * @var        string|null
      */
     protected $ordrtotalcost;
 
@@ -404,7 +406,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the costuom field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $costuom;
 
@@ -412,7 +414,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the stancost field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $stancost;
 
@@ -420,7 +422,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the quotind field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $quotind;
 
@@ -428,7 +430,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the quotqty field.
      *
      * Note: this column has a database default value of: 0
-     * @var        int
+     * @var        int|null
      */
     protected $quotqty;
 
@@ -436,7 +438,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the quotprice field.
      *
      * Note: this column has a database default value of: '0.00'
-     * @var        string
+     * @var        string|null
      */
     protected $quotprice;
 
@@ -444,7 +446,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the quotcost field.
      *
      * Note: this column has a database default value of: '0.00'
-     * @var        string
+     * @var        string|null
      */
     protected $quotcost;
 
@@ -452,7 +454,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the quotmkupmarg field.
      *
      * Note: this column has a database default value of: '0.00'
-     * @var        string
+     * @var        string|null
      */
     protected $quotmkupmarg;
 
@@ -460,7 +462,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the quotdiscpct field.
      *
      * Note: this column has a database default value of: '0.00'
-     * @var        string
+     * @var        string|null
      */
     protected $quotdiscpct;
 
@@ -468,7 +470,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the errormsg field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $errormsg;
 
@@ -476,7 +478,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the minprice field.
      *
      * Note: this column has a database default value of: '0.00'
-     * @var        string
+     * @var        string|null
      */
     protected $minprice;
 
@@ -484,7 +486,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the ponbr field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $ponbr;
 
@@ -492,7 +494,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the poref field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $poref;
 
@@ -500,7 +502,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the nsitemgroup field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $nsitemgroup;
 
@@ -508,7 +510,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the shipfromid field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $shipfromid;
 
@@ -516,7 +518,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the itemtype field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $itemtype;
 
@@ -524,7 +526,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the canbackorder field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $canbackorder;
 
@@ -532,7 +534,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * The value for the dummy field.
      *
      * Note: this column has a database default value of: 'x'
-     * @var        string
+     * @var        string|null
      */
     protected $dummy;
 
@@ -540,7 +542,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
-     * @var boolean
+     * @var bool
      */
     protected $alreadyInSave = false;
 
@@ -550,7 +552,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * equivalent initialization method).
      * @see __construct()
      */
-    public function applyDefaultValues()
+    public function applyDefaultValues(): void
     {
         $this->sessionid = '';
         $this->recno = 0;
@@ -623,9 +625,9 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Returns whether the object has been modified.
      *
-     * @return boolean True if the object has been modified.
+     * @return bool True if the object has been modified.
      */
-    public function isModified()
+    public function isModified(): bool
     {
         return !!$this->modifiedColumns;
     }
@@ -633,10 +635,10 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Has specified column been modified?
      *
-     * @param  string  $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
-     * @return boolean True if $col has been modified.
+     * @param string $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
+     * @return bool True if $col has been modified.
      */
-    public function isColumnModified($col)
+    public function isColumnModified(string $col): bool
     {
         return $this->modifiedColumns && isset($this->modifiedColumns[$col]);
     }
@@ -645,7 +647,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * Get the columns that have been modified in this object.
      * @return array A unique list of the modified column names for this object.
      */
-    public function getModifiedColumns()
+    public function getModifiedColumns(): array
     {
         return $this->modifiedColumns ? array_keys($this->modifiedColumns) : [];
     }
@@ -655,9 +657,9 @@ abstract class Ordrdet implements ActiveRecordInterface
      * be false, if the object was retrieved from storage or was created
      * and then saved.
      *
-     * @return boolean true, if the object has never been persisted.
+     * @return bool True, if the object has never been persisted.
      */
-    public function isNew()
+    public function isNew(): bool
     {
         return $this->new;
     }
@@ -666,45 +668,43 @@ abstract class Ordrdet implements ActiveRecordInterface
      * Setter for the isNew attribute.  This method will be called
      * by Propel-generated children and objects.
      *
-     * @param boolean $b the state of the object.
+     * @param bool $b the state of the object.
      */
-    public function setNew($b)
+    public function setNew(bool $b): void
     {
-        $this->new = (boolean) $b;
+        $this->new = $b;
     }
 
     /**
      * Whether this object has been deleted.
-     * @return boolean The deleted state of this object.
+     * @return bool The deleted state of this object.
      */
-    public function isDeleted()
+    public function isDeleted(): bool
     {
         return $this->deleted;
     }
 
     /**
      * Specify whether this object has been deleted.
-     * @param  boolean $b The deleted state of this object.
+     * @param bool $b The deleted state of this object.
      * @return void
      */
-    public function setDeleted($b)
+    public function setDeleted(bool $b): void
     {
-        $this->deleted = (boolean) $b;
+        $this->deleted = $b;
     }
 
     /**
      * Sets the modified state for the object to be false.
-     * @param  string $col If supplied, only the specified column is reset.
+     * @param string $col If supplied, only the specified column is reset.
      * @return void
      */
-    public function resetModified($col = null)
+    public function resetModified(?string $col = null): void
     {
         if (null !== $col) {
-            if (isset($this->modifiedColumns[$col])) {
-                unset($this->modifiedColumns[$col]);
-            }
+            unset($this->modifiedColumns[$col]);
         } else {
-            $this->modifiedColumns = array();
+            $this->modifiedColumns = [];
         }
     }
 
@@ -713,10 +713,10 @@ abstract class Ordrdet implements ActiveRecordInterface
      * <code>obj</code> is an instance of <code>Ordrdet</code>, delegates to
      * <code>equals(Ordrdet)</code>.  Otherwise, returns <code>false</code>.
      *
-     * @param  mixed   $obj The object to compare to.
-     * @return boolean Whether equal to the object specified.
+     * @param mixed $obj The object to compare to.
+     * @return bool Whether equal to the object specified.
      */
-    public function equals($obj)
+    public function equals($obj): bool
     {
         if (!$obj instanceof static) {
             return false;
@@ -738,7 +738,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      *
      * @return array
      */
-    public function getVirtualColumns()
+    public function getVirtualColumns(): array
     {
         return $this->virtualColumns;
     }
@@ -746,10 +746,10 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Checks the existence of a virtual column in this object
      *
-     * @param  string  $name The virtual column name
-     * @return boolean
+     * @param string $name The virtual column name
+     * @return bool
      */
-    public function hasVirtualColumn($name)
+    public function hasVirtualColumn(string $name): bool
     {
         return array_key_exists($name, $this->virtualColumns);
     }
@@ -757,15 +757,15 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the value of a virtual column in this object
      *
-     * @param  string $name The virtual column name
+     * @param string $name The virtual column name
      * @return mixed
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getVirtualColumn($name)
+    public function getVirtualColumn(string $name)
     {
         if (!$this->hasVirtualColumn($name)) {
-            throw new PropelException(sprintf('Cannot get value of inexistent virtual column %s.', $name));
+            throw new PropelException(sprintf('Cannot get value of nonexistent virtual column `%s`.', $name));
         }
 
         return $this->virtualColumns[$name];
@@ -774,12 +774,12 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Set the value of a virtual column in this object
      *
-     * @param string $name  The virtual column name
-     * @param mixed  $value The value to give to the virtual column
+     * @param string $name The virtual column name
+     * @param mixed $value The value to give to the virtual column
      *
-     * @return $this|Ordrdet The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function setVirtualColumn($name, $value)
+    public function setVirtualColumn(string $name, $value)
     {
         $this->virtualColumns[$name] = $value;
 
@@ -789,13 +789,13 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param  string  $msg
-     * @param  int     $priority One of the Propel::LOG_* logging levels
-     * @return boolean
+     * @param string $msg
+     * @param int $priority One of the Propel::LOG_* logging levels
+     * @return void
      */
-    protected function log($msg, $priority = Propel::LOG_INFO)
+    protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
-        return Propel::log(get_class($this) . ': ' . $msg, $priority);
+        Propel::log(get_class($this) . ': ' . $msg, $priority);
     }
 
     /**
@@ -806,24 +806,27 @@ abstract class Ordrdet implements ActiveRecordInterface
      *  => {"Id":9012,"Title":"Don Juan","ISBN":"0140422161","Price":12.99,"PublisherId":1234,"AuthorId":5678}');
      * </code>
      *
-     * @param  mixed   $parser                 A AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
-     * @param  boolean $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
-     * @return string  The exported data
+     * @param \Propel\Runtime\Parser\AbstractParser|string $parser An AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME, TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM. Defaults to TableMap::TYPE_PHPNAME.
+     * @return string The exported data
      */
-    public function exportTo($parser, $includeLazyLoadColumns = true)
+    public function exportTo($parser, bool $includeLazyLoadColumns = true, string $keyType = TableMap::TYPE_PHPNAME): string
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray(TableMap::TYPE_PHPNAME, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
     }
 
     /**
      * Clean up internal collections prior to serializing
      * Avoids recursive loops that turn into segmentation faults when serializing
+     *
+     * @return array<string>
      */
-    public function __sleep()
+    public function __sleep(): array
     {
         $this->clearAllReferences();
 
@@ -861,7 +864,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [date] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getDate()
     {
@@ -871,7 +874,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [time] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getTime()
     {
@@ -881,7 +884,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [type] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getType()
     {
@@ -901,7 +904,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [linenbr] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getLinenbr()
     {
@@ -911,7 +914,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [sublinenbr] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getSublinenbr()
     {
@@ -921,7 +924,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [itemid] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getItemid()
     {
@@ -931,7 +934,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [custid] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getCustid()
     {
@@ -941,7 +944,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [custitemid] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getCustitemid()
     {
@@ -951,7 +954,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [desc1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getDesc1()
     {
@@ -961,7 +964,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [desc2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getDesc2()
     {
@@ -971,7 +974,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [price] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getPrice()
     {
@@ -981,7 +984,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [totalprice] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getTotalprice()
     {
@@ -991,7 +994,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [qty] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQty()
     {
@@ -1001,7 +1004,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [qtyshipped] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQtyshipped()
     {
@@ -1011,7 +1014,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [qtybackord] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQtybackord()
     {
@@ -1021,7 +1024,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [rshipdate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getRshipdate()
     {
@@ -1031,7 +1034,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [hasdocuments] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getHasdocuments()
     {
@@ -1041,7 +1044,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [qtyavail] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQtyavail()
     {
@@ -1051,7 +1054,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [hasnotes] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getHasnotes()
     {
@@ -1061,7 +1064,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [cost] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getCost()
     {
@@ -1071,7 +1074,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [whse] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getWhse()
     {
@@ -1081,7 +1084,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [uom] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUom()
     {
@@ -1091,7 +1094,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [spcord] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getSpcord()
     {
@@ -1101,7 +1104,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [kititemflag] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getKititemflag()
     {
@@ -1111,7 +1114,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [promocode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getPromocode()
     {
@@ -1121,7 +1124,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [taxcode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getTaxcode()
     {
@@ -1131,7 +1134,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [taxcodeperc] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getTaxcodeperc()
     {
@@ -1141,7 +1144,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [discpct] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getDiscpct()
     {
@@ -1151,7 +1154,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [listprice] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getListprice()
     {
@@ -1161,7 +1164,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [uomconv] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUomconv()
     {
@@ -1171,7 +1174,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [vendorid] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getVendorid()
     {
@@ -1181,7 +1184,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [vendoritemid] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getVendoritemid()
     {
@@ -1191,7 +1194,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [mfgid] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getMfgid()
     {
@@ -1201,7 +1204,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [mfgitemid] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getMfgitemid()
     {
@@ -1211,7 +1214,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [status] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getStatus()
     {
@@ -1221,7 +1224,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [lostreason] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getLostreason()
     {
@@ -1231,7 +1234,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [lostdate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getLostdate()
     {
@@ -1241,7 +1244,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [notes] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getNotes()
     {
@@ -1251,7 +1254,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [leaddays] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getLeaddays()
     {
@@ -1261,7 +1264,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [ordrtotalcost] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getOrdrtotalcost()
     {
@@ -1271,7 +1274,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [costuom] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getCostuom()
     {
@@ -1281,7 +1284,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [stancost] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getStancost()
     {
@@ -1291,7 +1294,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [quotind] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQuotind()
     {
@@ -1301,7 +1304,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [quotqty] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getQuotqty()
     {
@@ -1311,7 +1314,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [quotprice] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQuotprice()
     {
@@ -1321,7 +1324,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [quotcost] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQuotcost()
     {
@@ -1331,7 +1334,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [quotmkupmarg] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQuotmkupmarg()
     {
@@ -1341,7 +1344,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [quotdiscpct] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQuotdiscpct()
     {
@@ -1351,7 +1354,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [errormsg] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getErrormsg()
     {
@@ -1361,7 +1364,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [minprice] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getMinprice()
     {
@@ -1371,7 +1374,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [ponbr] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getPonbr()
     {
@@ -1381,7 +1384,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [poref] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getPoref()
     {
@@ -1391,7 +1394,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [nsitemgroup] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getNsitemgroup()
     {
@@ -1401,7 +1404,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [shipfromid] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getShipfromid()
     {
@@ -1411,7 +1414,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [itemtype] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getItemtype()
     {
@@ -1421,7 +1424,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [canbackorder] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getCanbackorder()
     {
@@ -1431,7 +1434,7 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Get the [dummy] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getDummy()
     {
@@ -1441,8 +1444,8 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Set the value of [sessionid] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setSessionid($v)
     {
@@ -1456,13 +1459,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setSessionid()
+    }
 
     /**
      * Set the value of [recno] column.
      *
-     * @param int $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setRecno($v)
     {
@@ -1476,13 +1479,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setRecno()
+    }
 
     /**
      * Set the value of [date] column.
      *
-     * @param int $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDate($v)
     {
@@ -1496,13 +1499,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDate()
+    }
 
     /**
      * Set the value of [time] column.
      *
-     * @param int $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTime($v)
     {
@@ -1516,13 +1519,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTime()
+    }
 
     /**
      * Set the value of [type] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setType($v)
     {
@@ -1536,13 +1539,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setType()
+    }
 
     /**
      * Set the value of [orderno] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOrderno($v)
     {
@@ -1556,13 +1559,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOrderno()
+    }
 
     /**
      * Set the value of [linenbr] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setLinenbr($v)
     {
@@ -1576,13 +1579,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setLinenbr()
+    }
 
     /**
      * Set the value of [sublinenbr] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setSublinenbr($v)
     {
@@ -1596,13 +1599,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setSublinenbr()
+    }
 
     /**
      * Set the value of [itemid] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setItemid($v)
     {
@@ -1616,13 +1619,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setItemid()
+    }
 
     /**
      * Set the value of [custid] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setCustid($v)
     {
@@ -1636,13 +1639,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setCustid()
+    }
 
     /**
      * Set the value of [custitemid] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setCustitemid($v)
     {
@@ -1656,13 +1659,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setCustitemid()
+    }
 
     /**
      * Set the value of [desc1] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDesc1($v)
     {
@@ -1676,13 +1679,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDesc1()
+    }
 
     /**
      * Set the value of [desc2] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDesc2($v)
     {
@@ -1696,13 +1699,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDesc2()
+    }
 
     /**
      * Set the value of [price] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPrice($v)
     {
@@ -1716,13 +1719,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPrice()
+    }
 
     /**
      * Set the value of [totalprice] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTotalprice($v)
     {
@@ -1736,13 +1739,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTotalprice()
+    }
 
     /**
      * Set the value of [qty] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQty($v)
     {
@@ -1756,13 +1759,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQty()
+    }
 
     /**
      * Set the value of [qtyshipped] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQtyshipped($v)
     {
@@ -1776,13 +1779,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQtyshipped()
+    }
 
     /**
      * Set the value of [qtybackord] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQtybackord($v)
     {
@@ -1796,13 +1799,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQtybackord()
+    }
 
     /**
      * Set the value of [rshipdate] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setRshipdate($v)
     {
@@ -1816,13 +1819,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setRshipdate()
+    }
 
     /**
      * Set the value of [hasdocuments] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setHasdocuments($v)
     {
@@ -1836,13 +1839,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setHasdocuments()
+    }
 
     /**
      * Set the value of [qtyavail] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQtyavail($v)
     {
@@ -1856,13 +1859,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQtyavail()
+    }
 
     /**
      * Set the value of [hasnotes] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setHasnotes($v)
     {
@@ -1876,13 +1879,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setHasnotes()
+    }
 
     /**
      * Set the value of [cost] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setCost($v)
     {
@@ -1896,13 +1899,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setCost()
+    }
 
     /**
      * Set the value of [whse] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setWhse($v)
     {
@@ -1916,13 +1919,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setWhse()
+    }
 
     /**
      * Set the value of [uom] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUom($v)
     {
@@ -1936,13 +1939,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUom()
+    }
 
     /**
      * Set the value of [spcord] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setSpcord($v)
     {
@@ -1956,13 +1959,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setSpcord()
+    }
 
     /**
      * Set the value of [kititemflag] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setKititemflag($v)
     {
@@ -1976,13 +1979,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setKititemflag()
+    }
 
     /**
      * Set the value of [promocode] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPromocode($v)
     {
@@ -1996,13 +1999,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPromocode()
+    }
 
     /**
      * Set the value of [taxcode] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTaxcode($v)
     {
@@ -2016,13 +2019,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTaxcode()
+    }
 
     /**
      * Set the value of [taxcodeperc] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTaxcodeperc($v)
     {
@@ -2036,13 +2039,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTaxcodeperc()
+    }
 
     /**
      * Set the value of [discpct] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDiscpct($v)
     {
@@ -2056,13 +2059,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDiscpct()
+    }
 
     /**
      * Set the value of [listprice] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setListprice($v)
     {
@@ -2076,13 +2079,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setListprice()
+    }
 
     /**
      * Set the value of [uomconv] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUomconv($v)
     {
@@ -2096,13 +2099,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUomconv()
+    }
 
     /**
      * Set the value of [vendorid] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setVendorid($v)
     {
@@ -2116,13 +2119,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setVendorid()
+    }
 
     /**
      * Set the value of [vendoritemid] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setVendoritemid($v)
     {
@@ -2136,13 +2139,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setVendoritemid()
+    }
 
     /**
      * Set the value of [mfgid] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setMfgid($v)
     {
@@ -2156,13 +2159,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setMfgid()
+    }
 
     /**
      * Set the value of [mfgitemid] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setMfgitemid($v)
     {
@@ -2176,13 +2179,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setMfgitemid()
+    }
 
     /**
      * Set the value of [status] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setStatus($v)
     {
@@ -2196,13 +2199,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setStatus()
+    }
 
     /**
      * Set the value of [lostreason] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setLostreason($v)
     {
@@ -2216,13 +2219,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setLostreason()
+    }
 
     /**
      * Set the value of [lostdate] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setLostdate($v)
     {
@@ -2236,13 +2239,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setLostdate()
+    }
 
     /**
      * Set the value of [notes] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setNotes($v)
     {
@@ -2256,13 +2259,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setNotes()
+    }
 
     /**
      * Set the value of [leaddays] column.
      *
-     * @param int $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setLeaddays($v)
     {
@@ -2276,13 +2279,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setLeaddays()
+    }
 
     /**
      * Set the value of [ordrtotalcost] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOrdrtotalcost($v)
     {
@@ -2296,13 +2299,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOrdrtotalcost()
+    }
 
     /**
      * Set the value of [costuom] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setCostuom($v)
     {
@@ -2316,13 +2319,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setCostuom()
+    }
 
     /**
      * Set the value of [stancost] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setStancost($v)
     {
@@ -2336,13 +2339,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setStancost()
+    }
 
     /**
      * Set the value of [quotind] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQuotind($v)
     {
@@ -2356,13 +2359,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQuotind()
+    }
 
     /**
      * Set the value of [quotqty] column.
      *
-     * @param int $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQuotqty($v)
     {
@@ -2376,13 +2379,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQuotqty()
+    }
 
     /**
      * Set the value of [quotprice] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQuotprice($v)
     {
@@ -2396,13 +2399,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQuotprice()
+    }
 
     /**
      * Set the value of [quotcost] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQuotcost($v)
     {
@@ -2416,13 +2419,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQuotcost()
+    }
 
     /**
      * Set the value of [quotmkupmarg] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQuotmkupmarg($v)
     {
@@ -2436,13 +2439,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQuotmkupmarg()
+    }
 
     /**
      * Set the value of [quotdiscpct] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQuotdiscpct($v)
     {
@@ -2456,13 +2459,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQuotdiscpct()
+    }
 
     /**
      * Set the value of [errormsg] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setErrormsg($v)
     {
@@ -2476,13 +2479,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setErrormsg()
+    }
 
     /**
      * Set the value of [minprice] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setMinprice($v)
     {
@@ -2496,13 +2499,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setMinprice()
+    }
 
     /**
      * Set the value of [ponbr] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPonbr($v)
     {
@@ -2516,13 +2519,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPonbr()
+    }
 
     /**
      * Set the value of [poref] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPoref($v)
     {
@@ -2536,13 +2539,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPoref()
+    }
 
     /**
      * Set the value of [nsitemgroup] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setNsitemgroup($v)
     {
@@ -2556,13 +2559,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setNsitemgroup()
+    }
 
     /**
      * Set the value of [shipfromid] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setShipfromid($v)
     {
@@ -2576,13 +2579,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setShipfromid()
+    }
 
     /**
      * Set the value of [itemtype] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setItemtype($v)
     {
@@ -2596,13 +2599,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setItemtype()
+    }
 
     /**
      * Set the value of [canbackorder] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setCanbackorder($v)
     {
@@ -2616,13 +2619,13 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setCanbackorder()
+    }
 
     /**
      * Set the value of [dummy] column.
      *
-     * @param string $v new value
-     * @return $this|\Ordrdet The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -2636,7 +2639,7 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDummy()
+    }
 
     /**
      * Indicates whether the columns in this object are only set to default values.
@@ -2644,9 +2647,9 @@ abstract class Ordrdet implements ActiveRecordInterface
      * This method can be used in conjunction with isModified() to indicate whether an object is both
      * modified _and_ has some values set which are non-default.
      *
-     * @return boolean Whether the columns in this object are only been set with default values.
+     * @return bool Whether the columns in this object are only been set with default values.
      */
-    public function hasOnlyDefaultValues()
+    public function hasOnlyDefaultValues(): bool
     {
             if ($this->sessionid !== '') {
                 return false;
@@ -2878,7 +2881,7 @@ abstract class Ordrdet implements ActiveRecordInterface
 
         // otherwise, everything was equal, so return TRUE
         return true;
-    } // hasOnlyDefaultValues()
+    }
 
     /**
      * Hydrates (populates) the object variables with values from the database resultset.
@@ -2888,17 +2891,17 @@ abstract class Ordrdet implements ActiveRecordInterface
      * for results of JOIN queries where the resultset row includes columns from two or
      * more tables.
      *
-     * @param array   $row       The row returned by DataFetcher->fetch().
-     * @param int     $startcol  0-based offset column which indicates which restultset column to start with.
-     * @param boolean $rehydrate Whether this object is being re-hydrated from the database.
-     * @param string  $indexType The index type of $row. Mostly DataFetcher->getIndexType().
+     * @param array $row The row returned by DataFetcher->fetch().
+     * @param int $startcol 0-based offset column which indicates which resultset column to start with.
+     * @param bool $rehydrate Whether this object is being re-hydrated from the database.
+     * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                   One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                            TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @return int             next starting column
-     * @throws PropelException - Any caught Exception will be rewrapped as a PropelException.
+     * @return int next starting column
+     * @throws \Propel\Runtime\Exception\PropelException - Any caught Exception will be rewrapped as a PropelException.
      */
-    public function hydrate($row, $startcol = 0, $rehydrate = false, $indexType = TableMap::TYPE_NUM)
+    public function hydrate(array $row, int $startcol = 0, bool $rehydrate = false, string $indexType = TableMap::TYPE_NUM): int
     {
         try {
 
@@ -3081,8 +3084,8 @@ abstract class Ordrdet implements ActiveRecordInterface
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 59 + $startcol : OrdrdetTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
-            $this->resetModified();
 
+            $this->resetModified();
             $this->setNew(false);
 
             if ($rehydrate) {
@@ -3107,23 +3110,24 @@ abstract class Ordrdet implements ActiveRecordInterface
      * the base method from the overridden method (i.e. parent::ensureConsistency()),
      * in case your model changes.
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function ensureConsistency()
+    public function ensureConsistency(): void
     {
-    } // ensureConsistency
+    }
 
     /**
      * Reloads this object from datastore based on primary key and (optionally) resets all associated objects.
      *
      * This will only work if the object has been saved and has a valid primary key set.
      *
-     * @param      boolean $deep (optional) Whether to also de-associated any related objects.
-     * @param      ConnectionInterface $con (optional) The ConnectionInterface connection to use.
+     * @param bool $deep (optional) Whether to also de-associated any related objects.
+     * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
      * @return void
-     * @throws PropelException - if this object is deleted, unsaved or doesn't have pk match in db
+     * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
-    public function reload($deep = false, ConnectionInterface $con = null)
+    public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("Cannot reload a deleted object.");
@@ -3156,13 +3160,13 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Removes this object from datastore and sets delete attribute.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see Ordrdet::setDeleted()
      * @see Ordrdet::isDeleted()
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("This object has already been deleted.");
@@ -3192,12 +3196,12 @@ abstract class Ordrdet implements ActiveRecordInterface
      * method.  This method wraps all precipitate database operations in a
      * single transaction.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    public function save(ConnectionInterface $con = null)
+    public function save(?ConnectionInterface $con = null): int
     {
         if ($this->isDeleted()) {
             throw new PropelException("You cannot save an object that has been deleted.");
@@ -3242,12 +3246,12 @@ abstract class Ordrdet implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
      */
-    protected function doSave(ConnectionInterface $con)
+    protected function doSave(ConnectionInterface $con): int
     {
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
@@ -3269,19 +3273,19 @@ abstract class Ordrdet implements ActiveRecordInterface
         }
 
         return $affectedRows;
-    } // doSave()
+    }
 
     /**
      * Insert the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    protected function doInsert(ConnectionInterface $con)
+    protected function doInsert(ConnectionInterface $con): void
     {
-        $modifiedColumns = array();
+        $modifiedColumns = [];
         $index = 0;
 
 
@@ -3479,183 +3483,243 @@ abstract class Ordrdet implements ActiveRecordInterface
                 switch ($columnName) {
                     case 'sessionid':
                         $stmt->bindValue($identifier, $this->sessionid, PDO::PARAM_STR);
+
                         break;
                     case 'recno':
                         $stmt->bindValue($identifier, $this->recno, PDO::PARAM_INT);
+
                         break;
                     case 'date':
                         $stmt->bindValue($identifier, $this->date, PDO::PARAM_INT);
+
                         break;
                     case 'time':
                         $stmt->bindValue($identifier, $this->time, PDO::PARAM_INT);
+
                         break;
                     case 'type':
                         $stmt->bindValue($identifier, $this->type, PDO::PARAM_STR);
+
                         break;
                     case 'orderno':
                         $stmt->bindValue($identifier, $this->orderno, PDO::PARAM_STR);
+
                         break;
                     case 'linenbr':
                         $stmt->bindValue($identifier, $this->linenbr, PDO::PARAM_STR);
+
                         break;
                     case 'sublinenbr':
                         $stmt->bindValue($identifier, $this->sublinenbr, PDO::PARAM_STR);
+
                         break;
                     case 'itemid':
                         $stmt->bindValue($identifier, $this->itemid, PDO::PARAM_STR);
+
                         break;
                     case 'custid':
                         $stmt->bindValue($identifier, $this->custid, PDO::PARAM_STR);
+
                         break;
                     case 'custitemid':
                         $stmt->bindValue($identifier, $this->custitemid, PDO::PARAM_STR);
+
                         break;
                     case 'desc1':
                         $stmt->bindValue($identifier, $this->desc1, PDO::PARAM_STR);
+
                         break;
                     case 'desc2':
                         $stmt->bindValue($identifier, $this->desc2, PDO::PARAM_STR);
+
                         break;
                     case 'price':
                         $stmt->bindValue($identifier, $this->price, PDO::PARAM_STR);
+
                         break;
                     case 'totalprice':
                         $stmt->bindValue($identifier, $this->totalprice, PDO::PARAM_STR);
+
                         break;
                     case 'qty':
                         $stmt->bindValue($identifier, $this->qty, PDO::PARAM_STR);
+
                         break;
                     case 'qtyshipped':
                         $stmt->bindValue($identifier, $this->qtyshipped, PDO::PARAM_STR);
+
                         break;
                     case 'qtybackord':
                         $stmt->bindValue($identifier, $this->qtybackord, PDO::PARAM_STR);
+
                         break;
                     case 'rshipdate':
                         $stmt->bindValue($identifier, $this->rshipdate, PDO::PARAM_STR);
+
                         break;
                     case 'hasdocuments':
                         $stmt->bindValue($identifier, $this->hasdocuments, PDO::PARAM_STR);
+
                         break;
                     case 'qtyavail':
                         $stmt->bindValue($identifier, $this->qtyavail, PDO::PARAM_STR);
+
                         break;
                     case 'hasnotes':
                         $stmt->bindValue($identifier, $this->hasnotes, PDO::PARAM_STR);
+
                         break;
                     case 'cost':
                         $stmt->bindValue($identifier, $this->cost, PDO::PARAM_STR);
+
                         break;
                     case 'whse':
                         $stmt->bindValue($identifier, $this->whse, PDO::PARAM_STR);
+
                         break;
                     case 'uom':
                         $stmt->bindValue($identifier, $this->uom, PDO::PARAM_STR);
+
                         break;
                     case 'spcord':
                         $stmt->bindValue($identifier, $this->spcord, PDO::PARAM_STR);
+
                         break;
                     case 'kititemflag':
                         $stmt->bindValue($identifier, $this->kititemflag, PDO::PARAM_STR);
+
                         break;
                     case 'promocode':
                         $stmt->bindValue($identifier, $this->promocode, PDO::PARAM_STR);
+
                         break;
                     case 'taxcode':
                         $stmt->bindValue($identifier, $this->taxcode, PDO::PARAM_STR);
+
                         break;
                     case 'taxcodeperc':
                         $stmt->bindValue($identifier, $this->taxcodeperc, PDO::PARAM_STR);
+
                         break;
                     case 'discpct':
                         $stmt->bindValue($identifier, $this->discpct, PDO::PARAM_STR);
+
                         break;
                     case 'listprice':
                         $stmt->bindValue($identifier, $this->listprice, PDO::PARAM_STR);
+
                         break;
                     case 'uomconv':
                         $stmt->bindValue($identifier, $this->uomconv, PDO::PARAM_STR);
+
                         break;
                     case 'vendorid':
                         $stmt->bindValue($identifier, $this->vendorid, PDO::PARAM_STR);
+
                         break;
                     case 'vendoritemid':
                         $stmt->bindValue($identifier, $this->vendoritemid, PDO::PARAM_STR);
+
                         break;
                     case 'mfgid':
                         $stmt->bindValue($identifier, $this->mfgid, PDO::PARAM_STR);
+
                         break;
                     case 'mfgitemid':
                         $stmt->bindValue($identifier, $this->mfgitemid, PDO::PARAM_STR);
+
                         break;
                     case 'status':
                         $stmt->bindValue($identifier, $this->status, PDO::PARAM_STR);
+
                         break;
                     case 'lostreason':
                         $stmt->bindValue($identifier, $this->lostreason, PDO::PARAM_STR);
+
                         break;
                     case 'lostdate':
                         $stmt->bindValue($identifier, $this->lostdate, PDO::PARAM_STR);
+
                         break;
                     case 'notes':
                         $stmt->bindValue($identifier, $this->notes, PDO::PARAM_STR);
+
                         break;
                     case 'leaddays':
                         $stmt->bindValue($identifier, $this->leaddays, PDO::PARAM_INT);
+
                         break;
                     case 'ordrtotalcost':
                         $stmt->bindValue($identifier, $this->ordrtotalcost, PDO::PARAM_STR);
+
                         break;
                     case 'costuom':
                         $stmt->bindValue($identifier, $this->costuom, PDO::PARAM_STR);
+
                         break;
                     case 'stancost':
                         $stmt->bindValue($identifier, $this->stancost, PDO::PARAM_STR);
+
                         break;
                     case 'quotind':
                         $stmt->bindValue($identifier, $this->quotind, PDO::PARAM_STR);
+
                         break;
                     case 'quotqty':
                         $stmt->bindValue($identifier, $this->quotqty, PDO::PARAM_INT);
+
                         break;
                     case 'quotprice':
                         $stmt->bindValue($identifier, $this->quotprice, PDO::PARAM_STR);
+
                         break;
                     case 'quotcost':
                         $stmt->bindValue($identifier, $this->quotcost, PDO::PARAM_STR);
+
                         break;
                     case 'quotmkupmarg':
                         $stmt->bindValue($identifier, $this->quotmkupmarg, PDO::PARAM_STR);
+
                         break;
                     case 'quotdiscpct':
                         $stmt->bindValue($identifier, $this->quotdiscpct, PDO::PARAM_STR);
+
                         break;
                     case 'errormsg':
                         $stmt->bindValue($identifier, $this->errormsg, PDO::PARAM_STR);
+
                         break;
                     case 'minprice':
                         $stmt->bindValue($identifier, $this->minprice, PDO::PARAM_STR);
+
                         break;
                     case 'ponbr':
                         $stmt->bindValue($identifier, $this->ponbr, PDO::PARAM_STR);
+
                         break;
                     case 'poref':
                         $stmt->bindValue($identifier, $this->poref, PDO::PARAM_STR);
+
                         break;
                     case 'nsitemgroup':
                         $stmt->bindValue($identifier, $this->nsitemgroup, PDO::PARAM_STR);
+
                         break;
                     case 'shipfromid':
                         $stmt->bindValue($identifier, $this->shipfromid, PDO::PARAM_STR);
+
                         break;
                     case 'itemtype':
                         $stmt->bindValue($identifier, $this->itemtype, PDO::PARAM_STR);
+
                         break;
                     case 'canbackorder':
                         $stmt->bindValue($identifier, $this->canbackorder, PDO::PARAM_STR);
+
                         break;
                     case 'dummy':
                         $stmt->bindValue($identifier, $this->dummy, PDO::PARAM_STR);
+
                         break;
                 }
             }
@@ -3671,12 +3735,12 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @return Integer Number of updated rows
+     * @return int Number of updated rows
      * @see doSave()
      */
-    protected function doUpdate(ConnectionInterface $con)
+    protected function doUpdate(ConnectionInterface $con): int
     {
         $selectCriteria = $this->buildPkeyCriteria();
         $valuesCriteria = $this->buildCriteria();
@@ -3687,14 +3751,14 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Retrieves a field from the object by name passed in as a string.
      *
-     * @param      string $name name
-     * @param      string $type The type of fieldname the $name is of:
+     * @param string $name name
+     * @param string $type The type of fieldname the $name is of:
      *                     one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                     TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                     Defaults to TableMap::TYPE_PHPNAME.
      * @return mixed Value of field.
      */
-    public function getByName($name, $type = TableMap::TYPE_PHPNAME)
+    public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = OrdrdetTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
@@ -3706,195 +3770,194 @@ abstract class Ordrdet implements ActiveRecordInterface
      * Retrieves a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param      int $pos position in xml schema
+     * @param int $pos Position in XML schema
      * @return mixed Value of field at $pos
      */
-    public function getByPosition($pos)
+    public function getByPosition(int $pos)
     {
         switch ($pos) {
             case 0:
                 return $this->getSessionid();
-                break;
+
             case 1:
                 return $this->getRecno();
-                break;
+
             case 2:
                 return $this->getDate();
-                break;
+
             case 3:
                 return $this->getTime();
-                break;
+
             case 4:
                 return $this->getType();
-                break;
+
             case 5:
                 return $this->getOrderno();
-                break;
+
             case 6:
                 return $this->getLinenbr();
-                break;
+
             case 7:
                 return $this->getSublinenbr();
-                break;
+
             case 8:
                 return $this->getItemid();
-                break;
+
             case 9:
                 return $this->getCustid();
-                break;
+
             case 10:
                 return $this->getCustitemid();
-                break;
+
             case 11:
                 return $this->getDesc1();
-                break;
+
             case 12:
                 return $this->getDesc2();
-                break;
+
             case 13:
                 return $this->getPrice();
-                break;
+
             case 14:
                 return $this->getTotalprice();
-                break;
+
             case 15:
                 return $this->getQty();
-                break;
+
             case 16:
                 return $this->getQtyshipped();
-                break;
+
             case 17:
                 return $this->getQtybackord();
-                break;
+
             case 18:
                 return $this->getRshipdate();
-                break;
+
             case 19:
                 return $this->getHasdocuments();
-                break;
+
             case 20:
                 return $this->getQtyavail();
-                break;
+
             case 21:
                 return $this->getHasnotes();
-                break;
+
             case 22:
                 return $this->getCost();
-                break;
+
             case 23:
                 return $this->getWhse();
-                break;
+
             case 24:
                 return $this->getUom();
-                break;
+
             case 25:
                 return $this->getSpcord();
-                break;
+
             case 26:
                 return $this->getKititemflag();
-                break;
+
             case 27:
                 return $this->getPromocode();
-                break;
+
             case 28:
                 return $this->getTaxcode();
-                break;
+
             case 29:
                 return $this->getTaxcodeperc();
-                break;
+
             case 30:
                 return $this->getDiscpct();
-                break;
+
             case 31:
                 return $this->getListprice();
-                break;
+
             case 32:
                 return $this->getUomconv();
-                break;
+
             case 33:
                 return $this->getVendorid();
-                break;
+
             case 34:
                 return $this->getVendoritemid();
-                break;
+
             case 35:
                 return $this->getMfgid();
-                break;
+
             case 36:
                 return $this->getMfgitemid();
-                break;
+
             case 37:
                 return $this->getStatus();
-                break;
+
             case 38:
                 return $this->getLostreason();
-                break;
+
             case 39:
                 return $this->getLostdate();
-                break;
+
             case 40:
                 return $this->getNotes();
-                break;
+
             case 41:
                 return $this->getLeaddays();
-                break;
+
             case 42:
                 return $this->getOrdrtotalcost();
-                break;
+
             case 43:
                 return $this->getCostuom();
-                break;
+
             case 44:
                 return $this->getStancost();
-                break;
+
             case 45:
                 return $this->getQuotind();
-                break;
+
             case 46:
                 return $this->getQuotqty();
-                break;
+
             case 47:
                 return $this->getQuotprice();
-                break;
+
             case 48:
                 return $this->getQuotcost();
-                break;
+
             case 49:
                 return $this->getQuotmkupmarg();
-                break;
+
             case 50:
                 return $this->getQuotdiscpct();
-                break;
+
             case 51:
                 return $this->getErrormsg();
-                break;
+
             case 52:
                 return $this->getMinprice();
-                break;
+
             case 53:
                 return $this->getPonbr();
-                break;
+
             case 54:
                 return $this->getPoref();
-                break;
+
             case 55:
                 return $this->getNsitemgroup();
-                break;
+
             case 56:
                 return $this->getShipfromid();
-                break;
+
             case 57:
                 return $this->getItemtype();
-                break;
+
             case 58:
                 return $this->getCanbackorder();
-                break;
+
             case 59:
                 return $this->getDummy();
-                break;
+
             default:
                 return null;
-                break;
         } // switch()
     }
 
@@ -3904,23 +3967,22 @@ abstract class Ordrdet implements ActiveRecordInterface
      * You can specify the key type of the array by passing one of the class
      * type constants.
      *
-     * @param     string  $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
      *                    TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                    Defaults to TableMap::TYPE_PHPNAME.
-     * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
-     * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
+     * @param array $alreadyDumpedObjects List of objects to skip to avoid recursion
      *
-     * @return array an associative array containing the field names (as keys) and field values
+     * @return array An associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray(string $keyType = TableMap::TYPE_PHPNAME, bool $includeLazyLoadColumns = true, array $alreadyDumpedObjects = []): array
     {
-
         if (isset($alreadyDumpedObjects['Ordrdet'][$this->hashCode()])) {
-            return '*RECURSION*';
+            return ['*RECURSION*'];
         }
         $alreadyDumpedObjects['Ordrdet'][$this->hashCode()] = true;
         $keys = OrdrdetTableMap::getFieldNames($keyType);
-        $result = array(
+        $result = [
             $keys[0] => $this->getSessionid(),
             $keys[1] => $this->getRecno(),
             $keys[2] => $this->getDate(),
@@ -3981,7 +4043,7 @@ abstract class Ordrdet implements ActiveRecordInterface
             $keys[57] => $this->getItemtype(),
             $keys[58] => $this->getCanbackorder(),
             $keys[59] => $this->getDummy(),
-        );
+        ];
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
             $result[$key] = $virtualColumn;
@@ -3994,30 +4056,32 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param  string $name
-     * @param  mixed  $value field value
-     * @param  string $type The type of fieldname the $name is of:
+     * @param string $name
+     * @param mixed $value field value
+     * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\Ordrdet
+     * @return $this
      */
-    public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
+    public function setByName(string $name, $value, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = OrdrdetTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
-        return $this->setByPosition($pos, $value);
+        $this->setByPosition($pos, $value);
+
+        return $this;
     }
 
     /**
      * Sets a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param  int $pos position in xml schema
-     * @param  mixed $value field value
-     * @return $this|\Ordrdet
+     * @param int $pos position in xml schema
+     * @param mixed $value field value
+     * @return $this
      */
-    public function setByPosition($pos, $value)
+    public function setByPosition(int $pos, $value)
     {
         switch ($pos) {
             case 0:
@@ -4218,11 +4282,11 @@ abstract class Ordrdet implements ActiveRecordInterface
      * TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      * The default key type is the column's TableMap::TYPE_PHPNAME.
      *
-     * @param      array  $arr     An array to populate the object from.
-     * @param      string $keyType The type of keys the array uses.
-     * @return void
+     * @param array $arr An array to populate the object from.
+     * @param string $keyType The type of keys the array uses.
+     * @return $this
      */
-    public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
+    public function fromArray(array $arr, string $keyType = TableMap::TYPE_PHPNAME)
     {
         $keys = OrdrdetTableMap::getFieldNames($keyType);
 
@@ -4406,6 +4470,8 @@ abstract class Ordrdet implements ActiveRecordInterface
         if (array_key_exists($keys[59], $arr)) {
             $this->setDummy($arr[$keys[59]]);
         }
+
+        return $this;
     }
 
      /**
@@ -4425,9 +4491,9 @@ abstract class Ordrdet implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\Ordrdet The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
+    public function importFrom($parser, string $data, string $keyType = TableMap::TYPE_PHPNAME)
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
@@ -4441,9 +4507,9 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Build a Criteria object containing the values of all modified columns in this object.
      *
-     * @return Criteria The Criteria object containing all modified values.
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing all modified values.
      */
-    public function buildCriteria()
+    public function buildCriteria(): Criteria
     {
         $criteria = new Criteria(OrdrdetTableMap::DATABASE_NAME);
 
@@ -4635,13 +4701,13 @@ abstract class Ordrdet implements ActiveRecordInterface
      * Builds a Criteria object containing the primary key for this object.
      *
      * Unlike buildCriteria() this method includes the primary key values regardless
-     * of whether or not they have been modified.
+     * of whether they have been modified.
      *
      * @throws LogicException if no primary key is defined
      *
-     * @return Criteria The Criteria object containing value(s) for primary key(s).
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing value(s) for primary key(s).
      */
-    public function buildPkeyCriteria()
+    public function buildPkeyCriteria(): Criteria
     {
         $criteria = ChildOrdrdetQuery::create();
         $criteria->add(OrdrdetTableMap::COL_SESSIONID, $this->sessionid);
@@ -4655,7 +4721,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * If the primary key is not null, return the hashcode of the
      * primary key. Otherwise, return the hash code of the object.
      *
-     * @return int Hashcode
+     * @return int|string Hashcode
      */
     public function hashCode()
     {
@@ -4682,7 +4748,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      */
     public function getPrimaryKey()
     {
-        $pks = array();
+        $pks = [];
         $pks[0] = $this->getSessionid();
         $pks[1] = $this->getRecno();
         $pks[2] = $this->getOrderno();
@@ -4693,10 +4759,10 @@ abstract class Ordrdet implements ActiveRecordInterface
     /**
      * Set the [composite] primary key.
      *
-     * @param      array $keys The elements of the composite key (order must match the order in XML file).
+     * @param array $keys The elements of the composite key (order must match the order in XML file).
      * @return void
      */
-    public function setPrimaryKey($keys)
+    public function setPrimaryKey(array $keys): void
     {
         $this->setSessionid($keys[0]);
         $this->setRecno($keys[1]);
@@ -4705,9 +4771,10 @@ abstract class Ordrdet implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     * @return boolean
+     *
+     * @return bool
      */
-    public function isPrimaryKeyNull()
+    public function isPrimaryKeyNull(): bool
     {
         return (null === $this->getSessionid()) && (null === $this->getRecno()) && (null === $this->getOrderno());
     }
@@ -4718,12 +4785,13 @@ abstract class Ordrdet implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \Ordrdet (or compatible) type.
-     * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
-     * @throws PropelException
+     * @param object $copyObj An object of \Ordrdet (or compatible) type.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
+    public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
         $copyObj->setSessionid($this->getSessionid());
         $copyObj->setRecno($this->getRecno());
@@ -4798,11 +4866,11 @@ abstract class Ordrdet implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @return \Ordrdet Clone of current object.
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function copy($deepCopy = false)
+    public function copy(bool $deepCopy = false)
     {
         // we use get_class(), because this might be a subclass
         $clazz = get_class($this);
@@ -4816,6 +4884,8 @@ abstract class Ordrdet implements ActiveRecordInterface
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
+     *
+     * @return $this
      */
     public function clear()
     {
@@ -4885,6 +4955,8 @@ abstract class Ordrdet implements ActiveRecordInterface
         $this->resetModified();
         $this->setNew(true);
         $this->setDeleted(false);
+
+        return $this;
     }
 
     /**
@@ -4893,13 +4965,15 @@ abstract class Ordrdet implements ActiveRecordInterface
      * This method is used to reset all php object references (not the actual reference in the database).
      * Necessary for object serialisation.
      *
-     * @param      boolean $deep Whether to also clear the references on all referrer objects.
+     * @param bool $deep Whether to also clear the references on all referrer objects.
+     * @return $this
      */
-    public function clearAllReferences($deep = false)
+    public function clearAllReferences(bool $deep = false)
     {
         if ($deep) {
         } // if ($deep)
 
+        return $this;
     }
 
     /**
@@ -4914,99 +4988,79 @@ abstract class Ordrdet implements ActiveRecordInterface
 
     /**
      * Code to be run before persisting the object
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preSave(ConnectionInterface $con = null)
+    public function preSave(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preSave')) {
-            return parent::preSave($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postSave(ConnectionInterface $con = null)
+    public function postSave(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postSave')) {
-            parent::postSave($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before inserting to database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preInsert(ConnectionInterface $con = null)
+    public function preInsert(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preInsert')) {
-            return parent::preInsert($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postInsert(ConnectionInterface $con = null)
+    public function postInsert(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postInsert')) {
-            parent::postInsert($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before updating the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preUpdate(ConnectionInterface $con = null)
+    public function preUpdate(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preUpdate')) {
-            return parent::preUpdate($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postUpdate(ConnectionInterface $con = null)
+    public function postUpdate(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postUpdate')) {
-            parent::postUpdate($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before deleting the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preDelete(ConnectionInterface $con = null)
+    public function preDelete(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preDelete')) {
-            return parent::preDelete($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postDelete(ConnectionInterface $con = null)
+    public function postDelete(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postDelete')) {
-            parent::postDelete($con);
-        }
-    }
+            }
 
 
     /**
@@ -5016,7 +5070,7 @@ abstract class Ordrdet implements ActiveRecordInterface
      * Allows to define default __call() behavior if you overwrite __call()
      *
      * @param string $name
-     * @param mixed  $params
+     * @param mixed $params
      *
      * @return array|string
      */
@@ -5036,15 +5090,18 @@ abstract class Ordrdet implements ActiveRecordInterface
 
         if (0 === strpos($name, 'from')) {
             $format = substr($name, 4);
+            $inputData = $params[0];
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->importFrom($format, reset($params));
+            return $this->importFrom($format, $inputData, $keyType);
         }
 
         if (0 === strpos($name, 'to')) {
             $format = substr($name, 2);
-            $includeLazyLoadColumns = isset($params[0]) ? $params[0] : true;
+            $includeLazyLoadColumns = $params[0] ?? true;
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->exportTo($format, $includeLazyLoadColumns);
+            return $this->exportTo($format, $includeLazyLoadColumns, $keyType);
         }
 
         throw new BadMethodCallException(sprintf('Call to undefined method: %s.', $name));

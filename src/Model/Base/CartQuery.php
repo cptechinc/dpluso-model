@@ -10,14 +10,12 @@ use Map\CartTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'cart' table.
- *
- *
+ * Base class that represents a query for the `cart` table.
  *
  * @method     ChildCartQuery orderBySessionid($order = Criteria::ASC) Order by the sessionid column
  * @method     ChildCartQuery orderByRecordno($order = Criteria::ASC) Order by the recordno column
@@ -57,26 +55,26 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCartQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildCartQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildCart findOne(ConnectionInterface $con = null) Return the first ChildCart matching the query
- * @method     ChildCart findOneOrCreate(ConnectionInterface $con = null) Return the first ChildCart matching the query, or a new ChildCart object populated from the query conditions when no match is found
+ * @method     ChildCart|null findOne(?ConnectionInterface $con = null) Return the first ChildCart matching the query
+ * @method     ChildCart findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildCart matching the query, or a new ChildCart object populated from the query conditions when no match is found
  *
- * @method     ChildCart findOneBySessionid(string $sessionid) Return the first ChildCart filtered by the sessionid column
- * @method     ChildCart findOneByRecordno(int $recordno) Return the first ChildCart filtered by the recordno column
- * @method     ChildCart findOneByDate(string $date) Return the first ChildCart filtered by the date column
- * @method     ChildCart findOneByTime(int $time) Return the first ChildCart filtered by the time column
- * @method     ChildCart findOneByItemid(string $itemid) Return the first ChildCart filtered by the itemid column
- * @method     ChildCart findOneByPrice(string $price) Return the first ChildCart filtered by the price column
- * @method     ChildCart findOneByQty(int $qty) Return the first ChildCart filtered by the qty column
- * @method     ChildCart findOneByAmount(string $amount) Return the first ChildCart filtered by the amount column
- * @method     ChildCart findOneByDesc1(string $desc1) Return the first ChildCart filtered by the desc1 column
- * @method     ChildCart findOneByDesc2(string $desc2) Return the first ChildCart filtered by the desc2 column
- * @method     ChildCart findOneByErrormes(string $errormes) Return the first ChildCart filtered by the errormes column
- * @method     ChildCart findOneByEntitemid(string $entitemid) Return the first ChildCart filtered by the entitemid column
- * @method     ChildCart findOneByUomdesc(string $uomdesc) Return the first ChildCart filtered by the uomdesc column
- * @method     ChildCart findOneByDummy(string $dummy) Return the first ChildCart filtered by the dummy column *
-
- * @method     ChildCart requirePk($key, ConnectionInterface $con = null) Return the ChildCart by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCart requireOne(ConnectionInterface $con = null) Return the first ChildCart matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCart|null findOneBySessionid(string $sessionid) Return the first ChildCart filtered by the sessionid column
+ * @method     ChildCart|null findOneByRecordno(int $recordno) Return the first ChildCart filtered by the recordno column
+ * @method     ChildCart|null findOneByDate(string $date) Return the first ChildCart filtered by the date column
+ * @method     ChildCart|null findOneByTime(int $time) Return the first ChildCart filtered by the time column
+ * @method     ChildCart|null findOneByItemid(string $itemid) Return the first ChildCart filtered by the itemid column
+ * @method     ChildCart|null findOneByPrice(string $price) Return the first ChildCart filtered by the price column
+ * @method     ChildCart|null findOneByQty(int $qty) Return the first ChildCart filtered by the qty column
+ * @method     ChildCart|null findOneByAmount(string $amount) Return the first ChildCart filtered by the amount column
+ * @method     ChildCart|null findOneByDesc1(string $desc1) Return the first ChildCart filtered by the desc1 column
+ * @method     ChildCart|null findOneByDesc2(string $desc2) Return the first ChildCart filtered by the desc2 column
+ * @method     ChildCart|null findOneByErrormes(string $errormes) Return the first ChildCart filtered by the errormes column
+ * @method     ChildCart|null findOneByEntitemid(string $entitemid) Return the first ChildCart filtered by the entitemid column
+ * @method     ChildCart|null findOneByUomdesc(string $uomdesc) Return the first ChildCart filtered by the uomdesc column
+ * @method     ChildCart|null findOneByDummy(string $dummy) Return the first ChildCart filtered by the dummy column
+ *
+ * @method     ChildCart requirePk($key, ?ConnectionInterface $con = null) Return the ChildCart by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCart requireOne(?ConnectionInterface $con = null) Return the first ChildCart matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildCart requireOneBySessionid(string $sessionid) Return the first ChildCart filtered by the sessionid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCart requireOneByRecordno(int $recordno) Return the first ChildCart filtered by the recordno column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -93,23 +91,40 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCart requireOneByUomdesc(string $uomdesc) Return the first ChildCart filtered by the uomdesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCart requireOneByDummy(string $dummy) Return the first ChildCart filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildCart[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildCart objects based on current ModelCriteria
- * @method     ChildCart[]|ObjectCollection findBySessionid(string $sessionid) Return ChildCart objects filtered by the sessionid column
- * @method     ChildCart[]|ObjectCollection findByRecordno(int $recordno) Return ChildCart objects filtered by the recordno column
- * @method     ChildCart[]|ObjectCollection findByDate(string $date) Return ChildCart objects filtered by the date column
- * @method     ChildCart[]|ObjectCollection findByTime(int $time) Return ChildCart objects filtered by the time column
- * @method     ChildCart[]|ObjectCollection findByItemid(string $itemid) Return ChildCart objects filtered by the itemid column
- * @method     ChildCart[]|ObjectCollection findByPrice(string $price) Return ChildCart objects filtered by the price column
- * @method     ChildCart[]|ObjectCollection findByQty(int $qty) Return ChildCart objects filtered by the qty column
- * @method     ChildCart[]|ObjectCollection findByAmount(string $amount) Return ChildCart objects filtered by the amount column
- * @method     ChildCart[]|ObjectCollection findByDesc1(string $desc1) Return ChildCart objects filtered by the desc1 column
- * @method     ChildCart[]|ObjectCollection findByDesc2(string $desc2) Return ChildCart objects filtered by the desc2 column
- * @method     ChildCart[]|ObjectCollection findByErrormes(string $errormes) Return ChildCart objects filtered by the errormes column
- * @method     ChildCart[]|ObjectCollection findByEntitemid(string $entitemid) Return ChildCart objects filtered by the entitemid column
- * @method     ChildCart[]|ObjectCollection findByUomdesc(string $uomdesc) Return ChildCart objects filtered by the uomdesc column
- * @method     ChildCart[]|ObjectCollection findByDummy(string $dummy) Return ChildCart objects filtered by the dummy column
- * @method     ChildCart[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildCart[]|Collection find(?ConnectionInterface $con = null) Return ChildCart objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildCart> find(?ConnectionInterface $con = null) Return ChildCart objects based on current ModelCriteria
  *
+ * @method     ChildCart[]|Collection findBySessionid(string|array<string> $sessionid) Return ChildCart objects filtered by the sessionid column
+ * @psalm-method Collection&\Traversable<ChildCart> findBySessionid(string|array<string> $sessionid) Return ChildCart objects filtered by the sessionid column
+ * @method     ChildCart[]|Collection findByRecordno(int|array<int> $recordno) Return ChildCart objects filtered by the recordno column
+ * @psalm-method Collection&\Traversable<ChildCart> findByRecordno(int|array<int> $recordno) Return ChildCart objects filtered by the recordno column
+ * @method     ChildCart[]|Collection findByDate(string|array<string> $date) Return ChildCart objects filtered by the date column
+ * @psalm-method Collection&\Traversable<ChildCart> findByDate(string|array<string> $date) Return ChildCart objects filtered by the date column
+ * @method     ChildCart[]|Collection findByTime(int|array<int> $time) Return ChildCart objects filtered by the time column
+ * @psalm-method Collection&\Traversable<ChildCart> findByTime(int|array<int> $time) Return ChildCart objects filtered by the time column
+ * @method     ChildCart[]|Collection findByItemid(string|array<string> $itemid) Return ChildCart objects filtered by the itemid column
+ * @psalm-method Collection&\Traversable<ChildCart> findByItemid(string|array<string> $itemid) Return ChildCart objects filtered by the itemid column
+ * @method     ChildCart[]|Collection findByPrice(string|array<string> $price) Return ChildCart objects filtered by the price column
+ * @psalm-method Collection&\Traversable<ChildCart> findByPrice(string|array<string> $price) Return ChildCart objects filtered by the price column
+ * @method     ChildCart[]|Collection findByQty(int|array<int> $qty) Return ChildCart objects filtered by the qty column
+ * @psalm-method Collection&\Traversable<ChildCart> findByQty(int|array<int> $qty) Return ChildCart objects filtered by the qty column
+ * @method     ChildCart[]|Collection findByAmount(string|array<string> $amount) Return ChildCart objects filtered by the amount column
+ * @psalm-method Collection&\Traversable<ChildCart> findByAmount(string|array<string> $amount) Return ChildCart objects filtered by the amount column
+ * @method     ChildCart[]|Collection findByDesc1(string|array<string> $desc1) Return ChildCart objects filtered by the desc1 column
+ * @psalm-method Collection&\Traversable<ChildCart> findByDesc1(string|array<string> $desc1) Return ChildCart objects filtered by the desc1 column
+ * @method     ChildCart[]|Collection findByDesc2(string|array<string> $desc2) Return ChildCart objects filtered by the desc2 column
+ * @psalm-method Collection&\Traversable<ChildCart> findByDesc2(string|array<string> $desc2) Return ChildCart objects filtered by the desc2 column
+ * @method     ChildCart[]|Collection findByErrormes(string|array<string> $errormes) Return ChildCart objects filtered by the errormes column
+ * @psalm-method Collection&\Traversable<ChildCart> findByErrormes(string|array<string> $errormes) Return ChildCart objects filtered by the errormes column
+ * @method     ChildCart[]|Collection findByEntitemid(string|array<string> $entitemid) Return ChildCart objects filtered by the entitemid column
+ * @psalm-method Collection&\Traversable<ChildCart> findByEntitemid(string|array<string> $entitemid) Return ChildCart objects filtered by the entitemid column
+ * @method     ChildCart[]|Collection findByUomdesc(string|array<string> $uomdesc) Return ChildCart objects filtered by the uomdesc column
+ * @psalm-method Collection&\Traversable<ChildCart> findByUomdesc(string|array<string> $uomdesc) Return ChildCart objects filtered by the uomdesc column
+ * @method     ChildCart[]|Collection findByDummy(string|array<string> $dummy) Return ChildCart objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildCart> findByDummy(string|array<string> $dummy) Return ChildCart objects filtered by the dummy column
+ *
+ * @method     ChildCart[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildCart> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class CartQuery extends ModelCriteria
 {
@@ -118,9 +133,9 @@ abstract class CartQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\CartQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'dplusodb', $modelName = '\\Cart', $modelAlias = null)
     {
@@ -130,12 +145,12 @@ abstract class CartQuery extends ModelCriteria
     /**
      * Returns a new ChildCartQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildCartQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildCartQuery) {
             return $criteria;
@@ -165,7 +180,7 @@ abstract class CartQuery extends ModelCriteria
      *
      * @return ChildCart|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -197,8 +212,8 @@ abstract class CartQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -231,8 +246,8 @@ abstract class CartQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildCart|array|mixed the result, formatted by the current formatter
      */
@@ -252,12 +267,12 @@ abstract class CartQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -274,9 +289,9 @@ abstract class CartQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildCartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -289,14 +304,16 @@ abstract class CartQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildCartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(CartTableMap::COL_SESSIONID, $key[0], Criteria::EQUAL);
@@ -315,14 +332,15 @@ abstract class CartQuery extends ModelCriteria
      * <code>
      * $query->filterBySessionid('fooValue');   // WHERE sessionid = 'fooValue'
      * $query->filterBySessionid('%fooValue%', Criteria::LIKE); // WHERE sessionid LIKE '%fooValue%'
+     * $query->filterBySessionid(['foo', 'bar']); // WHERE sessionid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sessionid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sessionid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySessionid($sessionid = null, $comparison = null)
+    public function filterBySessionid($sessionid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sessionid)) {
@@ -330,7 +348,9 @@ abstract class CartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CartTableMap::COL_SESSIONID, $sessionid, $comparison);
+        $this->addUsingAlias(CartTableMap::COL_SESSIONID, $sessionid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -343,15 +363,15 @@ abstract class CartQuery extends ModelCriteria
      * $query->filterByRecordno(array('min' => 12)); // WHERE recordno > 12
      * </code>
      *
-     * @param     mixed $recordno The value to use as filter.
+     * @param mixed $recordno The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByRecordno($recordno = null, $comparison = null)
+    public function filterByRecordno($recordno = null, ?string $comparison = null)
     {
         if (is_array($recordno)) {
             $useMinMax = false;
@@ -371,7 +391,9 @@ abstract class CartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CartTableMap::COL_RECORDNO, $recordno, $comparison);
+        $this->addUsingAlias(CartTableMap::COL_RECORDNO, $recordno, $comparison);
+
+        return $this;
     }
 
     /**
@@ -381,14 +403,15 @@ abstract class CartQuery extends ModelCriteria
      * <code>
      * $query->filterByDate('fooValue');   // WHERE date = 'fooValue'
      * $query->filterByDate('%fooValue%', Criteria::LIKE); // WHERE date LIKE '%fooValue%'
+     * $query->filterByDate(['foo', 'bar']); // WHERE date IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $date The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $date The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDate($date = null, $comparison = null)
+    public function filterByDate($date = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($date)) {
@@ -396,7 +419,9 @@ abstract class CartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CartTableMap::COL_DATE, $date, $comparison);
+        $this->addUsingAlias(CartTableMap::COL_DATE, $date, $comparison);
+
+        return $this;
     }
 
     /**
@@ -409,15 +434,15 @@ abstract class CartQuery extends ModelCriteria
      * $query->filterByTime(array('min' => 12)); // WHERE time > 12
      * </code>
      *
-     * @param     mixed $time The value to use as filter.
+     * @param mixed $time The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTime($time = null, $comparison = null)
+    public function filterByTime($time = null, ?string $comparison = null)
     {
         if (is_array($time)) {
             $useMinMax = false;
@@ -437,7 +462,9 @@ abstract class CartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CartTableMap::COL_TIME, $time, $comparison);
+        $this->addUsingAlias(CartTableMap::COL_TIME, $time, $comparison);
+
+        return $this;
     }
 
     /**
@@ -447,14 +474,15 @@ abstract class CartQuery extends ModelCriteria
      * <code>
      * $query->filterByItemid('fooValue');   // WHERE itemid = 'fooValue'
      * $query->filterByItemid('%fooValue%', Criteria::LIKE); // WHERE itemid LIKE '%fooValue%'
+     * $query->filterByItemid(['foo', 'bar']); // WHERE itemid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itemid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itemid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemid($itemid = null, $comparison = null)
+    public function filterByItemid($itemid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itemid)) {
@@ -462,7 +490,9 @@ abstract class CartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CartTableMap::COL_ITEMID, $itemid, $comparison);
+        $this->addUsingAlias(CartTableMap::COL_ITEMID, $itemid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -475,15 +505,15 @@ abstract class CartQuery extends ModelCriteria
      * $query->filterByPrice(array('min' => 12)); // WHERE price > 12
      * </code>
      *
-     * @param     mixed $price The value to use as filter.
+     * @param mixed $price The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPrice($price = null, $comparison = null)
+    public function filterByPrice($price = null, ?string $comparison = null)
     {
         if (is_array($price)) {
             $useMinMax = false;
@@ -503,7 +533,9 @@ abstract class CartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CartTableMap::COL_PRICE, $price, $comparison);
+        $this->addUsingAlias(CartTableMap::COL_PRICE, $price, $comparison);
+
+        return $this;
     }
 
     /**
@@ -516,15 +548,15 @@ abstract class CartQuery extends ModelCriteria
      * $query->filterByQty(array('min' => 12)); // WHERE qty > 12
      * </code>
      *
-     * @param     mixed $qty The value to use as filter.
+     * @param mixed $qty The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQty($qty = null, $comparison = null)
+    public function filterByQty($qty = null, ?string $comparison = null)
     {
         if (is_array($qty)) {
             $useMinMax = false;
@@ -544,7 +576,9 @@ abstract class CartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CartTableMap::COL_QTY, $qty, $comparison);
+        $this->addUsingAlias(CartTableMap::COL_QTY, $qty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -557,15 +591,15 @@ abstract class CartQuery extends ModelCriteria
      * $query->filterByAmount(array('min' => 12)); // WHERE amount > 12
      * </code>
      *
-     * @param     mixed $amount The value to use as filter.
+     * @param mixed $amount The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAmount($amount = null, $comparison = null)
+    public function filterByAmount($amount = null, ?string $comparison = null)
     {
         if (is_array($amount)) {
             $useMinMax = false;
@@ -585,7 +619,9 @@ abstract class CartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CartTableMap::COL_AMOUNT, $amount, $comparison);
+        $this->addUsingAlias(CartTableMap::COL_AMOUNT, $amount, $comparison);
+
+        return $this;
     }
 
     /**
@@ -595,14 +631,15 @@ abstract class CartQuery extends ModelCriteria
      * <code>
      * $query->filterByDesc1('fooValue');   // WHERE desc1 = 'fooValue'
      * $query->filterByDesc1('%fooValue%', Criteria::LIKE); // WHERE desc1 LIKE '%fooValue%'
+     * $query->filterByDesc1(['foo', 'bar']); // WHERE desc1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $desc1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $desc1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDesc1($desc1 = null, $comparison = null)
+    public function filterByDesc1($desc1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($desc1)) {
@@ -610,7 +647,9 @@ abstract class CartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CartTableMap::COL_DESC1, $desc1, $comparison);
+        $this->addUsingAlias(CartTableMap::COL_DESC1, $desc1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -620,14 +659,15 @@ abstract class CartQuery extends ModelCriteria
      * <code>
      * $query->filterByDesc2('fooValue');   // WHERE desc2 = 'fooValue'
      * $query->filterByDesc2('%fooValue%', Criteria::LIKE); // WHERE desc2 LIKE '%fooValue%'
+     * $query->filterByDesc2(['foo', 'bar']); // WHERE desc2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $desc2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $desc2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDesc2($desc2 = null, $comparison = null)
+    public function filterByDesc2($desc2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($desc2)) {
@@ -635,7 +675,9 @@ abstract class CartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CartTableMap::COL_DESC2, $desc2, $comparison);
+        $this->addUsingAlias(CartTableMap::COL_DESC2, $desc2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -645,14 +687,15 @@ abstract class CartQuery extends ModelCriteria
      * <code>
      * $query->filterByErrormes('fooValue');   // WHERE errormes = 'fooValue'
      * $query->filterByErrormes('%fooValue%', Criteria::LIKE); // WHERE errormes LIKE '%fooValue%'
+     * $query->filterByErrormes(['foo', 'bar']); // WHERE errormes IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $errormes The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $errormes The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByErrormes($errormes = null, $comparison = null)
+    public function filterByErrormes($errormes = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($errormes)) {
@@ -660,7 +703,9 @@ abstract class CartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CartTableMap::COL_ERRORMES, $errormes, $comparison);
+        $this->addUsingAlias(CartTableMap::COL_ERRORMES, $errormes, $comparison);
+
+        return $this;
     }
 
     /**
@@ -670,14 +715,15 @@ abstract class CartQuery extends ModelCriteria
      * <code>
      * $query->filterByEntitemid('fooValue');   // WHERE entitemid = 'fooValue'
      * $query->filterByEntitemid('%fooValue%', Criteria::LIKE); // WHERE entitemid LIKE '%fooValue%'
+     * $query->filterByEntitemid(['foo', 'bar']); // WHERE entitemid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $entitemid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $entitemid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByEntitemid($entitemid = null, $comparison = null)
+    public function filterByEntitemid($entitemid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($entitemid)) {
@@ -685,7 +731,9 @@ abstract class CartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CartTableMap::COL_ENTITEMID, $entitemid, $comparison);
+        $this->addUsingAlias(CartTableMap::COL_ENTITEMID, $entitemid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -695,14 +743,15 @@ abstract class CartQuery extends ModelCriteria
      * <code>
      * $query->filterByUomdesc('fooValue');   // WHERE uomdesc = 'fooValue'
      * $query->filterByUomdesc('%fooValue%', Criteria::LIKE); // WHERE uomdesc LIKE '%fooValue%'
+     * $query->filterByUomdesc(['foo', 'bar']); // WHERE uomdesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $uomdesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $uomdesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUomdesc($uomdesc = null, $comparison = null)
+    public function filterByUomdesc($uomdesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($uomdesc)) {
@@ -710,7 +759,9 @@ abstract class CartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CartTableMap::COL_UOMDESC, $uomdesc, $comparison);
+        $this->addUsingAlias(CartTableMap::COL_UOMDESC, $uomdesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -720,14 +771,15 @@ abstract class CartQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -735,15 +787,17 @@ abstract class CartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CartTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(CartTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildCart $cart Object to remove from the list of results
+     * @param ChildCart $cart Object to remove from the list of results
      *
-     * @return $this|ChildCartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($cart = null)
     {
@@ -762,7 +816,7 @@ abstract class CartQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CartTableMap::DATABASE_NAME);
@@ -787,12 +841,12 @@ abstract class CartQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CartTableMap::DATABASE_NAME);
@@ -817,4 +871,4 @@ abstract class CartQuery extends ModelCriteria
         });
     }
 
-} // CartQuery
+}

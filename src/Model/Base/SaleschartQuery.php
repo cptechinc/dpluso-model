@@ -10,14 +10,12 @@ use Map\SaleschartTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'saleschart' table.
- *
- *
+ * Base class that represents a query for the `saleschart` table.
  *
  * @method     ChildSaleschartQuery orderBySessionid($order = Criteria::ASC) Order by the sessionid column
  * @method     ChildSaleschartQuery orderByRecno($order = Criteria::ASC) Order by the recno column
@@ -95,45 +93,45 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSaleschartQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildSaleschartQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildSaleschart findOne(ConnectionInterface $con = null) Return the first ChildSaleschart matching the query
- * @method     ChildSaleschart findOneOrCreate(ConnectionInterface $con = null) Return the first ChildSaleschart matching the query, or a new ChildSaleschart object populated from the query conditions when no match is found
+ * @method     ChildSaleschart|null findOne(?ConnectionInterface $con = null) Return the first ChildSaleschart matching the query
+ * @method     ChildSaleschart findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildSaleschart matching the query, or a new ChildSaleschart object populated from the query conditions when no match is found
  *
- * @method     ChildSaleschart findOneBySessionid(string $sessionid) Return the first ChildSaleschart filtered by the sessionid column
- * @method     ChildSaleschart findOneByRecno(int $recno) Return the first ChildSaleschart filtered by the recno column
- * @method     ChildSaleschart findOneByDate(int $date) Return the first ChildSaleschart filtered by the date column
- * @method     ChildSaleschart findOneByTime(int $time) Return the first ChildSaleschart filtered by the time column
- * @method     ChildSaleschart findOneByCustid(string $custid) Return the first ChildSaleschart filtered by the custid column
- * @method     ChildSaleschart findOneByShiptoid(string $shiptoid) Return the first ChildSaleschart filtered by the shiptoid column
- * @method     ChildSaleschart findOneByLastsaledate(string $lastsaledate) Return the first ChildSaleschart filtered by the lastsaledate column
- * @method     ChildSaleschart findOneBySalesmtd(string $salesmtd) Return the first ChildSaleschart filtered by the salesmtd column
- * @method     ChildSaleschart findOneBySalesmth1(string $salesmth1) Return the first ChildSaleschart filtered by the salesmth1 column
- * @method     ChildSaleschart findOneBySalesmth2(string $salesmth2) Return the first ChildSaleschart filtered by the salesmth2 column
- * @method     ChildSaleschart findOneBySalesmth3(string $salesmth3) Return the first ChildSaleschart filtered by the salesmth3 column
- * @method     ChildSaleschart findOneBySalesmth4(string $salesmth4) Return the first ChildSaleschart filtered by the salesmth4 column
- * @method     ChildSaleschart findOneBySalesmth5(string $salesmth5) Return the first ChildSaleschart filtered by the salesmth5 column
- * @method     ChildSaleschart findOneBySalesmth6(string $salesmth6) Return the first ChildSaleschart filtered by the salesmth6 column
- * @method     ChildSaleschart findOneBySalesmth7(string $salesmth7) Return the first ChildSaleschart filtered by the salesmth7 column
- * @method     ChildSaleschart findOneBySalesmth8(string $salesmth8) Return the first ChildSaleschart filtered by the salesmth8 column
- * @method     ChildSaleschart findOneBySalesmth9(string $salesmth9) Return the first ChildSaleschart filtered by the salesmth9 column
- * @method     ChildSaleschart findOneBySalesmth10(string $salesmth10) Return the first ChildSaleschart filtered by the salesmth10 column
- * @method     ChildSaleschart findOneBySalesmth11(string $salesmth11) Return the first ChildSaleschart filtered by the salesmth11 column
- * @method     ChildSaleschart findOneBySalesmth12(string $salesmth12) Return the first ChildSaleschart filtered by the salesmth12 column
- * @method     ChildSaleschart findOneBySalesmth13(string $salesmth13) Return the first ChildSaleschart filtered by the salesmth13 column
- * @method     ChildSaleschart findOneBySalesmth14(string $salesmth14) Return the first ChildSaleschart filtered by the salesmth14 column
- * @method     ChildSaleschart findOneBySalesmth15(string $salesmth15) Return the first ChildSaleschart filtered by the salesmth15 column
- * @method     ChildSaleschart findOneBySalesmth16(string $salesmth16) Return the first ChildSaleschart filtered by the salesmth16 column
- * @method     ChildSaleschart findOneBySalesmth17(string $salesmth17) Return the first ChildSaleschart filtered by the salesmth17 column
- * @method     ChildSaleschart findOneBySalesmth18(string $salesmth18) Return the first ChildSaleschart filtered by the salesmth18 column
- * @method     ChildSaleschart findOneBySalesmth19(string $salesmth19) Return the first ChildSaleschart filtered by the salesmth19 column
- * @method     ChildSaleschart findOneBySalesmth20(string $salesmth20) Return the first ChildSaleschart filtered by the salesmth20 column
- * @method     ChildSaleschart findOneBySalesmth21(string $salesmth21) Return the first ChildSaleschart filtered by the salesmth21 column
- * @method     ChildSaleschart findOneBySalesmth22(string $salesmth22) Return the first ChildSaleschart filtered by the salesmth22 column
- * @method     ChildSaleschart findOneBySalesmth23(string $salesmth23) Return the first ChildSaleschart filtered by the salesmth23 column
- * @method     ChildSaleschart findOneBySalesmth24(string $salesmth24) Return the first ChildSaleschart filtered by the salesmth24 column
- * @method     ChildSaleschart findOneByDummy(string $dummy) Return the first ChildSaleschart filtered by the dummy column *
-
- * @method     ChildSaleschart requirePk($key, ConnectionInterface $con = null) Return the ChildSaleschart by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSaleschart requireOne(ConnectionInterface $con = null) Return the first ChildSaleschart matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSaleschart|null findOneBySessionid(string $sessionid) Return the first ChildSaleschart filtered by the sessionid column
+ * @method     ChildSaleschart|null findOneByRecno(int $recno) Return the first ChildSaleschart filtered by the recno column
+ * @method     ChildSaleschart|null findOneByDate(int $date) Return the first ChildSaleschart filtered by the date column
+ * @method     ChildSaleschart|null findOneByTime(int $time) Return the first ChildSaleschart filtered by the time column
+ * @method     ChildSaleschart|null findOneByCustid(string $custid) Return the first ChildSaleschart filtered by the custid column
+ * @method     ChildSaleschart|null findOneByShiptoid(string $shiptoid) Return the first ChildSaleschart filtered by the shiptoid column
+ * @method     ChildSaleschart|null findOneByLastsaledate(string $lastsaledate) Return the first ChildSaleschart filtered by the lastsaledate column
+ * @method     ChildSaleschart|null findOneBySalesmtd(string $salesmtd) Return the first ChildSaleschart filtered by the salesmtd column
+ * @method     ChildSaleschart|null findOneBySalesmth1(string $salesmth1) Return the first ChildSaleschart filtered by the salesmth1 column
+ * @method     ChildSaleschart|null findOneBySalesmth2(string $salesmth2) Return the first ChildSaleschart filtered by the salesmth2 column
+ * @method     ChildSaleschart|null findOneBySalesmth3(string $salesmth3) Return the first ChildSaleschart filtered by the salesmth3 column
+ * @method     ChildSaleschart|null findOneBySalesmth4(string $salesmth4) Return the first ChildSaleschart filtered by the salesmth4 column
+ * @method     ChildSaleschart|null findOneBySalesmth5(string $salesmth5) Return the first ChildSaleschart filtered by the salesmth5 column
+ * @method     ChildSaleschart|null findOneBySalesmth6(string $salesmth6) Return the first ChildSaleschart filtered by the salesmth6 column
+ * @method     ChildSaleschart|null findOneBySalesmth7(string $salesmth7) Return the first ChildSaleschart filtered by the salesmth7 column
+ * @method     ChildSaleschart|null findOneBySalesmth8(string $salesmth8) Return the first ChildSaleschart filtered by the salesmth8 column
+ * @method     ChildSaleschart|null findOneBySalesmth9(string $salesmth9) Return the first ChildSaleschart filtered by the salesmth9 column
+ * @method     ChildSaleschart|null findOneBySalesmth10(string $salesmth10) Return the first ChildSaleschart filtered by the salesmth10 column
+ * @method     ChildSaleschart|null findOneBySalesmth11(string $salesmth11) Return the first ChildSaleschart filtered by the salesmth11 column
+ * @method     ChildSaleschart|null findOneBySalesmth12(string $salesmth12) Return the first ChildSaleschart filtered by the salesmth12 column
+ * @method     ChildSaleschart|null findOneBySalesmth13(string $salesmth13) Return the first ChildSaleschart filtered by the salesmth13 column
+ * @method     ChildSaleschart|null findOneBySalesmth14(string $salesmth14) Return the first ChildSaleschart filtered by the salesmth14 column
+ * @method     ChildSaleschart|null findOneBySalesmth15(string $salesmth15) Return the first ChildSaleschart filtered by the salesmth15 column
+ * @method     ChildSaleschart|null findOneBySalesmth16(string $salesmth16) Return the first ChildSaleschart filtered by the salesmth16 column
+ * @method     ChildSaleschart|null findOneBySalesmth17(string $salesmth17) Return the first ChildSaleschart filtered by the salesmth17 column
+ * @method     ChildSaleschart|null findOneBySalesmth18(string $salesmth18) Return the first ChildSaleschart filtered by the salesmth18 column
+ * @method     ChildSaleschart|null findOneBySalesmth19(string $salesmth19) Return the first ChildSaleschart filtered by the salesmth19 column
+ * @method     ChildSaleschart|null findOneBySalesmth20(string $salesmth20) Return the first ChildSaleschart filtered by the salesmth20 column
+ * @method     ChildSaleschart|null findOneBySalesmth21(string $salesmth21) Return the first ChildSaleschart filtered by the salesmth21 column
+ * @method     ChildSaleschart|null findOneBySalesmth22(string $salesmth22) Return the first ChildSaleschart filtered by the salesmth22 column
+ * @method     ChildSaleschart|null findOneBySalesmth23(string $salesmth23) Return the first ChildSaleschart filtered by the salesmth23 column
+ * @method     ChildSaleschart|null findOneBySalesmth24(string $salesmth24) Return the first ChildSaleschart filtered by the salesmth24 column
+ * @method     ChildSaleschart|null findOneByDummy(string $dummy) Return the first ChildSaleschart filtered by the dummy column
+ *
+ * @method     ChildSaleschart requirePk($key, ?ConnectionInterface $con = null) Return the ChildSaleschart by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSaleschart requireOne(?ConnectionInterface $con = null) Return the first ChildSaleschart matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildSaleschart requireOneBySessionid(string $sessionid) Return the first ChildSaleschart filtered by the sessionid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSaleschart requireOneByRecno(int $recno) Return the first ChildSaleschart filtered by the recno column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -169,42 +167,78 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSaleschart requireOneBySalesmth24(string $salesmth24) Return the first ChildSaleschart filtered by the salesmth24 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSaleschart requireOneByDummy(string $dummy) Return the first ChildSaleschart filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildSaleschart[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildSaleschart objects based on current ModelCriteria
- * @method     ChildSaleschart[]|ObjectCollection findBySessionid(string $sessionid) Return ChildSaleschart objects filtered by the sessionid column
- * @method     ChildSaleschart[]|ObjectCollection findByRecno(int $recno) Return ChildSaleschart objects filtered by the recno column
- * @method     ChildSaleschart[]|ObjectCollection findByDate(int $date) Return ChildSaleschart objects filtered by the date column
- * @method     ChildSaleschart[]|ObjectCollection findByTime(int $time) Return ChildSaleschart objects filtered by the time column
- * @method     ChildSaleschart[]|ObjectCollection findByCustid(string $custid) Return ChildSaleschart objects filtered by the custid column
- * @method     ChildSaleschart[]|ObjectCollection findByShiptoid(string $shiptoid) Return ChildSaleschart objects filtered by the shiptoid column
- * @method     ChildSaleschart[]|ObjectCollection findByLastsaledate(string $lastsaledate) Return ChildSaleschart objects filtered by the lastsaledate column
- * @method     ChildSaleschart[]|ObjectCollection findBySalesmtd(string $salesmtd) Return ChildSaleschart objects filtered by the salesmtd column
- * @method     ChildSaleschart[]|ObjectCollection findBySalesmth1(string $salesmth1) Return ChildSaleschart objects filtered by the salesmth1 column
- * @method     ChildSaleschart[]|ObjectCollection findBySalesmth2(string $salesmth2) Return ChildSaleschart objects filtered by the salesmth2 column
- * @method     ChildSaleschart[]|ObjectCollection findBySalesmth3(string $salesmth3) Return ChildSaleschart objects filtered by the salesmth3 column
- * @method     ChildSaleschart[]|ObjectCollection findBySalesmth4(string $salesmth4) Return ChildSaleschart objects filtered by the salesmth4 column
- * @method     ChildSaleschart[]|ObjectCollection findBySalesmth5(string $salesmth5) Return ChildSaleschart objects filtered by the salesmth5 column
- * @method     ChildSaleschart[]|ObjectCollection findBySalesmth6(string $salesmth6) Return ChildSaleschart objects filtered by the salesmth6 column
- * @method     ChildSaleschart[]|ObjectCollection findBySalesmth7(string $salesmth7) Return ChildSaleschart objects filtered by the salesmth7 column
- * @method     ChildSaleschart[]|ObjectCollection findBySalesmth8(string $salesmth8) Return ChildSaleschart objects filtered by the salesmth8 column
- * @method     ChildSaleschart[]|ObjectCollection findBySalesmth9(string $salesmth9) Return ChildSaleschart objects filtered by the salesmth9 column
- * @method     ChildSaleschart[]|ObjectCollection findBySalesmth10(string $salesmth10) Return ChildSaleschart objects filtered by the salesmth10 column
- * @method     ChildSaleschart[]|ObjectCollection findBySalesmth11(string $salesmth11) Return ChildSaleschart objects filtered by the salesmth11 column
- * @method     ChildSaleschart[]|ObjectCollection findBySalesmth12(string $salesmth12) Return ChildSaleschart objects filtered by the salesmth12 column
- * @method     ChildSaleschart[]|ObjectCollection findBySalesmth13(string $salesmth13) Return ChildSaleschart objects filtered by the salesmth13 column
- * @method     ChildSaleschart[]|ObjectCollection findBySalesmth14(string $salesmth14) Return ChildSaleschart objects filtered by the salesmth14 column
- * @method     ChildSaleschart[]|ObjectCollection findBySalesmth15(string $salesmth15) Return ChildSaleschart objects filtered by the salesmth15 column
- * @method     ChildSaleschart[]|ObjectCollection findBySalesmth16(string $salesmth16) Return ChildSaleschart objects filtered by the salesmth16 column
- * @method     ChildSaleschart[]|ObjectCollection findBySalesmth17(string $salesmth17) Return ChildSaleschart objects filtered by the salesmth17 column
- * @method     ChildSaleschart[]|ObjectCollection findBySalesmth18(string $salesmth18) Return ChildSaleschart objects filtered by the salesmth18 column
- * @method     ChildSaleschart[]|ObjectCollection findBySalesmth19(string $salesmth19) Return ChildSaleschart objects filtered by the salesmth19 column
- * @method     ChildSaleschart[]|ObjectCollection findBySalesmth20(string $salesmth20) Return ChildSaleschart objects filtered by the salesmth20 column
- * @method     ChildSaleschart[]|ObjectCollection findBySalesmth21(string $salesmth21) Return ChildSaleschart objects filtered by the salesmth21 column
- * @method     ChildSaleschart[]|ObjectCollection findBySalesmth22(string $salesmth22) Return ChildSaleschart objects filtered by the salesmth22 column
- * @method     ChildSaleschart[]|ObjectCollection findBySalesmth23(string $salesmth23) Return ChildSaleschart objects filtered by the salesmth23 column
- * @method     ChildSaleschart[]|ObjectCollection findBySalesmth24(string $salesmth24) Return ChildSaleschart objects filtered by the salesmth24 column
- * @method     ChildSaleschart[]|ObjectCollection findByDummy(string $dummy) Return ChildSaleschart objects filtered by the dummy column
- * @method     ChildSaleschart[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildSaleschart[]|Collection find(?ConnectionInterface $con = null) Return ChildSaleschart objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildSaleschart> find(?ConnectionInterface $con = null) Return ChildSaleschart objects based on current ModelCriteria
  *
+ * @method     ChildSaleschart[]|Collection findBySessionid(string|array<string> $sessionid) Return ChildSaleschart objects filtered by the sessionid column
+ * @psalm-method Collection&\Traversable<ChildSaleschart> findBySessionid(string|array<string> $sessionid) Return ChildSaleschart objects filtered by the sessionid column
+ * @method     ChildSaleschart[]|Collection findByRecno(int|array<int> $recno) Return ChildSaleschart objects filtered by the recno column
+ * @psalm-method Collection&\Traversable<ChildSaleschart> findByRecno(int|array<int> $recno) Return ChildSaleschart objects filtered by the recno column
+ * @method     ChildSaleschart[]|Collection findByDate(int|array<int> $date) Return ChildSaleschart objects filtered by the date column
+ * @psalm-method Collection&\Traversable<ChildSaleschart> findByDate(int|array<int> $date) Return ChildSaleschart objects filtered by the date column
+ * @method     ChildSaleschart[]|Collection findByTime(int|array<int> $time) Return ChildSaleschart objects filtered by the time column
+ * @psalm-method Collection&\Traversable<ChildSaleschart> findByTime(int|array<int> $time) Return ChildSaleschart objects filtered by the time column
+ * @method     ChildSaleschart[]|Collection findByCustid(string|array<string> $custid) Return ChildSaleschart objects filtered by the custid column
+ * @psalm-method Collection&\Traversable<ChildSaleschart> findByCustid(string|array<string> $custid) Return ChildSaleschart objects filtered by the custid column
+ * @method     ChildSaleschart[]|Collection findByShiptoid(string|array<string> $shiptoid) Return ChildSaleschart objects filtered by the shiptoid column
+ * @psalm-method Collection&\Traversable<ChildSaleschart> findByShiptoid(string|array<string> $shiptoid) Return ChildSaleschart objects filtered by the shiptoid column
+ * @method     ChildSaleschart[]|Collection findByLastsaledate(string|array<string> $lastsaledate) Return ChildSaleschart objects filtered by the lastsaledate column
+ * @psalm-method Collection&\Traversable<ChildSaleschart> findByLastsaledate(string|array<string> $lastsaledate) Return ChildSaleschart objects filtered by the lastsaledate column
+ * @method     ChildSaleschart[]|Collection findBySalesmtd(string|array<string> $salesmtd) Return ChildSaleschart objects filtered by the salesmtd column
+ * @psalm-method Collection&\Traversable<ChildSaleschart> findBySalesmtd(string|array<string> $salesmtd) Return ChildSaleschart objects filtered by the salesmtd column
+ * @method     ChildSaleschart[]|Collection findBySalesmth1(string|array<string> $salesmth1) Return ChildSaleschart objects filtered by the salesmth1 column
+ * @psalm-method Collection&\Traversable<ChildSaleschart> findBySalesmth1(string|array<string> $salesmth1) Return ChildSaleschart objects filtered by the salesmth1 column
+ * @method     ChildSaleschart[]|Collection findBySalesmth2(string|array<string> $salesmth2) Return ChildSaleschart objects filtered by the salesmth2 column
+ * @psalm-method Collection&\Traversable<ChildSaleschart> findBySalesmth2(string|array<string> $salesmth2) Return ChildSaleschart objects filtered by the salesmth2 column
+ * @method     ChildSaleschart[]|Collection findBySalesmth3(string|array<string> $salesmth3) Return ChildSaleschart objects filtered by the salesmth3 column
+ * @psalm-method Collection&\Traversable<ChildSaleschart> findBySalesmth3(string|array<string> $salesmth3) Return ChildSaleschart objects filtered by the salesmth3 column
+ * @method     ChildSaleschart[]|Collection findBySalesmth4(string|array<string> $salesmth4) Return ChildSaleschart objects filtered by the salesmth4 column
+ * @psalm-method Collection&\Traversable<ChildSaleschart> findBySalesmth4(string|array<string> $salesmth4) Return ChildSaleschart objects filtered by the salesmth4 column
+ * @method     ChildSaleschart[]|Collection findBySalesmth5(string|array<string> $salesmth5) Return ChildSaleschart objects filtered by the salesmth5 column
+ * @psalm-method Collection&\Traversable<ChildSaleschart> findBySalesmth5(string|array<string> $salesmth5) Return ChildSaleschart objects filtered by the salesmth5 column
+ * @method     ChildSaleschart[]|Collection findBySalesmth6(string|array<string> $salesmth6) Return ChildSaleschart objects filtered by the salesmth6 column
+ * @psalm-method Collection&\Traversable<ChildSaleschart> findBySalesmth6(string|array<string> $salesmth6) Return ChildSaleschart objects filtered by the salesmth6 column
+ * @method     ChildSaleschart[]|Collection findBySalesmth7(string|array<string> $salesmth7) Return ChildSaleschart objects filtered by the salesmth7 column
+ * @psalm-method Collection&\Traversable<ChildSaleschart> findBySalesmth7(string|array<string> $salesmth7) Return ChildSaleschart objects filtered by the salesmth7 column
+ * @method     ChildSaleschart[]|Collection findBySalesmth8(string|array<string> $salesmth8) Return ChildSaleschart objects filtered by the salesmth8 column
+ * @psalm-method Collection&\Traversable<ChildSaleschart> findBySalesmth8(string|array<string> $salesmth8) Return ChildSaleschart objects filtered by the salesmth8 column
+ * @method     ChildSaleschart[]|Collection findBySalesmth9(string|array<string> $salesmth9) Return ChildSaleschart objects filtered by the salesmth9 column
+ * @psalm-method Collection&\Traversable<ChildSaleschart> findBySalesmth9(string|array<string> $salesmth9) Return ChildSaleschart objects filtered by the salesmth9 column
+ * @method     ChildSaleschart[]|Collection findBySalesmth10(string|array<string> $salesmth10) Return ChildSaleschart objects filtered by the salesmth10 column
+ * @psalm-method Collection&\Traversable<ChildSaleschart> findBySalesmth10(string|array<string> $salesmth10) Return ChildSaleschart objects filtered by the salesmth10 column
+ * @method     ChildSaleschart[]|Collection findBySalesmth11(string|array<string> $salesmth11) Return ChildSaleschart objects filtered by the salesmth11 column
+ * @psalm-method Collection&\Traversable<ChildSaleschart> findBySalesmth11(string|array<string> $salesmth11) Return ChildSaleschart objects filtered by the salesmth11 column
+ * @method     ChildSaleschart[]|Collection findBySalesmth12(string|array<string> $salesmth12) Return ChildSaleschart objects filtered by the salesmth12 column
+ * @psalm-method Collection&\Traversable<ChildSaleschart> findBySalesmth12(string|array<string> $salesmth12) Return ChildSaleschart objects filtered by the salesmth12 column
+ * @method     ChildSaleschart[]|Collection findBySalesmth13(string|array<string> $salesmth13) Return ChildSaleschart objects filtered by the salesmth13 column
+ * @psalm-method Collection&\Traversable<ChildSaleschart> findBySalesmth13(string|array<string> $salesmth13) Return ChildSaleschart objects filtered by the salesmth13 column
+ * @method     ChildSaleschart[]|Collection findBySalesmth14(string|array<string> $salesmth14) Return ChildSaleschart objects filtered by the salesmth14 column
+ * @psalm-method Collection&\Traversable<ChildSaleschart> findBySalesmth14(string|array<string> $salesmth14) Return ChildSaleschart objects filtered by the salesmth14 column
+ * @method     ChildSaleschart[]|Collection findBySalesmth15(string|array<string> $salesmth15) Return ChildSaleschart objects filtered by the salesmth15 column
+ * @psalm-method Collection&\Traversable<ChildSaleschart> findBySalesmth15(string|array<string> $salesmth15) Return ChildSaleschart objects filtered by the salesmth15 column
+ * @method     ChildSaleschart[]|Collection findBySalesmth16(string|array<string> $salesmth16) Return ChildSaleschart objects filtered by the salesmth16 column
+ * @psalm-method Collection&\Traversable<ChildSaleschart> findBySalesmth16(string|array<string> $salesmth16) Return ChildSaleschart objects filtered by the salesmth16 column
+ * @method     ChildSaleschart[]|Collection findBySalesmth17(string|array<string> $salesmth17) Return ChildSaleschart objects filtered by the salesmth17 column
+ * @psalm-method Collection&\Traversable<ChildSaleschart> findBySalesmth17(string|array<string> $salesmth17) Return ChildSaleschart objects filtered by the salesmth17 column
+ * @method     ChildSaleschart[]|Collection findBySalesmth18(string|array<string> $salesmth18) Return ChildSaleschart objects filtered by the salesmth18 column
+ * @psalm-method Collection&\Traversable<ChildSaleschart> findBySalesmth18(string|array<string> $salesmth18) Return ChildSaleschart objects filtered by the salesmth18 column
+ * @method     ChildSaleschart[]|Collection findBySalesmth19(string|array<string> $salesmth19) Return ChildSaleschart objects filtered by the salesmth19 column
+ * @psalm-method Collection&\Traversable<ChildSaleschart> findBySalesmth19(string|array<string> $salesmth19) Return ChildSaleschart objects filtered by the salesmth19 column
+ * @method     ChildSaleschart[]|Collection findBySalesmth20(string|array<string> $salesmth20) Return ChildSaleschart objects filtered by the salesmth20 column
+ * @psalm-method Collection&\Traversable<ChildSaleschart> findBySalesmth20(string|array<string> $salesmth20) Return ChildSaleschart objects filtered by the salesmth20 column
+ * @method     ChildSaleschart[]|Collection findBySalesmth21(string|array<string> $salesmth21) Return ChildSaleschart objects filtered by the salesmth21 column
+ * @psalm-method Collection&\Traversable<ChildSaleschart> findBySalesmth21(string|array<string> $salesmth21) Return ChildSaleschart objects filtered by the salesmth21 column
+ * @method     ChildSaleschart[]|Collection findBySalesmth22(string|array<string> $salesmth22) Return ChildSaleschart objects filtered by the salesmth22 column
+ * @psalm-method Collection&\Traversable<ChildSaleschart> findBySalesmth22(string|array<string> $salesmth22) Return ChildSaleschart objects filtered by the salesmth22 column
+ * @method     ChildSaleschart[]|Collection findBySalesmth23(string|array<string> $salesmth23) Return ChildSaleschart objects filtered by the salesmth23 column
+ * @psalm-method Collection&\Traversable<ChildSaleschart> findBySalesmth23(string|array<string> $salesmth23) Return ChildSaleschart objects filtered by the salesmth23 column
+ * @method     ChildSaleschart[]|Collection findBySalesmth24(string|array<string> $salesmth24) Return ChildSaleschart objects filtered by the salesmth24 column
+ * @psalm-method Collection&\Traversable<ChildSaleschart> findBySalesmth24(string|array<string> $salesmth24) Return ChildSaleschart objects filtered by the salesmth24 column
+ * @method     ChildSaleschart[]|Collection findByDummy(string|array<string> $dummy) Return ChildSaleschart objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildSaleschart> findByDummy(string|array<string> $dummy) Return ChildSaleschart objects filtered by the dummy column
+ *
+ * @method     ChildSaleschart[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildSaleschart> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class SaleschartQuery extends ModelCriteria
 {
@@ -213,9 +247,9 @@ abstract class SaleschartQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\SaleschartQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'dplusodb', $modelName = '\\Saleschart', $modelAlias = null)
     {
@@ -225,12 +259,12 @@ abstract class SaleschartQuery extends ModelCriteria
     /**
      * Returns a new ChildSaleschartQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildSaleschartQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildSaleschartQuery) {
             return $criteria;
@@ -260,7 +294,7 @@ abstract class SaleschartQuery extends ModelCriteria
      *
      * @return ChildSaleschart|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -292,8 +326,8 @@ abstract class SaleschartQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -326,8 +360,8 @@ abstract class SaleschartQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildSaleschart|array|mixed the result, formatted by the current formatter
      */
@@ -347,12 +381,12 @@ abstract class SaleschartQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -369,9 +403,9 @@ abstract class SaleschartQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -384,14 +418,16 @@ abstract class SaleschartQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(SaleschartTableMap::COL_SESSIONID, $key[0], Criteria::EQUAL);
@@ -410,14 +446,15 @@ abstract class SaleschartQuery extends ModelCriteria
      * <code>
      * $query->filterBySessionid('fooValue');   // WHERE sessionid = 'fooValue'
      * $query->filterBySessionid('%fooValue%', Criteria::LIKE); // WHERE sessionid LIKE '%fooValue%'
+     * $query->filterBySessionid(['foo', 'bar']); // WHERE sessionid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sessionid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sessionid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySessionid($sessionid = null, $comparison = null)
+    public function filterBySessionid($sessionid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sessionid)) {
@@ -425,7 +462,9 @@ abstract class SaleschartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SaleschartTableMap::COL_SESSIONID, $sessionid, $comparison);
+        $this->addUsingAlias(SaleschartTableMap::COL_SESSIONID, $sessionid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -438,15 +477,15 @@ abstract class SaleschartQuery extends ModelCriteria
      * $query->filterByRecno(array('min' => 12)); // WHERE recno > 12
      * </code>
      *
-     * @param     mixed $recno The value to use as filter.
+     * @param mixed $recno The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByRecno($recno = null, $comparison = null)
+    public function filterByRecno($recno = null, ?string $comparison = null)
     {
         if (is_array($recno)) {
             $useMinMax = false;
@@ -466,7 +505,9 @@ abstract class SaleschartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SaleschartTableMap::COL_RECNO, $recno, $comparison);
+        $this->addUsingAlias(SaleschartTableMap::COL_RECNO, $recno, $comparison);
+
+        return $this;
     }
 
     /**
@@ -479,15 +520,15 @@ abstract class SaleschartQuery extends ModelCriteria
      * $query->filterByDate(array('min' => 12)); // WHERE date > 12
      * </code>
      *
-     * @param     mixed $date The value to use as filter.
+     * @param mixed $date The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDate($date = null, $comparison = null)
+    public function filterByDate($date = null, ?string $comparison = null)
     {
         if (is_array($date)) {
             $useMinMax = false;
@@ -507,7 +548,9 @@ abstract class SaleschartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SaleschartTableMap::COL_DATE, $date, $comparison);
+        $this->addUsingAlias(SaleschartTableMap::COL_DATE, $date, $comparison);
+
+        return $this;
     }
 
     /**
@@ -520,15 +563,15 @@ abstract class SaleschartQuery extends ModelCriteria
      * $query->filterByTime(array('min' => 12)); // WHERE time > 12
      * </code>
      *
-     * @param     mixed $time The value to use as filter.
+     * @param mixed $time The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTime($time = null, $comparison = null)
+    public function filterByTime($time = null, ?string $comparison = null)
     {
         if (is_array($time)) {
             $useMinMax = false;
@@ -548,7 +591,9 @@ abstract class SaleschartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SaleschartTableMap::COL_TIME, $time, $comparison);
+        $this->addUsingAlias(SaleschartTableMap::COL_TIME, $time, $comparison);
+
+        return $this;
     }
 
     /**
@@ -558,14 +603,15 @@ abstract class SaleschartQuery extends ModelCriteria
      * <code>
      * $query->filterByCustid('fooValue');   // WHERE custid = 'fooValue'
      * $query->filterByCustid('%fooValue%', Criteria::LIKE); // WHERE custid LIKE '%fooValue%'
+     * $query->filterByCustid(['foo', 'bar']); // WHERE custid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $custid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $custid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustid($custid = null, $comparison = null)
+    public function filterByCustid($custid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($custid)) {
@@ -573,7 +619,9 @@ abstract class SaleschartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SaleschartTableMap::COL_CUSTID, $custid, $comparison);
+        $this->addUsingAlias(SaleschartTableMap::COL_CUSTID, $custid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -583,14 +631,15 @@ abstract class SaleschartQuery extends ModelCriteria
      * <code>
      * $query->filterByShiptoid('fooValue');   // WHERE shiptoid = 'fooValue'
      * $query->filterByShiptoid('%fooValue%', Criteria::LIKE); // WHERE shiptoid LIKE '%fooValue%'
+     * $query->filterByShiptoid(['foo', 'bar']); // WHERE shiptoid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shiptoid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shiptoid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShiptoid($shiptoid = null, $comparison = null)
+    public function filterByShiptoid($shiptoid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shiptoid)) {
@@ -598,7 +647,9 @@ abstract class SaleschartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SaleschartTableMap::COL_SHIPTOID, $shiptoid, $comparison);
+        $this->addUsingAlias(SaleschartTableMap::COL_SHIPTOID, $shiptoid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -608,14 +659,15 @@ abstract class SaleschartQuery extends ModelCriteria
      * <code>
      * $query->filterByLastsaledate('fooValue');   // WHERE lastsaledate = 'fooValue'
      * $query->filterByLastsaledate('%fooValue%', Criteria::LIKE); // WHERE lastsaledate LIKE '%fooValue%'
+     * $query->filterByLastsaledate(['foo', 'bar']); // WHERE lastsaledate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lastsaledate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lastsaledate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLastsaledate($lastsaledate = null, $comparison = null)
+    public function filterByLastsaledate($lastsaledate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lastsaledate)) {
@@ -623,7 +675,9 @@ abstract class SaleschartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SaleschartTableMap::COL_LASTSALEDATE, $lastsaledate, $comparison);
+        $this->addUsingAlias(SaleschartTableMap::COL_LASTSALEDATE, $lastsaledate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -636,15 +690,15 @@ abstract class SaleschartQuery extends ModelCriteria
      * $query->filterBySalesmtd(array('min' => 12)); // WHERE salesmtd > 12
      * </code>
      *
-     * @param     mixed $salesmtd The value to use as filter.
+     * @param mixed $salesmtd The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesmtd($salesmtd = null, $comparison = null)
+    public function filterBySalesmtd($salesmtd = null, ?string $comparison = null)
     {
         if (is_array($salesmtd)) {
             $useMinMax = false;
@@ -664,7 +718,9 @@ abstract class SaleschartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SaleschartTableMap::COL_SALESMTD, $salesmtd, $comparison);
+        $this->addUsingAlias(SaleschartTableMap::COL_SALESMTD, $salesmtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -677,15 +733,15 @@ abstract class SaleschartQuery extends ModelCriteria
      * $query->filterBySalesmth1(array('min' => 12)); // WHERE salesmth1 > 12
      * </code>
      *
-     * @param     mixed $salesmth1 The value to use as filter.
+     * @param mixed $salesmth1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesmth1($salesmth1 = null, $comparison = null)
+    public function filterBySalesmth1($salesmth1 = null, ?string $comparison = null)
     {
         if (is_array($salesmth1)) {
             $useMinMax = false;
@@ -705,7 +761,9 @@ abstract class SaleschartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH1, $salesmth1, $comparison);
+        $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH1, $salesmth1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -718,15 +776,15 @@ abstract class SaleschartQuery extends ModelCriteria
      * $query->filterBySalesmth2(array('min' => 12)); // WHERE salesmth2 > 12
      * </code>
      *
-     * @param     mixed $salesmth2 The value to use as filter.
+     * @param mixed $salesmth2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesmth2($salesmth2 = null, $comparison = null)
+    public function filterBySalesmth2($salesmth2 = null, ?string $comparison = null)
     {
         if (is_array($salesmth2)) {
             $useMinMax = false;
@@ -746,7 +804,9 @@ abstract class SaleschartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH2, $salesmth2, $comparison);
+        $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH2, $salesmth2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -759,15 +819,15 @@ abstract class SaleschartQuery extends ModelCriteria
      * $query->filterBySalesmth3(array('min' => 12)); // WHERE salesmth3 > 12
      * </code>
      *
-     * @param     mixed $salesmth3 The value to use as filter.
+     * @param mixed $salesmth3 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesmth3($salesmth3 = null, $comparison = null)
+    public function filterBySalesmth3($salesmth3 = null, ?string $comparison = null)
     {
         if (is_array($salesmth3)) {
             $useMinMax = false;
@@ -787,7 +847,9 @@ abstract class SaleschartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH3, $salesmth3, $comparison);
+        $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH3, $salesmth3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -800,15 +862,15 @@ abstract class SaleschartQuery extends ModelCriteria
      * $query->filterBySalesmth4(array('min' => 12)); // WHERE salesmth4 > 12
      * </code>
      *
-     * @param     mixed $salesmth4 The value to use as filter.
+     * @param mixed $salesmth4 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesmth4($salesmth4 = null, $comparison = null)
+    public function filterBySalesmth4($salesmth4 = null, ?string $comparison = null)
     {
         if (is_array($salesmth4)) {
             $useMinMax = false;
@@ -828,7 +890,9 @@ abstract class SaleschartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH4, $salesmth4, $comparison);
+        $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH4, $salesmth4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -841,15 +905,15 @@ abstract class SaleschartQuery extends ModelCriteria
      * $query->filterBySalesmth5(array('min' => 12)); // WHERE salesmth5 > 12
      * </code>
      *
-     * @param     mixed $salesmth5 The value to use as filter.
+     * @param mixed $salesmth5 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesmth5($salesmth5 = null, $comparison = null)
+    public function filterBySalesmth5($salesmth5 = null, ?string $comparison = null)
     {
         if (is_array($salesmth5)) {
             $useMinMax = false;
@@ -869,7 +933,9 @@ abstract class SaleschartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH5, $salesmth5, $comparison);
+        $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH5, $salesmth5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -882,15 +948,15 @@ abstract class SaleschartQuery extends ModelCriteria
      * $query->filterBySalesmth6(array('min' => 12)); // WHERE salesmth6 > 12
      * </code>
      *
-     * @param     mixed $salesmth6 The value to use as filter.
+     * @param mixed $salesmth6 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesmth6($salesmth6 = null, $comparison = null)
+    public function filterBySalesmth6($salesmth6 = null, ?string $comparison = null)
     {
         if (is_array($salesmth6)) {
             $useMinMax = false;
@@ -910,7 +976,9 @@ abstract class SaleschartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH6, $salesmth6, $comparison);
+        $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH6, $salesmth6, $comparison);
+
+        return $this;
     }
 
     /**
@@ -923,15 +991,15 @@ abstract class SaleschartQuery extends ModelCriteria
      * $query->filterBySalesmth7(array('min' => 12)); // WHERE salesmth7 > 12
      * </code>
      *
-     * @param     mixed $salesmth7 The value to use as filter.
+     * @param mixed $salesmth7 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesmth7($salesmth7 = null, $comparison = null)
+    public function filterBySalesmth7($salesmth7 = null, ?string $comparison = null)
     {
         if (is_array($salesmth7)) {
             $useMinMax = false;
@@ -951,7 +1019,9 @@ abstract class SaleschartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH7, $salesmth7, $comparison);
+        $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH7, $salesmth7, $comparison);
+
+        return $this;
     }
 
     /**
@@ -964,15 +1034,15 @@ abstract class SaleschartQuery extends ModelCriteria
      * $query->filterBySalesmth8(array('min' => 12)); // WHERE salesmth8 > 12
      * </code>
      *
-     * @param     mixed $salesmth8 The value to use as filter.
+     * @param mixed $salesmth8 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesmth8($salesmth8 = null, $comparison = null)
+    public function filterBySalesmth8($salesmth8 = null, ?string $comparison = null)
     {
         if (is_array($salesmth8)) {
             $useMinMax = false;
@@ -992,7 +1062,9 @@ abstract class SaleschartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH8, $salesmth8, $comparison);
+        $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH8, $salesmth8, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1005,15 +1077,15 @@ abstract class SaleschartQuery extends ModelCriteria
      * $query->filterBySalesmth9(array('min' => 12)); // WHERE salesmth9 > 12
      * </code>
      *
-     * @param     mixed $salesmth9 The value to use as filter.
+     * @param mixed $salesmth9 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesmth9($salesmth9 = null, $comparison = null)
+    public function filterBySalesmth9($salesmth9 = null, ?string $comparison = null)
     {
         if (is_array($salesmth9)) {
             $useMinMax = false;
@@ -1033,7 +1105,9 @@ abstract class SaleschartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH9, $salesmth9, $comparison);
+        $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH9, $salesmth9, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1046,15 +1120,15 @@ abstract class SaleschartQuery extends ModelCriteria
      * $query->filterBySalesmth10(array('min' => 12)); // WHERE salesmth10 > 12
      * </code>
      *
-     * @param     mixed $salesmth10 The value to use as filter.
+     * @param mixed $salesmth10 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesmth10($salesmth10 = null, $comparison = null)
+    public function filterBySalesmth10($salesmth10 = null, ?string $comparison = null)
     {
         if (is_array($salesmth10)) {
             $useMinMax = false;
@@ -1074,7 +1148,9 @@ abstract class SaleschartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH10, $salesmth10, $comparison);
+        $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH10, $salesmth10, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1087,15 +1163,15 @@ abstract class SaleschartQuery extends ModelCriteria
      * $query->filterBySalesmth11(array('min' => 12)); // WHERE salesmth11 > 12
      * </code>
      *
-     * @param     mixed $salesmth11 The value to use as filter.
+     * @param mixed $salesmth11 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesmth11($salesmth11 = null, $comparison = null)
+    public function filterBySalesmth11($salesmth11 = null, ?string $comparison = null)
     {
         if (is_array($salesmth11)) {
             $useMinMax = false;
@@ -1115,7 +1191,9 @@ abstract class SaleschartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH11, $salesmth11, $comparison);
+        $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH11, $salesmth11, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1128,15 +1206,15 @@ abstract class SaleschartQuery extends ModelCriteria
      * $query->filterBySalesmth12(array('min' => 12)); // WHERE salesmth12 > 12
      * </code>
      *
-     * @param     mixed $salesmth12 The value to use as filter.
+     * @param mixed $salesmth12 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesmth12($salesmth12 = null, $comparison = null)
+    public function filterBySalesmth12($salesmth12 = null, ?string $comparison = null)
     {
         if (is_array($salesmth12)) {
             $useMinMax = false;
@@ -1156,7 +1234,9 @@ abstract class SaleschartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH12, $salesmth12, $comparison);
+        $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH12, $salesmth12, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1169,15 +1249,15 @@ abstract class SaleschartQuery extends ModelCriteria
      * $query->filterBySalesmth13(array('min' => 12)); // WHERE salesmth13 > 12
      * </code>
      *
-     * @param     mixed $salesmth13 The value to use as filter.
+     * @param mixed $salesmth13 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesmth13($salesmth13 = null, $comparison = null)
+    public function filterBySalesmth13($salesmth13 = null, ?string $comparison = null)
     {
         if (is_array($salesmth13)) {
             $useMinMax = false;
@@ -1197,7 +1277,9 @@ abstract class SaleschartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH13, $salesmth13, $comparison);
+        $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH13, $salesmth13, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1210,15 +1292,15 @@ abstract class SaleschartQuery extends ModelCriteria
      * $query->filterBySalesmth14(array('min' => 12)); // WHERE salesmth14 > 12
      * </code>
      *
-     * @param     mixed $salesmth14 The value to use as filter.
+     * @param mixed $salesmth14 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesmth14($salesmth14 = null, $comparison = null)
+    public function filterBySalesmth14($salesmth14 = null, ?string $comparison = null)
     {
         if (is_array($salesmth14)) {
             $useMinMax = false;
@@ -1238,7 +1320,9 @@ abstract class SaleschartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH14, $salesmth14, $comparison);
+        $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH14, $salesmth14, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1251,15 +1335,15 @@ abstract class SaleschartQuery extends ModelCriteria
      * $query->filterBySalesmth15(array('min' => 12)); // WHERE salesmth15 > 12
      * </code>
      *
-     * @param     mixed $salesmth15 The value to use as filter.
+     * @param mixed $salesmth15 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesmth15($salesmth15 = null, $comparison = null)
+    public function filterBySalesmth15($salesmth15 = null, ?string $comparison = null)
     {
         if (is_array($salesmth15)) {
             $useMinMax = false;
@@ -1279,7 +1363,9 @@ abstract class SaleschartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH15, $salesmth15, $comparison);
+        $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH15, $salesmth15, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1292,15 +1378,15 @@ abstract class SaleschartQuery extends ModelCriteria
      * $query->filterBySalesmth16(array('min' => 12)); // WHERE salesmth16 > 12
      * </code>
      *
-     * @param     mixed $salesmth16 The value to use as filter.
+     * @param mixed $salesmth16 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesmth16($salesmth16 = null, $comparison = null)
+    public function filterBySalesmth16($salesmth16 = null, ?string $comparison = null)
     {
         if (is_array($salesmth16)) {
             $useMinMax = false;
@@ -1320,7 +1406,9 @@ abstract class SaleschartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH16, $salesmth16, $comparison);
+        $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH16, $salesmth16, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1333,15 +1421,15 @@ abstract class SaleschartQuery extends ModelCriteria
      * $query->filterBySalesmth17(array('min' => 12)); // WHERE salesmth17 > 12
      * </code>
      *
-     * @param     mixed $salesmth17 The value to use as filter.
+     * @param mixed $salesmth17 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesmth17($salesmth17 = null, $comparison = null)
+    public function filterBySalesmth17($salesmth17 = null, ?string $comparison = null)
     {
         if (is_array($salesmth17)) {
             $useMinMax = false;
@@ -1361,7 +1449,9 @@ abstract class SaleschartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH17, $salesmth17, $comparison);
+        $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH17, $salesmth17, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1374,15 +1464,15 @@ abstract class SaleschartQuery extends ModelCriteria
      * $query->filterBySalesmth18(array('min' => 12)); // WHERE salesmth18 > 12
      * </code>
      *
-     * @param     mixed $salesmth18 The value to use as filter.
+     * @param mixed $salesmth18 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesmth18($salesmth18 = null, $comparison = null)
+    public function filterBySalesmth18($salesmth18 = null, ?string $comparison = null)
     {
         if (is_array($salesmth18)) {
             $useMinMax = false;
@@ -1402,7 +1492,9 @@ abstract class SaleschartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH18, $salesmth18, $comparison);
+        $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH18, $salesmth18, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1415,15 +1507,15 @@ abstract class SaleschartQuery extends ModelCriteria
      * $query->filterBySalesmth19(array('min' => 12)); // WHERE salesmth19 > 12
      * </code>
      *
-     * @param     mixed $salesmth19 The value to use as filter.
+     * @param mixed $salesmth19 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesmth19($salesmth19 = null, $comparison = null)
+    public function filterBySalesmth19($salesmth19 = null, ?string $comparison = null)
     {
         if (is_array($salesmth19)) {
             $useMinMax = false;
@@ -1443,7 +1535,9 @@ abstract class SaleschartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH19, $salesmth19, $comparison);
+        $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH19, $salesmth19, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1456,15 +1550,15 @@ abstract class SaleschartQuery extends ModelCriteria
      * $query->filterBySalesmth20(array('min' => 12)); // WHERE salesmth20 > 12
      * </code>
      *
-     * @param     mixed $salesmth20 The value to use as filter.
+     * @param mixed $salesmth20 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesmth20($salesmth20 = null, $comparison = null)
+    public function filterBySalesmth20($salesmth20 = null, ?string $comparison = null)
     {
         if (is_array($salesmth20)) {
             $useMinMax = false;
@@ -1484,7 +1578,9 @@ abstract class SaleschartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH20, $salesmth20, $comparison);
+        $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH20, $salesmth20, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1497,15 +1593,15 @@ abstract class SaleschartQuery extends ModelCriteria
      * $query->filterBySalesmth21(array('min' => 12)); // WHERE salesmth21 > 12
      * </code>
      *
-     * @param     mixed $salesmth21 The value to use as filter.
+     * @param mixed $salesmth21 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesmth21($salesmth21 = null, $comparison = null)
+    public function filterBySalesmth21($salesmth21 = null, ?string $comparison = null)
     {
         if (is_array($salesmth21)) {
             $useMinMax = false;
@@ -1525,7 +1621,9 @@ abstract class SaleschartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH21, $salesmth21, $comparison);
+        $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH21, $salesmth21, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1538,15 +1636,15 @@ abstract class SaleschartQuery extends ModelCriteria
      * $query->filterBySalesmth22(array('min' => 12)); // WHERE salesmth22 > 12
      * </code>
      *
-     * @param     mixed $salesmth22 The value to use as filter.
+     * @param mixed $salesmth22 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesmth22($salesmth22 = null, $comparison = null)
+    public function filterBySalesmth22($salesmth22 = null, ?string $comparison = null)
     {
         if (is_array($salesmth22)) {
             $useMinMax = false;
@@ -1566,7 +1664,9 @@ abstract class SaleschartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH22, $salesmth22, $comparison);
+        $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH22, $salesmth22, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1579,15 +1679,15 @@ abstract class SaleschartQuery extends ModelCriteria
      * $query->filterBySalesmth23(array('min' => 12)); // WHERE salesmth23 > 12
      * </code>
      *
-     * @param     mixed $salesmth23 The value to use as filter.
+     * @param mixed $salesmth23 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesmth23($salesmth23 = null, $comparison = null)
+    public function filterBySalesmth23($salesmth23 = null, ?string $comparison = null)
     {
         if (is_array($salesmth23)) {
             $useMinMax = false;
@@ -1607,7 +1707,9 @@ abstract class SaleschartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH23, $salesmth23, $comparison);
+        $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH23, $salesmth23, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1620,15 +1722,15 @@ abstract class SaleschartQuery extends ModelCriteria
      * $query->filterBySalesmth24(array('min' => 12)); // WHERE salesmth24 > 12
      * </code>
      *
-     * @param     mixed $salesmth24 The value to use as filter.
+     * @param mixed $salesmth24 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesmth24($salesmth24 = null, $comparison = null)
+    public function filterBySalesmth24($salesmth24 = null, ?string $comparison = null)
     {
         if (is_array($salesmth24)) {
             $useMinMax = false;
@@ -1648,7 +1750,9 @@ abstract class SaleschartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH24, $salesmth24, $comparison);
+        $this->addUsingAlias(SaleschartTableMap::COL_SALESMTH24, $salesmth24, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1658,14 +1762,15 @@ abstract class SaleschartQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -1673,15 +1778,17 @@ abstract class SaleschartQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SaleschartTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(SaleschartTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildSaleschart $saleschart Object to remove from the list of results
+     * @param ChildSaleschart $saleschart Object to remove from the list of results
      *
-     * @return $this|ChildSaleschartQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($saleschart = null)
     {
@@ -1700,7 +1807,7 @@ abstract class SaleschartQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SaleschartTableMap::DATABASE_NAME);
@@ -1725,12 +1832,12 @@ abstract class SaleschartQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SaleschartTableMap::DATABASE_NAME);
@@ -1755,4 +1862,4 @@ abstract class SaleschartQuery extends ModelCriteria
         });
     }
 
-} // SaleschartQuery
+}

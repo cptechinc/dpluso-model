@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class QuotdetTableMap extends TableMap
 {
@@ -34,319 +33,618 @@ class QuotdetTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.QuotdetTableMap';
+    public const CLASS_NAME = '.Map.QuotdetTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'dplusodb';
+    public const DATABASE_NAME = 'dplusodb';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'quotdet';
+    public const TABLE_NAME = 'quotdet';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'Quotdet';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\Quotdet';
+    public const OM_CLASS = '\\Quotdet';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'Quotdet';
+    public const CLASS_DEFAULT = 'Quotdet';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 47;
+    public const NUM_COLUMNS = 47;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 47;
+    public const NUM_HYDRATE_COLUMNS = 47;
 
     /**
      * the column name for the sessionid field
      */
-    const COL_SESSIONID = 'quotdet.sessionid';
+    public const COL_SESSIONID = 'quotdet.sessionid';
 
     /**
      * the column name for the recno field
      */
-    const COL_RECNO = 'quotdet.recno';
+    public const COL_RECNO = 'quotdet.recno';
 
     /**
      * the column name for the date field
      */
-    const COL_DATE = 'quotdet.date';
+    public const COL_DATE = 'quotdet.date';
 
     /**
      * the column name for the time field
      */
-    const COL_TIME = 'quotdet.time';
+    public const COL_TIME = 'quotdet.time';
 
     /**
      * the column name for the quotenbr field
      */
-    const COL_QUOTENBR = 'quotdet.quotenbr';
+    public const COL_QUOTENBR = 'quotdet.quotenbr';
 
     /**
      * the column name for the custid field
      */
-    const COL_CUSTID = 'quotdet.custid';
+    public const COL_CUSTID = 'quotdet.custid';
 
     /**
      * the column name for the linenbr field
      */
-    const COL_LINENBR = 'quotdet.linenbr';
+    public const COL_LINENBR = 'quotdet.linenbr';
 
     /**
      * the column name for the sublinenbr field
      */
-    const COL_SUBLINENBR = 'quotdet.sublinenbr';
+    public const COL_SUBLINENBR = 'quotdet.sublinenbr';
 
     /**
      * the column name for the itemid field
      */
-    const COL_ITEMID = 'quotdet.itemid';
+    public const COL_ITEMID = 'quotdet.itemid';
 
     /**
      * the column name for the desc1 field
      */
-    const COL_DESC1 = 'quotdet.desc1';
+    public const COL_DESC1 = 'quotdet.desc1';
 
     /**
      * the column name for the desc2 field
      */
-    const COL_DESC2 = 'quotdet.desc2';
+    public const COL_DESC2 = 'quotdet.desc2';
 
     /**
      * the column name for the custitemid field
      */
-    const COL_CUSTITEMID = 'quotdet.custitemid';
+    public const COL_CUSTITEMID = 'quotdet.custitemid';
 
     /**
      * the column name for the vendorid field
      */
-    const COL_VENDORID = 'quotdet.vendorid';
+    public const COL_VENDORID = 'quotdet.vendorid';
 
     /**
      * the column name for the vendoritemid field
      */
-    const COL_VENDORITEMID = 'quotdet.vendoritemid';
+    public const COL_VENDORITEMID = 'quotdet.vendoritemid';
 
     /**
      * the column name for the status field
      */
-    const COL_STATUS = 'quotdet.status';
+    public const COL_STATUS = 'quotdet.status';
 
     /**
      * the column name for the lostreason field
      */
-    const COL_LOSTREASON = 'quotdet.lostreason';
+    public const COL_LOSTREASON = 'quotdet.lostreason';
 
     /**
      * the column name for the lostdate field
      */
-    const COL_LOSTDATE = 'quotdet.lostdate';
+    public const COL_LOSTDATE = 'quotdet.lostdate';
 
     /**
      * the column name for the kititemflag field
      */
-    const COL_KITITEMFLAG = 'quotdet.kititemflag';
+    public const COL_KITITEMFLAG = 'quotdet.kititemflag';
 
     /**
      * the column name for the hasnotes field
      */
-    const COL_HASNOTES = 'quotdet.hasnotes';
+    public const COL_HASNOTES = 'quotdet.hasnotes';
 
     /**
      * the column name for the venddetail field
      */
-    const COL_VENDDETAIL = 'quotdet.venddetail';
+    public const COL_VENDDETAIL = 'quotdet.venddetail';
 
     /**
      * the column name for the rshipdate field
      */
-    const COL_RSHIPDATE = 'quotdet.rshipdate';
+    public const COL_RSHIPDATE = 'quotdet.rshipdate';
 
     /**
      * the column name for the leaddays field
      */
-    const COL_LEADDAYS = 'quotdet.leaddays';
+    public const COL_LEADDAYS = 'quotdet.leaddays';
 
     /**
      * the column name for the taxcode field
      */
-    const COL_TAXCODE = 'quotdet.taxcode';
+    public const COL_TAXCODE = 'quotdet.taxcode';
 
     /**
      * the column name for the ordrqty field
      */
-    const COL_ORDRQTY = 'quotdet.ordrqty';
+    public const COL_ORDRQTY = 'quotdet.ordrqty';
 
     /**
      * the column name for the ordrprice field
      */
-    const COL_ORDRPRICE = 'quotdet.ordrprice';
+    public const COL_ORDRPRICE = 'quotdet.ordrprice';
 
     /**
      * the column name for the ordrcost field
      */
-    const COL_ORDRCOST = 'quotdet.ordrcost';
+    public const COL_ORDRCOST = 'quotdet.ordrcost';
 
     /**
      * the column name for the ordrtotalprice field
      */
-    const COL_ORDRTOTALPRICE = 'quotdet.ordrtotalprice';
+    public const COL_ORDRTOTALPRICE = 'quotdet.ordrtotalprice';
 
     /**
      * the column name for the ordrtotalcost field
      */
-    const COL_ORDRTOTALCOST = 'quotdet.ordrtotalcost';
+    public const COL_ORDRTOTALCOST = 'quotdet.ordrtotalcost';
 
     /**
      * the column name for the uom field
      */
-    const COL_UOM = 'quotdet.uom';
+    public const COL_UOM = 'quotdet.uom';
 
     /**
      * the column name for the costuom field
      */
-    const COL_COSTUOM = 'quotdet.costuom';
+    public const COL_COSTUOM = 'quotdet.costuom';
 
     /**
      * the column name for the whse field
      */
-    const COL_WHSE = 'quotdet.whse';
+    public const COL_WHSE = 'quotdet.whse';
 
     /**
      * the column name for the listprice field
      */
-    const COL_LISTPRICE = 'quotdet.listprice';
+    public const COL_LISTPRICE = 'quotdet.listprice';
 
     /**
      * the column name for the stancost field
      */
-    const COL_STANCOST = 'quotdet.stancost';
+    public const COL_STANCOST = 'quotdet.stancost';
 
     /**
      * the column name for the quotind field
      */
-    const COL_QUOTIND = 'quotdet.quotind';
+    public const COL_QUOTIND = 'quotdet.quotind';
 
     /**
      * the column name for the quotqty field
      */
-    const COL_QUOTQTY = 'quotdet.quotqty';
+    public const COL_QUOTQTY = 'quotdet.quotqty';
 
     /**
      * the column name for the quotprice field
      */
-    const COL_QUOTPRICE = 'quotdet.quotprice';
+    public const COL_QUOTPRICE = 'quotdet.quotprice';
 
     /**
      * the column name for the quotcost field
      */
-    const COL_QUOTCOST = 'quotdet.quotcost';
+    public const COL_QUOTCOST = 'quotdet.quotcost';
 
     /**
      * the column name for the quotmkupmarg field
      */
-    const COL_QUOTMKUPMARG = 'quotdet.quotmkupmarg';
+    public const COL_QUOTMKUPMARG = 'quotdet.quotmkupmarg';
 
     /**
      * the column name for the discpct field
      */
-    const COL_DISCPCT = 'quotdet.discpct';
+    public const COL_DISCPCT = 'quotdet.discpct';
 
     /**
      * the column name for the spcord field
      */
-    const COL_SPCORD = 'quotdet.spcord';
+    public const COL_SPCORD = 'quotdet.spcord';
 
     /**
      * the column name for the error field
      */
-    const COL_ERROR = 'quotdet.error';
+    public const COL_ERROR = 'quotdet.error';
 
     /**
      * the column name for the errormsg field
      */
-    const COL_ERRORMSG = 'quotdet.errormsg';
+    public const COL_ERRORMSG = 'quotdet.errormsg';
 
     /**
      * the column name for the minprice field
      */
-    const COL_MINPRICE = 'quotdet.minprice';
+    public const COL_MINPRICE = 'quotdet.minprice';
 
     /**
      * the column name for the nsitemgroup field
      */
-    const COL_NSITEMGROUP = 'quotdet.nsitemgroup';
+    public const COL_NSITEMGROUP = 'quotdet.nsitemgroup';
 
     /**
      * the column name for the shipfromid field
      */
-    const COL_SHIPFROMID = 'quotdet.shipfromid';
+    public const COL_SHIPFROMID = 'quotdet.shipfromid';
 
     /**
      * the column name for the itemtype field
      */
-    const COL_ITEMTYPE = 'quotdet.itemtype';
+    public const COL_ITEMTYPE = 'quotdet.itemtype';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'quotdet.dummy';
+    public const COL_DUMMY = 'quotdet.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Sessionid', 'Recno', 'Date', 'Time', 'Quotenbr', 'Custid', 'Linenbr', 'Sublinenbr', 'Itemid', 'Desc1', 'Desc2', 'Custitemid', 'Vendorid', 'Vendoritemid', 'Status', 'Lostreason', 'Lostdate', 'Kititemflag', 'Hasnotes', 'Venddetail', 'Rshipdate', 'Leaddays', 'Taxcode', 'Ordrqty', 'Ordrprice', 'Ordrcost', 'Ordrtotalprice', 'Ordrtotalcost', 'Uom', 'Costuom', 'Whse', 'Listprice', 'Stancost', 'Quotind', 'Quotqty', 'Quotprice', 'Quotcost', 'Quotmkupmarg', 'Discpct', 'Spcord', 'Error', 'Errormsg', 'Minprice', 'Nsitemgroup', 'Shipfromid', 'Itemtype', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('sessionid', 'recno', 'date', 'time', 'quotenbr', 'custid', 'linenbr', 'sublinenbr', 'itemid', 'desc1', 'desc2', 'custitemid', 'vendorid', 'vendoritemid', 'status', 'lostreason', 'lostdate', 'kititemflag', 'hasnotes', 'venddetail', 'rshipdate', 'leaddays', 'taxcode', 'ordrqty', 'ordrprice', 'ordrcost', 'ordrtotalprice', 'ordrtotalcost', 'uom', 'costuom', 'whse', 'listprice', 'stancost', 'quotind', 'quotqty', 'quotprice', 'quotcost', 'quotmkupmarg', 'discpct', 'spcord', 'error', 'errormsg', 'minprice', 'nsitemgroup', 'shipfromid', 'itemtype', 'dummy', ),
-        self::TYPE_COLNAME       => array(QuotdetTableMap::COL_SESSIONID, QuotdetTableMap::COL_RECNO, QuotdetTableMap::COL_DATE, QuotdetTableMap::COL_TIME, QuotdetTableMap::COL_QUOTENBR, QuotdetTableMap::COL_CUSTID, QuotdetTableMap::COL_LINENBR, QuotdetTableMap::COL_SUBLINENBR, QuotdetTableMap::COL_ITEMID, QuotdetTableMap::COL_DESC1, QuotdetTableMap::COL_DESC2, QuotdetTableMap::COL_CUSTITEMID, QuotdetTableMap::COL_VENDORID, QuotdetTableMap::COL_VENDORITEMID, QuotdetTableMap::COL_STATUS, QuotdetTableMap::COL_LOSTREASON, QuotdetTableMap::COL_LOSTDATE, QuotdetTableMap::COL_KITITEMFLAG, QuotdetTableMap::COL_HASNOTES, QuotdetTableMap::COL_VENDDETAIL, QuotdetTableMap::COL_RSHIPDATE, QuotdetTableMap::COL_LEADDAYS, QuotdetTableMap::COL_TAXCODE, QuotdetTableMap::COL_ORDRQTY, QuotdetTableMap::COL_ORDRPRICE, QuotdetTableMap::COL_ORDRCOST, QuotdetTableMap::COL_ORDRTOTALPRICE, QuotdetTableMap::COL_ORDRTOTALCOST, QuotdetTableMap::COL_UOM, QuotdetTableMap::COL_COSTUOM, QuotdetTableMap::COL_WHSE, QuotdetTableMap::COL_LISTPRICE, QuotdetTableMap::COL_STANCOST, QuotdetTableMap::COL_QUOTIND, QuotdetTableMap::COL_QUOTQTY, QuotdetTableMap::COL_QUOTPRICE, QuotdetTableMap::COL_QUOTCOST, QuotdetTableMap::COL_QUOTMKUPMARG, QuotdetTableMap::COL_DISCPCT, QuotdetTableMap::COL_SPCORD, QuotdetTableMap::COL_ERROR, QuotdetTableMap::COL_ERRORMSG, QuotdetTableMap::COL_MINPRICE, QuotdetTableMap::COL_NSITEMGROUP, QuotdetTableMap::COL_SHIPFROMID, QuotdetTableMap::COL_ITEMTYPE, QuotdetTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('sessionid', 'recno', 'date', 'time', 'quotenbr', 'custid', 'linenbr', 'sublinenbr', 'itemid', 'desc1', 'desc2', 'custitemid', 'vendorid', 'vendoritemid', 'status', 'lostreason', 'lostdate', 'kititemflag', 'hasnotes', 'venddetail', 'rshipdate', 'leaddays', 'taxcode', 'ordrqty', 'ordrprice', 'ordrcost', 'ordrtotalprice', 'ordrtotalcost', 'uom', 'costuom', 'whse', 'listprice', 'stancost', 'quotind', 'quotqty', 'quotprice', 'quotcost', 'quotmkupmarg', 'discpct', 'spcord', 'error', 'errormsg', 'minprice', 'nsitemgroup', 'shipfromid', 'itemtype', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Sessionid', 'Recno', 'Date', 'Time', 'Quotenbr', 'Custid', 'Linenbr', 'Sublinenbr', 'Itemid', 'Desc1', 'Desc2', 'Custitemid', 'Vendorid', 'Vendoritemid', 'Status', 'Lostreason', 'Lostdate', 'Kititemflag', 'Hasnotes', 'Venddetail', 'Rshipdate', 'Leaddays', 'Taxcode', 'Ordrqty', 'Ordrprice', 'Ordrcost', 'Ordrtotalprice', 'Ordrtotalcost', 'Uom', 'Costuom', 'Whse', 'Listprice', 'Stancost', 'Quotind', 'Quotqty', 'Quotprice', 'Quotcost', 'Quotmkupmarg', 'Discpct', 'Spcord', 'Error', 'Errormsg', 'Minprice', 'Nsitemgroup', 'Shipfromid', 'Itemtype', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['sessionid', 'recno', 'date', 'time', 'quotenbr', 'custid', 'linenbr', 'sublinenbr', 'itemid', 'desc1', 'desc2', 'custitemid', 'vendorid', 'vendoritemid', 'status', 'lostreason', 'lostdate', 'kititemflag', 'hasnotes', 'venddetail', 'rshipdate', 'leaddays', 'taxcode', 'ordrqty', 'ordrprice', 'ordrcost', 'ordrtotalprice', 'ordrtotalcost', 'uom', 'costuom', 'whse', 'listprice', 'stancost', 'quotind', 'quotqty', 'quotprice', 'quotcost', 'quotmkupmarg', 'discpct', 'spcord', 'error', 'errormsg', 'minprice', 'nsitemgroup', 'shipfromid', 'itemtype', 'dummy', ],
+        self::TYPE_COLNAME       => [QuotdetTableMap::COL_SESSIONID, QuotdetTableMap::COL_RECNO, QuotdetTableMap::COL_DATE, QuotdetTableMap::COL_TIME, QuotdetTableMap::COL_QUOTENBR, QuotdetTableMap::COL_CUSTID, QuotdetTableMap::COL_LINENBR, QuotdetTableMap::COL_SUBLINENBR, QuotdetTableMap::COL_ITEMID, QuotdetTableMap::COL_DESC1, QuotdetTableMap::COL_DESC2, QuotdetTableMap::COL_CUSTITEMID, QuotdetTableMap::COL_VENDORID, QuotdetTableMap::COL_VENDORITEMID, QuotdetTableMap::COL_STATUS, QuotdetTableMap::COL_LOSTREASON, QuotdetTableMap::COL_LOSTDATE, QuotdetTableMap::COL_KITITEMFLAG, QuotdetTableMap::COL_HASNOTES, QuotdetTableMap::COL_VENDDETAIL, QuotdetTableMap::COL_RSHIPDATE, QuotdetTableMap::COL_LEADDAYS, QuotdetTableMap::COL_TAXCODE, QuotdetTableMap::COL_ORDRQTY, QuotdetTableMap::COL_ORDRPRICE, QuotdetTableMap::COL_ORDRCOST, QuotdetTableMap::COL_ORDRTOTALPRICE, QuotdetTableMap::COL_ORDRTOTALCOST, QuotdetTableMap::COL_UOM, QuotdetTableMap::COL_COSTUOM, QuotdetTableMap::COL_WHSE, QuotdetTableMap::COL_LISTPRICE, QuotdetTableMap::COL_STANCOST, QuotdetTableMap::COL_QUOTIND, QuotdetTableMap::COL_QUOTQTY, QuotdetTableMap::COL_QUOTPRICE, QuotdetTableMap::COL_QUOTCOST, QuotdetTableMap::COL_QUOTMKUPMARG, QuotdetTableMap::COL_DISCPCT, QuotdetTableMap::COL_SPCORD, QuotdetTableMap::COL_ERROR, QuotdetTableMap::COL_ERRORMSG, QuotdetTableMap::COL_MINPRICE, QuotdetTableMap::COL_NSITEMGROUP, QuotdetTableMap::COL_SHIPFROMID, QuotdetTableMap::COL_ITEMTYPE, QuotdetTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['sessionid', 'recno', 'date', 'time', 'quotenbr', 'custid', 'linenbr', 'sublinenbr', 'itemid', 'desc1', 'desc2', 'custitemid', 'vendorid', 'vendoritemid', 'status', 'lostreason', 'lostdate', 'kititemflag', 'hasnotes', 'venddetail', 'rshipdate', 'leaddays', 'taxcode', 'ordrqty', 'ordrprice', 'ordrcost', 'ordrtotalprice', 'ordrtotalcost', 'uom', 'costuom', 'whse', 'listprice', 'stancost', 'quotind', 'quotqty', 'quotprice', 'quotcost', 'quotmkupmarg', 'discpct', 'spcord', 'error', 'errormsg', 'minprice', 'nsitemgroup', 'shipfromid', 'itemtype', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Recno' => 1, 'Date' => 2, 'Time' => 3, 'Quotenbr' => 4, 'Custid' => 5, 'Linenbr' => 6, 'Sublinenbr' => 7, 'Itemid' => 8, 'Desc1' => 9, 'Desc2' => 10, 'Custitemid' => 11, 'Vendorid' => 12, 'Vendoritemid' => 13, 'Status' => 14, 'Lostreason' => 15, 'Lostdate' => 16, 'Kititemflag' => 17, 'Hasnotes' => 18, 'Venddetail' => 19, 'Rshipdate' => 20, 'Leaddays' => 21, 'Taxcode' => 22, 'Ordrqty' => 23, 'Ordrprice' => 24, 'Ordrcost' => 25, 'Ordrtotalprice' => 26, 'Ordrtotalcost' => 27, 'Uom' => 28, 'Costuom' => 29, 'Whse' => 30, 'Listprice' => 31, 'Stancost' => 32, 'Quotind' => 33, 'Quotqty' => 34, 'Quotprice' => 35, 'Quotcost' => 36, 'Quotmkupmarg' => 37, 'Discpct' => 38, 'Spcord' => 39, 'Error' => 40, 'Errormsg' => 41, 'Minprice' => 42, 'Nsitemgroup' => 43, 'Shipfromid' => 44, 'Itemtype' => 45, 'Dummy' => 46, ),
-        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'quotenbr' => 4, 'custid' => 5, 'linenbr' => 6, 'sublinenbr' => 7, 'itemid' => 8, 'desc1' => 9, 'desc2' => 10, 'custitemid' => 11, 'vendorid' => 12, 'vendoritemid' => 13, 'status' => 14, 'lostreason' => 15, 'lostdate' => 16, 'kititemflag' => 17, 'hasnotes' => 18, 'venddetail' => 19, 'rshipdate' => 20, 'leaddays' => 21, 'taxcode' => 22, 'ordrqty' => 23, 'ordrprice' => 24, 'ordrcost' => 25, 'ordrtotalprice' => 26, 'ordrtotalcost' => 27, 'uom' => 28, 'costuom' => 29, 'whse' => 30, 'listprice' => 31, 'stancost' => 32, 'quotind' => 33, 'quotqty' => 34, 'quotprice' => 35, 'quotcost' => 36, 'quotmkupmarg' => 37, 'discpct' => 38, 'spcord' => 39, 'error' => 40, 'errormsg' => 41, 'minprice' => 42, 'nsitemgroup' => 43, 'shipfromid' => 44, 'itemtype' => 45, 'dummy' => 46, ),
-        self::TYPE_COLNAME       => array(QuotdetTableMap::COL_SESSIONID => 0, QuotdetTableMap::COL_RECNO => 1, QuotdetTableMap::COL_DATE => 2, QuotdetTableMap::COL_TIME => 3, QuotdetTableMap::COL_QUOTENBR => 4, QuotdetTableMap::COL_CUSTID => 5, QuotdetTableMap::COL_LINENBR => 6, QuotdetTableMap::COL_SUBLINENBR => 7, QuotdetTableMap::COL_ITEMID => 8, QuotdetTableMap::COL_DESC1 => 9, QuotdetTableMap::COL_DESC2 => 10, QuotdetTableMap::COL_CUSTITEMID => 11, QuotdetTableMap::COL_VENDORID => 12, QuotdetTableMap::COL_VENDORITEMID => 13, QuotdetTableMap::COL_STATUS => 14, QuotdetTableMap::COL_LOSTREASON => 15, QuotdetTableMap::COL_LOSTDATE => 16, QuotdetTableMap::COL_KITITEMFLAG => 17, QuotdetTableMap::COL_HASNOTES => 18, QuotdetTableMap::COL_VENDDETAIL => 19, QuotdetTableMap::COL_RSHIPDATE => 20, QuotdetTableMap::COL_LEADDAYS => 21, QuotdetTableMap::COL_TAXCODE => 22, QuotdetTableMap::COL_ORDRQTY => 23, QuotdetTableMap::COL_ORDRPRICE => 24, QuotdetTableMap::COL_ORDRCOST => 25, QuotdetTableMap::COL_ORDRTOTALPRICE => 26, QuotdetTableMap::COL_ORDRTOTALCOST => 27, QuotdetTableMap::COL_UOM => 28, QuotdetTableMap::COL_COSTUOM => 29, QuotdetTableMap::COL_WHSE => 30, QuotdetTableMap::COL_LISTPRICE => 31, QuotdetTableMap::COL_STANCOST => 32, QuotdetTableMap::COL_QUOTIND => 33, QuotdetTableMap::COL_QUOTQTY => 34, QuotdetTableMap::COL_QUOTPRICE => 35, QuotdetTableMap::COL_QUOTCOST => 36, QuotdetTableMap::COL_QUOTMKUPMARG => 37, QuotdetTableMap::COL_DISCPCT => 38, QuotdetTableMap::COL_SPCORD => 39, QuotdetTableMap::COL_ERROR => 40, QuotdetTableMap::COL_ERRORMSG => 41, QuotdetTableMap::COL_MINPRICE => 42, QuotdetTableMap::COL_NSITEMGROUP => 43, QuotdetTableMap::COL_SHIPFROMID => 44, QuotdetTableMap::COL_ITEMTYPE => 45, QuotdetTableMap::COL_DUMMY => 46, ),
-        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'quotenbr' => 4, 'custid' => 5, 'linenbr' => 6, 'sublinenbr' => 7, 'itemid' => 8, 'desc1' => 9, 'desc2' => 10, 'custitemid' => 11, 'vendorid' => 12, 'vendoritemid' => 13, 'status' => 14, 'lostreason' => 15, 'lostdate' => 16, 'kititemflag' => 17, 'hasnotes' => 18, 'venddetail' => 19, 'rshipdate' => 20, 'leaddays' => 21, 'taxcode' => 22, 'ordrqty' => 23, 'ordrprice' => 24, 'ordrcost' => 25, 'ordrtotalprice' => 26, 'ordrtotalcost' => 27, 'uom' => 28, 'costuom' => 29, 'whse' => 30, 'listprice' => 31, 'stancost' => 32, 'quotind' => 33, 'quotqty' => 34, 'quotprice' => 35, 'quotcost' => 36, 'quotmkupmarg' => 37, 'discpct' => 38, 'spcord' => 39, 'error' => 40, 'errormsg' => 41, 'minprice' => 42, 'nsitemgroup' => 43, 'shipfromid' => 44, 'itemtype' => 45, 'dummy' => 46, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Sessionid' => 0, 'Recno' => 1, 'Date' => 2, 'Time' => 3, 'Quotenbr' => 4, 'Custid' => 5, 'Linenbr' => 6, 'Sublinenbr' => 7, 'Itemid' => 8, 'Desc1' => 9, 'Desc2' => 10, 'Custitemid' => 11, 'Vendorid' => 12, 'Vendoritemid' => 13, 'Status' => 14, 'Lostreason' => 15, 'Lostdate' => 16, 'Kititemflag' => 17, 'Hasnotes' => 18, 'Venddetail' => 19, 'Rshipdate' => 20, 'Leaddays' => 21, 'Taxcode' => 22, 'Ordrqty' => 23, 'Ordrprice' => 24, 'Ordrcost' => 25, 'Ordrtotalprice' => 26, 'Ordrtotalcost' => 27, 'Uom' => 28, 'Costuom' => 29, 'Whse' => 30, 'Listprice' => 31, 'Stancost' => 32, 'Quotind' => 33, 'Quotqty' => 34, 'Quotprice' => 35, 'Quotcost' => 36, 'Quotmkupmarg' => 37, 'Discpct' => 38, 'Spcord' => 39, 'Error' => 40, 'Errormsg' => 41, 'Minprice' => 42, 'Nsitemgroup' => 43, 'Shipfromid' => 44, 'Itemtype' => 45, 'Dummy' => 46, ],
+        self::TYPE_CAMELNAME     => ['sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'quotenbr' => 4, 'custid' => 5, 'linenbr' => 6, 'sublinenbr' => 7, 'itemid' => 8, 'desc1' => 9, 'desc2' => 10, 'custitemid' => 11, 'vendorid' => 12, 'vendoritemid' => 13, 'status' => 14, 'lostreason' => 15, 'lostdate' => 16, 'kititemflag' => 17, 'hasnotes' => 18, 'venddetail' => 19, 'rshipdate' => 20, 'leaddays' => 21, 'taxcode' => 22, 'ordrqty' => 23, 'ordrprice' => 24, 'ordrcost' => 25, 'ordrtotalprice' => 26, 'ordrtotalcost' => 27, 'uom' => 28, 'costuom' => 29, 'whse' => 30, 'listprice' => 31, 'stancost' => 32, 'quotind' => 33, 'quotqty' => 34, 'quotprice' => 35, 'quotcost' => 36, 'quotmkupmarg' => 37, 'discpct' => 38, 'spcord' => 39, 'error' => 40, 'errormsg' => 41, 'minprice' => 42, 'nsitemgroup' => 43, 'shipfromid' => 44, 'itemtype' => 45, 'dummy' => 46, ],
+        self::TYPE_COLNAME       => [QuotdetTableMap::COL_SESSIONID => 0, QuotdetTableMap::COL_RECNO => 1, QuotdetTableMap::COL_DATE => 2, QuotdetTableMap::COL_TIME => 3, QuotdetTableMap::COL_QUOTENBR => 4, QuotdetTableMap::COL_CUSTID => 5, QuotdetTableMap::COL_LINENBR => 6, QuotdetTableMap::COL_SUBLINENBR => 7, QuotdetTableMap::COL_ITEMID => 8, QuotdetTableMap::COL_DESC1 => 9, QuotdetTableMap::COL_DESC2 => 10, QuotdetTableMap::COL_CUSTITEMID => 11, QuotdetTableMap::COL_VENDORID => 12, QuotdetTableMap::COL_VENDORITEMID => 13, QuotdetTableMap::COL_STATUS => 14, QuotdetTableMap::COL_LOSTREASON => 15, QuotdetTableMap::COL_LOSTDATE => 16, QuotdetTableMap::COL_KITITEMFLAG => 17, QuotdetTableMap::COL_HASNOTES => 18, QuotdetTableMap::COL_VENDDETAIL => 19, QuotdetTableMap::COL_RSHIPDATE => 20, QuotdetTableMap::COL_LEADDAYS => 21, QuotdetTableMap::COL_TAXCODE => 22, QuotdetTableMap::COL_ORDRQTY => 23, QuotdetTableMap::COL_ORDRPRICE => 24, QuotdetTableMap::COL_ORDRCOST => 25, QuotdetTableMap::COL_ORDRTOTALPRICE => 26, QuotdetTableMap::COL_ORDRTOTALCOST => 27, QuotdetTableMap::COL_UOM => 28, QuotdetTableMap::COL_COSTUOM => 29, QuotdetTableMap::COL_WHSE => 30, QuotdetTableMap::COL_LISTPRICE => 31, QuotdetTableMap::COL_STANCOST => 32, QuotdetTableMap::COL_QUOTIND => 33, QuotdetTableMap::COL_QUOTQTY => 34, QuotdetTableMap::COL_QUOTPRICE => 35, QuotdetTableMap::COL_QUOTCOST => 36, QuotdetTableMap::COL_QUOTMKUPMARG => 37, QuotdetTableMap::COL_DISCPCT => 38, QuotdetTableMap::COL_SPCORD => 39, QuotdetTableMap::COL_ERROR => 40, QuotdetTableMap::COL_ERRORMSG => 41, QuotdetTableMap::COL_MINPRICE => 42, QuotdetTableMap::COL_NSITEMGROUP => 43, QuotdetTableMap::COL_SHIPFROMID => 44, QuotdetTableMap::COL_ITEMTYPE => 45, QuotdetTableMap::COL_DUMMY => 46, ],
+        self::TYPE_FIELDNAME     => ['sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'quotenbr' => 4, 'custid' => 5, 'linenbr' => 6, 'sublinenbr' => 7, 'itemid' => 8, 'desc1' => 9, 'desc2' => 10, 'custitemid' => 11, 'vendorid' => 12, 'vendoritemid' => 13, 'status' => 14, 'lostreason' => 15, 'lostdate' => 16, 'kititemflag' => 17, 'hasnotes' => 18, 'venddetail' => 19, 'rshipdate' => 20, 'leaddays' => 21, 'taxcode' => 22, 'ordrqty' => 23, 'ordrprice' => 24, 'ordrcost' => 25, 'ordrtotalprice' => 26, 'ordrtotalcost' => 27, 'uom' => 28, 'costuom' => 29, 'whse' => 30, 'listprice' => 31, 'stancost' => 32, 'quotind' => 33, 'quotqty' => 34, 'quotprice' => 35, 'quotcost' => 36, 'quotmkupmarg' => 37, 'discpct' => 38, 'spcord' => 39, 'error' => 40, 'errormsg' => 41, 'minprice' => 42, 'nsitemgroup' => 43, 'shipfromid' => 44, 'itemtype' => 45, 'dummy' => 46, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Sessionid' => 'SESSIONID',
+        'Quotdet.Sessionid' => 'SESSIONID',
+        'sessionid' => 'SESSIONID',
+        'quotdet.sessionid' => 'SESSIONID',
+        'QuotdetTableMap::COL_SESSIONID' => 'SESSIONID',
+        'COL_SESSIONID' => 'SESSIONID',
+        'Recno' => 'RECNO',
+        'Quotdet.Recno' => 'RECNO',
+        'recno' => 'RECNO',
+        'quotdet.recno' => 'RECNO',
+        'QuotdetTableMap::COL_RECNO' => 'RECNO',
+        'COL_RECNO' => 'RECNO',
+        'Date' => 'DATE',
+        'Quotdet.Date' => 'DATE',
+        'date' => 'DATE',
+        'quotdet.date' => 'DATE',
+        'QuotdetTableMap::COL_DATE' => 'DATE',
+        'COL_DATE' => 'DATE',
+        'Time' => 'TIME',
+        'Quotdet.Time' => 'TIME',
+        'time' => 'TIME',
+        'quotdet.time' => 'TIME',
+        'QuotdetTableMap::COL_TIME' => 'TIME',
+        'COL_TIME' => 'TIME',
+        'Quotenbr' => 'QUOTENBR',
+        'Quotdet.Quotenbr' => 'QUOTENBR',
+        'quotenbr' => 'QUOTENBR',
+        'quotdet.quotenbr' => 'QUOTENBR',
+        'QuotdetTableMap::COL_QUOTENBR' => 'QUOTENBR',
+        'COL_QUOTENBR' => 'QUOTENBR',
+        'Custid' => 'CUSTID',
+        'Quotdet.Custid' => 'CUSTID',
+        'custid' => 'CUSTID',
+        'quotdet.custid' => 'CUSTID',
+        'QuotdetTableMap::COL_CUSTID' => 'CUSTID',
+        'COL_CUSTID' => 'CUSTID',
+        'Linenbr' => 'LINENBR',
+        'Quotdet.Linenbr' => 'LINENBR',
+        'linenbr' => 'LINENBR',
+        'quotdet.linenbr' => 'LINENBR',
+        'QuotdetTableMap::COL_LINENBR' => 'LINENBR',
+        'COL_LINENBR' => 'LINENBR',
+        'Sublinenbr' => 'SUBLINENBR',
+        'Quotdet.Sublinenbr' => 'SUBLINENBR',
+        'sublinenbr' => 'SUBLINENBR',
+        'quotdet.sublinenbr' => 'SUBLINENBR',
+        'QuotdetTableMap::COL_SUBLINENBR' => 'SUBLINENBR',
+        'COL_SUBLINENBR' => 'SUBLINENBR',
+        'Itemid' => 'ITEMID',
+        'Quotdet.Itemid' => 'ITEMID',
+        'itemid' => 'ITEMID',
+        'quotdet.itemid' => 'ITEMID',
+        'QuotdetTableMap::COL_ITEMID' => 'ITEMID',
+        'COL_ITEMID' => 'ITEMID',
+        'Desc1' => 'DESC1',
+        'Quotdet.Desc1' => 'DESC1',
+        'desc1' => 'DESC1',
+        'quotdet.desc1' => 'DESC1',
+        'QuotdetTableMap::COL_DESC1' => 'DESC1',
+        'COL_DESC1' => 'DESC1',
+        'Desc2' => 'DESC2',
+        'Quotdet.Desc2' => 'DESC2',
+        'desc2' => 'DESC2',
+        'quotdet.desc2' => 'DESC2',
+        'QuotdetTableMap::COL_DESC2' => 'DESC2',
+        'COL_DESC2' => 'DESC2',
+        'Custitemid' => 'CUSTITEMID',
+        'Quotdet.Custitemid' => 'CUSTITEMID',
+        'custitemid' => 'CUSTITEMID',
+        'quotdet.custitemid' => 'CUSTITEMID',
+        'QuotdetTableMap::COL_CUSTITEMID' => 'CUSTITEMID',
+        'COL_CUSTITEMID' => 'CUSTITEMID',
+        'Vendorid' => 'VENDORID',
+        'Quotdet.Vendorid' => 'VENDORID',
+        'vendorid' => 'VENDORID',
+        'quotdet.vendorid' => 'VENDORID',
+        'QuotdetTableMap::COL_VENDORID' => 'VENDORID',
+        'COL_VENDORID' => 'VENDORID',
+        'Vendoritemid' => 'VENDORITEMID',
+        'Quotdet.Vendoritemid' => 'VENDORITEMID',
+        'vendoritemid' => 'VENDORITEMID',
+        'quotdet.vendoritemid' => 'VENDORITEMID',
+        'QuotdetTableMap::COL_VENDORITEMID' => 'VENDORITEMID',
+        'COL_VENDORITEMID' => 'VENDORITEMID',
+        'Status' => 'STATUS',
+        'Quotdet.Status' => 'STATUS',
+        'status' => 'STATUS',
+        'quotdet.status' => 'STATUS',
+        'QuotdetTableMap::COL_STATUS' => 'STATUS',
+        'COL_STATUS' => 'STATUS',
+        'Lostreason' => 'LOSTREASON',
+        'Quotdet.Lostreason' => 'LOSTREASON',
+        'lostreason' => 'LOSTREASON',
+        'quotdet.lostreason' => 'LOSTREASON',
+        'QuotdetTableMap::COL_LOSTREASON' => 'LOSTREASON',
+        'COL_LOSTREASON' => 'LOSTREASON',
+        'Lostdate' => 'LOSTDATE',
+        'Quotdet.Lostdate' => 'LOSTDATE',
+        'lostdate' => 'LOSTDATE',
+        'quotdet.lostdate' => 'LOSTDATE',
+        'QuotdetTableMap::COL_LOSTDATE' => 'LOSTDATE',
+        'COL_LOSTDATE' => 'LOSTDATE',
+        'Kititemflag' => 'KITITEMFLAG',
+        'Quotdet.Kititemflag' => 'KITITEMFLAG',
+        'kititemflag' => 'KITITEMFLAG',
+        'quotdet.kititemflag' => 'KITITEMFLAG',
+        'QuotdetTableMap::COL_KITITEMFLAG' => 'KITITEMFLAG',
+        'COL_KITITEMFLAG' => 'KITITEMFLAG',
+        'Hasnotes' => 'HASNOTES',
+        'Quotdet.Hasnotes' => 'HASNOTES',
+        'hasnotes' => 'HASNOTES',
+        'quotdet.hasnotes' => 'HASNOTES',
+        'QuotdetTableMap::COL_HASNOTES' => 'HASNOTES',
+        'COL_HASNOTES' => 'HASNOTES',
+        'Venddetail' => 'VENDDETAIL',
+        'Quotdet.Venddetail' => 'VENDDETAIL',
+        'venddetail' => 'VENDDETAIL',
+        'quotdet.venddetail' => 'VENDDETAIL',
+        'QuotdetTableMap::COL_VENDDETAIL' => 'VENDDETAIL',
+        'COL_VENDDETAIL' => 'VENDDETAIL',
+        'Rshipdate' => 'RSHIPDATE',
+        'Quotdet.Rshipdate' => 'RSHIPDATE',
+        'rshipdate' => 'RSHIPDATE',
+        'quotdet.rshipdate' => 'RSHIPDATE',
+        'QuotdetTableMap::COL_RSHIPDATE' => 'RSHIPDATE',
+        'COL_RSHIPDATE' => 'RSHIPDATE',
+        'Leaddays' => 'LEADDAYS',
+        'Quotdet.Leaddays' => 'LEADDAYS',
+        'leaddays' => 'LEADDAYS',
+        'quotdet.leaddays' => 'LEADDAYS',
+        'QuotdetTableMap::COL_LEADDAYS' => 'LEADDAYS',
+        'COL_LEADDAYS' => 'LEADDAYS',
+        'Taxcode' => 'TAXCODE',
+        'Quotdet.Taxcode' => 'TAXCODE',
+        'taxcode' => 'TAXCODE',
+        'quotdet.taxcode' => 'TAXCODE',
+        'QuotdetTableMap::COL_TAXCODE' => 'TAXCODE',
+        'COL_TAXCODE' => 'TAXCODE',
+        'Ordrqty' => 'ORDRQTY',
+        'Quotdet.Ordrqty' => 'ORDRQTY',
+        'ordrqty' => 'ORDRQTY',
+        'quotdet.ordrqty' => 'ORDRQTY',
+        'QuotdetTableMap::COL_ORDRQTY' => 'ORDRQTY',
+        'COL_ORDRQTY' => 'ORDRQTY',
+        'Ordrprice' => 'ORDRPRICE',
+        'Quotdet.Ordrprice' => 'ORDRPRICE',
+        'ordrprice' => 'ORDRPRICE',
+        'quotdet.ordrprice' => 'ORDRPRICE',
+        'QuotdetTableMap::COL_ORDRPRICE' => 'ORDRPRICE',
+        'COL_ORDRPRICE' => 'ORDRPRICE',
+        'Ordrcost' => 'ORDRCOST',
+        'Quotdet.Ordrcost' => 'ORDRCOST',
+        'ordrcost' => 'ORDRCOST',
+        'quotdet.ordrcost' => 'ORDRCOST',
+        'QuotdetTableMap::COL_ORDRCOST' => 'ORDRCOST',
+        'COL_ORDRCOST' => 'ORDRCOST',
+        'Ordrtotalprice' => 'ORDRTOTALPRICE',
+        'Quotdet.Ordrtotalprice' => 'ORDRTOTALPRICE',
+        'ordrtotalprice' => 'ORDRTOTALPRICE',
+        'quotdet.ordrtotalprice' => 'ORDRTOTALPRICE',
+        'QuotdetTableMap::COL_ORDRTOTALPRICE' => 'ORDRTOTALPRICE',
+        'COL_ORDRTOTALPRICE' => 'ORDRTOTALPRICE',
+        'Ordrtotalcost' => 'ORDRTOTALCOST',
+        'Quotdet.Ordrtotalcost' => 'ORDRTOTALCOST',
+        'ordrtotalcost' => 'ORDRTOTALCOST',
+        'quotdet.ordrtotalcost' => 'ORDRTOTALCOST',
+        'QuotdetTableMap::COL_ORDRTOTALCOST' => 'ORDRTOTALCOST',
+        'COL_ORDRTOTALCOST' => 'ORDRTOTALCOST',
+        'Uom' => 'UOM',
+        'Quotdet.Uom' => 'UOM',
+        'uom' => 'UOM',
+        'quotdet.uom' => 'UOM',
+        'QuotdetTableMap::COL_UOM' => 'UOM',
+        'COL_UOM' => 'UOM',
+        'Costuom' => 'COSTUOM',
+        'Quotdet.Costuom' => 'COSTUOM',
+        'costuom' => 'COSTUOM',
+        'quotdet.costuom' => 'COSTUOM',
+        'QuotdetTableMap::COL_COSTUOM' => 'COSTUOM',
+        'COL_COSTUOM' => 'COSTUOM',
+        'Whse' => 'WHSE',
+        'Quotdet.Whse' => 'WHSE',
+        'whse' => 'WHSE',
+        'quotdet.whse' => 'WHSE',
+        'QuotdetTableMap::COL_WHSE' => 'WHSE',
+        'COL_WHSE' => 'WHSE',
+        'Listprice' => 'LISTPRICE',
+        'Quotdet.Listprice' => 'LISTPRICE',
+        'listprice' => 'LISTPRICE',
+        'quotdet.listprice' => 'LISTPRICE',
+        'QuotdetTableMap::COL_LISTPRICE' => 'LISTPRICE',
+        'COL_LISTPRICE' => 'LISTPRICE',
+        'Stancost' => 'STANCOST',
+        'Quotdet.Stancost' => 'STANCOST',
+        'stancost' => 'STANCOST',
+        'quotdet.stancost' => 'STANCOST',
+        'QuotdetTableMap::COL_STANCOST' => 'STANCOST',
+        'COL_STANCOST' => 'STANCOST',
+        'Quotind' => 'QUOTIND',
+        'Quotdet.Quotind' => 'QUOTIND',
+        'quotind' => 'QUOTIND',
+        'quotdet.quotind' => 'QUOTIND',
+        'QuotdetTableMap::COL_QUOTIND' => 'QUOTIND',
+        'COL_QUOTIND' => 'QUOTIND',
+        'Quotqty' => 'QUOTQTY',
+        'Quotdet.Quotqty' => 'QUOTQTY',
+        'quotqty' => 'QUOTQTY',
+        'quotdet.quotqty' => 'QUOTQTY',
+        'QuotdetTableMap::COL_QUOTQTY' => 'QUOTQTY',
+        'COL_QUOTQTY' => 'QUOTQTY',
+        'Quotprice' => 'QUOTPRICE',
+        'Quotdet.Quotprice' => 'QUOTPRICE',
+        'quotprice' => 'QUOTPRICE',
+        'quotdet.quotprice' => 'QUOTPRICE',
+        'QuotdetTableMap::COL_QUOTPRICE' => 'QUOTPRICE',
+        'COL_QUOTPRICE' => 'QUOTPRICE',
+        'Quotcost' => 'QUOTCOST',
+        'Quotdet.Quotcost' => 'QUOTCOST',
+        'quotcost' => 'QUOTCOST',
+        'quotdet.quotcost' => 'QUOTCOST',
+        'QuotdetTableMap::COL_QUOTCOST' => 'QUOTCOST',
+        'COL_QUOTCOST' => 'QUOTCOST',
+        'Quotmkupmarg' => 'QUOTMKUPMARG',
+        'Quotdet.Quotmkupmarg' => 'QUOTMKUPMARG',
+        'quotmkupmarg' => 'QUOTMKUPMARG',
+        'quotdet.quotmkupmarg' => 'QUOTMKUPMARG',
+        'QuotdetTableMap::COL_QUOTMKUPMARG' => 'QUOTMKUPMARG',
+        'COL_QUOTMKUPMARG' => 'QUOTMKUPMARG',
+        'Discpct' => 'DISCPCT',
+        'Quotdet.Discpct' => 'DISCPCT',
+        'discpct' => 'DISCPCT',
+        'quotdet.discpct' => 'DISCPCT',
+        'QuotdetTableMap::COL_DISCPCT' => 'DISCPCT',
+        'COL_DISCPCT' => 'DISCPCT',
+        'Spcord' => 'SPCORD',
+        'Quotdet.Spcord' => 'SPCORD',
+        'spcord' => 'SPCORD',
+        'quotdet.spcord' => 'SPCORD',
+        'QuotdetTableMap::COL_SPCORD' => 'SPCORD',
+        'COL_SPCORD' => 'SPCORD',
+        'Error' => 'ERROR',
+        'Quotdet.Error' => 'ERROR',
+        'error' => 'ERROR',
+        'quotdet.error' => 'ERROR',
+        'QuotdetTableMap::COL_ERROR' => 'ERROR',
+        'COL_ERROR' => 'ERROR',
+        'Errormsg' => 'ERRORMSG',
+        'Quotdet.Errormsg' => 'ERRORMSG',
+        'errormsg' => 'ERRORMSG',
+        'quotdet.errormsg' => 'ERRORMSG',
+        'QuotdetTableMap::COL_ERRORMSG' => 'ERRORMSG',
+        'COL_ERRORMSG' => 'ERRORMSG',
+        'Minprice' => 'MINPRICE',
+        'Quotdet.Minprice' => 'MINPRICE',
+        'minprice' => 'MINPRICE',
+        'quotdet.minprice' => 'MINPRICE',
+        'QuotdetTableMap::COL_MINPRICE' => 'MINPRICE',
+        'COL_MINPRICE' => 'MINPRICE',
+        'Nsitemgroup' => 'NSITEMGROUP',
+        'Quotdet.Nsitemgroup' => 'NSITEMGROUP',
+        'nsitemgroup' => 'NSITEMGROUP',
+        'quotdet.nsitemgroup' => 'NSITEMGROUP',
+        'QuotdetTableMap::COL_NSITEMGROUP' => 'NSITEMGROUP',
+        'COL_NSITEMGROUP' => 'NSITEMGROUP',
+        'Shipfromid' => 'SHIPFROMID',
+        'Quotdet.Shipfromid' => 'SHIPFROMID',
+        'shipfromid' => 'SHIPFROMID',
+        'quotdet.shipfromid' => 'SHIPFROMID',
+        'QuotdetTableMap::COL_SHIPFROMID' => 'SHIPFROMID',
+        'COL_SHIPFROMID' => 'SHIPFROMID',
+        'Itemtype' => 'ITEMTYPE',
+        'Quotdet.Itemtype' => 'ITEMTYPE',
+        'itemtype' => 'ITEMTYPE',
+        'quotdet.itemtype' => 'ITEMTYPE',
+        'QuotdetTableMap::COL_ITEMTYPE' => 'ITEMTYPE',
+        'COL_ITEMTYPE' => 'ITEMTYPE',
+        'Dummy' => 'DUMMY',
+        'Quotdet.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'quotdet.dummy' => 'DUMMY',
+        'QuotdetTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('quotdet');
@@ -403,14 +701,16 @@ class QuotdetTableMap extends TableMap
         $this->addColumn('shipfromid', 'Shipfromid', 'VARCHAR', false, 6, '');
         $this->addColumn('itemtype', 'Itemtype', 'VARCHAR', false, 1, '');
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, 'x');
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -421,9 +721,11 @@ class QuotdetTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \Quotdet $obj A \Quotdet object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(Quotdet $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -442,8 +744,10 @@ class QuotdetTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \Quotdet object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \Quotdet) {
@@ -471,14 +775,14 @@ class QuotdetTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Recno', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -493,14 +797,14 @@ class QuotdetTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -526,10 +830,10 @@ class QuotdetTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? QuotdetTableMap::CLASS_DEFAULT : QuotdetTableMap::OM_CLASS;
     }
@@ -537,17 +841,17 @@ class QuotdetTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (Quotdet object, last column rank)
+     * @return array (Quotdet object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = QuotdetTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = QuotdetTableMap::getInstanceFromPool($key))) {
@@ -563,7 +867,7 @@ class QuotdetTableMap extends TableMap
             QuotdetTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -571,13 +875,13 @@ class QuotdetTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -607,12 +911,13 @@ class QuotdetTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(QuotdetTableMap::COL_SESSIONID);
@@ -714,40 +1019,142 @@ class QuotdetTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_SESSIONID);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_RECNO);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_DATE);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_TIME);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_QUOTENBR);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_CUSTID);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_LINENBR);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_SUBLINENBR);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_ITEMID);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_DESC1);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_DESC2);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_CUSTITEMID);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_VENDORID);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_VENDORITEMID);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_STATUS);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_LOSTREASON);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_LOSTDATE);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_KITITEMFLAG);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_HASNOTES);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_VENDDETAIL);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_RSHIPDATE);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_LEADDAYS);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_TAXCODE);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_ORDRQTY);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_ORDRPRICE);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_ORDRCOST);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_ORDRTOTALPRICE);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_ORDRTOTALCOST);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_UOM);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_COSTUOM);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_WHSE);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_LISTPRICE);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_STANCOST);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_QUOTIND);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_QUOTQTY);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_QUOTPRICE);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_QUOTCOST);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_QUOTMKUPMARG);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_DISCPCT);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_SPCORD);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_ERROR);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_ERRORMSG);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_MINPRICE);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_NSITEMGROUP);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_SHIPFROMID);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_ITEMTYPE);
+            $criteria->removeSelectColumn(QuotdetTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.sessionid');
+            $criteria->removeSelectColumn($alias . '.recno');
+            $criteria->removeSelectColumn($alias . '.date');
+            $criteria->removeSelectColumn($alias . '.time');
+            $criteria->removeSelectColumn($alias . '.quotenbr');
+            $criteria->removeSelectColumn($alias . '.custid');
+            $criteria->removeSelectColumn($alias . '.linenbr');
+            $criteria->removeSelectColumn($alias . '.sublinenbr');
+            $criteria->removeSelectColumn($alias . '.itemid');
+            $criteria->removeSelectColumn($alias . '.desc1');
+            $criteria->removeSelectColumn($alias . '.desc2');
+            $criteria->removeSelectColumn($alias . '.custitemid');
+            $criteria->removeSelectColumn($alias . '.vendorid');
+            $criteria->removeSelectColumn($alias . '.vendoritemid');
+            $criteria->removeSelectColumn($alias . '.status');
+            $criteria->removeSelectColumn($alias . '.lostreason');
+            $criteria->removeSelectColumn($alias . '.lostdate');
+            $criteria->removeSelectColumn($alias . '.kititemflag');
+            $criteria->removeSelectColumn($alias . '.hasnotes');
+            $criteria->removeSelectColumn($alias . '.venddetail');
+            $criteria->removeSelectColumn($alias . '.rshipdate');
+            $criteria->removeSelectColumn($alias . '.leaddays');
+            $criteria->removeSelectColumn($alias . '.taxcode');
+            $criteria->removeSelectColumn($alias . '.ordrqty');
+            $criteria->removeSelectColumn($alias . '.ordrprice');
+            $criteria->removeSelectColumn($alias . '.ordrcost');
+            $criteria->removeSelectColumn($alias . '.ordrtotalprice');
+            $criteria->removeSelectColumn($alias . '.ordrtotalcost');
+            $criteria->removeSelectColumn($alias . '.uom');
+            $criteria->removeSelectColumn($alias . '.costuom');
+            $criteria->removeSelectColumn($alias . '.whse');
+            $criteria->removeSelectColumn($alias . '.listprice');
+            $criteria->removeSelectColumn($alias . '.stancost');
+            $criteria->removeSelectColumn($alias . '.quotind');
+            $criteria->removeSelectColumn($alias . '.quotqty');
+            $criteria->removeSelectColumn($alias . '.quotprice');
+            $criteria->removeSelectColumn($alias . '.quotcost');
+            $criteria->removeSelectColumn($alias . '.quotmkupmarg');
+            $criteria->removeSelectColumn($alias . '.discpct');
+            $criteria->removeSelectColumn($alias . '.spcord');
+            $criteria->removeSelectColumn($alias . '.error');
+            $criteria->removeSelectColumn($alias . '.errormsg');
+            $criteria->removeSelectColumn($alias . '.minprice');
+            $criteria->removeSelectColumn($alias . '.nsitemgroup');
+            $criteria->removeSelectColumn($alias . '.shipfromid');
+            $criteria->removeSelectColumn($alias . '.itemtype');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(QuotdetTableMap::DATABASE_NAME)->getTable(QuotdetTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(QuotdetTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(QuotdetTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new QuotdetTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a Quotdet or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or Quotdet object or primary key or array of primary keys
+     * @param mixed $values Criteria or Quotdet object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(QuotdetTableMap::DATABASE_NAME);
@@ -765,7 +1172,7 @@ class QuotdetTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(QuotdetTableMap::COL_SESSIONID, $value[0]);
@@ -793,7 +1200,7 @@ class QuotdetTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return QuotdetQuery::create()->doDeleteAll($con);
     }
@@ -801,13 +1208,13 @@ class QuotdetTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a Quotdet or Criteria object.
      *
-     * @param mixed               $criteria Criteria or Quotdet object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or Quotdet object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(QuotdetTableMap::DATABASE_NAME);
@@ -830,7 +1237,4 @@ class QuotdetTableMap extends TableMap
         });
     }
 
-} // QuotdetTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-QuotdetTableMap::buildTableMap();
+}

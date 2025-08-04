@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class SaleschartTableMap extends TableMap
 {
@@ -34,249 +33,464 @@ class SaleschartTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.SaleschartTableMap';
+    public const CLASS_NAME = '.Map.SaleschartTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'dplusodb';
+    public const DATABASE_NAME = 'dplusodb';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'saleschart';
+    public const TABLE_NAME = 'saleschart';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'Saleschart';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\Saleschart';
+    public const OM_CLASS = '\\Saleschart';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'Saleschart';
+    public const CLASS_DEFAULT = 'Saleschart';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 33;
+    public const NUM_COLUMNS = 33;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 33;
+    public const NUM_HYDRATE_COLUMNS = 33;
 
     /**
      * the column name for the sessionid field
      */
-    const COL_SESSIONID = 'saleschart.sessionid';
+    public const COL_SESSIONID = 'saleschart.sessionid';
 
     /**
      * the column name for the recno field
      */
-    const COL_RECNO = 'saleschart.recno';
+    public const COL_RECNO = 'saleschart.recno';
 
     /**
      * the column name for the date field
      */
-    const COL_DATE = 'saleschart.date';
+    public const COL_DATE = 'saleschart.date';
 
     /**
      * the column name for the time field
      */
-    const COL_TIME = 'saleschart.time';
+    public const COL_TIME = 'saleschart.time';
 
     /**
      * the column name for the custid field
      */
-    const COL_CUSTID = 'saleschart.custid';
+    public const COL_CUSTID = 'saleschart.custid';
 
     /**
      * the column name for the shiptoid field
      */
-    const COL_SHIPTOID = 'saleschart.shiptoid';
+    public const COL_SHIPTOID = 'saleschart.shiptoid';
 
     /**
      * the column name for the lastsaledate field
      */
-    const COL_LASTSALEDATE = 'saleschart.lastsaledate';
+    public const COL_LASTSALEDATE = 'saleschart.lastsaledate';
 
     /**
      * the column name for the salesmtd field
      */
-    const COL_SALESMTD = 'saleschart.salesmtd';
+    public const COL_SALESMTD = 'saleschart.salesmtd';
 
     /**
      * the column name for the salesmth1 field
      */
-    const COL_SALESMTH1 = 'saleschart.salesmth1';
+    public const COL_SALESMTH1 = 'saleschart.salesmth1';
 
     /**
      * the column name for the salesmth2 field
      */
-    const COL_SALESMTH2 = 'saleschart.salesmth2';
+    public const COL_SALESMTH2 = 'saleschart.salesmth2';
 
     /**
      * the column name for the salesmth3 field
      */
-    const COL_SALESMTH3 = 'saleschart.salesmth3';
+    public const COL_SALESMTH3 = 'saleschart.salesmth3';
 
     /**
      * the column name for the salesmth4 field
      */
-    const COL_SALESMTH4 = 'saleschart.salesmth4';
+    public const COL_SALESMTH4 = 'saleschart.salesmth4';
 
     /**
      * the column name for the salesmth5 field
      */
-    const COL_SALESMTH5 = 'saleschart.salesmth5';
+    public const COL_SALESMTH5 = 'saleschart.salesmth5';
 
     /**
      * the column name for the salesmth6 field
      */
-    const COL_SALESMTH6 = 'saleschart.salesmth6';
+    public const COL_SALESMTH6 = 'saleschart.salesmth6';
 
     /**
      * the column name for the salesmth7 field
      */
-    const COL_SALESMTH7 = 'saleschart.salesmth7';
+    public const COL_SALESMTH7 = 'saleschart.salesmth7';
 
     /**
      * the column name for the salesmth8 field
      */
-    const COL_SALESMTH8 = 'saleschart.salesmth8';
+    public const COL_SALESMTH8 = 'saleschart.salesmth8';
 
     /**
      * the column name for the salesmth9 field
      */
-    const COL_SALESMTH9 = 'saleschart.salesmth9';
+    public const COL_SALESMTH9 = 'saleschart.salesmth9';
 
     /**
      * the column name for the salesmth10 field
      */
-    const COL_SALESMTH10 = 'saleschart.salesmth10';
+    public const COL_SALESMTH10 = 'saleschart.salesmth10';
 
     /**
      * the column name for the salesmth11 field
      */
-    const COL_SALESMTH11 = 'saleschart.salesmth11';
+    public const COL_SALESMTH11 = 'saleschart.salesmth11';
 
     /**
      * the column name for the salesmth12 field
      */
-    const COL_SALESMTH12 = 'saleschart.salesmth12';
+    public const COL_SALESMTH12 = 'saleschart.salesmth12';
 
     /**
      * the column name for the salesmth13 field
      */
-    const COL_SALESMTH13 = 'saleschart.salesmth13';
+    public const COL_SALESMTH13 = 'saleschart.salesmth13';
 
     /**
      * the column name for the salesmth14 field
      */
-    const COL_SALESMTH14 = 'saleschart.salesmth14';
+    public const COL_SALESMTH14 = 'saleschart.salesmth14';
 
     /**
      * the column name for the salesmth15 field
      */
-    const COL_SALESMTH15 = 'saleschart.salesmth15';
+    public const COL_SALESMTH15 = 'saleschart.salesmth15';
 
     /**
      * the column name for the salesmth16 field
      */
-    const COL_SALESMTH16 = 'saleschart.salesmth16';
+    public const COL_SALESMTH16 = 'saleschart.salesmth16';
 
     /**
      * the column name for the salesmth17 field
      */
-    const COL_SALESMTH17 = 'saleschart.salesmth17';
+    public const COL_SALESMTH17 = 'saleschart.salesmth17';
 
     /**
      * the column name for the salesmth18 field
      */
-    const COL_SALESMTH18 = 'saleschart.salesmth18';
+    public const COL_SALESMTH18 = 'saleschart.salesmth18';
 
     /**
      * the column name for the salesmth19 field
      */
-    const COL_SALESMTH19 = 'saleschart.salesmth19';
+    public const COL_SALESMTH19 = 'saleschart.salesmth19';
 
     /**
      * the column name for the salesmth20 field
      */
-    const COL_SALESMTH20 = 'saleschart.salesmth20';
+    public const COL_SALESMTH20 = 'saleschart.salesmth20';
 
     /**
      * the column name for the salesmth21 field
      */
-    const COL_SALESMTH21 = 'saleschart.salesmth21';
+    public const COL_SALESMTH21 = 'saleschart.salesmth21';
 
     /**
      * the column name for the salesmth22 field
      */
-    const COL_SALESMTH22 = 'saleschart.salesmth22';
+    public const COL_SALESMTH22 = 'saleschart.salesmth22';
 
     /**
      * the column name for the salesmth23 field
      */
-    const COL_SALESMTH23 = 'saleschart.salesmth23';
+    public const COL_SALESMTH23 = 'saleschart.salesmth23';
 
     /**
      * the column name for the salesmth24 field
      */
-    const COL_SALESMTH24 = 'saleschart.salesmth24';
+    public const COL_SALESMTH24 = 'saleschart.salesmth24';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'saleschart.dummy';
+    public const COL_DUMMY = 'saleschart.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Sessionid', 'Recno', 'Date', 'Time', 'Custid', 'Shiptoid', 'Lastsaledate', 'Salesmtd', 'Salesmth1', 'Salesmth2', 'Salesmth3', 'Salesmth4', 'Salesmth5', 'Salesmth6', 'Salesmth7', 'Salesmth8', 'Salesmth9', 'Salesmth10', 'Salesmth11', 'Salesmth12', 'Salesmth13', 'Salesmth14', 'Salesmth15', 'Salesmth16', 'Salesmth17', 'Salesmth18', 'Salesmth19', 'Salesmth20', 'Salesmth21', 'Salesmth22', 'Salesmth23', 'Salesmth24', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('sessionid', 'recno', 'date', 'time', 'custid', 'shiptoid', 'lastsaledate', 'salesmtd', 'salesmth1', 'salesmth2', 'salesmth3', 'salesmth4', 'salesmth5', 'salesmth6', 'salesmth7', 'salesmth8', 'salesmth9', 'salesmth10', 'salesmth11', 'salesmth12', 'salesmth13', 'salesmth14', 'salesmth15', 'salesmth16', 'salesmth17', 'salesmth18', 'salesmth19', 'salesmth20', 'salesmth21', 'salesmth22', 'salesmth23', 'salesmth24', 'dummy', ),
-        self::TYPE_COLNAME       => array(SaleschartTableMap::COL_SESSIONID, SaleschartTableMap::COL_RECNO, SaleschartTableMap::COL_DATE, SaleschartTableMap::COL_TIME, SaleschartTableMap::COL_CUSTID, SaleschartTableMap::COL_SHIPTOID, SaleschartTableMap::COL_LASTSALEDATE, SaleschartTableMap::COL_SALESMTD, SaleschartTableMap::COL_SALESMTH1, SaleschartTableMap::COL_SALESMTH2, SaleschartTableMap::COL_SALESMTH3, SaleschartTableMap::COL_SALESMTH4, SaleschartTableMap::COL_SALESMTH5, SaleschartTableMap::COL_SALESMTH6, SaleschartTableMap::COL_SALESMTH7, SaleschartTableMap::COL_SALESMTH8, SaleschartTableMap::COL_SALESMTH9, SaleschartTableMap::COL_SALESMTH10, SaleschartTableMap::COL_SALESMTH11, SaleschartTableMap::COL_SALESMTH12, SaleschartTableMap::COL_SALESMTH13, SaleschartTableMap::COL_SALESMTH14, SaleschartTableMap::COL_SALESMTH15, SaleschartTableMap::COL_SALESMTH16, SaleschartTableMap::COL_SALESMTH17, SaleschartTableMap::COL_SALESMTH18, SaleschartTableMap::COL_SALESMTH19, SaleschartTableMap::COL_SALESMTH20, SaleschartTableMap::COL_SALESMTH21, SaleschartTableMap::COL_SALESMTH22, SaleschartTableMap::COL_SALESMTH23, SaleschartTableMap::COL_SALESMTH24, SaleschartTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('sessionid', 'recno', 'date', 'time', 'custid', 'shiptoid', 'lastsaledate', 'salesmtd', 'salesmth1', 'salesmth2', 'salesmth3', 'salesmth4', 'salesmth5', 'salesmth6', 'salesmth7', 'salesmth8', 'salesmth9', 'salesmth10', 'salesmth11', 'salesmth12', 'salesmth13', 'salesmth14', 'salesmth15', 'salesmth16', 'salesmth17', 'salesmth18', 'salesmth19', 'salesmth20', 'salesmth21', 'salesmth22', 'salesmth23', 'salesmth24', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Sessionid', 'Recno', 'Date', 'Time', 'Custid', 'Shiptoid', 'Lastsaledate', 'Salesmtd', 'Salesmth1', 'Salesmth2', 'Salesmth3', 'Salesmth4', 'Salesmth5', 'Salesmth6', 'Salesmth7', 'Salesmth8', 'Salesmth9', 'Salesmth10', 'Salesmth11', 'Salesmth12', 'Salesmth13', 'Salesmth14', 'Salesmth15', 'Salesmth16', 'Salesmth17', 'Salesmth18', 'Salesmth19', 'Salesmth20', 'Salesmth21', 'Salesmth22', 'Salesmth23', 'Salesmth24', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['sessionid', 'recno', 'date', 'time', 'custid', 'shiptoid', 'lastsaledate', 'salesmtd', 'salesmth1', 'salesmth2', 'salesmth3', 'salesmth4', 'salesmth5', 'salesmth6', 'salesmth7', 'salesmth8', 'salesmth9', 'salesmth10', 'salesmth11', 'salesmth12', 'salesmth13', 'salesmth14', 'salesmth15', 'salesmth16', 'salesmth17', 'salesmth18', 'salesmth19', 'salesmth20', 'salesmth21', 'salesmth22', 'salesmth23', 'salesmth24', 'dummy', ],
+        self::TYPE_COLNAME       => [SaleschartTableMap::COL_SESSIONID, SaleschartTableMap::COL_RECNO, SaleschartTableMap::COL_DATE, SaleschartTableMap::COL_TIME, SaleschartTableMap::COL_CUSTID, SaleschartTableMap::COL_SHIPTOID, SaleschartTableMap::COL_LASTSALEDATE, SaleschartTableMap::COL_SALESMTD, SaleschartTableMap::COL_SALESMTH1, SaleschartTableMap::COL_SALESMTH2, SaleschartTableMap::COL_SALESMTH3, SaleschartTableMap::COL_SALESMTH4, SaleschartTableMap::COL_SALESMTH5, SaleschartTableMap::COL_SALESMTH6, SaleschartTableMap::COL_SALESMTH7, SaleschartTableMap::COL_SALESMTH8, SaleschartTableMap::COL_SALESMTH9, SaleschartTableMap::COL_SALESMTH10, SaleschartTableMap::COL_SALESMTH11, SaleschartTableMap::COL_SALESMTH12, SaleschartTableMap::COL_SALESMTH13, SaleschartTableMap::COL_SALESMTH14, SaleschartTableMap::COL_SALESMTH15, SaleschartTableMap::COL_SALESMTH16, SaleschartTableMap::COL_SALESMTH17, SaleschartTableMap::COL_SALESMTH18, SaleschartTableMap::COL_SALESMTH19, SaleschartTableMap::COL_SALESMTH20, SaleschartTableMap::COL_SALESMTH21, SaleschartTableMap::COL_SALESMTH22, SaleschartTableMap::COL_SALESMTH23, SaleschartTableMap::COL_SALESMTH24, SaleschartTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['sessionid', 'recno', 'date', 'time', 'custid', 'shiptoid', 'lastsaledate', 'salesmtd', 'salesmth1', 'salesmth2', 'salesmth3', 'salesmth4', 'salesmth5', 'salesmth6', 'salesmth7', 'salesmth8', 'salesmth9', 'salesmth10', 'salesmth11', 'salesmth12', 'salesmth13', 'salesmth14', 'salesmth15', 'salesmth16', 'salesmth17', 'salesmth18', 'salesmth19', 'salesmth20', 'salesmth21', 'salesmth22', 'salesmth23', 'salesmth24', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Recno' => 1, 'Date' => 2, 'Time' => 3, 'Custid' => 4, 'Shiptoid' => 5, 'Lastsaledate' => 6, 'Salesmtd' => 7, 'Salesmth1' => 8, 'Salesmth2' => 9, 'Salesmth3' => 10, 'Salesmth4' => 11, 'Salesmth5' => 12, 'Salesmth6' => 13, 'Salesmth7' => 14, 'Salesmth8' => 15, 'Salesmth9' => 16, 'Salesmth10' => 17, 'Salesmth11' => 18, 'Salesmth12' => 19, 'Salesmth13' => 20, 'Salesmth14' => 21, 'Salesmth15' => 22, 'Salesmth16' => 23, 'Salesmth17' => 24, 'Salesmth18' => 25, 'Salesmth19' => 26, 'Salesmth20' => 27, 'Salesmth21' => 28, 'Salesmth22' => 29, 'Salesmth23' => 30, 'Salesmth24' => 31, 'Dummy' => 32, ),
-        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'custid' => 4, 'shiptoid' => 5, 'lastsaledate' => 6, 'salesmtd' => 7, 'salesmth1' => 8, 'salesmth2' => 9, 'salesmth3' => 10, 'salesmth4' => 11, 'salesmth5' => 12, 'salesmth6' => 13, 'salesmth7' => 14, 'salesmth8' => 15, 'salesmth9' => 16, 'salesmth10' => 17, 'salesmth11' => 18, 'salesmth12' => 19, 'salesmth13' => 20, 'salesmth14' => 21, 'salesmth15' => 22, 'salesmth16' => 23, 'salesmth17' => 24, 'salesmth18' => 25, 'salesmth19' => 26, 'salesmth20' => 27, 'salesmth21' => 28, 'salesmth22' => 29, 'salesmth23' => 30, 'salesmth24' => 31, 'dummy' => 32, ),
-        self::TYPE_COLNAME       => array(SaleschartTableMap::COL_SESSIONID => 0, SaleschartTableMap::COL_RECNO => 1, SaleschartTableMap::COL_DATE => 2, SaleschartTableMap::COL_TIME => 3, SaleschartTableMap::COL_CUSTID => 4, SaleschartTableMap::COL_SHIPTOID => 5, SaleschartTableMap::COL_LASTSALEDATE => 6, SaleschartTableMap::COL_SALESMTD => 7, SaleschartTableMap::COL_SALESMTH1 => 8, SaleschartTableMap::COL_SALESMTH2 => 9, SaleschartTableMap::COL_SALESMTH3 => 10, SaleschartTableMap::COL_SALESMTH4 => 11, SaleschartTableMap::COL_SALESMTH5 => 12, SaleschartTableMap::COL_SALESMTH6 => 13, SaleschartTableMap::COL_SALESMTH7 => 14, SaleschartTableMap::COL_SALESMTH8 => 15, SaleschartTableMap::COL_SALESMTH9 => 16, SaleschartTableMap::COL_SALESMTH10 => 17, SaleschartTableMap::COL_SALESMTH11 => 18, SaleschartTableMap::COL_SALESMTH12 => 19, SaleschartTableMap::COL_SALESMTH13 => 20, SaleschartTableMap::COL_SALESMTH14 => 21, SaleschartTableMap::COL_SALESMTH15 => 22, SaleschartTableMap::COL_SALESMTH16 => 23, SaleschartTableMap::COL_SALESMTH17 => 24, SaleschartTableMap::COL_SALESMTH18 => 25, SaleschartTableMap::COL_SALESMTH19 => 26, SaleschartTableMap::COL_SALESMTH20 => 27, SaleschartTableMap::COL_SALESMTH21 => 28, SaleschartTableMap::COL_SALESMTH22 => 29, SaleschartTableMap::COL_SALESMTH23 => 30, SaleschartTableMap::COL_SALESMTH24 => 31, SaleschartTableMap::COL_DUMMY => 32, ),
-        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'custid' => 4, 'shiptoid' => 5, 'lastsaledate' => 6, 'salesmtd' => 7, 'salesmth1' => 8, 'salesmth2' => 9, 'salesmth3' => 10, 'salesmth4' => 11, 'salesmth5' => 12, 'salesmth6' => 13, 'salesmth7' => 14, 'salesmth8' => 15, 'salesmth9' => 16, 'salesmth10' => 17, 'salesmth11' => 18, 'salesmth12' => 19, 'salesmth13' => 20, 'salesmth14' => 21, 'salesmth15' => 22, 'salesmth16' => 23, 'salesmth17' => 24, 'salesmth18' => 25, 'salesmth19' => 26, 'salesmth20' => 27, 'salesmth21' => 28, 'salesmth22' => 29, 'salesmth23' => 30, 'salesmth24' => 31, 'dummy' => 32, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Sessionid' => 0, 'Recno' => 1, 'Date' => 2, 'Time' => 3, 'Custid' => 4, 'Shiptoid' => 5, 'Lastsaledate' => 6, 'Salesmtd' => 7, 'Salesmth1' => 8, 'Salesmth2' => 9, 'Salesmth3' => 10, 'Salesmth4' => 11, 'Salesmth5' => 12, 'Salesmth6' => 13, 'Salesmth7' => 14, 'Salesmth8' => 15, 'Salesmth9' => 16, 'Salesmth10' => 17, 'Salesmth11' => 18, 'Salesmth12' => 19, 'Salesmth13' => 20, 'Salesmth14' => 21, 'Salesmth15' => 22, 'Salesmth16' => 23, 'Salesmth17' => 24, 'Salesmth18' => 25, 'Salesmth19' => 26, 'Salesmth20' => 27, 'Salesmth21' => 28, 'Salesmth22' => 29, 'Salesmth23' => 30, 'Salesmth24' => 31, 'Dummy' => 32, ],
+        self::TYPE_CAMELNAME     => ['sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'custid' => 4, 'shiptoid' => 5, 'lastsaledate' => 6, 'salesmtd' => 7, 'salesmth1' => 8, 'salesmth2' => 9, 'salesmth3' => 10, 'salesmth4' => 11, 'salesmth5' => 12, 'salesmth6' => 13, 'salesmth7' => 14, 'salesmth8' => 15, 'salesmth9' => 16, 'salesmth10' => 17, 'salesmth11' => 18, 'salesmth12' => 19, 'salesmth13' => 20, 'salesmth14' => 21, 'salesmth15' => 22, 'salesmth16' => 23, 'salesmth17' => 24, 'salesmth18' => 25, 'salesmth19' => 26, 'salesmth20' => 27, 'salesmth21' => 28, 'salesmth22' => 29, 'salesmth23' => 30, 'salesmth24' => 31, 'dummy' => 32, ],
+        self::TYPE_COLNAME       => [SaleschartTableMap::COL_SESSIONID => 0, SaleschartTableMap::COL_RECNO => 1, SaleschartTableMap::COL_DATE => 2, SaleschartTableMap::COL_TIME => 3, SaleschartTableMap::COL_CUSTID => 4, SaleschartTableMap::COL_SHIPTOID => 5, SaleschartTableMap::COL_LASTSALEDATE => 6, SaleschartTableMap::COL_SALESMTD => 7, SaleschartTableMap::COL_SALESMTH1 => 8, SaleschartTableMap::COL_SALESMTH2 => 9, SaleschartTableMap::COL_SALESMTH3 => 10, SaleschartTableMap::COL_SALESMTH4 => 11, SaleschartTableMap::COL_SALESMTH5 => 12, SaleschartTableMap::COL_SALESMTH6 => 13, SaleschartTableMap::COL_SALESMTH7 => 14, SaleschartTableMap::COL_SALESMTH8 => 15, SaleschartTableMap::COL_SALESMTH9 => 16, SaleschartTableMap::COL_SALESMTH10 => 17, SaleschartTableMap::COL_SALESMTH11 => 18, SaleschartTableMap::COL_SALESMTH12 => 19, SaleschartTableMap::COL_SALESMTH13 => 20, SaleschartTableMap::COL_SALESMTH14 => 21, SaleschartTableMap::COL_SALESMTH15 => 22, SaleschartTableMap::COL_SALESMTH16 => 23, SaleschartTableMap::COL_SALESMTH17 => 24, SaleschartTableMap::COL_SALESMTH18 => 25, SaleschartTableMap::COL_SALESMTH19 => 26, SaleschartTableMap::COL_SALESMTH20 => 27, SaleschartTableMap::COL_SALESMTH21 => 28, SaleschartTableMap::COL_SALESMTH22 => 29, SaleschartTableMap::COL_SALESMTH23 => 30, SaleschartTableMap::COL_SALESMTH24 => 31, SaleschartTableMap::COL_DUMMY => 32, ],
+        self::TYPE_FIELDNAME     => ['sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'custid' => 4, 'shiptoid' => 5, 'lastsaledate' => 6, 'salesmtd' => 7, 'salesmth1' => 8, 'salesmth2' => 9, 'salesmth3' => 10, 'salesmth4' => 11, 'salesmth5' => 12, 'salesmth6' => 13, 'salesmth7' => 14, 'salesmth8' => 15, 'salesmth9' => 16, 'salesmth10' => 17, 'salesmth11' => 18, 'salesmth12' => 19, 'salesmth13' => 20, 'salesmth14' => 21, 'salesmth15' => 22, 'salesmth16' => 23, 'salesmth17' => 24, 'salesmth18' => 25, 'salesmth19' => 26, 'salesmth20' => 27, 'salesmth21' => 28, 'salesmth22' => 29, 'salesmth23' => 30, 'salesmth24' => 31, 'dummy' => 32, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Sessionid' => 'SESSIONID',
+        'Saleschart.Sessionid' => 'SESSIONID',
+        'sessionid' => 'SESSIONID',
+        'saleschart.sessionid' => 'SESSIONID',
+        'SaleschartTableMap::COL_SESSIONID' => 'SESSIONID',
+        'COL_SESSIONID' => 'SESSIONID',
+        'Recno' => 'RECNO',
+        'Saleschart.Recno' => 'RECNO',
+        'recno' => 'RECNO',
+        'saleschart.recno' => 'RECNO',
+        'SaleschartTableMap::COL_RECNO' => 'RECNO',
+        'COL_RECNO' => 'RECNO',
+        'Date' => 'DATE',
+        'Saleschart.Date' => 'DATE',
+        'date' => 'DATE',
+        'saleschart.date' => 'DATE',
+        'SaleschartTableMap::COL_DATE' => 'DATE',
+        'COL_DATE' => 'DATE',
+        'Time' => 'TIME',
+        'Saleschart.Time' => 'TIME',
+        'time' => 'TIME',
+        'saleschart.time' => 'TIME',
+        'SaleschartTableMap::COL_TIME' => 'TIME',
+        'COL_TIME' => 'TIME',
+        'Custid' => 'CUSTID',
+        'Saleschart.Custid' => 'CUSTID',
+        'custid' => 'CUSTID',
+        'saleschart.custid' => 'CUSTID',
+        'SaleschartTableMap::COL_CUSTID' => 'CUSTID',
+        'COL_CUSTID' => 'CUSTID',
+        'Shiptoid' => 'SHIPTOID',
+        'Saleschart.Shiptoid' => 'SHIPTOID',
+        'shiptoid' => 'SHIPTOID',
+        'saleschart.shiptoid' => 'SHIPTOID',
+        'SaleschartTableMap::COL_SHIPTOID' => 'SHIPTOID',
+        'COL_SHIPTOID' => 'SHIPTOID',
+        'Lastsaledate' => 'LASTSALEDATE',
+        'Saleschart.Lastsaledate' => 'LASTSALEDATE',
+        'lastsaledate' => 'LASTSALEDATE',
+        'saleschart.lastsaledate' => 'LASTSALEDATE',
+        'SaleschartTableMap::COL_LASTSALEDATE' => 'LASTSALEDATE',
+        'COL_LASTSALEDATE' => 'LASTSALEDATE',
+        'Salesmtd' => 'SALESMTD',
+        'Saleschart.Salesmtd' => 'SALESMTD',
+        'salesmtd' => 'SALESMTD',
+        'saleschart.salesmtd' => 'SALESMTD',
+        'SaleschartTableMap::COL_SALESMTD' => 'SALESMTD',
+        'COL_SALESMTD' => 'SALESMTD',
+        'Salesmth1' => 'SALESMTH1',
+        'Saleschart.Salesmth1' => 'SALESMTH1',
+        'salesmth1' => 'SALESMTH1',
+        'saleschart.salesmth1' => 'SALESMTH1',
+        'SaleschartTableMap::COL_SALESMTH1' => 'SALESMTH1',
+        'COL_SALESMTH1' => 'SALESMTH1',
+        'Salesmth2' => 'SALESMTH2',
+        'Saleschart.Salesmth2' => 'SALESMTH2',
+        'salesmth2' => 'SALESMTH2',
+        'saleschart.salesmth2' => 'SALESMTH2',
+        'SaleschartTableMap::COL_SALESMTH2' => 'SALESMTH2',
+        'COL_SALESMTH2' => 'SALESMTH2',
+        'Salesmth3' => 'SALESMTH3',
+        'Saleschart.Salesmth3' => 'SALESMTH3',
+        'salesmth3' => 'SALESMTH3',
+        'saleschart.salesmth3' => 'SALESMTH3',
+        'SaleschartTableMap::COL_SALESMTH3' => 'SALESMTH3',
+        'COL_SALESMTH3' => 'SALESMTH3',
+        'Salesmth4' => 'SALESMTH4',
+        'Saleschart.Salesmth4' => 'SALESMTH4',
+        'salesmth4' => 'SALESMTH4',
+        'saleschart.salesmth4' => 'SALESMTH4',
+        'SaleschartTableMap::COL_SALESMTH4' => 'SALESMTH4',
+        'COL_SALESMTH4' => 'SALESMTH4',
+        'Salesmth5' => 'SALESMTH5',
+        'Saleschart.Salesmth5' => 'SALESMTH5',
+        'salesmth5' => 'SALESMTH5',
+        'saleschart.salesmth5' => 'SALESMTH5',
+        'SaleschartTableMap::COL_SALESMTH5' => 'SALESMTH5',
+        'COL_SALESMTH5' => 'SALESMTH5',
+        'Salesmth6' => 'SALESMTH6',
+        'Saleschart.Salesmth6' => 'SALESMTH6',
+        'salesmth6' => 'SALESMTH6',
+        'saleschart.salesmth6' => 'SALESMTH6',
+        'SaleschartTableMap::COL_SALESMTH6' => 'SALESMTH6',
+        'COL_SALESMTH6' => 'SALESMTH6',
+        'Salesmth7' => 'SALESMTH7',
+        'Saleschart.Salesmth7' => 'SALESMTH7',
+        'salesmth7' => 'SALESMTH7',
+        'saleschart.salesmth7' => 'SALESMTH7',
+        'SaleschartTableMap::COL_SALESMTH7' => 'SALESMTH7',
+        'COL_SALESMTH7' => 'SALESMTH7',
+        'Salesmth8' => 'SALESMTH8',
+        'Saleschart.Salesmth8' => 'SALESMTH8',
+        'salesmth8' => 'SALESMTH8',
+        'saleschart.salesmth8' => 'SALESMTH8',
+        'SaleschartTableMap::COL_SALESMTH8' => 'SALESMTH8',
+        'COL_SALESMTH8' => 'SALESMTH8',
+        'Salesmth9' => 'SALESMTH9',
+        'Saleschart.Salesmth9' => 'SALESMTH9',
+        'salesmth9' => 'SALESMTH9',
+        'saleschart.salesmth9' => 'SALESMTH9',
+        'SaleschartTableMap::COL_SALESMTH9' => 'SALESMTH9',
+        'COL_SALESMTH9' => 'SALESMTH9',
+        'Salesmth10' => 'SALESMTH10',
+        'Saleschart.Salesmth10' => 'SALESMTH10',
+        'salesmth10' => 'SALESMTH10',
+        'saleschart.salesmth10' => 'SALESMTH10',
+        'SaleschartTableMap::COL_SALESMTH10' => 'SALESMTH10',
+        'COL_SALESMTH10' => 'SALESMTH10',
+        'Salesmth11' => 'SALESMTH11',
+        'Saleschart.Salesmth11' => 'SALESMTH11',
+        'salesmth11' => 'SALESMTH11',
+        'saleschart.salesmth11' => 'SALESMTH11',
+        'SaleschartTableMap::COL_SALESMTH11' => 'SALESMTH11',
+        'COL_SALESMTH11' => 'SALESMTH11',
+        'Salesmth12' => 'SALESMTH12',
+        'Saleschart.Salesmth12' => 'SALESMTH12',
+        'salesmth12' => 'SALESMTH12',
+        'saleschart.salesmth12' => 'SALESMTH12',
+        'SaleschartTableMap::COL_SALESMTH12' => 'SALESMTH12',
+        'COL_SALESMTH12' => 'SALESMTH12',
+        'Salesmth13' => 'SALESMTH13',
+        'Saleschart.Salesmth13' => 'SALESMTH13',
+        'salesmth13' => 'SALESMTH13',
+        'saleschart.salesmth13' => 'SALESMTH13',
+        'SaleschartTableMap::COL_SALESMTH13' => 'SALESMTH13',
+        'COL_SALESMTH13' => 'SALESMTH13',
+        'Salesmth14' => 'SALESMTH14',
+        'Saleschart.Salesmth14' => 'SALESMTH14',
+        'salesmth14' => 'SALESMTH14',
+        'saleschart.salesmth14' => 'SALESMTH14',
+        'SaleschartTableMap::COL_SALESMTH14' => 'SALESMTH14',
+        'COL_SALESMTH14' => 'SALESMTH14',
+        'Salesmth15' => 'SALESMTH15',
+        'Saleschart.Salesmth15' => 'SALESMTH15',
+        'salesmth15' => 'SALESMTH15',
+        'saleschart.salesmth15' => 'SALESMTH15',
+        'SaleschartTableMap::COL_SALESMTH15' => 'SALESMTH15',
+        'COL_SALESMTH15' => 'SALESMTH15',
+        'Salesmth16' => 'SALESMTH16',
+        'Saleschart.Salesmth16' => 'SALESMTH16',
+        'salesmth16' => 'SALESMTH16',
+        'saleschart.salesmth16' => 'SALESMTH16',
+        'SaleschartTableMap::COL_SALESMTH16' => 'SALESMTH16',
+        'COL_SALESMTH16' => 'SALESMTH16',
+        'Salesmth17' => 'SALESMTH17',
+        'Saleschart.Salesmth17' => 'SALESMTH17',
+        'salesmth17' => 'SALESMTH17',
+        'saleschart.salesmth17' => 'SALESMTH17',
+        'SaleschartTableMap::COL_SALESMTH17' => 'SALESMTH17',
+        'COL_SALESMTH17' => 'SALESMTH17',
+        'Salesmth18' => 'SALESMTH18',
+        'Saleschart.Salesmth18' => 'SALESMTH18',
+        'salesmth18' => 'SALESMTH18',
+        'saleschart.salesmth18' => 'SALESMTH18',
+        'SaleschartTableMap::COL_SALESMTH18' => 'SALESMTH18',
+        'COL_SALESMTH18' => 'SALESMTH18',
+        'Salesmth19' => 'SALESMTH19',
+        'Saleschart.Salesmth19' => 'SALESMTH19',
+        'salesmth19' => 'SALESMTH19',
+        'saleschart.salesmth19' => 'SALESMTH19',
+        'SaleschartTableMap::COL_SALESMTH19' => 'SALESMTH19',
+        'COL_SALESMTH19' => 'SALESMTH19',
+        'Salesmth20' => 'SALESMTH20',
+        'Saleschart.Salesmth20' => 'SALESMTH20',
+        'salesmth20' => 'SALESMTH20',
+        'saleschart.salesmth20' => 'SALESMTH20',
+        'SaleschartTableMap::COL_SALESMTH20' => 'SALESMTH20',
+        'COL_SALESMTH20' => 'SALESMTH20',
+        'Salesmth21' => 'SALESMTH21',
+        'Saleschart.Salesmth21' => 'SALESMTH21',
+        'salesmth21' => 'SALESMTH21',
+        'saleschart.salesmth21' => 'SALESMTH21',
+        'SaleschartTableMap::COL_SALESMTH21' => 'SALESMTH21',
+        'COL_SALESMTH21' => 'SALESMTH21',
+        'Salesmth22' => 'SALESMTH22',
+        'Saleschart.Salesmth22' => 'SALESMTH22',
+        'salesmth22' => 'SALESMTH22',
+        'saleschart.salesmth22' => 'SALESMTH22',
+        'SaleschartTableMap::COL_SALESMTH22' => 'SALESMTH22',
+        'COL_SALESMTH22' => 'SALESMTH22',
+        'Salesmth23' => 'SALESMTH23',
+        'Saleschart.Salesmth23' => 'SALESMTH23',
+        'salesmth23' => 'SALESMTH23',
+        'saleschart.salesmth23' => 'SALESMTH23',
+        'SaleschartTableMap::COL_SALESMTH23' => 'SALESMTH23',
+        'COL_SALESMTH23' => 'SALESMTH23',
+        'Salesmth24' => 'SALESMTH24',
+        'Saleschart.Salesmth24' => 'SALESMTH24',
+        'salesmth24' => 'SALESMTH24',
+        'saleschart.salesmth24' => 'SALESMTH24',
+        'SaleschartTableMap::COL_SALESMTH24' => 'SALESMTH24',
+        'COL_SALESMTH24' => 'SALESMTH24',
+        'Dummy' => 'DUMMY',
+        'Saleschart.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'saleschart.dummy' => 'DUMMY',
+        'SaleschartTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('saleschart');
@@ -319,14 +533,16 @@ class SaleschartTableMap extends TableMap
         $this->addColumn('salesmth23', 'Salesmth23', 'DECIMAL', false, 8, null);
         $this->addColumn('salesmth24', 'Salesmth24', 'DECIMAL', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -337,9 +553,11 @@ class SaleschartTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \Saleschart $obj A \Saleschart object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(Saleschart $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -358,8 +576,10 @@ class SaleschartTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \Saleschart object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \Saleschart) {
@@ -387,14 +607,14 @@ class SaleschartTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Recno', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -409,14 +629,14 @@ class SaleschartTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -442,10 +662,10 @@ class SaleschartTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? SaleschartTableMap::CLASS_DEFAULT : SaleschartTableMap::OM_CLASS;
     }
@@ -453,17 +673,17 @@ class SaleschartTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (Saleschart object, last column rank)
+     * @return array (Saleschart object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = SaleschartTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = SaleschartTableMap::getInstanceFromPool($key))) {
@@ -479,7 +699,7 @@ class SaleschartTableMap extends TableMap
             SaleschartTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -487,13 +707,13 @@ class SaleschartTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -523,12 +743,13 @@ class SaleschartTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(SaleschartTableMap::COL_SESSIONID);
@@ -602,40 +823,114 @@ class SaleschartTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(SaleschartTableMap::COL_SESSIONID);
+            $criteria->removeSelectColumn(SaleschartTableMap::COL_RECNO);
+            $criteria->removeSelectColumn(SaleschartTableMap::COL_DATE);
+            $criteria->removeSelectColumn(SaleschartTableMap::COL_TIME);
+            $criteria->removeSelectColumn(SaleschartTableMap::COL_CUSTID);
+            $criteria->removeSelectColumn(SaleschartTableMap::COL_SHIPTOID);
+            $criteria->removeSelectColumn(SaleschartTableMap::COL_LASTSALEDATE);
+            $criteria->removeSelectColumn(SaleschartTableMap::COL_SALESMTD);
+            $criteria->removeSelectColumn(SaleschartTableMap::COL_SALESMTH1);
+            $criteria->removeSelectColumn(SaleschartTableMap::COL_SALESMTH2);
+            $criteria->removeSelectColumn(SaleschartTableMap::COL_SALESMTH3);
+            $criteria->removeSelectColumn(SaleschartTableMap::COL_SALESMTH4);
+            $criteria->removeSelectColumn(SaleschartTableMap::COL_SALESMTH5);
+            $criteria->removeSelectColumn(SaleschartTableMap::COL_SALESMTH6);
+            $criteria->removeSelectColumn(SaleschartTableMap::COL_SALESMTH7);
+            $criteria->removeSelectColumn(SaleschartTableMap::COL_SALESMTH8);
+            $criteria->removeSelectColumn(SaleschartTableMap::COL_SALESMTH9);
+            $criteria->removeSelectColumn(SaleschartTableMap::COL_SALESMTH10);
+            $criteria->removeSelectColumn(SaleschartTableMap::COL_SALESMTH11);
+            $criteria->removeSelectColumn(SaleschartTableMap::COL_SALESMTH12);
+            $criteria->removeSelectColumn(SaleschartTableMap::COL_SALESMTH13);
+            $criteria->removeSelectColumn(SaleschartTableMap::COL_SALESMTH14);
+            $criteria->removeSelectColumn(SaleschartTableMap::COL_SALESMTH15);
+            $criteria->removeSelectColumn(SaleschartTableMap::COL_SALESMTH16);
+            $criteria->removeSelectColumn(SaleschartTableMap::COL_SALESMTH17);
+            $criteria->removeSelectColumn(SaleschartTableMap::COL_SALESMTH18);
+            $criteria->removeSelectColumn(SaleschartTableMap::COL_SALESMTH19);
+            $criteria->removeSelectColumn(SaleschartTableMap::COL_SALESMTH20);
+            $criteria->removeSelectColumn(SaleschartTableMap::COL_SALESMTH21);
+            $criteria->removeSelectColumn(SaleschartTableMap::COL_SALESMTH22);
+            $criteria->removeSelectColumn(SaleschartTableMap::COL_SALESMTH23);
+            $criteria->removeSelectColumn(SaleschartTableMap::COL_SALESMTH24);
+            $criteria->removeSelectColumn(SaleschartTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.sessionid');
+            $criteria->removeSelectColumn($alias . '.recno');
+            $criteria->removeSelectColumn($alias . '.date');
+            $criteria->removeSelectColumn($alias . '.time');
+            $criteria->removeSelectColumn($alias . '.custid');
+            $criteria->removeSelectColumn($alias . '.shiptoid');
+            $criteria->removeSelectColumn($alias . '.lastsaledate');
+            $criteria->removeSelectColumn($alias . '.salesmtd');
+            $criteria->removeSelectColumn($alias . '.salesmth1');
+            $criteria->removeSelectColumn($alias . '.salesmth2');
+            $criteria->removeSelectColumn($alias . '.salesmth3');
+            $criteria->removeSelectColumn($alias . '.salesmth4');
+            $criteria->removeSelectColumn($alias . '.salesmth5');
+            $criteria->removeSelectColumn($alias . '.salesmth6');
+            $criteria->removeSelectColumn($alias . '.salesmth7');
+            $criteria->removeSelectColumn($alias . '.salesmth8');
+            $criteria->removeSelectColumn($alias . '.salesmth9');
+            $criteria->removeSelectColumn($alias . '.salesmth10');
+            $criteria->removeSelectColumn($alias . '.salesmth11');
+            $criteria->removeSelectColumn($alias . '.salesmth12');
+            $criteria->removeSelectColumn($alias . '.salesmth13');
+            $criteria->removeSelectColumn($alias . '.salesmth14');
+            $criteria->removeSelectColumn($alias . '.salesmth15');
+            $criteria->removeSelectColumn($alias . '.salesmth16');
+            $criteria->removeSelectColumn($alias . '.salesmth17');
+            $criteria->removeSelectColumn($alias . '.salesmth18');
+            $criteria->removeSelectColumn($alias . '.salesmth19');
+            $criteria->removeSelectColumn($alias . '.salesmth20');
+            $criteria->removeSelectColumn($alias . '.salesmth21');
+            $criteria->removeSelectColumn($alias . '.salesmth22');
+            $criteria->removeSelectColumn($alias . '.salesmth23');
+            $criteria->removeSelectColumn($alias . '.salesmth24');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(SaleschartTableMap::DATABASE_NAME)->getTable(SaleschartTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(SaleschartTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(SaleschartTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new SaleschartTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a Saleschart or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or Saleschart object or primary key or array of primary keys
+     * @param mixed $values Criteria or Saleschart object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SaleschartTableMap::DATABASE_NAME);
@@ -653,7 +948,7 @@ class SaleschartTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(SaleschartTableMap::COL_SESSIONID, $value[0]);
@@ -681,7 +976,7 @@ class SaleschartTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return SaleschartQuery::create()->doDeleteAll($con);
     }
@@ -689,13 +984,13 @@ class SaleschartTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a Saleschart or Criteria object.
      *
-     * @param mixed               $criteria Criteria or Saleschart object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or Saleschart object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SaleschartTableMap::DATABASE_NAME);
@@ -718,7 +1013,4 @@ class SaleschartTableMap extends TableMap
         });
     }
 
-} // SaleschartTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-SaleschartTableMap::buildTableMap();
+}

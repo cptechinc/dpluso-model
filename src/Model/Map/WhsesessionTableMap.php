@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class WhsesessionTableMap extends TableMap
 {
@@ -34,154 +33,255 @@ class WhsesessionTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.WhsesessionTableMap';
+    public const CLASS_NAME = '.Map.WhsesessionTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'dplusodb';
+    public const DATABASE_NAME = 'dplusodb';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'whsesession';
+    public const TABLE_NAME = 'whsesession';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'Whsesession';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\Whsesession';
+    public const OM_CLASS = '\\Whsesession';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'Whsesession';
+    public const CLASS_DEFAULT = 'Whsesession';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 14;
+    public const NUM_COLUMNS = 14;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 14;
+    public const NUM_HYDRATE_COLUMNS = 14;
 
     /**
      * the column name for the sessionid field
      */
-    const COL_SESSIONID = 'whsesession.sessionid';
+    public const COL_SESSIONID = 'whsesession.sessionid';
 
     /**
      * the column name for the recno field
      */
-    const COL_RECNO = 'whsesession.recno';
+    public const COL_RECNO = 'whsesession.recno';
 
     /**
      * the column name for the date field
      */
-    const COL_DATE = 'whsesession.date';
+    public const COL_DATE = 'whsesession.date';
 
     /**
      * the column name for the time field
      */
-    const COL_TIME = 'whsesession.time';
+    public const COL_TIME = 'whsesession.time';
 
     /**
      * the column name for the loginid field
      */
-    const COL_LOGINID = 'whsesession.loginid';
+    public const COL_LOGINID = 'whsesession.loginid';
 
     /**
      * the column name for the whseid field
      */
-    const COL_WHSEID = 'whsesession.whseid';
+    public const COL_WHSEID = 'whsesession.whseid';
 
     /**
      * the column name for the ordernbr field
      */
-    const COL_ORDERNBR = 'whsesession.ordernbr';
+    public const COL_ORDERNBR = 'whsesession.ordernbr';
 
     /**
      * the column name for the binnbr field
      */
-    const COL_BINNBR = 'whsesession.binnbr';
+    public const COL_BINNBR = 'whsesession.binnbr';
 
     /**
      * the column name for the palletnbr field
      */
-    const COL_PALLETNBR = 'whsesession.palletnbr';
+    public const COL_PALLETNBR = 'whsesession.palletnbr';
 
     /**
      * the column name for the cartonnbr field
      */
-    const COL_CARTONNBR = 'whsesession.cartonnbr';
+    public const COL_CARTONNBR = 'whsesession.cartonnbr';
 
     /**
      * the column name for the status field
      */
-    const COL_STATUS = 'whsesession.status';
+    public const COL_STATUS = 'whsesession.status';
 
     /**
      * the column name for the function field
      */
-    const COL_FUNCTION = 'whsesession.function';
+    public const COL_FUNCTION = 'whsesession.function';
 
     /**
      * the column name for the promptfunction field
      */
-    const COL_PROMPTFUNCTION = 'whsesession.promptfunction';
+    public const COL_PROMPTFUNCTION = 'whsesession.promptfunction';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'whsesession.dummy';
+    public const COL_DUMMY = 'whsesession.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Sessionid', 'Recno', 'Date', 'Time', 'Loginid', 'Whseid', 'Ordernbr', 'Binnbr', 'Palletnbr', 'Cartonnbr', 'Status', 'Function', 'Promptfunction', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('sessionid', 'recno', 'date', 'time', 'loginid', 'whseid', 'ordernbr', 'binnbr', 'palletnbr', 'cartonnbr', 'status', 'function', 'promptfunction', 'dummy', ),
-        self::TYPE_COLNAME       => array(WhsesessionTableMap::COL_SESSIONID, WhsesessionTableMap::COL_RECNO, WhsesessionTableMap::COL_DATE, WhsesessionTableMap::COL_TIME, WhsesessionTableMap::COL_LOGINID, WhsesessionTableMap::COL_WHSEID, WhsesessionTableMap::COL_ORDERNBR, WhsesessionTableMap::COL_BINNBR, WhsesessionTableMap::COL_PALLETNBR, WhsesessionTableMap::COL_CARTONNBR, WhsesessionTableMap::COL_STATUS, WhsesessionTableMap::COL_FUNCTION, WhsesessionTableMap::COL_PROMPTFUNCTION, WhsesessionTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('sessionid', 'recno', 'date', 'time', 'loginid', 'whseid', 'ordernbr', 'binnbr', 'palletnbr', 'cartonnbr', 'status', 'function', 'promptfunction', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Sessionid', 'Recno', 'Date', 'Time', 'Loginid', 'Whseid', 'Ordernbr', 'Binnbr', 'Palletnbr', 'Cartonnbr', 'Status', 'Function', 'Promptfunction', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['sessionid', 'recno', 'date', 'time', 'loginid', 'whseid', 'ordernbr', 'binnbr', 'palletnbr', 'cartonnbr', 'status', 'function', 'promptfunction', 'dummy', ],
+        self::TYPE_COLNAME       => [WhsesessionTableMap::COL_SESSIONID, WhsesessionTableMap::COL_RECNO, WhsesessionTableMap::COL_DATE, WhsesessionTableMap::COL_TIME, WhsesessionTableMap::COL_LOGINID, WhsesessionTableMap::COL_WHSEID, WhsesessionTableMap::COL_ORDERNBR, WhsesessionTableMap::COL_BINNBR, WhsesessionTableMap::COL_PALLETNBR, WhsesessionTableMap::COL_CARTONNBR, WhsesessionTableMap::COL_STATUS, WhsesessionTableMap::COL_FUNCTION, WhsesessionTableMap::COL_PROMPTFUNCTION, WhsesessionTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['sessionid', 'recno', 'date', 'time', 'loginid', 'whseid', 'ordernbr', 'binnbr', 'palletnbr', 'cartonnbr', 'status', 'function', 'promptfunction', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Recno' => 1, 'Date' => 2, 'Time' => 3, 'Loginid' => 4, 'Whseid' => 5, 'Ordernbr' => 6, 'Binnbr' => 7, 'Palletnbr' => 8, 'Cartonnbr' => 9, 'Status' => 10, 'Function' => 11, 'Promptfunction' => 12, 'Dummy' => 13, ),
-        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'loginid' => 4, 'whseid' => 5, 'ordernbr' => 6, 'binnbr' => 7, 'palletnbr' => 8, 'cartonnbr' => 9, 'status' => 10, 'function' => 11, 'promptfunction' => 12, 'dummy' => 13, ),
-        self::TYPE_COLNAME       => array(WhsesessionTableMap::COL_SESSIONID => 0, WhsesessionTableMap::COL_RECNO => 1, WhsesessionTableMap::COL_DATE => 2, WhsesessionTableMap::COL_TIME => 3, WhsesessionTableMap::COL_LOGINID => 4, WhsesessionTableMap::COL_WHSEID => 5, WhsesessionTableMap::COL_ORDERNBR => 6, WhsesessionTableMap::COL_BINNBR => 7, WhsesessionTableMap::COL_PALLETNBR => 8, WhsesessionTableMap::COL_CARTONNBR => 9, WhsesessionTableMap::COL_STATUS => 10, WhsesessionTableMap::COL_FUNCTION => 11, WhsesessionTableMap::COL_PROMPTFUNCTION => 12, WhsesessionTableMap::COL_DUMMY => 13, ),
-        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'loginid' => 4, 'whseid' => 5, 'ordernbr' => 6, 'binnbr' => 7, 'palletnbr' => 8, 'cartonnbr' => 9, 'status' => 10, 'function' => 11, 'promptfunction' => 12, 'dummy' => 13, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Sessionid' => 0, 'Recno' => 1, 'Date' => 2, 'Time' => 3, 'Loginid' => 4, 'Whseid' => 5, 'Ordernbr' => 6, 'Binnbr' => 7, 'Palletnbr' => 8, 'Cartonnbr' => 9, 'Status' => 10, 'Function' => 11, 'Promptfunction' => 12, 'Dummy' => 13, ],
+        self::TYPE_CAMELNAME     => ['sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'loginid' => 4, 'whseid' => 5, 'ordernbr' => 6, 'binnbr' => 7, 'palletnbr' => 8, 'cartonnbr' => 9, 'status' => 10, 'function' => 11, 'promptfunction' => 12, 'dummy' => 13, ],
+        self::TYPE_COLNAME       => [WhsesessionTableMap::COL_SESSIONID => 0, WhsesessionTableMap::COL_RECNO => 1, WhsesessionTableMap::COL_DATE => 2, WhsesessionTableMap::COL_TIME => 3, WhsesessionTableMap::COL_LOGINID => 4, WhsesessionTableMap::COL_WHSEID => 5, WhsesessionTableMap::COL_ORDERNBR => 6, WhsesessionTableMap::COL_BINNBR => 7, WhsesessionTableMap::COL_PALLETNBR => 8, WhsesessionTableMap::COL_CARTONNBR => 9, WhsesessionTableMap::COL_STATUS => 10, WhsesessionTableMap::COL_FUNCTION => 11, WhsesessionTableMap::COL_PROMPTFUNCTION => 12, WhsesessionTableMap::COL_DUMMY => 13, ],
+        self::TYPE_FIELDNAME     => ['sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'loginid' => 4, 'whseid' => 5, 'ordernbr' => 6, 'binnbr' => 7, 'palletnbr' => 8, 'cartonnbr' => 9, 'status' => 10, 'function' => 11, 'promptfunction' => 12, 'dummy' => 13, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Sessionid' => 'SESSIONID',
+        'Whsesession.Sessionid' => 'SESSIONID',
+        'sessionid' => 'SESSIONID',
+        'whsesession.sessionid' => 'SESSIONID',
+        'WhsesessionTableMap::COL_SESSIONID' => 'SESSIONID',
+        'COL_SESSIONID' => 'SESSIONID',
+        'Recno' => 'RECNO',
+        'Whsesession.Recno' => 'RECNO',
+        'recno' => 'RECNO',
+        'whsesession.recno' => 'RECNO',
+        'WhsesessionTableMap::COL_RECNO' => 'RECNO',
+        'COL_RECNO' => 'RECNO',
+        'Date' => 'DATE',
+        'Whsesession.Date' => 'DATE',
+        'date' => 'DATE',
+        'whsesession.date' => 'DATE',
+        'WhsesessionTableMap::COL_DATE' => 'DATE',
+        'COL_DATE' => 'DATE',
+        'Time' => 'TIME',
+        'Whsesession.Time' => 'TIME',
+        'time' => 'TIME',
+        'whsesession.time' => 'TIME',
+        'WhsesessionTableMap::COL_TIME' => 'TIME',
+        'COL_TIME' => 'TIME',
+        'Loginid' => 'LOGINID',
+        'Whsesession.Loginid' => 'LOGINID',
+        'loginid' => 'LOGINID',
+        'whsesession.loginid' => 'LOGINID',
+        'WhsesessionTableMap::COL_LOGINID' => 'LOGINID',
+        'COL_LOGINID' => 'LOGINID',
+        'Whseid' => 'WHSEID',
+        'Whsesession.Whseid' => 'WHSEID',
+        'whseid' => 'WHSEID',
+        'whsesession.whseid' => 'WHSEID',
+        'WhsesessionTableMap::COL_WHSEID' => 'WHSEID',
+        'COL_WHSEID' => 'WHSEID',
+        'Ordernbr' => 'ORDERNBR',
+        'Whsesession.Ordernbr' => 'ORDERNBR',
+        'ordernbr' => 'ORDERNBR',
+        'whsesession.ordernbr' => 'ORDERNBR',
+        'WhsesessionTableMap::COL_ORDERNBR' => 'ORDERNBR',
+        'COL_ORDERNBR' => 'ORDERNBR',
+        'Binnbr' => 'BINNBR',
+        'Whsesession.Binnbr' => 'BINNBR',
+        'binnbr' => 'BINNBR',
+        'whsesession.binnbr' => 'BINNBR',
+        'WhsesessionTableMap::COL_BINNBR' => 'BINNBR',
+        'COL_BINNBR' => 'BINNBR',
+        'Palletnbr' => 'PALLETNBR',
+        'Whsesession.Palletnbr' => 'PALLETNBR',
+        'palletnbr' => 'PALLETNBR',
+        'whsesession.palletnbr' => 'PALLETNBR',
+        'WhsesessionTableMap::COL_PALLETNBR' => 'PALLETNBR',
+        'COL_PALLETNBR' => 'PALLETNBR',
+        'Cartonnbr' => 'CARTONNBR',
+        'Whsesession.Cartonnbr' => 'CARTONNBR',
+        'cartonnbr' => 'CARTONNBR',
+        'whsesession.cartonnbr' => 'CARTONNBR',
+        'WhsesessionTableMap::COL_CARTONNBR' => 'CARTONNBR',
+        'COL_CARTONNBR' => 'CARTONNBR',
+        'Status' => 'STATUS',
+        'Whsesession.Status' => 'STATUS',
+        'status' => 'STATUS',
+        'whsesession.status' => 'STATUS',
+        'WhsesessionTableMap::COL_STATUS' => 'STATUS',
+        'COL_STATUS' => 'STATUS',
+        'Function' => 'FUNCTION',
+        'Whsesession.Function' => 'FUNCTION',
+        'function' => 'FUNCTION',
+        'whsesession.function' => 'FUNCTION',
+        'WhsesessionTableMap::COL_FUNCTION' => 'FUNCTION',
+        'COL_FUNCTION' => 'FUNCTION',
+        'Promptfunction' => 'PROMPTFUNCTION',
+        'Whsesession.Promptfunction' => 'PROMPTFUNCTION',
+        'promptfunction' => 'PROMPTFUNCTION',
+        'whsesession.promptfunction' => 'PROMPTFUNCTION',
+        'WhsesessionTableMap::COL_PROMPTFUNCTION' => 'PROMPTFUNCTION',
+        'COL_PROMPTFUNCTION' => 'PROMPTFUNCTION',
+        'Dummy' => 'DUMMY',
+        'Whsesession.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'whsesession.dummy' => 'DUMMY',
+        'WhsesessionTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('whsesession');
@@ -205,14 +305,16 @@ class WhsesessionTableMap extends TableMap
         $this->addColumn('function', 'Function', 'VARCHAR', false, 12, null);
         $this->addColumn('promptfunction', 'Promptfunction', 'VARCHAR', false, 1, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -223,9 +325,11 @@ class WhsesessionTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \Whsesession $obj A \Whsesession object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(Whsesession $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -244,8 +348,10 @@ class WhsesessionTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \Whsesession object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \Whsesession) {
@@ -273,14 +379,14 @@ class WhsesessionTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Recno', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -295,14 +401,14 @@ class WhsesessionTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -328,10 +434,10 @@ class WhsesessionTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? WhsesessionTableMap::CLASS_DEFAULT : WhsesessionTableMap::OM_CLASS;
     }
@@ -339,17 +445,17 @@ class WhsesessionTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (Whsesession object, last column rank)
+     * @return array (Whsesession object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = WhsesessionTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = WhsesessionTableMap::getInstanceFromPool($key))) {
@@ -365,7 +471,7 @@ class WhsesessionTableMap extends TableMap
             WhsesessionTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -373,13 +479,13 @@ class WhsesessionTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -409,12 +515,13 @@ class WhsesessionTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(WhsesessionTableMap::COL_SESSIONID);
@@ -450,40 +557,76 @@ class WhsesessionTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(WhsesessionTableMap::COL_SESSIONID);
+            $criteria->removeSelectColumn(WhsesessionTableMap::COL_RECNO);
+            $criteria->removeSelectColumn(WhsesessionTableMap::COL_DATE);
+            $criteria->removeSelectColumn(WhsesessionTableMap::COL_TIME);
+            $criteria->removeSelectColumn(WhsesessionTableMap::COL_LOGINID);
+            $criteria->removeSelectColumn(WhsesessionTableMap::COL_WHSEID);
+            $criteria->removeSelectColumn(WhsesessionTableMap::COL_ORDERNBR);
+            $criteria->removeSelectColumn(WhsesessionTableMap::COL_BINNBR);
+            $criteria->removeSelectColumn(WhsesessionTableMap::COL_PALLETNBR);
+            $criteria->removeSelectColumn(WhsesessionTableMap::COL_CARTONNBR);
+            $criteria->removeSelectColumn(WhsesessionTableMap::COL_STATUS);
+            $criteria->removeSelectColumn(WhsesessionTableMap::COL_FUNCTION);
+            $criteria->removeSelectColumn(WhsesessionTableMap::COL_PROMPTFUNCTION);
+            $criteria->removeSelectColumn(WhsesessionTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.sessionid');
+            $criteria->removeSelectColumn($alias . '.recno');
+            $criteria->removeSelectColumn($alias . '.date');
+            $criteria->removeSelectColumn($alias . '.time');
+            $criteria->removeSelectColumn($alias . '.loginid');
+            $criteria->removeSelectColumn($alias . '.whseid');
+            $criteria->removeSelectColumn($alias . '.ordernbr');
+            $criteria->removeSelectColumn($alias . '.binnbr');
+            $criteria->removeSelectColumn($alias . '.palletnbr');
+            $criteria->removeSelectColumn($alias . '.cartonnbr');
+            $criteria->removeSelectColumn($alias . '.status');
+            $criteria->removeSelectColumn($alias . '.function');
+            $criteria->removeSelectColumn($alias . '.promptfunction');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(WhsesessionTableMap::DATABASE_NAME)->getTable(WhsesessionTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(WhsesessionTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(WhsesessionTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new WhsesessionTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a Whsesession or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or Whsesession object or primary key or array of primary keys
+     * @param mixed $values Criteria or Whsesession object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(WhsesessionTableMap::DATABASE_NAME);
@@ -501,7 +644,7 @@ class WhsesessionTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(WhsesessionTableMap::COL_SESSIONID, $value[0]);
@@ -529,7 +672,7 @@ class WhsesessionTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return WhsesessionQuery::create()->doDeleteAll($con);
     }
@@ -537,13 +680,13 @@ class WhsesessionTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a Whsesession or Criteria object.
      *
-     * @param mixed               $criteria Criteria or Whsesession object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or Whsesession object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(WhsesessionTableMap::DATABASE_NAME);
@@ -566,7 +709,4 @@ class WhsesessionTableMap extends TableMap
         });
     }
 
-} // WhsesessionTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-WhsesessionTableMap::buildTableMap();
+}

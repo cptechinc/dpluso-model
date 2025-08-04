@@ -29,19 +29,21 @@ abstract class Carthed implements ActiveRecordInterface
 {
     /**
      * TableMap class name
+     *
+     * @var string
      */
-    const TABLE_MAP = '\\Map\\CarthedTableMap';
+    public const TABLE_MAP = '\\Map\\CarthedTableMap';
 
 
     /**
      * attribute to determine if this object has previously been saved.
-     * @var boolean
+     * @var bool
      */
     protected $new = true;
 
     /**
      * attribute to determine whether this object has been deleted.
-     * @var boolean
+     * @var bool
      */
     protected $deleted = false;
 
@@ -50,14 +52,14 @@ abstract class Carthed implements ActiveRecordInterface
      * Tracking modified columns allows us to only update modified columns.
      * @var array
      */
-    protected $modifiedColumns = array();
+    protected $modifiedColumns = [];
 
     /**
      * The (virtual) columns that are added at runtime
      * The formatters can add supplementary columns based on a resultset
      * @var array
      */
-    protected $virtualColumns = array();
+    protected $virtualColumns = [];
 
     /**
      * The value for the sessionid field.
@@ -76,14 +78,14 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * The value for the date field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $date;
 
     /**
      * The value for the time field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $time;
 
@@ -91,7 +93,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the custid field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $custid;
 
@@ -99,7 +101,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the shiptoid field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $shiptoid;
 
@@ -107,7 +109,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the custname field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $custname;
 
@@ -115,7 +117,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the orderno field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $orderno;
 
@@ -123,7 +125,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the custpo field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $custpo;
 
@@ -131,7 +133,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the status field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $status;
 
@@ -139,7 +141,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the orderdate field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $orderdate;
 
@@ -147,7 +149,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the invdate field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $invdate;
 
@@ -155,7 +157,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the shipdate field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $shipdate;
 
@@ -163,7 +165,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the hasdocuments field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $hasdocuments;
 
@@ -171,7 +173,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the hastracking field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $hastracking;
 
@@ -179,7 +181,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the subtotal field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $subtotal;
 
@@ -187,7 +189,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the salestax field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $salestax;
 
@@ -195,7 +197,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the freight field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $freight;
 
@@ -203,7 +205,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the misccost field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $misccost;
 
@@ -211,7 +213,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the ordertotal field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $ordertotal;
 
@@ -219,7 +221,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the hasnotes field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $hasnotes;
 
@@ -227,7 +229,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the editord field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $editord;
 
@@ -235,7 +237,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the error field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $error;
 
@@ -243,7 +245,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the errormsg field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $errormsg;
 
@@ -251,7 +253,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the sconame field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $sconame;
 
@@ -259,7 +261,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the shipname field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $shipname;
 
@@ -267,7 +269,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the shipaddress field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $shipaddress;
 
@@ -275,7 +277,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the shipaddress2 field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $shipaddress2;
 
@@ -283,7 +285,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the shipcity field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $shipcity;
 
@@ -291,7 +293,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the shipstate field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $shipstate;
 
@@ -299,7 +301,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the shipzip field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $shipzip;
 
@@ -307,7 +309,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the shipcountry field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $shipcountry;
 
@@ -315,7 +317,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the contact field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $contact;
 
@@ -323,7 +325,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the phintl field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $phintl;
 
@@ -331,7 +333,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the phone field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $phone;
 
@@ -339,7 +341,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the extension field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $extension;
 
@@ -347,7 +349,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the faxnbr field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $faxnbr;
 
@@ -355,7 +357,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the email field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $email;
 
@@ -363,7 +365,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the releasenbr field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $releasenbr;
 
@@ -371,7 +373,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the shipviacd field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $shipviacd;
 
@@ -379,7 +381,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the shipviadesc field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $shipviadesc;
 
@@ -387,7 +389,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the termcode field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $termcode;
 
@@ -395,7 +397,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the termtype field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $termtype;
 
@@ -403,7 +405,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the termdesc field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $termdesc;
 
@@ -411,7 +413,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the rqstdate field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $rqstdate;
 
@@ -419,7 +421,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the shipcom field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $shipcom;
 
@@ -427,7 +429,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the sp1 field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $sp1;
 
@@ -435,7 +437,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the sp1name field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $sp1name;
 
@@ -443,7 +445,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the cardnumber field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $cardnumber;
 
@@ -451,7 +453,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the cardexpire field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $cardexpire;
 
@@ -459,7 +461,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the cardcode field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $cardcode;
 
@@ -467,7 +469,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the cardapproval field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $cardapproval;
 
@@ -475,7 +477,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the totalcost field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $totalcost;
 
@@ -483,7 +485,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the totaldiscount field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $totaldiscount;
 
@@ -491,7 +493,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the paymenttype field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $paymenttype;
 
@@ -499,7 +501,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the srcdatefrom field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $srcdatefrom;
 
@@ -507,7 +509,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the srcdatethru field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $srcdatethru;
 
@@ -515,7 +517,7 @@ abstract class Carthed implements ActiveRecordInterface
      * The value for the dummy field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $dummy;
 
@@ -523,7 +525,7 @@ abstract class Carthed implements ActiveRecordInterface
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
-     * @var boolean
+     * @var bool
      */
     protected $alreadyInSave = false;
 
@@ -533,7 +535,7 @@ abstract class Carthed implements ActiveRecordInterface
      * equivalent initialization method).
      * @see __construct()
      */
-    public function applyDefaultValues()
+    public function applyDefaultValues(): void
     {
         $this->custid = '';
         $this->shiptoid = '';
@@ -603,9 +605,9 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Returns whether the object has been modified.
      *
-     * @return boolean True if the object has been modified.
+     * @return bool True if the object has been modified.
      */
-    public function isModified()
+    public function isModified(): bool
     {
         return !!$this->modifiedColumns;
     }
@@ -613,10 +615,10 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Has specified column been modified?
      *
-     * @param  string  $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
-     * @return boolean True if $col has been modified.
+     * @param string $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
+     * @return bool True if $col has been modified.
      */
-    public function isColumnModified($col)
+    public function isColumnModified(string $col): bool
     {
         return $this->modifiedColumns && isset($this->modifiedColumns[$col]);
     }
@@ -625,7 +627,7 @@ abstract class Carthed implements ActiveRecordInterface
      * Get the columns that have been modified in this object.
      * @return array A unique list of the modified column names for this object.
      */
-    public function getModifiedColumns()
+    public function getModifiedColumns(): array
     {
         return $this->modifiedColumns ? array_keys($this->modifiedColumns) : [];
     }
@@ -635,9 +637,9 @@ abstract class Carthed implements ActiveRecordInterface
      * be false, if the object was retrieved from storage or was created
      * and then saved.
      *
-     * @return boolean true, if the object has never been persisted.
+     * @return bool True, if the object has never been persisted.
      */
-    public function isNew()
+    public function isNew(): bool
     {
         return $this->new;
     }
@@ -646,45 +648,43 @@ abstract class Carthed implements ActiveRecordInterface
      * Setter for the isNew attribute.  This method will be called
      * by Propel-generated children and objects.
      *
-     * @param boolean $b the state of the object.
+     * @param bool $b the state of the object.
      */
-    public function setNew($b)
+    public function setNew(bool $b): void
     {
-        $this->new = (boolean) $b;
+        $this->new = $b;
     }
 
     /**
      * Whether this object has been deleted.
-     * @return boolean The deleted state of this object.
+     * @return bool The deleted state of this object.
      */
-    public function isDeleted()
+    public function isDeleted(): bool
     {
         return $this->deleted;
     }
 
     /**
      * Specify whether this object has been deleted.
-     * @param  boolean $b The deleted state of this object.
+     * @param bool $b The deleted state of this object.
      * @return void
      */
-    public function setDeleted($b)
+    public function setDeleted(bool $b): void
     {
-        $this->deleted = (boolean) $b;
+        $this->deleted = $b;
     }
 
     /**
      * Sets the modified state for the object to be false.
-     * @param  string $col If supplied, only the specified column is reset.
+     * @param string $col If supplied, only the specified column is reset.
      * @return void
      */
-    public function resetModified($col = null)
+    public function resetModified(?string $col = null): void
     {
         if (null !== $col) {
-            if (isset($this->modifiedColumns[$col])) {
-                unset($this->modifiedColumns[$col]);
-            }
+            unset($this->modifiedColumns[$col]);
         } else {
-            $this->modifiedColumns = array();
+            $this->modifiedColumns = [];
         }
     }
 
@@ -693,10 +693,10 @@ abstract class Carthed implements ActiveRecordInterface
      * <code>obj</code> is an instance of <code>Carthed</code>, delegates to
      * <code>equals(Carthed)</code>.  Otherwise, returns <code>false</code>.
      *
-     * @param  mixed   $obj The object to compare to.
-     * @return boolean Whether equal to the object specified.
+     * @param mixed $obj The object to compare to.
+     * @return bool Whether equal to the object specified.
      */
-    public function equals($obj)
+    public function equals($obj): bool
     {
         if (!$obj instanceof static) {
             return false;
@@ -718,7 +718,7 @@ abstract class Carthed implements ActiveRecordInterface
      *
      * @return array
      */
-    public function getVirtualColumns()
+    public function getVirtualColumns(): array
     {
         return $this->virtualColumns;
     }
@@ -726,10 +726,10 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Checks the existence of a virtual column in this object
      *
-     * @param  string  $name The virtual column name
-     * @return boolean
+     * @param string $name The virtual column name
+     * @return bool
      */
-    public function hasVirtualColumn($name)
+    public function hasVirtualColumn(string $name): bool
     {
         return array_key_exists($name, $this->virtualColumns);
     }
@@ -737,15 +737,15 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the value of a virtual column in this object
      *
-     * @param  string $name The virtual column name
+     * @param string $name The virtual column name
      * @return mixed
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getVirtualColumn($name)
+    public function getVirtualColumn(string $name)
     {
         if (!$this->hasVirtualColumn($name)) {
-            throw new PropelException(sprintf('Cannot get value of inexistent virtual column %s.', $name));
+            throw new PropelException(sprintf('Cannot get value of nonexistent virtual column `%s`.', $name));
         }
 
         return $this->virtualColumns[$name];
@@ -754,12 +754,12 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Set the value of a virtual column in this object
      *
-     * @param string $name  The virtual column name
-     * @param mixed  $value The value to give to the virtual column
+     * @param string $name The virtual column name
+     * @param mixed $value The value to give to the virtual column
      *
-     * @return $this|Carthed The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function setVirtualColumn($name, $value)
+    public function setVirtualColumn(string $name, $value)
     {
         $this->virtualColumns[$name] = $value;
 
@@ -769,13 +769,13 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param  string  $msg
-     * @param  int     $priority One of the Propel::LOG_* logging levels
-     * @return boolean
+     * @param string $msg
+     * @param int $priority One of the Propel::LOG_* logging levels
+     * @return void
      */
-    protected function log($msg, $priority = Propel::LOG_INFO)
+    protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
-        return Propel::log(get_class($this) . ': ' . $msg, $priority);
+        Propel::log(get_class($this) . ': ' . $msg, $priority);
     }
 
     /**
@@ -786,24 +786,27 @@ abstract class Carthed implements ActiveRecordInterface
      *  => {"Id":9012,"Title":"Don Juan","ISBN":"0140422161","Price":12.99,"PublisherId":1234,"AuthorId":5678}');
      * </code>
      *
-     * @param  mixed   $parser                 A AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
-     * @param  boolean $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
-     * @return string  The exported data
+     * @param \Propel\Runtime\Parser\AbstractParser|string $parser An AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME, TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM. Defaults to TableMap::TYPE_PHPNAME.
+     * @return string The exported data
      */
-    public function exportTo($parser, $includeLazyLoadColumns = true)
+    public function exportTo($parser, bool $includeLazyLoadColumns = true, string $keyType = TableMap::TYPE_PHPNAME): string
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray(TableMap::TYPE_PHPNAME, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
     }
 
     /**
      * Clean up internal collections prior to serializing
      * Avoids recursive loops that turn into segmentation faults when serializing
+     *
+     * @return array<string>
      */
-    public function __sleep()
+    public function __sleep(): array
     {
         $this->clearAllReferences();
 
@@ -841,7 +844,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [date] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getDate()
     {
@@ -851,7 +854,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [time] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getTime()
     {
@@ -861,7 +864,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [custid] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getCustid()
     {
@@ -871,7 +874,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [shiptoid] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getShiptoid()
     {
@@ -881,7 +884,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [custname] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getCustname()
     {
@@ -891,7 +894,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [orderno] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getOrderno()
     {
@@ -901,7 +904,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [custpo] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getCustpo()
     {
@@ -911,7 +914,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [status] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getStatus()
     {
@@ -921,7 +924,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [orderdate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getOrderdate()
     {
@@ -931,7 +934,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [invdate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInvdate()
     {
@@ -941,7 +944,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [shipdate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getShipdate()
     {
@@ -951,7 +954,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [hasdocuments] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getHasdocuments()
     {
@@ -961,7 +964,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [hastracking] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getHastracking()
     {
@@ -971,7 +974,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [subtotal] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getSubtotal()
     {
@@ -981,7 +984,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [salestax] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getSalestax()
     {
@@ -991,7 +994,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [freight] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getFreight()
     {
@@ -1001,7 +1004,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [misccost] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getMisccost()
     {
@@ -1011,7 +1014,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [ordertotal] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getOrdertotal()
     {
@@ -1021,7 +1024,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [hasnotes] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getHasnotes()
     {
@@ -1031,7 +1034,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [editord] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getEditord()
     {
@@ -1041,7 +1044,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [error] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getError()
     {
@@ -1051,7 +1054,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [errormsg] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getErrormsg()
     {
@@ -1061,7 +1064,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [sconame] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getSconame()
     {
@@ -1071,7 +1074,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [shipname] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getShipname()
     {
@@ -1081,7 +1084,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [shipaddress] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getShipaddress()
     {
@@ -1091,7 +1094,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [shipaddress2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getShipaddress2()
     {
@@ -1101,7 +1104,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [shipcity] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getShipcity()
     {
@@ -1111,7 +1114,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [shipstate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getShipstate()
     {
@@ -1121,7 +1124,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [shipzip] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getShipzip()
     {
@@ -1131,7 +1134,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [shipcountry] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getShipcountry()
     {
@@ -1141,7 +1144,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [contact] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getContact()
     {
@@ -1151,7 +1154,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [phintl] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getPhintl()
     {
@@ -1161,7 +1164,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [phone] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getPhone()
     {
@@ -1171,7 +1174,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [extension] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getExtension()
     {
@@ -1181,7 +1184,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [faxnbr] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getFaxnbr()
     {
@@ -1191,7 +1194,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [email] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getEmail()
     {
@@ -1201,7 +1204,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [releasenbr] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getReleasenbr()
     {
@@ -1211,7 +1214,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [shipviacd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getShipviacd()
     {
@@ -1221,7 +1224,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [shipviadesc] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getShipviadesc()
     {
@@ -1231,7 +1234,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [termcode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getTermcode()
     {
@@ -1241,7 +1244,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [termtype] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getTermtype()
     {
@@ -1251,7 +1254,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [termdesc] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getTermdesc()
     {
@@ -1261,7 +1264,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [rqstdate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getRqstdate()
     {
@@ -1271,7 +1274,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [shipcom] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getShipcom()
     {
@@ -1281,7 +1284,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [sp1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getSp1()
     {
@@ -1291,7 +1294,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [sp1name] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getSp1name()
     {
@@ -1301,7 +1304,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [cardnumber] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getCardnumber()
     {
@@ -1311,7 +1314,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [cardexpire] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getCardexpire()
     {
@@ -1321,7 +1324,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [cardcode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getCardcode()
     {
@@ -1331,7 +1334,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [cardapproval] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getCardapproval()
     {
@@ -1341,7 +1344,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [totalcost] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getTotalcost()
     {
@@ -1351,7 +1354,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [totaldiscount] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getTotaldiscount()
     {
@@ -1361,7 +1364,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [paymenttype] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getPaymenttype()
     {
@@ -1371,7 +1374,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [srcdatefrom] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getSrcdatefrom()
     {
@@ -1381,7 +1384,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [srcdatethru] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getSrcdatethru()
     {
@@ -1391,7 +1394,7 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Get the [dummy] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getDummy()
     {
@@ -1401,8 +1404,8 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Set the value of [sessionid] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setSessionid($v)
     {
@@ -1416,13 +1419,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setSessionid()
+    }
 
     /**
      * Set the value of [recno] column.
      *
-     * @param int $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setRecno($v)
     {
@@ -1436,13 +1439,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setRecno()
+    }
 
     /**
      * Set the value of [date] column.
      *
-     * @param int $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDate($v)
     {
@@ -1456,13 +1459,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDate()
+    }
 
     /**
      * Set the value of [time] column.
      *
-     * @param int $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTime($v)
     {
@@ -1476,13 +1479,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTime()
+    }
 
     /**
      * Set the value of [custid] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setCustid($v)
     {
@@ -1496,13 +1499,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setCustid()
+    }
 
     /**
      * Set the value of [shiptoid] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setShiptoid($v)
     {
@@ -1516,13 +1519,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setShiptoid()
+    }
 
     /**
      * Set the value of [custname] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setCustname($v)
     {
@@ -1536,13 +1539,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setCustname()
+    }
 
     /**
      * Set the value of [orderno] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOrderno($v)
     {
@@ -1556,13 +1559,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOrderno()
+    }
 
     /**
      * Set the value of [custpo] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setCustpo($v)
     {
@@ -1576,13 +1579,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setCustpo()
+    }
 
     /**
      * Set the value of [status] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setStatus($v)
     {
@@ -1596,13 +1599,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setStatus()
+    }
 
     /**
      * Set the value of [orderdate] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOrderdate($v)
     {
@@ -1616,13 +1619,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOrderdate()
+    }
 
     /**
      * Set the value of [invdate] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInvdate($v)
     {
@@ -1636,13 +1639,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInvdate()
+    }
 
     /**
      * Set the value of [shipdate] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setShipdate($v)
     {
@@ -1656,13 +1659,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setShipdate()
+    }
 
     /**
      * Set the value of [hasdocuments] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setHasdocuments($v)
     {
@@ -1676,13 +1679,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setHasdocuments()
+    }
 
     /**
      * Set the value of [hastracking] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setHastracking($v)
     {
@@ -1696,13 +1699,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setHastracking()
+    }
 
     /**
      * Set the value of [subtotal] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setSubtotal($v)
     {
@@ -1716,13 +1719,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setSubtotal()
+    }
 
     /**
      * Set the value of [salestax] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setSalestax($v)
     {
@@ -1736,13 +1739,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setSalestax()
+    }
 
     /**
      * Set the value of [freight] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setFreight($v)
     {
@@ -1756,13 +1759,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setFreight()
+    }
 
     /**
      * Set the value of [misccost] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setMisccost($v)
     {
@@ -1776,13 +1779,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setMisccost()
+    }
 
     /**
      * Set the value of [ordertotal] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOrdertotal($v)
     {
@@ -1796,13 +1799,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOrdertotal()
+    }
 
     /**
      * Set the value of [hasnotes] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setHasnotes($v)
     {
@@ -1816,13 +1819,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setHasnotes()
+    }
 
     /**
      * Set the value of [editord] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setEditord($v)
     {
@@ -1836,13 +1839,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setEditord()
+    }
 
     /**
      * Set the value of [error] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setError($v)
     {
@@ -1856,13 +1859,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setError()
+    }
 
     /**
      * Set the value of [errormsg] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setErrormsg($v)
     {
@@ -1876,13 +1879,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setErrormsg()
+    }
 
     /**
      * Set the value of [sconame] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setSconame($v)
     {
@@ -1896,13 +1899,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setSconame()
+    }
 
     /**
      * Set the value of [shipname] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setShipname($v)
     {
@@ -1916,13 +1919,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setShipname()
+    }
 
     /**
      * Set the value of [shipaddress] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setShipaddress($v)
     {
@@ -1936,13 +1939,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setShipaddress()
+    }
 
     /**
      * Set the value of [shipaddress2] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setShipaddress2($v)
     {
@@ -1956,13 +1959,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setShipaddress2()
+    }
 
     /**
      * Set the value of [shipcity] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setShipcity($v)
     {
@@ -1976,13 +1979,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setShipcity()
+    }
 
     /**
      * Set the value of [shipstate] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setShipstate($v)
     {
@@ -1996,13 +1999,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setShipstate()
+    }
 
     /**
      * Set the value of [shipzip] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setShipzip($v)
     {
@@ -2016,13 +2019,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setShipzip()
+    }
 
     /**
      * Set the value of [shipcountry] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setShipcountry($v)
     {
@@ -2036,13 +2039,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setShipcountry()
+    }
 
     /**
      * Set the value of [contact] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setContact($v)
     {
@@ -2056,13 +2059,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setContact()
+    }
 
     /**
      * Set the value of [phintl] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPhintl($v)
     {
@@ -2076,13 +2079,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPhintl()
+    }
 
     /**
      * Set the value of [phone] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPhone($v)
     {
@@ -2096,13 +2099,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPhone()
+    }
 
     /**
      * Set the value of [extension] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setExtension($v)
     {
@@ -2116,13 +2119,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setExtension()
+    }
 
     /**
      * Set the value of [faxnbr] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setFaxnbr($v)
     {
@@ -2136,13 +2139,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setFaxnbr()
+    }
 
     /**
      * Set the value of [email] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setEmail($v)
     {
@@ -2156,13 +2159,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setEmail()
+    }
 
     /**
      * Set the value of [releasenbr] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setReleasenbr($v)
     {
@@ -2176,13 +2179,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setReleasenbr()
+    }
 
     /**
      * Set the value of [shipviacd] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setShipviacd($v)
     {
@@ -2196,13 +2199,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setShipviacd()
+    }
 
     /**
      * Set the value of [shipviadesc] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setShipviadesc($v)
     {
@@ -2216,13 +2219,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setShipviadesc()
+    }
 
     /**
      * Set the value of [termcode] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTermcode($v)
     {
@@ -2236,13 +2239,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTermcode()
+    }
 
     /**
      * Set the value of [termtype] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTermtype($v)
     {
@@ -2256,13 +2259,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTermtype()
+    }
 
     /**
      * Set the value of [termdesc] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTermdesc($v)
     {
@@ -2276,13 +2279,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTermdesc()
+    }
 
     /**
      * Set the value of [rqstdate] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setRqstdate($v)
     {
@@ -2296,13 +2299,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setRqstdate()
+    }
 
     /**
      * Set the value of [shipcom] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setShipcom($v)
     {
@@ -2316,13 +2319,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setShipcom()
+    }
 
     /**
      * Set the value of [sp1] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setSp1($v)
     {
@@ -2336,13 +2339,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setSp1()
+    }
 
     /**
      * Set the value of [sp1name] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setSp1name($v)
     {
@@ -2356,13 +2359,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setSp1name()
+    }
 
     /**
      * Set the value of [cardnumber] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setCardnumber($v)
     {
@@ -2376,13 +2379,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setCardnumber()
+    }
 
     /**
      * Set the value of [cardexpire] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setCardexpire($v)
     {
@@ -2396,13 +2399,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setCardexpire()
+    }
 
     /**
      * Set the value of [cardcode] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setCardcode($v)
     {
@@ -2416,13 +2419,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setCardcode()
+    }
 
     /**
      * Set the value of [cardapproval] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setCardapproval($v)
     {
@@ -2436,13 +2439,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setCardapproval()
+    }
 
     /**
      * Set the value of [totalcost] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTotalcost($v)
     {
@@ -2456,13 +2459,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTotalcost()
+    }
 
     /**
      * Set the value of [totaldiscount] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTotaldiscount($v)
     {
@@ -2476,13 +2479,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTotaldiscount()
+    }
 
     /**
      * Set the value of [paymenttype] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPaymenttype($v)
     {
@@ -2496,13 +2499,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPaymenttype()
+    }
 
     /**
      * Set the value of [srcdatefrom] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setSrcdatefrom($v)
     {
@@ -2516,13 +2519,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setSrcdatefrom()
+    }
 
     /**
      * Set the value of [srcdatethru] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setSrcdatethru($v)
     {
@@ -2536,13 +2539,13 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setSrcdatethru()
+    }
 
     /**
      * Set the value of [dummy] column.
      *
-     * @param string $v new value
-     * @return $this|\Carthed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -2556,7 +2559,7 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDummy()
+    }
 
     /**
      * Indicates whether the columns in this object are only set to default values.
@@ -2564,9 +2567,9 @@ abstract class Carthed implements ActiveRecordInterface
      * This method can be used in conjunction with isModified() to indicate whether an object is both
      * modified _and_ has some values set which are non-default.
      *
-     * @return boolean Whether the columns in this object are only been set with default values.
+     * @return bool Whether the columns in this object are only been set with default values.
      */
-    public function hasOnlyDefaultValues()
+    public function hasOnlyDefaultValues(): bool
     {
             if ($this->custid !== '') {
                 return false;
@@ -2786,7 +2789,7 @@ abstract class Carthed implements ActiveRecordInterface
 
         // otherwise, everything was equal, so return TRUE
         return true;
-    } // hasOnlyDefaultValues()
+    }
 
     /**
      * Hydrates (populates) the object variables with values from the database resultset.
@@ -2796,17 +2799,17 @@ abstract class Carthed implements ActiveRecordInterface
      * for results of JOIN queries where the resultset row includes columns from two or
      * more tables.
      *
-     * @param array   $row       The row returned by DataFetcher->fetch().
-     * @param int     $startcol  0-based offset column which indicates which restultset column to start with.
-     * @param boolean $rehydrate Whether this object is being re-hydrated from the database.
-     * @param string  $indexType The index type of $row. Mostly DataFetcher->getIndexType().
+     * @param array $row The row returned by DataFetcher->fetch().
+     * @param int $startcol 0-based offset column which indicates which resultset column to start with.
+     * @param bool $rehydrate Whether this object is being re-hydrated from the database.
+     * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                   One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                            TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @return int             next starting column
-     * @throws PropelException - Any caught Exception will be rewrapped as a PropelException.
+     * @return int next starting column
+     * @throws \Propel\Runtime\Exception\PropelException - Any caught Exception will be rewrapped as a PropelException.
      */
-    public function hydrate($row, $startcol = 0, $rehydrate = false, $indexType = TableMap::TYPE_NUM)
+    public function hydrate(array $row, int $startcol = 0, bool $rehydrate = false, string $indexType = TableMap::TYPE_NUM): int
     {
         try {
 
@@ -2983,8 +2986,8 @@ abstract class Carthed implements ActiveRecordInterface
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 57 + $startcol : CarthedTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
-            $this->resetModified();
 
+            $this->resetModified();
             $this->setNew(false);
 
             if ($rehydrate) {
@@ -3009,23 +3012,24 @@ abstract class Carthed implements ActiveRecordInterface
      * the base method from the overridden method (i.e. parent::ensureConsistency()),
      * in case your model changes.
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function ensureConsistency()
+    public function ensureConsistency(): void
     {
-    } // ensureConsistency
+    }
 
     /**
      * Reloads this object from datastore based on primary key and (optionally) resets all associated objects.
      *
      * This will only work if the object has been saved and has a valid primary key set.
      *
-     * @param      boolean $deep (optional) Whether to also de-associated any related objects.
-     * @param      ConnectionInterface $con (optional) The ConnectionInterface connection to use.
+     * @param bool $deep (optional) Whether to also de-associated any related objects.
+     * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
      * @return void
-     * @throws PropelException - if this object is deleted, unsaved or doesn't have pk match in db
+     * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
-    public function reload($deep = false, ConnectionInterface $con = null)
+    public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("Cannot reload a deleted object.");
@@ -3058,13 +3062,13 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Removes this object from datastore and sets delete attribute.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see Carthed::setDeleted()
      * @see Carthed::isDeleted()
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("This object has already been deleted.");
@@ -3094,12 +3098,12 @@ abstract class Carthed implements ActiveRecordInterface
      * method.  This method wraps all precipitate database operations in a
      * single transaction.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    public function save(ConnectionInterface $con = null)
+    public function save(?ConnectionInterface $con = null): int
     {
         if ($this->isDeleted()) {
             throw new PropelException("You cannot save an object that has been deleted.");
@@ -3144,12 +3148,12 @@ abstract class Carthed implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
      */
-    protected function doSave(ConnectionInterface $con)
+    protected function doSave(ConnectionInterface $con): int
     {
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
@@ -3171,19 +3175,19 @@ abstract class Carthed implements ActiveRecordInterface
         }
 
         return $affectedRows;
-    } // doSave()
+    }
 
     /**
      * Insert the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    protected function doInsert(ConnectionInterface $con)
+    protected function doInsert(ConnectionInterface $con): void
     {
-        $modifiedColumns = array();
+        $modifiedColumns = [];
         $index = 0;
 
 
@@ -3375,177 +3379,235 @@ abstract class Carthed implements ActiveRecordInterface
                 switch ($columnName) {
                     case 'sessionid':
                         $stmt->bindValue($identifier, $this->sessionid, PDO::PARAM_STR);
+
                         break;
                     case 'recno':
                         $stmt->bindValue($identifier, $this->recno, PDO::PARAM_INT);
+
                         break;
                     case 'date':
                         $stmt->bindValue($identifier, $this->date, PDO::PARAM_INT);
+
                         break;
                     case 'time':
                         $stmt->bindValue($identifier, $this->time, PDO::PARAM_INT);
+
                         break;
                     case 'custid':
                         $stmt->bindValue($identifier, $this->custid, PDO::PARAM_STR);
+
                         break;
                     case 'shiptoid':
                         $stmt->bindValue($identifier, $this->shiptoid, PDO::PARAM_STR);
+
                         break;
                     case 'custname':
                         $stmt->bindValue($identifier, $this->custname, PDO::PARAM_STR);
+
                         break;
                     case 'orderno':
                         $stmt->bindValue($identifier, $this->orderno, PDO::PARAM_STR);
+
                         break;
                     case 'custpo':
                         $stmt->bindValue($identifier, $this->custpo, PDO::PARAM_STR);
+
                         break;
                     case 'status':
                         $stmt->bindValue($identifier, $this->status, PDO::PARAM_STR);
+
                         break;
                     case 'orderdate':
                         $stmt->bindValue($identifier, $this->orderdate, PDO::PARAM_STR);
+
                         break;
                     case 'invdate':
                         $stmt->bindValue($identifier, $this->invdate, PDO::PARAM_STR);
+
                         break;
                     case 'shipdate':
                         $stmt->bindValue($identifier, $this->shipdate, PDO::PARAM_STR);
+
                         break;
                     case 'hasdocuments':
                         $stmt->bindValue($identifier, $this->hasdocuments, PDO::PARAM_STR);
+
                         break;
                     case 'hastracking':
                         $stmt->bindValue($identifier, $this->hastracking, PDO::PARAM_STR);
+
                         break;
                     case 'subtotal':
                         $stmt->bindValue($identifier, $this->subtotal, PDO::PARAM_STR);
+
                         break;
                     case 'salestax':
                         $stmt->bindValue($identifier, $this->salestax, PDO::PARAM_STR);
+
                         break;
                     case 'freight':
                         $stmt->bindValue($identifier, $this->freight, PDO::PARAM_STR);
+
                         break;
                     case 'misccost':
                         $stmt->bindValue($identifier, $this->misccost, PDO::PARAM_STR);
+
                         break;
                     case 'ordertotal':
                         $stmt->bindValue($identifier, $this->ordertotal, PDO::PARAM_STR);
+
                         break;
                     case 'hasnotes':
                         $stmt->bindValue($identifier, $this->hasnotes, PDO::PARAM_STR);
+
                         break;
                     case 'editord':
                         $stmt->bindValue($identifier, $this->editord, PDO::PARAM_STR);
+
                         break;
                     case 'error':
                         $stmt->bindValue($identifier, $this->error, PDO::PARAM_STR);
+
                         break;
                     case 'errormsg':
                         $stmt->bindValue($identifier, $this->errormsg, PDO::PARAM_STR);
+
                         break;
                     case 'sconame':
                         $stmt->bindValue($identifier, $this->sconame, PDO::PARAM_STR);
+
                         break;
                     case 'shipname':
                         $stmt->bindValue($identifier, $this->shipname, PDO::PARAM_STR);
+
                         break;
                     case 'shipaddress':
                         $stmt->bindValue($identifier, $this->shipaddress, PDO::PARAM_STR);
+
                         break;
                     case 'shipaddress2':
                         $stmt->bindValue($identifier, $this->shipaddress2, PDO::PARAM_STR);
+
                         break;
                     case 'shipcity':
                         $stmt->bindValue($identifier, $this->shipcity, PDO::PARAM_STR);
+
                         break;
                     case 'shipstate':
                         $stmt->bindValue($identifier, $this->shipstate, PDO::PARAM_STR);
+
                         break;
                     case 'shipzip':
                         $stmt->bindValue($identifier, $this->shipzip, PDO::PARAM_STR);
+
                         break;
                     case 'shipcountry':
                         $stmt->bindValue($identifier, $this->shipcountry, PDO::PARAM_STR);
+
                         break;
                     case 'contact':
                         $stmt->bindValue($identifier, $this->contact, PDO::PARAM_STR);
+
                         break;
                     case 'phintl':
                         $stmt->bindValue($identifier, $this->phintl, PDO::PARAM_STR);
+
                         break;
                     case 'phone':
                         $stmt->bindValue($identifier, $this->phone, PDO::PARAM_STR);
+
                         break;
                     case 'extension':
                         $stmt->bindValue($identifier, $this->extension, PDO::PARAM_STR);
+
                         break;
                     case 'faxnbr':
                         $stmt->bindValue($identifier, $this->faxnbr, PDO::PARAM_STR);
+
                         break;
                     case 'email':
                         $stmt->bindValue($identifier, $this->email, PDO::PARAM_STR);
+
                         break;
                     case 'releasenbr':
                         $stmt->bindValue($identifier, $this->releasenbr, PDO::PARAM_STR);
+
                         break;
                     case 'shipviacd':
                         $stmt->bindValue($identifier, $this->shipviacd, PDO::PARAM_STR);
+
                         break;
                     case 'shipviadesc':
                         $stmt->bindValue($identifier, $this->shipviadesc, PDO::PARAM_STR);
+
                         break;
                     case 'termcode':
                         $stmt->bindValue($identifier, $this->termcode, PDO::PARAM_STR);
+
                         break;
                     case 'termtype':
                         $stmt->bindValue($identifier, $this->termtype, PDO::PARAM_STR);
+
                         break;
                     case 'termdesc':
                         $stmt->bindValue($identifier, $this->termdesc, PDO::PARAM_STR);
+
                         break;
                     case 'rqstdate':
                         $stmt->bindValue($identifier, $this->rqstdate, PDO::PARAM_STR);
+
                         break;
                     case 'shipcom':
                         $stmt->bindValue($identifier, $this->shipcom, PDO::PARAM_STR);
+
                         break;
                     case 'sp1':
                         $stmt->bindValue($identifier, $this->sp1, PDO::PARAM_STR);
+
                         break;
                     case 'sp1name':
                         $stmt->bindValue($identifier, $this->sp1name, PDO::PARAM_STR);
+
                         break;
                     case 'cardnumber':
                         $stmt->bindValue($identifier, $this->cardnumber, PDO::PARAM_STR);
+
                         break;
                     case 'cardexpire':
                         $stmt->bindValue($identifier, $this->cardexpire, PDO::PARAM_STR);
+
                         break;
                     case 'cardcode':
                         $stmt->bindValue($identifier, $this->cardcode, PDO::PARAM_STR);
+
                         break;
                     case 'cardapproval':
                         $stmt->bindValue($identifier, $this->cardapproval, PDO::PARAM_STR);
+
                         break;
                     case 'totalcost':
                         $stmt->bindValue($identifier, $this->totalcost, PDO::PARAM_STR);
+
                         break;
                     case 'totaldiscount':
                         $stmt->bindValue($identifier, $this->totaldiscount, PDO::PARAM_STR);
+
                         break;
                     case 'paymenttype':
                         $stmt->bindValue($identifier, $this->paymenttype, PDO::PARAM_STR);
+
                         break;
                     case 'srcdatefrom':
                         $stmt->bindValue($identifier, $this->srcdatefrom, PDO::PARAM_STR);
+
                         break;
                     case 'srcdatethru':
                         $stmt->bindValue($identifier, $this->srcdatethru, PDO::PARAM_STR);
+
                         break;
                     case 'dummy':
                         $stmt->bindValue($identifier, $this->dummy, PDO::PARAM_STR);
+
                         break;
                 }
             }
@@ -3561,12 +3623,12 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @return Integer Number of updated rows
+     * @return int Number of updated rows
      * @see doSave()
      */
-    protected function doUpdate(ConnectionInterface $con)
+    protected function doUpdate(ConnectionInterface $con): int
     {
         $selectCriteria = $this->buildPkeyCriteria();
         $valuesCriteria = $this->buildCriteria();
@@ -3577,14 +3639,14 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Retrieves a field from the object by name passed in as a string.
      *
-     * @param      string $name name
-     * @param      string $type The type of fieldname the $name is of:
+     * @param string $name name
+     * @param string $type The type of fieldname the $name is of:
      *                     one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                     TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                     Defaults to TableMap::TYPE_PHPNAME.
      * @return mixed Value of field.
      */
-    public function getByName($name, $type = TableMap::TYPE_PHPNAME)
+    public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = CarthedTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
@@ -3596,189 +3658,188 @@ abstract class Carthed implements ActiveRecordInterface
      * Retrieves a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param      int $pos position in xml schema
+     * @param int $pos Position in XML schema
      * @return mixed Value of field at $pos
      */
-    public function getByPosition($pos)
+    public function getByPosition(int $pos)
     {
         switch ($pos) {
             case 0:
                 return $this->getSessionid();
-                break;
+
             case 1:
                 return $this->getRecno();
-                break;
+
             case 2:
                 return $this->getDate();
-                break;
+
             case 3:
                 return $this->getTime();
-                break;
+
             case 4:
                 return $this->getCustid();
-                break;
+
             case 5:
                 return $this->getShiptoid();
-                break;
+
             case 6:
                 return $this->getCustname();
-                break;
+
             case 7:
                 return $this->getOrderno();
-                break;
+
             case 8:
                 return $this->getCustpo();
-                break;
+
             case 9:
                 return $this->getStatus();
-                break;
+
             case 10:
                 return $this->getOrderdate();
-                break;
+
             case 11:
                 return $this->getInvdate();
-                break;
+
             case 12:
                 return $this->getShipdate();
-                break;
+
             case 13:
                 return $this->getHasdocuments();
-                break;
+
             case 14:
                 return $this->getHastracking();
-                break;
+
             case 15:
                 return $this->getSubtotal();
-                break;
+
             case 16:
                 return $this->getSalestax();
-                break;
+
             case 17:
                 return $this->getFreight();
-                break;
+
             case 18:
                 return $this->getMisccost();
-                break;
+
             case 19:
                 return $this->getOrdertotal();
-                break;
+
             case 20:
                 return $this->getHasnotes();
-                break;
+
             case 21:
                 return $this->getEditord();
-                break;
+
             case 22:
                 return $this->getError();
-                break;
+
             case 23:
                 return $this->getErrormsg();
-                break;
+
             case 24:
                 return $this->getSconame();
-                break;
+
             case 25:
                 return $this->getShipname();
-                break;
+
             case 26:
                 return $this->getShipaddress();
-                break;
+
             case 27:
                 return $this->getShipaddress2();
-                break;
+
             case 28:
                 return $this->getShipcity();
-                break;
+
             case 29:
                 return $this->getShipstate();
-                break;
+
             case 30:
                 return $this->getShipzip();
-                break;
+
             case 31:
                 return $this->getShipcountry();
-                break;
+
             case 32:
                 return $this->getContact();
-                break;
+
             case 33:
                 return $this->getPhintl();
-                break;
+
             case 34:
                 return $this->getPhone();
-                break;
+
             case 35:
                 return $this->getExtension();
-                break;
+
             case 36:
                 return $this->getFaxnbr();
-                break;
+
             case 37:
                 return $this->getEmail();
-                break;
+
             case 38:
                 return $this->getReleasenbr();
-                break;
+
             case 39:
                 return $this->getShipviacd();
-                break;
+
             case 40:
                 return $this->getShipviadesc();
-                break;
+
             case 41:
                 return $this->getTermcode();
-                break;
+
             case 42:
                 return $this->getTermtype();
-                break;
+
             case 43:
                 return $this->getTermdesc();
-                break;
+
             case 44:
                 return $this->getRqstdate();
-                break;
+
             case 45:
                 return $this->getShipcom();
-                break;
+
             case 46:
                 return $this->getSp1();
-                break;
+
             case 47:
                 return $this->getSp1name();
-                break;
+
             case 48:
                 return $this->getCardnumber();
-                break;
+
             case 49:
                 return $this->getCardexpire();
-                break;
+
             case 50:
                 return $this->getCardcode();
-                break;
+
             case 51:
                 return $this->getCardapproval();
-                break;
+
             case 52:
                 return $this->getTotalcost();
-                break;
+
             case 53:
                 return $this->getTotaldiscount();
-                break;
+
             case 54:
                 return $this->getPaymenttype();
-                break;
+
             case 55:
                 return $this->getSrcdatefrom();
-                break;
+
             case 56:
                 return $this->getSrcdatethru();
-                break;
+
             case 57:
                 return $this->getDummy();
-                break;
+
             default:
                 return null;
-                break;
         } // switch()
     }
 
@@ -3788,23 +3849,22 @@ abstract class Carthed implements ActiveRecordInterface
      * You can specify the key type of the array by passing one of the class
      * type constants.
      *
-     * @param     string  $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
      *                    TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                    Defaults to TableMap::TYPE_PHPNAME.
-     * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
-     * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
+     * @param array $alreadyDumpedObjects List of objects to skip to avoid recursion
      *
-     * @return array an associative array containing the field names (as keys) and field values
+     * @return array An associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray(string $keyType = TableMap::TYPE_PHPNAME, bool $includeLazyLoadColumns = true, array $alreadyDumpedObjects = []): array
     {
-
         if (isset($alreadyDumpedObjects['Carthed'][$this->hashCode()])) {
-            return '*RECURSION*';
+            return ['*RECURSION*'];
         }
         $alreadyDumpedObjects['Carthed'][$this->hashCode()] = true;
         $keys = CarthedTableMap::getFieldNames($keyType);
-        $result = array(
+        $result = [
             $keys[0] => $this->getSessionid(),
             $keys[1] => $this->getRecno(),
             $keys[2] => $this->getDate(),
@@ -3863,7 +3923,7 @@ abstract class Carthed implements ActiveRecordInterface
             $keys[55] => $this->getSrcdatefrom(),
             $keys[56] => $this->getSrcdatethru(),
             $keys[57] => $this->getDummy(),
-        );
+        ];
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
             $result[$key] = $virtualColumn;
@@ -3876,30 +3936,32 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param  string $name
-     * @param  mixed  $value field value
-     * @param  string $type The type of fieldname the $name is of:
+     * @param string $name
+     * @param mixed $value field value
+     * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\Carthed
+     * @return $this
      */
-    public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
+    public function setByName(string $name, $value, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = CarthedTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
-        return $this->setByPosition($pos, $value);
+        $this->setByPosition($pos, $value);
+
+        return $this;
     }
 
     /**
      * Sets a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param  int $pos position in xml schema
-     * @param  mixed $value field value
-     * @return $this|\Carthed
+     * @param int $pos position in xml schema
+     * @param mixed $value field value
+     * @return $this
      */
-    public function setByPosition($pos, $value)
+    public function setByPosition(int $pos, $value)
     {
         switch ($pos) {
             case 0:
@@ -4094,11 +4156,11 @@ abstract class Carthed implements ActiveRecordInterface
      * TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      * The default key type is the column's TableMap::TYPE_PHPNAME.
      *
-     * @param      array  $arr     An array to populate the object from.
-     * @param      string $keyType The type of keys the array uses.
-     * @return void
+     * @param array $arr An array to populate the object from.
+     * @param string $keyType The type of keys the array uses.
+     * @return $this
      */
-    public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
+    public function fromArray(array $arr, string $keyType = TableMap::TYPE_PHPNAME)
     {
         $keys = CarthedTableMap::getFieldNames($keyType);
 
@@ -4276,6 +4338,8 @@ abstract class Carthed implements ActiveRecordInterface
         if (array_key_exists($keys[57], $arr)) {
             $this->setDummy($arr[$keys[57]]);
         }
+
+        return $this;
     }
 
      /**
@@ -4295,9 +4359,9 @@ abstract class Carthed implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\Carthed The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
+    public function importFrom($parser, string $data, string $keyType = TableMap::TYPE_PHPNAME)
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
@@ -4311,9 +4375,9 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Build a Criteria object containing the values of all modified columns in this object.
      *
-     * @return Criteria The Criteria object containing all modified values.
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing all modified values.
      */
-    public function buildCriteria()
+    public function buildCriteria(): Criteria
     {
         $criteria = new Criteria(CarthedTableMap::DATABASE_NAME);
 
@@ -4499,13 +4563,13 @@ abstract class Carthed implements ActiveRecordInterface
      * Builds a Criteria object containing the primary key for this object.
      *
      * Unlike buildCriteria() this method includes the primary key values regardless
-     * of whether or not they have been modified.
+     * of whether they have been modified.
      *
      * @throws LogicException if no primary key is defined
      *
-     * @return Criteria The Criteria object containing value(s) for primary key(s).
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing value(s) for primary key(s).
      */
-    public function buildPkeyCriteria()
+    public function buildPkeyCriteria(): Criteria
     {
         $criteria = ChildCarthedQuery::create();
         $criteria->add(CarthedTableMap::COL_SESSIONID, $this->sessionid);
@@ -4518,7 +4582,7 @@ abstract class Carthed implements ActiveRecordInterface
      * If the primary key is not null, return the hashcode of the
      * primary key. Otherwise, return the hash code of the object.
      *
-     * @return int Hashcode
+     * @return int|string Hashcode
      */
     public function hashCode()
     {
@@ -4544,7 +4608,7 @@ abstract class Carthed implements ActiveRecordInterface
      */
     public function getPrimaryKey()
     {
-        $pks = array();
+        $pks = [];
         $pks[0] = $this->getSessionid();
         $pks[1] = $this->getRecno();
 
@@ -4554,10 +4618,10 @@ abstract class Carthed implements ActiveRecordInterface
     /**
      * Set the [composite] primary key.
      *
-     * @param      array $keys The elements of the composite key (order must match the order in XML file).
+     * @param array $keys The elements of the composite key (order must match the order in XML file).
      * @return void
      */
-    public function setPrimaryKey($keys)
+    public function setPrimaryKey(array $keys): void
     {
         $this->setSessionid($keys[0]);
         $this->setRecno($keys[1]);
@@ -4565,9 +4629,10 @@ abstract class Carthed implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     * @return boolean
+     *
+     * @return bool
      */
-    public function isPrimaryKeyNull()
+    public function isPrimaryKeyNull(): bool
     {
         return (null === $this->getSessionid()) && (null === $this->getRecno());
     }
@@ -4578,12 +4643,13 @@ abstract class Carthed implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \Carthed (or compatible) type.
-     * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
-     * @throws PropelException
+     * @param object $copyObj An object of \Carthed (or compatible) type.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
+    public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
         $copyObj->setSessionid($this->getSessionid());
         $copyObj->setRecno($this->getRecno());
@@ -4656,11 +4722,11 @@ abstract class Carthed implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @return \Carthed Clone of current object.
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function copy($deepCopy = false)
+    public function copy(bool $deepCopy = false)
     {
         // we use get_class(), because this might be a subclass
         $clazz = get_class($this);
@@ -4674,6 +4740,8 @@ abstract class Carthed implements ActiveRecordInterface
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
+     *
+     * @return $this
      */
     public function clear()
     {
@@ -4741,6 +4809,8 @@ abstract class Carthed implements ActiveRecordInterface
         $this->resetModified();
         $this->setNew(true);
         $this->setDeleted(false);
+
+        return $this;
     }
 
     /**
@@ -4749,13 +4819,15 @@ abstract class Carthed implements ActiveRecordInterface
      * This method is used to reset all php object references (not the actual reference in the database).
      * Necessary for object serialisation.
      *
-     * @param      boolean $deep Whether to also clear the references on all referrer objects.
+     * @param bool $deep Whether to also clear the references on all referrer objects.
+     * @return $this
      */
-    public function clearAllReferences($deep = false)
+    public function clearAllReferences(bool $deep = false)
     {
         if ($deep) {
         } // if ($deep)
 
+        return $this;
     }
 
     /**
@@ -4770,99 +4842,79 @@ abstract class Carthed implements ActiveRecordInterface
 
     /**
      * Code to be run before persisting the object
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preSave(ConnectionInterface $con = null)
+    public function preSave(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preSave')) {
-            return parent::preSave($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postSave(ConnectionInterface $con = null)
+    public function postSave(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postSave')) {
-            parent::postSave($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before inserting to database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preInsert(ConnectionInterface $con = null)
+    public function preInsert(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preInsert')) {
-            return parent::preInsert($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postInsert(ConnectionInterface $con = null)
+    public function postInsert(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postInsert')) {
-            parent::postInsert($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before updating the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preUpdate(ConnectionInterface $con = null)
+    public function preUpdate(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preUpdate')) {
-            return parent::preUpdate($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postUpdate(ConnectionInterface $con = null)
+    public function postUpdate(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postUpdate')) {
-            parent::postUpdate($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before deleting the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preDelete(ConnectionInterface $con = null)
+    public function preDelete(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preDelete')) {
-            return parent::preDelete($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postDelete(ConnectionInterface $con = null)
+    public function postDelete(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postDelete')) {
-            parent::postDelete($con);
-        }
-    }
+            }
 
 
     /**
@@ -4872,7 +4924,7 @@ abstract class Carthed implements ActiveRecordInterface
      * Allows to define default __call() behavior if you overwrite __call()
      *
      * @param string $name
-     * @param mixed  $params
+     * @param mixed $params
      *
      * @return array|string
      */
@@ -4892,15 +4944,18 @@ abstract class Carthed implements ActiveRecordInterface
 
         if (0 === strpos($name, 'from')) {
             $format = substr($name, 4);
+            $inputData = $params[0];
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->importFrom($format, reset($params));
+            return $this->importFrom($format, $inputData, $keyType);
         }
 
         if (0 === strpos($name, 'to')) {
             $format = substr($name, 2);
-            $includeLazyLoadColumns = isset($params[0]) ? $params[0] : true;
+            $includeLazyLoadColumns = $params[0] ?? true;
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->exportTo($format, $includeLazyLoadColumns);
+            return $this->exportTo($format, $includeLazyLoadColumns, $keyType);
         }
 
         throw new BadMethodCallException(sprintf('Call to undefined method: %s.', $name));

@@ -10,14 +10,12 @@ use Map\BinrsessionTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'binrsession' table.
- *
- *
+ * Base class that represents a query for the `binrsession` table.
  *
  * @method     ChildBinrsessionQuery orderBySessionid($order = Criteria::ASC) Order by the sessionid column
  * @method     ChildBinrsessionQuery orderByLoginid($order = Criteria::ASC) Order by the loginid column
@@ -59,27 +57,27 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildBinrsessionQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildBinrsessionQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildBinrsession findOne(ConnectionInterface $con = null) Return the first ChildBinrsession matching the query
- * @method     ChildBinrsession findOneOrCreate(ConnectionInterface $con = null) Return the first ChildBinrsession matching the query, or a new ChildBinrsession object populated from the query conditions when no match is found
+ * @method     ChildBinrsession|null findOne(?ConnectionInterface $con = null) Return the first ChildBinrsession matching the query
+ * @method     ChildBinrsession findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildBinrsession matching the query, or a new ChildBinrsession object populated from the query conditions when no match is found
  *
- * @method     ChildBinrsession findOneBySessionid(string $sessionid) Return the first ChildBinrsession filtered by the sessionid column
- * @method     ChildBinrsession findOneByLoginid(string $loginid) Return the first ChildBinrsession filtered by the loginid column
- * @method     ChildBinrsession findOneByWhseid(string $whseid) Return the first ChildBinrsession filtered by the whseid column
- * @method     ChildBinrsession findOneByItemid(string $itemid) Return the first ChildBinrsession filtered by the itemid column
- * @method     ChildBinrsession findOneByItemtype(string $itemtype) Return the first ChildBinrsession filtered by the itemtype column
- * @method     ChildBinrsession findOneByLotserial(string $lotserial) Return the first ChildBinrsession filtered by the lotserial column
- * @method     ChildBinrsession findOneByFrombin(string $frombin) Return the first ChildBinrsession filtered by the frombin column
- * @method     ChildBinrsession findOneByFrombinqty(int $frombinqty) Return the first ChildBinrsession filtered by the frombinqty column
- * @method     ChildBinrsession findOneByTobin(string $tobin) Return the first ChildBinrsession filtered by the tobin column
- * @method     ChildBinrsession findOneByTobinqty(int $tobinqty) Return the first ChildBinrsession filtered by the tobinqty column
- * @method     ChildBinrsession findOneByFunction(string $function) Return the first ChildBinrsession filtered by the function column
- * @method     ChildBinrsession findOneByStatus(string $status) Return the first ChildBinrsession filtered by the status column
- * @method     ChildBinrsession findOneByDate(int $date) Return the first ChildBinrsession filtered by the date column
- * @method     ChildBinrsession findOneByTime(int $time) Return the first ChildBinrsession filtered by the time column
- * @method     ChildBinrsession findOneByDummy(string $dummy) Return the first ChildBinrsession filtered by the dummy column *
-
- * @method     ChildBinrsession requirePk($key, ConnectionInterface $con = null) Return the ChildBinrsession by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildBinrsession requireOne(ConnectionInterface $con = null) Return the first ChildBinrsession matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildBinrsession|null findOneBySessionid(string $sessionid) Return the first ChildBinrsession filtered by the sessionid column
+ * @method     ChildBinrsession|null findOneByLoginid(string $loginid) Return the first ChildBinrsession filtered by the loginid column
+ * @method     ChildBinrsession|null findOneByWhseid(string $whseid) Return the first ChildBinrsession filtered by the whseid column
+ * @method     ChildBinrsession|null findOneByItemid(string $itemid) Return the first ChildBinrsession filtered by the itemid column
+ * @method     ChildBinrsession|null findOneByItemtype(string $itemtype) Return the first ChildBinrsession filtered by the itemtype column
+ * @method     ChildBinrsession|null findOneByLotserial(string $lotserial) Return the first ChildBinrsession filtered by the lotserial column
+ * @method     ChildBinrsession|null findOneByFrombin(string $frombin) Return the first ChildBinrsession filtered by the frombin column
+ * @method     ChildBinrsession|null findOneByFrombinqty(int $frombinqty) Return the first ChildBinrsession filtered by the frombinqty column
+ * @method     ChildBinrsession|null findOneByTobin(string $tobin) Return the first ChildBinrsession filtered by the tobin column
+ * @method     ChildBinrsession|null findOneByTobinqty(int $tobinqty) Return the first ChildBinrsession filtered by the tobinqty column
+ * @method     ChildBinrsession|null findOneByFunction(string $function) Return the first ChildBinrsession filtered by the function column
+ * @method     ChildBinrsession|null findOneByStatus(string $status) Return the first ChildBinrsession filtered by the status column
+ * @method     ChildBinrsession|null findOneByDate(int $date) Return the first ChildBinrsession filtered by the date column
+ * @method     ChildBinrsession|null findOneByTime(int $time) Return the first ChildBinrsession filtered by the time column
+ * @method     ChildBinrsession|null findOneByDummy(string $dummy) Return the first ChildBinrsession filtered by the dummy column
+ *
+ * @method     ChildBinrsession requirePk($key, ?ConnectionInterface $con = null) Return the ChildBinrsession by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildBinrsession requireOne(?ConnectionInterface $con = null) Return the first ChildBinrsession matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildBinrsession requireOneBySessionid(string $sessionid) Return the first ChildBinrsession filtered by the sessionid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildBinrsession requireOneByLoginid(string $loginid) Return the first ChildBinrsession filtered by the loginid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -97,24 +95,42 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildBinrsession requireOneByTime(int $time) Return the first ChildBinrsession filtered by the time column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildBinrsession requireOneByDummy(string $dummy) Return the first ChildBinrsession filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildBinrsession[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildBinrsession objects based on current ModelCriteria
- * @method     ChildBinrsession[]|ObjectCollection findBySessionid(string $sessionid) Return ChildBinrsession objects filtered by the sessionid column
- * @method     ChildBinrsession[]|ObjectCollection findByLoginid(string $loginid) Return ChildBinrsession objects filtered by the loginid column
- * @method     ChildBinrsession[]|ObjectCollection findByWhseid(string $whseid) Return ChildBinrsession objects filtered by the whseid column
- * @method     ChildBinrsession[]|ObjectCollection findByItemid(string $itemid) Return ChildBinrsession objects filtered by the itemid column
- * @method     ChildBinrsession[]|ObjectCollection findByItemtype(string $itemtype) Return ChildBinrsession objects filtered by the itemtype column
- * @method     ChildBinrsession[]|ObjectCollection findByLotserial(string $lotserial) Return ChildBinrsession objects filtered by the lotserial column
- * @method     ChildBinrsession[]|ObjectCollection findByFrombin(string $frombin) Return ChildBinrsession objects filtered by the frombin column
- * @method     ChildBinrsession[]|ObjectCollection findByFrombinqty(int $frombinqty) Return ChildBinrsession objects filtered by the frombinqty column
- * @method     ChildBinrsession[]|ObjectCollection findByTobin(string $tobin) Return ChildBinrsession objects filtered by the tobin column
- * @method     ChildBinrsession[]|ObjectCollection findByTobinqty(int $tobinqty) Return ChildBinrsession objects filtered by the tobinqty column
- * @method     ChildBinrsession[]|ObjectCollection findByFunction(string $function) Return ChildBinrsession objects filtered by the function column
- * @method     ChildBinrsession[]|ObjectCollection findByStatus(string $status) Return ChildBinrsession objects filtered by the status column
- * @method     ChildBinrsession[]|ObjectCollection findByDate(int $date) Return ChildBinrsession objects filtered by the date column
- * @method     ChildBinrsession[]|ObjectCollection findByTime(int $time) Return ChildBinrsession objects filtered by the time column
- * @method     ChildBinrsession[]|ObjectCollection findByDummy(string $dummy) Return ChildBinrsession objects filtered by the dummy column
- * @method     ChildBinrsession[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildBinrsession[]|Collection find(?ConnectionInterface $con = null) Return ChildBinrsession objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildBinrsession> find(?ConnectionInterface $con = null) Return ChildBinrsession objects based on current ModelCriteria
  *
+ * @method     ChildBinrsession[]|Collection findBySessionid(string|array<string> $sessionid) Return ChildBinrsession objects filtered by the sessionid column
+ * @psalm-method Collection&\Traversable<ChildBinrsession> findBySessionid(string|array<string> $sessionid) Return ChildBinrsession objects filtered by the sessionid column
+ * @method     ChildBinrsession[]|Collection findByLoginid(string|array<string> $loginid) Return ChildBinrsession objects filtered by the loginid column
+ * @psalm-method Collection&\Traversable<ChildBinrsession> findByLoginid(string|array<string> $loginid) Return ChildBinrsession objects filtered by the loginid column
+ * @method     ChildBinrsession[]|Collection findByWhseid(string|array<string> $whseid) Return ChildBinrsession objects filtered by the whseid column
+ * @psalm-method Collection&\Traversable<ChildBinrsession> findByWhseid(string|array<string> $whseid) Return ChildBinrsession objects filtered by the whseid column
+ * @method     ChildBinrsession[]|Collection findByItemid(string|array<string> $itemid) Return ChildBinrsession objects filtered by the itemid column
+ * @psalm-method Collection&\Traversable<ChildBinrsession> findByItemid(string|array<string> $itemid) Return ChildBinrsession objects filtered by the itemid column
+ * @method     ChildBinrsession[]|Collection findByItemtype(string|array<string> $itemtype) Return ChildBinrsession objects filtered by the itemtype column
+ * @psalm-method Collection&\Traversable<ChildBinrsession> findByItemtype(string|array<string> $itemtype) Return ChildBinrsession objects filtered by the itemtype column
+ * @method     ChildBinrsession[]|Collection findByLotserial(string|array<string> $lotserial) Return ChildBinrsession objects filtered by the lotserial column
+ * @psalm-method Collection&\Traversable<ChildBinrsession> findByLotserial(string|array<string> $lotserial) Return ChildBinrsession objects filtered by the lotserial column
+ * @method     ChildBinrsession[]|Collection findByFrombin(string|array<string> $frombin) Return ChildBinrsession objects filtered by the frombin column
+ * @psalm-method Collection&\Traversable<ChildBinrsession> findByFrombin(string|array<string> $frombin) Return ChildBinrsession objects filtered by the frombin column
+ * @method     ChildBinrsession[]|Collection findByFrombinqty(int|array<int> $frombinqty) Return ChildBinrsession objects filtered by the frombinqty column
+ * @psalm-method Collection&\Traversable<ChildBinrsession> findByFrombinqty(int|array<int> $frombinqty) Return ChildBinrsession objects filtered by the frombinqty column
+ * @method     ChildBinrsession[]|Collection findByTobin(string|array<string> $tobin) Return ChildBinrsession objects filtered by the tobin column
+ * @psalm-method Collection&\Traversable<ChildBinrsession> findByTobin(string|array<string> $tobin) Return ChildBinrsession objects filtered by the tobin column
+ * @method     ChildBinrsession[]|Collection findByTobinqty(int|array<int> $tobinqty) Return ChildBinrsession objects filtered by the tobinqty column
+ * @psalm-method Collection&\Traversable<ChildBinrsession> findByTobinqty(int|array<int> $tobinqty) Return ChildBinrsession objects filtered by the tobinqty column
+ * @method     ChildBinrsession[]|Collection findByFunction(string|array<string> $function) Return ChildBinrsession objects filtered by the function column
+ * @psalm-method Collection&\Traversable<ChildBinrsession> findByFunction(string|array<string> $function) Return ChildBinrsession objects filtered by the function column
+ * @method     ChildBinrsession[]|Collection findByStatus(string|array<string> $status) Return ChildBinrsession objects filtered by the status column
+ * @psalm-method Collection&\Traversable<ChildBinrsession> findByStatus(string|array<string> $status) Return ChildBinrsession objects filtered by the status column
+ * @method     ChildBinrsession[]|Collection findByDate(int|array<int> $date) Return ChildBinrsession objects filtered by the date column
+ * @psalm-method Collection&\Traversable<ChildBinrsession> findByDate(int|array<int> $date) Return ChildBinrsession objects filtered by the date column
+ * @method     ChildBinrsession[]|Collection findByTime(int|array<int> $time) Return ChildBinrsession objects filtered by the time column
+ * @psalm-method Collection&\Traversable<ChildBinrsession> findByTime(int|array<int> $time) Return ChildBinrsession objects filtered by the time column
+ * @method     ChildBinrsession[]|Collection findByDummy(string|array<string> $dummy) Return ChildBinrsession objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildBinrsession> findByDummy(string|array<string> $dummy) Return ChildBinrsession objects filtered by the dummy column
+ *
+ * @method     ChildBinrsession[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildBinrsession> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class BinrsessionQuery extends ModelCriteria
 {
@@ -123,9 +139,9 @@ abstract class BinrsessionQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\BinrsessionQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'dplusodb', $modelName = '\\Binrsession', $modelAlias = null)
     {
@@ -135,12 +151,12 @@ abstract class BinrsessionQuery extends ModelCriteria
     /**
      * Returns a new ChildBinrsessionQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildBinrsessionQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildBinrsessionQuery) {
             return $criteria;
@@ -170,7 +186,7 @@ abstract class BinrsessionQuery extends ModelCriteria
      *
      * @return ChildBinrsession|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -202,8 +218,8 @@ abstract class BinrsessionQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -235,8 +251,8 @@ abstract class BinrsessionQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildBinrsession|array|mixed the result, formatted by the current formatter
      */
@@ -256,12 +272,12 @@ abstract class BinrsessionQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -278,27 +294,31 @@ abstract class BinrsessionQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildBinrsessionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(BinrsessionTableMap::COL_SESSIONID, $key, Criteria::EQUAL);
+        $this->addUsingAlias(BinrsessionTableMap::COL_SESSIONID, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildBinrsessionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(BinrsessionTableMap::COL_SESSIONID, $keys, Criteria::IN);
+        $this->addUsingAlias(BinrsessionTableMap::COL_SESSIONID, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -308,14 +328,15 @@ abstract class BinrsessionQuery extends ModelCriteria
      * <code>
      * $query->filterBySessionid('fooValue');   // WHERE sessionid = 'fooValue'
      * $query->filterBySessionid('%fooValue%', Criteria::LIKE); // WHERE sessionid LIKE '%fooValue%'
+     * $query->filterBySessionid(['foo', 'bar']); // WHERE sessionid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sessionid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sessionid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBinrsessionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySessionid($sessionid = null, $comparison = null)
+    public function filterBySessionid($sessionid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sessionid)) {
@@ -323,7 +344,9 @@ abstract class BinrsessionQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BinrsessionTableMap::COL_SESSIONID, $sessionid, $comparison);
+        $this->addUsingAlias(BinrsessionTableMap::COL_SESSIONID, $sessionid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -333,14 +356,15 @@ abstract class BinrsessionQuery extends ModelCriteria
      * <code>
      * $query->filterByLoginid('fooValue');   // WHERE loginid = 'fooValue'
      * $query->filterByLoginid('%fooValue%', Criteria::LIKE); // WHERE loginid LIKE '%fooValue%'
+     * $query->filterByLoginid(['foo', 'bar']); // WHERE loginid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $loginid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $loginid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBinrsessionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLoginid($loginid = null, $comparison = null)
+    public function filterByLoginid($loginid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($loginid)) {
@@ -348,7 +372,9 @@ abstract class BinrsessionQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BinrsessionTableMap::COL_LOGINID, $loginid, $comparison);
+        $this->addUsingAlias(BinrsessionTableMap::COL_LOGINID, $loginid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -358,14 +384,15 @@ abstract class BinrsessionQuery extends ModelCriteria
      * <code>
      * $query->filterByWhseid('fooValue');   // WHERE whseid = 'fooValue'
      * $query->filterByWhseid('%fooValue%', Criteria::LIKE); // WHERE whseid LIKE '%fooValue%'
+     * $query->filterByWhseid(['foo', 'bar']); // WHERE whseid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $whseid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $whseid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBinrsessionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByWhseid($whseid = null, $comparison = null)
+    public function filterByWhseid($whseid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($whseid)) {
@@ -373,7 +400,9 @@ abstract class BinrsessionQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BinrsessionTableMap::COL_WHSEID, $whseid, $comparison);
+        $this->addUsingAlias(BinrsessionTableMap::COL_WHSEID, $whseid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -383,14 +412,15 @@ abstract class BinrsessionQuery extends ModelCriteria
      * <code>
      * $query->filterByItemid('fooValue');   // WHERE itemid = 'fooValue'
      * $query->filterByItemid('%fooValue%', Criteria::LIKE); // WHERE itemid LIKE '%fooValue%'
+     * $query->filterByItemid(['foo', 'bar']); // WHERE itemid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itemid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itemid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBinrsessionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemid($itemid = null, $comparison = null)
+    public function filterByItemid($itemid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itemid)) {
@@ -398,7 +428,9 @@ abstract class BinrsessionQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BinrsessionTableMap::COL_ITEMID, $itemid, $comparison);
+        $this->addUsingAlias(BinrsessionTableMap::COL_ITEMID, $itemid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -408,14 +440,15 @@ abstract class BinrsessionQuery extends ModelCriteria
      * <code>
      * $query->filterByItemtype('fooValue');   // WHERE itemtype = 'fooValue'
      * $query->filterByItemtype('%fooValue%', Criteria::LIKE); // WHERE itemtype LIKE '%fooValue%'
+     * $query->filterByItemtype(['foo', 'bar']); // WHERE itemtype IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itemtype The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itemtype The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBinrsessionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemtype($itemtype = null, $comparison = null)
+    public function filterByItemtype($itemtype = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itemtype)) {
@@ -423,7 +456,9 @@ abstract class BinrsessionQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BinrsessionTableMap::COL_ITEMTYPE, $itemtype, $comparison);
+        $this->addUsingAlias(BinrsessionTableMap::COL_ITEMTYPE, $itemtype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -433,14 +468,15 @@ abstract class BinrsessionQuery extends ModelCriteria
      * <code>
      * $query->filterByLotserial('fooValue');   // WHERE lotserial = 'fooValue'
      * $query->filterByLotserial('%fooValue%', Criteria::LIKE); // WHERE lotserial LIKE '%fooValue%'
+     * $query->filterByLotserial(['foo', 'bar']); // WHERE lotserial IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lotserial The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lotserial The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBinrsessionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLotserial($lotserial = null, $comparison = null)
+    public function filterByLotserial($lotserial = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lotserial)) {
@@ -448,7 +484,9 @@ abstract class BinrsessionQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BinrsessionTableMap::COL_LOTSERIAL, $lotserial, $comparison);
+        $this->addUsingAlias(BinrsessionTableMap::COL_LOTSERIAL, $lotserial, $comparison);
+
+        return $this;
     }
 
     /**
@@ -458,14 +496,15 @@ abstract class BinrsessionQuery extends ModelCriteria
      * <code>
      * $query->filterByFrombin('fooValue');   // WHERE frombin = 'fooValue'
      * $query->filterByFrombin('%fooValue%', Criteria::LIKE); // WHERE frombin LIKE '%fooValue%'
+     * $query->filterByFrombin(['foo', 'bar']); // WHERE frombin IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $frombin The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $frombin The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBinrsessionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByFrombin($frombin = null, $comparison = null)
+    public function filterByFrombin($frombin = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($frombin)) {
@@ -473,7 +512,9 @@ abstract class BinrsessionQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BinrsessionTableMap::COL_FROMBIN, $frombin, $comparison);
+        $this->addUsingAlias(BinrsessionTableMap::COL_FROMBIN, $frombin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -486,15 +527,15 @@ abstract class BinrsessionQuery extends ModelCriteria
      * $query->filterByFrombinqty(array('min' => 12)); // WHERE frombinqty > 12
      * </code>
      *
-     * @param     mixed $frombinqty The value to use as filter.
+     * @param mixed $frombinqty The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBinrsessionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByFrombinqty($frombinqty = null, $comparison = null)
+    public function filterByFrombinqty($frombinqty = null, ?string $comparison = null)
     {
         if (is_array($frombinqty)) {
             $useMinMax = false;
@@ -514,7 +555,9 @@ abstract class BinrsessionQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BinrsessionTableMap::COL_FROMBINQTY, $frombinqty, $comparison);
+        $this->addUsingAlias(BinrsessionTableMap::COL_FROMBINQTY, $frombinqty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -524,14 +567,15 @@ abstract class BinrsessionQuery extends ModelCriteria
      * <code>
      * $query->filterByTobin('fooValue');   // WHERE tobin = 'fooValue'
      * $query->filterByTobin('%fooValue%', Criteria::LIKE); // WHERE tobin LIKE '%fooValue%'
+     * $query->filterByTobin(['foo', 'bar']); // WHERE tobin IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $tobin The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $tobin The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBinrsessionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTobin($tobin = null, $comparison = null)
+    public function filterByTobin($tobin = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($tobin)) {
@@ -539,7 +583,9 @@ abstract class BinrsessionQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BinrsessionTableMap::COL_TOBIN, $tobin, $comparison);
+        $this->addUsingAlias(BinrsessionTableMap::COL_TOBIN, $tobin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -552,15 +598,15 @@ abstract class BinrsessionQuery extends ModelCriteria
      * $query->filterByTobinqty(array('min' => 12)); // WHERE tobinqty > 12
      * </code>
      *
-     * @param     mixed $tobinqty The value to use as filter.
+     * @param mixed $tobinqty The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBinrsessionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTobinqty($tobinqty = null, $comparison = null)
+    public function filterByTobinqty($tobinqty = null, ?string $comparison = null)
     {
         if (is_array($tobinqty)) {
             $useMinMax = false;
@@ -580,7 +626,9 @@ abstract class BinrsessionQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BinrsessionTableMap::COL_TOBINQTY, $tobinqty, $comparison);
+        $this->addUsingAlias(BinrsessionTableMap::COL_TOBINQTY, $tobinqty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -590,14 +638,15 @@ abstract class BinrsessionQuery extends ModelCriteria
      * <code>
      * $query->filterByFunction('fooValue');   // WHERE function = 'fooValue'
      * $query->filterByFunction('%fooValue%', Criteria::LIKE); // WHERE function LIKE '%fooValue%'
+     * $query->filterByFunction(['foo', 'bar']); // WHERE function IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $function The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $function The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBinrsessionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByFunction($function = null, $comparison = null)
+    public function filterByFunction($function = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($function)) {
@@ -605,7 +654,9 @@ abstract class BinrsessionQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BinrsessionTableMap::COL_FUNCTION, $function, $comparison);
+        $this->addUsingAlias(BinrsessionTableMap::COL_FUNCTION, $function, $comparison);
+
+        return $this;
     }
 
     /**
@@ -615,14 +666,15 @@ abstract class BinrsessionQuery extends ModelCriteria
      * <code>
      * $query->filterByStatus('fooValue');   // WHERE status = 'fooValue'
      * $query->filterByStatus('%fooValue%', Criteria::LIKE); // WHERE status LIKE '%fooValue%'
+     * $query->filterByStatus(['foo', 'bar']); // WHERE status IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $status The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $status The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBinrsessionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByStatus($status = null, $comparison = null)
+    public function filterByStatus($status = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($status)) {
@@ -630,7 +682,9 @@ abstract class BinrsessionQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BinrsessionTableMap::COL_STATUS, $status, $comparison);
+        $this->addUsingAlias(BinrsessionTableMap::COL_STATUS, $status, $comparison);
+
+        return $this;
     }
 
     /**
@@ -643,15 +697,15 @@ abstract class BinrsessionQuery extends ModelCriteria
      * $query->filterByDate(array('min' => 12)); // WHERE date > 12
      * </code>
      *
-     * @param     mixed $date The value to use as filter.
+     * @param mixed $date The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBinrsessionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDate($date = null, $comparison = null)
+    public function filterByDate($date = null, ?string $comparison = null)
     {
         if (is_array($date)) {
             $useMinMax = false;
@@ -671,7 +725,9 @@ abstract class BinrsessionQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BinrsessionTableMap::COL_DATE, $date, $comparison);
+        $this->addUsingAlias(BinrsessionTableMap::COL_DATE, $date, $comparison);
+
+        return $this;
     }
 
     /**
@@ -684,15 +740,15 @@ abstract class BinrsessionQuery extends ModelCriteria
      * $query->filterByTime(array('min' => 12)); // WHERE time > 12
      * </code>
      *
-     * @param     mixed $time The value to use as filter.
+     * @param mixed $time The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBinrsessionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTime($time = null, $comparison = null)
+    public function filterByTime($time = null, ?string $comparison = null)
     {
         if (is_array($time)) {
             $useMinMax = false;
@@ -712,7 +768,9 @@ abstract class BinrsessionQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BinrsessionTableMap::COL_TIME, $time, $comparison);
+        $this->addUsingAlias(BinrsessionTableMap::COL_TIME, $time, $comparison);
+
+        return $this;
     }
 
     /**
@@ -722,14 +780,15 @@ abstract class BinrsessionQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBinrsessionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -737,15 +796,17 @@ abstract class BinrsessionQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BinrsessionTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(BinrsessionTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildBinrsession $binrsession Object to remove from the list of results
+     * @param ChildBinrsession $binrsession Object to remove from the list of results
      *
-     * @return $this|ChildBinrsessionQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($binrsession = null)
     {
@@ -762,7 +823,7 @@ abstract class BinrsessionQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(BinrsessionTableMap::DATABASE_NAME);
@@ -787,12 +848,12 @@ abstract class BinrsessionQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(BinrsessionTableMap::DATABASE_NAME);
@@ -817,4 +878,4 @@ abstract class BinrsessionQuery extends ModelCriteria
         });
     }
 
-} // BinrsessionQuery
+}

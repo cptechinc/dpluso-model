@@ -10,14 +10,12 @@ use Map\OrdrdetTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'ordrdet' table.
- *
- *
+ * Base class that represents a query for the `ordrdet` table.
  *
  * @method     ChildOrdrdetQuery orderBySessionid($order = Criteria::ASC) Order by the sessionid column
  * @method     ChildOrdrdetQuery orderByRecno($order = Criteria::ASC) Order by the recno column
@@ -149,72 +147,72 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildOrdrdetQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildOrdrdetQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildOrdrdet findOne(ConnectionInterface $con = null) Return the first ChildOrdrdet matching the query
- * @method     ChildOrdrdet findOneOrCreate(ConnectionInterface $con = null) Return the first ChildOrdrdet matching the query, or a new ChildOrdrdet object populated from the query conditions when no match is found
+ * @method     ChildOrdrdet|null findOne(?ConnectionInterface $con = null) Return the first ChildOrdrdet matching the query
+ * @method     ChildOrdrdet findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildOrdrdet matching the query, or a new ChildOrdrdet object populated from the query conditions when no match is found
  *
- * @method     ChildOrdrdet findOneBySessionid(string $sessionid) Return the first ChildOrdrdet filtered by the sessionid column
- * @method     ChildOrdrdet findOneByRecno(int $recno) Return the first ChildOrdrdet filtered by the recno column
- * @method     ChildOrdrdet findOneByDate(int $date) Return the first ChildOrdrdet filtered by the date column
- * @method     ChildOrdrdet findOneByTime(int $time) Return the first ChildOrdrdet filtered by the time column
- * @method     ChildOrdrdet findOneByType(string $type) Return the first ChildOrdrdet filtered by the type column
- * @method     ChildOrdrdet findOneByOrderno(string $orderno) Return the first ChildOrdrdet filtered by the orderno column
- * @method     ChildOrdrdet findOneByLinenbr(string $linenbr) Return the first ChildOrdrdet filtered by the linenbr column
- * @method     ChildOrdrdet findOneBySublinenbr(string $sublinenbr) Return the first ChildOrdrdet filtered by the sublinenbr column
- * @method     ChildOrdrdet findOneByItemid(string $itemid) Return the first ChildOrdrdet filtered by the itemid column
- * @method     ChildOrdrdet findOneByCustid(string $custid) Return the first ChildOrdrdet filtered by the custid column
- * @method     ChildOrdrdet findOneByCustitemid(string $custitemid) Return the first ChildOrdrdet filtered by the custitemid column
- * @method     ChildOrdrdet findOneByDesc1(string $desc1) Return the first ChildOrdrdet filtered by the desc1 column
- * @method     ChildOrdrdet findOneByDesc2(string $desc2) Return the first ChildOrdrdet filtered by the desc2 column
- * @method     ChildOrdrdet findOneByPrice(string $price) Return the first ChildOrdrdet filtered by the price column
- * @method     ChildOrdrdet findOneByTotalprice(string $totalprice) Return the first ChildOrdrdet filtered by the totalprice column
- * @method     ChildOrdrdet findOneByQty(string $qty) Return the first ChildOrdrdet filtered by the qty column
- * @method     ChildOrdrdet findOneByQtyshipped(string $qtyshipped) Return the first ChildOrdrdet filtered by the qtyshipped column
- * @method     ChildOrdrdet findOneByQtybackord(string $qtybackord) Return the first ChildOrdrdet filtered by the qtybackord column
- * @method     ChildOrdrdet findOneByRshipdate(string $rshipdate) Return the first ChildOrdrdet filtered by the rshipdate column
- * @method     ChildOrdrdet findOneByHasdocuments(string $hasdocuments) Return the first ChildOrdrdet filtered by the hasdocuments column
- * @method     ChildOrdrdet findOneByQtyavail(string $qtyavail) Return the first ChildOrdrdet filtered by the qtyavail column
- * @method     ChildOrdrdet findOneByHasnotes(string $hasnotes) Return the first ChildOrdrdet filtered by the hasnotes column
- * @method     ChildOrdrdet findOneByCost(string $cost) Return the first ChildOrdrdet filtered by the cost column
- * @method     ChildOrdrdet findOneByWhse(string $whse) Return the first ChildOrdrdet filtered by the whse column
- * @method     ChildOrdrdet findOneByUom(string $uom) Return the first ChildOrdrdet filtered by the uom column
- * @method     ChildOrdrdet findOneBySpcord(string $spcord) Return the first ChildOrdrdet filtered by the spcord column
- * @method     ChildOrdrdet findOneByKititemflag(string $kititemflag) Return the first ChildOrdrdet filtered by the kititemflag column
- * @method     ChildOrdrdet findOneByPromocode(string $promocode) Return the first ChildOrdrdet filtered by the promocode column
- * @method     ChildOrdrdet findOneByTaxcode(string $taxcode) Return the first ChildOrdrdet filtered by the taxcode column
- * @method     ChildOrdrdet findOneByTaxcodeperc(string $taxcodeperc) Return the first ChildOrdrdet filtered by the taxcodeperc column
- * @method     ChildOrdrdet findOneByDiscpct(string $discpct) Return the first ChildOrdrdet filtered by the discpct column
- * @method     ChildOrdrdet findOneByListprice(string $listprice) Return the first ChildOrdrdet filtered by the listprice column
- * @method     ChildOrdrdet findOneByUomconv(string $uomconv) Return the first ChildOrdrdet filtered by the uomconv column
- * @method     ChildOrdrdet findOneByVendorid(string $vendorid) Return the first ChildOrdrdet filtered by the vendorid column
- * @method     ChildOrdrdet findOneByVendoritemid(string $vendoritemid) Return the first ChildOrdrdet filtered by the vendoritemid column
- * @method     ChildOrdrdet findOneByMfgid(string $mfgid) Return the first ChildOrdrdet filtered by the mfgid column
- * @method     ChildOrdrdet findOneByMfgitemid(string $mfgitemid) Return the first ChildOrdrdet filtered by the mfgitemid column
- * @method     ChildOrdrdet findOneByStatus(string $status) Return the first ChildOrdrdet filtered by the status column
- * @method     ChildOrdrdet findOneByLostreason(string $lostreason) Return the first ChildOrdrdet filtered by the lostreason column
- * @method     ChildOrdrdet findOneByLostdate(string $lostdate) Return the first ChildOrdrdet filtered by the lostdate column
- * @method     ChildOrdrdet findOneByNotes(string $notes) Return the first ChildOrdrdet filtered by the notes column
- * @method     ChildOrdrdet findOneByLeaddays(int $leaddays) Return the first ChildOrdrdet filtered by the leaddays column
- * @method     ChildOrdrdet findOneByOrdrtotalcost(string $ordrtotalcost) Return the first ChildOrdrdet filtered by the ordrtotalcost column
- * @method     ChildOrdrdet findOneByCostuom(string $costuom) Return the first ChildOrdrdet filtered by the costuom column
- * @method     ChildOrdrdet findOneByStancost(string $stancost) Return the first ChildOrdrdet filtered by the stancost column
- * @method     ChildOrdrdet findOneByQuotind(string $quotind) Return the first ChildOrdrdet filtered by the quotind column
- * @method     ChildOrdrdet findOneByQuotqty(int $quotqty) Return the first ChildOrdrdet filtered by the quotqty column
- * @method     ChildOrdrdet findOneByQuotprice(string $quotprice) Return the first ChildOrdrdet filtered by the quotprice column
- * @method     ChildOrdrdet findOneByQuotcost(string $quotcost) Return the first ChildOrdrdet filtered by the quotcost column
- * @method     ChildOrdrdet findOneByQuotmkupmarg(string $quotmkupmarg) Return the first ChildOrdrdet filtered by the quotmkupmarg column
- * @method     ChildOrdrdet findOneByQuotdiscpct(string $quotdiscpct) Return the first ChildOrdrdet filtered by the quotdiscpct column
- * @method     ChildOrdrdet findOneByErrormsg(string $errormsg) Return the first ChildOrdrdet filtered by the errormsg column
- * @method     ChildOrdrdet findOneByMinprice(string $minprice) Return the first ChildOrdrdet filtered by the minprice column
- * @method     ChildOrdrdet findOneByPonbr(string $ponbr) Return the first ChildOrdrdet filtered by the ponbr column
- * @method     ChildOrdrdet findOneByPoref(string $poref) Return the first ChildOrdrdet filtered by the poref column
- * @method     ChildOrdrdet findOneByNsitemgroup(string $nsitemgroup) Return the first ChildOrdrdet filtered by the nsitemgroup column
- * @method     ChildOrdrdet findOneByShipfromid(string $shipfromid) Return the first ChildOrdrdet filtered by the shipfromid column
- * @method     ChildOrdrdet findOneByItemtype(string $itemtype) Return the first ChildOrdrdet filtered by the itemtype column
- * @method     ChildOrdrdet findOneByCanbackorder(string $canbackorder) Return the first ChildOrdrdet filtered by the canbackorder column
- * @method     ChildOrdrdet findOneByDummy(string $dummy) Return the first ChildOrdrdet filtered by the dummy column *
-
- * @method     ChildOrdrdet requirePk($key, ConnectionInterface $con = null) Return the ChildOrdrdet by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildOrdrdet requireOne(ConnectionInterface $con = null) Return the first ChildOrdrdet matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildOrdrdet|null findOneBySessionid(string $sessionid) Return the first ChildOrdrdet filtered by the sessionid column
+ * @method     ChildOrdrdet|null findOneByRecno(int $recno) Return the first ChildOrdrdet filtered by the recno column
+ * @method     ChildOrdrdet|null findOneByDate(int $date) Return the first ChildOrdrdet filtered by the date column
+ * @method     ChildOrdrdet|null findOneByTime(int $time) Return the first ChildOrdrdet filtered by the time column
+ * @method     ChildOrdrdet|null findOneByType(string $type) Return the first ChildOrdrdet filtered by the type column
+ * @method     ChildOrdrdet|null findOneByOrderno(string $orderno) Return the first ChildOrdrdet filtered by the orderno column
+ * @method     ChildOrdrdet|null findOneByLinenbr(string $linenbr) Return the first ChildOrdrdet filtered by the linenbr column
+ * @method     ChildOrdrdet|null findOneBySublinenbr(string $sublinenbr) Return the first ChildOrdrdet filtered by the sublinenbr column
+ * @method     ChildOrdrdet|null findOneByItemid(string $itemid) Return the first ChildOrdrdet filtered by the itemid column
+ * @method     ChildOrdrdet|null findOneByCustid(string $custid) Return the first ChildOrdrdet filtered by the custid column
+ * @method     ChildOrdrdet|null findOneByCustitemid(string $custitemid) Return the first ChildOrdrdet filtered by the custitemid column
+ * @method     ChildOrdrdet|null findOneByDesc1(string $desc1) Return the first ChildOrdrdet filtered by the desc1 column
+ * @method     ChildOrdrdet|null findOneByDesc2(string $desc2) Return the first ChildOrdrdet filtered by the desc2 column
+ * @method     ChildOrdrdet|null findOneByPrice(string $price) Return the first ChildOrdrdet filtered by the price column
+ * @method     ChildOrdrdet|null findOneByTotalprice(string $totalprice) Return the first ChildOrdrdet filtered by the totalprice column
+ * @method     ChildOrdrdet|null findOneByQty(string $qty) Return the first ChildOrdrdet filtered by the qty column
+ * @method     ChildOrdrdet|null findOneByQtyshipped(string $qtyshipped) Return the first ChildOrdrdet filtered by the qtyshipped column
+ * @method     ChildOrdrdet|null findOneByQtybackord(string $qtybackord) Return the first ChildOrdrdet filtered by the qtybackord column
+ * @method     ChildOrdrdet|null findOneByRshipdate(string $rshipdate) Return the first ChildOrdrdet filtered by the rshipdate column
+ * @method     ChildOrdrdet|null findOneByHasdocuments(string $hasdocuments) Return the first ChildOrdrdet filtered by the hasdocuments column
+ * @method     ChildOrdrdet|null findOneByQtyavail(string $qtyavail) Return the first ChildOrdrdet filtered by the qtyavail column
+ * @method     ChildOrdrdet|null findOneByHasnotes(string $hasnotes) Return the first ChildOrdrdet filtered by the hasnotes column
+ * @method     ChildOrdrdet|null findOneByCost(string $cost) Return the first ChildOrdrdet filtered by the cost column
+ * @method     ChildOrdrdet|null findOneByWhse(string $whse) Return the first ChildOrdrdet filtered by the whse column
+ * @method     ChildOrdrdet|null findOneByUom(string $uom) Return the first ChildOrdrdet filtered by the uom column
+ * @method     ChildOrdrdet|null findOneBySpcord(string $spcord) Return the first ChildOrdrdet filtered by the spcord column
+ * @method     ChildOrdrdet|null findOneByKititemflag(string $kititemflag) Return the first ChildOrdrdet filtered by the kititemflag column
+ * @method     ChildOrdrdet|null findOneByPromocode(string $promocode) Return the first ChildOrdrdet filtered by the promocode column
+ * @method     ChildOrdrdet|null findOneByTaxcode(string $taxcode) Return the first ChildOrdrdet filtered by the taxcode column
+ * @method     ChildOrdrdet|null findOneByTaxcodeperc(string $taxcodeperc) Return the first ChildOrdrdet filtered by the taxcodeperc column
+ * @method     ChildOrdrdet|null findOneByDiscpct(string $discpct) Return the first ChildOrdrdet filtered by the discpct column
+ * @method     ChildOrdrdet|null findOneByListprice(string $listprice) Return the first ChildOrdrdet filtered by the listprice column
+ * @method     ChildOrdrdet|null findOneByUomconv(string $uomconv) Return the first ChildOrdrdet filtered by the uomconv column
+ * @method     ChildOrdrdet|null findOneByVendorid(string $vendorid) Return the first ChildOrdrdet filtered by the vendorid column
+ * @method     ChildOrdrdet|null findOneByVendoritemid(string $vendoritemid) Return the first ChildOrdrdet filtered by the vendoritemid column
+ * @method     ChildOrdrdet|null findOneByMfgid(string $mfgid) Return the first ChildOrdrdet filtered by the mfgid column
+ * @method     ChildOrdrdet|null findOneByMfgitemid(string $mfgitemid) Return the first ChildOrdrdet filtered by the mfgitemid column
+ * @method     ChildOrdrdet|null findOneByStatus(string $status) Return the first ChildOrdrdet filtered by the status column
+ * @method     ChildOrdrdet|null findOneByLostreason(string $lostreason) Return the first ChildOrdrdet filtered by the lostreason column
+ * @method     ChildOrdrdet|null findOneByLostdate(string $lostdate) Return the first ChildOrdrdet filtered by the lostdate column
+ * @method     ChildOrdrdet|null findOneByNotes(string $notes) Return the first ChildOrdrdet filtered by the notes column
+ * @method     ChildOrdrdet|null findOneByLeaddays(int $leaddays) Return the first ChildOrdrdet filtered by the leaddays column
+ * @method     ChildOrdrdet|null findOneByOrdrtotalcost(string $ordrtotalcost) Return the first ChildOrdrdet filtered by the ordrtotalcost column
+ * @method     ChildOrdrdet|null findOneByCostuom(string $costuom) Return the first ChildOrdrdet filtered by the costuom column
+ * @method     ChildOrdrdet|null findOneByStancost(string $stancost) Return the first ChildOrdrdet filtered by the stancost column
+ * @method     ChildOrdrdet|null findOneByQuotind(string $quotind) Return the first ChildOrdrdet filtered by the quotind column
+ * @method     ChildOrdrdet|null findOneByQuotqty(int $quotqty) Return the first ChildOrdrdet filtered by the quotqty column
+ * @method     ChildOrdrdet|null findOneByQuotprice(string $quotprice) Return the first ChildOrdrdet filtered by the quotprice column
+ * @method     ChildOrdrdet|null findOneByQuotcost(string $quotcost) Return the first ChildOrdrdet filtered by the quotcost column
+ * @method     ChildOrdrdet|null findOneByQuotmkupmarg(string $quotmkupmarg) Return the first ChildOrdrdet filtered by the quotmkupmarg column
+ * @method     ChildOrdrdet|null findOneByQuotdiscpct(string $quotdiscpct) Return the first ChildOrdrdet filtered by the quotdiscpct column
+ * @method     ChildOrdrdet|null findOneByErrormsg(string $errormsg) Return the first ChildOrdrdet filtered by the errormsg column
+ * @method     ChildOrdrdet|null findOneByMinprice(string $minprice) Return the first ChildOrdrdet filtered by the minprice column
+ * @method     ChildOrdrdet|null findOneByPonbr(string $ponbr) Return the first ChildOrdrdet filtered by the ponbr column
+ * @method     ChildOrdrdet|null findOneByPoref(string $poref) Return the first ChildOrdrdet filtered by the poref column
+ * @method     ChildOrdrdet|null findOneByNsitemgroup(string $nsitemgroup) Return the first ChildOrdrdet filtered by the nsitemgroup column
+ * @method     ChildOrdrdet|null findOneByShipfromid(string $shipfromid) Return the first ChildOrdrdet filtered by the shipfromid column
+ * @method     ChildOrdrdet|null findOneByItemtype(string $itemtype) Return the first ChildOrdrdet filtered by the itemtype column
+ * @method     ChildOrdrdet|null findOneByCanbackorder(string $canbackorder) Return the first ChildOrdrdet filtered by the canbackorder column
+ * @method     ChildOrdrdet|null findOneByDummy(string $dummy) Return the first ChildOrdrdet filtered by the dummy column
+ *
+ * @method     ChildOrdrdet requirePk($key, ?ConnectionInterface $con = null) Return the ChildOrdrdet by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildOrdrdet requireOne(?ConnectionInterface $con = null) Return the first ChildOrdrdet matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildOrdrdet requireOneBySessionid(string $sessionid) Return the first ChildOrdrdet filtered by the sessionid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildOrdrdet requireOneByRecno(int $recno) Return the first ChildOrdrdet filtered by the recno column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -277,69 +275,132 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildOrdrdet requireOneByCanbackorder(string $canbackorder) Return the first ChildOrdrdet filtered by the canbackorder column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildOrdrdet requireOneByDummy(string $dummy) Return the first ChildOrdrdet filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildOrdrdet[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildOrdrdet objects based on current ModelCriteria
- * @method     ChildOrdrdet[]|ObjectCollection findBySessionid(string $sessionid) Return ChildOrdrdet objects filtered by the sessionid column
- * @method     ChildOrdrdet[]|ObjectCollection findByRecno(int $recno) Return ChildOrdrdet objects filtered by the recno column
- * @method     ChildOrdrdet[]|ObjectCollection findByDate(int $date) Return ChildOrdrdet objects filtered by the date column
- * @method     ChildOrdrdet[]|ObjectCollection findByTime(int $time) Return ChildOrdrdet objects filtered by the time column
- * @method     ChildOrdrdet[]|ObjectCollection findByType(string $type) Return ChildOrdrdet objects filtered by the type column
- * @method     ChildOrdrdet[]|ObjectCollection findByOrderno(string $orderno) Return ChildOrdrdet objects filtered by the orderno column
- * @method     ChildOrdrdet[]|ObjectCollection findByLinenbr(string $linenbr) Return ChildOrdrdet objects filtered by the linenbr column
- * @method     ChildOrdrdet[]|ObjectCollection findBySublinenbr(string $sublinenbr) Return ChildOrdrdet objects filtered by the sublinenbr column
- * @method     ChildOrdrdet[]|ObjectCollection findByItemid(string $itemid) Return ChildOrdrdet objects filtered by the itemid column
- * @method     ChildOrdrdet[]|ObjectCollection findByCustid(string $custid) Return ChildOrdrdet objects filtered by the custid column
- * @method     ChildOrdrdet[]|ObjectCollection findByCustitemid(string $custitemid) Return ChildOrdrdet objects filtered by the custitemid column
- * @method     ChildOrdrdet[]|ObjectCollection findByDesc1(string $desc1) Return ChildOrdrdet objects filtered by the desc1 column
- * @method     ChildOrdrdet[]|ObjectCollection findByDesc2(string $desc2) Return ChildOrdrdet objects filtered by the desc2 column
- * @method     ChildOrdrdet[]|ObjectCollection findByPrice(string $price) Return ChildOrdrdet objects filtered by the price column
- * @method     ChildOrdrdet[]|ObjectCollection findByTotalprice(string $totalprice) Return ChildOrdrdet objects filtered by the totalprice column
- * @method     ChildOrdrdet[]|ObjectCollection findByQty(string $qty) Return ChildOrdrdet objects filtered by the qty column
- * @method     ChildOrdrdet[]|ObjectCollection findByQtyshipped(string $qtyshipped) Return ChildOrdrdet objects filtered by the qtyshipped column
- * @method     ChildOrdrdet[]|ObjectCollection findByQtybackord(string $qtybackord) Return ChildOrdrdet objects filtered by the qtybackord column
- * @method     ChildOrdrdet[]|ObjectCollection findByRshipdate(string $rshipdate) Return ChildOrdrdet objects filtered by the rshipdate column
- * @method     ChildOrdrdet[]|ObjectCollection findByHasdocuments(string $hasdocuments) Return ChildOrdrdet objects filtered by the hasdocuments column
- * @method     ChildOrdrdet[]|ObjectCollection findByQtyavail(string $qtyavail) Return ChildOrdrdet objects filtered by the qtyavail column
- * @method     ChildOrdrdet[]|ObjectCollection findByHasnotes(string $hasnotes) Return ChildOrdrdet objects filtered by the hasnotes column
- * @method     ChildOrdrdet[]|ObjectCollection findByCost(string $cost) Return ChildOrdrdet objects filtered by the cost column
- * @method     ChildOrdrdet[]|ObjectCollection findByWhse(string $whse) Return ChildOrdrdet objects filtered by the whse column
- * @method     ChildOrdrdet[]|ObjectCollection findByUom(string $uom) Return ChildOrdrdet objects filtered by the uom column
- * @method     ChildOrdrdet[]|ObjectCollection findBySpcord(string $spcord) Return ChildOrdrdet objects filtered by the spcord column
- * @method     ChildOrdrdet[]|ObjectCollection findByKititemflag(string $kititemflag) Return ChildOrdrdet objects filtered by the kititemflag column
- * @method     ChildOrdrdet[]|ObjectCollection findByPromocode(string $promocode) Return ChildOrdrdet objects filtered by the promocode column
- * @method     ChildOrdrdet[]|ObjectCollection findByTaxcode(string $taxcode) Return ChildOrdrdet objects filtered by the taxcode column
- * @method     ChildOrdrdet[]|ObjectCollection findByTaxcodeperc(string $taxcodeperc) Return ChildOrdrdet objects filtered by the taxcodeperc column
- * @method     ChildOrdrdet[]|ObjectCollection findByDiscpct(string $discpct) Return ChildOrdrdet objects filtered by the discpct column
- * @method     ChildOrdrdet[]|ObjectCollection findByListprice(string $listprice) Return ChildOrdrdet objects filtered by the listprice column
- * @method     ChildOrdrdet[]|ObjectCollection findByUomconv(string $uomconv) Return ChildOrdrdet objects filtered by the uomconv column
- * @method     ChildOrdrdet[]|ObjectCollection findByVendorid(string $vendorid) Return ChildOrdrdet objects filtered by the vendorid column
- * @method     ChildOrdrdet[]|ObjectCollection findByVendoritemid(string $vendoritemid) Return ChildOrdrdet objects filtered by the vendoritemid column
- * @method     ChildOrdrdet[]|ObjectCollection findByMfgid(string $mfgid) Return ChildOrdrdet objects filtered by the mfgid column
- * @method     ChildOrdrdet[]|ObjectCollection findByMfgitemid(string $mfgitemid) Return ChildOrdrdet objects filtered by the mfgitemid column
- * @method     ChildOrdrdet[]|ObjectCollection findByStatus(string $status) Return ChildOrdrdet objects filtered by the status column
- * @method     ChildOrdrdet[]|ObjectCollection findByLostreason(string $lostreason) Return ChildOrdrdet objects filtered by the lostreason column
- * @method     ChildOrdrdet[]|ObjectCollection findByLostdate(string $lostdate) Return ChildOrdrdet objects filtered by the lostdate column
- * @method     ChildOrdrdet[]|ObjectCollection findByNotes(string $notes) Return ChildOrdrdet objects filtered by the notes column
- * @method     ChildOrdrdet[]|ObjectCollection findByLeaddays(int $leaddays) Return ChildOrdrdet objects filtered by the leaddays column
- * @method     ChildOrdrdet[]|ObjectCollection findByOrdrtotalcost(string $ordrtotalcost) Return ChildOrdrdet objects filtered by the ordrtotalcost column
- * @method     ChildOrdrdet[]|ObjectCollection findByCostuom(string $costuom) Return ChildOrdrdet objects filtered by the costuom column
- * @method     ChildOrdrdet[]|ObjectCollection findByStancost(string $stancost) Return ChildOrdrdet objects filtered by the stancost column
- * @method     ChildOrdrdet[]|ObjectCollection findByQuotind(string $quotind) Return ChildOrdrdet objects filtered by the quotind column
- * @method     ChildOrdrdet[]|ObjectCollection findByQuotqty(int $quotqty) Return ChildOrdrdet objects filtered by the quotqty column
- * @method     ChildOrdrdet[]|ObjectCollection findByQuotprice(string $quotprice) Return ChildOrdrdet objects filtered by the quotprice column
- * @method     ChildOrdrdet[]|ObjectCollection findByQuotcost(string $quotcost) Return ChildOrdrdet objects filtered by the quotcost column
- * @method     ChildOrdrdet[]|ObjectCollection findByQuotmkupmarg(string $quotmkupmarg) Return ChildOrdrdet objects filtered by the quotmkupmarg column
- * @method     ChildOrdrdet[]|ObjectCollection findByQuotdiscpct(string $quotdiscpct) Return ChildOrdrdet objects filtered by the quotdiscpct column
- * @method     ChildOrdrdet[]|ObjectCollection findByErrormsg(string $errormsg) Return ChildOrdrdet objects filtered by the errormsg column
- * @method     ChildOrdrdet[]|ObjectCollection findByMinprice(string $minprice) Return ChildOrdrdet objects filtered by the minprice column
- * @method     ChildOrdrdet[]|ObjectCollection findByPonbr(string $ponbr) Return ChildOrdrdet objects filtered by the ponbr column
- * @method     ChildOrdrdet[]|ObjectCollection findByPoref(string $poref) Return ChildOrdrdet objects filtered by the poref column
- * @method     ChildOrdrdet[]|ObjectCollection findByNsitemgroup(string $nsitemgroup) Return ChildOrdrdet objects filtered by the nsitemgroup column
- * @method     ChildOrdrdet[]|ObjectCollection findByShipfromid(string $shipfromid) Return ChildOrdrdet objects filtered by the shipfromid column
- * @method     ChildOrdrdet[]|ObjectCollection findByItemtype(string $itemtype) Return ChildOrdrdet objects filtered by the itemtype column
- * @method     ChildOrdrdet[]|ObjectCollection findByCanbackorder(string $canbackorder) Return ChildOrdrdet objects filtered by the canbackorder column
- * @method     ChildOrdrdet[]|ObjectCollection findByDummy(string $dummy) Return ChildOrdrdet objects filtered by the dummy column
- * @method     ChildOrdrdet[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildOrdrdet[]|Collection find(?ConnectionInterface $con = null) Return ChildOrdrdet objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> find(?ConnectionInterface $con = null) Return ChildOrdrdet objects based on current ModelCriteria
  *
+ * @method     ChildOrdrdet[]|Collection findBySessionid(string|array<string> $sessionid) Return ChildOrdrdet objects filtered by the sessionid column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findBySessionid(string|array<string> $sessionid) Return ChildOrdrdet objects filtered by the sessionid column
+ * @method     ChildOrdrdet[]|Collection findByRecno(int|array<int> $recno) Return ChildOrdrdet objects filtered by the recno column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByRecno(int|array<int> $recno) Return ChildOrdrdet objects filtered by the recno column
+ * @method     ChildOrdrdet[]|Collection findByDate(int|array<int> $date) Return ChildOrdrdet objects filtered by the date column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByDate(int|array<int> $date) Return ChildOrdrdet objects filtered by the date column
+ * @method     ChildOrdrdet[]|Collection findByTime(int|array<int> $time) Return ChildOrdrdet objects filtered by the time column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByTime(int|array<int> $time) Return ChildOrdrdet objects filtered by the time column
+ * @method     ChildOrdrdet[]|Collection findByType(string|array<string> $type) Return ChildOrdrdet objects filtered by the type column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByType(string|array<string> $type) Return ChildOrdrdet objects filtered by the type column
+ * @method     ChildOrdrdet[]|Collection findByOrderno(string|array<string> $orderno) Return ChildOrdrdet objects filtered by the orderno column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByOrderno(string|array<string> $orderno) Return ChildOrdrdet objects filtered by the orderno column
+ * @method     ChildOrdrdet[]|Collection findByLinenbr(string|array<string> $linenbr) Return ChildOrdrdet objects filtered by the linenbr column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByLinenbr(string|array<string> $linenbr) Return ChildOrdrdet objects filtered by the linenbr column
+ * @method     ChildOrdrdet[]|Collection findBySublinenbr(string|array<string> $sublinenbr) Return ChildOrdrdet objects filtered by the sublinenbr column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findBySublinenbr(string|array<string> $sublinenbr) Return ChildOrdrdet objects filtered by the sublinenbr column
+ * @method     ChildOrdrdet[]|Collection findByItemid(string|array<string> $itemid) Return ChildOrdrdet objects filtered by the itemid column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByItemid(string|array<string> $itemid) Return ChildOrdrdet objects filtered by the itemid column
+ * @method     ChildOrdrdet[]|Collection findByCustid(string|array<string> $custid) Return ChildOrdrdet objects filtered by the custid column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByCustid(string|array<string> $custid) Return ChildOrdrdet objects filtered by the custid column
+ * @method     ChildOrdrdet[]|Collection findByCustitemid(string|array<string> $custitemid) Return ChildOrdrdet objects filtered by the custitemid column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByCustitemid(string|array<string> $custitemid) Return ChildOrdrdet objects filtered by the custitemid column
+ * @method     ChildOrdrdet[]|Collection findByDesc1(string|array<string> $desc1) Return ChildOrdrdet objects filtered by the desc1 column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByDesc1(string|array<string> $desc1) Return ChildOrdrdet objects filtered by the desc1 column
+ * @method     ChildOrdrdet[]|Collection findByDesc2(string|array<string> $desc2) Return ChildOrdrdet objects filtered by the desc2 column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByDesc2(string|array<string> $desc2) Return ChildOrdrdet objects filtered by the desc2 column
+ * @method     ChildOrdrdet[]|Collection findByPrice(string|array<string> $price) Return ChildOrdrdet objects filtered by the price column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByPrice(string|array<string> $price) Return ChildOrdrdet objects filtered by the price column
+ * @method     ChildOrdrdet[]|Collection findByTotalprice(string|array<string> $totalprice) Return ChildOrdrdet objects filtered by the totalprice column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByTotalprice(string|array<string> $totalprice) Return ChildOrdrdet objects filtered by the totalprice column
+ * @method     ChildOrdrdet[]|Collection findByQty(string|array<string> $qty) Return ChildOrdrdet objects filtered by the qty column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByQty(string|array<string> $qty) Return ChildOrdrdet objects filtered by the qty column
+ * @method     ChildOrdrdet[]|Collection findByQtyshipped(string|array<string> $qtyshipped) Return ChildOrdrdet objects filtered by the qtyshipped column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByQtyshipped(string|array<string> $qtyshipped) Return ChildOrdrdet objects filtered by the qtyshipped column
+ * @method     ChildOrdrdet[]|Collection findByQtybackord(string|array<string> $qtybackord) Return ChildOrdrdet objects filtered by the qtybackord column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByQtybackord(string|array<string> $qtybackord) Return ChildOrdrdet objects filtered by the qtybackord column
+ * @method     ChildOrdrdet[]|Collection findByRshipdate(string|array<string> $rshipdate) Return ChildOrdrdet objects filtered by the rshipdate column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByRshipdate(string|array<string> $rshipdate) Return ChildOrdrdet objects filtered by the rshipdate column
+ * @method     ChildOrdrdet[]|Collection findByHasdocuments(string|array<string> $hasdocuments) Return ChildOrdrdet objects filtered by the hasdocuments column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByHasdocuments(string|array<string> $hasdocuments) Return ChildOrdrdet objects filtered by the hasdocuments column
+ * @method     ChildOrdrdet[]|Collection findByQtyavail(string|array<string> $qtyavail) Return ChildOrdrdet objects filtered by the qtyavail column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByQtyavail(string|array<string> $qtyavail) Return ChildOrdrdet objects filtered by the qtyavail column
+ * @method     ChildOrdrdet[]|Collection findByHasnotes(string|array<string> $hasnotes) Return ChildOrdrdet objects filtered by the hasnotes column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByHasnotes(string|array<string> $hasnotes) Return ChildOrdrdet objects filtered by the hasnotes column
+ * @method     ChildOrdrdet[]|Collection findByCost(string|array<string> $cost) Return ChildOrdrdet objects filtered by the cost column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByCost(string|array<string> $cost) Return ChildOrdrdet objects filtered by the cost column
+ * @method     ChildOrdrdet[]|Collection findByWhse(string|array<string> $whse) Return ChildOrdrdet objects filtered by the whse column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByWhse(string|array<string> $whse) Return ChildOrdrdet objects filtered by the whse column
+ * @method     ChildOrdrdet[]|Collection findByUom(string|array<string> $uom) Return ChildOrdrdet objects filtered by the uom column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByUom(string|array<string> $uom) Return ChildOrdrdet objects filtered by the uom column
+ * @method     ChildOrdrdet[]|Collection findBySpcord(string|array<string> $spcord) Return ChildOrdrdet objects filtered by the spcord column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findBySpcord(string|array<string> $spcord) Return ChildOrdrdet objects filtered by the spcord column
+ * @method     ChildOrdrdet[]|Collection findByKititemflag(string|array<string> $kititemflag) Return ChildOrdrdet objects filtered by the kititemflag column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByKititemflag(string|array<string> $kititemflag) Return ChildOrdrdet objects filtered by the kititemflag column
+ * @method     ChildOrdrdet[]|Collection findByPromocode(string|array<string> $promocode) Return ChildOrdrdet objects filtered by the promocode column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByPromocode(string|array<string> $promocode) Return ChildOrdrdet objects filtered by the promocode column
+ * @method     ChildOrdrdet[]|Collection findByTaxcode(string|array<string> $taxcode) Return ChildOrdrdet objects filtered by the taxcode column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByTaxcode(string|array<string> $taxcode) Return ChildOrdrdet objects filtered by the taxcode column
+ * @method     ChildOrdrdet[]|Collection findByTaxcodeperc(string|array<string> $taxcodeperc) Return ChildOrdrdet objects filtered by the taxcodeperc column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByTaxcodeperc(string|array<string> $taxcodeperc) Return ChildOrdrdet objects filtered by the taxcodeperc column
+ * @method     ChildOrdrdet[]|Collection findByDiscpct(string|array<string> $discpct) Return ChildOrdrdet objects filtered by the discpct column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByDiscpct(string|array<string> $discpct) Return ChildOrdrdet objects filtered by the discpct column
+ * @method     ChildOrdrdet[]|Collection findByListprice(string|array<string> $listprice) Return ChildOrdrdet objects filtered by the listprice column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByListprice(string|array<string> $listprice) Return ChildOrdrdet objects filtered by the listprice column
+ * @method     ChildOrdrdet[]|Collection findByUomconv(string|array<string> $uomconv) Return ChildOrdrdet objects filtered by the uomconv column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByUomconv(string|array<string> $uomconv) Return ChildOrdrdet objects filtered by the uomconv column
+ * @method     ChildOrdrdet[]|Collection findByVendorid(string|array<string> $vendorid) Return ChildOrdrdet objects filtered by the vendorid column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByVendorid(string|array<string> $vendorid) Return ChildOrdrdet objects filtered by the vendorid column
+ * @method     ChildOrdrdet[]|Collection findByVendoritemid(string|array<string> $vendoritemid) Return ChildOrdrdet objects filtered by the vendoritemid column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByVendoritemid(string|array<string> $vendoritemid) Return ChildOrdrdet objects filtered by the vendoritemid column
+ * @method     ChildOrdrdet[]|Collection findByMfgid(string|array<string> $mfgid) Return ChildOrdrdet objects filtered by the mfgid column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByMfgid(string|array<string> $mfgid) Return ChildOrdrdet objects filtered by the mfgid column
+ * @method     ChildOrdrdet[]|Collection findByMfgitemid(string|array<string> $mfgitemid) Return ChildOrdrdet objects filtered by the mfgitemid column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByMfgitemid(string|array<string> $mfgitemid) Return ChildOrdrdet objects filtered by the mfgitemid column
+ * @method     ChildOrdrdet[]|Collection findByStatus(string|array<string> $status) Return ChildOrdrdet objects filtered by the status column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByStatus(string|array<string> $status) Return ChildOrdrdet objects filtered by the status column
+ * @method     ChildOrdrdet[]|Collection findByLostreason(string|array<string> $lostreason) Return ChildOrdrdet objects filtered by the lostreason column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByLostreason(string|array<string> $lostreason) Return ChildOrdrdet objects filtered by the lostreason column
+ * @method     ChildOrdrdet[]|Collection findByLostdate(string|array<string> $lostdate) Return ChildOrdrdet objects filtered by the lostdate column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByLostdate(string|array<string> $lostdate) Return ChildOrdrdet objects filtered by the lostdate column
+ * @method     ChildOrdrdet[]|Collection findByNotes(string|array<string> $notes) Return ChildOrdrdet objects filtered by the notes column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByNotes(string|array<string> $notes) Return ChildOrdrdet objects filtered by the notes column
+ * @method     ChildOrdrdet[]|Collection findByLeaddays(int|array<int> $leaddays) Return ChildOrdrdet objects filtered by the leaddays column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByLeaddays(int|array<int> $leaddays) Return ChildOrdrdet objects filtered by the leaddays column
+ * @method     ChildOrdrdet[]|Collection findByOrdrtotalcost(string|array<string> $ordrtotalcost) Return ChildOrdrdet objects filtered by the ordrtotalcost column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByOrdrtotalcost(string|array<string> $ordrtotalcost) Return ChildOrdrdet objects filtered by the ordrtotalcost column
+ * @method     ChildOrdrdet[]|Collection findByCostuom(string|array<string> $costuom) Return ChildOrdrdet objects filtered by the costuom column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByCostuom(string|array<string> $costuom) Return ChildOrdrdet objects filtered by the costuom column
+ * @method     ChildOrdrdet[]|Collection findByStancost(string|array<string> $stancost) Return ChildOrdrdet objects filtered by the stancost column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByStancost(string|array<string> $stancost) Return ChildOrdrdet objects filtered by the stancost column
+ * @method     ChildOrdrdet[]|Collection findByQuotind(string|array<string> $quotind) Return ChildOrdrdet objects filtered by the quotind column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByQuotind(string|array<string> $quotind) Return ChildOrdrdet objects filtered by the quotind column
+ * @method     ChildOrdrdet[]|Collection findByQuotqty(int|array<int> $quotqty) Return ChildOrdrdet objects filtered by the quotqty column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByQuotqty(int|array<int> $quotqty) Return ChildOrdrdet objects filtered by the quotqty column
+ * @method     ChildOrdrdet[]|Collection findByQuotprice(string|array<string> $quotprice) Return ChildOrdrdet objects filtered by the quotprice column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByQuotprice(string|array<string> $quotprice) Return ChildOrdrdet objects filtered by the quotprice column
+ * @method     ChildOrdrdet[]|Collection findByQuotcost(string|array<string> $quotcost) Return ChildOrdrdet objects filtered by the quotcost column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByQuotcost(string|array<string> $quotcost) Return ChildOrdrdet objects filtered by the quotcost column
+ * @method     ChildOrdrdet[]|Collection findByQuotmkupmarg(string|array<string> $quotmkupmarg) Return ChildOrdrdet objects filtered by the quotmkupmarg column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByQuotmkupmarg(string|array<string> $quotmkupmarg) Return ChildOrdrdet objects filtered by the quotmkupmarg column
+ * @method     ChildOrdrdet[]|Collection findByQuotdiscpct(string|array<string> $quotdiscpct) Return ChildOrdrdet objects filtered by the quotdiscpct column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByQuotdiscpct(string|array<string> $quotdiscpct) Return ChildOrdrdet objects filtered by the quotdiscpct column
+ * @method     ChildOrdrdet[]|Collection findByErrormsg(string|array<string> $errormsg) Return ChildOrdrdet objects filtered by the errormsg column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByErrormsg(string|array<string> $errormsg) Return ChildOrdrdet objects filtered by the errormsg column
+ * @method     ChildOrdrdet[]|Collection findByMinprice(string|array<string> $minprice) Return ChildOrdrdet objects filtered by the minprice column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByMinprice(string|array<string> $minprice) Return ChildOrdrdet objects filtered by the minprice column
+ * @method     ChildOrdrdet[]|Collection findByPonbr(string|array<string> $ponbr) Return ChildOrdrdet objects filtered by the ponbr column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByPonbr(string|array<string> $ponbr) Return ChildOrdrdet objects filtered by the ponbr column
+ * @method     ChildOrdrdet[]|Collection findByPoref(string|array<string> $poref) Return ChildOrdrdet objects filtered by the poref column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByPoref(string|array<string> $poref) Return ChildOrdrdet objects filtered by the poref column
+ * @method     ChildOrdrdet[]|Collection findByNsitemgroup(string|array<string> $nsitemgroup) Return ChildOrdrdet objects filtered by the nsitemgroup column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByNsitemgroup(string|array<string> $nsitemgroup) Return ChildOrdrdet objects filtered by the nsitemgroup column
+ * @method     ChildOrdrdet[]|Collection findByShipfromid(string|array<string> $shipfromid) Return ChildOrdrdet objects filtered by the shipfromid column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByShipfromid(string|array<string> $shipfromid) Return ChildOrdrdet objects filtered by the shipfromid column
+ * @method     ChildOrdrdet[]|Collection findByItemtype(string|array<string> $itemtype) Return ChildOrdrdet objects filtered by the itemtype column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByItemtype(string|array<string> $itemtype) Return ChildOrdrdet objects filtered by the itemtype column
+ * @method     ChildOrdrdet[]|Collection findByCanbackorder(string|array<string> $canbackorder) Return ChildOrdrdet objects filtered by the canbackorder column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByCanbackorder(string|array<string> $canbackorder) Return ChildOrdrdet objects filtered by the canbackorder column
+ * @method     ChildOrdrdet[]|Collection findByDummy(string|array<string> $dummy) Return ChildOrdrdet objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildOrdrdet> findByDummy(string|array<string> $dummy) Return ChildOrdrdet objects filtered by the dummy column
+ *
+ * @method     ChildOrdrdet[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildOrdrdet> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class OrdrdetQuery extends ModelCriteria
 {
@@ -348,9 +409,9 @@ abstract class OrdrdetQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\OrdrdetQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'dplusodb', $modelName = '\\Ordrdet', $modelAlias = null)
     {
@@ -360,12 +421,12 @@ abstract class OrdrdetQuery extends ModelCriteria
     /**
      * Returns a new ChildOrdrdetQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildOrdrdetQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildOrdrdetQuery) {
             return $criteria;
@@ -395,7 +456,7 @@ abstract class OrdrdetQuery extends ModelCriteria
      *
      * @return ChildOrdrdet|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -427,8 +488,8 @@ abstract class OrdrdetQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -462,8 +523,8 @@ abstract class OrdrdetQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildOrdrdet|array|mixed the result, formatted by the current formatter
      */
@@ -483,12 +544,12 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -505,9 +566,9 @@ abstract class OrdrdetQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -521,14 +582,16 @@ abstract class OrdrdetQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(OrdrdetTableMap::COL_SESSIONID, $key[0], Criteria::EQUAL);
@@ -549,14 +612,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterBySessionid('fooValue');   // WHERE sessionid = 'fooValue'
      * $query->filterBySessionid('%fooValue%', Criteria::LIKE); // WHERE sessionid LIKE '%fooValue%'
+     * $query->filterBySessionid(['foo', 'bar']); // WHERE sessionid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sessionid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sessionid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySessionid($sessionid = null, $comparison = null)
+    public function filterBySessionid($sessionid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sessionid)) {
@@ -564,7 +628,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_SESSIONID, $sessionid, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_SESSIONID, $sessionid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -577,15 +643,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * $query->filterByRecno(array('min' => 12)); // WHERE recno > 12
      * </code>
      *
-     * @param     mixed $recno The value to use as filter.
+     * @param mixed $recno The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByRecno($recno = null, $comparison = null)
+    public function filterByRecno($recno = null, ?string $comparison = null)
     {
         if (is_array($recno)) {
             $useMinMax = false;
@@ -605,7 +671,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_RECNO, $recno, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_RECNO, $recno, $comparison);
+
+        return $this;
     }
 
     /**
@@ -618,15 +686,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * $query->filterByDate(array('min' => 12)); // WHERE date > 12
      * </code>
      *
-     * @param     mixed $date The value to use as filter.
+     * @param mixed $date The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDate($date = null, $comparison = null)
+    public function filterByDate($date = null, ?string $comparison = null)
     {
         if (is_array($date)) {
             $useMinMax = false;
@@ -646,7 +714,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_DATE, $date, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_DATE, $date, $comparison);
+
+        return $this;
     }
 
     /**
@@ -659,15 +729,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * $query->filterByTime(array('min' => 12)); // WHERE time > 12
      * </code>
      *
-     * @param     mixed $time The value to use as filter.
+     * @param mixed $time The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTime($time = null, $comparison = null)
+    public function filterByTime($time = null, ?string $comparison = null)
     {
         if (is_array($time)) {
             $useMinMax = false;
@@ -687,7 +757,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_TIME, $time, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_TIME, $time, $comparison);
+
+        return $this;
     }
 
     /**
@@ -697,14 +769,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByType('fooValue');   // WHERE type = 'fooValue'
      * $query->filterByType('%fooValue%', Criteria::LIKE); // WHERE type LIKE '%fooValue%'
+     * $query->filterByType(['foo', 'bar']); // WHERE type IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $type The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $type The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByType($type = null, $comparison = null)
+    public function filterByType($type = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($type)) {
@@ -712,7 +785,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_TYPE, $type, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_TYPE, $type, $comparison);
+
+        return $this;
     }
 
     /**
@@ -722,14 +797,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByOrderno('fooValue');   // WHERE orderno = 'fooValue'
      * $query->filterByOrderno('%fooValue%', Criteria::LIKE); // WHERE orderno LIKE '%fooValue%'
+     * $query->filterByOrderno(['foo', 'bar']); // WHERE orderno IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $orderno The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $orderno The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOrderno($orderno = null, $comparison = null)
+    public function filterByOrderno($orderno = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($orderno)) {
@@ -737,7 +813,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_ORDERNO, $orderno, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_ORDERNO, $orderno, $comparison);
+
+        return $this;
     }
 
     /**
@@ -747,14 +825,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByLinenbr('fooValue');   // WHERE linenbr = 'fooValue'
      * $query->filterByLinenbr('%fooValue%', Criteria::LIKE); // WHERE linenbr LIKE '%fooValue%'
+     * $query->filterByLinenbr(['foo', 'bar']); // WHERE linenbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $linenbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $linenbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLinenbr($linenbr = null, $comparison = null)
+    public function filterByLinenbr($linenbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($linenbr)) {
@@ -762,7 +841,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_LINENBR, $linenbr, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_LINENBR, $linenbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -772,14 +853,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterBySublinenbr('fooValue');   // WHERE sublinenbr = 'fooValue'
      * $query->filterBySublinenbr('%fooValue%', Criteria::LIKE); // WHERE sublinenbr LIKE '%fooValue%'
+     * $query->filterBySublinenbr(['foo', 'bar']); // WHERE sublinenbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sublinenbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sublinenbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySublinenbr($sublinenbr = null, $comparison = null)
+    public function filterBySublinenbr($sublinenbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sublinenbr)) {
@@ -787,7 +869,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_SUBLINENBR, $sublinenbr, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_SUBLINENBR, $sublinenbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -797,14 +881,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByItemid('fooValue');   // WHERE itemid = 'fooValue'
      * $query->filterByItemid('%fooValue%', Criteria::LIKE); // WHERE itemid LIKE '%fooValue%'
+     * $query->filterByItemid(['foo', 'bar']); // WHERE itemid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itemid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itemid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemid($itemid = null, $comparison = null)
+    public function filterByItemid($itemid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itemid)) {
@@ -812,7 +897,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_ITEMID, $itemid, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_ITEMID, $itemid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -822,14 +909,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByCustid('fooValue');   // WHERE custid = 'fooValue'
      * $query->filterByCustid('%fooValue%', Criteria::LIKE); // WHERE custid LIKE '%fooValue%'
+     * $query->filterByCustid(['foo', 'bar']); // WHERE custid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $custid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $custid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustid($custid = null, $comparison = null)
+    public function filterByCustid($custid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($custid)) {
@@ -837,7 +925,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_CUSTID, $custid, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_CUSTID, $custid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -847,14 +937,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByCustitemid('fooValue');   // WHERE custitemid = 'fooValue'
      * $query->filterByCustitemid('%fooValue%', Criteria::LIKE); // WHERE custitemid LIKE '%fooValue%'
+     * $query->filterByCustitemid(['foo', 'bar']); // WHERE custitemid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $custitemid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $custitemid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustitemid($custitemid = null, $comparison = null)
+    public function filterByCustitemid($custitemid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($custitemid)) {
@@ -862,7 +953,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_CUSTITEMID, $custitemid, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_CUSTITEMID, $custitemid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -872,14 +965,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByDesc1('fooValue');   // WHERE desc1 = 'fooValue'
      * $query->filterByDesc1('%fooValue%', Criteria::LIKE); // WHERE desc1 LIKE '%fooValue%'
+     * $query->filterByDesc1(['foo', 'bar']); // WHERE desc1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $desc1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $desc1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDesc1($desc1 = null, $comparison = null)
+    public function filterByDesc1($desc1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($desc1)) {
@@ -887,7 +981,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_DESC1, $desc1, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_DESC1, $desc1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -897,14 +993,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByDesc2('fooValue');   // WHERE desc2 = 'fooValue'
      * $query->filterByDesc2('%fooValue%', Criteria::LIKE); // WHERE desc2 LIKE '%fooValue%'
+     * $query->filterByDesc2(['foo', 'bar']); // WHERE desc2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $desc2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $desc2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDesc2($desc2 = null, $comparison = null)
+    public function filterByDesc2($desc2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($desc2)) {
@@ -912,7 +1009,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_DESC2, $desc2, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_DESC2, $desc2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -922,14 +1021,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByPrice('fooValue');   // WHERE price = 'fooValue'
      * $query->filterByPrice('%fooValue%', Criteria::LIKE); // WHERE price LIKE '%fooValue%'
+     * $query->filterByPrice(['foo', 'bar']); // WHERE price IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $price The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $price The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPrice($price = null, $comparison = null)
+    public function filterByPrice($price = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($price)) {
@@ -937,7 +1037,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_PRICE, $price, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_PRICE, $price, $comparison);
+
+        return $this;
     }
 
     /**
@@ -947,14 +1049,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByTotalprice('fooValue');   // WHERE totalprice = 'fooValue'
      * $query->filterByTotalprice('%fooValue%', Criteria::LIKE); // WHERE totalprice LIKE '%fooValue%'
+     * $query->filterByTotalprice(['foo', 'bar']); // WHERE totalprice IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $totalprice The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $totalprice The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTotalprice($totalprice = null, $comparison = null)
+    public function filterByTotalprice($totalprice = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($totalprice)) {
@@ -962,7 +1065,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_TOTALPRICE, $totalprice, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_TOTALPRICE, $totalprice, $comparison);
+
+        return $this;
     }
 
     /**
@@ -972,14 +1077,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByQty('fooValue');   // WHERE qty = 'fooValue'
      * $query->filterByQty('%fooValue%', Criteria::LIKE); // WHERE qty LIKE '%fooValue%'
+     * $query->filterByQty(['foo', 'bar']); // WHERE qty IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qty The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qty The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQty($qty = null, $comparison = null)
+    public function filterByQty($qty = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qty)) {
@@ -987,7 +1093,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_QTY, $qty, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_QTY, $qty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -997,14 +1105,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByQtyshipped('fooValue');   // WHERE qtyshipped = 'fooValue'
      * $query->filterByQtyshipped('%fooValue%', Criteria::LIKE); // WHERE qtyshipped LIKE '%fooValue%'
+     * $query->filterByQtyshipped(['foo', 'bar']); // WHERE qtyshipped IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtyshipped The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtyshipped The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtyshipped($qtyshipped = null, $comparison = null)
+    public function filterByQtyshipped($qtyshipped = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtyshipped)) {
@@ -1012,7 +1121,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_QTYSHIPPED, $qtyshipped, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_QTYSHIPPED, $qtyshipped, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1022,14 +1133,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByQtybackord('fooValue');   // WHERE qtybackord = 'fooValue'
      * $query->filterByQtybackord('%fooValue%', Criteria::LIKE); // WHERE qtybackord LIKE '%fooValue%'
+     * $query->filterByQtybackord(['foo', 'bar']); // WHERE qtybackord IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtybackord The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtybackord The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtybackord($qtybackord = null, $comparison = null)
+    public function filterByQtybackord($qtybackord = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtybackord)) {
@@ -1037,7 +1149,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_QTYBACKORD, $qtybackord, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_QTYBACKORD, $qtybackord, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1047,14 +1161,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByRshipdate('fooValue');   // WHERE rshipdate = 'fooValue'
      * $query->filterByRshipdate('%fooValue%', Criteria::LIKE); // WHERE rshipdate LIKE '%fooValue%'
+     * $query->filterByRshipdate(['foo', 'bar']); // WHERE rshipdate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $rshipdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $rshipdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByRshipdate($rshipdate = null, $comparison = null)
+    public function filterByRshipdate($rshipdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($rshipdate)) {
@@ -1062,7 +1177,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_RSHIPDATE, $rshipdate, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_RSHIPDATE, $rshipdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1072,14 +1189,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByHasdocuments('fooValue');   // WHERE hasdocuments = 'fooValue'
      * $query->filterByHasdocuments('%fooValue%', Criteria::LIKE); // WHERE hasdocuments LIKE '%fooValue%'
+     * $query->filterByHasdocuments(['foo', 'bar']); // WHERE hasdocuments IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $hasdocuments The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $hasdocuments The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByHasdocuments($hasdocuments = null, $comparison = null)
+    public function filterByHasdocuments($hasdocuments = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($hasdocuments)) {
@@ -1087,7 +1205,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_HASDOCUMENTS, $hasdocuments, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_HASDOCUMENTS, $hasdocuments, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1097,14 +1217,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByQtyavail('fooValue');   // WHERE qtyavail = 'fooValue'
      * $query->filterByQtyavail('%fooValue%', Criteria::LIKE); // WHERE qtyavail LIKE '%fooValue%'
+     * $query->filterByQtyavail(['foo', 'bar']); // WHERE qtyavail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtyavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtyavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtyavail($qtyavail = null, $comparison = null)
+    public function filterByQtyavail($qtyavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtyavail)) {
@@ -1112,7 +1233,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_QTYAVAIL, $qtyavail, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_QTYAVAIL, $qtyavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1122,14 +1245,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByHasnotes('fooValue');   // WHERE hasnotes = 'fooValue'
      * $query->filterByHasnotes('%fooValue%', Criteria::LIKE); // WHERE hasnotes LIKE '%fooValue%'
+     * $query->filterByHasnotes(['foo', 'bar']); // WHERE hasnotes IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $hasnotes The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $hasnotes The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByHasnotes($hasnotes = null, $comparison = null)
+    public function filterByHasnotes($hasnotes = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($hasnotes)) {
@@ -1137,7 +1261,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_HASNOTES, $hasnotes, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_HASNOTES, $hasnotes, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1147,14 +1273,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByCost('fooValue');   // WHERE cost = 'fooValue'
      * $query->filterByCost('%fooValue%', Criteria::LIKE); // WHERE cost LIKE '%fooValue%'
+     * $query->filterByCost(['foo', 'bar']); // WHERE cost IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cost The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cost The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCost($cost = null, $comparison = null)
+    public function filterByCost($cost = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cost)) {
@@ -1162,7 +1289,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_COST, $cost, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_COST, $cost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1172,14 +1301,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByWhse('fooValue');   // WHERE whse = 'fooValue'
      * $query->filterByWhse('%fooValue%', Criteria::LIKE); // WHERE whse LIKE '%fooValue%'
+     * $query->filterByWhse(['foo', 'bar']); // WHERE whse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $whse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $whse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByWhse($whse = null, $comparison = null)
+    public function filterByWhse($whse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($whse)) {
@@ -1187,7 +1317,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_WHSE, $whse, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_WHSE, $whse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1197,14 +1329,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByUom('fooValue');   // WHERE uom = 'fooValue'
      * $query->filterByUom('%fooValue%', Criteria::LIKE); // WHERE uom LIKE '%fooValue%'
+     * $query->filterByUom(['foo', 'bar']); // WHERE uom IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $uom The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $uom The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUom($uom = null, $comparison = null)
+    public function filterByUom($uom = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($uom)) {
@@ -1212,7 +1345,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_UOM, $uom, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_UOM, $uom, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1222,14 +1357,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterBySpcord('fooValue');   // WHERE spcord = 'fooValue'
      * $query->filterBySpcord('%fooValue%', Criteria::LIKE); // WHERE spcord LIKE '%fooValue%'
+     * $query->filterBySpcord(['foo', 'bar']); // WHERE spcord IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $spcord The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $spcord The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySpcord($spcord = null, $comparison = null)
+    public function filterBySpcord($spcord = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($spcord)) {
@@ -1237,7 +1373,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_SPCORD, $spcord, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_SPCORD, $spcord, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1247,14 +1385,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByKititemflag('fooValue');   // WHERE kititemflag = 'fooValue'
      * $query->filterByKititemflag('%fooValue%', Criteria::LIKE); // WHERE kititemflag LIKE '%fooValue%'
+     * $query->filterByKititemflag(['foo', 'bar']); // WHERE kititemflag IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $kititemflag The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $kititemflag The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByKititemflag($kititemflag = null, $comparison = null)
+    public function filterByKititemflag($kititemflag = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($kititemflag)) {
@@ -1262,7 +1401,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_KITITEMFLAG, $kititemflag, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_KITITEMFLAG, $kititemflag, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1272,14 +1413,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByPromocode('fooValue');   // WHERE promocode = 'fooValue'
      * $query->filterByPromocode('%fooValue%', Criteria::LIKE); // WHERE promocode LIKE '%fooValue%'
+     * $query->filterByPromocode(['foo', 'bar']); // WHERE promocode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $promocode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $promocode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPromocode($promocode = null, $comparison = null)
+    public function filterByPromocode($promocode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($promocode)) {
@@ -1287,7 +1429,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_PROMOCODE, $promocode, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_PROMOCODE, $promocode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1297,14 +1441,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByTaxcode('fooValue');   // WHERE taxcode = 'fooValue'
      * $query->filterByTaxcode('%fooValue%', Criteria::LIKE); // WHERE taxcode LIKE '%fooValue%'
+     * $query->filterByTaxcode(['foo', 'bar']); // WHERE taxcode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $taxcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $taxcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTaxcode($taxcode = null, $comparison = null)
+    public function filterByTaxcode($taxcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($taxcode)) {
@@ -1312,7 +1457,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_TAXCODE, $taxcode, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_TAXCODE, $taxcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1322,14 +1469,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByTaxcodeperc('fooValue');   // WHERE taxcodeperc = 'fooValue'
      * $query->filterByTaxcodeperc('%fooValue%', Criteria::LIKE); // WHERE taxcodeperc LIKE '%fooValue%'
+     * $query->filterByTaxcodeperc(['foo', 'bar']); // WHERE taxcodeperc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $taxcodeperc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $taxcodeperc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTaxcodeperc($taxcodeperc = null, $comparison = null)
+    public function filterByTaxcodeperc($taxcodeperc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($taxcodeperc)) {
@@ -1337,7 +1485,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_TAXCODEPERC, $taxcodeperc, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_TAXCODEPERC, $taxcodeperc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1347,14 +1497,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByDiscpct('fooValue');   // WHERE discpct = 'fooValue'
      * $query->filterByDiscpct('%fooValue%', Criteria::LIKE); // WHERE discpct LIKE '%fooValue%'
+     * $query->filterByDiscpct(['foo', 'bar']); // WHERE discpct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $discpct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $discpct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDiscpct($discpct = null, $comparison = null)
+    public function filterByDiscpct($discpct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($discpct)) {
@@ -1362,7 +1513,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_DISCPCT, $discpct, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_DISCPCT, $discpct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1372,14 +1525,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByListprice('fooValue');   // WHERE listprice = 'fooValue'
      * $query->filterByListprice('%fooValue%', Criteria::LIKE); // WHERE listprice LIKE '%fooValue%'
+     * $query->filterByListprice(['foo', 'bar']); // WHERE listprice IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $listprice The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $listprice The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByListprice($listprice = null, $comparison = null)
+    public function filterByListprice($listprice = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($listprice)) {
@@ -1387,7 +1541,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_LISTPRICE, $listprice, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_LISTPRICE, $listprice, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1397,14 +1553,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByUomconv('fooValue');   // WHERE uomconv = 'fooValue'
      * $query->filterByUomconv('%fooValue%', Criteria::LIKE); // WHERE uomconv LIKE '%fooValue%'
+     * $query->filterByUomconv(['foo', 'bar']); // WHERE uomconv IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $uomconv The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $uomconv The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUomconv($uomconv = null, $comparison = null)
+    public function filterByUomconv($uomconv = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($uomconv)) {
@@ -1412,7 +1569,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_UOMCONV, $uomconv, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_UOMCONV, $uomconv, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1422,14 +1581,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByVendorid('fooValue');   // WHERE vendorid = 'fooValue'
      * $query->filterByVendorid('%fooValue%', Criteria::LIKE); // WHERE vendorid LIKE '%fooValue%'
+     * $query->filterByVendorid(['foo', 'bar']); // WHERE vendorid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $vendorid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $vendorid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVendorid($vendorid = null, $comparison = null)
+    public function filterByVendorid($vendorid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($vendorid)) {
@@ -1437,7 +1597,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_VENDORID, $vendorid, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_VENDORID, $vendorid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1447,14 +1609,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByVendoritemid('fooValue');   // WHERE vendoritemid = 'fooValue'
      * $query->filterByVendoritemid('%fooValue%', Criteria::LIKE); // WHERE vendoritemid LIKE '%fooValue%'
+     * $query->filterByVendoritemid(['foo', 'bar']); // WHERE vendoritemid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $vendoritemid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $vendoritemid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVendoritemid($vendoritemid = null, $comparison = null)
+    public function filterByVendoritemid($vendoritemid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($vendoritemid)) {
@@ -1462,7 +1625,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_VENDORITEMID, $vendoritemid, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_VENDORITEMID, $vendoritemid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1472,14 +1637,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByMfgid('fooValue');   // WHERE mfgid = 'fooValue'
      * $query->filterByMfgid('%fooValue%', Criteria::LIKE); // WHERE mfgid LIKE '%fooValue%'
+     * $query->filterByMfgid(['foo', 'bar']); // WHERE mfgid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $mfgid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $mfgid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByMfgid($mfgid = null, $comparison = null)
+    public function filterByMfgid($mfgid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($mfgid)) {
@@ -1487,7 +1653,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_MFGID, $mfgid, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_MFGID, $mfgid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1497,14 +1665,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByMfgitemid('fooValue');   // WHERE mfgitemid = 'fooValue'
      * $query->filterByMfgitemid('%fooValue%', Criteria::LIKE); // WHERE mfgitemid LIKE '%fooValue%'
+     * $query->filterByMfgitemid(['foo', 'bar']); // WHERE mfgitemid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $mfgitemid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $mfgitemid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByMfgitemid($mfgitemid = null, $comparison = null)
+    public function filterByMfgitemid($mfgitemid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($mfgitemid)) {
@@ -1512,7 +1681,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_MFGITEMID, $mfgitemid, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_MFGITEMID, $mfgitemid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1522,14 +1693,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByStatus('fooValue');   // WHERE status = 'fooValue'
      * $query->filterByStatus('%fooValue%', Criteria::LIKE); // WHERE status LIKE '%fooValue%'
+     * $query->filterByStatus(['foo', 'bar']); // WHERE status IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $status The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $status The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByStatus($status = null, $comparison = null)
+    public function filterByStatus($status = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($status)) {
@@ -1537,7 +1709,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_STATUS, $status, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_STATUS, $status, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1547,14 +1721,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByLostreason('fooValue');   // WHERE lostreason = 'fooValue'
      * $query->filterByLostreason('%fooValue%', Criteria::LIKE); // WHERE lostreason LIKE '%fooValue%'
+     * $query->filterByLostreason(['foo', 'bar']); // WHERE lostreason IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lostreason The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lostreason The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLostreason($lostreason = null, $comparison = null)
+    public function filterByLostreason($lostreason = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lostreason)) {
@@ -1562,7 +1737,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_LOSTREASON, $lostreason, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_LOSTREASON, $lostreason, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1572,14 +1749,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByLostdate('fooValue');   // WHERE lostdate = 'fooValue'
      * $query->filterByLostdate('%fooValue%', Criteria::LIKE); // WHERE lostdate LIKE '%fooValue%'
+     * $query->filterByLostdate(['foo', 'bar']); // WHERE lostdate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lostdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lostdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLostdate($lostdate = null, $comparison = null)
+    public function filterByLostdate($lostdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lostdate)) {
@@ -1587,7 +1765,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_LOSTDATE, $lostdate, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_LOSTDATE, $lostdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1597,14 +1777,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByNotes('fooValue');   // WHERE notes = 'fooValue'
      * $query->filterByNotes('%fooValue%', Criteria::LIKE); // WHERE notes LIKE '%fooValue%'
+     * $query->filterByNotes(['foo', 'bar']); // WHERE notes IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $notes The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $notes The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByNotes($notes = null, $comparison = null)
+    public function filterByNotes($notes = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($notes)) {
@@ -1612,7 +1793,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_NOTES, $notes, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_NOTES, $notes, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1625,15 +1808,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * $query->filterByLeaddays(array('min' => 12)); // WHERE leaddays > 12
      * </code>
      *
-     * @param     mixed $leaddays The value to use as filter.
+     * @param mixed $leaddays The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLeaddays($leaddays = null, $comparison = null)
+    public function filterByLeaddays($leaddays = null, ?string $comparison = null)
     {
         if (is_array($leaddays)) {
             $useMinMax = false;
@@ -1653,7 +1836,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_LEADDAYS, $leaddays, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_LEADDAYS, $leaddays, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1663,14 +1848,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByOrdrtotalcost('fooValue');   // WHERE ordrtotalcost = 'fooValue'
      * $query->filterByOrdrtotalcost('%fooValue%', Criteria::LIKE); // WHERE ordrtotalcost LIKE '%fooValue%'
+     * $query->filterByOrdrtotalcost(['foo', 'bar']); // WHERE ordrtotalcost IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $ordrtotalcost The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $ordrtotalcost The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOrdrtotalcost($ordrtotalcost = null, $comparison = null)
+    public function filterByOrdrtotalcost($ordrtotalcost = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($ordrtotalcost)) {
@@ -1678,7 +1864,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_ORDRTOTALCOST, $ordrtotalcost, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_ORDRTOTALCOST, $ordrtotalcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1688,14 +1876,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByCostuom('fooValue');   // WHERE costuom = 'fooValue'
      * $query->filterByCostuom('%fooValue%', Criteria::LIKE); // WHERE costuom LIKE '%fooValue%'
+     * $query->filterByCostuom(['foo', 'bar']); // WHERE costuom IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $costuom The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $costuom The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCostuom($costuom = null, $comparison = null)
+    public function filterByCostuom($costuom = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($costuom)) {
@@ -1703,7 +1892,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_COSTUOM, $costuom, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_COSTUOM, $costuom, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1713,14 +1904,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByStancost('fooValue');   // WHERE stancost = 'fooValue'
      * $query->filterByStancost('%fooValue%', Criteria::LIKE); // WHERE stancost LIKE '%fooValue%'
+     * $query->filterByStancost(['foo', 'bar']); // WHERE stancost IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $stancost The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $stancost The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByStancost($stancost = null, $comparison = null)
+    public function filterByStancost($stancost = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($stancost)) {
@@ -1728,7 +1920,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_STANCOST, $stancost, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_STANCOST, $stancost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1738,14 +1932,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByQuotind('fooValue');   // WHERE quotind = 'fooValue'
      * $query->filterByQuotind('%fooValue%', Criteria::LIKE); // WHERE quotind LIKE '%fooValue%'
+     * $query->filterByQuotind(['foo', 'bar']); // WHERE quotind IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $quotind The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $quotind The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQuotind($quotind = null, $comparison = null)
+    public function filterByQuotind($quotind = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($quotind)) {
@@ -1753,7 +1948,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_QUOTIND, $quotind, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_QUOTIND, $quotind, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1766,15 +1963,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * $query->filterByQuotqty(array('min' => 12)); // WHERE quotqty > 12
      * </code>
      *
-     * @param     mixed $quotqty The value to use as filter.
+     * @param mixed $quotqty The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQuotqty($quotqty = null, $comparison = null)
+    public function filterByQuotqty($quotqty = null, ?string $comparison = null)
     {
         if (is_array($quotqty)) {
             $useMinMax = false;
@@ -1794,7 +1991,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_QUOTQTY, $quotqty, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_QUOTQTY, $quotqty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1804,14 +2003,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByQuotprice('fooValue');   // WHERE quotprice = 'fooValue'
      * $query->filterByQuotprice('%fooValue%', Criteria::LIKE); // WHERE quotprice LIKE '%fooValue%'
+     * $query->filterByQuotprice(['foo', 'bar']); // WHERE quotprice IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $quotprice The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $quotprice The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQuotprice($quotprice = null, $comparison = null)
+    public function filterByQuotprice($quotprice = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($quotprice)) {
@@ -1819,7 +2019,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_QUOTPRICE, $quotprice, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_QUOTPRICE, $quotprice, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1829,14 +2031,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByQuotcost('fooValue');   // WHERE quotcost = 'fooValue'
      * $query->filterByQuotcost('%fooValue%', Criteria::LIKE); // WHERE quotcost LIKE '%fooValue%'
+     * $query->filterByQuotcost(['foo', 'bar']); // WHERE quotcost IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $quotcost The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $quotcost The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQuotcost($quotcost = null, $comparison = null)
+    public function filterByQuotcost($quotcost = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($quotcost)) {
@@ -1844,7 +2047,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_QUOTCOST, $quotcost, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_QUOTCOST, $quotcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1854,14 +2059,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByQuotmkupmarg('fooValue');   // WHERE quotmkupmarg = 'fooValue'
      * $query->filterByQuotmkupmarg('%fooValue%', Criteria::LIKE); // WHERE quotmkupmarg LIKE '%fooValue%'
+     * $query->filterByQuotmkupmarg(['foo', 'bar']); // WHERE quotmkupmarg IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $quotmkupmarg The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $quotmkupmarg The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQuotmkupmarg($quotmkupmarg = null, $comparison = null)
+    public function filterByQuotmkupmarg($quotmkupmarg = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($quotmkupmarg)) {
@@ -1869,7 +2075,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_QUOTMKUPMARG, $quotmkupmarg, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_QUOTMKUPMARG, $quotmkupmarg, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1879,14 +2087,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByQuotdiscpct('fooValue');   // WHERE quotdiscpct = 'fooValue'
      * $query->filterByQuotdiscpct('%fooValue%', Criteria::LIKE); // WHERE quotdiscpct LIKE '%fooValue%'
+     * $query->filterByQuotdiscpct(['foo', 'bar']); // WHERE quotdiscpct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $quotdiscpct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $quotdiscpct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQuotdiscpct($quotdiscpct = null, $comparison = null)
+    public function filterByQuotdiscpct($quotdiscpct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($quotdiscpct)) {
@@ -1894,7 +2103,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_QUOTDISCPCT, $quotdiscpct, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_QUOTDISCPCT, $quotdiscpct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1904,14 +2115,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByErrormsg('fooValue');   // WHERE errormsg = 'fooValue'
      * $query->filterByErrormsg('%fooValue%', Criteria::LIKE); // WHERE errormsg LIKE '%fooValue%'
+     * $query->filterByErrormsg(['foo', 'bar']); // WHERE errormsg IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $errormsg The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $errormsg The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByErrormsg($errormsg = null, $comparison = null)
+    public function filterByErrormsg($errormsg = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($errormsg)) {
@@ -1919,7 +2131,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_ERRORMSG, $errormsg, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_ERRORMSG, $errormsg, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1929,14 +2143,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByMinprice('fooValue');   // WHERE minprice = 'fooValue'
      * $query->filterByMinprice('%fooValue%', Criteria::LIKE); // WHERE minprice LIKE '%fooValue%'
+     * $query->filterByMinprice(['foo', 'bar']); // WHERE minprice IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $minprice The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $minprice The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByMinprice($minprice = null, $comparison = null)
+    public function filterByMinprice($minprice = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($minprice)) {
@@ -1944,7 +2159,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_MINPRICE, $minprice, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_MINPRICE, $minprice, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1954,14 +2171,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByPonbr('fooValue');   // WHERE ponbr = 'fooValue'
      * $query->filterByPonbr('%fooValue%', Criteria::LIKE); // WHERE ponbr LIKE '%fooValue%'
+     * $query->filterByPonbr(['foo', 'bar']); // WHERE ponbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $ponbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $ponbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPonbr($ponbr = null, $comparison = null)
+    public function filterByPonbr($ponbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($ponbr)) {
@@ -1969,7 +2187,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_PONBR, $ponbr, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_PONBR, $ponbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1979,14 +2199,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByPoref('fooValue');   // WHERE poref = 'fooValue'
      * $query->filterByPoref('%fooValue%', Criteria::LIKE); // WHERE poref LIKE '%fooValue%'
+     * $query->filterByPoref(['foo', 'bar']); // WHERE poref IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $poref The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $poref The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPoref($poref = null, $comparison = null)
+    public function filterByPoref($poref = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($poref)) {
@@ -1994,7 +2215,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_POREF, $poref, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_POREF, $poref, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2004,14 +2227,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByNsitemgroup('fooValue');   // WHERE nsitemgroup = 'fooValue'
      * $query->filterByNsitemgroup('%fooValue%', Criteria::LIKE); // WHERE nsitemgroup LIKE '%fooValue%'
+     * $query->filterByNsitemgroup(['foo', 'bar']); // WHERE nsitemgroup IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $nsitemgroup The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $nsitemgroup The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByNsitemgroup($nsitemgroup = null, $comparison = null)
+    public function filterByNsitemgroup($nsitemgroup = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($nsitemgroup)) {
@@ -2019,7 +2243,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_NSITEMGROUP, $nsitemgroup, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_NSITEMGROUP, $nsitemgroup, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2029,14 +2255,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByShipfromid('fooValue');   // WHERE shipfromid = 'fooValue'
      * $query->filterByShipfromid('%fooValue%', Criteria::LIKE); // WHERE shipfromid LIKE '%fooValue%'
+     * $query->filterByShipfromid(['foo', 'bar']); // WHERE shipfromid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shipfromid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shipfromid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipfromid($shipfromid = null, $comparison = null)
+    public function filterByShipfromid($shipfromid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shipfromid)) {
@@ -2044,7 +2271,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_SHIPFROMID, $shipfromid, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_SHIPFROMID, $shipfromid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2054,14 +2283,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByItemtype('fooValue');   // WHERE itemtype = 'fooValue'
      * $query->filterByItemtype('%fooValue%', Criteria::LIKE); // WHERE itemtype LIKE '%fooValue%'
+     * $query->filterByItemtype(['foo', 'bar']); // WHERE itemtype IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itemtype The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itemtype The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemtype($itemtype = null, $comparison = null)
+    public function filterByItemtype($itemtype = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itemtype)) {
@@ -2069,7 +2299,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_ITEMTYPE, $itemtype, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_ITEMTYPE, $itemtype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2079,14 +2311,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByCanbackorder('fooValue');   // WHERE canbackorder = 'fooValue'
      * $query->filterByCanbackorder('%fooValue%', Criteria::LIKE); // WHERE canbackorder LIKE '%fooValue%'
+     * $query->filterByCanbackorder(['foo', 'bar']); // WHERE canbackorder IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $canbackorder The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $canbackorder The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCanbackorder($canbackorder = null, $comparison = null)
+    public function filterByCanbackorder($canbackorder = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($canbackorder)) {
@@ -2094,7 +2327,9 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_CANBACKORDER, $canbackorder, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_CANBACKORDER, $canbackorder, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2104,14 +2339,15 @@ abstract class OrdrdetQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -2119,15 +2355,17 @@ abstract class OrdrdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrdetTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(OrdrdetTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildOrdrdet $ordrdet Object to remove from the list of results
+     * @param ChildOrdrdet $ordrdet Object to remove from the list of results
      *
-     * @return $this|ChildOrdrdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($ordrdet = null)
     {
@@ -2147,7 +2385,7 @@ abstract class OrdrdetQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(OrdrdetTableMap::DATABASE_NAME);
@@ -2172,12 +2410,12 @@ abstract class OrdrdetQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(OrdrdetTableMap::DATABASE_NAME);
@@ -2202,4 +2440,4 @@ abstract class OrdrdetQuery extends ModelCriteria
         });
     }
 
-} // OrdrdetQuery
+}

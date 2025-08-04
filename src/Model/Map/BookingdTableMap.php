@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class BookingdTableMap extends TableMap
 {
@@ -34,174 +33,299 @@ class BookingdTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.BookingdTableMap';
+    public const CLASS_NAME = '.Map.BookingdTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'dplusodb';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'bookingd';
+    public const TABLE_NAME = 'bookingd';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'Bookingd';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\Bookingd';
+    public const OM_CLASS = '\\Bookingd';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'Bookingd';
+    public const CLASS_DEFAULT = 'Bookingd';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 18;
+    public const NUM_COLUMNS = 18;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 18;
+    public const NUM_HYDRATE_COLUMNS = 18;
 
     /**
      * the column name for the bookdate field
      */
-    const COL_BOOKDATE = 'bookingd.bookdate';
+    public const COL_BOOKDATE = 'bookingd.bookdate';
 
     /**
      * the column name for the custid field
      */
-    const COL_CUSTID = 'bookingd.custid';
+    public const COL_CUSTID = 'bookingd.custid';
 
     /**
      * the column name for the shiptoid field
      */
-    const COL_SHIPTOID = 'bookingd.shiptoid';
+    public const COL_SHIPTOID = 'bookingd.shiptoid';
 
     /**
      * the column name for the salesorderbase field
      */
-    const COL_SALESORDERBASE = 'bookingd.salesorderbase';
+    public const COL_SALESORDERBASE = 'bookingd.salesorderbase';
 
     /**
      * the column name for the origorderline field
      */
-    const COL_ORIGORDERLINE = 'bookingd.origorderline';
+    public const COL_ORIGORDERLINE = 'bookingd.origorderline';
 
     /**
      * the column name for the itemid field
      */
-    const COL_ITEMID = 'bookingd.itemid';
+    public const COL_ITEMID = 'bookingd.itemid';
 
     /**
      * the column name for the salesordernbr field
      */
-    const COL_SALESORDERNBR = 'bookingd.salesordernbr';
+    public const COL_SALESORDERNBR = 'bookingd.salesordernbr';
 
     /**
      * the column name for the salesperson1 field
      */
-    const COL_SALESPERSON1 = 'bookingd.salesperson1';
+    public const COL_SALESPERSON1 = 'bookingd.salesperson1';
 
     /**
      * the column name for the b4qty field
      */
-    const COL_B4QTY = 'bookingd.b4qty';
+    public const COL_B4QTY = 'bookingd.b4qty';
 
     /**
      * the column name for the b4price field
      */
-    const COL_B4PRICE = 'bookingd.b4price';
+    public const COL_B4PRICE = 'bookingd.b4price';
 
     /**
      * the column name for the b4uom field
      */
-    const COL_B4UOM = 'bookingd.b4uom';
+    public const COL_B4UOM = 'bookingd.b4uom';
 
     /**
      * the column name for the afterqty field
      */
-    const COL_AFTERQTY = 'bookingd.afterqty';
+    public const COL_AFTERQTY = 'bookingd.afterqty';
 
     /**
      * the column name for the afterprice field
      */
-    const COL_AFTERPRICE = 'bookingd.afterprice';
+    public const COL_AFTERPRICE = 'bookingd.afterprice';
 
     /**
      * the column name for the afteruom field
      */
-    const COL_AFTERUOM = 'bookingd.afteruom';
+    public const COL_AFTERUOM = 'bookingd.afteruom';
 
     /**
      * the column name for the netamount field
      */
-    const COL_NETAMOUNT = 'bookingd.netamount';
+    public const COL_NETAMOUNT = 'bookingd.netamount';
 
     /**
      * the column name for the createdate field
      */
-    const COL_CREATEDATE = 'bookingd.createdate';
+    public const COL_CREATEDATE = 'bookingd.createdate';
 
     /**
      * the column name for the createtime field
      */
-    const COL_CREATETIME = 'bookingd.createtime';
+    public const COL_CREATETIME = 'bookingd.createtime';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'bookingd.dummy';
+    public const COL_DUMMY = 'bookingd.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Bookdate', 'Custid', 'Shiptoid', 'Salesorderbase', 'Origorderline', 'Itemid', 'Salesordernbr', 'Salesperson1', 'B4qty', 'B4price', 'B4uom', 'Afterqty', 'Afterprice', 'Afteruom', 'Netamount', 'Createdate', 'Createtime', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('bookdate', 'custid', 'shiptoid', 'salesorderbase', 'origorderline', 'itemid', 'salesordernbr', 'salesperson1', 'b4qty', 'b4price', 'b4uom', 'afterqty', 'afterprice', 'afteruom', 'netamount', 'createdate', 'createtime', 'dummy', ),
-        self::TYPE_COLNAME       => array(BookingdTableMap::COL_BOOKDATE, BookingdTableMap::COL_CUSTID, BookingdTableMap::COL_SHIPTOID, BookingdTableMap::COL_SALESORDERBASE, BookingdTableMap::COL_ORIGORDERLINE, BookingdTableMap::COL_ITEMID, BookingdTableMap::COL_SALESORDERNBR, BookingdTableMap::COL_SALESPERSON1, BookingdTableMap::COL_B4QTY, BookingdTableMap::COL_B4PRICE, BookingdTableMap::COL_B4UOM, BookingdTableMap::COL_AFTERQTY, BookingdTableMap::COL_AFTERPRICE, BookingdTableMap::COL_AFTERUOM, BookingdTableMap::COL_NETAMOUNT, BookingdTableMap::COL_CREATEDATE, BookingdTableMap::COL_CREATETIME, BookingdTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('bookdate', 'custid', 'shiptoid', 'salesorderbase', 'origorderline', 'itemid', 'salesordernbr', 'salesperson1', 'b4qty', 'b4price', 'b4uom', 'afterqty', 'afterprice', 'afteruom', 'netamount', 'createdate', 'createtime', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Bookdate', 'Custid', 'Shiptoid', 'Salesorderbase', 'Origorderline', 'Itemid', 'Salesordernbr', 'Salesperson1', 'B4qty', 'B4price', 'B4uom', 'Afterqty', 'Afterprice', 'Afteruom', 'Netamount', 'Createdate', 'Createtime', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['bookdate', 'custid', 'shiptoid', 'salesorderbase', 'origorderline', 'itemid', 'salesordernbr', 'salesperson1', 'b4qty', 'b4price', 'b4uom', 'afterqty', 'afterprice', 'afteruom', 'netamount', 'createdate', 'createtime', 'dummy', ],
+        self::TYPE_COLNAME       => [BookingdTableMap::COL_BOOKDATE, BookingdTableMap::COL_CUSTID, BookingdTableMap::COL_SHIPTOID, BookingdTableMap::COL_SALESORDERBASE, BookingdTableMap::COL_ORIGORDERLINE, BookingdTableMap::COL_ITEMID, BookingdTableMap::COL_SALESORDERNBR, BookingdTableMap::COL_SALESPERSON1, BookingdTableMap::COL_B4QTY, BookingdTableMap::COL_B4PRICE, BookingdTableMap::COL_B4UOM, BookingdTableMap::COL_AFTERQTY, BookingdTableMap::COL_AFTERPRICE, BookingdTableMap::COL_AFTERUOM, BookingdTableMap::COL_NETAMOUNT, BookingdTableMap::COL_CREATEDATE, BookingdTableMap::COL_CREATETIME, BookingdTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['bookdate', 'custid', 'shiptoid', 'salesorderbase', 'origorderline', 'itemid', 'salesordernbr', 'salesperson1', 'b4qty', 'b4price', 'b4uom', 'afterqty', 'afterprice', 'afteruom', 'netamount', 'createdate', 'createtime', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Bookdate' => 0, 'Custid' => 1, 'Shiptoid' => 2, 'Salesorderbase' => 3, 'Origorderline' => 4, 'Itemid' => 5, 'Salesordernbr' => 6, 'Salesperson1' => 7, 'B4qty' => 8, 'B4price' => 9, 'B4uom' => 10, 'Afterqty' => 11, 'Afterprice' => 12, 'Afteruom' => 13, 'Netamount' => 14, 'Createdate' => 15, 'Createtime' => 16, 'Dummy' => 17, ),
-        self::TYPE_CAMELNAME     => array('bookdate' => 0, 'custid' => 1, 'shiptoid' => 2, 'salesorderbase' => 3, 'origorderline' => 4, 'itemid' => 5, 'salesordernbr' => 6, 'salesperson1' => 7, 'b4qty' => 8, 'b4price' => 9, 'b4uom' => 10, 'afterqty' => 11, 'afterprice' => 12, 'afteruom' => 13, 'netamount' => 14, 'createdate' => 15, 'createtime' => 16, 'dummy' => 17, ),
-        self::TYPE_COLNAME       => array(BookingdTableMap::COL_BOOKDATE => 0, BookingdTableMap::COL_CUSTID => 1, BookingdTableMap::COL_SHIPTOID => 2, BookingdTableMap::COL_SALESORDERBASE => 3, BookingdTableMap::COL_ORIGORDERLINE => 4, BookingdTableMap::COL_ITEMID => 5, BookingdTableMap::COL_SALESORDERNBR => 6, BookingdTableMap::COL_SALESPERSON1 => 7, BookingdTableMap::COL_B4QTY => 8, BookingdTableMap::COL_B4PRICE => 9, BookingdTableMap::COL_B4UOM => 10, BookingdTableMap::COL_AFTERQTY => 11, BookingdTableMap::COL_AFTERPRICE => 12, BookingdTableMap::COL_AFTERUOM => 13, BookingdTableMap::COL_NETAMOUNT => 14, BookingdTableMap::COL_CREATEDATE => 15, BookingdTableMap::COL_CREATETIME => 16, BookingdTableMap::COL_DUMMY => 17, ),
-        self::TYPE_FIELDNAME     => array('bookdate' => 0, 'custid' => 1, 'shiptoid' => 2, 'salesorderbase' => 3, 'origorderline' => 4, 'itemid' => 5, 'salesordernbr' => 6, 'salesperson1' => 7, 'b4qty' => 8, 'b4price' => 9, 'b4uom' => 10, 'afterqty' => 11, 'afterprice' => 12, 'afteruom' => 13, 'netamount' => 14, 'createdate' => 15, 'createtime' => 16, 'dummy' => 17, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Bookdate' => 0, 'Custid' => 1, 'Shiptoid' => 2, 'Salesorderbase' => 3, 'Origorderline' => 4, 'Itemid' => 5, 'Salesordernbr' => 6, 'Salesperson1' => 7, 'B4qty' => 8, 'B4price' => 9, 'B4uom' => 10, 'Afterqty' => 11, 'Afterprice' => 12, 'Afteruom' => 13, 'Netamount' => 14, 'Createdate' => 15, 'Createtime' => 16, 'Dummy' => 17, ],
+        self::TYPE_CAMELNAME     => ['bookdate' => 0, 'custid' => 1, 'shiptoid' => 2, 'salesorderbase' => 3, 'origorderline' => 4, 'itemid' => 5, 'salesordernbr' => 6, 'salesperson1' => 7, 'b4qty' => 8, 'b4price' => 9, 'b4uom' => 10, 'afterqty' => 11, 'afterprice' => 12, 'afteruom' => 13, 'netamount' => 14, 'createdate' => 15, 'createtime' => 16, 'dummy' => 17, ],
+        self::TYPE_COLNAME       => [BookingdTableMap::COL_BOOKDATE => 0, BookingdTableMap::COL_CUSTID => 1, BookingdTableMap::COL_SHIPTOID => 2, BookingdTableMap::COL_SALESORDERBASE => 3, BookingdTableMap::COL_ORIGORDERLINE => 4, BookingdTableMap::COL_ITEMID => 5, BookingdTableMap::COL_SALESORDERNBR => 6, BookingdTableMap::COL_SALESPERSON1 => 7, BookingdTableMap::COL_B4QTY => 8, BookingdTableMap::COL_B4PRICE => 9, BookingdTableMap::COL_B4UOM => 10, BookingdTableMap::COL_AFTERQTY => 11, BookingdTableMap::COL_AFTERPRICE => 12, BookingdTableMap::COL_AFTERUOM => 13, BookingdTableMap::COL_NETAMOUNT => 14, BookingdTableMap::COL_CREATEDATE => 15, BookingdTableMap::COL_CREATETIME => 16, BookingdTableMap::COL_DUMMY => 17, ],
+        self::TYPE_FIELDNAME     => ['bookdate' => 0, 'custid' => 1, 'shiptoid' => 2, 'salesorderbase' => 3, 'origorderline' => 4, 'itemid' => 5, 'salesordernbr' => 6, 'salesperson1' => 7, 'b4qty' => 8, 'b4price' => 9, 'b4uom' => 10, 'afterqty' => 11, 'afterprice' => 12, 'afteruom' => 13, 'netamount' => 14, 'createdate' => 15, 'createtime' => 16, 'dummy' => 17, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Bookdate' => 'BOOKDATE',
+        'Bookingd.Bookdate' => 'BOOKDATE',
+        'bookdate' => 'BOOKDATE',
+        'bookingd.bookdate' => 'BOOKDATE',
+        'BookingdTableMap::COL_BOOKDATE' => 'BOOKDATE',
+        'COL_BOOKDATE' => 'BOOKDATE',
+        'Custid' => 'CUSTID',
+        'Bookingd.Custid' => 'CUSTID',
+        'custid' => 'CUSTID',
+        'bookingd.custid' => 'CUSTID',
+        'BookingdTableMap::COL_CUSTID' => 'CUSTID',
+        'COL_CUSTID' => 'CUSTID',
+        'Shiptoid' => 'SHIPTOID',
+        'Bookingd.Shiptoid' => 'SHIPTOID',
+        'shiptoid' => 'SHIPTOID',
+        'bookingd.shiptoid' => 'SHIPTOID',
+        'BookingdTableMap::COL_SHIPTOID' => 'SHIPTOID',
+        'COL_SHIPTOID' => 'SHIPTOID',
+        'Salesorderbase' => 'SALESORDERBASE',
+        'Bookingd.Salesorderbase' => 'SALESORDERBASE',
+        'salesorderbase' => 'SALESORDERBASE',
+        'bookingd.salesorderbase' => 'SALESORDERBASE',
+        'BookingdTableMap::COL_SALESORDERBASE' => 'SALESORDERBASE',
+        'COL_SALESORDERBASE' => 'SALESORDERBASE',
+        'Origorderline' => 'ORIGORDERLINE',
+        'Bookingd.Origorderline' => 'ORIGORDERLINE',
+        'origorderline' => 'ORIGORDERLINE',
+        'bookingd.origorderline' => 'ORIGORDERLINE',
+        'BookingdTableMap::COL_ORIGORDERLINE' => 'ORIGORDERLINE',
+        'COL_ORIGORDERLINE' => 'ORIGORDERLINE',
+        'Itemid' => 'ITEMID',
+        'Bookingd.Itemid' => 'ITEMID',
+        'itemid' => 'ITEMID',
+        'bookingd.itemid' => 'ITEMID',
+        'BookingdTableMap::COL_ITEMID' => 'ITEMID',
+        'COL_ITEMID' => 'ITEMID',
+        'Salesordernbr' => 'SALESORDERNBR',
+        'Bookingd.Salesordernbr' => 'SALESORDERNBR',
+        'salesordernbr' => 'SALESORDERNBR',
+        'bookingd.salesordernbr' => 'SALESORDERNBR',
+        'BookingdTableMap::COL_SALESORDERNBR' => 'SALESORDERNBR',
+        'COL_SALESORDERNBR' => 'SALESORDERNBR',
+        'Salesperson1' => 'SALESPERSON1',
+        'Bookingd.Salesperson1' => 'SALESPERSON1',
+        'salesperson1' => 'SALESPERSON1',
+        'bookingd.salesperson1' => 'SALESPERSON1',
+        'BookingdTableMap::COL_SALESPERSON1' => 'SALESPERSON1',
+        'COL_SALESPERSON1' => 'SALESPERSON1',
+        'B4qty' => 'B4QTY',
+        'Bookingd.B4qty' => 'B4QTY',
+        'b4qty' => 'B4QTY',
+        'bookingd.b4qty' => 'B4QTY',
+        'BookingdTableMap::COL_B4QTY' => 'B4QTY',
+        'COL_B4QTY' => 'B4QTY',
+        'B4price' => 'B4PRICE',
+        'Bookingd.B4price' => 'B4PRICE',
+        'b4price' => 'B4PRICE',
+        'bookingd.b4price' => 'B4PRICE',
+        'BookingdTableMap::COL_B4PRICE' => 'B4PRICE',
+        'COL_B4PRICE' => 'B4PRICE',
+        'B4uom' => 'B4UOM',
+        'Bookingd.B4uom' => 'B4UOM',
+        'b4uom' => 'B4UOM',
+        'bookingd.b4uom' => 'B4UOM',
+        'BookingdTableMap::COL_B4UOM' => 'B4UOM',
+        'COL_B4UOM' => 'B4UOM',
+        'Afterqty' => 'AFTERQTY',
+        'Bookingd.Afterqty' => 'AFTERQTY',
+        'afterqty' => 'AFTERQTY',
+        'bookingd.afterqty' => 'AFTERQTY',
+        'BookingdTableMap::COL_AFTERQTY' => 'AFTERQTY',
+        'COL_AFTERQTY' => 'AFTERQTY',
+        'Afterprice' => 'AFTERPRICE',
+        'Bookingd.Afterprice' => 'AFTERPRICE',
+        'afterprice' => 'AFTERPRICE',
+        'bookingd.afterprice' => 'AFTERPRICE',
+        'BookingdTableMap::COL_AFTERPRICE' => 'AFTERPRICE',
+        'COL_AFTERPRICE' => 'AFTERPRICE',
+        'Afteruom' => 'AFTERUOM',
+        'Bookingd.Afteruom' => 'AFTERUOM',
+        'afteruom' => 'AFTERUOM',
+        'bookingd.afteruom' => 'AFTERUOM',
+        'BookingdTableMap::COL_AFTERUOM' => 'AFTERUOM',
+        'COL_AFTERUOM' => 'AFTERUOM',
+        'Netamount' => 'NETAMOUNT',
+        'Bookingd.Netamount' => 'NETAMOUNT',
+        'netamount' => 'NETAMOUNT',
+        'bookingd.netamount' => 'NETAMOUNT',
+        'BookingdTableMap::COL_NETAMOUNT' => 'NETAMOUNT',
+        'COL_NETAMOUNT' => 'NETAMOUNT',
+        'Createdate' => 'CREATEDATE',
+        'Bookingd.Createdate' => 'CREATEDATE',
+        'createdate' => 'CREATEDATE',
+        'bookingd.createdate' => 'CREATEDATE',
+        'BookingdTableMap::COL_CREATEDATE' => 'CREATEDATE',
+        'COL_CREATEDATE' => 'CREATEDATE',
+        'Createtime' => 'CREATETIME',
+        'Bookingd.Createtime' => 'CREATETIME',
+        'createtime' => 'CREATETIME',
+        'bookingd.createtime' => 'CREATETIME',
+        'BookingdTableMap::COL_CREATETIME' => 'CREATETIME',
+        'COL_CREATETIME' => 'CREATETIME',
+        'Dummy' => 'DUMMY',
+        'Bookingd.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'bookingd.dummy' => 'DUMMY',
+        'BookingdTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('bookingd');
@@ -219,24 +343,26 @@ class BookingdTableMap extends TableMap
         $this->addPrimaryKey('itemid', 'Itemid', 'VARCHAR', true, 30, null);
         $this->addColumn('salesordernbr', 'Salesordernbr', 'INTEGER', true, 10, null);
         $this->addColumn('salesperson1', 'Salesperson1', 'VARCHAR', false, 6, null);
-        $this->addColumn('b4qty', 'B4qty', 'DECIMAL', true, 9, 0);
-        $this->addColumn('b4price', 'B4price', 'DECIMAL', true, 9, 0);
+        $this->addColumn('b4qty', 'B4qty', 'DECIMAL', true, 9, 0.000);
+        $this->addColumn('b4price', 'B4price', 'DECIMAL', true, 9, 0.000);
         $this->addColumn('b4uom', 'B4uom', 'VARCHAR', false, 4, null);
-        $this->addColumn('afterqty', 'Afterqty', 'DECIMAL', true, 9, 0);
-        $this->addColumn('afterprice', 'Afterprice', 'DECIMAL', true, 9, 0);
+        $this->addColumn('afterqty', 'Afterqty', 'DECIMAL', true, 9, 0.000);
+        $this->addColumn('afterprice', 'Afterprice', 'DECIMAL', true, 9, 0.000);
         $this->addColumn('afteruom', 'Afteruom', 'VARCHAR', false, 4, null);
-        $this->addColumn('netamount', 'Netamount', 'DECIMAL', true, 9, 0);
+        $this->addColumn('netamount', 'Netamount', 'DECIMAL', true, 9, 0.00);
         $this->addColumn('createdate', 'Createdate', 'VARCHAR', false, 8, null);
         $this->addColumn('createtime', 'Createtime', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -247,9 +373,11 @@ class BookingdTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \Bookingd $obj A \Bookingd object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(Bookingd $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -268,8 +396,10 @@ class BookingdTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \Bookingd object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \Bookingd) {
@@ -297,14 +427,14 @@ class BookingdTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Bookdate', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Custid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Shiptoid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Salesorderbase', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Origorderline', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 5 + $offset : static::translateFieldName('Itemid', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -319,14 +449,14 @@ class BookingdTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -372,10 +502,10 @@ class BookingdTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? BookingdTableMap::CLASS_DEFAULT : BookingdTableMap::OM_CLASS;
     }
@@ -383,17 +513,17 @@ class BookingdTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (Bookingd object, last column rank)
+     * @return array (Bookingd object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = BookingdTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = BookingdTableMap::getInstanceFromPool($key))) {
@@ -409,7 +539,7 @@ class BookingdTableMap extends TableMap
             BookingdTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -417,13 +547,13 @@ class BookingdTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -453,12 +583,13 @@ class BookingdTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(BookingdTableMap::COL_BOOKDATE);
@@ -502,40 +633,84 @@ class BookingdTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(BookingdTableMap::COL_BOOKDATE);
+            $criteria->removeSelectColumn(BookingdTableMap::COL_CUSTID);
+            $criteria->removeSelectColumn(BookingdTableMap::COL_SHIPTOID);
+            $criteria->removeSelectColumn(BookingdTableMap::COL_SALESORDERBASE);
+            $criteria->removeSelectColumn(BookingdTableMap::COL_ORIGORDERLINE);
+            $criteria->removeSelectColumn(BookingdTableMap::COL_ITEMID);
+            $criteria->removeSelectColumn(BookingdTableMap::COL_SALESORDERNBR);
+            $criteria->removeSelectColumn(BookingdTableMap::COL_SALESPERSON1);
+            $criteria->removeSelectColumn(BookingdTableMap::COL_B4QTY);
+            $criteria->removeSelectColumn(BookingdTableMap::COL_B4PRICE);
+            $criteria->removeSelectColumn(BookingdTableMap::COL_B4UOM);
+            $criteria->removeSelectColumn(BookingdTableMap::COL_AFTERQTY);
+            $criteria->removeSelectColumn(BookingdTableMap::COL_AFTERPRICE);
+            $criteria->removeSelectColumn(BookingdTableMap::COL_AFTERUOM);
+            $criteria->removeSelectColumn(BookingdTableMap::COL_NETAMOUNT);
+            $criteria->removeSelectColumn(BookingdTableMap::COL_CREATEDATE);
+            $criteria->removeSelectColumn(BookingdTableMap::COL_CREATETIME);
+            $criteria->removeSelectColumn(BookingdTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.bookdate');
+            $criteria->removeSelectColumn($alias . '.custid');
+            $criteria->removeSelectColumn($alias . '.shiptoid');
+            $criteria->removeSelectColumn($alias . '.salesorderbase');
+            $criteria->removeSelectColumn($alias . '.origorderline');
+            $criteria->removeSelectColumn($alias . '.itemid');
+            $criteria->removeSelectColumn($alias . '.salesordernbr');
+            $criteria->removeSelectColumn($alias . '.salesperson1');
+            $criteria->removeSelectColumn($alias . '.b4qty');
+            $criteria->removeSelectColumn($alias . '.b4price');
+            $criteria->removeSelectColumn($alias . '.b4uom');
+            $criteria->removeSelectColumn($alias . '.afterqty');
+            $criteria->removeSelectColumn($alias . '.afterprice');
+            $criteria->removeSelectColumn($alias . '.afteruom');
+            $criteria->removeSelectColumn($alias . '.netamount');
+            $criteria->removeSelectColumn($alias . '.createdate');
+            $criteria->removeSelectColumn($alias . '.createtime');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(BookingdTableMap::DATABASE_NAME)->getTable(BookingdTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(BookingdTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(BookingdTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new BookingdTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a Bookingd or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or Bookingd object or primary key or array of primary keys
+     * @param mixed $values Criteria or Bookingd object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(BookingdTableMap::DATABASE_NAME);
@@ -553,7 +728,7 @@ class BookingdTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(BookingdTableMap::COL_BOOKDATE, $value[0]);
@@ -585,7 +760,7 @@ class BookingdTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return BookingdQuery::create()->doDeleteAll($con);
     }
@@ -593,13 +768,13 @@ class BookingdTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a Bookingd or Criteria object.
      *
-     * @param mixed               $criteria Criteria or Bookingd object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or Bookingd object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(BookingdTableMap::DATABASE_NAME);
@@ -622,7 +797,4 @@ class BookingdTableMap extends TableMap
         });
     }
 
-} // BookingdTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-BookingdTableMap::buildTableMap();
+}

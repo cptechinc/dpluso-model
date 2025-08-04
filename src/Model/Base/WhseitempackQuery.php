@@ -10,14 +10,12 @@ use Map\WhseitempackTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'whseitempack' table.
- *
- *
+ * Base class that represents a query for the `whseitempack` table.
  *
  * @method     ChildWhseitempackQuery orderBySessionid($order = Criteria::ASC) Order by the sessionid column
  * @method     ChildWhseitempackQuery orderByOrdn($order = Criteria::ASC) Order by the ordn column
@@ -45,20 +43,20 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWhseitempackQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildWhseitempackQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildWhseitempack findOne(ConnectionInterface $con = null) Return the first ChildWhseitempack matching the query
- * @method     ChildWhseitempack findOneOrCreate(ConnectionInterface $con = null) Return the first ChildWhseitempack matching the query, or a new ChildWhseitempack object populated from the query conditions when no match is found
+ * @method     ChildWhseitempack|null findOne(?ConnectionInterface $con = null) Return the first ChildWhseitempack matching the query
+ * @method     ChildWhseitempack findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildWhseitempack matching the query, or a new ChildWhseitempack object populated from the query conditions when no match is found
  *
- * @method     ChildWhseitempack findOneBySessionid(string $sessionid) Return the first ChildWhseitempack filtered by the sessionid column
- * @method     ChildWhseitempack findOneByOrdn(string $ordn) Return the first ChildWhseitempack filtered by the ordn column
- * @method     ChildWhseitempack findOneByLinenumber(int $linenumber) Return the first ChildWhseitempack filtered by the linenumber column
- * @method     ChildWhseitempack findOneByCarton(int $carton) Return the first ChildWhseitempack filtered by the carton column
- * @method     ChildWhseitempack findOneByRecordnumber(int $recordnumber) Return the first ChildWhseitempack filtered by the recordnumber column
- * @method     ChildWhseitempack findOneByItemid(string $itemid) Return the first ChildWhseitempack filtered by the itemid column
- * @method     ChildWhseitempack findOneByLotserial(string $lotserial) Return the first ChildWhseitempack filtered by the lotserial column
- * @method     ChildWhseitempack findOneByQty(string $qty) Return the first ChildWhseitempack filtered by the qty column *
-
- * @method     ChildWhseitempack requirePk($key, ConnectionInterface $con = null) Return the ChildWhseitempack by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseitempack requireOne(ConnectionInterface $con = null) Return the first ChildWhseitempack matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWhseitempack|null findOneBySessionid(string $sessionid) Return the first ChildWhseitempack filtered by the sessionid column
+ * @method     ChildWhseitempack|null findOneByOrdn(string $ordn) Return the first ChildWhseitempack filtered by the ordn column
+ * @method     ChildWhseitempack|null findOneByLinenumber(int $linenumber) Return the first ChildWhseitempack filtered by the linenumber column
+ * @method     ChildWhseitempack|null findOneByCarton(int $carton) Return the first ChildWhseitempack filtered by the carton column
+ * @method     ChildWhseitempack|null findOneByRecordnumber(int $recordnumber) Return the first ChildWhseitempack filtered by the recordnumber column
+ * @method     ChildWhseitempack|null findOneByItemid(string $itemid) Return the first ChildWhseitempack filtered by the itemid column
+ * @method     ChildWhseitempack|null findOneByLotserial(string $lotserial) Return the first ChildWhseitempack filtered by the lotserial column
+ * @method     ChildWhseitempack|null findOneByQty(string $qty) Return the first ChildWhseitempack filtered by the qty column
+ *
+ * @method     ChildWhseitempack requirePk($key, ?ConnectionInterface $con = null) Return the ChildWhseitempack by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWhseitempack requireOne(?ConnectionInterface $con = null) Return the first ChildWhseitempack matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildWhseitempack requireOneBySessionid(string $sessionid) Return the first ChildWhseitempack filtered by the sessionid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitempack requireOneByOrdn(string $ordn) Return the first ChildWhseitempack filtered by the ordn column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -69,17 +67,28 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWhseitempack requireOneByLotserial(string $lotserial) Return the first ChildWhseitempack filtered by the lotserial column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitempack requireOneByQty(string $qty) Return the first ChildWhseitempack filtered by the qty column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildWhseitempack[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildWhseitempack objects based on current ModelCriteria
- * @method     ChildWhseitempack[]|ObjectCollection findBySessionid(string $sessionid) Return ChildWhseitempack objects filtered by the sessionid column
- * @method     ChildWhseitempack[]|ObjectCollection findByOrdn(string $ordn) Return ChildWhseitempack objects filtered by the ordn column
- * @method     ChildWhseitempack[]|ObjectCollection findByLinenumber(int $linenumber) Return ChildWhseitempack objects filtered by the linenumber column
- * @method     ChildWhseitempack[]|ObjectCollection findByCarton(int $carton) Return ChildWhseitempack objects filtered by the carton column
- * @method     ChildWhseitempack[]|ObjectCollection findByRecordnumber(int $recordnumber) Return ChildWhseitempack objects filtered by the recordnumber column
- * @method     ChildWhseitempack[]|ObjectCollection findByItemid(string $itemid) Return ChildWhseitempack objects filtered by the itemid column
- * @method     ChildWhseitempack[]|ObjectCollection findByLotserial(string $lotserial) Return ChildWhseitempack objects filtered by the lotserial column
- * @method     ChildWhseitempack[]|ObjectCollection findByQty(string $qty) Return ChildWhseitempack objects filtered by the qty column
- * @method     ChildWhseitempack[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildWhseitempack[]|Collection find(?ConnectionInterface $con = null) Return ChildWhseitempack objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildWhseitempack> find(?ConnectionInterface $con = null) Return ChildWhseitempack objects based on current ModelCriteria
  *
+ * @method     ChildWhseitempack[]|Collection findBySessionid(string|array<string> $sessionid) Return ChildWhseitempack objects filtered by the sessionid column
+ * @psalm-method Collection&\Traversable<ChildWhseitempack> findBySessionid(string|array<string> $sessionid) Return ChildWhseitempack objects filtered by the sessionid column
+ * @method     ChildWhseitempack[]|Collection findByOrdn(string|array<string> $ordn) Return ChildWhseitempack objects filtered by the ordn column
+ * @psalm-method Collection&\Traversable<ChildWhseitempack> findByOrdn(string|array<string> $ordn) Return ChildWhseitempack objects filtered by the ordn column
+ * @method     ChildWhseitempack[]|Collection findByLinenumber(int|array<int> $linenumber) Return ChildWhseitempack objects filtered by the linenumber column
+ * @psalm-method Collection&\Traversable<ChildWhseitempack> findByLinenumber(int|array<int> $linenumber) Return ChildWhseitempack objects filtered by the linenumber column
+ * @method     ChildWhseitempack[]|Collection findByCarton(int|array<int> $carton) Return ChildWhseitempack objects filtered by the carton column
+ * @psalm-method Collection&\Traversable<ChildWhseitempack> findByCarton(int|array<int> $carton) Return ChildWhseitempack objects filtered by the carton column
+ * @method     ChildWhseitempack[]|Collection findByRecordnumber(int|array<int> $recordnumber) Return ChildWhseitempack objects filtered by the recordnumber column
+ * @psalm-method Collection&\Traversable<ChildWhseitempack> findByRecordnumber(int|array<int> $recordnumber) Return ChildWhseitempack objects filtered by the recordnumber column
+ * @method     ChildWhseitempack[]|Collection findByItemid(string|array<string> $itemid) Return ChildWhseitempack objects filtered by the itemid column
+ * @psalm-method Collection&\Traversable<ChildWhseitempack> findByItemid(string|array<string> $itemid) Return ChildWhseitempack objects filtered by the itemid column
+ * @method     ChildWhseitempack[]|Collection findByLotserial(string|array<string> $lotserial) Return ChildWhseitempack objects filtered by the lotserial column
+ * @psalm-method Collection&\Traversable<ChildWhseitempack> findByLotserial(string|array<string> $lotserial) Return ChildWhseitempack objects filtered by the lotserial column
+ * @method     ChildWhseitempack[]|Collection findByQty(string|array<string> $qty) Return ChildWhseitempack objects filtered by the qty column
+ * @psalm-method Collection&\Traversable<ChildWhseitempack> findByQty(string|array<string> $qty) Return ChildWhseitempack objects filtered by the qty column
+ *
+ * @method     ChildWhseitempack[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildWhseitempack> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class WhseitempackQuery extends ModelCriteria
 {
@@ -88,9 +97,9 @@ abstract class WhseitempackQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\WhseitempackQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'dplusodb', $modelName = '\\Whseitempack', $modelAlias = null)
     {
@@ -100,12 +109,12 @@ abstract class WhseitempackQuery extends ModelCriteria
     /**
      * Returns a new ChildWhseitempackQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildWhseitempackQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildWhseitempackQuery) {
             return $criteria;
@@ -135,7 +144,7 @@ abstract class WhseitempackQuery extends ModelCriteria
      *
      * @return ChildWhseitempack|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -167,8 +176,8 @@ abstract class WhseitempackQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -204,8 +213,8 @@ abstract class WhseitempackQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildWhseitempack|array|mixed the result, formatted by the current formatter
      */
@@ -225,12 +234,12 @@ abstract class WhseitempackQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -247,9 +256,9 @@ abstract class WhseitempackQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildWhseitempackQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -265,14 +274,16 @@ abstract class WhseitempackQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildWhseitempackQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(WhseitempackTableMap::COL_SESSIONID, $key[0], Criteria::EQUAL);
@@ -297,14 +308,15 @@ abstract class WhseitempackQuery extends ModelCriteria
      * <code>
      * $query->filterBySessionid('fooValue');   // WHERE sessionid = 'fooValue'
      * $query->filterBySessionid('%fooValue%', Criteria::LIKE); // WHERE sessionid LIKE '%fooValue%'
+     * $query->filterBySessionid(['foo', 'bar']); // WHERE sessionid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sessionid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sessionid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitempackQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySessionid($sessionid = null, $comparison = null)
+    public function filterBySessionid($sessionid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sessionid)) {
@@ -312,7 +324,9 @@ abstract class WhseitempackQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitempackTableMap::COL_SESSIONID, $sessionid, $comparison);
+        $this->addUsingAlias(WhseitempackTableMap::COL_SESSIONID, $sessionid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -322,14 +336,15 @@ abstract class WhseitempackQuery extends ModelCriteria
      * <code>
      * $query->filterByOrdn('fooValue');   // WHERE ordn = 'fooValue'
      * $query->filterByOrdn('%fooValue%', Criteria::LIKE); // WHERE ordn LIKE '%fooValue%'
+     * $query->filterByOrdn(['foo', 'bar']); // WHERE ordn IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $ordn The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $ordn The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitempackQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOrdn($ordn = null, $comparison = null)
+    public function filterByOrdn($ordn = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($ordn)) {
@@ -337,7 +352,9 @@ abstract class WhseitempackQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitempackTableMap::COL_ORDN, $ordn, $comparison);
+        $this->addUsingAlias(WhseitempackTableMap::COL_ORDN, $ordn, $comparison);
+
+        return $this;
     }
 
     /**
@@ -350,15 +367,15 @@ abstract class WhseitempackQuery extends ModelCriteria
      * $query->filterByLinenumber(array('min' => 12)); // WHERE linenumber > 12
      * </code>
      *
-     * @param     mixed $linenumber The value to use as filter.
+     * @param mixed $linenumber The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitempackQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLinenumber($linenumber = null, $comparison = null)
+    public function filterByLinenumber($linenumber = null, ?string $comparison = null)
     {
         if (is_array($linenumber)) {
             $useMinMax = false;
@@ -378,7 +395,9 @@ abstract class WhseitempackQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitempackTableMap::COL_LINENUMBER, $linenumber, $comparison);
+        $this->addUsingAlias(WhseitempackTableMap::COL_LINENUMBER, $linenumber, $comparison);
+
+        return $this;
     }
 
     /**
@@ -391,15 +410,15 @@ abstract class WhseitempackQuery extends ModelCriteria
      * $query->filterByCarton(array('min' => 12)); // WHERE carton > 12
      * </code>
      *
-     * @param     mixed $carton The value to use as filter.
+     * @param mixed $carton The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitempackQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCarton($carton = null, $comparison = null)
+    public function filterByCarton($carton = null, ?string $comparison = null)
     {
         if (is_array($carton)) {
             $useMinMax = false;
@@ -419,7 +438,9 @@ abstract class WhseitempackQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitempackTableMap::COL_CARTON, $carton, $comparison);
+        $this->addUsingAlias(WhseitempackTableMap::COL_CARTON, $carton, $comparison);
+
+        return $this;
     }
 
     /**
@@ -432,15 +453,15 @@ abstract class WhseitempackQuery extends ModelCriteria
      * $query->filterByRecordnumber(array('min' => 12)); // WHERE recordnumber > 12
      * </code>
      *
-     * @param     mixed $recordnumber The value to use as filter.
+     * @param mixed $recordnumber The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitempackQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByRecordnumber($recordnumber = null, $comparison = null)
+    public function filterByRecordnumber($recordnumber = null, ?string $comparison = null)
     {
         if (is_array($recordnumber)) {
             $useMinMax = false;
@@ -460,7 +481,9 @@ abstract class WhseitempackQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitempackTableMap::COL_RECORDNUMBER, $recordnumber, $comparison);
+        $this->addUsingAlias(WhseitempackTableMap::COL_RECORDNUMBER, $recordnumber, $comparison);
+
+        return $this;
     }
 
     /**
@@ -470,14 +493,15 @@ abstract class WhseitempackQuery extends ModelCriteria
      * <code>
      * $query->filterByItemid('fooValue');   // WHERE itemid = 'fooValue'
      * $query->filterByItemid('%fooValue%', Criteria::LIKE); // WHERE itemid LIKE '%fooValue%'
+     * $query->filterByItemid(['foo', 'bar']); // WHERE itemid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itemid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itemid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitempackQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemid($itemid = null, $comparison = null)
+    public function filterByItemid($itemid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itemid)) {
@@ -485,7 +509,9 @@ abstract class WhseitempackQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitempackTableMap::COL_ITEMID, $itemid, $comparison);
+        $this->addUsingAlias(WhseitempackTableMap::COL_ITEMID, $itemid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -495,14 +521,15 @@ abstract class WhseitempackQuery extends ModelCriteria
      * <code>
      * $query->filterByLotserial('fooValue');   // WHERE lotserial = 'fooValue'
      * $query->filterByLotserial('%fooValue%', Criteria::LIKE); // WHERE lotserial LIKE '%fooValue%'
+     * $query->filterByLotserial(['foo', 'bar']); // WHERE lotserial IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lotserial The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lotserial The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitempackQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLotserial($lotserial = null, $comparison = null)
+    public function filterByLotserial($lotserial = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lotserial)) {
@@ -510,7 +537,9 @@ abstract class WhseitempackQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitempackTableMap::COL_LOTSERIAL, $lotserial, $comparison);
+        $this->addUsingAlias(WhseitempackTableMap::COL_LOTSERIAL, $lotserial, $comparison);
+
+        return $this;
     }
 
     /**
@@ -523,15 +552,15 @@ abstract class WhseitempackQuery extends ModelCriteria
      * $query->filterByQty(array('min' => 12)); // WHERE qty > 12
      * </code>
      *
-     * @param     mixed $qty The value to use as filter.
+     * @param mixed $qty The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitempackQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQty($qty = null, $comparison = null)
+    public function filterByQty($qty = null, ?string $comparison = null)
     {
         if (is_array($qty)) {
             $useMinMax = false;
@@ -551,15 +580,17 @@ abstract class WhseitempackQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitempackTableMap::COL_QTY, $qty, $comparison);
+        $this->addUsingAlias(WhseitempackTableMap::COL_QTY, $qty, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildWhseitempack $whseitempack Object to remove from the list of results
+     * @param ChildWhseitempack $whseitempack Object to remove from the list of results
      *
-     * @return $this|ChildWhseitempackQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($whseitempack = null)
     {
@@ -581,7 +612,7 @@ abstract class WhseitempackQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(WhseitempackTableMap::DATABASE_NAME);
@@ -606,12 +637,12 @@ abstract class WhseitempackQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(WhseitempackTableMap::DATABASE_NAME);
@@ -636,4 +667,4 @@ abstract class WhseitempackQuery extends ModelCriteria
         });
     }
 
-} // WhseitempackQuery
+}

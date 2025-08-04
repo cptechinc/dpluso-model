@@ -10,14 +10,12 @@ use Map\EditPoDetailTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'edit_po_detail' table.
- *
- *
+ * Base class that represents a query for the `edit_po_detail` table.
  *
  * @method     ChildEditPoDetailQuery orderBySessionid($order = Criteria::ASC) Order by the sessionid column
  * @method     ChildEditPoDetailQuery orderByPohdnbr($order = Criteria::ASC) Order by the PohdNbr column
@@ -119,57 +117,57 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildEditPoDetailQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildEditPoDetailQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildEditPoDetail findOne(ConnectionInterface $con = null) Return the first ChildEditPoDetail matching the query
- * @method     ChildEditPoDetail findOneOrCreate(ConnectionInterface $con = null) Return the first ChildEditPoDetail matching the query, or a new ChildEditPoDetail object populated from the query conditions when no match is found
+ * @method     ChildEditPoDetail|null findOne(?ConnectionInterface $con = null) Return the first ChildEditPoDetail matching the query
+ * @method     ChildEditPoDetail findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildEditPoDetail matching the query, or a new ChildEditPoDetail object populated from the query conditions when no match is found
  *
- * @method     ChildEditPoDetail findOneBySessionid(string $sessionid) Return the first ChildEditPoDetail filtered by the sessionid column
- * @method     ChildEditPoDetail findOneByPohdnbr(string $PohdNbr) Return the first ChildEditPoDetail filtered by the PohdNbr column
- * @method     ChildEditPoDetail findOneByPodtline(int $PodtLine) Return the first ChildEditPoDetail filtered by the PodtLine column
- * @method     ChildEditPoDetail findOneByInititemnbr(string $InitItemNbr) Return the first ChildEditPoDetail filtered by the InitItemNbr column
- * @method     ChildEditPoDetail findOneByPodtdesc1(string $PodtDesc1) Return the first ChildEditPoDetail filtered by the PodtDesc1 column
- * @method     ChildEditPoDetail findOneByPodtdesc2(string $PodtDesc2) Return the first ChildEditPoDetail filtered by the PodtDesc2 column
- * @method     ChildEditPoDetail findOneByPodtvenditemnbr(string $PodtVendItemNbr) Return the first ChildEditPoDetail filtered by the PodtVendItemNbr column
- * @method     ChildEditPoDetail findOneByIntbwhse(string $IntbWhse) Return the first ChildEditPoDetail filtered by the IntbWhse column
- * @method     ChildEditPoDetail findOneByPodtshipdate(string $PodtShipDate) Return the first ChildEditPoDetail filtered by the PodtShipDate column
- * @method     ChildEditPoDetail findOneByPodtexptdate(string $PodtExptDate) Return the first ChildEditPoDetail filtered by the PodtExptDate column
- * @method     ChildEditPoDetail findOneByPodtcancdate(string $PodtCancDate) Return the first ChildEditPoDetail filtered by the PodtCancDate column
- * @method     ChildEditPoDetail findOneByIntbuompur(string $IntbUomPur) Return the first ChildEditPoDetail filtered by the IntbUomPur column
- * @method     ChildEditPoDetail findOneByPodtqtyord(string $PodtQtyOrd) Return the first ChildEditPoDetail filtered by the PodtQtyOrd column
- * @method     ChildEditPoDetail findOneByPodtcost(string $PodtCost) Return the first ChildEditPoDetail filtered by the PodtCost column
- * @method     ChildEditPoDetail findOneByPodtcosttot(string $PodtCostTot) Return the first ChildEditPoDetail filtered by the PodtCostTot column
- * @method     ChildEditPoDetail findOneByPodtrel(string $PodtRel) Return the first ChildEditPoDetail filtered by the PodtRel column
- * @method     ChildEditPoDetail findOneByPodtspecordr(string $PodtSpecOrdr) Return the first ChildEditPoDetail filtered by the PodtSpecOrdr column
- * @method     ChildEditPoDetail findOneByPodtglacct(string $PodtGlAcct) Return the first ChildEditPoDetail filtered by the PodtGlAcct column
- * @method     ChildEditPoDetail findOneByPodtsonbr(string $PodtSoNbr) Return the first ChildEditPoDetail filtered by the PodtSoNbr column
- * @method     ChildEditPoDetail findOneByPodtstat(string $PodtStat) Return the first ChildEditPoDetail filtered by the PodtStat column
- * @method     ChildEditPoDetail findOneByPodtorigsoline(int $PodtOrigSoLine) Return the first ChildEditPoDetail filtered by the PodtOrigSoLine column
- * @method     ChildEditPoDetail findOneByPodtqtyduein(string $PodtQtyDueIn) Return the first ChildEditPoDetail filtered by the PodtQtyDueIn column
- * @method     ChildEditPoDetail findOneByPodttype(string $PodtType) Return the first ChildEditPoDetail filtered by the PodtType column
- * @method     ChildEditPoDetail findOneByPodtwghttot(string $PodtWghtTot) Return the first ChildEditPoDetail filtered by the PodtWghtTot column
- * @method     ChildEditPoDetail findOneByPodtforeigncost(string $PodtForeignCost) Return the first ChildEditPoDetail filtered by the PodtForeignCost column
- * @method     ChildEditPoDetail findOneByPodtforeigncosttot(string $PodtForeignCostTot) Return the first ChildEditPoDetail filtered by the PodtForeignCostTot column
- * @method     ChildEditPoDetail findOneByPodtstanunitcost(string $PodtStanUnitCost) Return the first ChildEditPoDetail filtered by the PodtStanUnitCost column
- * @method     ChildEditPoDetail findOneByPodtackdate(string $PodtAckDate) Return the first ChildEditPoDetail filtered by the PodtAckDate column
- * @method     ChildEditPoDetail findOneByPodtinvcclearflag(string $PodtInvcClearFlag) Return the first ChildEditPoDetail filtered by the PodtInvcClearFlag column
- * @method     ChildEditPoDetail findOneByPodtprtkitdet(string $PodtPrtKitDet) Return the first ChildEditPoDetail filtered by the PodtPrtKitDet column
- * @method     ChildEditPoDetail findOneByPodtdestwhse(string $PodtDestWhse) Return the first ChildEditPoDetail filtered by the PodtDestWhse column
- * @method     ChildEditPoDetail findOneByPodtrevision(string $PodtRevision) Return the first ChildEditPoDetail filtered by the PodtRevision column
- * @method     ChildEditPoDetail findOneByPodtprtpoeoru(string $PodtPrtPoEOrU) Return the first ChildEditPoDetail filtered by the PodtPrtPoEOrU column
- * @method     ChildEditPoDetail findOneByPotbcnfmcode(string $PotbCnfmCode) Return the first ChildEditPoDetail filtered by the PotbCnfmCode column
- * @method     ChildEditPoDetail findOneByPodtrcptnbr(string $PodtRcptNbr) Return the first ChildEditPoDetail filtered by the PodtRcptNbr column
- * @method     ChildEditPoDetail findOneByPodtwipnbr(string $PodtWipNbr) Return the first ChildEditPoDetail filtered by the PodtWipNbr column
- * @method     ChildEditPoDetail findOneByPodtordras(string $PodtOrdrAs) Return the first ChildEditPoDetail filtered by the PodtOrdrAs column
- * @method     ChildEditPoDetail findOneByPodtboldate(string $PodtBolDate) Return the first ChildEditPoDetail filtered by the PodtBolDate column
- * @method     ChildEditPoDetail findOneByPodtlistpric(string $PodtListPric) Return the first ChildEditPoDetail filtered by the PodtListPric column
- * @method     ChildEditPoDetail findOneByPodtdelivereddate(string $PodtDeliveredDate) Return the first ChildEditPoDetail filtered by the PodtDeliveredDate column
- * @method     ChildEditPoDetail findOneByPodtlandcost(string $PodtLandCost) Return the first ChildEditPoDetail filtered by the PodtLandCost column
- * @method     ChildEditPoDetail findOneByDateupdtd(string $DateUpdtd) Return the first ChildEditPoDetail filtered by the DateUpdtd column
- * @method     ChildEditPoDetail findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildEditPoDetail filtered by the TimeUpdtd column
- * @method     ChildEditPoDetail findOneByStatus(string $status) Return the first ChildEditPoDetail filtered by the status column
- * @method     ChildEditPoDetail findOneByDummy(string $dummy) Return the first ChildEditPoDetail filtered by the dummy column *
-
- * @method     ChildEditPoDetail requirePk($key, ConnectionInterface $con = null) Return the ChildEditPoDetail by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildEditPoDetail requireOne(ConnectionInterface $con = null) Return the first ChildEditPoDetail matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildEditPoDetail|null findOneBySessionid(string $sessionid) Return the first ChildEditPoDetail filtered by the sessionid column
+ * @method     ChildEditPoDetail|null findOneByPohdnbr(string $PohdNbr) Return the first ChildEditPoDetail filtered by the PohdNbr column
+ * @method     ChildEditPoDetail|null findOneByPodtline(int $PodtLine) Return the first ChildEditPoDetail filtered by the PodtLine column
+ * @method     ChildEditPoDetail|null findOneByInititemnbr(string $InitItemNbr) Return the first ChildEditPoDetail filtered by the InitItemNbr column
+ * @method     ChildEditPoDetail|null findOneByPodtdesc1(string $PodtDesc1) Return the first ChildEditPoDetail filtered by the PodtDesc1 column
+ * @method     ChildEditPoDetail|null findOneByPodtdesc2(string $PodtDesc2) Return the first ChildEditPoDetail filtered by the PodtDesc2 column
+ * @method     ChildEditPoDetail|null findOneByPodtvenditemnbr(string $PodtVendItemNbr) Return the first ChildEditPoDetail filtered by the PodtVendItemNbr column
+ * @method     ChildEditPoDetail|null findOneByIntbwhse(string $IntbWhse) Return the first ChildEditPoDetail filtered by the IntbWhse column
+ * @method     ChildEditPoDetail|null findOneByPodtshipdate(string $PodtShipDate) Return the first ChildEditPoDetail filtered by the PodtShipDate column
+ * @method     ChildEditPoDetail|null findOneByPodtexptdate(string $PodtExptDate) Return the first ChildEditPoDetail filtered by the PodtExptDate column
+ * @method     ChildEditPoDetail|null findOneByPodtcancdate(string $PodtCancDate) Return the first ChildEditPoDetail filtered by the PodtCancDate column
+ * @method     ChildEditPoDetail|null findOneByIntbuompur(string $IntbUomPur) Return the first ChildEditPoDetail filtered by the IntbUomPur column
+ * @method     ChildEditPoDetail|null findOneByPodtqtyord(string $PodtQtyOrd) Return the first ChildEditPoDetail filtered by the PodtQtyOrd column
+ * @method     ChildEditPoDetail|null findOneByPodtcost(string $PodtCost) Return the first ChildEditPoDetail filtered by the PodtCost column
+ * @method     ChildEditPoDetail|null findOneByPodtcosttot(string $PodtCostTot) Return the first ChildEditPoDetail filtered by the PodtCostTot column
+ * @method     ChildEditPoDetail|null findOneByPodtrel(string $PodtRel) Return the first ChildEditPoDetail filtered by the PodtRel column
+ * @method     ChildEditPoDetail|null findOneByPodtspecordr(string $PodtSpecOrdr) Return the first ChildEditPoDetail filtered by the PodtSpecOrdr column
+ * @method     ChildEditPoDetail|null findOneByPodtglacct(string $PodtGlAcct) Return the first ChildEditPoDetail filtered by the PodtGlAcct column
+ * @method     ChildEditPoDetail|null findOneByPodtsonbr(string $PodtSoNbr) Return the first ChildEditPoDetail filtered by the PodtSoNbr column
+ * @method     ChildEditPoDetail|null findOneByPodtstat(string $PodtStat) Return the first ChildEditPoDetail filtered by the PodtStat column
+ * @method     ChildEditPoDetail|null findOneByPodtorigsoline(int $PodtOrigSoLine) Return the first ChildEditPoDetail filtered by the PodtOrigSoLine column
+ * @method     ChildEditPoDetail|null findOneByPodtqtyduein(string $PodtQtyDueIn) Return the first ChildEditPoDetail filtered by the PodtQtyDueIn column
+ * @method     ChildEditPoDetail|null findOneByPodttype(string $PodtType) Return the first ChildEditPoDetail filtered by the PodtType column
+ * @method     ChildEditPoDetail|null findOneByPodtwghttot(string $PodtWghtTot) Return the first ChildEditPoDetail filtered by the PodtWghtTot column
+ * @method     ChildEditPoDetail|null findOneByPodtforeigncost(string $PodtForeignCost) Return the first ChildEditPoDetail filtered by the PodtForeignCost column
+ * @method     ChildEditPoDetail|null findOneByPodtforeigncosttot(string $PodtForeignCostTot) Return the first ChildEditPoDetail filtered by the PodtForeignCostTot column
+ * @method     ChildEditPoDetail|null findOneByPodtstanunitcost(string $PodtStanUnitCost) Return the first ChildEditPoDetail filtered by the PodtStanUnitCost column
+ * @method     ChildEditPoDetail|null findOneByPodtackdate(string $PodtAckDate) Return the first ChildEditPoDetail filtered by the PodtAckDate column
+ * @method     ChildEditPoDetail|null findOneByPodtinvcclearflag(string $PodtInvcClearFlag) Return the first ChildEditPoDetail filtered by the PodtInvcClearFlag column
+ * @method     ChildEditPoDetail|null findOneByPodtprtkitdet(string $PodtPrtKitDet) Return the first ChildEditPoDetail filtered by the PodtPrtKitDet column
+ * @method     ChildEditPoDetail|null findOneByPodtdestwhse(string $PodtDestWhse) Return the first ChildEditPoDetail filtered by the PodtDestWhse column
+ * @method     ChildEditPoDetail|null findOneByPodtrevision(string $PodtRevision) Return the first ChildEditPoDetail filtered by the PodtRevision column
+ * @method     ChildEditPoDetail|null findOneByPodtprtpoeoru(string $PodtPrtPoEOrU) Return the first ChildEditPoDetail filtered by the PodtPrtPoEOrU column
+ * @method     ChildEditPoDetail|null findOneByPotbcnfmcode(string $PotbCnfmCode) Return the first ChildEditPoDetail filtered by the PotbCnfmCode column
+ * @method     ChildEditPoDetail|null findOneByPodtrcptnbr(string $PodtRcptNbr) Return the first ChildEditPoDetail filtered by the PodtRcptNbr column
+ * @method     ChildEditPoDetail|null findOneByPodtwipnbr(string $PodtWipNbr) Return the first ChildEditPoDetail filtered by the PodtWipNbr column
+ * @method     ChildEditPoDetail|null findOneByPodtordras(string $PodtOrdrAs) Return the first ChildEditPoDetail filtered by the PodtOrdrAs column
+ * @method     ChildEditPoDetail|null findOneByPodtboldate(string $PodtBolDate) Return the first ChildEditPoDetail filtered by the PodtBolDate column
+ * @method     ChildEditPoDetail|null findOneByPodtlistpric(string $PodtListPric) Return the first ChildEditPoDetail filtered by the PodtListPric column
+ * @method     ChildEditPoDetail|null findOneByPodtdelivereddate(string $PodtDeliveredDate) Return the first ChildEditPoDetail filtered by the PodtDeliveredDate column
+ * @method     ChildEditPoDetail|null findOneByPodtlandcost(string $PodtLandCost) Return the first ChildEditPoDetail filtered by the PodtLandCost column
+ * @method     ChildEditPoDetail|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildEditPoDetail filtered by the DateUpdtd column
+ * @method     ChildEditPoDetail|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildEditPoDetail filtered by the TimeUpdtd column
+ * @method     ChildEditPoDetail|null findOneByStatus(string $status) Return the first ChildEditPoDetail filtered by the status column
+ * @method     ChildEditPoDetail|null findOneByDummy(string $dummy) Return the first ChildEditPoDetail filtered by the dummy column
+ *
+ * @method     ChildEditPoDetail requirePk($key, ?ConnectionInterface $con = null) Return the ChildEditPoDetail by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildEditPoDetail requireOne(?ConnectionInterface $con = null) Return the first ChildEditPoDetail matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildEditPoDetail requireOneBySessionid(string $sessionid) Return the first ChildEditPoDetail filtered by the sessionid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildEditPoDetail requireOneByPohdnbr(string $PohdNbr) Return the first ChildEditPoDetail filtered by the PohdNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -217,54 +215,102 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildEditPoDetail requireOneByStatus(string $status) Return the first ChildEditPoDetail filtered by the status column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildEditPoDetail requireOneByDummy(string $dummy) Return the first ChildEditPoDetail filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildEditPoDetail[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildEditPoDetail objects based on current ModelCriteria
- * @method     ChildEditPoDetail[]|ObjectCollection findBySessionid(string $sessionid) Return ChildEditPoDetail objects filtered by the sessionid column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPohdnbr(string $PohdNbr) Return ChildEditPoDetail objects filtered by the PohdNbr column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodtline(int $PodtLine) Return ChildEditPoDetail objects filtered by the PodtLine column
- * @method     ChildEditPoDetail[]|ObjectCollection findByInititemnbr(string $InitItemNbr) Return ChildEditPoDetail objects filtered by the InitItemNbr column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodtdesc1(string $PodtDesc1) Return ChildEditPoDetail objects filtered by the PodtDesc1 column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodtdesc2(string $PodtDesc2) Return ChildEditPoDetail objects filtered by the PodtDesc2 column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodtvenditemnbr(string $PodtVendItemNbr) Return ChildEditPoDetail objects filtered by the PodtVendItemNbr column
- * @method     ChildEditPoDetail[]|ObjectCollection findByIntbwhse(string $IntbWhse) Return ChildEditPoDetail objects filtered by the IntbWhse column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodtshipdate(string $PodtShipDate) Return ChildEditPoDetail objects filtered by the PodtShipDate column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodtexptdate(string $PodtExptDate) Return ChildEditPoDetail objects filtered by the PodtExptDate column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodtcancdate(string $PodtCancDate) Return ChildEditPoDetail objects filtered by the PodtCancDate column
- * @method     ChildEditPoDetail[]|ObjectCollection findByIntbuompur(string $IntbUomPur) Return ChildEditPoDetail objects filtered by the IntbUomPur column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodtqtyord(string $PodtQtyOrd) Return ChildEditPoDetail objects filtered by the PodtQtyOrd column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodtcost(string $PodtCost) Return ChildEditPoDetail objects filtered by the PodtCost column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodtcosttot(string $PodtCostTot) Return ChildEditPoDetail objects filtered by the PodtCostTot column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodtrel(string $PodtRel) Return ChildEditPoDetail objects filtered by the PodtRel column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodtspecordr(string $PodtSpecOrdr) Return ChildEditPoDetail objects filtered by the PodtSpecOrdr column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodtglacct(string $PodtGlAcct) Return ChildEditPoDetail objects filtered by the PodtGlAcct column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodtsonbr(string $PodtSoNbr) Return ChildEditPoDetail objects filtered by the PodtSoNbr column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodtstat(string $PodtStat) Return ChildEditPoDetail objects filtered by the PodtStat column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodtorigsoline(int $PodtOrigSoLine) Return ChildEditPoDetail objects filtered by the PodtOrigSoLine column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodtqtyduein(string $PodtQtyDueIn) Return ChildEditPoDetail objects filtered by the PodtQtyDueIn column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodttype(string $PodtType) Return ChildEditPoDetail objects filtered by the PodtType column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodtwghttot(string $PodtWghtTot) Return ChildEditPoDetail objects filtered by the PodtWghtTot column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodtforeigncost(string $PodtForeignCost) Return ChildEditPoDetail objects filtered by the PodtForeignCost column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodtforeigncosttot(string $PodtForeignCostTot) Return ChildEditPoDetail objects filtered by the PodtForeignCostTot column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodtstanunitcost(string $PodtStanUnitCost) Return ChildEditPoDetail objects filtered by the PodtStanUnitCost column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodtackdate(string $PodtAckDate) Return ChildEditPoDetail objects filtered by the PodtAckDate column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodtinvcclearflag(string $PodtInvcClearFlag) Return ChildEditPoDetail objects filtered by the PodtInvcClearFlag column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodtprtkitdet(string $PodtPrtKitDet) Return ChildEditPoDetail objects filtered by the PodtPrtKitDet column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodtdestwhse(string $PodtDestWhse) Return ChildEditPoDetail objects filtered by the PodtDestWhse column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodtrevision(string $PodtRevision) Return ChildEditPoDetail objects filtered by the PodtRevision column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodtprtpoeoru(string $PodtPrtPoEOrU) Return ChildEditPoDetail objects filtered by the PodtPrtPoEOrU column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPotbcnfmcode(string $PotbCnfmCode) Return ChildEditPoDetail objects filtered by the PotbCnfmCode column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodtrcptnbr(string $PodtRcptNbr) Return ChildEditPoDetail objects filtered by the PodtRcptNbr column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodtwipnbr(string $PodtWipNbr) Return ChildEditPoDetail objects filtered by the PodtWipNbr column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodtordras(string $PodtOrdrAs) Return ChildEditPoDetail objects filtered by the PodtOrdrAs column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodtboldate(string $PodtBolDate) Return ChildEditPoDetail objects filtered by the PodtBolDate column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodtlistpric(string $PodtListPric) Return ChildEditPoDetail objects filtered by the PodtListPric column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodtdelivereddate(string $PodtDeliveredDate) Return ChildEditPoDetail objects filtered by the PodtDeliveredDate column
- * @method     ChildEditPoDetail[]|ObjectCollection findByPodtlandcost(string $PodtLandCost) Return ChildEditPoDetail objects filtered by the PodtLandCost column
- * @method     ChildEditPoDetail[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildEditPoDetail objects filtered by the DateUpdtd column
- * @method     ChildEditPoDetail[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildEditPoDetail objects filtered by the TimeUpdtd column
- * @method     ChildEditPoDetail[]|ObjectCollection findByStatus(string $status) Return ChildEditPoDetail objects filtered by the status column
- * @method     ChildEditPoDetail[]|ObjectCollection findByDummy(string $dummy) Return ChildEditPoDetail objects filtered by the dummy column
- * @method     ChildEditPoDetail[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildEditPoDetail[]|Collection find(?ConnectionInterface $con = null) Return ChildEditPoDetail objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> find(?ConnectionInterface $con = null) Return ChildEditPoDetail objects based on current ModelCriteria
  *
+ * @method     ChildEditPoDetail[]|Collection findBySessionid(string|array<string> $sessionid) Return ChildEditPoDetail objects filtered by the sessionid column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findBySessionid(string|array<string> $sessionid) Return ChildEditPoDetail objects filtered by the sessionid column
+ * @method     ChildEditPoDetail[]|Collection findByPohdnbr(string|array<string> $PohdNbr) Return ChildEditPoDetail objects filtered by the PohdNbr column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPohdnbr(string|array<string> $PohdNbr) Return ChildEditPoDetail objects filtered by the PohdNbr column
+ * @method     ChildEditPoDetail[]|Collection findByPodtline(int|array<int> $PodtLine) Return ChildEditPoDetail objects filtered by the PodtLine column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodtline(int|array<int> $PodtLine) Return ChildEditPoDetail objects filtered by the PodtLine column
+ * @method     ChildEditPoDetail[]|Collection findByInititemnbr(string|array<string> $InitItemNbr) Return ChildEditPoDetail objects filtered by the InitItemNbr column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByInititemnbr(string|array<string> $InitItemNbr) Return ChildEditPoDetail objects filtered by the InitItemNbr column
+ * @method     ChildEditPoDetail[]|Collection findByPodtdesc1(string|array<string> $PodtDesc1) Return ChildEditPoDetail objects filtered by the PodtDesc1 column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodtdesc1(string|array<string> $PodtDesc1) Return ChildEditPoDetail objects filtered by the PodtDesc1 column
+ * @method     ChildEditPoDetail[]|Collection findByPodtdesc2(string|array<string> $PodtDesc2) Return ChildEditPoDetail objects filtered by the PodtDesc2 column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodtdesc2(string|array<string> $PodtDesc2) Return ChildEditPoDetail objects filtered by the PodtDesc2 column
+ * @method     ChildEditPoDetail[]|Collection findByPodtvenditemnbr(string|array<string> $PodtVendItemNbr) Return ChildEditPoDetail objects filtered by the PodtVendItemNbr column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodtvenditemnbr(string|array<string> $PodtVendItemNbr) Return ChildEditPoDetail objects filtered by the PodtVendItemNbr column
+ * @method     ChildEditPoDetail[]|Collection findByIntbwhse(string|array<string> $IntbWhse) Return ChildEditPoDetail objects filtered by the IntbWhse column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByIntbwhse(string|array<string> $IntbWhse) Return ChildEditPoDetail objects filtered by the IntbWhse column
+ * @method     ChildEditPoDetail[]|Collection findByPodtshipdate(string|array<string> $PodtShipDate) Return ChildEditPoDetail objects filtered by the PodtShipDate column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodtshipdate(string|array<string> $PodtShipDate) Return ChildEditPoDetail objects filtered by the PodtShipDate column
+ * @method     ChildEditPoDetail[]|Collection findByPodtexptdate(string|array<string> $PodtExptDate) Return ChildEditPoDetail objects filtered by the PodtExptDate column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodtexptdate(string|array<string> $PodtExptDate) Return ChildEditPoDetail objects filtered by the PodtExptDate column
+ * @method     ChildEditPoDetail[]|Collection findByPodtcancdate(string|array<string> $PodtCancDate) Return ChildEditPoDetail objects filtered by the PodtCancDate column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodtcancdate(string|array<string> $PodtCancDate) Return ChildEditPoDetail objects filtered by the PodtCancDate column
+ * @method     ChildEditPoDetail[]|Collection findByIntbuompur(string|array<string> $IntbUomPur) Return ChildEditPoDetail objects filtered by the IntbUomPur column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByIntbuompur(string|array<string> $IntbUomPur) Return ChildEditPoDetail objects filtered by the IntbUomPur column
+ * @method     ChildEditPoDetail[]|Collection findByPodtqtyord(string|array<string> $PodtQtyOrd) Return ChildEditPoDetail objects filtered by the PodtQtyOrd column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodtqtyord(string|array<string> $PodtQtyOrd) Return ChildEditPoDetail objects filtered by the PodtQtyOrd column
+ * @method     ChildEditPoDetail[]|Collection findByPodtcost(string|array<string> $PodtCost) Return ChildEditPoDetail objects filtered by the PodtCost column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodtcost(string|array<string> $PodtCost) Return ChildEditPoDetail objects filtered by the PodtCost column
+ * @method     ChildEditPoDetail[]|Collection findByPodtcosttot(string|array<string> $PodtCostTot) Return ChildEditPoDetail objects filtered by the PodtCostTot column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodtcosttot(string|array<string> $PodtCostTot) Return ChildEditPoDetail objects filtered by the PodtCostTot column
+ * @method     ChildEditPoDetail[]|Collection findByPodtrel(string|array<string> $PodtRel) Return ChildEditPoDetail objects filtered by the PodtRel column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodtrel(string|array<string> $PodtRel) Return ChildEditPoDetail objects filtered by the PodtRel column
+ * @method     ChildEditPoDetail[]|Collection findByPodtspecordr(string|array<string> $PodtSpecOrdr) Return ChildEditPoDetail objects filtered by the PodtSpecOrdr column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodtspecordr(string|array<string> $PodtSpecOrdr) Return ChildEditPoDetail objects filtered by the PodtSpecOrdr column
+ * @method     ChildEditPoDetail[]|Collection findByPodtglacct(string|array<string> $PodtGlAcct) Return ChildEditPoDetail objects filtered by the PodtGlAcct column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodtglacct(string|array<string> $PodtGlAcct) Return ChildEditPoDetail objects filtered by the PodtGlAcct column
+ * @method     ChildEditPoDetail[]|Collection findByPodtsonbr(string|array<string> $PodtSoNbr) Return ChildEditPoDetail objects filtered by the PodtSoNbr column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodtsonbr(string|array<string> $PodtSoNbr) Return ChildEditPoDetail objects filtered by the PodtSoNbr column
+ * @method     ChildEditPoDetail[]|Collection findByPodtstat(string|array<string> $PodtStat) Return ChildEditPoDetail objects filtered by the PodtStat column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodtstat(string|array<string> $PodtStat) Return ChildEditPoDetail objects filtered by the PodtStat column
+ * @method     ChildEditPoDetail[]|Collection findByPodtorigsoline(int|array<int> $PodtOrigSoLine) Return ChildEditPoDetail objects filtered by the PodtOrigSoLine column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodtorigsoline(int|array<int> $PodtOrigSoLine) Return ChildEditPoDetail objects filtered by the PodtOrigSoLine column
+ * @method     ChildEditPoDetail[]|Collection findByPodtqtyduein(string|array<string> $PodtQtyDueIn) Return ChildEditPoDetail objects filtered by the PodtQtyDueIn column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodtqtyduein(string|array<string> $PodtQtyDueIn) Return ChildEditPoDetail objects filtered by the PodtQtyDueIn column
+ * @method     ChildEditPoDetail[]|Collection findByPodttype(string|array<string> $PodtType) Return ChildEditPoDetail objects filtered by the PodtType column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodttype(string|array<string> $PodtType) Return ChildEditPoDetail objects filtered by the PodtType column
+ * @method     ChildEditPoDetail[]|Collection findByPodtwghttot(string|array<string> $PodtWghtTot) Return ChildEditPoDetail objects filtered by the PodtWghtTot column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodtwghttot(string|array<string> $PodtWghtTot) Return ChildEditPoDetail objects filtered by the PodtWghtTot column
+ * @method     ChildEditPoDetail[]|Collection findByPodtforeigncost(string|array<string> $PodtForeignCost) Return ChildEditPoDetail objects filtered by the PodtForeignCost column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodtforeigncost(string|array<string> $PodtForeignCost) Return ChildEditPoDetail objects filtered by the PodtForeignCost column
+ * @method     ChildEditPoDetail[]|Collection findByPodtforeigncosttot(string|array<string> $PodtForeignCostTot) Return ChildEditPoDetail objects filtered by the PodtForeignCostTot column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodtforeigncosttot(string|array<string> $PodtForeignCostTot) Return ChildEditPoDetail objects filtered by the PodtForeignCostTot column
+ * @method     ChildEditPoDetail[]|Collection findByPodtstanunitcost(string|array<string> $PodtStanUnitCost) Return ChildEditPoDetail objects filtered by the PodtStanUnitCost column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodtstanunitcost(string|array<string> $PodtStanUnitCost) Return ChildEditPoDetail objects filtered by the PodtStanUnitCost column
+ * @method     ChildEditPoDetail[]|Collection findByPodtackdate(string|array<string> $PodtAckDate) Return ChildEditPoDetail objects filtered by the PodtAckDate column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodtackdate(string|array<string> $PodtAckDate) Return ChildEditPoDetail objects filtered by the PodtAckDate column
+ * @method     ChildEditPoDetail[]|Collection findByPodtinvcclearflag(string|array<string> $PodtInvcClearFlag) Return ChildEditPoDetail objects filtered by the PodtInvcClearFlag column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodtinvcclearflag(string|array<string> $PodtInvcClearFlag) Return ChildEditPoDetail objects filtered by the PodtInvcClearFlag column
+ * @method     ChildEditPoDetail[]|Collection findByPodtprtkitdet(string|array<string> $PodtPrtKitDet) Return ChildEditPoDetail objects filtered by the PodtPrtKitDet column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodtprtkitdet(string|array<string> $PodtPrtKitDet) Return ChildEditPoDetail objects filtered by the PodtPrtKitDet column
+ * @method     ChildEditPoDetail[]|Collection findByPodtdestwhse(string|array<string> $PodtDestWhse) Return ChildEditPoDetail objects filtered by the PodtDestWhse column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodtdestwhse(string|array<string> $PodtDestWhse) Return ChildEditPoDetail objects filtered by the PodtDestWhse column
+ * @method     ChildEditPoDetail[]|Collection findByPodtrevision(string|array<string> $PodtRevision) Return ChildEditPoDetail objects filtered by the PodtRevision column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodtrevision(string|array<string> $PodtRevision) Return ChildEditPoDetail objects filtered by the PodtRevision column
+ * @method     ChildEditPoDetail[]|Collection findByPodtprtpoeoru(string|array<string> $PodtPrtPoEOrU) Return ChildEditPoDetail objects filtered by the PodtPrtPoEOrU column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodtprtpoeoru(string|array<string> $PodtPrtPoEOrU) Return ChildEditPoDetail objects filtered by the PodtPrtPoEOrU column
+ * @method     ChildEditPoDetail[]|Collection findByPotbcnfmcode(string|array<string> $PotbCnfmCode) Return ChildEditPoDetail objects filtered by the PotbCnfmCode column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPotbcnfmcode(string|array<string> $PotbCnfmCode) Return ChildEditPoDetail objects filtered by the PotbCnfmCode column
+ * @method     ChildEditPoDetail[]|Collection findByPodtrcptnbr(string|array<string> $PodtRcptNbr) Return ChildEditPoDetail objects filtered by the PodtRcptNbr column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodtrcptnbr(string|array<string> $PodtRcptNbr) Return ChildEditPoDetail objects filtered by the PodtRcptNbr column
+ * @method     ChildEditPoDetail[]|Collection findByPodtwipnbr(string|array<string> $PodtWipNbr) Return ChildEditPoDetail objects filtered by the PodtWipNbr column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodtwipnbr(string|array<string> $PodtWipNbr) Return ChildEditPoDetail objects filtered by the PodtWipNbr column
+ * @method     ChildEditPoDetail[]|Collection findByPodtordras(string|array<string> $PodtOrdrAs) Return ChildEditPoDetail objects filtered by the PodtOrdrAs column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodtordras(string|array<string> $PodtOrdrAs) Return ChildEditPoDetail objects filtered by the PodtOrdrAs column
+ * @method     ChildEditPoDetail[]|Collection findByPodtboldate(string|array<string> $PodtBolDate) Return ChildEditPoDetail objects filtered by the PodtBolDate column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodtboldate(string|array<string> $PodtBolDate) Return ChildEditPoDetail objects filtered by the PodtBolDate column
+ * @method     ChildEditPoDetail[]|Collection findByPodtlistpric(string|array<string> $PodtListPric) Return ChildEditPoDetail objects filtered by the PodtListPric column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodtlistpric(string|array<string> $PodtListPric) Return ChildEditPoDetail objects filtered by the PodtListPric column
+ * @method     ChildEditPoDetail[]|Collection findByPodtdelivereddate(string|array<string> $PodtDeliveredDate) Return ChildEditPoDetail objects filtered by the PodtDeliveredDate column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodtdelivereddate(string|array<string> $PodtDeliveredDate) Return ChildEditPoDetail objects filtered by the PodtDeliveredDate column
+ * @method     ChildEditPoDetail[]|Collection findByPodtlandcost(string|array<string> $PodtLandCost) Return ChildEditPoDetail objects filtered by the PodtLandCost column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByPodtlandcost(string|array<string> $PodtLandCost) Return ChildEditPoDetail objects filtered by the PodtLandCost column
+ * @method     ChildEditPoDetail[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildEditPoDetail objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildEditPoDetail objects filtered by the DateUpdtd column
+ * @method     ChildEditPoDetail[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildEditPoDetail objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildEditPoDetail objects filtered by the TimeUpdtd column
+ * @method     ChildEditPoDetail[]|Collection findByStatus(string|array<string> $status) Return ChildEditPoDetail objects filtered by the status column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByStatus(string|array<string> $status) Return ChildEditPoDetail objects filtered by the status column
+ * @method     ChildEditPoDetail[]|Collection findByDummy(string|array<string> $dummy) Return ChildEditPoDetail objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildEditPoDetail> findByDummy(string|array<string> $dummy) Return ChildEditPoDetail objects filtered by the dummy column
+ *
+ * @method     ChildEditPoDetail[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildEditPoDetail> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class EditPoDetailQuery extends ModelCriteria
 {
@@ -273,9 +319,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\EditPoDetailQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'dplusodb', $modelName = '\\EditPoDetail', $modelAlias = null)
     {
@@ -285,12 +331,12 @@ abstract class EditPoDetailQuery extends ModelCriteria
     /**
      * Returns a new ChildEditPoDetailQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildEditPoDetailQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildEditPoDetailQuery) {
             return $criteria;
@@ -320,7 +366,7 @@ abstract class EditPoDetailQuery extends ModelCriteria
      *
      * @return ChildEditPoDetail|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -352,8 +398,8 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -387,8 +433,8 @@ abstract class EditPoDetailQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildEditPoDetail|array|mixed the result, formatted by the current formatter
      */
@@ -408,12 +454,12 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -430,9 +476,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -446,14 +492,16 @@ abstract class EditPoDetailQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(EditPoDetailTableMap::COL_SESSIONID, $key[0], Criteria::EQUAL);
@@ -474,14 +522,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * <code>
      * $query->filterBySessionid('fooValue');   // WHERE sessionid = 'fooValue'
      * $query->filterBySessionid('%fooValue%', Criteria::LIKE); // WHERE sessionid LIKE '%fooValue%'
+     * $query->filterBySessionid(['foo', 'bar']); // WHERE sessionid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sessionid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sessionid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySessionid($sessionid = null, $comparison = null)
+    public function filterBySessionid($sessionid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sessionid)) {
@@ -489,7 +538,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_SESSIONID, $sessionid, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_SESSIONID, $sessionid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -499,14 +550,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByPohdnbr('fooValue');   // WHERE PohdNbr = 'fooValue'
      * $query->filterByPohdnbr('%fooValue%', Criteria::LIKE); // WHERE PohdNbr LIKE '%fooValue%'
+     * $query->filterByPohdnbr(['foo', 'bar']); // WHERE PohdNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $pohdnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $pohdnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPohdnbr($pohdnbr = null, $comparison = null)
+    public function filterByPohdnbr($pohdnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($pohdnbr)) {
@@ -514,7 +566,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_POHDNBR, $pohdnbr, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_POHDNBR, $pohdnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -527,15 +581,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * $query->filterByPodtline(array('min' => 12)); // WHERE PodtLine > 12
      * </code>
      *
-     * @param     mixed $podtline The value to use as filter.
+     * @param mixed $podtline The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodtline($podtline = null, $comparison = null)
+    public function filterByPodtline($podtline = null, ?string $comparison = null)
     {
         if (is_array($podtline)) {
             $useMinMax = false;
@@ -555,7 +609,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTLINE, $podtline, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTLINE, $podtline, $comparison);
+
+        return $this;
     }
 
     /**
@@ -565,14 +621,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByInititemnbr('fooValue');   // WHERE InitItemNbr = 'fooValue'
      * $query->filterByInititemnbr('%fooValue%', Criteria::LIKE); // WHERE InitItemNbr LIKE '%fooValue%'
+     * $query->filterByInititemnbr(['foo', 'bar']); // WHERE InitItemNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inititemnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inititemnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInititemnbr($inititemnbr = null, $comparison = null)
+    public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inititemnbr)) {
@@ -580,7 +637,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -590,14 +649,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByPodtdesc1('fooValue');   // WHERE PodtDesc1 = 'fooValue'
      * $query->filterByPodtdesc1('%fooValue%', Criteria::LIKE); // WHERE PodtDesc1 LIKE '%fooValue%'
+     * $query->filterByPodtdesc1(['foo', 'bar']); // WHERE PodtDesc1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $podtdesc1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $podtdesc1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodtdesc1($podtdesc1 = null, $comparison = null)
+    public function filterByPodtdesc1($podtdesc1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($podtdesc1)) {
@@ -605,7 +665,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTDESC1, $podtdesc1, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTDESC1, $podtdesc1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -615,14 +677,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByPodtdesc2('fooValue');   // WHERE PodtDesc2 = 'fooValue'
      * $query->filterByPodtdesc2('%fooValue%', Criteria::LIKE); // WHERE PodtDesc2 LIKE '%fooValue%'
+     * $query->filterByPodtdesc2(['foo', 'bar']); // WHERE PodtDesc2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $podtdesc2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $podtdesc2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodtdesc2($podtdesc2 = null, $comparison = null)
+    public function filterByPodtdesc2($podtdesc2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($podtdesc2)) {
@@ -630,7 +693,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTDESC2, $podtdesc2, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTDESC2, $podtdesc2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -640,14 +705,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByPodtvenditemnbr('fooValue');   // WHERE PodtVendItemNbr = 'fooValue'
      * $query->filterByPodtvenditemnbr('%fooValue%', Criteria::LIKE); // WHERE PodtVendItemNbr LIKE '%fooValue%'
+     * $query->filterByPodtvenditemnbr(['foo', 'bar']); // WHERE PodtVendItemNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $podtvenditemnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $podtvenditemnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodtvenditemnbr($podtvenditemnbr = null, $comparison = null)
+    public function filterByPodtvenditemnbr($podtvenditemnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($podtvenditemnbr)) {
@@ -655,7 +721,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTVENDITEMNBR, $podtvenditemnbr, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTVENDITEMNBR, $podtvenditemnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -665,14 +733,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhse('fooValue');   // WHERE IntbWhse = 'fooValue'
      * $query->filterByIntbwhse('%fooValue%', Criteria::LIKE); // WHERE IntbWhse LIKE '%fooValue%'
+     * $query->filterByIntbwhse(['foo', 'bar']); // WHERE IntbWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhse($intbwhse = null, $comparison = null)
+    public function filterByIntbwhse($intbwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhse)) {
@@ -680,7 +749,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_INTBWHSE, $intbwhse, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_INTBWHSE, $intbwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -690,14 +761,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByPodtshipdate('fooValue');   // WHERE PodtShipDate = 'fooValue'
      * $query->filterByPodtshipdate('%fooValue%', Criteria::LIKE); // WHERE PodtShipDate LIKE '%fooValue%'
+     * $query->filterByPodtshipdate(['foo', 'bar']); // WHERE PodtShipDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $podtshipdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $podtshipdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodtshipdate($podtshipdate = null, $comparison = null)
+    public function filterByPodtshipdate($podtshipdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($podtshipdate)) {
@@ -705,7 +777,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTSHIPDATE, $podtshipdate, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTSHIPDATE, $podtshipdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -715,14 +789,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByPodtexptdate('fooValue');   // WHERE PodtExptDate = 'fooValue'
      * $query->filterByPodtexptdate('%fooValue%', Criteria::LIKE); // WHERE PodtExptDate LIKE '%fooValue%'
+     * $query->filterByPodtexptdate(['foo', 'bar']); // WHERE PodtExptDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $podtexptdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $podtexptdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodtexptdate($podtexptdate = null, $comparison = null)
+    public function filterByPodtexptdate($podtexptdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($podtexptdate)) {
@@ -730,7 +805,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTEXPTDATE, $podtexptdate, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTEXPTDATE, $podtexptdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -740,14 +817,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByPodtcancdate('fooValue');   // WHERE PodtCancDate = 'fooValue'
      * $query->filterByPodtcancdate('%fooValue%', Criteria::LIKE); // WHERE PodtCancDate LIKE '%fooValue%'
+     * $query->filterByPodtcancdate(['foo', 'bar']); // WHERE PodtCancDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $podtcancdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $podtcancdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodtcancdate($podtcancdate = null, $comparison = null)
+    public function filterByPodtcancdate($podtcancdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($podtcancdate)) {
@@ -755,7 +833,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTCANCDATE, $podtcancdate, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTCANCDATE, $podtcancdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -765,14 +845,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbuompur('fooValue');   // WHERE IntbUomPur = 'fooValue'
      * $query->filterByIntbuompur('%fooValue%', Criteria::LIKE); // WHERE IntbUomPur LIKE '%fooValue%'
+     * $query->filterByIntbuompur(['foo', 'bar']); // WHERE IntbUomPur IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbuompur The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbuompur The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbuompur($intbuompur = null, $comparison = null)
+    public function filterByIntbuompur($intbuompur = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbuompur)) {
@@ -780,7 +861,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_INTBUOMPUR, $intbuompur, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_INTBUOMPUR, $intbuompur, $comparison);
+
+        return $this;
     }
 
     /**
@@ -793,15 +876,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * $query->filterByPodtqtyord(array('min' => 12)); // WHERE PodtQtyOrd > 12
      * </code>
      *
-     * @param     mixed $podtqtyord The value to use as filter.
+     * @param mixed $podtqtyord The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodtqtyord($podtqtyord = null, $comparison = null)
+    public function filterByPodtqtyord($podtqtyord = null, ?string $comparison = null)
     {
         if (is_array($podtqtyord)) {
             $useMinMax = false;
@@ -821,7 +904,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTQTYORD, $podtqtyord, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTQTYORD, $podtqtyord, $comparison);
+
+        return $this;
     }
 
     /**
@@ -834,15 +919,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * $query->filterByPodtcost(array('min' => 12)); // WHERE PodtCost > 12
      * </code>
      *
-     * @param     mixed $podtcost The value to use as filter.
+     * @param mixed $podtcost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodtcost($podtcost = null, $comparison = null)
+    public function filterByPodtcost($podtcost = null, ?string $comparison = null)
     {
         if (is_array($podtcost)) {
             $useMinMax = false;
@@ -862,7 +947,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTCOST, $podtcost, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTCOST, $podtcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -875,15 +962,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * $query->filterByPodtcosttot(array('min' => 12)); // WHERE PodtCostTot > 12
      * </code>
      *
-     * @param     mixed $podtcosttot The value to use as filter.
+     * @param mixed $podtcosttot The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodtcosttot($podtcosttot = null, $comparison = null)
+    public function filterByPodtcosttot($podtcosttot = null, ?string $comparison = null)
     {
         if (is_array($podtcosttot)) {
             $useMinMax = false;
@@ -903,7 +990,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTCOSTTOT, $podtcosttot, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTCOSTTOT, $podtcosttot, $comparison);
+
+        return $this;
     }
 
     /**
@@ -913,14 +1002,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByPodtrel('fooValue');   // WHERE PodtRel = 'fooValue'
      * $query->filterByPodtrel('%fooValue%', Criteria::LIKE); // WHERE PodtRel LIKE '%fooValue%'
+     * $query->filterByPodtrel(['foo', 'bar']); // WHERE PodtRel IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $podtrel The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $podtrel The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodtrel($podtrel = null, $comparison = null)
+    public function filterByPodtrel($podtrel = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($podtrel)) {
@@ -928,7 +1018,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTREL, $podtrel, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTREL, $podtrel, $comparison);
+
+        return $this;
     }
 
     /**
@@ -938,14 +1030,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByPodtspecordr('fooValue');   // WHERE PodtSpecOrdr = 'fooValue'
      * $query->filterByPodtspecordr('%fooValue%', Criteria::LIKE); // WHERE PodtSpecOrdr LIKE '%fooValue%'
+     * $query->filterByPodtspecordr(['foo', 'bar']); // WHERE PodtSpecOrdr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $podtspecordr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $podtspecordr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodtspecordr($podtspecordr = null, $comparison = null)
+    public function filterByPodtspecordr($podtspecordr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($podtspecordr)) {
@@ -953,7 +1046,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTSPECORDR, $podtspecordr, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTSPECORDR, $podtspecordr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -963,14 +1058,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByPodtglacct('fooValue');   // WHERE PodtGlAcct = 'fooValue'
      * $query->filterByPodtglacct('%fooValue%', Criteria::LIKE); // WHERE PodtGlAcct LIKE '%fooValue%'
+     * $query->filterByPodtglacct(['foo', 'bar']); // WHERE PodtGlAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $podtglacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $podtglacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodtglacct($podtglacct = null, $comparison = null)
+    public function filterByPodtglacct($podtglacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($podtglacct)) {
@@ -978,7 +1074,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTGLACCT, $podtglacct, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTGLACCT, $podtglacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -988,14 +1086,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByPodtsonbr('fooValue');   // WHERE PodtSoNbr = 'fooValue'
      * $query->filterByPodtsonbr('%fooValue%', Criteria::LIKE); // WHERE PodtSoNbr LIKE '%fooValue%'
+     * $query->filterByPodtsonbr(['foo', 'bar']); // WHERE PodtSoNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $podtsonbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $podtsonbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodtsonbr($podtsonbr = null, $comparison = null)
+    public function filterByPodtsonbr($podtsonbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($podtsonbr)) {
@@ -1003,7 +1102,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTSONBR, $podtsonbr, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTSONBR, $podtsonbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1013,14 +1114,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByPodtstat('fooValue');   // WHERE PodtStat = 'fooValue'
      * $query->filterByPodtstat('%fooValue%', Criteria::LIKE); // WHERE PodtStat LIKE '%fooValue%'
+     * $query->filterByPodtstat(['foo', 'bar']); // WHERE PodtStat IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $podtstat The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $podtstat The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodtstat($podtstat = null, $comparison = null)
+    public function filterByPodtstat($podtstat = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($podtstat)) {
@@ -1028,7 +1130,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTSTAT, $podtstat, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTSTAT, $podtstat, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1041,15 +1145,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * $query->filterByPodtorigsoline(array('min' => 12)); // WHERE PodtOrigSoLine > 12
      * </code>
      *
-     * @param     mixed $podtorigsoline The value to use as filter.
+     * @param mixed $podtorigsoline The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodtorigsoline($podtorigsoline = null, $comparison = null)
+    public function filterByPodtorigsoline($podtorigsoline = null, ?string $comparison = null)
     {
         if (is_array($podtorigsoline)) {
             $useMinMax = false;
@@ -1069,7 +1173,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTORIGSOLINE, $podtorigsoline, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTORIGSOLINE, $podtorigsoline, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1082,15 +1188,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * $query->filterByPodtqtyduein(array('min' => 12)); // WHERE PodtQtyDueIn > 12
      * </code>
      *
-     * @param     mixed $podtqtyduein The value to use as filter.
+     * @param mixed $podtqtyduein The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodtqtyduein($podtqtyduein = null, $comparison = null)
+    public function filterByPodtqtyduein($podtqtyduein = null, ?string $comparison = null)
     {
         if (is_array($podtqtyduein)) {
             $useMinMax = false;
@@ -1110,7 +1216,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTQTYDUEIN, $podtqtyduein, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTQTYDUEIN, $podtqtyduein, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1120,14 +1228,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByPodttype('fooValue');   // WHERE PodtType = 'fooValue'
      * $query->filterByPodttype('%fooValue%', Criteria::LIKE); // WHERE PodtType LIKE '%fooValue%'
+     * $query->filterByPodttype(['foo', 'bar']); // WHERE PodtType IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $podttype The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $podttype The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodttype($podttype = null, $comparison = null)
+    public function filterByPodttype($podttype = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($podttype)) {
@@ -1135,7 +1244,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTTYPE, $podttype, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTTYPE, $podttype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1148,15 +1259,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * $query->filterByPodtwghttot(array('min' => 12)); // WHERE PodtWghtTot > 12
      * </code>
      *
-     * @param     mixed $podtwghttot The value to use as filter.
+     * @param mixed $podtwghttot The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodtwghttot($podtwghttot = null, $comparison = null)
+    public function filterByPodtwghttot($podtwghttot = null, ?string $comparison = null)
     {
         if (is_array($podtwghttot)) {
             $useMinMax = false;
@@ -1176,7 +1287,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTWGHTTOT, $podtwghttot, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTWGHTTOT, $podtwghttot, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1189,15 +1302,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * $query->filterByPodtforeigncost(array('min' => 12)); // WHERE PodtForeignCost > 12
      * </code>
      *
-     * @param     mixed $podtforeigncost The value to use as filter.
+     * @param mixed $podtforeigncost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodtforeigncost($podtforeigncost = null, $comparison = null)
+    public function filterByPodtforeigncost($podtforeigncost = null, ?string $comparison = null)
     {
         if (is_array($podtforeigncost)) {
             $useMinMax = false;
@@ -1217,7 +1330,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTFOREIGNCOST, $podtforeigncost, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTFOREIGNCOST, $podtforeigncost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1230,15 +1345,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * $query->filterByPodtforeigncosttot(array('min' => 12)); // WHERE PodtForeignCostTot > 12
      * </code>
      *
-     * @param     mixed $podtforeigncosttot The value to use as filter.
+     * @param mixed $podtforeigncosttot The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodtforeigncosttot($podtforeigncosttot = null, $comparison = null)
+    public function filterByPodtforeigncosttot($podtforeigncosttot = null, ?string $comparison = null)
     {
         if (is_array($podtforeigncosttot)) {
             $useMinMax = false;
@@ -1258,7 +1373,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTFOREIGNCOSTTOT, $podtforeigncosttot, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTFOREIGNCOSTTOT, $podtforeigncosttot, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1271,15 +1388,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * $query->filterByPodtstanunitcost(array('min' => 12)); // WHERE PodtStanUnitCost > 12
      * </code>
      *
-     * @param     mixed $podtstanunitcost The value to use as filter.
+     * @param mixed $podtstanunitcost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodtstanunitcost($podtstanunitcost = null, $comparison = null)
+    public function filterByPodtstanunitcost($podtstanunitcost = null, ?string $comparison = null)
     {
         if (is_array($podtstanunitcost)) {
             $useMinMax = false;
@@ -1299,7 +1416,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTSTANUNITCOST, $podtstanunitcost, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTSTANUNITCOST, $podtstanunitcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1309,14 +1428,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByPodtackdate('fooValue');   // WHERE PodtAckDate = 'fooValue'
      * $query->filterByPodtackdate('%fooValue%', Criteria::LIKE); // WHERE PodtAckDate LIKE '%fooValue%'
+     * $query->filterByPodtackdate(['foo', 'bar']); // WHERE PodtAckDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $podtackdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $podtackdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodtackdate($podtackdate = null, $comparison = null)
+    public function filterByPodtackdate($podtackdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($podtackdate)) {
@@ -1324,7 +1444,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTACKDATE, $podtackdate, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTACKDATE, $podtackdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1334,14 +1456,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByPodtinvcclearflag('fooValue');   // WHERE PodtInvcClearFlag = 'fooValue'
      * $query->filterByPodtinvcclearflag('%fooValue%', Criteria::LIKE); // WHERE PodtInvcClearFlag LIKE '%fooValue%'
+     * $query->filterByPodtinvcclearflag(['foo', 'bar']); // WHERE PodtInvcClearFlag IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $podtinvcclearflag The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $podtinvcclearflag The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodtinvcclearflag($podtinvcclearflag = null, $comparison = null)
+    public function filterByPodtinvcclearflag($podtinvcclearflag = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($podtinvcclearflag)) {
@@ -1349,7 +1472,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTINVCCLEARFLAG, $podtinvcclearflag, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTINVCCLEARFLAG, $podtinvcclearflag, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1359,14 +1484,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByPodtprtkitdet('fooValue');   // WHERE PodtPrtKitDet = 'fooValue'
      * $query->filterByPodtprtkitdet('%fooValue%', Criteria::LIKE); // WHERE PodtPrtKitDet LIKE '%fooValue%'
+     * $query->filterByPodtprtkitdet(['foo', 'bar']); // WHERE PodtPrtKitDet IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $podtprtkitdet The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $podtprtkitdet The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodtprtkitdet($podtprtkitdet = null, $comparison = null)
+    public function filterByPodtprtkitdet($podtprtkitdet = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($podtprtkitdet)) {
@@ -1374,7 +1500,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTPRTKITDET, $podtprtkitdet, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTPRTKITDET, $podtprtkitdet, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1384,14 +1512,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByPodtdestwhse('fooValue');   // WHERE PodtDestWhse = 'fooValue'
      * $query->filterByPodtdestwhse('%fooValue%', Criteria::LIKE); // WHERE PodtDestWhse LIKE '%fooValue%'
+     * $query->filterByPodtdestwhse(['foo', 'bar']); // WHERE PodtDestWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $podtdestwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $podtdestwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodtdestwhse($podtdestwhse = null, $comparison = null)
+    public function filterByPodtdestwhse($podtdestwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($podtdestwhse)) {
@@ -1399,7 +1528,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTDESTWHSE, $podtdestwhse, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTDESTWHSE, $podtdestwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1409,14 +1540,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByPodtrevision('fooValue');   // WHERE PodtRevision = 'fooValue'
      * $query->filterByPodtrevision('%fooValue%', Criteria::LIKE); // WHERE PodtRevision LIKE '%fooValue%'
+     * $query->filterByPodtrevision(['foo', 'bar']); // WHERE PodtRevision IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $podtrevision The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $podtrevision The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodtrevision($podtrevision = null, $comparison = null)
+    public function filterByPodtrevision($podtrevision = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($podtrevision)) {
@@ -1424,7 +1556,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTREVISION, $podtrevision, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTREVISION, $podtrevision, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1434,14 +1568,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByPodtprtpoeoru('fooValue');   // WHERE PodtPrtPoEOrU = 'fooValue'
      * $query->filterByPodtprtpoeoru('%fooValue%', Criteria::LIKE); // WHERE PodtPrtPoEOrU LIKE '%fooValue%'
+     * $query->filterByPodtprtpoeoru(['foo', 'bar']); // WHERE PodtPrtPoEOrU IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $podtprtpoeoru The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $podtprtpoeoru The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodtprtpoeoru($podtprtpoeoru = null, $comparison = null)
+    public function filterByPodtprtpoeoru($podtprtpoeoru = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($podtprtpoeoru)) {
@@ -1449,7 +1584,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTPRTPOEORU, $podtprtpoeoru, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTPRTPOEORU, $podtprtpoeoru, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1459,14 +1596,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbcnfmcode('fooValue');   // WHERE PotbCnfmCode = 'fooValue'
      * $query->filterByPotbcnfmcode('%fooValue%', Criteria::LIKE); // WHERE PotbCnfmCode LIKE '%fooValue%'
+     * $query->filterByPotbcnfmcode(['foo', 'bar']); // WHERE PotbCnfmCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbcnfmcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbcnfmcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbcnfmcode($potbcnfmcode = null, $comparison = null)
+    public function filterByPotbcnfmcode($potbcnfmcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbcnfmcode)) {
@@ -1474,7 +1612,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_POTBCNFMCODE, $potbcnfmcode, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_POTBCNFMCODE, $potbcnfmcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1484,14 +1624,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByPodtrcptnbr('fooValue');   // WHERE PodtRcptNbr = 'fooValue'
      * $query->filterByPodtrcptnbr('%fooValue%', Criteria::LIKE); // WHERE PodtRcptNbr LIKE '%fooValue%'
+     * $query->filterByPodtrcptnbr(['foo', 'bar']); // WHERE PodtRcptNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $podtrcptnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $podtrcptnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodtrcptnbr($podtrcptnbr = null, $comparison = null)
+    public function filterByPodtrcptnbr($podtrcptnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($podtrcptnbr)) {
@@ -1499,7 +1640,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTRCPTNBR, $podtrcptnbr, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTRCPTNBR, $podtrcptnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1509,14 +1652,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByPodtwipnbr('fooValue');   // WHERE PodtWipNbr = 'fooValue'
      * $query->filterByPodtwipnbr('%fooValue%', Criteria::LIKE); // WHERE PodtWipNbr LIKE '%fooValue%'
+     * $query->filterByPodtwipnbr(['foo', 'bar']); // WHERE PodtWipNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $podtwipnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $podtwipnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodtwipnbr($podtwipnbr = null, $comparison = null)
+    public function filterByPodtwipnbr($podtwipnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($podtwipnbr)) {
@@ -1524,7 +1668,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTWIPNBR, $podtwipnbr, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTWIPNBR, $podtwipnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1534,14 +1680,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByPodtordras('fooValue');   // WHERE PodtOrdrAs = 'fooValue'
      * $query->filterByPodtordras('%fooValue%', Criteria::LIKE); // WHERE PodtOrdrAs LIKE '%fooValue%'
+     * $query->filterByPodtordras(['foo', 'bar']); // WHERE PodtOrdrAs IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $podtordras The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $podtordras The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodtordras($podtordras = null, $comparison = null)
+    public function filterByPodtordras($podtordras = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($podtordras)) {
@@ -1549,7 +1696,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTORDRAS, $podtordras, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTORDRAS, $podtordras, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1559,14 +1708,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByPodtboldate('fooValue');   // WHERE PodtBolDate = 'fooValue'
      * $query->filterByPodtboldate('%fooValue%', Criteria::LIKE); // WHERE PodtBolDate LIKE '%fooValue%'
+     * $query->filterByPodtboldate(['foo', 'bar']); // WHERE PodtBolDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $podtboldate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $podtboldate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodtboldate($podtboldate = null, $comparison = null)
+    public function filterByPodtboldate($podtboldate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($podtboldate)) {
@@ -1574,7 +1724,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTBOLDATE, $podtboldate, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTBOLDATE, $podtboldate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1587,15 +1739,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * $query->filterByPodtlistpric(array('min' => 12)); // WHERE PodtListPric > 12
      * </code>
      *
-     * @param     mixed $podtlistpric The value to use as filter.
+     * @param mixed $podtlistpric The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodtlistpric($podtlistpric = null, $comparison = null)
+    public function filterByPodtlistpric($podtlistpric = null, ?string $comparison = null)
     {
         if (is_array($podtlistpric)) {
             $useMinMax = false;
@@ -1615,7 +1767,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTLISTPRIC, $podtlistpric, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTLISTPRIC, $podtlistpric, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1625,14 +1779,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByPodtdelivereddate('fooValue');   // WHERE PodtDeliveredDate = 'fooValue'
      * $query->filterByPodtdelivereddate('%fooValue%', Criteria::LIKE); // WHERE PodtDeliveredDate LIKE '%fooValue%'
+     * $query->filterByPodtdelivereddate(['foo', 'bar']); // WHERE PodtDeliveredDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $podtdelivereddate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $podtdelivereddate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodtdelivereddate($podtdelivereddate = null, $comparison = null)
+    public function filterByPodtdelivereddate($podtdelivereddate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($podtdelivereddate)) {
@@ -1640,7 +1795,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTDELIVEREDDATE, $podtdelivereddate, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTDELIVEREDDATE, $podtdelivereddate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1653,15 +1810,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * $query->filterByPodtlandcost(array('min' => 12)); // WHERE PodtLandCost > 12
      * </code>
      *
-     * @param     mixed $podtlandcost The value to use as filter.
+     * @param mixed $podtlandcost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPodtlandcost($podtlandcost = null, $comparison = null)
+    public function filterByPodtlandcost($podtlandcost = null, ?string $comparison = null)
     {
         if (is_array($podtlandcost)) {
             $useMinMax = false;
@@ -1681,7 +1838,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_PODTLANDCOST, $podtlandcost, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_PODTLANDCOST, $podtlandcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1691,14 +1850,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -1706,7 +1866,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1716,14 +1878,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -1731,7 +1894,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1741,14 +1906,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByStatus('fooValue');   // WHERE status = 'fooValue'
      * $query->filterByStatus('%fooValue%', Criteria::LIKE); // WHERE status LIKE '%fooValue%'
+     * $query->filterByStatus(['foo', 'bar']); // WHERE status IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $status The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $status The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByStatus($status = null, $comparison = null)
+    public function filterByStatus($status = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($status)) {
@@ -1756,7 +1922,9 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_STATUS, $status, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_STATUS, $status, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1766,14 +1934,15 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -1781,15 +1950,17 @@ abstract class EditPoDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(EditPoDetailTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(EditPoDetailTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildEditPoDetail $editPoDetail Object to remove from the list of results
+     * @param ChildEditPoDetail $editPoDetail Object to remove from the list of results
      *
-     * @return $this|ChildEditPoDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($editPoDetail = null)
     {
@@ -1809,7 +1980,7 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(EditPoDetailTableMap::DATABASE_NAME);
@@ -1834,12 +2005,12 @@ abstract class EditPoDetailQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(EditPoDetailTableMap::DATABASE_NAME);
@@ -1864,4 +2035,4 @@ abstract class EditPoDetailQuery extends ModelCriteria
         });
     }
 
-} // EditPoDetailQuery
+}

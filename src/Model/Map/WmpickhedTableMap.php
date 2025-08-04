@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class WmpickhedTableMap extends TableMap
 {
@@ -34,134 +33,211 @@ class WmpickhedTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.WmpickhedTableMap';
+    public const CLASS_NAME = '.Map.WmpickhedTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'dplusodb';
+    public const DATABASE_NAME = 'dplusodb';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'wmpickhed';
+    public const TABLE_NAME = 'wmpickhed';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'Wmpickhed';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\Wmpickhed';
+    public const OM_CLASS = '\\Wmpickhed';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'Wmpickhed';
+    public const CLASS_DEFAULT = 'Wmpickhed';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 10;
+    public const NUM_COLUMNS = 10;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 10;
+    public const NUM_HYDRATE_COLUMNS = 10;
 
     /**
      * the column name for the ordernbr field
      */
-    const COL_ORDERNBR = 'wmpickhed.ordernbr';
+    public const COL_ORDERNBR = 'wmpickhed.ordernbr';
 
     /**
      * the column name for the recno field
      */
-    const COL_RECNO = 'wmpickhed.recno';
+    public const COL_RECNO = 'wmpickhed.recno';
 
     /**
      * the column name for the date field
      */
-    const COL_DATE = 'wmpickhed.date';
+    public const COL_DATE = 'wmpickhed.date';
 
     /**
      * the column name for the time field
      */
-    const COL_TIME = 'wmpickhed.time';
+    public const COL_TIME = 'wmpickhed.time';
 
     /**
      * the column name for the customerid field
      */
-    const COL_CUSTOMERID = 'wmpickhed.customerid';
+    public const COL_CUSTOMERID = 'wmpickhed.customerid';
 
     /**
      * the column name for the customername field
      */
-    const COL_CUSTOMERNAME = 'wmpickhed.customername';
+    public const COL_CUSTOMERNAME = 'wmpickhed.customername';
 
     /**
      * the column name for the statusmsg field
      */
-    const COL_STATUSMSG = 'wmpickhed.statusmsg';
+    public const COL_STATUSMSG = 'wmpickhed.statusmsg';
 
     /**
      * the column name for the lastpalletnbr field
      */
-    const COL_LASTPALLETNBR = 'wmpickhed.lastpalletnbr';
+    public const COL_LASTPALLETNBR = 'wmpickhed.lastpalletnbr';
 
     /**
      * the column name for the function field
      */
-    const COL_FUNCTION = 'wmpickhed.function';
+    public const COL_FUNCTION = 'wmpickhed.function';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'wmpickhed.dummy';
+    public const COL_DUMMY = 'wmpickhed.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Ordernbr', 'Recno', 'Date', 'Time', 'Customerid', 'Customername', 'Statusmsg', 'Lastpalletnbr', 'Function', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('ordernbr', 'recno', 'date', 'time', 'customerid', 'customername', 'statusmsg', 'lastpalletnbr', 'function', 'dummy', ),
-        self::TYPE_COLNAME       => array(WmpickhedTableMap::COL_ORDERNBR, WmpickhedTableMap::COL_RECNO, WmpickhedTableMap::COL_DATE, WmpickhedTableMap::COL_TIME, WmpickhedTableMap::COL_CUSTOMERID, WmpickhedTableMap::COL_CUSTOMERNAME, WmpickhedTableMap::COL_STATUSMSG, WmpickhedTableMap::COL_LASTPALLETNBR, WmpickhedTableMap::COL_FUNCTION, WmpickhedTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('ordernbr', 'recno', 'date', 'time', 'customerid', 'customername', 'statusmsg', 'lastpalletnbr', 'function', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Ordernbr', 'Recno', 'Date', 'Time', 'Customerid', 'Customername', 'Statusmsg', 'Lastpalletnbr', 'Function', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['ordernbr', 'recno', 'date', 'time', 'customerid', 'customername', 'statusmsg', 'lastpalletnbr', 'function', 'dummy', ],
+        self::TYPE_COLNAME       => [WmpickhedTableMap::COL_ORDERNBR, WmpickhedTableMap::COL_RECNO, WmpickhedTableMap::COL_DATE, WmpickhedTableMap::COL_TIME, WmpickhedTableMap::COL_CUSTOMERID, WmpickhedTableMap::COL_CUSTOMERNAME, WmpickhedTableMap::COL_STATUSMSG, WmpickhedTableMap::COL_LASTPALLETNBR, WmpickhedTableMap::COL_FUNCTION, WmpickhedTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['ordernbr', 'recno', 'date', 'time', 'customerid', 'customername', 'statusmsg', 'lastpalletnbr', 'function', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Ordernbr' => 0, 'Recno' => 1, 'Date' => 2, 'Time' => 3, 'Customerid' => 4, 'Customername' => 5, 'Statusmsg' => 6, 'Lastpalletnbr' => 7, 'Function' => 8, 'Dummy' => 9, ),
-        self::TYPE_CAMELNAME     => array('ordernbr' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'customerid' => 4, 'customername' => 5, 'statusmsg' => 6, 'lastpalletnbr' => 7, 'function' => 8, 'dummy' => 9, ),
-        self::TYPE_COLNAME       => array(WmpickhedTableMap::COL_ORDERNBR => 0, WmpickhedTableMap::COL_RECNO => 1, WmpickhedTableMap::COL_DATE => 2, WmpickhedTableMap::COL_TIME => 3, WmpickhedTableMap::COL_CUSTOMERID => 4, WmpickhedTableMap::COL_CUSTOMERNAME => 5, WmpickhedTableMap::COL_STATUSMSG => 6, WmpickhedTableMap::COL_LASTPALLETNBR => 7, WmpickhedTableMap::COL_FUNCTION => 8, WmpickhedTableMap::COL_DUMMY => 9, ),
-        self::TYPE_FIELDNAME     => array('ordernbr' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'customerid' => 4, 'customername' => 5, 'statusmsg' => 6, 'lastpalletnbr' => 7, 'function' => 8, 'dummy' => 9, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Ordernbr' => 0, 'Recno' => 1, 'Date' => 2, 'Time' => 3, 'Customerid' => 4, 'Customername' => 5, 'Statusmsg' => 6, 'Lastpalletnbr' => 7, 'Function' => 8, 'Dummy' => 9, ],
+        self::TYPE_CAMELNAME     => ['ordernbr' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'customerid' => 4, 'customername' => 5, 'statusmsg' => 6, 'lastpalletnbr' => 7, 'function' => 8, 'dummy' => 9, ],
+        self::TYPE_COLNAME       => [WmpickhedTableMap::COL_ORDERNBR => 0, WmpickhedTableMap::COL_RECNO => 1, WmpickhedTableMap::COL_DATE => 2, WmpickhedTableMap::COL_TIME => 3, WmpickhedTableMap::COL_CUSTOMERID => 4, WmpickhedTableMap::COL_CUSTOMERNAME => 5, WmpickhedTableMap::COL_STATUSMSG => 6, WmpickhedTableMap::COL_LASTPALLETNBR => 7, WmpickhedTableMap::COL_FUNCTION => 8, WmpickhedTableMap::COL_DUMMY => 9, ],
+        self::TYPE_FIELDNAME     => ['ordernbr' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'customerid' => 4, 'customername' => 5, 'statusmsg' => 6, 'lastpalletnbr' => 7, 'function' => 8, 'dummy' => 9, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Ordernbr' => 'ORDERNBR',
+        'Wmpickhed.Ordernbr' => 'ORDERNBR',
+        'ordernbr' => 'ORDERNBR',
+        'wmpickhed.ordernbr' => 'ORDERNBR',
+        'WmpickhedTableMap::COL_ORDERNBR' => 'ORDERNBR',
+        'COL_ORDERNBR' => 'ORDERNBR',
+        'Recno' => 'RECNO',
+        'Wmpickhed.Recno' => 'RECNO',
+        'recno' => 'RECNO',
+        'wmpickhed.recno' => 'RECNO',
+        'WmpickhedTableMap::COL_RECNO' => 'RECNO',
+        'COL_RECNO' => 'RECNO',
+        'Date' => 'DATE',
+        'Wmpickhed.Date' => 'DATE',
+        'date' => 'DATE',
+        'wmpickhed.date' => 'DATE',
+        'WmpickhedTableMap::COL_DATE' => 'DATE',
+        'COL_DATE' => 'DATE',
+        'Time' => 'TIME',
+        'Wmpickhed.Time' => 'TIME',
+        'time' => 'TIME',
+        'wmpickhed.time' => 'TIME',
+        'WmpickhedTableMap::COL_TIME' => 'TIME',
+        'COL_TIME' => 'TIME',
+        'Customerid' => 'CUSTOMERID',
+        'Wmpickhed.Customerid' => 'CUSTOMERID',
+        'customerid' => 'CUSTOMERID',
+        'wmpickhed.customerid' => 'CUSTOMERID',
+        'WmpickhedTableMap::COL_CUSTOMERID' => 'CUSTOMERID',
+        'COL_CUSTOMERID' => 'CUSTOMERID',
+        'Customername' => 'CUSTOMERNAME',
+        'Wmpickhed.Customername' => 'CUSTOMERNAME',
+        'customername' => 'CUSTOMERNAME',
+        'wmpickhed.customername' => 'CUSTOMERNAME',
+        'WmpickhedTableMap::COL_CUSTOMERNAME' => 'CUSTOMERNAME',
+        'COL_CUSTOMERNAME' => 'CUSTOMERNAME',
+        'Statusmsg' => 'STATUSMSG',
+        'Wmpickhed.Statusmsg' => 'STATUSMSG',
+        'statusmsg' => 'STATUSMSG',
+        'wmpickhed.statusmsg' => 'STATUSMSG',
+        'WmpickhedTableMap::COL_STATUSMSG' => 'STATUSMSG',
+        'COL_STATUSMSG' => 'STATUSMSG',
+        'Lastpalletnbr' => 'LASTPALLETNBR',
+        'Wmpickhed.Lastpalletnbr' => 'LASTPALLETNBR',
+        'lastpalletnbr' => 'LASTPALLETNBR',
+        'wmpickhed.lastpalletnbr' => 'LASTPALLETNBR',
+        'WmpickhedTableMap::COL_LASTPALLETNBR' => 'LASTPALLETNBR',
+        'COL_LASTPALLETNBR' => 'LASTPALLETNBR',
+        'Function' => 'FUNCTION',
+        'Wmpickhed.Function' => 'FUNCTION',
+        'function' => 'FUNCTION',
+        'wmpickhed.function' => 'FUNCTION',
+        'WmpickhedTableMap::COL_FUNCTION' => 'FUNCTION',
+        'COL_FUNCTION' => 'FUNCTION',
+        'Dummy' => 'DUMMY',
+        'Wmpickhed.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'wmpickhed.dummy' => 'DUMMY',
+        'WmpickhedTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('wmpickhed');
@@ -181,14 +257,16 @@ class WmpickhedTableMap extends TableMap
         $this->addColumn('lastpalletnbr', 'Lastpalletnbr', 'INTEGER', false, 4, null);
         $this->addColumn('function', 'Function', 'VARCHAR', false, 12, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -199,9 +277,11 @@ class WmpickhedTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \Wmpickhed $obj A \Wmpickhed object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(Wmpickhed $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -220,8 +300,10 @@ class WmpickhedTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \Wmpickhed object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \Wmpickhed) {
@@ -249,14 +331,14 @@ class WmpickhedTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Ordernbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Recno', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -271,14 +353,14 @@ class WmpickhedTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -304,10 +386,10 @@ class WmpickhedTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? WmpickhedTableMap::CLASS_DEFAULT : WmpickhedTableMap::OM_CLASS;
     }
@@ -315,17 +397,17 @@ class WmpickhedTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (Wmpickhed object, last column rank)
+     * @return array (Wmpickhed object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = WmpickhedTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = WmpickhedTableMap::getInstanceFromPool($key))) {
@@ -341,7 +423,7 @@ class WmpickhedTableMap extends TableMap
             WmpickhedTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -349,13 +431,13 @@ class WmpickhedTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -385,12 +467,13 @@ class WmpickhedTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(WmpickhedTableMap::COL_ORDERNBR);
@@ -418,40 +501,68 @@ class WmpickhedTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(WmpickhedTableMap::COL_ORDERNBR);
+            $criteria->removeSelectColumn(WmpickhedTableMap::COL_RECNO);
+            $criteria->removeSelectColumn(WmpickhedTableMap::COL_DATE);
+            $criteria->removeSelectColumn(WmpickhedTableMap::COL_TIME);
+            $criteria->removeSelectColumn(WmpickhedTableMap::COL_CUSTOMERID);
+            $criteria->removeSelectColumn(WmpickhedTableMap::COL_CUSTOMERNAME);
+            $criteria->removeSelectColumn(WmpickhedTableMap::COL_STATUSMSG);
+            $criteria->removeSelectColumn(WmpickhedTableMap::COL_LASTPALLETNBR);
+            $criteria->removeSelectColumn(WmpickhedTableMap::COL_FUNCTION);
+            $criteria->removeSelectColumn(WmpickhedTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.ordernbr');
+            $criteria->removeSelectColumn($alias . '.recno');
+            $criteria->removeSelectColumn($alias . '.date');
+            $criteria->removeSelectColumn($alias . '.time');
+            $criteria->removeSelectColumn($alias . '.customerid');
+            $criteria->removeSelectColumn($alias . '.customername');
+            $criteria->removeSelectColumn($alias . '.statusmsg');
+            $criteria->removeSelectColumn($alias . '.lastpalletnbr');
+            $criteria->removeSelectColumn($alias . '.function');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(WmpickhedTableMap::DATABASE_NAME)->getTable(WmpickhedTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(WmpickhedTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(WmpickhedTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new WmpickhedTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a Wmpickhed or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or Wmpickhed object or primary key or array of primary keys
+     * @param mixed $values Criteria or Wmpickhed object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(WmpickhedTableMap::DATABASE_NAME);
@@ -469,7 +580,7 @@ class WmpickhedTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(WmpickhedTableMap::COL_ORDERNBR, $value[0]);
@@ -497,7 +608,7 @@ class WmpickhedTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return WmpickhedQuery::create()->doDeleteAll($con);
     }
@@ -505,13 +616,13 @@ class WmpickhedTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a Wmpickhed or Criteria object.
      *
-     * @param mixed               $criteria Criteria or Wmpickhed object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or Wmpickhed object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(WmpickhedTableMap::DATABASE_NAME);
@@ -534,7 +645,4 @@ class WmpickhedTableMap extends TableMap
         });
     }
 
-} // WmpickhedTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-WmpickhedTableMap::buildTableMap();
+}

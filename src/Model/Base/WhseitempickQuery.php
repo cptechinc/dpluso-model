@@ -10,14 +10,12 @@ use Map\WhseitempickTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'whseitempick' table.
- *
- *
+ * Base class that represents a query for the `whseitempick` table.
  *
  * @method     ChildWhseitempickQuery orderBySessionid($order = Criteria::ASC) Order by the sessionid column
  * @method     ChildWhseitempickQuery orderByOrdn($order = Criteria::ASC) Order by the ordn column
@@ -53,24 +51,24 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWhseitempickQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildWhseitempickQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildWhseitempick findOne(ConnectionInterface $con = null) Return the first ChildWhseitempick matching the query
- * @method     ChildWhseitempick findOneOrCreate(ConnectionInterface $con = null) Return the first ChildWhseitempick matching the query, or a new ChildWhseitempick object populated from the query conditions when no match is found
+ * @method     ChildWhseitempick|null findOne(?ConnectionInterface $con = null) Return the first ChildWhseitempick matching the query
+ * @method     ChildWhseitempick findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildWhseitempick matching the query, or a new ChildWhseitempick object populated from the query conditions when no match is found
  *
- * @method     ChildWhseitempick findOneBySessionid(string $sessionid) Return the first ChildWhseitempick filtered by the sessionid column
- * @method     ChildWhseitempick findOneByOrdn(string $ordn) Return the first ChildWhseitempick filtered by the ordn column
- * @method     ChildWhseitempick findOneByItemid(string $itemid) Return the first ChildWhseitempick filtered by the itemid column
- * @method     ChildWhseitempick findOneByRecordnumber(int $recordnumber) Return the first ChildWhseitempick filtered by the recordnumber column
- * @method     ChildWhseitempick findOneByLinenbr(int $linenbr) Return the first ChildWhseitempick filtered by the linenbr column
- * @method     ChildWhseitempick findOneBySublinenbr(int $sublinenbr) Return the first ChildWhseitempick filtered by the sublinenbr column
- * @method     ChildWhseitempick findOneByBin(string $bin) Return the first ChildWhseitempick filtered by the bin column
- * @method     ChildWhseitempick findOneByPalletnbr(int $palletnbr) Return the first ChildWhseitempick filtered by the palletnbr column
- * @method     ChildWhseitempick findOneByBarcode(string $barcode) Return the first ChildWhseitempick filtered by the barcode column
- * @method     ChildWhseitempick findOneByLotserialref(string $lotserialref) Return the first ChildWhseitempick filtered by the lotserialref column
- * @method     ChildWhseitempick findOneByLotserial(string $lotserial) Return the first ChildWhseitempick filtered by the lotserial column
- * @method     ChildWhseitempick findOneByQty(string $qty) Return the first ChildWhseitempick filtered by the qty column *
-
- * @method     ChildWhseitempick requirePk($key, ConnectionInterface $con = null) Return the ChildWhseitempick by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseitempick requireOne(ConnectionInterface $con = null) Return the first ChildWhseitempick matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWhseitempick|null findOneBySessionid(string $sessionid) Return the first ChildWhseitempick filtered by the sessionid column
+ * @method     ChildWhseitempick|null findOneByOrdn(string $ordn) Return the first ChildWhseitempick filtered by the ordn column
+ * @method     ChildWhseitempick|null findOneByItemid(string $itemid) Return the first ChildWhseitempick filtered by the itemid column
+ * @method     ChildWhseitempick|null findOneByRecordnumber(int $recordnumber) Return the first ChildWhseitempick filtered by the recordnumber column
+ * @method     ChildWhseitempick|null findOneByLinenbr(int $linenbr) Return the first ChildWhseitempick filtered by the linenbr column
+ * @method     ChildWhseitempick|null findOneBySublinenbr(int $sublinenbr) Return the first ChildWhseitempick filtered by the sublinenbr column
+ * @method     ChildWhseitempick|null findOneByBin(string $bin) Return the first ChildWhseitempick filtered by the bin column
+ * @method     ChildWhseitempick|null findOneByPalletnbr(int $palletnbr) Return the first ChildWhseitempick filtered by the palletnbr column
+ * @method     ChildWhseitempick|null findOneByBarcode(string $barcode) Return the first ChildWhseitempick filtered by the barcode column
+ * @method     ChildWhseitempick|null findOneByLotserialref(string $lotserialref) Return the first ChildWhseitempick filtered by the lotserialref column
+ * @method     ChildWhseitempick|null findOneByLotserial(string $lotserial) Return the first ChildWhseitempick filtered by the lotserial column
+ * @method     ChildWhseitempick|null findOneByQty(string $qty) Return the first ChildWhseitempick filtered by the qty column
+ *
+ * @method     ChildWhseitempick requirePk($key, ?ConnectionInterface $con = null) Return the ChildWhseitempick by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWhseitempick requireOne(?ConnectionInterface $con = null) Return the first ChildWhseitempick matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildWhseitempick requireOneBySessionid(string $sessionid) Return the first ChildWhseitempick filtered by the sessionid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitempick requireOneByOrdn(string $ordn) Return the first ChildWhseitempick filtered by the ordn column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -85,21 +83,36 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWhseitempick requireOneByLotserial(string $lotserial) Return the first ChildWhseitempick filtered by the lotserial column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitempick requireOneByQty(string $qty) Return the first ChildWhseitempick filtered by the qty column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildWhseitempick[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildWhseitempick objects based on current ModelCriteria
- * @method     ChildWhseitempick[]|ObjectCollection findBySessionid(string $sessionid) Return ChildWhseitempick objects filtered by the sessionid column
- * @method     ChildWhseitempick[]|ObjectCollection findByOrdn(string $ordn) Return ChildWhseitempick objects filtered by the ordn column
- * @method     ChildWhseitempick[]|ObjectCollection findByItemid(string $itemid) Return ChildWhseitempick objects filtered by the itemid column
- * @method     ChildWhseitempick[]|ObjectCollection findByRecordnumber(int $recordnumber) Return ChildWhseitempick objects filtered by the recordnumber column
- * @method     ChildWhseitempick[]|ObjectCollection findByLinenbr(int $linenbr) Return ChildWhseitempick objects filtered by the linenbr column
- * @method     ChildWhseitempick[]|ObjectCollection findBySublinenbr(int $sublinenbr) Return ChildWhseitempick objects filtered by the sublinenbr column
- * @method     ChildWhseitempick[]|ObjectCollection findByBin(string $bin) Return ChildWhseitempick objects filtered by the bin column
- * @method     ChildWhseitempick[]|ObjectCollection findByPalletnbr(int $palletnbr) Return ChildWhseitempick objects filtered by the palletnbr column
- * @method     ChildWhseitempick[]|ObjectCollection findByBarcode(string $barcode) Return ChildWhseitempick objects filtered by the barcode column
- * @method     ChildWhseitempick[]|ObjectCollection findByLotserialref(string $lotserialref) Return ChildWhseitempick objects filtered by the lotserialref column
- * @method     ChildWhseitempick[]|ObjectCollection findByLotserial(string $lotserial) Return ChildWhseitempick objects filtered by the lotserial column
- * @method     ChildWhseitempick[]|ObjectCollection findByQty(string $qty) Return ChildWhseitempick objects filtered by the qty column
- * @method     ChildWhseitempick[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildWhseitempick[]|Collection find(?ConnectionInterface $con = null) Return ChildWhseitempick objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildWhseitempick> find(?ConnectionInterface $con = null) Return ChildWhseitempick objects based on current ModelCriteria
  *
+ * @method     ChildWhseitempick[]|Collection findBySessionid(string|array<string> $sessionid) Return ChildWhseitempick objects filtered by the sessionid column
+ * @psalm-method Collection&\Traversable<ChildWhseitempick> findBySessionid(string|array<string> $sessionid) Return ChildWhseitempick objects filtered by the sessionid column
+ * @method     ChildWhseitempick[]|Collection findByOrdn(string|array<string> $ordn) Return ChildWhseitempick objects filtered by the ordn column
+ * @psalm-method Collection&\Traversable<ChildWhseitempick> findByOrdn(string|array<string> $ordn) Return ChildWhseitempick objects filtered by the ordn column
+ * @method     ChildWhseitempick[]|Collection findByItemid(string|array<string> $itemid) Return ChildWhseitempick objects filtered by the itemid column
+ * @psalm-method Collection&\Traversable<ChildWhseitempick> findByItemid(string|array<string> $itemid) Return ChildWhseitempick objects filtered by the itemid column
+ * @method     ChildWhseitempick[]|Collection findByRecordnumber(int|array<int> $recordnumber) Return ChildWhseitempick objects filtered by the recordnumber column
+ * @psalm-method Collection&\Traversable<ChildWhseitempick> findByRecordnumber(int|array<int> $recordnumber) Return ChildWhseitempick objects filtered by the recordnumber column
+ * @method     ChildWhseitempick[]|Collection findByLinenbr(int|array<int> $linenbr) Return ChildWhseitempick objects filtered by the linenbr column
+ * @psalm-method Collection&\Traversable<ChildWhseitempick> findByLinenbr(int|array<int> $linenbr) Return ChildWhseitempick objects filtered by the linenbr column
+ * @method     ChildWhseitempick[]|Collection findBySublinenbr(int|array<int> $sublinenbr) Return ChildWhseitempick objects filtered by the sublinenbr column
+ * @psalm-method Collection&\Traversable<ChildWhseitempick> findBySublinenbr(int|array<int> $sublinenbr) Return ChildWhseitempick objects filtered by the sublinenbr column
+ * @method     ChildWhseitempick[]|Collection findByBin(string|array<string> $bin) Return ChildWhseitempick objects filtered by the bin column
+ * @psalm-method Collection&\Traversable<ChildWhseitempick> findByBin(string|array<string> $bin) Return ChildWhseitempick objects filtered by the bin column
+ * @method     ChildWhseitempick[]|Collection findByPalletnbr(int|array<int> $palletnbr) Return ChildWhseitempick objects filtered by the palletnbr column
+ * @psalm-method Collection&\Traversable<ChildWhseitempick> findByPalletnbr(int|array<int> $palletnbr) Return ChildWhseitempick objects filtered by the palletnbr column
+ * @method     ChildWhseitempick[]|Collection findByBarcode(string|array<string> $barcode) Return ChildWhseitempick objects filtered by the barcode column
+ * @psalm-method Collection&\Traversable<ChildWhseitempick> findByBarcode(string|array<string> $barcode) Return ChildWhseitempick objects filtered by the barcode column
+ * @method     ChildWhseitempick[]|Collection findByLotserialref(string|array<string> $lotserialref) Return ChildWhseitempick objects filtered by the lotserialref column
+ * @psalm-method Collection&\Traversable<ChildWhseitempick> findByLotserialref(string|array<string> $lotserialref) Return ChildWhseitempick objects filtered by the lotserialref column
+ * @method     ChildWhseitempick[]|Collection findByLotserial(string|array<string> $lotserial) Return ChildWhseitempick objects filtered by the lotserial column
+ * @psalm-method Collection&\Traversable<ChildWhseitempick> findByLotserial(string|array<string> $lotserial) Return ChildWhseitempick objects filtered by the lotserial column
+ * @method     ChildWhseitempick[]|Collection findByQty(string|array<string> $qty) Return ChildWhseitempick objects filtered by the qty column
+ * @psalm-method Collection&\Traversable<ChildWhseitempick> findByQty(string|array<string> $qty) Return ChildWhseitempick objects filtered by the qty column
+ *
+ * @method     ChildWhseitempick[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildWhseitempick> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class WhseitempickQuery extends ModelCriteria
 {
@@ -108,9 +121,9 @@ abstract class WhseitempickQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\WhseitempickQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'dplusodb', $modelName = '\\Whseitempick', $modelAlias = null)
     {
@@ -120,12 +133,12 @@ abstract class WhseitempickQuery extends ModelCriteria
     /**
      * Returns a new ChildWhseitempickQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildWhseitempickQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildWhseitempickQuery) {
             return $criteria;
@@ -155,7 +168,7 @@ abstract class WhseitempickQuery extends ModelCriteria
      *
      * @return ChildWhseitempick|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -187,8 +200,8 @@ abstract class WhseitempickQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -223,8 +236,8 @@ abstract class WhseitempickQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildWhseitempick|array|mixed the result, formatted by the current formatter
      */
@@ -244,12 +257,12 @@ abstract class WhseitempickQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -266,9 +279,9 @@ abstract class WhseitempickQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildWhseitempickQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -283,14 +296,16 @@ abstract class WhseitempickQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildWhseitempickQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(WhseitempickTableMap::COL_SESSIONID, $key[0], Criteria::EQUAL);
@@ -313,14 +328,15 @@ abstract class WhseitempickQuery extends ModelCriteria
      * <code>
      * $query->filterBySessionid('fooValue');   // WHERE sessionid = 'fooValue'
      * $query->filterBySessionid('%fooValue%', Criteria::LIKE); // WHERE sessionid LIKE '%fooValue%'
+     * $query->filterBySessionid(['foo', 'bar']); // WHERE sessionid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sessionid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sessionid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitempickQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySessionid($sessionid = null, $comparison = null)
+    public function filterBySessionid($sessionid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sessionid)) {
@@ -328,7 +344,9 @@ abstract class WhseitempickQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitempickTableMap::COL_SESSIONID, $sessionid, $comparison);
+        $this->addUsingAlias(WhseitempickTableMap::COL_SESSIONID, $sessionid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -338,14 +356,15 @@ abstract class WhseitempickQuery extends ModelCriteria
      * <code>
      * $query->filterByOrdn('fooValue');   // WHERE ordn = 'fooValue'
      * $query->filterByOrdn('%fooValue%', Criteria::LIKE); // WHERE ordn LIKE '%fooValue%'
+     * $query->filterByOrdn(['foo', 'bar']); // WHERE ordn IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $ordn The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $ordn The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitempickQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOrdn($ordn = null, $comparison = null)
+    public function filterByOrdn($ordn = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($ordn)) {
@@ -353,7 +372,9 @@ abstract class WhseitempickQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitempickTableMap::COL_ORDN, $ordn, $comparison);
+        $this->addUsingAlias(WhseitempickTableMap::COL_ORDN, $ordn, $comparison);
+
+        return $this;
     }
 
     /**
@@ -363,14 +384,15 @@ abstract class WhseitempickQuery extends ModelCriteria
      * <code>
      * $query->filterByItemid('fooValue');   // WHERE itemid = 'fooValue'
      * $query->filterByItemid('%fooValue%', Criteria::LIKE); // WHERE itemid LIKE '%fooValue%'
+     * $query->filterByItemid(['foo', 'bar']); // WHERE itemid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itemid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itemid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitempickQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemid($itemid = null, $comparison = null)
+    public function filterByItemid($itemid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itemid)) {
@@ -378,7 +400,9 @@ abstract class WhseitempickQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitempickTableMap::COL_ITEMID, $itemid, $comparison);
+        $this->addUsingAlias(WhseitempickTableMap::COL_ITEMID, $itemid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -391,15 +415,15 @@ abstract class WhseitempickQuery extends ModelCriteria
      * $query->filterByRecordnumber(array('min' => 12)); // WHERE recordnumber > 12
      * </code>
      *
-     * @param     mixed $recordnumber The value to use as filter.
+     * @param mixed $recordnumber The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitempickQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByRecordnumber($recordnumber = null, $comparison = null)
+    public function filterByRecordnumber($recordnumber = null, ?string $comparison = null)
     {
         if (is_array($recordnumber)) {
             $useMinMax = false;
@@ -419,7 +443,9 @@ abstract class WhseitempickQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitempickTableMap::COL_RECORDNUMBER, $recordnumber, $comparison);
+        $this->addUsingAlias(WhseitempickTableMap::COL_RECORDNUMBER, $recordnumber, $comparison);
+
+        return $this;
     }
 
     /**
@@ -432,15 +458,15 @@ abstract class WhseitempickQuery extends ModelCriteria
      * $query->filterByLinenbr(array('min' => 12)); // WHERE linenbr > 12
      * </code>
      *
-     * @param     mixed $linenbr The value to use as filter.
+     * @param mixed $linenbr The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitempickQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLinenbr($linenbr = null, $comparison = null)
+    public function filterByLinenbr($linenbr = null, ?string $comparison = null)
     {
         if (is_array($linenbr)) {
             $useMinMax = false;
@@ -460,7 +486,9 @@ abstract class WhseitempickQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitempickTableMap::COL_LINENBR, $linenbr, $comparison);
+        $this->addUsingAlias(WhseitempickTableMap::COL_LINENBR, $linenbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -473,15 +501,15 @@ abstract class WhseitempickQuery extends ModelCriteria
      * $query->filterBySublinenbr(array('min' => 12)); // WHERE sublinenbr > 12
      * </code>
      *
-     * @param     mixed $sublinenbr The value to use as filter.
+     * @param mixed $sublinenbr The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitempickQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySublinenbr($sublinenbr = null, $comparison = null)
+    public function filterBySublinenbr($sublinenbr = null, ?string $comparison = null)
     {
         if (is_array($sublinenbr)) {
             $useMinMax = false;
@@ -501,7 +529,9 @@ abstract class WhseitempickQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitempickTableMap::COL_SUBLINENBR, $sublinenbr, $comparison);
+        $this->addUsingAlias(WhseitempickTableMap::COL_SUBLINENBR, $sublinenbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -511,14 +541,15 @@ abstract class WhseitempickQuery extends ModelCriteria
      * <code>
      * $query->filterByBin('fooValue');   // WHERE bin = 'fooValue'
      * $query->filterByBin('%fooValue%', Criteria::LIKE); // WHERE bin LIKE '%fooValue%'
+     * $query->filterByBin(['foo', 'bar']); // WHERE bin IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $bin The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $bin The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitempickQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBin($bin = null, $comparison = null)
+    public function filterByBin($bin = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($bin)) {
@@ -526,7 +557,9 @@ abstract class WhseitempickQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitempickTableMap::COL_BIN, $bin, $comparison);
+        $this->addUsingAlias(WhseitempickTableMap::COL_BIN, $bin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -539,15 +572,15 @@ abstract class WhseitempickQuery extends ModelCriteria
      * $query->filterByPalletnbr(array('min' => 12)); // WHERE palletnbr > 12
      * </code>
      *
-     * @param     mixed $palletnbr The value to use as filter.
+     * @param mixed $palletnbr The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitempickQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPalletnbr($palletnbr = null, $comparison = null)
+    public function filterByPalletnbr($palletnbr = null, ?string $comparison = null)
     {
         if (is_array($palletnbr)) {
             $useMinMax = false;
@@ -567,7 +600,9 @@ abstract class WhseitempickQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitempickTableMap::COL_PALLETNBR, $palletnbr, $comparison);
+        $this->addUsingAlias(WhseitempickTableMap::COL_PALLETNBR, $palletnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -577,14 +612,15 @@ abstract class WhseitempickQuery extends ModelCriteria
      * <code>
      * $query->filterByBarcode('fooValue');   // WHERE barcode = 'fooValue'
      * $query->filterByBarcode('%fooValue%', Criteria::LIKE); // WHERE barcode LIKE '%fooValue%'
+     * $query->filterByBarcode(['foo', 'bar']); // WHERE barcode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $barcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $barcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitempickQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBarcode($barcode = null, $comparison = null)
+    public function filterByBarcode($barcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($barcode)) {
@@ -592,7 +628,9 @@ abstract class WhseitempickQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitempickTableMap::COL_BARCODE, $barcode, $comparison);
+        $this->addUsingAlias(WhseitempickTableMap::COL_BARCODE, $barcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -602,14 +640,15 @@ abstract class WhseitempickQuery extends ModelCriteria
      * <code>
      * $query->filterByLotserialref('fooValue');   // WHERE lotserialref = 'fooValue'
      * $query->filterByLotserialref('%fooValue%', Criteria::LIKE); // WHERE lotserialref LIKE '%fooValue%'
+     * $query->filterByLotserialref(['foo', 'bar']); // WHERE lotserialref IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lotserialref The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lotserialref The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitempickQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLotserialref($lotserialref = null, $comparison = null)
+    public function filterByLotserialref($lotserialref = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lotserialref)) {
@@ -617,7 +656,9 @@ abstract class WhseitempickQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitempickTableMap::COL_LOTSERIALREF, $lotserialref, $comparison);
+        $this->addUsingAlias(WhseitempickTableMap::COL_LOTSERIALREF, $lotserialref, $comparison);
+
+        return $this;
     }
 
     /**
@@ -627,14 +668,15 @@ abstract class WhseitempickQuery extends ModelCriteria
      * <code>
      * $query->filterByLotserial('fooValue');   // WHERE lotserial = 'fooValue'
      * $query->filterByLotserial('%fooValue%', Criteria::LIKE); // WHERE lotserial LIKE '%fooValue%'
+     * $query->filterByLotserial(['foo', 'bar']); // WHERE lotserial IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lotserial The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lotserial The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitempickQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLotserial($lotserial = null, $comparison = null)
+    public function filterByLotserial($lotserial = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lotserial)) {
@@ -642,7 +684,9 @@ abstract class WhseitempickQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitempickTableMap::COL_LOTSERIAL, $lotserial, $comparison);
+        $this->addUsingAlias(WhseitempickTableMap::COL_LOTSERIAL, $lotserial, $comparison);
+
+        return $this;
     }
 
     /**
@@ -655,15 +699,15 @@ abstract class WhseitempickQuery extends ModelCriteria
      * $query->filterByQty(array('min' => 12)); // WHERE qty > 12
      * </code>
      *
-     * @param     mixed $qty The value to use as filter.
+     * @param mixed $qty The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitempickQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQty($qty = null, $comparison = null)
+    public function filterByQty($qty = null, ?string $comparison = null)
     {
         if (is_array($qty)) {
             $useMinMax = false;
@@ -683,15 +727,17 @@ abstract class WhseitempickQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitempickTableMap::COL_QTY, $qty, $comparison);
+        $this->addUsingAlias(WhseitempickTableMap::COL_QTY, $qty, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildWhseitempick $whseitempick Object to remove from the list of results
+     * @param ChildWhseitempick $whseitempick Object to remove from the list of results
      *
-     * @return $this|ChildWhseitempickQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($whseitempick = null)
     {
@@ -712,7 +758,7 @@ abstract class WhseitempickQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(WhseitempickTableMap::DATABASE_NAME);
@@ -737,12 +783,12 @@ abstract class WhseitempickQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(WhseitempickTableMap::DATABASE_NAME);
@@ -767,4 +813,4 @@ abstract class WhseitempickQuery extends ModelCriteria
         });
     }
 
-} // WhseitempickQuery
+}

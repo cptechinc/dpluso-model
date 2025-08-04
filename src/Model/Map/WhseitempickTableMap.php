@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class WhseitempickTableMap extends TableMap
 {
@@ -34,144 +33,233 @@ class WhseitempickTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.WhseitempickTableMap';
+    public const CLASS_NAME = '.Map.WhseitempickTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'dplusodb';
+    public const DATABASE_NAME = 'dplusodb';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'whseitempick';
+    public const TABLE_NAME = 'whseitempick';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'Whseitempick';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\Whseitempick';
+    public const OM_CLASS = '\\Whseitempick';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'Whseitempick';
+    public const CLASS_DEFAULT = 'Whseitempick';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 12;
+    public const NUM_COLUMNS = 12;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 12;
+    public const NUM_HYDRATE_COLUMNS = 12;
 
     /**
      * the column name for the sessionid field
      */
-    const COL_SESSIONID = 'whseitempick.sessionid';
+    public const COL_SESSIONID = 'whseitempick.sessionid';
 
     /**
      * the column name for the ordn field
      */
-    const COL_ORDN = 'whseitempick.ordn';
+    public const COL_ORDN = 'whseitempick.ordn';
 
     /**
      * the column name for the itemid field
      */
-    const COL_ITEMID = 'whseitempick.itemid';
+    public const COL_ITEMID = 'whseitempick.itemid';
 
     /**
      * the column name for the recordnumber field
      */
-    const COL_RECORDNUMBER = 'whseitempick.recordnumber';
+    public const COL_RECORDNUMBER = 'whseitempick.recordnumber';
 
     /**
      * the column name for the linenbr field
      */
-    const COL_LINENBR = 'whseitempick.linenbr';
+    public const COL_LINENBR = 'whseitempick.linenbr';
 
     /**
      * the column name for the sublinenbr field
      */
-    const COL_SUBLINENBR = 'whseitempick.sublinenbr';
+    public const COL_SUBLINENBR = 'whseitempick.sublinenbr';
 
     /**
      * the column name for the bin field
      */
-    const COL_BIN = 'whseitempick.bin';
+    public const COL_BIN = 'whseitempick.bin';
 
     /**
      * the column name for the palletnbr field
      */
-    const COL_PALLETNBR = 'whseitempick.palletnbr';
+    public const COL_PALLETNBR = 'whseitempick.palletnbr';
 
     /**
      * the column name for the barcode field
      */
-    const COL_BARCODE = 'whseitempick.barcode';
+    public const COL_BARCODE = 'whseitempick.barcode';
 
     /**
      * the column name for the lotserialref field
      */
-    const COL_LOTSERIALREF = 'whseitempick.lotserialref';
+    public const COL_LOTSERIALREF = 'whseitempick.lotserialref';
 
     /**
      * the column name for the lotserial field
      */
-    const COL_LOTSERIAL = 'whseitempick.lotserial';
+    public const COL_LOTSERIAL = 'whseitempick.lotserial';
 
     /**
      * the column name for the qty field
      */
-    const COL_QTY = 'whseitempick.qty';
+    public const COL_QTY = 'whseitempick.qty';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Sessionid', 'Ordn', 'Itemid', 'Recordnumber', 'Linenbr', 'Sublinenbr', 'Bin', 'Palletnbr', 'Barcode', 'Lotserialref', 'Lotserial', 'Qty', ),
-        self::TYPE_CAMELNAME     => array('sessionid', 'ordn', 'itemid', 'recordnumber', 'linenbr', 'sublinenbr', 'bin', 'palletnbr', 'barcode', 'lotserialref', 'lotserial', 'qty', ),
-        self::TYPE_COLNAME       => array(WhseitempickTableMap::COL_SESSIONID, WhseitempickTableMap::COL_ORDN, WhseitempickTableMap::COL_ITEMID, WhseitempickTableMap::COL_RECORDNUMBER, WhseitempickTableMap::COL_LINENBR, WhseitempickTableMap::COL_SUBLINENBR, WhseitempickTableMap::COL_BIN, WhseitempickTableMap::COL_PALLETNBR, WhseitempickTableMap::COL_BARCODE, WhseitempickTableMap::COL_LOTSERIALREF, WhseitempickTableMap::COL_LOTSERIAL, WhseitempickTableMap::COL_QTY, ),
-        self::TYPE_FIELDNAME     => array('sessionid', 'ordn', 'itemid', 'recordnumber', 'linenbr', 'sublinenbr', 'bin', 'palletnbr', 'barcode', 'lotserialref', 'lotserial', 'qty', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Sessionid', 'Ordn', 'Itemid', 'Recordnumber', 'Linenbr', 'Sublinenbr', 'Bin', 'Palletnbr', 'Barcode', 'Lotserialref', 'Lotserial', 'Qty', ],
+        self::TYPE_CAMELNAME     => ['sessionid', 'ordn', 'itemid', 'recordnumber', 'linenbr', 'sublinenbr', 'bin', 'palletnbr', 'barcode', 'lotserialref', 'lotserial', 'qty', ],
+        self::TYPE_COLNAME       => [WhseitempickTableMap::COL_SESSIONID, WhseitempickTableMap::COL_ORDN, WhseitempickTableMap::COL_ITEMID, WhseitempickTableMap::COL_RECORDNUMBER, WhseitempickTableMap::COL_LINENBR, WhseitempickTableMap::COL_SUBLINENBR, WhseitempickTableMap::COL_BIN, WhseitempickTableMap::COL_PALLETNBR, WhseitempickTableMap::COL_BARCODE, WhseitempickTableMap::COL_LOTSERIALREF, WhseitempickTableMap::COL_LOTSERIAL, WhseitempickTableMap::COL_QTY, ],
+        self::TYPE_FIELDNAME     => ['sessionid', 'ordn', 'itemid', 'recordnumber', 'linenbr', 'sublinenbr', 'bin', 'palletnbr', 'barcode', 'lotserialref', 'lotserial', 'qty', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Ordn' => 1, 'Itemid' => 2, 'Recordnumber' => 3, 'Linenbr' => 4, 'Sublinenbr' => 5, 'Bin' => 6, 'Palletnbr' => 7, 'Barcode' => 8, 'Lotserialref' => 9, 'Lotserial' => 10, 'Qty' => 11, ),
-        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'ordn' => 1, 'itemid' => 2, 'recordnumber' => 3, 'linenbr' => 4, 'sublinenbr' => 5, 'bin' => 6, 'palletnbr' => 7, 'barcode' => 8, 'lotserialref' => 9, 'lotserial' => 10, 'qty' => 11, ),
-        self::TYPE_COLNAME       => array(WhseitempickTableMap::COL_SESSIONID => 0, WhseitempickTableMap::COL_ORDN => 1, WhseitempickTableMap::COL_ITEMID => 2, WhseitempickTableMap::COL_RECORDNUMBER => 3, WhseitempickTableMap::COL_LINENBR => 4, WhseitempickTableMap::COL_SUBLINENBR => 5, WhseitempickTableMap::COL_BIN => 6, WhseitempickTableMap::COL_PALLETNBR => 7, WhseitempickTableMap::COL_BARCODE => 8, WhseitempickTableMap::COL_LOTSERIALREF => 9, WhseitempickTableMap::COL_LOTSERIAL => 10, WhseitempickTableMap::COL_QTY => 11, ),
-        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'ordn' => 1, 'itemid' => 2, 'recordnumber' => 3, 'linenbr' => 4, 'sublinenbr' => 5, 'bin' => 6, 'palletnbr' => 7, 'barcode' => 8, 'lotserialref' => 9, 'lotserial' => 10, 'qty' => 11, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Sessionid' => 0, 'Ordn' => 1, 'Itemid' => 2, 'Recordnumber' => 3, 'Linenbr' => 4, 'Sublinenbr' => 5, 'Bin' => 6, 'Palletnbr' => 7, 'Barcode' => 8, 'Lotserialref' => 9, 'Lotserial' => 10, 'Qty' => 11, ],
+        self::TYPE_CAMELNAME     => ['sessionid' => 0, 'ordn' => 1, 'itemid' => 2, 'recordnumber' => 3, 'linenbr' => 4, 'sublinenbr' => 5, 'bin' => 6, 'palletnbr' => 7, 'barcode' => 8, 'lotserialref' => 9, 'lotserial' => 10, 'qty' => 11, ],
+        self::TYPE_COLNAME       => [WhseitempickTableMap::COL_SESSIONID => 0, WhseitempickTableMap::COL_ORDN => 1, WhseitempickTableMap::COL_ITEMID => 2, WhseitempickTableMap::COL_RECORDNUMBER => 3, WhseitempickTableMap::COL_LINENBR => 4, WhseitempickTableMap::COL_SUBLINENBR => 5, WhseitempickTableMap::COL_BIN => 6, WhseitempickTableMap::COL_PALLETNBR => 7, WhseitempickTableMap::COL_BARCODE => 8, WhseitempickTableMap::COL_LOTSERIALREF => 9, WhseitempickTableMap::COL_LOTSERIAL => 10, WhseitempickTableMap::COL_QTY => 11, ],
+        self::TYPE_FIELDNAME     => ['sessionid' => 0, 'ordn' => 1, 'itemid' => 2, 'recordnumber' => 3, 'linenbr' => 4, 'sublinenbr' => 5, 'bin' => 6, 'palletnbr' => 7, 'barcode' => 8, 'lotserialref' => 9, 'lotserial' => 10, 'qty' => 11, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Sessionid' => 'SESSIONID',
+        'Whseitempick.Sessionid' => 'SESSIONID',
+        'sessionid' => 'SESSIONID',
+        'whseitempick.sessionid' => 'SESSIONID',
+        'WhseitempickTableMap::COL_SESSIONID' => 'SESSIONID',
+        'COL_SESSIONID' => 'SESSIONID',
+        'Ordn' => 'ORDN',
+        'Whseitempick.Ordn' => 'ORDN',
+        'ordn' => 'ORDN',
+        'whseitempick.ordn' => 'ORDN',
+        'WhseitempickTableMap::COL_ORDN' => 'ORDN',
+        'COL_ORDN' => 'ORDN',
+        'Itemid' => 'ITEMID',
+        'Whseitempick.Itemid' => 'ITEMID',
+        'itemid' => 'ITEMID',
+        'whseitempick.itemid' => 'ITEMID',
+        'WhseitempickTableMap::COL_ITEMID' => 'ITEMID',
+        'COL_ITEMID' => 'ITEMID',
+        'Recordnumber' => 'RECORDNUMBER',
+        'Whseitempick.Recordnumber' => 'RECORDNUMBER',
+        'recordnumber' => 'RECORDNUMBER',
+        'whseitempick.recordnumber' => 'RECORDNUMBER',
+        'WhseitempickTableMap::COL_RECORDNUMBER' => 'RECORDNUMBER',
+        'COL_RECORDNUMBER' => 'RECORDNUMBER',
+        'Linenbr' => 'LINENBR',
+        'Whseitempick.Linenbr' => 'LINENBR',
+        'linenbr' => 'LINENBR',
+        'whseitempick.linenbr' => 'LINENBR',
+        'WhseitempickTableMap::COL_LINENBR' => 'LINENBR',
+        'COL_LINENBR' => 'LINENBR',
+        'Sublinenbr' => 'SUBLINENBR',
+        'Whseitempick.Sublinenbr' => 'SUBLINENBR',
+        'sublinenbr' => 'SUBLINENBR',
+        'whseitempick.sublinenbr' => 'SUBLINENBR',
+        'WhseitempickTableMap::COL_SUBLINENBR' => 'SUBLINENBR',
+        'COL_SUBLINENBR' => 'SUBLINENBR',
+        'Bin' => 'BIN',
+        'Whseitempick.Bin' => 'BIN',
+        'bin' => 'BIN',
+        'whseitempick.bin' => 'BIN',
+        'WhseitempickTableMap::COL_BIN' => 'BIN',
+        'COL_BIN' => 'BIN',
+        'Palletnbr' => 'PALLETNBR',
+        'Whseitempick.Palletnbr' => 'PALLETNBR',
+        'palletnbr' => 'PALLETNBR',
+        'whseitempick.palletnbr' => 'PALLETNBR',
+        'WhseitempickTableMap::COL_PALLETNBR' => 'PALLETNBR',
+        'COL_PALLETNBR' => 'PALLETNBR',
+        'Barcode' => 'BARCODE',
+        'Whseitempick.Barcode' => 'BARCODE',
+        'barcode' => 'BARCODE',
+        'whseitempick.barcode' => 'BARCODE',
+        'WhseitempickTableMap::COL_BARCODE' => 'BARCODE',
+        'COL_BARCODE' => 'BARCODE',
+        'Lotserialref' => 'LOTSERIALREF',
+        'Whseitempick.Lotserialref' => 'LOTSERIALREF',
+        'lotserialref' => 'LOTSERIALREF',
+        'whseitempick.lotserialref' => 'LOTSERIALREF',
+        'WhseitempickTableMap::COL_LOTSERIALREF' => 'LOTSERIALREF',
+        'COL_LOTSERIALREF' => 'LOTSERIALREF',
+        'Lotserial' => 'LOTSERIAL',
+        'Whseitempick.Lotserial' => 'LOTSERIAL',
+        'lotserial' => 'LOTSERIAL',
+        'whseitempick.lotserial' => 'LOTSERIAL',
+        'WhseitempickTableMap::COL_LOTSERIAL' => 'LOTSERIAL',
+        'COL_LOTSERIAL' => 'LOTSERIAL',
+        'Qty' => 'QTY',
+        'Whseitempick.Qty' => 'QTY',
+        'qty' => 'QTY',
+        'whseitempick.qty' => 'QTY',
+        'WhseitempickTableMap::COL_QTY' => 'QTY',
+        'COL_QTY' => 'QTY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('whseitempick');
@@ -193,14 +281,16 @@ class WhseitempickTableMap extends TableMap
         $this->addColumn('lotserialref', 'Lotserialref', 'VARCHAR', false, 45, null);
         $this->addColumn('lotserial', 'Lotserial', 'VARCHAR', false, 45, null);
         $this->addColumn('qty', 'Qty', 'DECIMAL', false, 13, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -211,9 +301,11 @@ class WhseitempickTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \Whseitempick $obj A \Whseitempick object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(Whseitempick $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -232,8 +324,10 @@ class WhseitempickTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \Whseitempick object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \Whseitempick) {
@@ -261,14 +355,14 @@ class WhseitempickTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Ordn', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Itemid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Recordnumber', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -283,14 +377,14 @@ class WhseitempickTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -326,10 +420,10 @@ class WhseitempickTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? WhseitempickTableMap::CLASS_DEFAULT : WhseitempickTableMap::OM_CLASS;
     }
@@ -337,17 +431,17 @@ class WhseitempickTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (Whseitempick object, last column rank)
+     * @return array (Whseitempick object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = WhseitempickTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = WhseitempickTableMap::getInstanceFromPool($key))) {
@@ -363,7 +457,7 @@ class WhseitempickTableMap extends TableMap
             WhseitempickTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -371,13 +465,13 @@ class WhseitempickTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -407,12 +501,13 @@ class WhseitempickTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(WhseitempickTableMap::COL_SESSIONID);
@@ -444,40 +539,72 @@ class WhseitempickTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(WhseitempickTableMap::COL_SESSIONID);
+            $criteria->removeSelectColumn(WhseitempickTableMap::COL_ORDN);
+            $criteria->removeSelectColumn(WhseitempickTableMap::COL_ITEMID);
+            $criteria->removeSelectColumn(WhseitempickTableMap::COL_RECORDNUMBER);
+            $criteria->removeSelectColumn(WhseitempickTableMap::COL_LINENBR);
+            $criteria->removeSelectColumn(WhseitempickTableMap::COL_SUBLINENBR);
+            $criteria->removeSelectColumn(WhseitempickTableMap::COL_BIN);
+            $criteria->removeSelectColumn(WhseitempickTableMap::COL_PALLETNBR);
+            $criteria->removeSelectColumn(WhseitempickTableMap::COL_BARCODE);
+            $criteria->removeSelectColumn(WhseitempickTableMap::COL_LOTSERIALREF);
+            $criteria->removeSelectColumn(WhseitempickTableMap::COL_LOTSERIAL);
+            $criteria->removeSelectColumn(WhseitempickTableMap::COL_QTY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.sessionid');
+            $criteria->removeSelectColumn($alias . '.ordn');
+            $criteria->removeSelectColumn($alias . '.itemid');
+            $criteria->removeSelectColumn($alias . '.recordnumber');
+            $criteria->removeSelectColumn($alias . '.linenbr');
+            $criteria->removeSelectColumn($alias . '.sublinenbr');
+            $criteria->removeSelectColumn($alias . '.bin');
+            $criteria->removeSelectColumn($alias . '.palletnbr');
+            $criteria->removeSelectColumn($alias . '.barcode');
+            $criteria->removeSelectColumn($alias . '.lotserialref');
+            $criteria->removeSelectColumn($alias . '.lotserial');
+            $criteria->removeSelectColumn($alias . '.qty');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(WhseitempickTableMap::DATABASE_NAME)->getTable(WhseitempickTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(WhseitempickTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(WhseitempickTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new WhseitempickTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a Whseitempick or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or Whseitempick object or primary key or array of primary keys
+     * @param mixed $values Criteria or Whseitempick object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(WhseitempickTableMap::DATABASE_NAME);
@@ -495,7 +622,7 @@ class WhseitempickTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(WhseitempickTableMap::COL_SESSIONID, $value[0]);
@@ -525,7 +652,7 @@ class WhseitempickTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return WhseitempickQuery::create()->doDeleteAll($con);
     }
@@ -533,13 +660,13 @@ class WhseitempickTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a Whseitempick or Criteria object.
      *
-     * @param mixed               $criteria Criteria or Whseitempick object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or Whseitempick object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(WhseitempickTableMap::DATABASE_NAME);
@@ -562,7 +689,4 @@ class WhseitempickTableMap extends TableMap
         });
     }
 
-} // WhseitempickTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-WhseitempickTableMap::buildTableMap();
+}

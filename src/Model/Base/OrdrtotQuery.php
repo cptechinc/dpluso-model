@@ -10,14 +10,12 @@ use Map\OrdrtotTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'ordrtot' table.
- *
- *
+ * Base class that represents a query for the `ordrtot` table.
  *
  * @method     ChildOrdrtotQuery orderBySessionid($order = Criteria::ASC) Order by the sessionid column
  * @method     ChildOrdrtotQuery orderByRecno($order = Criteria::ASC) Order by the recno column
@@ -73,34 +71,34 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildOrdrtotQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildOrdrtotQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildOrdrtot findOne(ConnectionInterface $con = null) Return the first ChildOrdrtot matching the query
- * @method     ChildOrdrtot findOneOrCreate(ConnectionInterface $con = null) Return the first ChildOrdrtot matching the query, or a new ChildOrdrtot object populated from the query conditions when no match is found
+ * @method     ChildOrdrtot|null findOne(?ConnectionInterface $con = null) Return the first ChildOrdrtot matching the query
+ * @method     ChildOrdrtot findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildOrdrtot matching the query, or a new ChildOrdrtot object populated from the query conditions when no match is found
  *
- * @method     ChildOrdrtot findOneBySessionid(string $sessionid) Return the first ChildOrdrtot filtered by the sessionid column
- * @method     ChildOrdrtot findOneByRecno(int $recno) Return the first ChildOrdrtot filtered by the recno column
- * @method     ChildOrdrtot findOneByDate(int $date) Return the first ChildOrdrtot filtered by the date column
- * @method     ChildOrdrtot findOneByTime(int $time) Return the first ChildOrdrtot filtered by the time column
- * @method     ChildOrdrtot findOneByType(string $type) Return the first ChildOrdrtot filtered by the type column
- * @method     ChildOrdrtot findOneByCustid(string $custid) Return the first ChildOrdrtot filtered by the custid column
- * @method     ChildOrdrtot findOneByShiptoid(string $shiptoid) Return the first ChildOrdrtot filtered by the shiptoid column
- * @method     ChildOrdrtot findOneBySaleordnbr(int $saleordnbr) Return the first ChildOrdrtot filtered by the saleordnbr column
- * @method     ChildOrdrtot findOneBySaleordamt(string $saleordamt) Return the first ChildOrdrtot filtered by the saleordamt column
- * @method     ChildOrdrtot findOneByOpeninvnbr(int $openinvnbr) Return the first ChildOrdrtot filtered by the openinvnbr column
- * @method     ChildOrdrtot findOneByOpeninvamt(string $openinvamt) Return the first ChildOrdrtot filtered by the openinvamt column
- * @method     ChildOrdrtot findOneByQuotesbr(int $quotesbr) Return the first ChildOrdrtot filtered by the quotesbr column
- * @method     ChildOrdrtot findOneByQuotesmt(string $quotesmt) Return the first ChildOrdrtot filtered by the quotesmt column
- * @method     ChildOrdrtot findOneByMonthtodatenbr(int $monthtodatenbr) Return the first ChildOrdrtot filtered by the monthtodatenbr column
- * @method     ChildOrdrtot findOneByMonthtodateamt(string $monthtodateamt) Return the first ChildOrdrtot filtered by the monthtodateamt column
- * @method     ChildOrdrtot findOneByYeartodatenbr(int $yeartodatenbr) Return the first ChildOrdrtot filtered by the yeartodatenbr column
- * @method     ChildOrdrtot findOneByYeartodateamt(string $yeartodateamt) Return the first ChildOrdrtot filtered by the yeartodateamt column
- * @method     ChildOrdrtot findOneByLast12nbr(int $last12nbr) Return the first ChildOrdrtot filtered by the last12nbr column
- * @method     ChildOrdrtot findOneByLast12amt(string $last12amt) Return the first ChildOrdrtot filtered by the last12amt column
- * @method     ChildOrdrtot findOneByPrevyearnbr(int $prevyearnbr) Return the first ChildOrdrtot filtered by the prevyearnbr column
- * @method     ChildOrdrtot findOneByPrevyearamt(string $prevyearamt) Return the first ChildOrdrtot filtered by the prevyearamt column
- * @method     ChildOrdrtot findOneByDummy(string $dummy) Return the first ChildOrdrtot filtered by the dummy column *
-
- * @method     ChildOrdrtot requirePk($key, ConnectionInterface $con = null) Return the ChildOrdrtot by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildOrdrtot requireOne(ConnectionInterface $con = null) Return the first ChildOrdrtot matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildOrdrtot|null findOneBySessionid(string $sessionid) Return the first ChildOrdrtot filtered by the sessionid column
+ * @method     ChildOrdrtot|null findOneByRecno(int $recno) Return the first ChildOrdrtot filtered by the recno column
+ * @method     ChildOrdrtot|null findOneByDate(int $date) Return the first ChildOrdrtot filtered by the date column
+ * @method     ChildOrdrtot|null findOneByTime(int $time) Return the first ChildOrdrtot filtered by the time column
+ * @method     ChildOrdrtot|null findOneByType(string $type) Return the first ChildOrdrtot filtered by the type column
+ * @method     ChildOrdrtot|null findOneByCustid(string $custid) Return the first ChildOrdrtot filtered by the custid column
+ * @method     ChildOrdrtot|null findOneByShiptoid(string $shiptoid) Return the first ChildOrdrtot filtered by the shiptoid column
+ * @method     ChildOrdrtot|null findOneBySaleordnbr(int $saleordnbr) Return the first ChildOrdrtot filtered by the saleordnbr column
+ * @method     ChildOrdrtot|null findOneBySaleordamt(string $saleordamt) Return the first ChildOrdrtot filtered by the saleordamt column
+ * @method     ChildOrdrtot|null findOneByOpeninvnbr(int $openinvnbr) Return the first ChildOrdrtot filtered by the openinvnbr column
+ * @method     ChildOrdrtot|null findOneByOpeninvamt(string $openinvamt) Return the first ChildOrdrtot filtered by the openinvamt column
+ * @method     ChildOrdrtot|null findOneByQuotesbr(int $quotesbr) Return the first ChildOrdrtot filtered by the quotesbr column
+ * @method     ChildOrdrtot|null findOneByQuotesmt(string $quotesmt) Return the first ChildOrdrtot filtered by the quotesmt column
+ * @method     ChildOrdrtot|null findOneByMonthtodatenbr(int $monthtodatenbr) Return the first ChildOrdrtot filtered by the monthtodatenbr column
+ * @method     ChildOrdrtot|null findOneByMonthtodateamt(string $monthtodateamt) Return the first ChildOrdrtot filtered by the monthtodateamt column
+ * @method     ChildOrdrtot|null findOneByYeartodatenbr(int $yeartodatenbr) Return the first ChildOrdrtot filtered by the yeartodatenbr column
+ * @method     ChildOrdrtot|null findOneByYeartodateamt(string $yeartodateamt) Return the first ChildOrdrtot filtered by the yeartodateamt column
+ * @method     ChildOrdrtot|null findOneByLast12nbr(int $last12nbr) Return the first ChildOrdrtot filtered by the last12nbr column
+ * @method     ChildOrdrtot|null findOneByLast12amt(string $last12amt) Return the first ChildOrdrtot filtered by the last12amt column
+ * @method     ChildOrdrtot|null findOneByPrevyearnbr(int $prevyearnbr) Return the first ChildOrdrtot filtered by the prevyearnbr column
+ * @method     ChildOrdrtot|null findOneByPrevyearamt(string $prevyearamt) Return the first ChildOrdrtot filtered by the prevyearamt column
+ * @method     ChildOrdrtot|null findOneByDummy(string $dummy) Return the first ChildOrdrtot filtered by the dummy column
+ *
+ * @method     ChildOrdrtot requirePk($key, ?ConnectionInterface $con = null) Return the ChildOrdrtot by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildOrdrtot requireOne(?ConnectionInterface $con = null) Return the first ChildOrdrtot matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildOrdrtot requireOneBySessionid(string $sessionid) Return the first ChildOrdrtot filtered by the sessionid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildOrdrtot requireOneByRecno(int $recno) Return the first ChildOrdrtot filtered by the recno column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -125,31 +123,56 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildOrdrtot requireOneByPrevyearamt(string $prevyearamt) Return the first ChildOrdrtot filtered by the prevyearamt column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildOrdrtot requireOneByDummy(string $dummy) Return the first ChildOrdrtot filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildOrdrtot[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildOrdrtot objects based on current ModelCriteria
- * @method     ChildOrdrtot[]|ObjectCollection findBySessionid(string $sessionid) Return ChildOrdrtot objects filtered by the sessionid column
- * @method     ChildOrdrtot[]|ObjectCollection findByRecno(int $recno) Return ChildOrdrtot objects filtered by the recno column
- * @method     ChildOrdrtot[]|ObjectCollection findByDate(int $date) Return ChildOrdrtot objects filtered by the date column
- * @method     ChildOrdrtot[]|ObjectCollection findByTime(int $time) Return ChildOrdrtot objects filtered by the time column
- * @method     ChildOrdrtot[]|ObjectCollection findByType(string $type) Return ChildOrdrtot objects filtered by the type column
- * @method     ChildOrdrtot[]|ObjectCollection findByCustid(string $custid) Return ChildOrdrtot objects filtered by the custid column
- * @method     ChildOrdrtot[]|ObjectCollection findByShiptoid(string $shiptoid) Return ChildOrdrtot objects filtered by the shiptoid column
- * @method     ChildOrdrtot[]|ObjectCollection findBySaleordnbr(int $saleordnbr) Return ChildOrdrtot objects filtered by the saleordnbr column
- * @method     ChildOrdrtot[]|ObjectCollection findBySaleordamt(string $saleordamt) Return ChildOrdrtot objects filtered by the saleordamt column
- * @method     ChildOrdrtot[]|ObjectCollection findByOpeninvnbr(int $openinvnbr) Return ChildOrdrtot objects filtered by the openinvnbr column
- * @method     ChildOrdrtot[]|ObjectCollection findByOpeninvamt(string $openinvamt) Return ChildOrdrtot objects filtered by the openinvamt column
- * @method     ChildOrdrtot[]|ObjectCollection findByQuotesbr(int $quotesbr) Return ChildOrdrtot objects filtered by the quotesbr column
- * @method     ChildOrdrtot[]|ObjectCollection findByQuotesmt(string $quotesmt) Return ChildOrdrtot objects filtered by the quotesmt column
- * @method     ChildOrdrtot[]|ObjectCollection findByMonthtodatenbr(int $monthtodatenbr) Return ChildOrdrtot objects filtered by the monthtodatenbr column
- * @method     ChildOrdrtot[]|ObjectCollection findByMonthtodateamt(string $monthtodateamt) Return ChildOrdrtot objects filtered by the monthtodateamt column
- * @method     ChildOrdrtot[]|ObjectCollection findByYeartodatenbr(int $yeartodatenbr) Return ChildOrdrtot objects filtered by the yeartodatenbr column
- * @method     ChildOrdrtot[]|ObjectCollection findByYeartodateamt(string $yeartodateamt) Return ChildOrdrtot objects filtered by the yeartodateamt column
- * @method     ChildOrdrtot[]|ObjectCollection findByLast12nbr(int $last12nbr) Return ChildOrdrtot objects filtered by the last12nbr column
- * @method     ChildOrdrtot[]|ObjectCollection findByLast12amt(string $last12amt) Return ChildOrdrtot objects filtered by the last12amt column
- * @method     ChildOrdrtot[]|ObjectCollection findByPrevyearnbr(int $prevyearnbr) Return ChildOrdrtot objects filtered by the prevyearnbr column
- * @method     ChildOrdrtot[]|ObjectCollection findByPrevyearamt(string $prevyearamt) Return ChildOrdrtot objects filtered by the prevyearamt column
- * @method     ChildOrdrtot[]|ObjectCollection findByDummy(string $dummy) Return ChildOrdrtot objects filtered by the dummy column
- * @method     ChildOrdrtot[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildOrdrtot[]|Collection find(?ConnectionInterface $con = null) Return ChildOrdrtot objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildOrdrtot> find(?ConnectionInterface $con = null) Return ChildOrdrtot objects based on current ModelCriteria
  *
+ * @method     ChildOrdrtot[]|Collection findBySessionid(string|array<string> $sessionid) Return ChildOrdrtot objects filtered by the sessionid column
+ * @psalm-method Collection&\Traversable<ChildOrdrtot> findBySessionid(string|array<string> $sessionid) Return ChildOrdrtot objects filtered by the sessionid column
+ * @method     ChildOrdrtot[]|Collection findByRecno(int|array<int> $recno) Return ChildOrdrtot objects filtered by the recno column
+ * @psalm-method Collection&\Traversable<ChildOrdrtot> findByRecno(int|array<int> $recno) Return ChildOrdrtot objects filtered by the recno column
+ * @method     ChildOrdrtot[]|Collection findByDate(int|array<int> $date) Return ChildOrdrtot objects filtered by the date column
+ * @psalm-method Collection&\Traversable<ChildOrdrtot> findByDate(int|array<int> $date) Return ChildOrdrtot objects filtered by the date column
+ * @method     ChildOrdrtot[]|Collection findByTime(int|array<int> $time) Return ChildOrdrtot objects filtered by the time column
+ * @psalm-method Collection&\Traversable<ChildOrdrtot> findByTime(int|array<int> $time) Return ChildOrdrtot objects filtered by the time column
+ * @method     ChildOrdrtot[]|Collection findByType(string|array<string> $type) Return ChildOrdrtot objects filtered by the type column
+ * @psalm-method Collection&\Traversable<ChildOrdrtot> findByType(string|array<string> $type) Return ChildOrdrtot objects filtered by the type column
+ * @method     ChildOrdrtot[]|Collection findByCustid(string|array<string> $custid) Return ChildOrdrtot objects filtered by the custid column
+ * @psalm-method Collection&\Traversable<ChildOrdrtot> findByCustid(string|array<string> $custid) Return ChildOrdrtot objects filtered by the custid column
+ * @method     ChildOrdrtot[]|Collection findByShiptoid(string|array<string> $shiptoid) Return ChildOrdrtot objects filtered by the shiptoid column
+ * @psalm-method Collection&\Traversable<ChildOrdrtot> findByShiptoid(string|array<string> $shiptoid) Return ChildOrdrtot objects filtered by the shiptoid column
+ * @method     ChildOrdrtot[]|Collection findBySaleordnbr(int|array<int> $saleordnbr) Return ChildOrdrtot objects filtered by the saleordnbr column
+ * @psalm-method Collection&\Traversable<ChildOrdrtot> findBySaleordnbr(int|array<int> $saleordnbr) Return ChildOrdrtot objects filtered by the saleordnbr column
+ * @method     ChildOrdrtot[]|Collection findBySaleordamt(string|array<string> $saleordamt) Return ChildOrdrtot objects filtered by the saleordamt column
+ * @psalm-method Collection&\Traversable<ChildOrdrtot> findBySaleordamt(string|array<string> $saleordamt) Return ChildOrdrtot objects filtered by the saleordamt column
+ * @method     ChildOrdrtot[]|Collection findByOpeninvnbr(int|array<int> $openinvnbr) Return ChildOrdrtot objects filtered by the openinvnbr column
+ * @psalm-method Collection&\Traversable<ChildOrdrtot> findByOpeninvnbr(int|array<int> $openinvnbr) Return ChildOrdrtot objects filtered by the openinvnbr column
+ * @method     ChildOrdrtot[]|Collection findByOpeninvamt(string|array<string> $openinvamt) Return ChildOrdrtot objects filtered by the openinvamt column
+ * @psalm-method Collection&\Traversable<ChildOrdrtot> findByOpeninvamt(string|array<string> $openinvamt) Return ChildOrdrtot objects filtered by the openinvamt column
+ * @method     ChildOrdrtot[]|Collection findByQuotesbr(int|array<int> $quotesbr) Return ChildOrdrtot objects filtered by the quotesbr column
+ * @psalm-method Collection&\Traversable<ChildOrdrtot> findByQuotesbr(int|array<int> $quotesbr) Return ChildOrdrtot objects filtered by the quotesbr column
+ * @method     ChildOrdrtot[]|Collection findByQuotesmt(string|array<string> $quotesmt) Return ChildOrdrtot objects filtered by the quotesmt column
+ * @psalm-method Collection&\Traversable<ChildOrdrtot> findByQuotesmt(string|array<string> $quotesmt) Return ChildOrdrtot objects filtered by the quotesmt column
+ * @method     ChildOrdrtot[]|Collection findByMonthtodatenbr(int|array<int> $monthtodatenbr) Return ChildOrdrtot objects filtered by the monthtodatenbr column
+ * @psalm-method Collection&\Traversable<ChildOrdrtot> findByMonthtodatenbr(int|array<int> $monthtodatenbr) Return ChildOrdrtot objects filtered by the monthtodatenbr column
+ * @method     ChildOrdrtot[]|Collection findByMonthtodateamt(string|array<string> $monthtodateamt) Return ChildOrdrtot objects filtered by the monthtodateamt column
+ * @psalm-method Collection&\Traversable<ChildOrdrtot> findByMonthtodateamt(string|array<string> $monthtodateamt) Return ChildOrdrtot objects filtered by the monthtodateamt column
+ * @method     ChildOrdrtot[]|Collection findByYeartodatenbr(int|array<int> $yeartodatenbr) Return ChildOrdrtot objects filtered by the yeartodatenbr column
+ * @psalm-method Collection&\Traversable<ChildOrdrtot> findByYeartodatenbr(int|array<int> $yeartodatenbr) Return ChildOrdrtot objects filtered by the yeartodatenbr column
+ * @method     ChildOrdrtot[]|Collection findByYeartodateamt(string|array<string> $yeartodateamt) Return ChildOrdrtot objects filtered by the yeartodateamt column
+ * @psalm-method Collection&\Traversable<ChildOrdrtot> findByYeartodateamt(string|array<string> $yeartodateamt) Return ChildOrdrtot objects filtered by the yeartodateamt column
+ * @method     ChildOrdrtot[]|Collection findByLast12nbr(int|array<int> $last12nbr) Return ChildOrdrtot objects filtered by the last12nbr column
+ * @psalm-method Collection&\Traversable<ChildOrdrtot> findByLast12nbr(int|array<int> $last12nbr) Return ChildOrdrtot objects filtered by the last12nbr column
+ * @method     ChildOrdrtot[]|Collection findByLast12amt(string|array<string> $last12amt) Return ChildOrdrtot objects filtered by the last12amt column
+ * @psalm-method Collection&\Traversable<ChildOrdrtot> findByLast12amt(string|array<string> $last12amt) Return ChildOrdrtot objects filtered by the last12amt column
+ * @method     ChildOrdrtot[]|Collection findByPrevyearnbr(int|array<int> $prevyearnbr) Return ChildOrdrtot objects filtered by the prevyearnbr column
+ * @psalm-method Collection&\Traversable<ChildOrdrtot> findByPrevyearnbr(int|array<int> $prevyearnbr) Return ChildOrdrtot objects filtered by the prevyearnbr column
+ * @method     ChildOrdrtot[]|Collection findByPrevyearamt(string|array<string> $prevyearamt) Return ChildOrdrtot objects filtered by the prevyearamt column
+ * @psalm-method Collection&\Traversable<ChildOrdrtot> findByPrevyearamt(string|array<string> $prevyearamt) Return ChildOrdrtot objects filtered by the prevyearamt column
+ * @method     ChildOrdrtot[]|Collection findByDummy(string|array<string> $dummy) Return ChildOrdrtot objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildOrdrtot> findByDummy(string|array<string> $dummy) Return ChildOrdrtot objects filtered by the dummy column
+ *
+ * @method     ChildOrdrtot[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildOrdrtot> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class OrdrtotQuery extends ModelCriteria
 {
@@ -158,9 +181,9 @@ abstract class OrdrtotQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\OrdrtotQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'dplusodb', $modelName = '\\Ordrtot', $modelAlias = null)
     {
@@ -170,12 +193,12 @@ abstract class OrdrtotQuery extends ModelCriteria
     /**
      * Returns a new ChildOrdrtotQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildOrdrtotQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildOrdrtotQuery) {
             return $criteria;
@@ -205,7 +228,7 @@ abstract class OrdrtotQuery extends ModelCriteria
      *
      * @return ChildOrdrtot|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -237,8 +260,8 @@ abstract class OrdrtotQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -271,8 +294,8 @@ abstract class OrdrtotQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildOrdrtot|array|mixed the result, formatted by the current formatter
      */
@@ -292,12 +315,12 @@ abstract class OrdrtotQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -314,9 +337,9 @@ abstract class OrdrtotQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildOrdrtotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -329,14 +352,16 @@ abstract class OrdrtotQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildOrdrtotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(OrdrtotTableMap::COL_SESSIONID, $key[0], Criteria::EQUAL);
@@ -355,14 +380,15 @@ abstract class OrdrtotQuery extends ModelCriteria
      * <code>
      * $query->filterBySessionid('fooValue');   // WHERE sessionid = 'fooValue'
      * $query->filterBySessionid('%fooValue%', Criteria::LIKE); // WHERE sessionid LIKE '%fooValue%'
+     * $query->filterBySessionid(['foo', 'bar']); // WHERE sessionid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sessionid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sessionid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrtotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySessionid($sessionid = null, $comparison = null)
+    public function filterBySessionid($sessionid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sessionid)) {
@@ -370,7 +396,9 @@ abstract class OrdrtotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrtotTableMap::COL_SESSIONID, $sessionid, $comparison);
+        $this->addUsingAlias(OrdrtotTableMap::COL_SESSIONID, $sessionid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -383,15 +411,15 @@ abstract class OrdrtotQuery extends ModelCriteria
      * $query->filterByRecno(array('min' => 12)); // WHERE recno > 12
      * </code>
      *
-     * @param     mixed $recno The value to use as filter.
+     * @param mixed $recno The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrtotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByRecno($recno = null, $comparison = null)
+    public function filterByRecno($recno = null, ?string $comparison = null)
     {
         if (is_array($recno)) {
             $useMinMax = false;
@@ -411,7 +439,9 @@ abstract class OrdrtotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrtotTableMap::COL_RECNO, $recno, $comparison);
+        $this->addUsingAlias(OrdrtotTableMap::COL_RECNO, $recno, $comparison);
+
+        return $this;
     }
 
     /**
@@ -424,15 +454,15 @@ abstract class OrdrtotQuery extends ModelCriteria
      * $query->filterByDate(array('min' => 12)); // WHERE date > 12
      * </code>
      *
-     * @param     mixed $date The value to use as filter.
+     * @param mixed $date The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrtotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDate($date = null, $comparison = null)
+    public function filterByDate($date = null, ?string $comparison = null)
     {
         if (is_array($date)) {
             $useMinMax = false;
@@ -452,7 +482,9 @@ abstract class OrdrtotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrtotTableMap::COL_DATE, $date, $comparison);
+        $this->addUsingAlias(OrdrtotTableMap::COL_DATE, $date, $comparison);
+
+        return $this;
     }
 
     /**
@@ -465,15 +497,15 @@ abstract class OrdrtotQuery extends ModelCriteria
      * $query->filterByTime(array('min' => 12)); // WHERE time > 12
      * </code>
      *
-     * @param     mixed $time The value to use as filter.
+     * @param mixed $time The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrtotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTime($time = null, $comparison = null)
+    public function filterByTime($time = null, ?string $comparison = null)
     {
         if (is_array($time)) {
             $useMinMax = false;
@@ -493,7 +525,9 @@ abstract class OrdrtotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrtotTableMap::COL_TIME, $time, $comparison);
+        $this->addUsingAlias(OrdrtotTableMap::COL_TIME, $time, $comparison);
+
+        return $this;
     }
 
     /**
@@ -503,14 +537,15 @@ abstract class OrdrtotQuery extends ModelCriteria
      * <code>
      * $query->filterByType('fooValue');   // WHERE type = 'fooValue'
      * $query->filterByType('%fooValue%', Criteria::LIKE); // WHERE type LIKE '%fooValue%'
+     * $query->filterByType(['foo', 'bar']); // WHERE type IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $type The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $type The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrtotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByType($type = null, $comparison = null)
+    public function filterByType($type = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($type)) {
@@ -518,7 +553,9 @@ abstract class OrdrtotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrtotTableMap::COL_TYPE, $type, $comparison);
+        $this->addUsingAlias(OrdrtotTableMap::COL_TYPE, $type, $comparison);
+
+        return $this;
     }
 
     /**
@@ -528,14 +565,15 @@ abstract class OrdrtotQuery extends ModelCriteria
      * <code>
      * $query->filterByCustid('fooValue');   // WHERE custid = 'fooValue'
      * $query->filterByCustid('%fooValue%', Criteria::LIKE); // WHERE custid LIKE '%fooValue%'
+     * $query->filterByCustid(['foo', 'bar']); // WHERE custid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $custid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $custid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrtotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustid($custid = null, $comparison = null)
+    public function filterByCustid($custid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($custid)) {
@@ -543,7 +581,9 @@ abstract class OrdrtotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrtotTableMap::COL_CUSTID, $custid, $comparison);
+        $this->addUsingAlias(OrdrtotTableMap::COL_CUSTID, $custid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -553,14 +593,15 @@ abstract class OrdrtotQuery extends ModelCriteria
      * <code>
      * $query->filterByShiptoid('fooValue');   // WHERE shiptoid = 'fooValue'
      * $query->filterByShiptoid('%fooValue%', Criteria::LIKE); // WHERE shiptoid LIKE '%fooValue%'
+     * $query->filterByShiptoid(['foo', 'bar']); // WHERE shiptoid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shiptoid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shiptoid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrtotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShiptoid($shiptoid = null, $comparison = null)
+    public function filterByShiptoid($shiptoid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shiptoid)) {
@@ -568,7 +609,9 @@ abstract class OrdrtotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrtotTableMap::COL_SHIPTOID, $shiptoid, $comparison);
+        $this->addUsingAlias(OrdrtotTableMap::COL_SHIPTOID, $shiptoid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -581,15 +624,15 @@ abstract class OrdrtotQuery extends ModelCriteria
      * $query->filterBySaleordnbr(array('min' => 12)); // WHERE saleordnbr > 12
      * </code>
      *
-     * @param     mixed $saleordnbr The value to use as filter.
+     * @param mixed $saleordnbr The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrtotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySaleordnbr($saleordnbr = null, $comparison = null)
+    public function filterBySaleordnbr($saleordnbr = null, ?string $comparison = null)
     {
         if (is_array($saleordnbr)) {
             $useMinMax = false;
@@ -609,7 +652,9 @@ abstract class OrdrtotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrtotTableMap::COL_SALEORDNBR, $saleordnbr, $comparison);
+        $this->addUsingAlias(OrdrtotTableMap::COL_SALEORDNBR, $saleordnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -622,15 +667,15 @@ abstract class OrdrtotQuery extends ModelCriteria
      * $query->filterBySaleordamt(array('min' => 12)); // WHERE saleordamt > 12
      * </code>
      *
-     * @param     mixed $saleordamt The value to use as filter.
+     * @param mixed $saleordamt The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrtotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySaleordamt($saleordamt = null, $comparison = null)
+    public function filterBySaleordamt($saleordamt = null, ?string $comparison = null)
     {
         if (is_array($saleordamt)) {
             $useMinMax = false;
@@ -650,7 +695,9 @@ abstract class OrdrtotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrtotTableMap::COL_SALEORDAMT, $saleordamt, $comparison);
+        $this->addUsingAlias(OrdrtotTableMap::COL_SALEORDAMT, $saleordamt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -663,15 +710,15 @@ abstract class OrdrtotQuery extends ModelCriteria
      * $query->filterByOpeninvnbr(array('min' => 12)); // WHERE openinvnbr > 12
      * </code>
      *
-     * @param     mixed $openinvnbr The value to use as filter.
+     * @param mixed $openinvnbr The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrtotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOpeninvnbr($openinvnbr = null, $comparison = null)
+    public function filterByOpeninvnbr($openinvnbr = null, ?string $comparison = null)
     {
         if (is_array($openinvnbr)) {
             $useMinMax = false;
@@ -691,7 +738,9 @@ abstract class OrdrtotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrtotTableMap::COL_OPENINVNBR, $openinvnbr, $comparison);
+        $this->addUsingAlias(OrdrtotTableMap::COL_OPENINVNBR, $openinvnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -704,15 +753,15 @@ abstract class OrdrtotQuery extends ModelCriteria
      * $query->filterByOpeninvamt(array('min' => 12)); // WHERE openinvamt > 12
      * </code>
      *
-     * @param     mixed $openinvamt The value to use as filter.
+     * @param mixed $openinvamt The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrtotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOpeninvamt($openinvamt = null, $comparison = null)
+    public function filterByOpeninvamt($openinvamt = null, ?string $comparison = null)
     {
         if (is_array($openinvamt)) {
             $useMinMax = false;
@@ -732,7 +781,9 @@ abstract class OrdrtotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrtotTableMap::COL_OPENINVAMT, $openinvamt, $comparison);
+        $this->addUsingAlias(OrdrtotTableMap::COL_OPENINVAMT, $openinvamt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -745,15 +796,15 @@ abstract class OrdrtotQuery extends ModelCriteria
      * $query->filterByQuotesbr(array('min' => 12)); // WHERE quotesbr > 12
      * </code>
      *
-     * @param     mixed $quotesbr The value to use as filter.
+     * @param mixed $quotesbr The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrtotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQuotesbr($quotesbr = null, $comparison = null)
+    public function filterByQuotesbr($quotesbr = null, ?string $comparison = null)
     {
         if (is_array($quotesbr)) {
             $useMinMax = false;
@@ -773,7 +824,9 @@ abstract class OrdrtotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrtotTableMap::COL_QUOTESBR, $quotesbr, $comparison);
+        $this->addUsingAlias(OrdrtotTableMap::COL_QUOTESBR, $quotesbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -786,15 +839,15 @@ abstract class OrdrtotQuery extends ModelCriteria
      * $query->filterByQuotesmt(array('min' => 12)); // WHERE quotesmt > 12
      * </code>
      *
-     * @param     mixed $quotesmt The value to use as filter.
+     * @param mixed $quotesmt The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrtotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQuotesmt($quotesmt = null, $comparison = null)
+    public function filterByQuotesmt($quotesmt = null, ?string $comparison = null)
     {
         if (is_array($quotesmt)) {
             $useMinMax = false;
@@ -814,7 +867,9 @@ abstract class OrdrtotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrtotTableMap::COL_QUOTESMT, $quotesmt, $comparison);
+        $this->addUsingAlias(OrdrtotTableMap::COL_QUOTESMT, $quotesmt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -827,15 +882,15 @@ abstract class OrdrtotQuery extends ModelCriteria
      * $query->filterByMonthtodatenbr(array('min' => 12)); // WHERE monthtodatenbr > 12
      * </code>
      *
-     * @param     mixed $monthtodatenbr The value to use as filter.
+     * @param mixed $monthtodatenbr The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrtotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByMonthtodatenbr($monthtodatenbr = null, $comparison = null)
+    public function filterByMonthtodatenbr($monthtodatenbr = null, ?string $comparison = null)
     {
         if (is_array($monthtodatenbr)) {
             $useMinMax = false;
@@ -855,7 +910,9 @@ abstract class OrdrtotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrtotTableMap::COL_MONTHTODATENBR, $monthtodatenbr, $comparison);
+        $this->addUsingAlias(OrdrtotTableMap::COL_MONTHTODATENBR, $monthtodatenbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -868,15 +925,15 @@ abstract class OrdrtotQuery extends ModelCriteria
      * $query->filterByMonthtodateamt(array('min' => 12)); // WHERE monthtodateamt > 12
      * </code>
      *
-     * @param     mixed $monthtodateamt The value to use as filter.
+     * @param mixed $monthtodateamt The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrtotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByMonthtodateamt($monthtodateamt = null, $comparison = null)
+    public function filterByMonthtodateamt($monthtodateamt = null, ?string $comparison = null)
     {
         if (is_array($monthtodateamt)) {
             $useMinMax = false;
@@ -896,7 +953,9 @@ abstract class OrdrtotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrtotTableMap::COL_MONTHTODATEAMT, $monthtodateamt, $comparison);
+        $this->addUsingAlias(OrdrtotTableMap::COL_MONTHTODATEAMT, $monthtodateamt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -909,15 +968,15 @@ abstract class OrdrtotQuery extends ModelCriteria
      * $query->filterByYeartodatenbr(array('min' => 12)); // WHERE yeartodatenbr > 12
      * </code>
      *
-     * @param     mixed $yeartodatenbr The value to use as filter.
+     * @param mixed $yeartodatenbr The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrtotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByYeartodatenbr($yeartodatenbr = null, $comparison = null)
+    public function filterByYeartodatenbr($yeartodatenbr = null, ?string $comparison = null)
     {
         if (is_array($yeartodatenbr)) {
             $useMinMax = false;
@@ -937,7 +996,9 @@ abstract class OrdrtotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrtotTableMap::COL_YEARTODATENBR, $yeartodatenbr, $comparison);
+        $this->addUsingAlias(OrdrtotTableMap::COL_YEARTODATENBR, $yeartodatenbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -950,15 +1011,15 @@ abstract class OrdrtotQuery extends ModelCriteria
      * $query->filterByYeartodateamt(array('min' => 12)); // WHERE yeartodateamt > 12
      * </code>
      *
-     * @param     mixed $yeartodateamt The value to use as filter.
+     * @param mixed $yeartodateamt The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrtotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByYeartodateamt($yeartodateamt = null, $comparison = null)
+    public function filterByYeartodateamt($yeartodateamt = null, ?string $comparison = null)
     {
         if (is_array($yeartodateamt)) {
             $useMinMax = false;
@@ -978,7 +1039,9 @@ abstract class OrdrtotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrtotTableMap::COL_YEARTODATEAMT, $yeartodateamt, $comparison);
+        $this->addUsingAlias(OrdrtotTableMap::COL_YEARTODATEAMT, $yeartodateamt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -991,15 +1054,15 @@ abstract class OrdrtotQuery extends ModelCriteria
      * $query->filterByLast12nbr(array('min' => 12)); // WHERE last12nbr > 12
      * </code>
      *
-     * @param     mixed $last12nbr The value to use as filter.
+     * @param mixed $last12nbr The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrtotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLast12nbr($last12nbr = null, $comparison = null)
+    public function filterByLast12nbr($last12nbr = null, ?string $comparison = null)
     {
         if (is_array($last12nbr)) {
             $useMinMax = false;
@@ -1019,7 +1082,9 @@ abstract class OrdrtotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrtotTableMap::COL_LAST12NBR, $last12nbr, $comparison);
+        $this->addUsingAlias(OrdrtotTableMap::COL_LAST12NBR, $last12nbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1032,15 +1097,15 @@ abstract class OrdrtotQuery extends ModelCriteria
      * $query->filterByLast12amt(array('min' => 12)); // WHERE last12amt > 12
      * </code>
      *
-     * @param     mixed $last12amt The value to use as filter.
+     * @param mixed $last12amt The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrtotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLast12amt($last12amt = null, $comparison = null)
+    public function filterByLast12amt($last12amt = null, ?string $comparison = null)
     {
         if (is_array($last12amt)) {
             $useMinMax = false;
@@ -1060,7 +1125,9 @@ abstract class OrdrtotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrtotTableMap::COL_LAST12AMT, $last12amt, $comparison);
+        $this->addUsingAlias(OrdrtotTableMap::COL_LAST12AMT, $last12amt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1073,15 +1140,15 @@ abstract class OrdrtotQuery extends ModelCriteria
      * $query->filterByPrevyearnbr(array('min' => 12)); // WHERE prevyearnbr > 12
      * </code>
      *
-     * @param     mixed $prevyearnbr The value to use as filter.
+     * @param mixed $prevyearnbr The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrtotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPrevyearnbr($prevyearnbr = null, $comparison = null)
+    public function filterByPrevyearnbr($prevyearnbr = null, ?string $comparison = null)
     {
         if (is_array($prevyearnbr)) {
             $useMinMax = false;
@@ -1101,7 +1168,9 @@ abstract class OrdrtotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrtotTableMap::COL_PREVYEARNBR, $prevyearnbr, $comparison);
+        $this->addUsingAlias(OrdrtotTableMap::COL_PREVYEARNBR, $prevyearnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1114,15 +1183,15 @@ abstract class OrdrtotQuery extends ModelCriteria
      * $query->filterByPrevyearamt(array('min' => 12)); // WHERE prevyearamt > 12
      * </code>
      *
-     * @param     mixed $prevyearamt The value to use as filter.
+     * @param mixed $prevyearamt The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrtotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPrevyearamt($prevyearamt = null, $comparison = null)
+    public function filterByPrevyearamt($prevyearamt = null, ?string $comparison = null)
     {
         if (is_array($prevyearamt)) {
             $useMinMax = false;
@@ -1142,7 +1211,9 @@ abstract class OrdrtotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrtotTableMap::COL_PREVYEARAMT, $prevyearamt, $comparison);
+        $this->addUsingAlias(OrdrtotTableMap::COL_PREVYEARAMT, $prevyearamt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1152,14 +1223,15 @@ abstract class OrdrtotQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOrdrtotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -1167,15 +1239,17 @@ abstract class OrdrtotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OrdrtotTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(OrdrtotTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildOrdrtot $ordrtot Object to remove from the list of results
+     * @param ChildOrdrtot $ordrtot Object to remove from the list of results
      *
-     * @return $this|ChildOrdrtotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($ordrtot = null)
     {
@@ -1194,7 +1268,7 @@ abstract class OrdrtotQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(OrdrtotTableMap::DATABASE_NAME);
@@ -1219,12 +1293,12 @@ abstract class OrdrtotQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(OrdrtotTableMap::DATABASE_NAME);
@@ -1249,4 +1323,4 @@ abstract class OrdrtotQuery extends ModelCriteria
         });
     }
 
-} // OrdrtotQuery
+}

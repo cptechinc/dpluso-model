@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class ItemstockTableMap extends TableMap
 {
@@ -34,144 +33,233 @@ class ItemstockTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.ItemstockTableMap';
+    public const CLASS_NAME = '.Map.ItemstockTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'dplusodb';
+    public const DATABASE_NAME = 'dplusodb';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'itemstock';
+    public const TABLE_NAME = 'itemstock';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'Itemstock';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\Itemstock';
+    public const OM_CLASS = '\\Itemstock';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'Itemstock';
+    public const CLASS_DEFAULT = 'Itemstock';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 12;
+    public const NUM_COLUMNS = 12;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 12;
+    public const NUM_HYDRATE_COLUMNS = 12;
 
     /**
      * the column name for the sessionid field
      */
-    const COL_SESSIONID = 'itemstock.sessionid';
+    public const COL_SESSIONID = 'itemstock.sessionid';
 
     /**
      * the column name for the recno field
      */
-    const COL_RECNO = 'itemstock.recno';
+    public const COL_RECNO = 'itemstock.recno';
 
     /**
      * the column name for the date field
      */
-    const COL_DATE = 'itemstock.date';
+    public const COL_DATE = 'itemstock.date';
 
     /**
      * the column name for the time field
      */
-    const COL_TIME = 'itemstock.time';
+    public const COL_TIME = 'itemstock.time';
 
     /**
      * the column name for the itemid field
      */
-    const COL_ITEMID = 'itemstock.itemid';
+    public const COL_ITEMID = 'itemstock.itemid';
 
     /**
      * the column name for the whse field
      */
-    const COL_WHSE = 'itemstock.whse';
+    public const COL_WHSE = 'itemstock.whse';
 
     /**
      * the column name for the ohhand field
      */
-    const COL_OHHAND = 'itemstock.ohhand';
+    public const COL_OHHAND = 'itemstock.ohhand';
 
     /**
      * the column name for the committed field
      */
-    const COL_COMMITTED = 'itemstock.committed';
+    public const COL_COMMITTED = 'itemstock.committed';
 
     /**
      * the column name for the onorder field
      */
-    const COL_ONORDER = 'itemstock.onorder';
+    public const COL_ONORDER = 'itemstock.onorder';
 
     /**
      * the column name for the available field
      */
-    const COL_AVAILABLE = 'itemstock.available';
+    public const COL_AVAILABLE = 'itemstock.available';
 
     /**
      * the column name for the eta field
      */
-    const COL_ETA = 'itemstock.eta';
+    public const COL_ETA = 'itemstock.eta';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'itemstock.dummy';
+    public const COL_DUMMY = 'itemstock.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Sessionid', 'Recno', 'Date', 'Time', 'Itemid', 'Whse', 'Ohhand', 'Committed', 'Onorder', 'Available', 'Eta', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('sessionid', 'recno', 'date', 'time', 'itemid', 'whse', 'ohhand', 'committed', 'onorder', 'available', 'eta', 'dummy', ),
-        self::TYPE_COLNAME       => array(ItemstockTableMap::COL_SESSIONID, ItemstockTableMap::COL_RECNO, ItemstockTableMap::COL_DATE, ItemstockTableMap::COL_TIME, ItemstockTableMap::COL_ITEMID, ItemstockTableMap::COL_WHSE, ItemstockTableMap::COL_OHHAND, ItemstockTableMap::COL_COMMITTED, ItemstockTableMap::COL_ONORDER, ItemstockTableMap::COL_AVAILABLE, ItemstockTableMap::COL_ETA, ItemstockTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('sessionid', 'recno', 'date', 'time', 'itemid', 'whse', 'ohhand', 'committed', 'onorder', 'available', 'eta', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Sessionid', 'Recno', 'Date', 'Time', 'Itemid', 'Whse', 'Ohhand', 'Committed', 'Onorder', 'Available', 'Eta', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['sessionid', 'recno', 'date', 'time', 'itemid', 'whse', 'ohhand', 'committed', 'onorder', 'available', 'eta', 'dummy', ],
+        self::TYPE_COLNAME       => [ItemstockTableMap::COL_SESSIONID, ItemstockTableMap::COL_RECNO, ItemstockTableMap::COL_DATE, ItemstockTableMap::COL_TIME, ItemstockTableMap::COL_ITEMID, ItemstockTableMap::COL_WHSE, ItemstockTableMap::COL_OHHAND, ItemstockTableMap::COL_COMMITTED, ItemstockTableMap::COL_ONORDER, ItemstockTableMap::COL_AVAILABLE, ItemstockTableMap::COL_ETA, ItemstockTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['sessionid', 'recno', 'date', 'time', 'itemid', 'whse', 'ohhand', 'committed', 'onorder', 'available', 'eta', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Recno' => 1, 'Date' => 2, 'Time' => 3, 'Itemid' => 4, 'Whse' => 5, 'Ohhand' => 6, 'Committed' => 7, 'Onorder' => 8, 'Available' => 9, 'Eta' => 10, 'Dummy' => 11, ),
-        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'itemid' => 4, 'whse' => 5, 'ohhand' => 6, 'committed' => 7, 'onorder' => 8, 'available' => 9, 'eta' => 10, 'dummy' => 11, ),
-        self::TYPE_COLNAME       => array(ItemstockTableMap::COL_SESSIONID => 0, ItemstockTableMap::COL_RECNO => 1, ItemstockTableMap::COL_DATE => 2, ItemstockTableMap::COL_TIME => 3, ItemstockTableMap::COL_ITEMID => 4, ItemstockTableMap::COL_WHSE => 5, ItemstockTableMap::COL_OHHAND => 6, ItemstockTableMap::COL_COMMITTED => 7, ItemstockTableMap::COL_ONORDER => 8, ItemstockTableMap::COL_AVAILABLE => 9, ItemstockTableMap::COL_ETA => 10, ItemstockTableMap::COL_DUMMY => 11, ),
-        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'itemid' => 4, 'whse' => 5, 'ohhand' => 6, 'committed' => 7, 'onorder' => 8, 'available' => 9, 'eta' => 10, 'dummy' => 11, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Sessionid' => 0, 'Recno' => 1, 'Date' => 2, 'Time' => 3, 'Itemid' => 4, 'Whse' => 5, 'Ohhand' => 6, 'Committed' => 7, 'Onorder' => 8, 'Available' => 9, 'Eta' => 10, 'Dummy' => 11, ],
+        self::TYPE_CAMELNAME     => ['sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'itemid' => 4, 'whse' => 5, 'ohhand' => 6, 'committed' => 7, 'onorder' => 8, 'available' => 9, 'eta' => 10, 'dummy' => 11, ],
+        self::TYPE_COLNAME       => [ItemstockTableMap::COL_SESSIONID => 0, ItemstockTableMap::COL_RECNO => 1, ItemstockTableMap::COL_DATE => 2, ItemstockTableMap::COL_TIME => 3, ItemstockTableMap::COL_ITEMID => 4, ItemstockTableMap::COL_WHSE => 5, ItemstockTableMap::COL_OHHAND => 6, ItemstockTableMap::COL_COMMITTED => 7, ItemstockTableMap::COL_ONORDER => 8, ItemstockTableMap::COL_AVAILABLE => 9, ItemstockTableMap::COL_ETA => 10, ItemstockTableMap::COL_DUMMY => 11, ],
+        self::TYPE_FIELDNAME     => ['sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'itemid' => 4, 'whse' => 5, 'ohhand' => 6, 'committed' => 7, 'onorder' => 8, 'available' => 9, 'eta' => 10, 'dummy' => 11, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Sessionid' => 'SESSIONID',
+        'Itemstock.Sessionid' => 'SESSIONID',
+        'sessionid' => 'SESSIONID',
+        'itemstock.sessionid' => 'SESSIONID',
+        'ItemstockTableMap::COL_SESSIONID' => 'SESSIONID',
+        'COL_SESSIONID' => 'SESSIONID',
+        'Recno' => 'RECNO',
+        'Itemstock.Recno' => 'RECNO',
+        'recno' => 'RECNO',
+        'itemstock.recno' => 'RECNO',
+        'ItemstockTableMap::COL_RECNO' => 'RECNO',
+        'COL_RECNO' => 'RECNO',
+        'Date' => 'DATE',
+        'Itemstock.Date' => 'DATE',
+        'date' => 'DATE',
+        'itemstock.date' => 'DATE',
+        'ItemstockTableMap::COL_DATE' => 'DATE',
+        'COL_DATE' => 'DATE',
+        'Time' => 'TIME',
+        'Itemstock.Time' => 'TIME',
+        'time' => 'TIME',
+        'itemstock.time' => 'TIME',
+        'ItemstockTableMap::COL_TIME' => 'TIME',
+        'COL_TIME' => 'TIME',
+        'Itemid' => 'ITEMID',
+        'Itemstock.Itemid' => 'ITEMID',
+        'itemid' => 'ITEMID',
+        'itemstock.itemid' => 'ITEMID',
+        'ItemstockTableMap::COL_ITEMID' => 'ITEMID',
+        'COL_ITEMID' => 'ITEMID',
+        'Whse' => 'WHSE',
+        'Itemstock.Whse' => 'WHSE',
+        'whse' => 'WHSE',
+        'itemstock.whse' => 'WHSE',
+        'ItemstockTableMap::COL_WHSE' => 'WHSE',
+        'COL_WHSE' => 'WHSE',
+        'Ohhand' => 'OHHAND',
+        'Itemstock.Ohhand' => 'OHHAND',
+        'ohhand' => 'OHHAND',
+        'itemstock.ohhand' => 'OHHAND',
+        'ItemstockTableMap::COL_OHHAND' => 'OHHAND',
+        'COL_OHHAND' => 'OHHAND',
+        'Committed' => 'COMMITTED',
+        'Itemstock.Committed' => 'COMMITTED',
+        'committed' => 'COMMITTED',
+        'itemstock.committed' => 'COMMITTED',
+        'ItemstockTableMap::COL_COMMITTED' => 'COMMITTED',
+        'COL_COMMITTED' => 'COMMITTED',
+        'Onorder' => 'ONORDER',
+        'Itemstock.Onorder' => 'ONORDER',
+        'onorder' => 'ONORDER',
+        'itemstock.onorder' => 'ONORDER',
+        'ItemstockTableMap::COL_ONORDER' => 'ONORDER',
+        'COL_ONORDER' => 'ONORDER',
+        'Available' => 'AVAILABLE',
+        'Itemstock.Available' => 'AVAILABLE',
+        'available' => 'AVAILABLE',
+        'itemstock.available' => 'AVAILABLE',
+        'ItemstockTableMap::COL_AVAILABLE' => 'AVAILABLE',
+        'COL_AVAILABLE' => 'AVAILABLE',
+        'Eta' => 'ETA',
+        'Itemstock.Eta' => 'ETA',
+        'eta' => 'ETA',
+        'itemstock.eta' => 'ETA',
+        'ItemstockTableMap::COL_ETA' => 'ETA',
+        'COL_ETA' => 'ETA',
+        'Dummy' => 'DUMMY',
+        'Itemstock.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'itemstock.dummy' => 'DUMMY',
+        'ItemstockTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('itemstock');
@@ -193,14 +281,16 @@ class ItemstockTableMap extends TableMap
         $this->addColumn('available', 'Available', 'VARCHAR', false, 20, null);
         $this->addColumn('eta', 'Eta', 'VARCHAR', false, 20, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -211,9 +301,11 @@ class ItemstockTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \Itemstock $obj A \Itemstock object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(Itemstock $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -232,8 +324,10 @@ class ItemstockTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \Itemstock object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \Itemstock) {
@@ -261,14 +355,14 @@ class ItemstockTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Recno', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -283,14 +377,14 @@ class ItemstockTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -316,10 +410,10 @@ class ItemstockTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? ItemstockTableMap::CLASS_DEFAULT : ItemstockTableMap::OM_CLASS;
     }
@@ -327,17 +421,17 @@ class ItemstockTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (Itemstock object, last column rank)
+     * @return array (Itemstock object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = ItemstockTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = ItemstockTableMap::getInstanceFromPool($key))) {
@@ -353,7 +447,7 @@ class ItemstockTableMap extends TableMap
             ItemstockTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -361,13 +455,13 @@ class ItemstockTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -397,12 +491,13 @@ class ItemstockTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(ItemstockTableMap::COL_SESSIONID);
@@ -434,40 +529,72 @@ class ItemstockTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(ItemstockTableMap::COL_SESSIONID);
+            $criteria->removeSelectColumn(ItemstockTableMap::COL_RECNO);
+            $criteria->removeSelectColumn(ItemstockTableMap::COL_DATE);
+            $criteria->removeSelectColumn(ItemstockTableMap::COL_TIME);
+            $criteria->removeSelectColumn(ItemstockTableMap::COL_ITEMID);
+            $criteria->removeSelectColumn(ItemstockTableMap::COL_WHSE);
+            $criteria->removeSelectColumn(ItemstockTableMap::COL_OHHAND);
+            $criteria->removeSelectColumn(ItemstockTableMap::COL_COMMITTED);
+            $criteria->removeSelectColumn(ItemstockTableMap::COL_ONORDER);
+            $criteria->removeSelectColumn(ItemstockTableMap::COL_AVAILABLE);
+            $criteria->removeSelectColumn(ItemstockTableMap::COL_ETA);
+            $criteria->removeSelectColumn(ItemstockTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.sessionid');
+            $criteria->removeSelectColumn($alias . '.recno');
+            $criteria->removeSelectColumn($alias . '.date');
+            $criteria->removeSelectColumn($alias . '.time');
+            $criteria->removeSelectColumn($alias . '.itemid');
+            $criteria->removeSelectColumn($alias . '.whse');
+            $criteria->removeSelectColumn($alias . '.ohhand');
+            $criteria->removeSelectColumn($alias . '.committed');
+            $criteria->removeSelectColumn($alias . '.onorder');
+            $criteria->removeSelectColumn($alias . '.available');
+            $criteria->removeSelectColumn($alias . '.eta');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(ItemstockTableMap::DATABASE_NAME)->getTable(ItemstockTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ItemstockTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(ItemstockTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new ItemstockTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a Itemstock or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or Itemstock object or primary key or array of primary keys
+     * @param mixed $values Criteria or Itemstock object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemstockTableMap::DATABASE_NAME);
@@ -485,7 +612,7 @@ class ItemstockTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(ItemstockTableMap::COL_SESSIONID, $value[0]);
@@ -513,7 +640,7 @@ class ItemstockTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return ItemstockQuery::create()->doDeleteAll($con);
     }
@@ -521,13 +648,13 @@ class ItemstockTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a Itemstock or Criteria object.
      *
-     * @param mixed               $criteria Criteria or Itemstock object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or Itemstock object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemstockTableMap::DATABASE_NAME);
@@ -550,7 +677,4 @@ class ItemstockTableMap extends TableMap
         });
     }
 
-} // ItemstockTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-ItemstockTableMap::buildTableMap();
+}

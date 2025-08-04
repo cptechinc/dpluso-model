@@ -10,14 +10,12 @@ use Map\UseractionsTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'useractions' table.
- *
- *
+ * Base class that represents a query for the `useractions` table.
  *
  * @method     ChildUseractionsQuery orderById($order = Criteria::ASC) Order by the id column
  * @method     ChildUseractionsQuery orderByDatecreated($order = Criteria::ASC) Order by the datecreated column
@@ -77,36 +75,36 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildUseractionsQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildUseractionsQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildUseractions findOne(ConnectionInterface $con = null) Return the first ChildUseractions matching the query
- * @method     ChildUseractions findOneOrCreate(ConnectionInterface $con = null) Return the first ChildUseractions matching the query, or a new ChildUseractions object populated from the query conditions when no match is found
+ * @method     ChildUseractions|null findOne(?ConnectionInterface $con = null) Return the first ChildUseractions matching the query
+ * @method     ChildUseractions findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildUseractions matching the query, or a new ChildUseractions object populated from the query conditions when no match is found
  *
- * @method     ChildUseractions findOneById(int $id) Return the first ChildUseractions filtered by the id column
- * @method     ChildUseractions findOneByDatecreated(string $datecreated) Return the first ChildUseractions filtered by the datecreated column
- * @method     ChildUseractions findOneByActiontype(string $actiontype) Return the first ChildUseractions filtered by the actiontype column
- * @method     ChildUseractions findOneByActionsubtype(string $actionsubtype) Return the first ChildUseractions filtered by the actionsubtype column
- * @method     ChildUseractions findOneByDuedate(string $duedate) Return the first ChildUseractions filtered by the duedate column
- * @method     ChildUseractions findOneByCreatedby(string $createdby) Return the first ChildUseractions filtered by the createdby column
- * @method     ChildUseractions findOneByAssignedto(string $assignedto) Return the first ChildUseractions filtered by the assignedto column
- * @method     ChildUseractions findOneByAssignedby(string $assignedby) Return the first ChildUseractions filtered by the assignedby column
- * @method     ChildUseractions findOneByTitle(string $title) Return the first ChildUseractions filtered by the title column
- * @method     ChildUseractions findOneByTextbody(string $textbody) Return the first ChildUseractions filtered by the textbody column
- * @method     ChildUseractions findOneByReflectnote(string $reflectnote) Return the first ChildUseractions filtered by the reflectnote column
- * @method     ChildUseractions findOneByCompleted(string $completed) Return the first ChildUseractions filtered by the completed column
- * @method     ChildUseractions findOneByDatecompleted(string $datecompleted) Return the first ChildUseractions filtered by the datecompleted column
- * @method     ChildUseractions findOneByDateupdated(string $dateupdated) Return the first ChildUseractions filtered by the dateupdated column
- * @method     ChildUseractions findOneByCustomerlink(string $customerlink) Return the first ChildUseractions filtered by the customerlink column
- * @method     ChildUseractions findOneByShiptolink(string $shiptolink) Return the first ChildUseractions filtered by the shiptolink column
- * @method     ChildUseractions findOneByContactlink(string $contactlink) Return the first ChildUseractions filtered by the contactlink column
- * @method     ChildUseractions findOneBySalesorderlink(string $salesorderlink) Return the first ChildUseractions filtered by the salesorderlink column
- * @method     ChildUseractions findOneByQuotelink(string $quotelink) Return the first ChildUseractions filtered by the quotelink column
- * @method     ChildUseractions findOneByVendorlink(string $vendorlink) Return the first ChildUseractions filtered by the vendorlink column
- * @method     ChildUseractions findOneByVendorshipfromlink(string $vendorshipfromlink) Return the first ChildUseractions filtered by the vendorshipfromlink column
- * @method     ChildUseractions findOneByPurchaseorderlink(string $purchaseorderlink) Return the first ChildUseractions filtered by the purchaseorderlink column
- * @method     ChildUseractions findOneByActionlink(string $actionlink) Return the first ChildUseractions filtered by the actionlink column
- * @method     ChildUseractions findOneByRescheduledlink(string $rescheduledlink) Return the first ChildUseractions filtered by the rescheduledlink column *
-
- * @method     ChildUseractions requirePk($key, ConnectionInterface $con = null) Return the ChildUseractions by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildUseractions requireOne(ConnectionInterface $con = null) Return the first ChildUseractions matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildUseractions|null findOneById(int $id) Return the first ChildUseractions filtered by the id column
+ * @method     ChildUseractions|null findOneByDatecreated(string $datecreated) Return the first ChildUseractions filtered by the datecreated column
+ * @method     ChildUseractions|null findOneByActiontype(string $actiontype) Return the first ChildUseractions filtered by the actiontype column
+ * @method     ChildUseractions|null findOneByActionsubtype(string $actionsubtype) Return the first ChildUseractions filtered by the actionsubtype column
+ * @method     ChildUseractions|null findOneByDuedate(string $duedate) Return the first ChildUseractions filtered by the duedate column
+ * @method     ChildUseractions|null findOneByCreatedby(string $createdby) Return the first ChildUseractions filtered by the createdby column
+ * @method     ChildUseractions|null findOneByAssignedto(string $assignedto) Return the first ChildUseractions filtered by the assignedto column
+ * @method     ChildUseractions|null findOneByAssignedby(string $assignedby) Return the first ChildUseractions filtered by the assignedby column
+ * @method     ChildUseractions|null findOneByTitle(string $title) Return the first ChildUseractions filtered by the title column
+ * @method     ChildUseractions|null findOneByTextbody(string $textbody) Return the first ChildUseractions filtered by the textbody column
+ * @method     ChildUseractions|null findOneByReflectnote(string $reflectnote) Return the first ChildUseractions filtered by the reflectnote column
+ * @method     ChildUseractions|null findOneByCompleted(string $completed) Return the first ChildUseractions filtered by the completed column
+ * @method     ChildUseractions|null findOneByDatecompleted(string $datecompleted) Return the first ChildUseractions filtered by the datecompleted column
+ * @method     ChildUseractions|null findOneByDateupdated(string $dateupdated) Return the first ChildUseractions filtered by the dateupdated column
+ * @method     ChildUseractions|null findOneByCustomerlink(string $customerlink) Return the first ChildUseractions filtered by the customerlink column
+ * @method     ChildUseractions|null findOneByShiptolink(string $shiptolink) Return the first ChildUseractions filtered by the shiptolink column
+ * @method     ChildUseractions|null findOneByContactlink(string $contactlink) Return the first ChildUseractions filtered by the contactlink column
+ * @method     ChildUseractions|null findOneBySalesorderlink(string $salesorderlink) Return the first ChildUseractions filtered by the salesorderlink column
+ * @method     ChildUseractions|null findOneByQuotelink(string $quotelink) Return the first ChildUseractions filtered by the quotelink column
+ * @method     ChildUseractions|null findOneByVendorlink(string $vendorlink) Return the first ChildUseractions filtered by the vendorlink column
+ * @method     ChildUseractions|null findOneByVendorshipfromlink(string $vendorshipfromlink) Return the first ChildUseractions filtered by the vendorshipfromlink column
+ * @method     ChildUseractions|null findOneByPurchaseorderlink(string $purchaseorderlink) Return the first ChildUseractions filtered by the purchaseorderlink column
+ * @method     ChildUseractions|null findOneByActionlink(string $actionlink) Return the first ChildUseractions filtered by the actionlink column
+ * @method     ChildUseractions|null findOneByRescheduledlink(string $rescheduledlink) Return the first ChildUseractions filtered by the rescheduledlink column
+ *
+ * @method     ChildUseractions requirePk($key, ?ConnectionInterface $con = null) Return the ChildUseractions by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildUseractions requireOne(?ConnectionInterface $con = null) Return the first ChildUseractions matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildUseractions requireOneById(int $id) Return the first ChildUseractions filtered by the id column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildUseractions requireOneByDatecreated(string $datecreated) Return the first ChildUseractions filtered by the datecreated column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -133,33 +131,60 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildUseractions requireOneByActionlink(string $actionlink) Return the first ChildUseractions filtered by the actionlink column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildUseractions requireOneByRescheduledlink(string $rescheduledlink) Return the first ChildUseractions filtered by the rescheduledlink column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildUseractions[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildUseractions objects based on current ModelCriteria
- * @method     ChildUseractions[]|ObjectCollection findById(int $id) Return ChildUseractions objects filtered by the id column
- * @method     ChildUseractions[]|ObjectCollection findByDatecreated(string $datecreated) Return ChildUseractions objects filtered by the datecreated column
- * @method     ChildUseractions[]|ObjectCollection findByActiontype(string $actiontype) Return ChildUseractions objects filtered by the actiontype column
- * @method     ChildUseractions[]|ObjectCollection findByActionsubtype(string $actionsubtype) Return ChildUseractions objects filtered by the actionsubtype column
- * @method     ChildUseractions[]|ObjectCollection findByDuedate(string $duedate) Return ChildUseractions objects filtered by the duedate column
- * @method     ChildUseractions[]|ObjectCollection findByCreatedby(string $createdby) Return ChildUseractions objects filtered by the createdby column
- * @method     ChildUseractions[]|ObjectCollection findByAssignedto(string $assignedto) Return ChildUseractions objects filtered by the assignedto column
- * @method     ChildUseractions[]|ObjectCollection findByAssignedby(string $assignedby) Return ChildUseractions objects filtered by the assignedby column
- * @method     ChildUseractions[]|ObjectCollection findByTitle(string $title) Return ChildUseractions objects filtered by the title column
- * @method     ChildUseractions[]|ObjectCollection findByTextbody(string $textbody) Return ChildUseractions objects filtered by the textbody column
- * @method     ChildUseractions[]|ObjectCollection findByReflectnote(string $reflectnote) Return ChildUseractions objects filtered by the reflectnote column
- * @method     ChildUseractions[]|ObjectCollection findByCompleted(string $completed) Return ChildUseractions objects filtered by the completed column
- * @method     ChildUseractions[]|ObjectCollection findByDatecompleted(string $datecompleted) Return ChildUseractions objects filtered by the datecompleted column
- * @method     ChildUseractions[]|ObjectCollection findByDateupdated(string $dateupdated) Return ChildUseractions objects filtered by the dateupdated column
- * @method     ChildUseractions[]|ObjectCollection findByCustomerlink(string $customerlink) Return ChildUseractions objects filtered by the customerlink column
- * @method     ChildUseractions[]|ObjectCollection findByShiptolink(string $shiptolink) Return ChildUseractions objects filtered by the shiptolink column
- * @method     ChildUseractions[]|ObjectCollection findByContactlink(string $contactlink) Return ChildUseractions objects filtered by the contactlink column
- * @method     ChildUseractions[]|ObjectCollection findBySalesorderlink(string $salesorderlink) Return ChildUseractions objects filtered by the salesorderlink column
- * @method     ChildUseractions[]|ObjectCollection findByQuotelink(string $quotelink) Return ChildUseractions objects filtered by the quotelink column
- * @method     ChildUseractions[]|ObjectCollection findByVendorlink(string $vendorlink) Return ChildUseractions objects filtered by the vendorlink column
- * @method     ChildUseractions[]|ObjectCollection findByVendorshipfromlink(string $vendorshipfromlink) Return ChildUseractions objects filtered by the vendorshipfromlink column
- * @method     ChildUseractions[]|ObjectCollection findByPurchaseorderlink(string $purchaseorderlink) Return ChildUseractions objects filtered by the purchaseorderlink column
- * @method     ChildUseractions[]|ObjectCollection findByActionlink(string $actionlink) Return ChildUseractions objects filtered by the actionlink column
- * @method     ChildUseractions[]|ObjectCollection findByRescheduledlink(string $rescheduledlink) Return ChildUseractions objects filtered by the rescheduledlink column
- * @method     ChildUseractions[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildUseractions[]|Collection find(?ConnectionInterface $con = null) Return ChildUseractions objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildUseractions> find(?ConnectionInterface $con = null) Return ChildUseractions objects based on current ModelCriteria
  *
+ * @method     ChildUseractions[]|Collection findById(int|array<int> $id) Return ChildUseractions objects filtered by the id column
+ * @psalm-method Collection&\Traversable<ChildUseractions> findById(int|array<int> $id) Return ChildUseractions objects filtered by the id column
+ * @method     ChildUseractions[]|Collection findByDatecreated(string|array<string> $datecreated) Return ChildUseractions objects filtered by the datecreated column
+ * @psalm-method Collection&\Traversable<ChildUseractions> findByDatecreated(string|array<string> $datecreated) Return ChildUseractions objects filtered by the datecreated column
+ * @method     ChildUseractions[]|Collection findByActiontype(string|array<string> $actiontype) Return ChildUseractions objects filtered by the actiontype column
+ * @psalm-method Collection&\Traversable<ChildUseractions> findByActiontype(string|array<string> $actiontype) Return ChildUseractions objects filtered by the actiontype column
+ * @method     ChildUseractions[]|Collection findByActionsubtype(string|array<string> $actionsubtype) Return ChildUseractions objects filtered by the actionsubtype column
+ * @psalm-method Collection&\Traversable<ChildUseractions> findByActionsubtype(string|array<string> $actionsubtype) Return ChildUseractions objects filtered by the actionsubtype column
+ * @method     ChildUseractions[]|Collection findByDuedate(string|array<string> $duedate) Return ChildUseractions objects filtered by the duedate column
+ * @psalm-method Collection&\Traversable<ChildUseractions> findByDuedate(string|array<string> $duedate) Return ChildUseractions objects filtered by the duedate column
+ * @method     ChildUseractions[]|Collection findByCreatedby(string|array<string> $createdby) Return ChildUseractions objects filtered by the createdby column
+ * @psalm-method Collection&\Traversable<ChildUseractions> findByCreatedby(string|array<string> $createdby) Return ChildUseractions objects filtered by the createdby column
+ * @method     ChildUseractions[]|Collection findByAssignedto(string|array<string> $assignedto) Return ChildUseractions objects filtered by the assignedto column
+ * @psalm-method Collection&\Traversable<ChildUseractions> findByAssignedto(string|array<string> $assignedto) Return ChildUseractions objects filtered by the assignedto column
+ * @method     ChildUseractions[]|Collection findByAssignedby(string|array<string> $assignedby) Return ChildUseractions objects filtered by the assignedby column
+ * @psalm-method Collection&\Traversable<ChildUseractions> findByAssignedby(string|array<string> $assignedby) Return ChildUseractions objects filtered by the assignedby column
+ * @method     ChildUseractions[]|Collection findByTitle(string|array<string> $title) Return ChildUseractions objects filtered by the title column
+ * @psalm-method Collection&\Traversable<ChildUseractions> findByTitle(string|array<string> $title) Return ChildUseractions objects filtered by the title column
+ * @method     ChildUseractions[]|Collection findByTextbody(string|array<string> $textbody) Return ChildUseractions objects filtered by the textbody column
+ * @psalm-method Collection&\Traversable<ChildUseractions> findByTextbody(string|array<string> $textbody) Return ChildUseractions objects filtered by the textbody column
+ * @method     ChildUseractions[]|Collection findByReflectnote(string|array<string> $reflectnote) Return ChildUseractions objects filtered by the reflectnote column
+ * @psalm-method Collection&\Traversable<ChildUseractions> findByReflectnote(string|array<string> $reflectnote) Return ChildUseractions objects filtered by the reflectnote column
+ * @method     ChildUseractions[]|Collection findByCompleted(string|array<string> $completed) Return ChildUseractions objects filtered by the completed column
+ * @psalm-method Collection&\Traversable<ChildUseractions> findByCompleted(string|array<string> $completed) Return ChildUseractions objects filtered by the completed column
+ * @method     ChildUseractions[]|Collection findByDatecompleted(string|array<string> $datecompleted) Return ChildUseractions objects filtered by the datecompleted column
+ * @psalm-method Collection&\Traversable<ChildUseractions> findByDatecompleted(string|array<string> $datecompleted) Return ChildUseractions objects filtered by the datecompleted column
+ * @method     ChildUseractions[]|Collection findByDateupdated(string|array<string> $dateupdated) Return ChildUseractions objects filtered by the dateupdated column
+ * @psalm-method Collection&\Traversable<ChildUseractions> findByDateupdated(string|array<string> $dateupdated) Return ChildUseractions objects filtered by the dateupdated column
+ * @method     ChildUseractions[]|Collection findByCustomerlink(string|array<string> $customerlink) Return ChildUseractions objects filtered by the customerlink column
+ * @psalm-method Collection&\Traversable<ChildUseractions> findByCustomerlink(string|array<string> $customerlink) Return ChildUseractions objects filtered by the customerlink column
+ * @method     ChildUseractions[]|Collection findByShiptolink(string|array<string> $shiptolink) Return ChildUseractions objects filtered by the shiptolink column
+ * @psalm-method Collection&\Traversable<ChildUseractions> findByShiptolink(string|array<string> $shiptolink) Return ChildUseractions objects filtered by the shiptolink column
+ * @method     ChildUseractions[]|Collection findByContactlink(string|array<string> $contactlink) Return ChildUseractions objects filtered by the contactlink column
+ * @psalm-method Collection&\Traversable<ChildUseractions> findByContactlink(string|array<string> $contactlink) Return ChildUseractions objects filtered by the contactlink column
+ * @method     ChildUseractions[]|Collection findBySalesorderlink(string|array<string> $salesorderlink) Return ChildUseractions objects filtered by the salesorderlink column
+ * @psalm-method Collection&\Traversable<ChildUseractions> findBySalesorderlink(string|array<string> $salesorderlink) Return ChildUseractions objects filtered by the salesorderlink column
+ * @method     ChildUseractions[]|Collection findByQuotelink(string|array<string> $quotelink) Return ChildUseractions objects filtered by the quotelink column
+ * @psalm-method Collection&\Traversable<ChildUseractions> findByQuotelink(string|array<string> $quotelink) Return ChildUseractions objects filtered by the quotelink column
+ * @method     ChildUseractions[]|Collection findByVendorlink(string|array<string> $vendorlink) Return ChildUseractions objects filtered by the vendorlink column
+ * @psalm-method Collection&\Traversable<ChildUseractions> findByVendorlink(string|array<string> $vendorlink) Return ChildUseractions objects filtered by the vendorlink column
+ * @method     ChildUseractions[]|Collection findByVendorshipfromlink(string|array<string> $vendorshipfromlink) Return ChildUseractions objects filtered by the vendorshipfromlink column
+ * @psalm-method Collection&\Traversable<ChildUseractions> findByVendorshipfromlink(string|array<string> $vendorshipfromlink) Return ChildUseractions objects filtered by the vendorshipfromlink column
+ * @method     ChildUseractions[]|Collection findByPurchaseorderlink(string|array<string> $purchaseorderlink) Return ChildUseractions objects filtered by the purchaseorderlink column
+ * @psalm-method Collection&\Traversable<ChildUseractions> findByPurchaseorderlink(string|array<string> $purchaseorderlink) Return ChildUseractions objects filtered by the purchaseorderlink column
+ * @method     ChildUseractions[]|Collection findByActionlink(string|array<string> $actionlink) Return ChildUseractions objects filtered by the actionlink column
+ * @psalm-method Collection&\Traversable<ChildUseractions> findByActionlink(string|array<string> $actionlink) Return ChildUseractions objects filtered by the actionlink column
+ * @method     ChildUseractions[]|Collection findByRescheduledlink(string|array<string> $rescheduledlink) Return ChildUseractions objects filtered by the rescheduledlink column
+ * @psalm-method Collection&\Traversable<ChildUseractions> findByRescheduledlink(string|array<string> $rescheduledlink) Return ChildUseractions objects filtered by the rescheduledlink column
+ *
+ * @method     ChildUseractions[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildUseractions> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class UseractionsQuery extends ModelCriteria
 {
@@ -168,9 +193,9 @@ abstract class UseractionsQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\UseractionsQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'dplusodb', $modelName = '\\Useractions', $modelAlias = null)
     {
@@ -180,12 +205,12 @@ abstract class UseractionsQuery extends ModelCriteria
     /**
      * Returns a new ChildUseractionsQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildUseractionsQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildUseractionsQuery) {
             return $criteria;
@@ -215,7 +240,7 @@ abstract class UseractionsQuery extends ModelCriteria
      *
      * @return ChildUseractions|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -247,8 +272,8 @@ abstract class UseractionsQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -280,8 +305,8 @@ abstract class UseractionsQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildUseractions|array|mixed the result, formatted by the current formatter
      */
@@ -301,12 +326,12 @@ abstract class UseractionsQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -323,27 +348,31 @@ abstract class UseractionsQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildUseractionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(UseractionsTableMap::COL_ID, $key, Criteria::EQUAL);
+        $this->addUsingAlias(UseractionsTableMap::COL_ID, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildUseractionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(UseractionsTableMap::COL_ID, $keys, Criteria::IN);
+        $this->addUsingAlias(UseractionsTableMap::COL_ID, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -356,15 +385,15 @@ abstract class UseractionsQuery extends ModelCriteria
      * $query->filterById(array('min' => 12)); // WHERE id > 12
      * </code>
      *
-     * @param     mixed $id The value to use as filter.
+     * @param mixed $id The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUseractionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterById($id = null, $comparison = null)
+    public function filterById($id = null, ?string $comparison = null)
     {
         if (is_array($id)) {
             $useMinMax = false;
@@ -384,7 +413,9 @@ abstract class UseractionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UseractionsTableMap::COL_ID, $id, $comparison);
+        $this->addUsingAlias(UseractionsTableMap::COL_ID, $id, $comparison);
+
+        return $this;
     }
 
     /**
@@ -397,17 +428,17 @@ abstract class UseractionsQuery extends ModelCriteria
      * $query->filterByDatecreated(array('max' => 'yesterday')); // WHERE datecreated > '2011-03-13'
      * </code>
      *
-     * @param     mixed $datecreated The value to use as filter.
+     * @param mixed $datecreated The value to use as filter.
      *              Values can be integers (unix timestamps), DateTime objects, or strings.
      *              Empty strings are treated as NULL.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUseractionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDatecreated($datecreated = null, $comparison = null)
+    public function filterByDatecreated($datecreated = null, ?string $comparison = null)
     {
         if (is_array($datecreated)) {
             $useMinMax = false;
@@ -427,7 +458,9 @@ abstract class UseractionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UseractionsTableMap::COL_DATECREATED, $datecreated, $comparison);
+        $this->addUsingAlias(UseractionsTableMap::COL_DATECREATED, $datecreated, $comparison);
+
+        return $this;
     }
 
     /**
@@ -437,14 +470,15 @@ abstract class UseractionsQuery extends ModelCriteria
      * <code>
      * $query->filterByActiontype('fooValue');   // WHERE actiontype = 'fooValue'
      * $query->filterByActiontype('%fooValue%', Criteria::LIKE); // WHERE actiontype LIKE '%fooValue%'
+     * $query->filterByActiontype(['foo', 'bar']); // WHERE actiontype IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $actiontype The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $actiontype The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUseractionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByActiontype($actiontype = null, $comparison = null)
+    public function filterByActiontype($actiontype = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($actiontype)) {
@@ -452,7 +486,9 @@ abstract class UseractionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UseractionsTableMap::COL_ACTIONTYPE, $actiontype, $comparison);
+        $this->addUsingAlias(UseractionsTableMap::COL_ACTIONTYPE, $actiontype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -462,14 +498,15 @@ abstract class UseractionsQuery extends ModelCriteria
      * <code>
      * $query->filterByActionsubtype('fooValue');   // WHERE actionsubtype = 'fooValue'
      * $query->filterByActionsubtype('%fooValue%', Criteria::LIKE); // WHERE actionsubtype LIKE '%fooValue%'
+     * $query->filterByActionsubtype(['foo', 'bar']); // WHERE actionsubtype IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $actionsubtype The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $actionsubtype The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUseractionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByActionsubtype($actionsubtype = null, $comparison = null)
+    public function filterByActionsubtype($actionsubtype = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($actionsubtype)) {
@@ -477,7 +514,9 @@ abstract class UseractionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UseractionsTableMap::COL_ACTIONSUBTYPE, $actionsubtype, $comparison);
+        $this->addUsingAlias(UseractionsTableMap::COL_ACTIONSUBTYPE, $actionsubtype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -490,17 +529,17 @@ abstract class UseractionsQuery extends ModelCriteria
      * $query->filterByDuedate(array('max' => 'yesterday')); // WHERE duedate > '2011-03-13'
      * </code>
      *
-     * @param     mixed $duedate The value to use as filter.
+     * @param mixed $duedate The value to use as filter.
      *              Values can be integers (unix timestamps), DateTime objects, or strings.
      *              Empty strings are treated as NULL.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUseractionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDuedate($duedate = null, $comparison = null)
+    public function filterByDuedate($duedate = null, ?string $comparison = null)
     {
         if (is_array($duedate)) {
             $useMinMax = false;
@@ -520,7 +559,9 @@ abstract class UseractionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UseractionsTableMap::COL_DUEDATE, $duedate, $comparison);
+        $this->addUsingAlias(UseractionsTableMap::COL_DUEDATE, $duedate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -530,14 +571,15 @@ abstract class UseractionsQuery extends ModelCriteria
      * <code>
      * $query->filterByCreatedby('fooValue');   // WHERE createdby = 'fooValue'
      * $query->filterByCreatedby('%fooValue%', Criteria::LIKE); // WHERE createdby LIKE '%fooValue%'
+     * $query->filterByCreatedby(['foo', 'bar']); // WHERE createdby IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $createdby The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $createdby The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUseractionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCreatedby($createdby = null, $comparison = null)
+    public function filterByCreatedby($createdby = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($createdby)) {
@@ -545,7 +587,9 @@ abstract class UseractionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UseractionsTableMap::COL_CREATEDBY, $createdby, $comparison);
+        $this->addUsingAlias(UseractionsTableMap::COL_CREATEDBY, $createdby, $comparison);
+
+        return $this;
     }
 
     /**
@@ -555,14 +599,15 @@ abstract class UseractionsQuery extends ModelCriteria
      * <code>
      * $query->filterByAssignedto('fooValue');   // WHERE assignedto = 'fooValue'
      * $query->filterByAssignedto('%fooValue%', Criteria::LIKE); // WHERE assignedto LIKE '%fooValue%'
+     * $query->filterByAssignedto(['foo', 'bar']); // WHERE assignedto IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $assignedto The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $assignedto The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUseractionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAssignedto($assignedto = null, $comparison = null)
+    public function filterByAssignedto($assignedto = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($assignedto)) {
@@ -570,7 +615,9 @@ abstract class UseractionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UseractionsTableMap::COL_ASSIGNEDTO, $assignedto, $comparison);
+        $this->addUsingAlias(UseractionsTableMap::COL_ASSIGNEDTO, $assignedto, $comparison);
+
+        return $this;
     }
 
     /**
@@ -580,14 +627,15 @@ abstract class UseractionsQuery extends ModelCriteria
      * <code>
      * $query->filterByAssignedby('fooValue');   // WHERE assignedby = 'fooValue'
      * $query->filterByAssignedby('%fooValue%', Criteria::LIKE); // WHERE assignedby LIKE '%fooValue%'
+     * $query->filterByAssignedby(['foo', 'bar']); // WHERE assignedby IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $assignedby The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $assignedby The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUseractionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAssignedby($assignedby = null, $comparison = null)
+    public function filterByAssignedby($assignedby = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($assignedby)) {
@@ -595,7 +643,9 @@ abstract class UseractionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UseractionsTableMap::COL_ASSIGNEDBY, $assignedby, $comparison);
+        $this->addUsingAlias(UseractionsTableMap::COL_ASSIGNEDBY, $assignedby, $comparison);
+
+        return $this;
     }
 
     /**
@@ -605,14 +655,15 @@ abstract class UseractionsQuery extends ModelCriteria
      * <code>
      * $query->filterByTitle('fooValue');   // WHERE title = 'fooValue'
      * $query->filterByTitle('%fooValue%', Criteria::LIKE); // WHERE title LIKE '%fooValue%'
+     * $query->filterByTitle(['foo', 'bar']); // WHERE title IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $title The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $title The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUseractionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTitle($title = null, $comparison = null)
+    public function filterByTitle($title = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($title)) {
@@ -620,7 +671,9 @@ abstract class UseractionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UseractionsTableMap::COL_TITLE, $title, $comparison);
+        $this->addUsingAlias(UseractionsTableMap::COL_TITLE, $title, $comparison);
+
+        return $this;
     }
 
     /**
@@ -630,14 +683,15 @@ abstract class UseractionsQuery extends ModelCriteria
      * <code>
      * $query->filterByTextbody('fooValue');   // WHERE textbody = 'fooValue'
      * $query->filterByTextbody('%fooValue%', Criteria::LIKE); // WHERE textbody LIKE '%fooValue%'
+     * $query->filterByTextbody(['foo', 'bar']); // WHERE textbody IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $textbody The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $textbody The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUseractionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTextbody($textbody = null, $comparison = null)
+    public function filterByTextbody($textbody = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($textbody)) {
@@ -645,7 +699,9 @@ abstract class UseractionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UseractionsTableMap::COL_TEXTBODY, $textbody, $comparison);
+        $this->addUsingAlias(UseractionsTableMap::COL_TEXTBODY, $textbody, $comparison);
+
+        return $this;
     }
 
     /**
@@ -655,14 +711,15 @@ abstract class UseractionsQuery extends ModelCriteria
      * <code>
      * $query->filterByReflectnote('fooValue');   // WHERE reflectnote = 'fooValue'
      * $query->filterByReflectnote('%fooValue%', Criteria::LIKE); // WHERE reflectnote LIKE '%fooValue%'
+     * $query->filterByReflectnote(['foo', 'bar']); // WHERE reflectnote IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $reflectnote The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $reflectnote The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUseractionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByReflectnote($reflectnote = null, $comparison = null)
+    public function filterByReflectnote($reflectnote = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($reflectnote)) {
@@ -670,7 +727,9 @@ abstract class UseractionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UseractionsTableMap::COL_REFLECTNOTE, $reflectnote, $comparison);
+        $this->addUsingAlias(UseractionsTableMap::COL_REFLECTNOTE, $reflectnote, $comparison);
+
+        return $this;
     }
 
     /**
@@ -680,14 +739,15 @@ abstract class UseractionsQuery extends ModelCriteria
      * <code>
      * $query->filterByCompleted('fooValue');   // WHERE completed = 'fooValue'
      * $query->filterByCompleted('%fooValue%', Criteria::LIKE); // WHERE completed LIKE '%fooValue%'
+     * $query->filterByCompleted(['foo', 'bar']); // WHERE completed IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $completed The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $completed The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUseractionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCompleted($completed = null, $comparison = null)
+    public function filterByCompleted($completed = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($completed)) {
@@ -695,7 +755,9 @@ abstract class UseractionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UseractionsTableMap::COL_COMPLETED, $completed, $comparison);
+        $this->addUsingAlias(UseractionsTableMap::COL_COMPLETED, $completed, $comparison);
+
+        return $this;
     }
 
     /**
@@ -708,17 +770,17 @@ abstract class UseractionsQuery extends ModelCriteria
      * $query->filterByDatecompleted(array('max' => 'yesterday')); // WHERE datecompleted > '2011-03-13'
      * </code>
      *
-     * @param     mixed $datecompleted The value to use as filter.
+     * @param mixed $datecompleted The value to use as filter.
      *              Values can be integers (unix timestamps), DateTime objects, or strings.
      *              Empty strings are treated as NULL.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUseractionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDatecompleted($datecompleted = null, $comparison = null)
+    public function filterByDatecompleted($datecompleted = null, ?string $comparison = null)
     {
         if (is_array($datecompleted)) {
             $useMinMax = false;
@@ -738,7 +800,9 @@ abstract class UseractionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UseractionsTableMap::COL_DATECOMPLETED, $datecompleted, $comparison);
+        $this->addUsingAlias(UseractionsTableMap::COL_DATECOMPLETED, $datecompleted, $comparison);
+
+        return $this;
     }
 
     /**
@@ -751,17 +815,17 @@ abstract class UseractionsQuery extends ModelCriteria
      * $query->filterByDateupdated(array('max' => 'yesterday')); // WHERE dateupdated > '2011-03-13'
      * </code>
      *
-     * @param     mixed $dateupdated The value to use as filter.
+     * @param mixed $dateupdated The value to use as filter.
      *              Values can be integers (unix timestamps), DateTime objects, or strings.
      *              Empty strings are treated as NULL.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUseractionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdated($dateupdated = null, $comparison = null)
+    public function filterByDateupdated($dateupdated = null, ?string $comparison = null)
     {
         if (is_array($dateupdated)) {
             $useMinMax = false;
@@ -781,7 +845,9 @@ abstract class UseractionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UseractionsTableMap::COL_DATEUPDATED, $dateupdated, $comparison);
+        $this->addUsingAlias(UseractionsTableMap::COL_DATEUPDATED, $dateupdated, $comparison);
+
+        return $this;
     }
 
     /**
@@ -791,14 +857,15 @@ abstract class UseractionsQuery extends ModelCriteria
      * <code>
      * $query->filterByCustomerlink('fooValue');   // WHERE customerlink = 'fooValue'
      * $query->filterByCustomerlink('%fooValue%', Criteria::LIKE); // WHERE customerlink LIKE '%fooValue%'
+     * $query->filterByCustomerlink(['foo', 'bar']); // WHERE customerlink IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $customerlink The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $customerlink The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUseractionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustomerlink($customerlink = null, $comparison = null)
+    public function filterByCustomerlink($customerlink = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($customerlink)) {
@@ -806,7 +873,9 @@ abstract class UseractionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UseractionsTableMap::COL_CUSTOMERLINK, $customerlink, $comparison);
+        $this->addUsingAlias(UseractionsTableMap::COL_CUSTOMERLINK, $customerlink, $comparison);
+
+        return $this;
     }
 
     /**
@@ -816,14 +885,15 @@ abstract class UseractionsQuery extends ModelCriteria
      * <code>
      * $query->filterByShiptolink('fooValue');   // WHERE shiptolink = 'fooValue'
      * $query->filterByShiptolink('%fooValue%', Criteria::LIKE); // WHERE shiptolink LIKE '%fooValue%'
+     * $query->filterByShiptolink(['foo', 'bar']); // WHERE shiptolink IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shiptolink The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shiptolink The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUseractionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShiptolink($shiptolink = null, $comparison = null)
+    public function filterByShiptolink($shiptolink = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shiptolink)) {
@@ -831,7 +901,9 @@ abstract class UseractionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UseractionsTableMap::COL_SHIPTOLINK, $shiptolink, $comparison);
+        $this->addUsingAlias(UseractionsTableMap::COL_SHIPTOLINK, $shiptolink, $comparison);
+
+        return $this;
     }
 
     /**
@@ -841,14 +913,15 @@ abstract class UseractionsQuery extends ModelCriteria
      * <code>
      * $query->filterByContactlink('fooValue');   // WHERE contactlink = 'fooValue'
      * $query->filterByContactlink('%fooValue%', Criteria::LIKE); // WHERE contactlink LIKE '%fooValue%'
+     * $query->filterByContactlink(['foo', 'bar']); // WHERE contactlink IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $contactlink The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $contactlink The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUseractionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByContactlink($contactlink = null, $comparison = null)
+    public function filterByContactlink($contactlink = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($contactlink)) {
@@ -856,7 +929,9 @@ abstract class UseractionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UseractionsTableMap::COL_CONTACTLINK, $contactlink, $comparison);
+        $this->addUsingAlias(UseractionsTableMap::COL_CONTACTLINK, $contactlink, $comparison);
+
+        return $this;
     }
 
     /**
@@ -866,14 +941,15 @@ abstract class UseractionsQuery extends ModelCriteria
      * <code>
      * $query->filterBySalesorderlink('fooValue');   // WHERE salesorderlink = 'fooValue'
      * $query->filterBySalesorderlink('%fooValue%', Criteria::LIKE); // WHERE salesorderlink LIKE '%fooValue%'
+     * $query->filterBySalesorderlink(['foo', 'bar']); // WHERE salesorderlink IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $salesorderlink The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $salesorderlink The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUseractionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesorderlink($salesorderlink = null, $comparison = null)
+    public function filterBySalesorderlink($salesorderlink = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($salesorderlink)) {
@@ -881,7 +957,9 @@ abstract class UseractionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UseractionsTableMap::COL_SALESORDERLINK, $salesorderlink, $comparison);
+        $this->addUsingAlias(UseractionsTableMap::COL_SALESORDERLINK, $salesorderlink, $comparison);
+
+        return $this;
     }
 
     /**
@@ -891,14 +969,15 @@ abstract class UseractionsQuery extends ModelCriteria
      * <code>
      * $query->filterByQuotelink('fooValue');   // WHERE quotelink = 'fooValue'
      * $query->filterByQuotelink('%fooValue%', Criteria::LIKE); // WHERE quotelink LIKE '%fooValue%'
+     * $query->filterByQuotelink(['foo', 'bar']); // WHERE quotelink IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $quotelink The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $quotelink The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUseractionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQuotelink($quotelink = null, $comparison = null)
+    public function filterByQuotelink($quotelink = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($quotelink)) {
@@ -906,7 +985,9 @@ abstract class UseractionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UseractionsTableMap::COL_QUOTELINK, $quotelink, $comparison);
+        $this->addUsingAlias(UseractionsTableMap::COL_QUOTELINK, $quotelink, $comparison);
+
+        return $this;
     }
 
     /**
@@ -916,14 +997,15 @@ abstract class UseractionsQuery extends ModelCriteria
      * <code>
      * $query->filterByVendorlink('fooValue');   // WHERE vendorlink = 'fooValue'
      * $query->filterByVendorlink('%fooValue%', Criteria::LIKE); // WHERE vendorlink LIKE '%fooValue%'
+     * $query->filterByVendorlink(['foo', 'bar']); // WHERE vendorlink IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $vendorlink The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $vendorlink The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUseractionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVendorlink($vendorlink = null, $comparison = null)
+    public function filterByVendorlink($vendorlink = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($vendorlink)) {
@@ -931,7 +1013,9 @@ abstract class UseractionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UseractionsTableMap::COL_VENDORLINK, $vendorlink, $comparison);
+        $this->addUsingAlias(UseractionsTableMap::COL_VENDORLINK, $vendorlink, $comparison);
+
+        return $this;
     }
 
     /**
@@ -941,14 +1025,15 @@ abstract class UseractionsQuery extends ModelCriteria
      * <code>
      * $query->filterByVendorshipfromlink('fooValue');   // WHERE vendorshipfromlink = 'fooValue'
      * $query->filterByVendorshipfromlink('%fooValue%', Criteria::LIKE); // WHERE vendorshipfromlink LIKE '%fooValue%'
+     * $query->filterByVendorshipfromlink(['foo', 'bar']); // WHERE vendorshipfromlink IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $vendorshipfromlink The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $vendorshipfromlink The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUseractionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVendorshipfromlink($vendorshipfromlink = null, $comparison = null)
+    public function filterByVendorshipfromlink($vendorshipfromlink = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($vendorshipfromlink)) {
@@ -956,7 +1041,9 @@ abstract class UseractionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UseractionsTableMap::COL_VENDORSHIPFROMLINK, $vendorshipfromlink, $comparison);
+        $this->addUsingAlias(UseractionsTableMap::COL_VENDORSHIPFROMLINK, $vendorshipfromlink, $comparison);
+
+        return $this;
     }
 
     /**
@@ -966,14 +1053,15 @@ abstract class UseractionsQuery extends ModelCriteria
      * <code>
      * $query->filterByPurchaseorderlink('fooValue');   // WHERE purchaseorderlink = 'fooValue'
      * $query->filterByPurchaseorderlink('%fooValue%', Criteria::LIKE); // WHERE purchaseorderlink LIKE '%fooValue%'
+     * $query->filterByPurchaseorderlink(['foo', 'bar']); // WHERE purchaseorderlink IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $purchaseorderlink The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $purchaseorderlink The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUseractionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPurchaseorderlink($purchaseorderlink = null, $comparison = null)
+    public function filterByPurchaseorderlink($purchaseorderlink = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($purchaseorderlink)) {
@@ -981,7 +1069,9 @@ abstract class UseractionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UseractionsTableMap::COL_PURCHASEORDERLINK, $purchaseorderlink, $comparison);
+        $this->addUsingAlias(UseractionsTableMap::COL_PURCHASEORDERLINK, $purchaseorderlink, $comparison);
+
+        return $this;
     }
 
     /**
@@ -991,14 +1081,15 @@ abstract class UseractionsQuery extends ModelCriteria
      * <code>
      * $query->filterByActionlink('fooValue');   // WHERE actionlink = 'fooValue'
      * $query->filterByActionlink('%fooValue%', Criteria::LIKE); // WHERE actionlink LIKE '%fooValue%'
+     * $query->filterByActionlink(['foo', 'bar']); // WHERE actionlink IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $actionlink The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $actionlink The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUseractionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByActionlink($actionlink = null, $comparison = null)
+    public function filterByActionlink($actionlink = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($actionlink)) {
@@ -1006,7 +1097,9 @@ abstract class UseractionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UseractionsTableMap::COL_ACTIONLINK, $actionlink, $comparison);
+        $this->addUsingAlias(UseractionsTableMap::COL_ACTIONLINK, $actionlink, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1016,14 +1109,15 @@ abstract class UseractionsQuery extends ModelCriteria
      * <code>
      * $query->filterByRescheduledlink('fooValue');   // WHERE rescheduledlink = 'fooValue'
      * $query->filterByRescheduledlink('%fooValue%', Criteria::LIKE); // WHERE rescheduledlink LIKE '%fooValue%'
+     * $query->filterByRescheduledlink(['foo', 'bar']); // WHERE rescheduledlink IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $rescheduledlink The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $rescheduledlink The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUseractionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByRescheduledlink($rescheduledlink = null, $comparison = null)
+    public function filterByRescheduledlink($rescheduledlink = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($rescheduledlink)) {
@@ -1031,15 +1125,17 @@ abstract class UseractionsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UseractionsTableMap::COL_RESCHEDULEDLINK, $rescheduledlink, $comparison);
+        $this->addUsingAlias(UseractionsTableMap::COL_RESCHEDULEDLINK, $rescheduledlink, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildUseractions $useractions Object to remove from the list of results
+     * @param ChildUseractions $useractions Object to remove from the list of results
      *
-     * @return $this|ChildUseractionsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($useractions = null)
     {
@@ -1056,7 +1152,7 @@ abstract class UseractionsQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(UseractionsTableMap::DATABASE_NAME);
@@ -1081,12 +1177,12 @@ abstract class UseractionsQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(UseractionsTableMap::DATABASE_NAME);
@@ -1111,4 +1207,4 @@ abstract class UseractionsQuery extends ModelCriteria
         });
     }
 
-} // UseractionsQuery
+}

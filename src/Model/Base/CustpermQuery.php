@@ -10,14 +10,12 @@ use Map\CustpermTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'custperm' table.
- *
- *
+ * Base class that represents a query for the `custperm` table.
  *
  * @method     ChildCustpermQuery orderByLoginid($order = Criteria::ASC) Order by the loginid column
  * @method     ChildCustpermQuery orderByCustid($order = Criteria::ASC) Order by the custid column
@@ -47,21 +45,21 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustpermQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildCustpermQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildCustperm findOne(ConnectionInterface $con = null) Return the first ChildCustperm matching the query
- * @method     ChildCustperm findOneOrCreate(ConnectionInterface $con = null) Return the first ChildCustperm matching the query, or a new ChildCustperm object populated from the query conditions when no match is found
+ * @method     ChildCustperm|null findOne(?ConnectionInterface $con = null) Return the first ChildCustperm matching the query
+ * @method     ChildCustperm findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildCustperm matching the query, or a new ChildCustperm object populated from the query conditions when no match is found
  *
- * @method     ChildCustperm findOneByLoginid(string $loginid) Return the first ChildCustperm filtered by the loginid column
- * @method     ChildCustperm findOneByCustid(string $custid) Return the first ChildCustperm filtered by the custid column
- * @method     ChildCustperm findOneByShiptoid(string $shiptoid) Return the first ChildCustperm filtered by the shiptoid column
- * @method     ChildCustperm findOneBySalesper1(string $salesper1) Return the first ChildCustperm filtered by the salesper1 column
- * @method     ChildCustperm findOneByRestrictaccess(string $restrictaccess) Return the first ChildCustperm filtered by the restrictaccess column
- * @method     ChildCustperm findOneByAmountsold(string $amountsold) Return the first ChildCustperm filtered by the amountsold column
- * @method     ChildCustperm findOneByTimesold(int $timesold) Return the first ChildCustperm filtered by the timesold column
- * @method     ChildCustperm findOneByLastsaledate(int $lastsaledate) Return the first ChildCustperm filtered by the lastsaledate column
- * @method     ChildCustperm findOneByDummy(string $dummy) Return the first ChildCustperm filtered by the dummy column *
-
- * @method     ChildCustperm requirePk($key, ConnectionInterface $con = null) Return the ChildCustperm by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustperm requireOne(ConnectionInterface $con = null) Return the first ChildCustperm matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustperm|null findOneByLoginid(string $loginid) Return the first ChildCustperm filtered by the loginid column
+ * @method     ChildCustperm|null findOneByCustid(string $custid) Return the first ChildCustperm filtered by the custid column
+ * @method     ChildCustperm|null findOneByShiptoid(string $shiptoid) Return the first ChildCustperm filtered by the shiptoid column
+ * @method     ChildCustperm|null findOneBySalesper1(string $salesper1) Return the first ChildCustperm filtered by the salesper1 column
+ * @method     ChildCustperm|null findOneByRestrictaccess(string $restrictaccess) Return the first ChildCustperm filtered by the restrictaccess column
+ * @method     ChildCustperm|null findOneByAmountsold(string $amountsold) Return the first ChildCustperm filtered by the amountsold column
+ * @method     ChildCustperm|null findOneByTimesold(int $timesold) Return the first ChildCustperm filtered by the timesold column
+ * @method     ChildCustperm|null findOneByLastsaledate(int $lastsaledate) Return the first ChildCustperm filtered by the lastsaledate column
+ * @method     ChildCustperm|null findOneByDummy(string $dummy) Return the first ChildCustperm filtered by the dummy column
+ *
+ * @method     ChildCustperm requirePk($key, ?ConnectionInterface $con = null) Return the ChildCustperm by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustperm requireOne(?ConnectionInterface $con = null) Return the first ChildCustperm matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildCustperm requireOneByLoginid(string $loginid) Return the first ChildCustperm filtered by the loginid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustperm requireOneByCustid(string $custid) Return the first ChildCustperm filtered by the custid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -73,18 +71,30 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustperm requireOneByLastsaledate(int $lastsaledate) Return the first ChildCustperm filtered by the lastsaledate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustperm requireOneByDummy(string $dummy) Return the first ChildCustperm filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildCustperm[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildCustperm objects based on current ModelCriteria
- * @method     ChildCustperm[]|ObjectCollection findByLoginid(string $loginid) Return ChildCustperm objects filtered by the loginid column
- * @method     ChildCustperm[]|ObjectCollection findByCustid(string $custid) Return ChildCustperm objects filtered by the custid column
- * @method     ChildCustperm[]|ObjectCollection findByShiptoid(string $shiptoid) Return ChildCustperm objects filtered by the shiptoid column
- * @method     ChildCustperm[]|ObjectCollection findBySalesper1(string $salesper1) Return ChildCustperm objects filtered by the salesper1 column
- * @method     ChildCustperm[]|ObjectCollection findByRestrictaccess(string $restrictaccess) Return ChildCustperm objects filtered by the restrictaccess column
- * @method     ChildCustperm[]|ObjectCollection findByAmountsold(string $amountsold) Return ChildCustperm objects filtered by the amountsold column
- * @method     ChildCustperm[]|ObjectCollection findByTimesold(int $timesold) Return ChildCustperm objects filtered by the timesold column
- * @method     ChildCustperm[]|ObjectCollection findByLastsaledate(int $lastsaledate) Return ChildCustperm objects filtered by the lastsaledate column
- * @method     ChildCustperm[]|ObjectCollection findByDummy(string $dummy) Return ChildCustperm objects filtered by the dummy column
- * @method     ChildCustperm[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildCustperm[]|Collection find(?ConnectionInterface $con = null) Return ChildCustperm objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildCustperm> find(?ConnectionInterface $con = null) Return ChildCustperm objects based on current ModelCriteria
  *
+ * @method     ChildCustperm[]|Collection findByLoginid(string|array<string> $loginid) Return ChildCustperm objects filtered by the loginid column
+ * @psalm-method Collection&\Traversable<ChildCustperm> findByLoginid(string|array<string> $loginid) Return ChildCustperm objects filtered by the loginid column
+ * @method     ChildCustperm[]|Collection findByCustid(string|array<string> $custid) Return ChildCustperm objects filtered by the custid column
+ * @psalm-method Collection&\Traversable<ChildCustperm> findByCustid(string|array<string> $custid) Return ChildCustperm objects filtered by the custid column
+ * @method     ChildCustperm[]|Collection findByShiptoid(string|array<string> $shiptoid) Return ChildCustperm objects filtered by the shiptoid column
+ * @psalm-method Collection&\Traversable<ChildCustperm> findByShiptoid(string|array<string> $shiptoid) Return ChildCustperm objects filtered by the shiptoid column
+ * @method     ChildCustperm[]|Collection findBySalesper1(string|array<string> $salesper1) Return ChildCustperm objects filtered by the salesper1 column
+ * @psalm-method Collection&\Traversable<ChildCustperm> findBySalesper1(string|array<string> $salesper1) Return ChildCustperm objects filtered by the salesper1 column
+ * @method     ChildCustperm[]|Collection findByRestrictaccess(string|array<string> $restrictaccess) Return ChildCustperm objects filtered by the restrictaccess column
+ * @psalm-method Collection&\Traversable<ChildCustperm> findByRestrictaccess(string|array<string> $restrictaccess) Return ChildCustperm objects filtered by the restrictaccess column
+ * @method     ChildCustperm[]|Collection findByAmountsold(string|array<string> $amountsold) Return ChildCustperm objects filtered by the amountsold column
+ * @psalm-method Collection&\Traversable<ChildCustperm> findByAmountsold(string|array<string> $amountsold) Return ChildCustperm objects filtered by the amountsold column
+ * @method     ChildCustperm[]|Collection findByTimesold(int|array<int> $timesold) Return ChildCustperm objects filtered by the timesold column
+ * @psalm-method Collection&\Traversable<ChildCustperm> findByTimesold(int|array<int> $timesold) Return ChildCustperm objects filtered by the timesold column
+ * @method     ChildCustperm[]|Collection findByLastsaledate(int|array<int> $lastsaledate) Return ChildCustperm objects filtered by the lastsaledate column
+ * @psalm-method Collection&\Traversable<ChildCustperm> findByLastsaledate(int|array<int> $lastsaledate) Return ChildCustperm objects filtered by the lastsaledate column
+ * @method     ChildCustperm[]|Collection findByDummy(string|array<string> $dummy) Return ChildCustperm objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildCustperm> findByDummy(string|array<string> $dummy) Return ChildCustperm objects filtered by the dummy column
+ *
+ * @method     ChildCustperm[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildCustperm> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class CustpermQuery extends ModelCriteria
 {
@@ -93,9 +103,9 @@ abstract class CustpermQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\CustpermQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'dplusodb', $modelName = '\\Custperm', $modelAlias = null)
     {
@@ -105,12 +115,12 @@ abstract class CustpermQuery extends ModelCriteria
     /**
      * Returns a new ChildCustpermQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildCustpermQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildCustpermQuery) {
             return $criteria;
@@ -140,7 +150,7 @@ abstract class CustpermQuery extends ModelCriteria
      *
      * @return ChildCustperm|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -172,8 +182,8 @@ abstract class CustpermQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -207,8 +217,8 @@ abstract class CustpermQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildCustperm|array|mixed the result, formatted by the current formatter
      */
@@ -228,12 +238,12 @@ abstract class CustpermQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -250,9 +260,9 @@ abstract class CustpermQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildCustpermQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -266,14 +276,16 @@ abstract class CustpermQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildCustpermQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(CustpermTableMap::COL_LOGINID, $key[0], Criteria::EQUAL);
@@ -294,14 +306,15 @@ abstract class CustpermQuery extends ModelCriteria
      * <code>
      * $query->filterByLoginid('fooValue');   // WHERE loginid = 'fooValue'
      * $query->filterByLoginid('%fooValue%', Criteria::LIKE); // WHERE loginid LIKE '%fooValue%'
+     * $query->filterByLoginid(['foo', 'bar']); // WHERE loginid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $loginid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $loginid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustpermQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLoginid($loginid = null, $comparison = null)
+    public function filterByLoginid($loginid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($loginid)) {
@@ -309,7 +322,9 @@ abstract class CustpermQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustpermTableMap::COL_LOGINID, $loginid, $comparison);
+        $this->addUsingAlias(CustpermTableMap::COL_LOGINID, $loginid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -319,14 +334,15 @@ abstract class CustpermQuery extends ModelCriteria
      * <code>
      * $query->filterByCustid('fooValue');   // WHERE custid = 'fooValue'
      * $query->filterByCustid('%fooValue%', Criteria::LIKE); // WHERE custid LIKE '%fooValue%'
+     * $query->filterByCustid(['foo', 'bar']); // WHERE custid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $custid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $custid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustpermQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustid($custid = null, $comparison = null)
+    public function filterByCustid($custid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($custid)) {
@@ -334,7 +350,9 @@ abstract class CustpermQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustpermTableMap::COL_CUSTID, $custid, $comparison);
+        $this->addUsingAlias(CustpermTableMap::COL_CUSTID, $custid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -344,14 +362,15 @@ abstract class CustpermQuery extends ModelCriteria
      * <code>
      * $query->filterByShiptoid('fooValue');   // WHERE shiptoid = 'fooValue'
      * $query->filterByShiptoid('%fooValue%', Criteria::LIKE); // WHERE shiptoid LIKE '%fooValue%'
+     * $query->filterByShiptoid(['foo', 'bar']); // WHERE shiptoid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shiptoid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shiptoid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustpermQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShiptoid($shiptoid = null, $comparison = null)
+    public function filterByShiptoid($shiptoid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shiptoid)) {
@@ -359,7 +378,9 @@ abstract class CustpermQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustpermTableMap::COL_SHIPTOID, $shiptoid, $comparison);
+        $this->addUsingAlias(CustpermTableMap::COL_SHIPTOID, $shiptoid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -369,14 +390,15 @@ abstract class CustpermQuery extends ModelCriteria
      * <code>
      * $query->filterBySalesper1('fooValue');   // WHERE salesper1 = 'fooValue'
      * $query->filterBySalesper1('%fooValue%', Criteria::LIKE); // WHERE salesper1 LIKE '%fooValue%'
+     * $query->filterBySalesper1(['foo', 'bar']); // WHERE salesper1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $salesper1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $salesper1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustpermQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesper1($salesper1 = null, $comparison = null)
+    public function filterBySalesper1($salesper1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($salesper1)) {
@@ -384,7 +406,9 @@ abstract class CustpermQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustpermTableMap::COL_SALESPER1, $salesper1, $comparison);
+        $this->addUsingAlias(CustpermTableMap::COL_SALESPER1, $salesper1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -394,14 +418,15 @@ abstract class CustpermQuery extends ModelCriteria
      * <code>
      * $query->filterByRestrictaccess('fooValue');   // WHERE restrictaccess = 'fooValue'
      * $query->filterByRestrictaccess('%fooValue%', Criteria::LIKE); // WHERE restrictaccess LIKE '%fooValue%'
+     * $query->filterByRestrictaccess(['foo', 'bar']); // WHERE restrictaccess IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $restrictaccess The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $restrictaccess The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustpermQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByRestrictaccess($restrictaccess = null, $comparison = null)
+    public function filterByRestrictaccess($restrictaccess = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($restrictaccess)) {
@@ -409,7 +434,9 @@ abstract class CustpermQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustpermTableMap::COL_RESTRICTACCESS, $restrictaccess, $comparison);
+        $this->addUsingAlias(CustpermTableMap::COL_RESTRICTACCESS, $restrictaccess, $comparison);
+
+        return $this;
     }
 
     /**
@@ -422,15 +449,15 @@ abstract class CustpermQuery extends ModelCriteria
      * $query->filterByAmountsold(array('min' => 12)); // WHERE amountsold > 12
      * </code>
      *
-     * @param     mixed $amountsold The value to use as filter.
+     * @param mixed $amountsold The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustpermQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAmountsold($amountsold = null, $comparison = null)
+    public function filterByAmountsold($amountsold = null, ?string $comparison = null)
     {
         if (is_array($amountsold)) {
             $useMinMax = false;
@@ -450,7 +477,9 @@ abstract class CustpermQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustpermTableMap::COL_AMOUNTSOLD, $amountsold, $comparison);
+        $this->addUsingAlias(CustpermTableMap::COL_AMOUNTSOLD, $amountsold, $comparison);
+
+        return $this;
     }
 
     /**
@@ -463,15 +492,15 @@ abstract class CustpermQuery extends ModelCriteria
      * $query->filterByTimesold(array('min' => 12)); // WHERE timesold > 12
      * </code>
      *
-     * @param     mixed $timesold The value to use as filter.
+     * @param mixed $timesold The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustpermQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimesold($timesold = null, $comparison = null)
+    public function filterByTimesold($timesold = null, ?string $comparison = null)
     {
         if (is_array($timesold)) {
             $useMinMax = false;
@@ -491,7 +520,9 @@ abstract class CustpermQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustpermTableMap::COL_TIMESOLD, $timesold, $comparison);
+        $this->addUsingAlias(CustpermTableMap::COL_TIMESOLD, $timesold, $comparison);
+
+        return $this;
     }
 
     /**
@@ -504,15 +535,15 @@ abstract class CustpermQuery extends ModelCriteria
      * $query->filterByLastsaledate(array('min' => 12)); // WHERE lastsaledate > 12
      * </code>
      *
-     * @param     mixed $lastsaledate The value to use as filter.
+     * @param mixed $lastsaledate The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustpermQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLastsaledate($lastsaledate = null, $comparison = null)
+    public function filterByLastsaledate($lastsaledate = null, ?string $comparison = null)
     {
         if (is_array($lastsaledate)) {
             $useMinMax = false;
@@ -532,7 +563,9 @@ abstract class CustpermQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustpermTableMap::COL_LASTSALEDATE, $lastsaledate, $comparison);
+        $this->addUsingAlias(CustpermTableMap::COL_LASTSALEDATE, $lastsaledate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -542,14 +575,15 @@ abstract class CustpermQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustpermQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -557,15 +591,17 @@ abstract class CustpermQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustpermTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(CustpermTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildCustperm $custperm Object to remove from the list of results
+     * @param ChildCustperm $custperm Object to remove from the list of results
      *
-     * @return $this|ChildCustpermQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($custperm = null)
     {
@@ -585,7 +621,7 @@ abstract class CustpermQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CustpermTableMap::DATABASE_NAME);
@@ -610,12 +646,12 @@ abstract class CustpermQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CustpermTableMap::DATABASE_NAME);
@@ -640,4 +676,4 @@ abstract class CustpermQuery extends ModelCriteria
         });
     }
 
-} // CustpermQuery
+}

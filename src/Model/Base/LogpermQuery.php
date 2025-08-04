@@ -10,14 +10,12 @@ use Map\LogpermTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'logperm' table.
- *
- *
+ * Base class that represents a query for the `logperm` table.
  *
  * @method     ChildLogpermQuery orderBySessionid($order = Criteria::ASC) Order by the sessionid column
  * @method     ChildLogpermQuery orderByRecno($order = Criteria::ASC) Order by the recno column
@@ -57,26 +55,26 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildLogpermQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildLogpermQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildLogperm findOne(ConnectionInterface $con = null) Return the first ChildLogperm matching the query
- * @method     ChildLogperm findOneOrCreate(ConnectionInterface $con = null) Return the first ChildLogperm matching the query, or a new ChildLogperm object populated from the query conditions when no match is found
+ * @method     ChildLogperm|null findOne(?ConnectionInterface $con = null) Return the first ChildLogperm matching the query
+ * @method     ChildLogperm findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildLogperm matching the query, or a new ChildLogperm object populated from the query conditions when no match is found
  *
- * @method     ChildLogperm findOneBySessionid(string $sessionid) Return the first ChildLogperm filtered by the sessionid column
- * @method     ChildLogperm findOneByRecno(int $recno) Return the first ChildLogperm filtered by the recno column
- * @method     ChildLogperm findOneByDate(int $date) Return the first ChildLogperm filtered by the date column
- * @method     ChildLogperm findOneByTime(int $time) Return the first ChildLogperm filtered by the time column
- * @method     ChildLogperm findOneByLoginid(string $loginid) Return the first ChildLogperm filtered by the loginid column
- * @method     ChildLogperm findOneByLoginname(string $loginname) Return the first ChildLogperm filtered by the loginname column
- * @method     ChildLogperm findOneBySalespersonid(string $salespersonid) Return the first ChildLogperm filtered by the salespersonid column
- * @method     ChildLogperm findOneBySalespername(string $salespername) Return the first ChildLogperm filtered by the salespername column
- * @method     ChildLogperm findOneByValidlogin(string $validlogin) Return the first ChildLogperm filtered by the validlogin column
- * @method     ChildLogperm findOneByRestrictcustomers(string $restrictcustomers) Return the first ChildLogperm filtered by the restrictcustomers column
- * @method     ChildLogperm findOneByErrormsg(string $errormsg) Return the first ChildLogperm filtered by the errormsg column
- * @method     ChildLogperm findOneByOrdernbr(string $ordernbr) Return the first ChildLogperm filtered by the ordernbr column
- * @method     ChildLogperm findOneByRestrictaccess(string $restrictaccess) Return the first ChildLogperm filtered by the restrictaccess column
- * @method     ChildLogperm findOneByDummy(string $dummy) Return the first ChildLogperm filtered by the dummy column *
-
- * @method     ChildLogperm requirePk($key, ConnectionInterface $con = null) Return the ChildLogperm by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildLogperm requireOne(ConnectionInterface $con = null) Return the first ChildLogperm matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildLogperm|null findOneBySessionid(string $sessionid) Return the first ChildLogperm filtered by the sessionid column
+ * @method     ChildLogperm|null findOneByRecno(int $recno) Return the first ChildLogperm filtered by the recno column
+ * @method     ChildLogperm|null findOneByDate(int $date) Return the first ChildLogperm filtered by the date column
+ * @method     ChildLogperm|null findOneByTime(int $time) Return the first ChildLogperm filtered by the time column
+ * @method     ChildLogperm|null findOneByLoginid(string $loginid) Return the first ChildLogperm filtered by the loginid column
+ * @method     ChildLogperm|null findOneByLoginname(string $loginname) Return the first ChildLogperm filtered by the loginname column
+ * @method     ChildLogperm|null findOneBySalespersonid(string $salespersonid) Return the first ChildLogperm filtered by the salespersonid column
+ * @method     ChildLogperm|null findOneBySalespername(string $salespername) Return the first ChildLogperm filtered by the salespername column
+ * @method     ChildLogperm|null findOneByValidlogin(string $validlogin) Return the first ChildLogperm filtered by the validlogin column
+ * @method     ChildLogperm|null findOneByRestrictcustomers(string $restrictcustomers) Return the first ChildLogperm filtered by the restrictcustomers column
+ * @method     ChildLogperm|null findOneByErrormsg(string $errormsg) Return the first ChildLogperm filtered by the errormsg column
+ * @method     ChildLogperm|null findOneByOrdernbr(string $ordernbr) Return the first ChildLogperm filtered by the ordernbr column
+ * @method     ChildLogperm|null findOneByRestrictaccess(string $restrictaccess) Return the first ChildLogperm filtered by the restrictaccess column
+ * @method     ChildLogperm|null findOneByDummy(string $dummy) Return the first ChildLogperm filtered by the dummy column
+ *
+ * @method     ChildLogperm requirePk($key, ?ConnectionInterface $con = null) Return the ChildLogperm by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildLogperm requireOne(?ConnectionInterface $con = null) Return the first ChildLogperm matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildLogperm requireOneBySessionid(string $sessionid) Return the first ChildLogperm filtered by the sessionid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildLogperm requireOneByRecno(int $recno) Return the first ChildLogperm filtered by the recno column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -93,23 +91,40 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildLogperm requireOneByRestrictaccess(string $restrictaccess) Return the first ChildLogperm filtered by the restrictaccess column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildLogperm requireOneByDummy(string $dummy) Return the first ChildLogperm filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildLogperm[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildLogperm objects based on current ModelCriteria
- * @method     ChildLogperm[]|ObjectCollection findBySessionid(string $sessionid) Return ChildLogperm objects filtered by the sessionid column
- * @method     ChildLogperm[]|ObjectCollection findByRecno(int $recno) Return ChildLogperm objects filtered by the recno column
- * @method     ChildLogperm[]|ObjectCollection findByDate(int $date) Return ChildLogperm objects filtered by the date column
- * @method     ChildLogperm[]|ObjectCollection findByTime(int $time) Return ChildLogperm objects filtered by the time column
- * @method     ChildLogperm[]|ObjectCollection findByLoginid(string $loginid) Return ChildLogperm objects filtered by the loginid column
- * @method     ChildLogperm[]|ObjectCollection findByLoginname(string $loginname) Return ChildLogperm objects filtered by the loginname column
- * @method     ChildLogperm[]|ObjectCollection findBySalespersonid(string $salespersonid) Return ChildLogperm objects filtered by the salespersonid column
- * @method     ChildLogperm[]|ObjectCollection findBySalespername(string $salespername) Return ChildLogperm objects filtered by the salespername column
- * @method     ChildLogperm[]|ObjectCollection findByValidlogin(string $validlogin) Return ChildLogperm objects filtered by the validlogin column
- * @method     ChildLogperm[]|ObjectCollection findByRestrictcustomers(string $restrictcustomers) Return ChildLogperm objects filtered by the restrictcustomers column
- * @method     ChildLogperm[]|ObjectCollection findByErrormsg(string $errormsg) Return ChildLogperm objects filtered by the errormsg column
- * @method     ChildLogperm[]|ObjectCollection findByOrdernbr(string $ordernbr) Return ChildLogperm objects filtered by the ordernbr column
- * @method     ChildLogperm[]|ObjectCollection findByRestrictaccess(string $restrictaccess) Return ChildLogperm objects filtered by the restrictaccess column
- * @method     ChildLogperm[]|ObjectCollection findByDummy(string $dummy) Return ChildLogperm objects filtered by the dummy column
- * @method     ChildLogperm[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildLogperm[]|Collection find(?ConnectionInterface $con = null) Return ChildLogperm objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildLogperm> find(?ConnectionInterface $con = null) Return ChildLogperm objects based on current ModelCriteria
  *
+ * @method     ChildLogperm[]|Collection findBySessionid(string|array<string> $sessionid) Return ChildLogperm objects filtered by the sessionid column
+ * @psalm-method Collection&\Traversable<ChildLogperm> findBySessionid(string|array<string> $sessionid) Return ChildLogperm objects filtered by the sessionid column
+ * @method     ChildLogperm[]|Collection findByRecno(int|array<int> $recno) Return ChildLogperm objects filtered by the recno column
+ * @psalm-method Collection&\Traversable<ChildLogperm> findByRecno(int|array<int> $recno) Return ChildLogperm objects filtered by the recno column
+ * @method     ChildLogperm[]|Collection findByDate(int|array<int> $date) Return ChildLogperm objects filtered by the date column
+ * @psalm-method Collection&\Traversable<ChildLogperm> findByDate(int|array<int> $date) Return ChildLogperm objects filtered by the date column
+ * @method     ChildLogperm[]|Collection findByTime(int|array<int> $time) Return ChildLogperm objects filtered by the time column
+ * @psalm-method Collection&\Traversable<ChildLogperm> findByTime(int|array<int> $time) Return ChildLogperm objects filtered by the time column
+ * @method     ChildLogperm[]|Collection findByLoginid(string|array<string> $loginid) Return ChildLogperm objects filtered by the loginid column
+ * @psalm-method Collection&\Traversable<ChildLogperm> findByLoginid(string|array<string> $loginid) Return ChildLogperm objects filtered by the loginid column
+ * @method     ChildLogperm[]|Collection findByLoginname(string|array<string> $loginname) Return ChildLogperm objects filtered by the loginname column
+ * @psalm-method Collection&\Traversable<ChildLogperm> findByLoginname(string|array<string> $loginname) Return ChildLogperm objects filtered by the loginname column
+ * @method     ChildLogperm[]|Collection findBySalespersonid(string|array<string> $salespersonid) Return ChildLogperm objects filtered by the salespersonid column
+ * @psalm-method Collection&\Traversable<ChildLogperm> findBySalespersonid(string|array<string> $salespersonid) Return ChildLogperm objects filtered by the salespersonid column
+ * @method     ChildLogperm[]|Collection findBySalespername(string|array<string> $salespername) Return ChildLogperm objects filtered by the salespername column
+ * @psalm-method Collection&\Traversable<ChildLogperm> findBySalespername(string|array<string> $salespername) Return ChildLogperm objects filtered by the salespername column
+ * @method     ChildLogperm[]|Collection findByValidlogin(string|array<string> $validlogin) Return ChildLogperm objects filtered by the validlogin column
+ * @psalm-method Collection&\Traversable<ChildLogperm> findByValidlogin(string|array<string> $validlogin) Return ChildLogperm objects filtered by the validlogin column
+ * @method     ChildLogperm[]|Collection findByRestrictcustomers(string|array<string> $restrictcustomers) Return ChildLogperm objects filtered by the restrictcustomers column
+ * @psalm-method Collection&\Traversable<ChildLogperm> findByRestrictcustomers(string|array<string> $restrictcustomers) Return ChildLogperm objects filtered by the restrictcustomers column
+ * @method     ChildLogperm[]|Collection findByErrormsg(string|array<string> $errormsg) Return ChildLogperm objects filtered by the errormsg column
+ * @psalm-method Collection&\Traversable<ChildLogperm> findByErrormsg(string|array<string> $errormsg) Return ChildLogperm objects filtered by the errormsg column
+ * @method     ChildLogperm[]|Collection findByOrdernbr(string|array<string> $ordernbr) Return ChildLogperm objects filtered by the ordernbr column
+ * @psalm-method Collection&\Traversable<ChildLogperm> findByOrdernbr(string|array<string> $ordernbr) Return ChildLogperm objects filtered by the ordernbr column
+ * @method     ChildLogperm[]|Collection findByRestrictaccess(string|array<string> $restrictaccess) Return ChildLogperm objects filtered by the restrictaccess column
+ * @psalm-method Collection&\Traversable<ChildLogperm> findByRestrictaccess(string|array<string> $restrictaccess) Return ChildLogperm objects filtered by the restrictaccess column
+ * @method     ChildLogperm[]|Collection findByDummy(string|array<string> $dummy) Return ChildLogperm objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildLogperm> findByDummy(string|array<string> $dummy) Return ChildLogperm objects filtered by the dummy column
+ *
+ * @method     ChildLogperm[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildLogperm> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class LogpermQuery extends ModelCriteria
 {
@@ -118,9 +133,9 @@ abstract class LogpermQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\LogpermQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'dplusodb', $modelName = '\\Logperm', $modelAlias = null)
     {
@@ -130,12 +145,12 @@ abstract class LogpermQuery extends ModelCriteria
     /**
      * Returns a new ChildLogpermQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildLogpermQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildLogpermQuery) {
             return $criteria;
@@ -165,7 +180,7 @@ abstract class LogpermQuery extends ModelCriteria
      *
      * @return ChildLogperm|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -197,8 +212,8 @@ abstract class LogpermQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -231,8 +246,8 @@ abstract class LogpermQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildLogperm|array|mixed the result, formatted by the current formatter
      */
@@ -252,12 +267,12 @@ abstract class LogpermQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -274,9 +289,9 @@ abstract class LogpermQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildLogpermQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -289,14 +304,16 @@ abstract class LogpermQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildLogpermQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(LogpermTableMap::COL_SESSIONID, $key[0], Criteria::EQUAL);
@@ -315,14 +332,15 @@ abstract class LogpermQuery extends ModelCriteria
      * <code>
      * $query->filterBySessionid('fooValue');   // WHERE sessionid = 'fooValue'
      * $query->filterBySessionid('%fooValue%', Criteria::LIKE); // WHERE sessionid LIKE '%fooValue%'
+     * $query->filterBySessionid(['foo', 'bar']); // WHERE sessionid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sessionid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sessionid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLogpermQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySessionid($sessionid = null, $comparison = null)
+    public function filterBySessionid($sessionid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sessionid)) {
@@ -330,7 +348,9 @@ abstract class LogpermQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LogpermTableMap::COL_SESSIONID, $sessionid, $comparison);
+        $this->addUsingAlias(LogpermTableMap::COL_SESSIONID, $sessionid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -343,15 +363,15 @@ abstract class LogpermQuery extends ModelCriteria
      * $query->filterByRecno(array('min' => 12)); // WHERE recno > 12
      * </code>
      *
-     * @param     mixed $recno The value to use as filter.
+     * @param mixed $recno The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLogpermQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByRecno($recno = null, $comparison = null)
+    public function filterByRecno($recno = null, ?string $comparison = null)
     {
         if (is_array($recno)) {
             $useMinMax = false;
@@ -371,7 +391,9 @@ abstract class LogpermQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LogpermTableMap::COL_RECNO, $recno, $comparison);
+        $this->addUsingAlias(LogpermTableMap::COL_RECNO, $recno, $comparison);
+
+        return $this;
     }
 
     /**
@@ -384,15 +406,15 @@ abstract class LogpermQuery extends ModelCriteria
      * $query->filterByDate(array('min' => 12)); // WHERE date > 12
      * </code>
      *
-     * @param     mixed $date The value to use as filter.
+     * @param mixed $date The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLogpermQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDate($date = null, $comparison = null)
+    public function filterByDate($date = null, ?string $comparison = null)
     {
         if (is_array($date)) {
             $useMinMax = false;
@@ -412,7 +434,9 @@ abstract class LogpermQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LogpermTableMap::COL_DATE, $date, $comparison);
+        $this->addUsingAlias(LogpermTableMap::COL_DATE, $date, $comparison);
+
+        return $this;
     }
 
     /**
@@ -425,15 +449,15 @@ abstract class LogpermQuery extends ModelCriteria
      * $query->filterByTime(array('min' => 12)); // WHERE time > 12
      * </code>
      *
-     * @param     mixed $time The value to use as filter.
+     * @param mixed $time The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLogpermQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTime($time = null, $comparison = null)
+    public function filterByTime($time = null, ?string $comparison = null)
     {
         if (is_array($time)) {
             $useMinMax = false;
@@ -453,7 +477,9 @@ abstract class LogpermQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LogpermTableMap::COL_TIME, $time, $comparison);
+        $this->addUsingAlias(LogpermTableMap::COL_TIME, $time, $comparison);
+
+        return $this;
     }
 
     /**
@@ -463,14 +489,15 @@ abstract class LogpermQuery extends ModelCriteria
      * <code>
      * $query->filterByLoginid('fooValue');   // WHERE loginid = 'fooValue'
      * $query->filterByLoginid('%fooValue%', Criteria::LIKE); // WHERE loginid LIKE '%fooValue%'
+     * $query->filterByLoginid(['foo', 'bar']); // WHERE loginid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $loginid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $loginid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLogpermQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLoginid($loginid = null, $comparison = null)
+    public function filterByLoginid($loginid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($loginid)) {
@@ -478,7 +505,9 @@ abstract class LogpermQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LogpermTableMap::COL_LOGINID, $loginid, $comparison);
+        $this->addUsingAlias(LogpermTableMap::COL_LOGINID, $loginid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -488,14 +517,15 @@ abstract class LogpermQuery extends ModelCriteria
      * <code>
      * $query->filterByLoginname('fooValue');   // WHERE loginname = 'fooValue'
      * $query->filterByLoginname('%fooValue%', Criteria::LIKE); // WHERE loginname LIKE '%fooValue%'
+     * $query->filterByLoginname(['foo', 'bar']); // WHERE loginname IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $loginname The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $loginname The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLogpermQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLoginname($loginname = null, $comparison = null)
+    public function filterByLoginname($loginname = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($loginname)) {
@@ -503,7 +533,9 @@ abstract class LogpermQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LogpermTableMap::COL_LOGINNAME, $loginname, $comparison);
+        $this->addUsingAlias(LogpermTableMap::COL_LOGINNAME, $loginname, $comparison);
+
+        return $this;
     }
 
     /**
@@ -513,14 +545,15 @@ abstract class LogpermQuery extends ModelCriteria
      * <code>
      * $query->filterBySalespersonid('fooValue');   // WHERE salespersonid = 'fooValue'
      * $query->filterBySalespersonid('%fooValue%', Criteria::LIKE); // WHERE salespersonid LIKE '%fooValue%'
+     * $query->filterBySalespersonid(['foo', 'bar']); // WHERE salespersonid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $salespersonid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $salespersonid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLogpermQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalespersonid($salespersonid = null, $comparison = null)
+    public function filterBySalespersonid($salespersonid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($salespersonid)) {
@@ -528,7 +561,9 @@ abstract class LogpermQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LogpermTableMap::COL_SALESPERSONID, $salespersonid, $comparison);
+        $this->addUsingAlias(LogpermTableMap::COL_SALESPERSONID, $salespersonid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -538,14 +573,15 @@ abstract class LogpermQuery extends ModelCriteria
      * <code>
      * $query->filterBySalespername('fooValue');   // WHERE salespername = 'fooValue'
      * $query->filterBySalespername('%fooValue%', Criteria::LIKE); // WHERE salespername LIKE '%fooValue%'
+     * $query->filterBySalespername(['foo', 'bar']); // WHERE salespername IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $salespername The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $salespername The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLogpermQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalespername($salespername = null, $comparison = null)
+    public function filterBySalespername($salespername = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($salespername)) {
@@ -553,7 +589,9 @@ abstract class LogpermQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LogpermTableMap::COL_SALESPERNAME, $salespername, $comparison);
+        $this->addUsingAlias(LogpermTableMap::COL_SALESPERNAME, $salespername, $comparison);
+
+        return $this;
     }
 
     /**
@@ -563,14 +601,15 @@ abstract class LogpermQuery extends ModelCriteria
      * <code>
      * $query->filterByValidlogin('fooValue');   // WHERE validlogin = 'fooValue'
      * $query->filterByValidlogin('%fooValue%', Criteria::LIKE); // WHERE validlogin LIKE '%fooValue%'
+     * $query->filterByValidlogin(['foo', 'bar']); // WHERE validlogin IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $validlogin The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $validlogin The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLogpermQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByValidlogin($validlogin = null, $comparison = null)
+    public function filterByValidlogin($validlogin = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($validlogin)) {
@@ -578,7 +617,9 @@ abstract class LogpermQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LogpermTableMap::COL_VALIDLOGIN, $validlogin, $comparison);
+        $this->addUsingAlias(LogpermTableMap::COL_VALIDLOGIN, $validlogin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -588,14 +629,15 @@ abstract class LogpermQuery extends ModelCriteria
      * <code>
      * $query->filterByRestrictcustomers('fooValue');   // WHERE restrictcustomers = 'fooValue'
      * $query->filterByRestrictcustomers('%fooValue%', Criteria::LIKE); // WHERE restrictcustomers LIKE '%fooValue%'
+     * $query->filterByRestrictcustomers(['foo', 'bar']); // WHERE restrictcustomers IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $restrictcustomers The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $restrictcustomers The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLogpermQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByRestrictcustomers($restrictcustomers = null, $comparison = null)
+    public function filterByRestrictcustomers($restrictcustomers = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($restrictcustomers)) {
@@ -603,7 +645,9 @@ abstract class LogpermQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LogpermTableMap::COL_RESTRICTCUSTOMERS, $restrictcustomers, $comparison);
+        $this->addUsingAlias(LogpermTableMap::COL_RESTRICTCUSTOMERS, $restrictcustomers, $comparison);
+
+        return $this;
     }
 
     /**
@@ -613,14 +657,15 @@ abstract class LogpermQuery extends ModelCriteria
      * <code>
      * $query->filterByErrormsg('fooValue');   // WHERE errormsg = 'fooValue'
      * $query->filterByErrormsg('%fooValue%', Criteria::LIKE); // WHERE errormsg LIKE '%fooValue%'
+     * $query->filterByErrormsg(['foo', 'bar']); // WHERE errormsg IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $errormsg The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $errormsg The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLogpermQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByErrormsg($errormsg = null, $comparison = null)
+    public function filterByErrormsg($errormsg = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($errormsg)) {
@@ -628,7 +673,9 @@ abstract class LogpermQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LogpermTableMap::COL_ERRORMSG, $errormsg, $comparison);
+        $this->addUsingAlias(LogpermTableMap::COL_ERRORMSG, $errormsg, $comparison);
+
+        return $this;
     }
 
     /**
@@ -638,14 +685,15 @@ abstract class LogpermQuery extends ModelCriteria
      * <code>
      * $query->filterByOrdernbr('fooValue');   // WHERE ordernbr = 'fooValue'
      * $query->filterByOrdernbr('%fooValue%', Criteria::LIKE); // WHERE ordernbr LIKE '%fooValue%'
+     * $query->filterByOrdernbr(['foo', 'bar']); // WHERE ordernbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $ordernbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $ordernbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLogpermQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOrdernbr($ordernbr = null, $comparison = null)
+    public function filterByOrdernbr($ordernbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($ordernbr)) {
@@ -653,7 +701,9 @@ abstract class LogpermQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LogpermTableMap::COL_ORDERNBR, $ordernbr, $comparison);
+        $this->addUsingAlias(LogpermTableMap::COL_ORDERNBR, $ordernbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -663,14 +713,15 @@ abstract class LogpermQuery extends ModelCriteria
      * <code>
      * $query->filterByRestrictaccess('fooValue');   // WHERE restrictaccess = 'fooValue'
      * $query->filterByRestrictaccess('%fooValue%', Criteria::LIKE); // WHERE restrictaccess LIKE '%fooValue%'
+     * $query->filterByRestrictaccess(['foo', 'bar']); // WHERE restrictaccess IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $restrictaccess The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $restrictaccess The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLogpermQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByRestrictaccess($restrictaccess = null, $comparison = null)
+    public function filterByRestrictaccess($restrictaccess = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($restrictaccess)) {
@@ -678,7 +729,9 @@ abstract class LogpermQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LogpermTableMap::COL_RESTRICTACCESS, $restrictaccess, $comparison);
+        $this->addUsingAlias(LogpermTableMap::COL_RESTRICTACCESS, $restrictaccess, $comparison);
+
+        return $this;
     }
 
     /**
@@ -688,14 +741,15 @@ abstract class LogpermQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLogpermQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -703,15 +757,17 @@ abstract class LogpermQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LogpermTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(LogpermTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildLogperm $logperm Object to remove from the list of results
+     * @param ChildLogperm $logperm Object to remove from the list of results
      *
-     * @return $this|ChildLogpermQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($logperm = null)
     {
@@ -730,7 +786,7 @@ abstract class LogpermQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(LogpermTableMap::DATABASE_NAME);
@@ -755,12 +811,12 @@ abstract class LogpermQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(LogpermTableMap::DATABASE_NAME);
@@ -785,4 +841,4 @@ abstract class LogpermQuery extends ModelCriteria
         });
     }
 
-} // LogpermQuery
+}

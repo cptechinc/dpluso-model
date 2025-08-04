@@ -10,14 +10,12 @@ use Map\LoginTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'login' table.
- *
- *
+ * Base class that represents a query for the `login` table.
  *
  * @method     ChildLoginQuery orderBySessionid($order = Criteria::ASC) Order by the sessionid column
  * @method     ChildLoginQuery orderByRecordno($order = Criteria::ASC) Order by the recordno column
@@ -83,39 +81,39 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildLoginQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildLoginQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildLogin findOne(ConnectionInterface $con = null) Return the first ChildLogin matching the query
- * @method     ChildLogin findOneOrCreate(ConnectionInterface $con = null) Return the first ChildLogin matching the query, or a new ChildLogin object populated from the query conditions when no match is found
+ * @method     ChildLogin|null findOne(?ConnectionInterface $con = null) Return the first ChildLogin matching the query
+ * @method     ChildLogin findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildLogin matching the query, or a new ChildLogin object populated from the query conditions when no match is found
  *
- * @method     ChildLogin findOneBySessionid(string $sessionid) Return the first ChildLogin filtered by the sessionid column
- * @method     ChildLogin findOneByRecordno(int $recordno) Return the first ChildLogin filtered by the recordno column
- * @method     ChildLogin findOneByDate(string $date) Return the first ChildLogin filtered by the date column
- * @method     ChildLogin findOneByTime(string $time) Return the first ChildLogin filtered by the time column
- * @method     ChildLogin findOneByCustid(string $custid) Return the first ChildLogin filtered by the custid column
- * @method     ChildLogin findOneByShiptoid(string $shiptoid) Return the first ChildLogin filtered by the shiptoid column
- * @method     ChildLogin findOneByName(string $name) Return the first ChildLogin filtered by the name column
- * @method     ChildLogin findOneByAddress1(string $address1) Return the first ChildLogin filtered by the address1 column
- * @method     ChildLogin findOneByAddress2(string $address2) Return the first ChildLogin filtered by the address2 column
- * @method     ChildLogin findOneByCity(string $city) Return the first ChildLogin filtered by the city column
- * @method     ChildLogin findOneBySt(string $st) Return the first ChildLogin filtered by the st column
- * @method     ChildLogin findOneByZip(string $zip) Return the first ChildLogin filtered by the zip column
- * @method     ChildLogin findOneByPhone(string $phone) Return the first ChildLogin filtered by the phone column
- * @method     ChildLogin findOneByEmail(string $email) Return the first ChildLogin filtered by the email column
- * @method     ChildLogin findOneByContact(string $contact) Return the first ChildLogin filtered by the contact column
- * @method     ChildLogin findOneByValidlogin(string $validlogin) Return the first ChildLogin filtered by the validlogin column
- * @method     ChildLogin findOneByCconly(string $cconly) Return the first ChildLogin filtered by the cconly column
- * @method     ChildLogin findOneByErmes(string $ermes) Return the first ChildLogin filtered by the ermes column
- * @method     ChildLogin findOneByPasswd(string $passwd) Return the first ChildLogin filtered by the passwd column
- * @method     ChildLogin findOneByCbi(string $cbi) Return the first ChildLogin filtered by the cbi column
- * @method     ChildLogin findOneByMmn(string $mmn) Return the first ChildLogin filtered by the mmn column
- * @method     ChildLogin findOneByCountry(string $country) Return the first ChildLogin filtered by the country column
- * @method     ChildLogin findOneByType(string $type) Return the first ChildLogin filtered by the type column
- * @method     ChildLogin findOneByAddress3(string $address3) Return the first ChildLogin filtered by the address3 column
- * @method     ChildLogin findOneByVpromo(string $vpromo) Return the first ChildLogin filtered by the vpromo column
- * @method     ChildLogin findOneByPromocode(string $promocode) Return the first ChildLogin filtered by the promocode column
- * @method     ChildLogin findOneByDummy(string $dummy) Return the first ChildLogin filtered by the dummy column *
-
- * @method     ChildLogin requirePk($key, ConnectionInterface $con = null) Return the ChildLogin by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildLogin requireOne(ConnectionInterface $con = null) Return the first ChildLogin matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildLogin|null findOneBySessionid(string $sessionid) Return the first ChildLogin filtered by the sessionid column
+ * @method     ChildLogin|null findOneByRecordno(int $recordno) Return the first ChildLogin filtered by the recordno column
+ * @method     ChildLogin|null findOneByDate(string $date) Return the first ChildLogin filtered by the date column
+ * @method     ChildLogin|null findOneByTime(string $time) Return the first ChildLogin filtered by the time column
+ * @method     ChildLogin|null findOneByCustid(string $custid) Return the first ChildLogin filtered by the custid column
+ * @method     ChildLogin|null findOneByShiptoid(string $shiptoid) Return the first ChildLogin filtered by the shiptoid column
+ * @method     ChildLogin|null findOneByName(string $name) Return the first ChildLogin filtered by the name column
+ * @method     ChildLogin|null findOneByAddress1(string $address1) Return the first ChildLogin filtered by the address1 column
+ * @method     ChildLogin|null findOneByAddress2(string $address2) Return the first ChildLogin filtered by the address2 column
+ * @method     ChildLogin|null findOneByCity(string $city) Return the first ChildLogin filtered by the city column
+ * @method     ChildLogin|null findOneBySt(string $st) Return the first ChildLogin filtered by the st column
+ * @method     ChildLogin|null findOneByZip(string $zip) Return the first ChildLogin filtered by the zip column
+ * @method     ChildLogin|null findOneByPhone(string $phone) Return the first ChildLogin filtered by the phone column
+ * @method     ChildLogin|null findOneByEmail(string $email) Return the first ChildLogin filtered by the email column
+ * @method     ChildLogin|null findOneByContact(string $contact) Return the first ChildLogin filtered by the contact column
+ * @method     ChildLogin|null findOneByValidlogin(string $validlogin) Return the first ChildLogin filtered by the validlogin column
+ * @method     ChildLogin|null findOneByCconly(string $cconly) Return the first ChildLogin filtered by the cconly column
+ * @method     ChildLogin|null findOneByErmes(string $ermes) Return the first ChildLogin filtered by the ermes column
+ * @method     ChildLogin|null findOneByPasswd(string $passwd) Return the first ChildLogin filtered by the passwd column
+ * @method     ChildLogin|null findOneByCbi(string $cbi) Return the first ChildLogin filtered by the cbi column
+ * @method     ChildLogin|null findOneByMmn(string $mmn) Return the first ChildLogin filtered by the mmn column
+ * @method     ChildLogin|null findOneByCountry(string $country) Return the first ChildLogin filtered by the country column
+ * @method     ChildLogin|null findOneByType(string $type) Return the first ChildLogin filtered by the type column
+ * @method     ChildLogin|null findOneByAddress3(string $address3) Return the first ChildLogin filtered by the address3 column
+ * @method     ChildLogin|null findOneByVpromo(string $vpromo) Return the first ChildLogin filtered by the vpromo column
+ * @method     ChildLogin|null findOneByPromocode(string $promocode) Return the first ChildLogin filtered by the promocode column
+ * @method     ChildLogin|null findOneByDummy(string $dummy) Return the first ChildLogin filtered by the dummy column
+ *
+ * @method     ChildLogin requirePk($key, ?ConnectionInterface $con = null) Return the ChildLogin by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildLogin requireOne(?ConnectionInterface $con = null) Return the first ChildLogin matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildLogin requireOneBySessionid(string $sessionid) Return the first ChildLogin filtered by the sessionid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildLogin requireOneByRecordno(int $recordno) Return the first ChildLogin filtered by the recordno column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -145,36 +143,66 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildLogin requireOneByPromocode(string $promocode) Return the first ChildLogin filtered by the promocode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildLogin requireOneByDummy(string $dummy) Return the first ChildLogin filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildLogin[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildLogin objects based on current ModelCriteria
- * @method     ChildLogin[]|ObjectCollection findBySessionid(string $sessionid) Return ChildLogin objects filtered by the sessionid column
- * @method     ChildLogin[]|ObjectCollection findByRecordno(int $recordno) Return ChildLogin objects filtered by the recordno column
- * @method     ChildLogin[]|ObjectCollection findByDate(string $date) Return ChildLogin objects filtered by the date column
- * @method     ChildLogin[]|ObjectCollection findByTime(string $time) Return ChildLogin objects filtered by the time column
- * @method     ChildLogin[]|ObjectCollection findByCustid(string $custid) Return ChildLogin objects filtered by the custid column
- * @method     ChildLogin[]|ObjectCollection findByShiptoid(string $shiptoid) Return ChildLogin objects filtered by the shiptoid column
- * @method     ChildLogin[]|ObjectCollection findByName(string $name) Return ChildLogin objects filtered by the name column
- * @method     ChildLogin[]|ObjectCollection findByAddress1(string $address1) Return ChildLogin objects filtered by the address1 column
- * @method     ChildLogin[]|ObjectCollection findByAddress2(string $address2) Return ChildLogin objects filtered by the address2 column
- * @method     ChildLogin[]|ObjectCollection findByCity(string $city) Return ChildLogin objects filtered by the city column
- * @method     ChildLogin[]|ObjectCollection findBySt(string $st) Return ChildLogin objects filtered by the st column
- * @method     ChildLogin[]|ObjectCollection findByZip(string $zip) Return ChildLogin objects filtered by the zip column
- * @method     ChildLogin[]|ObjectCollection findByPhone(string $phone) Return ChildLogin objects filtered by the phone column
- * @method     ChildLogin[]|ObjectCollection findByEmail(string $email) Return ChildLogin objects filtered by the email column
- * @method     ChildLogin[]|ObjectCollection findByContact(string $contact) Return ChildLogin objects filtered by the contact column
- * @method     ChildLogin[]|ObjectCollection findByValidlogin(string $validlogin) Return ChildLogin objects filtered by the validlogin column
- * @method     ChildLogin[]|ObjectCollection findByCconly(string $cconly) Return ChildLogin objects filtered by the cconly column
- * @method     ChildLogin[]|ObjectCollection findByErmes(string $ermes) Return ChildLogin objects filtered by the ermes column
- * @method     ChildLogin[]|ObjectCollection findByPasswd(string $passwd) Return ChildLogin objects filtered by the passwd column
- * @method     ChildLogin[]|ObjectCollection findByCbi(string $cbi) Return ChildLogin objects filtered by the cbi column
- * @method     ChildLogin[]|ObjectCollection findByMmn(string $mmn) Return ChildLogin objects filtered by the mmn column
- * @method     ChildLogin[]|ObjectCollection findByCountry(string $country) Return ChildLogin objects filtered by the country column
- * @method     ChildLogin[]|ObjectCollection findByType(string $type) Return ChildLogin objects filtered by the type column
- * @method     ChildLogin[]|ObjectCollection findByAddress3(string $address3) Return ChildLogin objects filtered by the address3 column
- * @method     ChildLogin[]|ObjectCollection findByVpromo(string $vpromo) Return ChildLogin objects filtered by the vpromo column
- * @method     ChildLogin[]|ObjectCollection findByPromocode(string $promocode) Return ChildLogin objects filtered by the promocode column
- * @method     ChildLogin[]|ObjectCollection findByDummy(string $dummy) Return ChildLogin objects filtered by the dummy column
- * @method     ChildLogin[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildLogin[]|Collection find(?ConnectionInterface $con = null) Return ChildLogin objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildLogin> find(?ConnectionInterface $con = null) Return ChildLogin objects based on current ModelCriteria
  *
+ * @method     ChildLogin[]|Collection findBySessionid(string|array<string> $sessionid) Return ChildLogin objects filtered by the sessionid column
+ * @psalm-method Collection&\Traversable<ChildLogin> findBySessionid(string|array<string> $sessionid) Return ChildLogin objects filtered by the sessionid column
+ * @method     ChildLogin[]|Collection findByRecordno(int|array<int> $recordno) Return ChildLogin objects filtered by the recordno column
+ * @psalm-method Collection&\Traversable<ChildLogin> findByRecordno(int|array<int> $recordno) Return ChildLogin objects filtered by the recordno column
+ * @method     ChildLogin[]|Collection findByDate(string|array<string> $date) Return ChildLogin objects filtered by the date column
+ * @psalm-method Collection&\Traversable<ChildLogin> findByDate(string|array<string> $date) Return ChildLogin objects filtered by the date column
+ * @method     ChildLogin[]|Collection findByTime(string|array<string> $time) Return ChildLogin objects filtered by the time column
+ * @psalm-method Collection&\Traversable<ChildLogin> findByTime(string|array<string> $time) Return ChildLogin objects filtered by the time column
+ * @method     ChildLogin[]|Collection findByCustid(string|array<string> $custid) Return ChildLogin objects filtered by the custid column
+ * @psalm-method Collection&\Traversable<ChildLogin> findByCustid(string|array<string> $custid) Return ChildLogin objects filtered by the custid column
+ * @method     ChildLogin[]|Collection findByShiptoid(string|array<string> $shiptoid) Return ChildLogin objects filtered by the shiptoid column
+ * @psalm-method Collection&\Traversable<ChildLogin> findByShiptoid(string|array<string> $shiptoid) Return ChildLogin objects filtered by the shiptoid column
+ * @method     ChildLogin[]|Collection findByName(string|array<string> $name) Return ChildLogin objects filtered by the name column
+ * @psalm-method Collection&\Traversable<ChildLogin> findByName(string|array<string> $name) Return ChildLogin objects filtered by the name column
+ * @method     ChildLogin[]|Collection findByAddress1(string|array<string> $address1) Return ChildLogin objects filtered by the address1 column
+ * @psalm-method Collection&\Traversable<ChildLogin> findByAddress1(string|array<string> $address1) Return ChildLogin objects filtered by the address1 column
+ * @method     ChildLogin[]|Collection findByAddress2(string|array<string> $address2) Return ChildLogin objects filtered by the address2 column
+ * @psalm-method Collection&\Traversable<ChildLogin> findByAddress2(string|array<string> $address2) Return ChildLogin objects filtered by the address2 column
+ * @method     ChildLogin[]|Collection findByCity(string|array<string> $city) Return ChildLogin objects filtered by the city column
+ * @psalm-method Collection&\Traversable<ChildLogin> findByCity(string|array<string> $city) Return ChildLogin objects filtered by the city column
+ * @method     ChildLogin[]|Collection findBySt(string|array<string> $st) Return ChildLogin objects filtered by the st column
+ * @psalm-method Collection&\Traversable<ChildLogin> findBySt(string|array<string> $st) Return ChildLogin objects filtered by the st column
+ * @method     ChildLogin[]|Collection findByZip(string|array<string> $zip) Return ChildLogin objects filtered by the zip column
+ * @psalm-method Collection&\Traversable<ChildLogin> findByZip(string|array<string> $zip) Return ChildLogin objects filtered by the zip column
+ * @method     ChildLogin[]|Collection findByPhone(string|array<string> $phone) Return ChildLogin objects filtered by the phone column
+ * @psalm-method Collection&\Traversable<ChildLogin> findByPhone(string|array<string> $phone) Return ChildLogin objects filtered by the phone column
+ * @method     ChildLogin[]|Collection findByEmail(string|array<string> $email) Return ChildLogin objects filtered by the email column
+ * @psalm-method Collection&\Traversable<ChildLogin> findByEmail(string|array<string> $email) Return ChildLogin objects filtered by the email column
+ * @method     ChildLogin[]|Collection findByContact(string|array<string> $contact) Return ChildLogin objects filtered by the contact column
+ * @psalm-method Collection&\Traversable<ChildLogin> findByContact(string|array<string> $contact) Return ChildLogin objects filtered by the contact column
+ * @method     ChildLogin[]|Collection findByValidlogin(string|array<string> $validlogin) Return ChildLogin objects filtered by the validlogin column
+ * @psalm-method Collection&\Traversable<ChildLogin> findByValidlogin(string|array<string> $validlogin) Return ChildLogin objects filtered by the validlogin column
+ * @method     ChildLogin[]|Collection findByCconly(string|array<string> $cconly) Return ChildLogin objects filtered by the cconly column
+ * @psalm-method Collection&\Traversable<ChildLogin> findByCconly(string|array<string> $cconly) Return ChildLogin objects filtered by the cconly column
+ * @method     ChildLogin[]|Collection findByErmes(string|array<string> $ermes) Return ChildLogin objects filtered by the ermes column
+ * @psalm-method Collection&\Traversable<ChildLogin> findByErmes(string|array<string> $ermes) Return ChildLogin objects filtered by the ermes column
+ * @method     ChildLogin[]|Collection findByPasswd(string|array<string> $passwd) Return ChildLogin objects filtered by the passwd column
+ * @psalm-method Collection&\Traversable<ChildLogin> findByPasswd(string|array<string> $passwd) Return ChildLogin objects filtered by the passwd column
+ * @method     ChildLogin[]|Collection findByCbi(string|array<string> $cbi) Return ChildLogin objects filtered by the cbi column
+ * @psalm-method Collection&\Traversable<ChildLogin> findByCbi(string|array<string> $cbi) Return ChildLogin objects filtered by the cbi column
+ * @method     ChildLogin[]|Collection findByMmn(string|array<string> $mmn) Return ChildLogin objects filtered by the mmn column
+ * @psalm-method Collection&\Traversable<ChildLogin> findByMmn(string|array<string> $mmn) Return ChildLogin objects filtered by the mmn column
+ * @method     ChildLogin[]|Collection findByCountry(string|array<string> $country) Return ChildLogin objects filtered by the country column
+ * @psalm-method Collection&\Traversable<ChildLogin> findByCountry(string|array<string> $country) Return ChildLogin objects filtered by the country column
+ * @method     ChildLogin[]|Collection findByType(string|array<string> $type) Return ChildLogin objects filtered by the type column
+ * @psalm-method Collection&\Traversable<ChildLogin> findByType(string|array<string> $type) Return ChildLogin objects filtered by the type column
+ * @method     ChildLogin[]|Collection findByAddress3(string|array<string> $address3) Return ChildLogin objects filtered by the address3 column
+ * @psalm-method Collection&\Traversable<ChildLogin> findByAddress3(string|array<string> $address3) Return ChildLogin objects filtered by the address3 column
+ * @method     ChildLogin[]|Collection findByVpromo(string|array<string> $vpromo) Return ChildLogin objects filtered by the vpromo column
+ * @psalm-method Collection&\Traversable<ChildLogin> findByVpromo(string|array<string> $vpromo) Return ChildLogin objects filtered by the vpromo column
+ * @method     ChildLogin[]|Collection findByPromocode(string|array<string> $promocode) Return ChildLogin objects filtered by the promocode column
+ * @psalm-method Collection&\Traversable<ChildLogin> findByPromocode(string|array<string> $promocode) Return ChildLogin objects filtered by the promocode column
+ * @method     ChildLogin[]|Collection findByDummy(string|array<string> $dummy) Return ChildLogin objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildLogin> findByDummy(string|array<string> $dummy) Return ChildLogin objects filtered by the dummy column
+ *
+ * @method     ChildLogin[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildLogin> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class LoginQuery extends ModelCriteria
 {
@@ -183,9 +211,9 @@ abstract class LoginQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\LoginQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'dplusodb', $modelName = '\\Login', $modelAlias = null)
     {
@@ -195,12 +223,12 @@ abstract class LoginQuery extends ModelCriteria
     /**
      * Returns a new ChildLoginQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildLoginQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildLoginQuery) {
             return $criteria;
@@ -230,7 +258,7 @@ abstract class LoginQuery extends ModelCriteria
      *
      * @return ChildLogin|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -262,8 +290,8 @@ abstract class LoginQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -295,8 +323,8 @@ abstract class LoginQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildLogin|array|mixed the result, formatted by the current formatter
      */
@@ -316,12 +344,12 @@ abstract class LoginQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -338,27 +366,31 @@ abstract class LoginQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildLoginQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(LoginTableMap::COL_SESSIONID, $key, Criteria::EQUAL);
+        $this->addUsingAlias(LoginTableMap::COL_SESSIONID, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildLoginQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(LoginTableMap::COL_SESSIONID, $keys, Criteria::IN);
+        $this->addUsingAlias(LoginTableMap::COL_SESSIONID, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -368,14 +400,15 @@ abstract class LoginQuery extends ModelCriteria
      * <code>
      * $query->filterBySessionid('fooValue');   // WHERE sessionid = 'fooValue'
      * $query->filterBySessionid('%fooValue%', Criteria::LIKE); // WHERE sessionid LIKE '%fooValue%'
+     * $query->filterBySessionid(['foo', 'bar']); // WHERE sessionid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sessionid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sessionid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLoginQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySessionid($sessionid = null, $comparison = null)
+    public function filterBySessionid($sessionid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sessionid)) {
@@ -383,7 +416,9 @@ abstract class LoginQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LoginTableMap::COL_SESSIONID, $sessionid, $comparison);
+        $this->addUsingAlias(LoginTableMap::COL_SESSIONID, $sessionid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -396,15 +431,15 @@ abstract class LoginQuery extends ModelCriteria
      * $query->filterByRecordno(array('min' => 12)); // WHERE recordno > 12
      * </code>
      *
-     * @param     mixed $recordno The value to use as filter.
+     * @param mixed $recordno The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLoginQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByRecordno($recordno = null, $comparison = null)
+    public function filterByRecordno($recordno = null, ?string $comparison = null)
     {
         if (is_array($recordno)) {
             $useMinMax = false;
@@ -424,7 +459,9 @@ abstract class LoginQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LoginTableMap::COL_RECORDNO, $recordno, $comparison);
+        $this->addUsingAlias(LoginTableMap::COL_RECORDNO, $recordno, $comparison);
+
+        return $this;
     }
 
     /**
@@ -434,14 +471,15 @@ abstract class LoginQuery extends ModelCriteria
      * <code>
      * $query->filterByDate('fooValue');   // WHERE date = 'fooValue'
      * $query->filterByDate('%fooValue%', Criteria::LIKE); // WHERE date LIKE '%fooValue%'
+     * $query->filterByDate(['foo', 'bar']); // WHERE date IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $date The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $date The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLoginQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDate($date = null, $comparison = null)
+    public function filterByDate($date = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($date)) {
@@ -449,7 +487,9 @@ abstract class LoginQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LoginTableMap::COL_DATE, $date, $comparison);
+        $this->addUsingAlias(LoginTableMap::COL_DATE, $date, $comparison);
+
+        return $this;
     }
 
     /**
@@ -459,14 +499,15 @@ abstract class LoginQuery extends ModelCriteria
      * <code>
      * $query->filterByTime('fooValue');   // WHERE time = 'fooValue'
      * $query->filterByTime('%fooValue%', Criteria::LIKE); // WHERE time LIKE '%fooValue%'
+     * $query->filterByTime(['foo', 'bar']); // WHERE time IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $time The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $time The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLoginQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTime($time = null, $comparison = null)
+    public function filterByTime($time = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($time)) {
@@ -474,7 +515,9 @@ abstract class LoginQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LoginTableMap::COL_TIME, $time, $comparison);
+        $this->addUsingAlias(LoginTableMap::COL_TIME, $time, $comparison);
+
+        return $this;
     }
 
     /**
@@ -484,14 +527,15 @@ abstract class LoginQuery extends ModelCriteria
      * <code>
      * $query->filterByCustid('fooValue');   // WHERE custid = 'fooValue'
      * $query->filterByCustid('%fooValue%', Criteria::LIKE); // WHERE custid LIKE '%fooValue%'
+     * $query->filterByCustid(['foo', 'bar']); // WHERE custid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $custid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $custid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLoginQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustid($custid = null, $comparison = null)
+    public function filterByCustid($custid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($custid)) {
@@ -499,7 +543,9 @@ abstract class LoginQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LoginTableMap::COL_CUSTID, $custid, $comparison);
+        $this->addUsingAlias(LoginTableMap::COL_CUSTID, $custid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -509,14 +555,15 @@ abstract class LoginQuery extends ModelCriteria
      * <code>
      * $query->filterByShiptoid('fooValue');   // WHERE shiptoid = 'fooValue'
      * $query->filterByShiptoid('%fooValue%', Criteria::LIKE); // WHERE shiptoid LIKE '%fooValue%'
+     * $query->filterByShiptoid(['foo', 'bar']); // WHERE shiptoid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shiptoid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shiptoid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLoginQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShiptoid($shiptoid = null, $comparison = null)
+    public function filterByShiptoid($shiptoid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shiptoid)) {
@@ -524,7 +571,9 @@ abstract class LoginQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LoginTableMap::COL_SHIPTOID, $shiptoid, $comparison);
+        $this->addUsingAlias(LoginTableMap::COL_SHIPTOID, $shiptoid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -534,14 +583,15 @@ abstract class LoginQuery extends ModelCriteria
      * <code>
      * $query->filterByName('fooValue');   // WHERE name = 'fooValue'
      * $query->filterByName('%fooValue%', Criteria::LIKE); // WHERE name LIKE '%fooValue%'
+     * $query->filterByName(['foo', 'bar']); // WHERE name IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $name The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $name The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLoginQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByName($name = null, $comparison = null)
+    public function filterByName($name = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($name)) {
@@ -549,7 +599,9 @@ abstract class LoginQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LoginTableMap::COL_NAME, $name, $comparison);
+        $this->addUsingAlias(LoginTableMap::COL_NAME, $name, $comparison);
+
+        return $this;
     }
 
     /**
@@ -559,14 +611,15 @@ abstract class LoginQuery extends ModelCriteria
      * <code>
      * $query->filterByAddress1('fooValue');   // WHERE address1 = 'fooValue'
      * $query->filterByAddress1('%fooValue%', Criteria::LIKE); // WHERE address1 LIKE '%fooValue%'
+     * $query->filterByAddress1(['foo', 'bar']); // WHERE address1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $address1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $address1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLoginQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAddress1($address1 = null, $comparison = null)
+    public function filterByAddress1($address1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($address1)) {
@@ -574,7 +627,9 @@ abstract class LoginQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LoginTableMap::COL_ADDRESS1, $address1, $comparison);
+        $this->addUsingAlias(LoginTableMap::COL_ADDRESS1, $address1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -584,14 +639,15 @@ abstract class LoginQuery extends ModelCriteria
      * <code>
      * $query->filterByAddress2('fooValue');   // WHERE address2 = 'fooValue'
      * $query->filterByAddress2('%fooValue%', Criteria::LIKE); // WHERE address2 LIKE '%fooValue%'
+     * $query->filterByAddress2(['foo', 'bar']); // WHERE address2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $address2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $address2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLoginQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAddress2($address2 = null, $comparison = null)
+    public function filterByAddress2($address2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($address2)) {
@@ -599,7 +655,9 @@ abstract class LoginQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LoginTableMap::COL_ADDRESS2, $address2, $comparison);
+        $this->addUsingAlias(LoginTableMap::COL_ADDRESS2, $address2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -609,14 +667,15 @@ abstract class LoginQuery extends ModelCriteria
      * <code>
      * $query->filterByCity('fooValue');   // WHERE city = 'fooValue'
      * $query->filterByCity('%fooValue%', Criteria::LIKE); // WHERE city LIKE '%fooValue%'
+     * $query->filterByCity(['foo', 'bar']); // WHERE city IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $city The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $city The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLoginQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCity($city = null, $comparison = null)
+    public function filterByCity($city = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($city)) {
@@ -624,7 +683,9 @@ abstract class LoginQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LoginTableMap::COL_CITY, $city, $comparison);
+        $this->addUsingAlias(LoginTableMap::COL_CITY, $city, $comparison);
+
+        return $this;
     }
 
     /**
@@ -634,14 +695,15 @@ abstract class LoginQuery extends ModelCriteria
      * <code>
      * $query->filterBySt('fooValue');   // WHERE st = 'fooValue'
      * $query->filterBySt('%fooValue%', Criteria::LIKE); // WHERE st LIKE '%fooValue%'
+     * $query->filterBySt(['foo', 'bar']); // WHERE st IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $st The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $st The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLoginQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySt($st = null, $comparison = null)
+    public function filterBySt($st = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($st)) {
@@ -649,7 +711,9 @@ abstract class LoginQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LoginTableMap::COL_ST, $st, $comparison);
+        $this->addUsingAlias(LoginTableMap::COL_ST, $st, $comparison);
+
+        return $this;
     }
 
     /**
@@ -659,14 +723,15 @@ abstract class LoginQuery extends ModelCriteria
      * <code>
      * $query->filterByZip('fooValue');   // WHERE zip = 'fooValue'
      * $query->filterByZip('%fooValue%', Criteria::LIKE); // WHERE zip LIKE '%fooValue%'
+     * $query->filterByZip(['foo', 'bar']); // WHERE zip IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $zip The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $zip The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLoginQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByZip($zip = null, $comparison = null)
+    public function filterByZip($zip = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($zip)) {
@@ -674,7 +739,9 @@ abstract class LoginQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LoginTableMap::COL_ZIP, $zip, $comparison);
+        $this->addUsingAlias(LoginTableMap::COL_ZIP, $zip, $comparison);
+
+        return $this;
     }
 
     /**
@@ -684,14 +751,15 @@ abstract class LoginQuery extends ModelCriteria
      * <code>
      * $query->filterByPhone('fooValue');   // WHERE phone = 'fooValue'
      * $query->filterByPhone('%fooValue%', Criteria::LIKE); // WHERE phone LIKE '%fooValue%'
+     * $query->filterByPhone(['foo', 'bar']); // WHERE phone IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $phone The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $phone The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLoginQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPhone($phone = null, $comparison = null)
+    public function filterByPhone($phone = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($phone)) {
@@ -699,7 +767,9 @@ abstract class LoginQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LoginTableMap::COL_PHONE, $phone, $comparison);
+        $this->addUsingAlias(LoginTableMap::COL_PHONE, $phone, $comparison);
+
+        return $this;
     }
 
     /**
@@ -709,14 +779,15 @@ abstract class LoginQuery extends ModelCriteria
      * <code>
      * $query->filterByEmail('fooValue');   // WHERE email = 'fooValue'
      * $query->filterByEmail('%fooValue%', Criteria::LIKE); // WHERE email LIKE '%fooValue%'
+     * $query->filterByEmail(['foo', 'bar']); // WHERE email IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $email The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $email The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLoginQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByEmail($email = null, $comparison = null)
+    public function filterByEmail($email = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($email)) {
@@ -724,7 +795,9 @@ abstract class LoginQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LoginTableMap::COL_EMAIL, $email, $comparison);
+        $this->addUsingAlias(LoginTableMap::COL_EMAIL, $email, $comparison);
+
+        return $this;
     }
 
     /**
@@ -734,14 +807,15 @@ abstract class LoginQuery extends ModelCriteria
      * <code>
      * $query->filterByContact('fooValue');   // WHERE contact = 'fooValue'
      * $query->filterByContact('%fooValue%', Criteria::LIKE); // WHERE contact LIKE '%fooValue%'
+     * $query->filterByContact(['foo', 'bar']); // WHERE contact IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $contact The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $contact The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLoginQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByContact($contact = null, $comparison = null)
+    public function filterByContact($contact = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($contact)) {
@@ -749,7 +823,9 @@ abstract class LoginQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LoginTableMap::COL_CONTACT, $contact, $comparison);
+        $this->addUsingAlias(LoginTableMap::COL_CONTACT, $contact, $comparison);
+
+        return $this;
     }
 
     /**
@@ -759,14 +835,15 @@ abstract class LoginQuery extends ModelCriteria
      * <code>
      * $query->filterByValidlogin('fooValue');   // WHERE validlogin = 'fooValue'
      * $query->filterByValidlogin('%fooValue%', Criteria::LIKE); // WHERE validlogin LIKE '%fooValue%'
+     * $query->filterByValidlogin(['foo', 'bar']); // WHERE validlogin IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $validlogin The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $validlogin The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLoginQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByValidlogin($validlogin = null, $comparison = null)
+    public function filterByValidlogin($validlogin = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($validlogin)) {
@@ -774,7 +851,9 @@ abstract class LoginQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LoginTableMap::COL_VALIDLOGIN, $validlogin, $comparison);
+        $this->addUsingAlias(LoginTableMap::COL_VALIDLOGIN, $validlogin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -784,14 +863,15 @@ abstract class LoginQuery extends ModelCriteria
      * <code>
      * $query->filterByCconly('fooValue');   // WHERE cconly = 'fooValue'
      * $query->filterByCconly('%fooValue%', Criteria::LIKE); // WHERE cconly LIKE '%fooValue%'
+     * $query->filterByCconly(['foo', 'bar']); // WHERE cconly IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cconly The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cconly The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLoginQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCconly($cconly = null, $comparison = null)
+    public function filterByCconly($cconly = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cconly)) {
@@ -799,7 +879,9 @@ abstract class LoginQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LoginTableMap::COL_CCONLY, $cconly, $comparison);
+        $this->addUsingAlias(LoginTableMap::COL_CCONLY, $cconly, $comparison);
+
+        return $this;
     }
 
     /**
@@ -809,14 +891,15 @@ abstract class LoginQuery extends ModelCriteria
      * <code>
      * $query->filterByErmes('fooValue');   // WHERE ermes = 'fooValue'
      * $query->filterByErmes('%fooValue%', Criteria::LIKE); // WHERE ermes LIKE '%fooValue%'
+     * $query->filterByErmes(['foo', 'bar']); // WHERE ermes IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $ermes The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $ermes The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLoginQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByErmes($ermes = null, $comparison = null)
+    public function filterByErmes($ermes = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($ermes)) {
@@ -824,7 +907,9 @@ abstract class LoginQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LoginTableMap::COL_ERMES, $ermes, $comparison);
+        $this->addUsingAlias(LoginTableMap::COL_ERMES, $ermes, $comparison);
+
+        return $this;
     }
 
     /**
@@ -834,14 +919,15 @@ abstract class LoginQuery extends ModelCriteria
      * <code>
      * $query->filterByPasswd('fooValue');   // WHERE passwd = 'fooValue'
      * $query->filterByPasswd('%fooValue%', Criteria::LIKE); // WHERE passwd LIKE '%fooValue%'
+     * $query->filterByPasswd(['foo', 'bar']); // WHERE passwd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $passwd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $passwd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLoginQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPasswd($passwd = null, $comparison = null)
+    public function filterByPasswd($passwd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($passwd)) {
@@ -849,7 +935,9 @@ abstract class LoginQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LoginTableMap::COL_PASSWD, $passwd, $comparison);
+        $this->addUsingAlias(LoginTableMap::COL_PASSWD, $passwd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -859,14 +947,15 @@ abstract class LoginQuery extends ModelCriteria
      * <code>
      * $query->filterByCbi('fooValue');   // WHERE cbi = 'fooValue'
      * $query->filterByCbi('%fooValue%', Criteria::LIKE); // WHERE cbi LIKE '%fooValue%'
+     * $query->filterByCbi(['foo', 'bar']); // WHERE cbi IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cbi The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cbi The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLoginQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCbi($cbi = null, $comparison = null)
+    public function filterByCbi($cbi = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cbi)) {
@@ -874,7 +963,9 @@ abstract class LoginQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LoginTableMap::COL_CBI, $cbi, $comparison);
+        $this->addUsingAlias(LoginTableMap::COL_CBI, $cbi, $comparison);
+
+        return $this;
     }
 
     /**
@@ -884,14 +975,15 @@ abstract class LoginQuery extends ModelCriteria
      * <code>
      * $query->filterByMmn('fooValue');   // WHERE mmn = 'fooValue'
      * $query->filterByMmn('%fooValue%', Criteria::LIKE); // WHERE mmn LIKE '%fooValue%'
+     * $query->filterByMmn(['foo', 'bar']); // WHERE mmn IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $mmn The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $mmn The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLoginQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByMmn($mmn = null, $comparison = null)
+    public function filterByMmn($mmn = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($mmn)) {
@@ -899,7 +991,9 @@ abstract class LoginQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LoginTableMap::COL_MMN, $mmn, $comparison);
+        $this->addUsingAlias(LoginTableMap::COL_MMN, $mmn, $comparison);
+
+        return $this;
     }
 
     /**
@@ -909,14 +1003,15 @@ abstract class LoginQuery extends ModelCriteria
      * <code>
      * $query->filterByCountry('fooValue');   // WHERE country = 'fooValue'
      * $query->filterByCountry('%fooValue%', Criteria::LIKE); // WHERE country LIKE '%fooValue%'
+     * $query->filterByCountry(['foo', 'bar']); // WHERE country IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $country The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $country The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLoginQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCountry($country = null, $comparison = null)
+    public function filterByCountry($country = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($country)) {
@@ -924,7 +1019,9 @@ abstract class LoginQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LoginTableMap::COL_COUNTRY, $country, $comparison);
+        $this->addUsingAlias(LoginTableMap::COL_COUNTRY, $country, $comparison);
+
+        return $this;
     }
 
     /**
@@ -934,14 +1031,15 @@ abstract class LoginQuery extends ModelCriteria
      * <code>
      * $query->filterByType('fooValue');   // WHERE type = 'fooValue'
      * $query->filterByType('%fooValue%', Criteria::LIKE); // WHERE type LIKE '%fooValue%'
+     * $query->filterByType(['foo', 'bar']); // WHERE type IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $type The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $type The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLoginQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByType($type = null, $comparison = null)
+    public function filterByType($type = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($type)) {
@@ -949,7 +1047,9 @@ abstract class LoginQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LoginTableMap::COL_TYPE, $type, $comparison);
+        $this->addUsingAlias(LoginTableMap::COL_TYPE, $type, $comparison);
+
+        return $this;
     }
 
     /**
@@ -959,14 +1059,15 @@ abstract class LoginQuery extends ModelCriteria
      * <code>
      * $query->filterByAddress3('fooValue');   // WHERE address3 = 'fooValue'
      * $query->filterByAddress3('%fooValue%', Criteria::LIKE); // WHERE address3 LIKE '%fooValue%'
+     * $query->filterByAddress3(['foo', 'bar']); // WHERE address3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $address3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $address3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLoginQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAddress3($address3 = null, $comparison = null)
+    public function filterByAddress3($address3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($address3)) {
@@ -974,7 +1075,9 @@ abstract class LoginQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LoginTableMap::COL_ADDRESS3, $address3, $comparison);
+        $this->addUsingAlias(LoginTableMap::COL_ADDRESS3, $address3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -984,14 +1087,15 @@ abstract class LoginQuery extends ModelCriteria
      * <code>
      * $query->filterByVpromo('fooValue');   // WHERE vpromo = 'fooValue'
      * $query->filterByVpromo('%fooValue%', Criteria::LIKE); // WHERE vpromo LIKE '%fooValue%'
+     * $query->filterByVpromo(['foo', 'bar']); // WHERE vpromo IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $vpromo The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $vpromo The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLoginQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVpromo($vpromo = null, $comparison = null)
+    public function filterByVpromo($vpromo = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($vpromo)) {
@@ -999,7 +1103,9 @@ abstract class LoginQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LoginTableMap::COL_VPROMO, $vpromo, $comparison);
+        $this->addUsingAlias(LoginTableMap::COL_VPROMO, $vpromo, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1009,14 +1115,15 @@ abstract class LoginQuery extends ModelCriteria
      * <code>
      * $query->filterByPromocode('fooValue');   // WHERE promocode = 'fooValue'
      * $query->filterByPromocode('%fooValue%', Criteria::LIKE); // WHERE promocode LIKE '%fooValue%'
+     * $query->filterByPromocode(['foo', 'bar']); // WHERE promocode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $promocode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $promocode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLoginQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPromocode($promocode = null, $comparison = null)
+    public function filterByPromocode($promocode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($promocode)) {
@@ -1024,7 +1131,9 @@ abstract class LoginQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LoginTableMap::COL_PROMOCODE, $promocode, $comparison);
+        $this->addUsingAlias(LoginTableMap::COL_PROMOCODE, $promocode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1034,14 +1143,15 @@ abstract class LoginQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLoginQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -1049,15 +1159,17 @@ abstract class LoginQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LoginTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(LoginTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildLogin $login Object to remove from the list of results
+     * @param ChildLogin $login Object to remove from the list of results
      *
-     * @return $this|ChildLoginQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($login = null)
     {
@@ -1074,7 +1186,7 @@ abstract class LoginQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(LoginTableMap::DATABASE_NAME);
@@ -1099,12 +1211,12 @@ abstract class LoginQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(LoginTableMap::DATABASE_NAME);
@@ -1129,4 +1241,4 @@ abstract class LoginQuery extends ModelCriteria
         });
     }
 
-} // LoginQuery
+}

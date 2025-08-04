@@ -10,14 +10,12 @@ use Map\WmpackdetTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'wmpackdet' table.
- *
- *
+ * Base class that represents a query for the `wmpackdet` table.
  *
  * @method     ChildWmpackdetQuery orderBySessionid($order = Criteria::ASC) Order by the sessionid column
  * @method     ChildWmpackdetQuery orderByOrdernbr($order = Criteria::ASC) Order by the ordernbr column
@@ -53,24 +51,24 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWmpackdetQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildWmpackdetQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildWmpackdet findOne(ConnectionInterface $con = null) Return the first ChildWmpackdet matching the query
- * @method     ChildWmpackdet findOneOrCreate(ConnectionInterface $con = null) Return the first ChildWmpackdet matching the query, or a new ChildWmpackdet object populated from the query conditions when no match is found
+ * @method     ChildWmpackdet|null findOne(?ConnectionInterface $con = null) Return the first ChildWmpackdet matching the query
+ * @method     ChildWmpackdet findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildWmpackdet matching the query, or a new ChildWmpackdet object populated from the query conditions when no match is found
  *
- * @method     ChildWmpackdet findOneBySessionid(string $sessionid) Return the first ChildWmpackdet filtered by the sessionid column
- * @method     ChildWmpackdet findOneByOrdernbr(string $ordernbr) Return the first ChildWmpackdet filtered by the ordernbr column
- * @method     ChildWmpackdet findOneByLinenbr(int $linenbr) Return the first ChildWmpackdet filtered by the linenbr column
- * @method     ChildWmpackdet findOneByItemid(string $itemid) Return the first ChildWmpackdet filtered by the itemid column
- * @method     ChildWmpackdet findOneByLotserial(string $lotserial) Return the first ChildWmpackdet filtered by the lotserial column
- * @method     ChildWmpackdet findOneByDesc1(string $desc1) Return the first ChildWmpackdet filtered by the desc1 column
- * @method     ChildWmpackdet findOneByDesc2(string $desc2) Return the first ChildWmpackdet filtered by the desc2 column
- * @method     ChildWmpackdet findOneByQtyToship(int $qty_toship) Return the first ChildWmpackdet filtered by the qty_toship column
- * @method     ChildWmpackdet findOneByQtyPacked(int $qty_packed) Return the first ChildWmpackdet filtered by the qty_packed column
- * @method     ChildWmpackdet findOneByQtyRemaining(int $qty_remaining) Return the first ChildWmpackdet filtered by the qty_remaining column
- * @method     ChildWmpackdet findOneByDate(int $date) Return the first ChildWmpackdet filtered by the date column
- * @method     ChildWmpackdet findOneByTime(int $time) Return the first ChildWmpackdet filtered by the time column *
-
- * @method     ChildWmpackdet requirePk($key, ConnectionInterface $con = null) Return the ChildWmpackdet by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWmpackdet requireOne(ConnectionInterface $con = null) Return the first ChildWmpackdet matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWmpackdet|null findOneBySessionid(string $sessionid) Return the first ChildWmpackdet filtered by the sessionid column
+ * @method     ChildWmpackdet|null findOneByOrdernbr(string $ordernbr) Return the first ChildWmpackdet filtered by the ordernbr column
+ * @method     ChildWmpackdet|null findOneByLinenbr(int $linenbr) Return the first ChildWmpackdet filtered by the linenbr column
+ * @method     ChildWmpackdet|null findOneByItemid(string $itemid) Return the first ChildWmpackdet filtered by the itemid column
+ * @method     ChildWmpackdet|null findOneByLotserial(string $lotserial) Return the first ChildWmpackdet filtered by the lotserial column
+ * @method     ChildWmpackdet|null findOneByDesc1(string $desc1) Return the first ChildWmpackdet filtered by the desc1 column
+ * @method     ChildWmpackdet|null findOneByDesc2(string $desc2) Return the first ChildWmpackdet filtered by the desc2 column
+ * @method     ChildWmpackdet|null findOneByQtyToship(int $qty_toship) Return the first ChildWmpackdet filtered by the qty_toship column
+ * @method     ChildWmpackdet|null findOneByQtyPacked(int $qty_packed) Return the first ChildWmpackdet filtered by the qty_packed column
+ * @method     ChildWmpackdet|null findOneByQtyRemaining(int $qty_remaining) Return the first ChildWmpackdet filtered by the qty_remaining column
+ * @method     ChildWmpackdet|null findOneByDate(int $date) Return the first ChildWmpackdet filtered by the date column
+ * @method     ChildWmpackdet|null findOneByTime(int $time) Return the first ChildWmpackdet filtered by the time column
+ *
+ * @method     ChildWmpackdet requirePk($key, ?ConnectionInterface $con = null) Return the ChildWmpackdet by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWmpackdet requireOne(?ConnectionInterface $con = null) Return the first ChildWmpackdet matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildWmpackdet requireOneBySessionid(string $sessionid) Return the first ChildWmpackdet filtered by the sessionid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWmpackdet requireOneByOrdernbr(string $ordernbr) Return the first ChildWmpackdet filtered by the ordernbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -85,21 +83,36 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWmpackdet requireOneByDate(int $date) Return the first ChildWmpackdet filtered by the date column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWmpackdet requireOneByTime(int $time) Return the first ChildWmpackdet filtered by the time column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildWmpackdet[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildWmpackdet objects based on current ModelCriteria
- * @method     ChildWmpackdet[]|ObjectCollection findBySessionid(string $sessionid) Return ChildWmpackdet objects filtered by the sessionid column
- * @method     ChildWmpackdet[]|ObjectCollection findByOrdernbr(string $ordernbr) Return ChildWmpackdet objects filtered by the ordernbr column
- * @method     ChildWmpackdet[]|ObjectCollection findByLinenbr(int $linenbr) Return ChildWmpackdet objects filtered by the linenbr column
- * @method     ChildWmpackdet[]|ObjectCollection findByItemid(string $itemid) Return ChildWmpackdet objects filtered by the itemid column
- * @method     ChildWmpackdet[]|ObjectCollection findByLotserial(string $lotserial) Return ChildWmpackdet objects filtered by the lotserial column
- * @method     ChildWmpackdet[]|ObjectCollection findByDesc1(string $desc1) Return ChildWmpackdet objects filtered by the desc1 column
- * @method     ChildWmpackdet[]|ObjectCollection findByDesc2(string $desc2) Return ChildWmpackdet objects filtered by the desc2 column
- * @method     ChildWmpackdet[]|ObjectCollection findByQtyToship(int $qty_toship) Return ChildWmpackdet objects filtered by the qty_toship column
- * @method     ChildWmpackdet[]|ObjectCollection findByQtyPacked(int $qty_packed) Return ChildWmpackdet objects filtered by the qty_packed column
- * @method     ChildWmpackdet[]|ObjectCollection findByQtyRemaining(int $qty_remaining) Return ChildWmpackdet objects filtered by the qty_remaining column
- * @method     ChildWmpackdet[]|ObjectCollection findByDate(int $date) Return ChildWmpackdet objects filtered by the date column
- * @method     ChildWmpackdet[]|ObjectCollection findByTime(int $time) Return ChildWmpackdet objects filtered by the time column
- * @method     ChildWmpackdet[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildWmpackdet[]|Collection find(?ConnectionInterface $con = null) Return ChildWmpackdet objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildWmpackdet> find(?ConnectionInterface $con = null) Return ChildWmpackdet objects based on current ModelCriteria
  *
+ * @method     ChildWmpackdet[]|Collection findBySessionid(string|array<string> $sessionid) Return ChildWmpackdet objects filtered by the sessionid column
+ * @psalm-method Collection&\Traversable<ChildWmpackdet> findBySessionid(string|array<string> $sessionid) Return ChildWmpackdet objects filtered by the sessionid column
+ * @method     ChildWmpackdet[]|Collection findByOrdernbr(string|array<string> $ordernbr) Return ChildWmpackdet objects filtered by the ordernbr column
+ * @psalm-method Collection&\Traversable<ChildWmpackdet> findByOrdernbr(string|array<string> $ordernbr) Return ChildWmpackdet objects filtered by the ordernbr column
+ * @method     ChildWmpackdet[]|Collection findByLinenbr(int|array<int> $linenbr) Return ChildWmpackdet objects filtered by the linenbr column
+ * @psalm-method Collection&\Traversable<ChildWmpackdet> findByLinenbr(int|array<int> $linenbr) Return ChildWmpackdet objects filtered by the linenbr column
+ * @method     ChildWmpackdet[]|Collection findByItemid(string|array<string> $itemid) Return ChildWmpackdet objects filtered by the itemid column
+ * @psalm-method Collection&\Traversable<ChildWmpackdet> findByItemid(string|array<string> $itemid) Return ChildWmpackdet objects filtered by the itemid column
+ * @method     ChildWmpackdet[]|Collection findByLotserial(string|array<string> $lotserial) Return ChildWmpackdet objects filtered by the lotserial column
+ * @psalm-method Collection&\Traversable<ChildWmpackdet> findByLotserial(string|array<string> $lotserial) Return ChildWmpackdet objects filtered by the lotserial column
+ * @method     ChildWmpackdet[]|Collection findByDesc1(string|array<string> $desc1) Return ChildWmpackdet objects filtered by the desc1 column
+ * @psalm-method Collection&\Traversable<ChildWmpackdet> findByDesc1(string|array<string> $desc1) Return ChildWmpackdet objects filtered by the desc1 column
+ * @method     ChildWmpackdet[]|Collection findByDesc2(string|array<string> $desc2) Return ChildWmpackdet objects filtered by the desc2 column
+ * @psalm-method Collection&\Traversable<ChildWmpackdet> findByDesc2(string|array<string> $desc2) Return ChildWmpackdet objects filtered by the desc2 column
+ * @method     ChildWmpackdet[]|Collection findByQtyToship(int|array<int> $qty_toship) Return ChildWmpackdet objects filtered by the qty_toship column
+ * @psalm-method Collection&\Traversable<ChildWmpackdet> findByQtyToship(int|array<int> $qty_toship) Return ChildWmpackdet objects filtered by the qty_toship column
+ * @method     ChildWmpackdet[]|Collection findByQtyPacked(int|array<int> $qty_packed) Return ChildWmpackdet objects filtered by the qty_packed column
+ * @psalm-method Collection&\Traversable<ChildWmpackdet> findByQtyPacked(int|array<int> $qty_packed) Return ChildWmpackdet objects filtered by the qty_packed column
+ * @method     ChildWmpackdet[]|Collection findByQtyRemaining(int|array<int> $qty_remaining) Return ChildWmpackdet objects filtered by the qty_remaining column
+ * @psalm-method Collection&\Traversable<ChildWmpackdet> findByQtyRemaining(int|array<int> $qty_remaining) Return ChildWmpackdet objects filtered by the qty_remaining column
+ * @method     ChildWmpackdet[]|Collection findByDate(int|array<int> $date) Return ChildWmpackdet objects filtered by the date column
+ * @psalm-method Collection&\Traversable<ChildWmpackdet> findByDate(int|array<int> $date) Return ChildWmpackdet objects filtered by the date column
+ * @method     ChildWmpackdet[]|Collection findByTime(int|array<int> $time) Return ChildWmpackdet objects filtered by the time column
+ * @psalm-method Collection&\Traversable<ChildWmpackdet> findByTime(int|array<int> $time) Return ChildWmpackdet objects filtered by the time column
+ *
+ * @method     ChildWmpackdet[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildWmpackdet> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class WmpackdetQuery extends ModelCriteria
 {
@@ -108,9 +121,9 @@ abstract class WmpackdetQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\WmpackdetQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'dplusodb', $modelName = '\\Wmpackdet', $modelAlias = null)
     {
@@ -120,12 +133,12 @@ abstract class WmpackdetQuery extends ModelCriteria
     /**
      * Returns a new ChildWmpackdetQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildWmpackdetQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildWmpackdetQuery) {
             return $criteria;
@@ -155,7 +168,7 @@ abstract class WmpackdetQuery extends ModelCriteria
      *
      * @return ChildWmpackdet|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -187,8 +200,8 @@ abstract class WmpackdetQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -224,8 +237,8 @@ abstract class WmpackdetQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildWmpackdet|array|mixed the result, formatted by the current formatter
      */
@@ -245,12 +258,12 @@ abstract class WmpackdetQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -267,9 +280,9 @@ abstract class WmpackdetQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildWmpackdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -285,14 +298,16 @@ abstract class WmpackdetQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildWmpackdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(WmpackdetTableMap::COL_SESSIONID, $key[0], Criteria::EQUAL);
@@ -317,14 +332,15 @@ abstract class WmpackdetQuery extends ModelCriteria
      * <code>
      * $query->filterBySessionid('fooValue');   // WHERE sessionid = 'fooValue'
      * $query->filterBySessionid('%fooValue%', Criteria::LIKE); // WHERE sessionid LIKE '%fooValue%'
+     * $query->filterBySessionid(['foo', 'bar']); // WHERE sessionid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sessionid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sessionid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWmpackdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySessionid($sessionid = null, $comparison = null)
+    public function filterBySessionid($sessionid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sessionid)) {
@@ -332,7 +348,9 @@ abstract class WmpackdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WmpackdetTableMap::COL_SESSIONID, $sessionid, $comparison);
+        $this->addUsingAlias(WmpackdetTableMap::COL_SESSIONID, $sessionid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -342,14 +360,15 @@ abstract class WmpackdetQuery extends ModelCriteria
      * <code>
      * $query->filterByOrdernbr('fooValue');   // WHERE ordernbr = 'fooValue'
      * $query->filterByOrdernbr('%fooValue%', Criteria::LIKE); // WHERE ordernbr LIKE '%fooValue%'
+     * $query->filterByOrdernbr(['foo', 'bar']); // WHERE ordernbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $ordernbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $ordernbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWmpackdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOrdernbr($ordernbr = null, $comparison = null)
+    public function filterByOrdernbr($ordernbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($ordernbr)) {
@@ -357,7 +376,9 @@ abstract class WmpackdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WmpackdetTableMap::COL_ORDERNBR, $ordernbr, $comparison);
+        $this->addUsingAlias(WmpackdetTableMap::COL_ORDERNBR, $ordernbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -370,15 +391,15 @@ abstract class WmpackdetQuery extends ModelCriteria
      * $query->filterByLinenbr(array('min' => 12)); // WHERE linenbr > 12
      * </code>
      *
-     * @param     mixed $linenbr The value to use as filter.
+     * @param mixed $linenbr The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWmpackdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLinenbr($linenbr = null, $comparison = null)
+    public function filterByLinenbr($linenbr = null, ?string $comparison = null)
     {
         if (is_array($linenbr)) {
             $useMinMax = false;
@@ -398,7 +419,9 @@ abstract class WmpackdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WmpackdetTableMap::COL_LINENBR, $linenbr, $comparison);
+        $this->addUsingAlias(WmpackdetTableMap::COL_LINENBR, $linenbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -408,14 +431,15 @@ abstract class WmpackdetQuery extends ModelCriteria
      * <code>
      * $query->filterByItemid('fooValue');   // WHERE itemid = 'fooValue'
      * $query->filterByItemid('%fooValue%', Criteria::LIKE); // WHERE itemid LIKE '%fooValue%'
+     * $query->filterByItemid(['foo', 'bar']); // WHERE itemid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itemid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itemid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWmpackdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemid($itemid = null, $comparison = null)
+    public function filterByItemid($itemid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itemid)) {
@@ -423,7 +447,9 @@ abstract class WmpackdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WmpackdetTableMap::COL_ITEMID, $itemid, $comparison);
+        $this->addUsingAlias(WmpackdetTableMap::COL_ITEMID, $itemid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -433,14 +459,15 @@ abstract class WmpackdetQuery extends ModelCriteria
      * <code>
      * $query->filterByLotserial('fooValue');   // WHERE lotserial = 'fooValue'
      * $query->filterByLotserial('%fooValue%', Criteria::LIKE); // WHERE lotserial LIKE '%fooValue%'
+     * $query->filterByLotserial(['foo', 'bar']); // WHERE lotserial IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lotserial The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lotserial The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWmpackdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLotserial($lotserial = null, $comparison = null)
+    public function filterByLotserial($lotserial = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lotserial)) {
@@ -448,7 +475,9 @@ abstract class WmpackdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WmpackdetTableMap::COL_LOTSERIAL, $lotserial, $comparison);
+        $this->addUsingAlias(WmpackdetTableMap::COL_LOTSERIAL, $lotserial, $comparison);
+
+        return $this;
     }
 
     /**
@@ -458,14 +487,15 @@ abstract class WmpackdetQuery extends ModelCriteria
      * <code>
      * $query->filterByDesc1('fooValue');   // WHERE desc1 = 'fooValue'
      * $query->filterByDesc1('%fooValue%', Criteria::LIKE); // WHERE desc1 LIKE '%fooValue%'
+     * $query->filterByDesc1(['foo', 'bar']); // WHERE desc1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $desc1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $desc1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWmpackdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDesc1($desc1 = null, $comparison = null)
+    public function filterByDesc1($desc1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($desc1)) {
@@ -473,7 +503,9 @@ abstract class WmpackdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WmpackdetTableMap::COL_DESC1, $desc1, $comparison);
+        $this->addUsingAlias(WmpackdetTableMap::COL_DESC1, $desc1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -483,14 +515,15 @@ abstract class WmpackdetQuery extends ModelCriteria
      * <code>
      * $query->filterByDesc2('fooValue');   // WHERE desc2 = 'fooValue'
      * $query->filterByDesc2('%fooValue%', Criteria::LIKE); // WHERE desc2 LIKE '%fooValue%'
+     * $query->filterByDesc2(['foo', 'bar']); // WHERE desc2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $desc2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $desc2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWmpackdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDesc2($desc2 = null, $comparison = null)
+    public function filterByDesc2($desc2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($desc2)) {
@@ -498,7 +531,9 @@ abstract class WmpackdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WmpackdetTableMap::COL_DESC2, $desc2, $comparison);
+        $this->addUsingAlias(WmpackdetTableMap::COL_DESC2, $desc2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -511,15 +546,15 @@ abstract class WmpackdetQuery extends ModelCriteria
      * $query->filterByQtyToship(array('min' => 12)); // WHERE qty_toship > 12
      * </code>
      *
-     * @param     mixed $qtyToship The value to use as filter.
+     * @param mixed $qtyToship The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWmpackdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtyToship($qtyToship = null, $comparison = null)
+    public function filterByQtyToship($qtyToship = null, ?string $comparison = null)
     {
         if (is_array($qtyToship)) {
             $useMinMax = false;
@@ -539,7 +574,9 @@ abstract class WmpackdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WmpackdetTableMap::COL_QTY_TOSHIP, $qtyToship, $comparison);
+        $this->addUsingAlias(WmpackdetTableMap::COL_QTY_TOSHIP, $qtyToship, $comparison);
+
+        return $this;
     }
 
     /**
@@ -552,15 +589,15 @@ abstract class WmpackdetQuery extends ModelCriteria
      * $query->filterByQtyPacked(array('min' => 12)); // WHERE qty_packed > 12
      * </code>
      *
-     * @param     mixed $qtyPacked The value to use as filter.
+     * @param mixed $qtyPacked The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWmpackdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtyPacked($qtyPacked = null, $comparison = null)
+    public function filterByQtyPacked($qtyPacked = null, ?string $comparison = null)
     {
         if (is_array($qtyPacked)) {
             $useMinMax = false;
@@ -580,7 +617,9 @@ abstract class WmpackdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WmpackdetTableMap::COL_QTY_PACKED, $qtyPacked, $comparison);
+        $this->addUsingAlias(WmpackdetTableMap::COL_QTY_PACKED, $qtyPacked, $comparison);
+
+        return $this;
     }
 
     /**
@@ -593,15 +632,15 @@ abstract class WmpackdetQuery extends ModelCriteria
      * $query->filterByQtyRemaining(array('min' => 12)); // WHERE qty_remaining > 12
      * </code>
      *
-     * @param     mixed $qtyRemaining The value to use as filter.
+     * @param mixed $qtyRemaining The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWmpackdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtyRemaining($qtyRemaining = null, $comparison = null)
+    public function filterByQtyRemaining($qtyRemaining = null, ?string $comparison = null)
     {
         if (is_array($qtyRemaining)) {
             $useMinMax = false;
@@ -621,7 +660,9 @@ abstract class WmpackdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WmpackdetTableMap::COL_QTY_REMAINING, $qtyRemaining, $comparison);
+        $this->addUsingAlias(WmpackdetTableMap::COL_QTY_REMAINING, $qtyRemaining, $comparison);
+
+        return $this;
     }
 
     /**
@@ -634,15 +675,15 @@ abstract class WmpackdetQuery extends ModelCriteria
      * $query->filterByDate(array('min' => 12)); // WHERE date > 12
      * </code>
      *
-     * @param     mixed $date The value to use as filter.
+     * @param mixed $date The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWmpackdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDate($date = null, $comparison = null)
+    public function filterByDate($date = null, ?string $comparison = null)
     {
         if (is_array($date)) {
             $useMinMax = false;
@@ -662,7 +703,9 @@ abstract class WmpackdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WmpackdetTableMap::COL_DATE, $date, $comparison);
+        $this->addUsingAlias(WmpackdetTableMap::COL_DATE, $date, $comparison);
+
+        return $this;
     }
 
     /**
@@ -675,15 +718,15 @@ abstract class WmpackdetQuery extends ModelCriteria
      * $query->filterByTime(array('min' => 12)); // WHERE time > 12
      * </code>
      *
-     * @param     mixed $time The value to use as filter.
+     * @param mixed $time The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWmpackdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTime($time = null, $comparison = null)
+    public function filterByTime($time = null, ?string $comparison = null)
     {
         if (is_array($time)) {
             $useMinMax = false;
@@ -703,15 +746,17 @@ abstract class WmpackdetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WmpackdetTableMap::COL_TIME, $time, $comparison);
+        $this->addUsingAlias(WmpackdetTableMap::COL_TIME, $time, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildWmpackdet $wmpackdet Object to remove from the list of results
+     * @param ChildWmpackdet $wmpackdet Object to remove from the list of results
      *
-     * @return $this|ChildWmpackdetQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($wmpackdet = null)
     {
@@ -733,7 +778,7 @@ abstract class WmpackdetQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(WmpackdetTableMap::DATABASE_NAME);
@@ -758,12 +803,12 @@ abstract class WmpackdetQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(WmpackdetTableMap::DATABASE_NAME);
@@ -788,4 +833,4 @@ abstract class WmpackdetQuery extends ModelCriteria
         });
     }
 
-} // WmpackdetQuery
+}

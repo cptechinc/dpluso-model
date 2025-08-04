@@ -10,14 +10,12 @@ use Map\CartLotTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'cartlots' table.
- *
- *
+ * Base class that represents a query for the `cartlots` table.
  *
  * @method     ChildCartLotQuery orderBySessionid($order = Criteria::ASC) Order by the sessionid column
  * @method     ChildCartLotQuery orderByLinenbr($order = Criteria::ASC) Order by the linenbr column
@@ -49,22 +47,22 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCartLotQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildCartLotQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildCartLot findOne(ConnectionInterface $con = null) Return the first ChildCartLot matching the query
- * @method     ChildCartLot findOneOrCreate(ConnectionInterface $con = null) Return the first ChildCartLot matching the query, or a new ChildCartLot object populated from the query conditions when no match is found
+ * @method     ChildCartLot|null findOne(?ConnectionInterface $con = null) Return the first ChildCartLot matching the query
+ * @method     ChildCartLot findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildCartLot matching the query, or a new ChildCartLot object populated from the query conditions when no match is found
  *
- * @method     ChildCartLot findOneBySessionid(string $sessionid) Return the first ChildCartLot filtered by the sessionid column
- * @method     ChildCartLot findOneByLinenbr(int $linenbr) Return the first ChildCartLot filtered by the linenbr column
- * @method     ChildCartLot findOneBySequence(int $sequence) Return the first ChildCartLot filtered by the sequence column
- * @method     ChildCartLot findOneByItemid(string $itemid) Return the first ChildCartLot filtered by the itemid column
- * @method     ChildCartLot findOneByLotserial(string $lotserial) Return the first ChildCartLot filtered by the lotserial column
- * @method     ChildCartLot findOneByQty(int $qty) Return the first ChildCartLot filtered by the qty column
- * @method     ChildCartLot findOneByErrormes(string $errormes) Return the first ChildCartLot filtered by the errormes column
- * @method     ChildCartLot findOneByDate(string $date) Return the first ChildCartLot filtered by the date column
- * @method     ChildCartLot findOneByTime(int $time) Return the first ChildCartLot filtered by the time column
- * @method     ChildCartLot findOneByDummy(string $dummy) Return the first ChildCartLot filtered by the dummy column *
-
- * @method     ChildCartLot requirePk($key, ConnectionInterface $con = null) Return the ChildCartLot by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCartLot requireOne(ConnectionInterface $con = null) Return the first ChildCartLot matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCartLot|null findOneBySessionid(string $sessionid) Return the first ChildCartLot filtered by the sessionid column
+ * @method     ChildCartLot|null findOneByLinenbr(int $linenbr) Return the first ChildCartLot filtered by the linenbr column
+ * @method     ChildCartLot|null findOneBySequence(int $sequence) Return the first ChildCartLot filtered by the sequence column
+ * @method     ChildCartLot|null findOneByItemid(string $itemid) Return the first ChildCartLot filtered by the itemid column
+ * @method     ChildCartLot|null findOneByLotserial(string $lotserial) Return the first ChildCartLot filtered by the lotserial column
+ * @method     ChildCartLot|null findOneByQty(int $qty) Return the first ChildCartLot filtered by the qty column
+ * @method     ChildCartLot|null findOneByErrormes(string $errormes) Return the first ChildCartLot filtered by the errormes column
+ * @method     ChildCartLot|null findOneByDate(string $date) Return the first ChildCartLot filtered by the date column
+ * @method     ChildCartLot|null findOneByTime(int $time) Return the first ChildCartLot filtered by the time column
+ * @method     ChildCartLot|null findOneByDummy(string $dummy) Return the first ChildCartLot filtered by the dummy column
+ *
+ * @method     ChildCartLot requirePk($key, ?ConnectionInterface $con = null) Return the ChildCartLot by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCartLot requireOne(?ConnectionInterface $con = null) Return the first ChildCartLot matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildCartLot requireOneBySessionid(string $sessionid) Return the first ChildCartLot filtered by the sessionid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCartLot requireOneByLinenbr(int $linenbr) Return the first ChildCartLot filtered by the linenbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -77,19 +75,32 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCartLot requireOneByTime(int $time) Return the first ChildCartLot filtered by the time column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCartLot requireOneByDummy(string $dummy) Return the first ChildCartLot filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildCartLot[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildCartLot objects based on current ModelCriteria
- * @method     ChildCartLot[]|ObjectCollection findBySessionid(string $sessionid) Return ChildCartLot objects filtered by the sessionid column
- * @method     ChildCartLot[]|ObjectCollection findByLinenbr(int $linenbr) Return ChildCartLot objects filtered by the linenbr column
- * @method     ChildCartLot[]|ObjectCollection findBySequence(int $sequence) Return ChildCartLot objects filtered by the sequence column
- * @method     ChildCartLot[]|ObjectCollection findByItemid(string $itemid) Return ChildCartLot objects filtered by the itemid column
- * @method     ChildCartLot[]|ObjectCollection findByLotserial(string $lotserial) Return ChildCartLot objects filtered by the lotserial column
- * @method     ChildCartLot[]|ObjectCollection findByQty(int $qty) Return ChildCartLot objects filtered by the qty column
- * @method     ChildCartLot[]|ObjectCollection findByErrormes(string $errormes) Return ChildCartLot objects filtered by the errormes column
- * @method     ChildCartLot[]|ObjectCollection findByDate(string $date) Return ChildCartLot objects filtered by the date column
- * @method     ChildCartLot[]|ObjectCollection findByTime(int $time) Return ChildCartLot objects filtered by the time column
- * @method     ChildCartLot[]|ObjectCollection findByDummy(string $dummy) Return ChildCartLot objects filtered by the dummy column
- * @method     ChildCartLot[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildCartLot[]|Collection find(?ConnectionInterface $con = null) Return ChildCartLot objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildCartLot> find(?ConnectionInterface $con = null) Return ChildCartLot objects based on current ModelCriteria
  *
+ * @method     ChildCartLot[]|Collection findBySessionid(string|array<string> $sessionid) Return ChildCartLot objects filtered by the sessionid column
+ * @psalm-method Collection&\Traversable<ChildCartLot> findBySessionid(string|array<string> $sessionid) Return ChildCartLot objects filtered by the sessionid column
+ * @method     ChildCartLot[]|Collection findByLinenbr(int|array<int> $linenbr) Return ChildCartLot objects filtered by the linenbr column
+ * @psalm-method Collection&\Traversable<ChildCartLot> findByLinenbr(int|array<int> $linenbr) Return ChildCartLot objects filtered by the linenbr column
+ * @method     ChildCartLot[]|Collection findBySequence(int|array<int> $sequence) Return ChildCartLot objects filtered by the sequence column
+ * @psalm-method Collection&\Traversable<ChildCartLot> findBySequence(int|array<int> $sequence) Return ChildCartLot objects filtered by the sequence column
+ * @method     ChildCartLot[]|Collection findByItemid(string|array<string> $itemid) Return ChildCartLot objects filtered by the itemid column
+ * @psalm-method Collection&\Traversable<ChildCartLot> findByItemid(string|array<string> $itemid) Return ChildCartLot objects filtered by the itemid column
+ * @method     ChildCartLot[]|Collection findByLotserial(string|array<string> $lotserial) Return ChildCartLot objects filtered by the lotserial column
+ * @psalm-method Collection&\Traversable<ChildCartLot> findByLotserial(string|array<string> $lotserial) Return ChildCartLot objects filtered by the lotserial column
+ * @method     ChildCartLot[]|Collection findByQty(int|array<int> $qty) Return ChildCartLot objects filtered by the qty column
+ * @psalm-method Collection&\Traversable<ChildCartLot> findByQty(int|array<int> $qty) Return ChildCartLot objects filtered by the qty column
+ * @method     ChildCartLot[]|Collection findByErrormes(string|array<string> $errormes) Return ChildCartLot objects filtered by the errormes column
+ * @psalm-method Collection&\Traversable<ChildCartLot> findByErrormes(string|array<string> $errormes) Return ChildCartLot objects filtered by the errormes column
+ * @method     ChildCartLot[]|Collection findByDate(string|array<string> $date) Return ChildCartLot objects filtered by the date column
+ * @psalm-method Collection&\Traversable<ChildCartLot> findByDate(string|array<string> $date) Return ChildCartLot objects filtered by the date column
+ * @method     ChildCartLot[]|Collection findByTime(int|array<int> $time) Return ChildCartLot objects filtered by the time column
+ * @psalm-method Collection&\Traversable<ChildCartLot> findByTime(int|array<int> $time) Return ChildCartLot objects filtered by the time column
+ * @method     ChildCartLot[]|Collection findByDummy(string|array<string> $dummy) Return ChildCartLot objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildCartLot> findByDummy(string|array<string> $dummy) Return ChildCartLot objects filtered by the dummy column
+ *
+ * @method     ChildCartLot[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildCartLot> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class CartLotQuery extends ModelCriteria
 {
@@ -98,9 +109,9 @@ abstract class CartLotQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\CartLotQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'dplusodb', $modelName = '\\CartLot', $modelAlias = null)
     {
@@ -110,12 +121,12 @@ abstract class CartLotQuery extends ModelCriteria
     /**
      * Returns a new ChildCartLotQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildCartLotQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildCartLotQuery) {
             return $criteria;
@@ -145,7 +156,7 @@ abstract class CartLotQuery extends ModelCriteria
      *
      * @return ChildCartLot|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -177,8 +188,8 @@ abstract class CartLotQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -212,8 +223,8 @@ abstract class CartLotQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildCartLot|array|mixed the result, formatted by the current formatter
      */
@@ -233,12 +244,12 @@ abstract class CartLotQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -255,9 +266,9 @@ abstract class CartLotQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildCartLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -271,14 +282,16 @@ abstract class CartLotQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildCartLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(CartLotTableMap::COL_SESSIONID, $key[0], Criteria::EQUAL);
@@ -299,14 +312,15 @@ abstract class CartLotQuery extends ModelCriteria
      * <code>
      * $query->filterBySessionid('fooValue');   // WHERE sessionid = 'fooValue'
      * $query->filterBySessionid('%fooValue%', Criteria::LIKE); // WHERE sessionid LIKE '%fooValue%'
+     * $query->filterBySessionid(['foo', 'bar']); // WHERE sessionid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sessionid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sessionid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCartLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySessionid($sessionid = null, $comparison = null)
+    public function filterBySessionid($sessionid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sessionid)) {
@@ -314,7 +328,9 @@ abstract class CartLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CartLotTableMap::COL_SESSIONID, $sessionid, $comparison);
+        $this->addUsingAlias(CartLotTableMap::COL_SESSIONID, $sessionid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -327,15 +343,15 @@ abstract class CartLotQuery extends ModelCriteria
      * $query->filterByLinenbr(array('min' => 12)); // WHERE linenbr > 12
      * </code>
      *
-     * @param     mixed $linenbr The value to use as filter.
+     * @param mixed $linenbr The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCartLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLinenbr($linenbr = null, $comparison = null)
+    public function filterByLinenbr($linenbr = null, ?string $comparison = null)
     {
         if (is_array($linenbr)) {
             $useMinMax = false;
@@ -355,7 +371,9 @@ abstract class CartLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CartLotTableMap::COL_LINENBR, $linenbr, $comparison);
+        $this->addUsingAlias(CartLotTableMap::COL_LINENBR, $linenbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -368,15 +386,15 @@ abstract class CartLotQuery extends ModelCriteria
      * $query->filterBySequence(array('min' => 12)); // WHERE sequence > 12
      * </code>
      *
-     * @param     mixed $sequence The value to use as filter.
+     * @param mixed $sequence The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCartLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySequence($sequence = null, $comparison = null)
+    public function filterBySequence($sequence = null, ?string $comparison = null)
     {
         if (is_array($sequence)) {
             $useMinMax = false;
@@ -396,7 +414,9 @@ abstract class CartLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CartLotTableMap::COL_SEQUENCE, $sequence, $comparison);
+        $this->addUsingAlias(CartLotTableMap::COL_SEQUENCE, $sequence, $comparison);
+
+        return $this;
     }
 
     /**
@@ -406,14 +426,15 @@ abstract class CartLotQuery extends ModelCriteria
      * <code>
      * $query->filterByItemid('fooValue');   // WHERE itemid = 'fooValue'
      * $query->filterByItemid('%fooValue%', Criteria::LIKE); // WHERE itemid LIKE '%fooValue%'
+     * $query->filterByItemid(['foo', 'bar']); // WHERE itemid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itemid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itemid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCartLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemid($itemid = null, $comparison = null)
+    public function filterByItemid($itemid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itemid)) {
@@ -421,7 +442,9 @@ abstract class CartLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CartLotTableMap::COL_ITEMID, $itemid, $comparison);
+        $this->addUsingAlias(CartLotTableMap::COL_ITEMID, $itemid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -431,14 +454,15 @@ abstract class CartLotQuery extends ModelCriteria
      * <code>
      * $query->filterByLotserial('fooValue');   // WHERE lotserial = 'fooValue'
      * $query->filterByLotserial('%fooValue%', Criteria::LIKE); // WHERE lotserial LIKE '%fooValue%'
+     * $query->filterByLotserial(['foo', 'bar']); // WHERE lotserial IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lotserial The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lotserial The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCartLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLotserial($lotserial = null, $comparison = null)
+    public function filterByLotserial($lotserial = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lotserial)) {
@@ -446,7 +470,9 @@ abstract class CartLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CartLotTableMap::COL_LOTSERIAL, $lotserial, $comparison);
+        $this->addUsingAlias(CartLotTableMap::COL_LOTSERIAL, $lotserial, $comparison);
+
+        return $this;
     }
 
     /**
@@ -459,15 +485,15 @@ abstract class CartLotQuery extends ModelCriteria
      * $query->filterByQty(array('min' => 12)); // WHERE qty > 12
      * </code>
      *
-     * @param     mixed $qty The value to use as filter.
+     * @param mixed $qty The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCartLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQty($qty = null, $comparison = null)
+    public function filterByQty($qty = null, ?string $comparison = null)
     {
         if (is_array($qty)) {
             $useMinMax = false;
@@ -487,7 +513,9 @@ abstract class CartLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CartLotTableMap::COL_QTY, $qty, $comparison);
+        $this->addUsingAlias(CartLotTableMap::COL_QTY, $qty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -497,14 +525,15 @@ abstract class CartLotQuery extends ModelCriteria
      * <code>
      * $query->filterByErrormes('fooValue');   // WHERE errormes = 'fooValue'
      * $query->filterByErrormes('%fooValue%', Criteria::LIKE); // WHERE errormes LIKE '%fooValue%'
+     * $query->filterByErrormes(['foo', 'bar']); // WHERE errormes IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $errormes The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $errormes The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCartLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByErrormes($errormes = null, $comparison = null)
+    public function filterByErrormes($errormes = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($errormes)) {
@@ -512,7 +541,9 @@ abstract class CartLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CartLotTableMap::COL_ERRORMES, $errormes, $comparison);
+        $this->addUsingAlias(CartLotTableMap::COL_ERRORMES, $errormes, $comparison);
+
+        return $this;
     }
 
     /**
@@ -522,14 +553,15 @@ abstract class CartLotQuery extends ModelCriteria
      * <code>
      * $query->filterByDate('fooValue');   // WHERE date = 'fooValue'
      * $query->filterByDate('%fooValue%', Criteria::LIKE); // WHERE date LIKE '%fooValue%'
+     * $query->filterByDate(['foo', 'bar']); // WHERE date IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $date The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $date The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCartLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDate($date = null, $comparison = null)
+    public function filterByDate($date = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($date)) {
@@ -537,7 +569,9 @@ abstract class CartLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CartLotTableMap::COL_DATE, $date, $comparison);
+        $this->addUsingAlias(CartLotTableMap::COL_DATE, $date, $comparison);
+
+        return $this;
     }
 
     /**
@@ -550,15 +584,15 @@ abstract class CartLotQuery extends ModelCriteria
      * $query->filterByTime(array('min' => 12)); // WHERE time > 12
      * </code>
      *
-     * @param     mixed $time The value to use as filter.
+     * @param mixed $time The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCartLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTime($time = null, $comparison = null)
+    public function filterByTime($time = null, ?string $comparison = null)
     {
         if (is_array($time)) {
             $useMinMax = false;
@@ -578,7 +612,9 @@ abstract class CartLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CartLotTableMap::COL_TIME, $time, $comparison);
+        $this->addUsingAlias(CartLotTableMap::COL_TIME, $time, $comparison);
+
+        return $this;
     }
 
     /**
@@ -588,14 +624,15 @@ abstract class CartLotQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCartLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -603,15 +640,17 @@ abstract class CartLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CartLotTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(CartLotTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildCartLot $cartLot Object to remove from the list of results
+     * @param ChildCartLot $cartLot Object to remove from the list of results
      *
-     * @return $this|ChildCartLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($cartLot = null)
     {
@@ -631,7 +670,7 @@ abstract class CartLotQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CartLotTableMap::DATABASE_NAME);
@@ -656,12 +695,12 @@ abstract class CartLotQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CartLotTableMap::DATABASE_NAME);
@@ -686,4 +725,4 @@ abstract class CartLotQuery extends ModelCriteria
         });
     }
 
-} // CartLotQuery
+}

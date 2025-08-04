@@ -10,14 +10,12 @@ use Map\QuothedTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'quothed' table.
- *
- *
+ * Base class that represents a query for the `quothed` table.
  *
  * @method     ChildQuothedQuery orderBySessionid($order = Criteria::ASC) Order by the sessionid column
  * @method     ChildQuothedQuery orderByRecno($order = Criteria::ASC) Order by the recno column
@@ -161,78 +159,78 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildQuothedQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildQuothedQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildQuothed findOne(ConnectionInterface $con = null) Return the first ChildQuothed matching the query
- * @method     ChildQuothed findOneOrCreate(ConnectionInterface $con = null) Return the first ChildQuothed matching the query, or a new ChildQuothed object populated from the query conditions when no match is found
+ * @method     ChildQuothed|null findOne(?ConnectionInterface $con = null) Return the first ChildQuothed matching the query
+ * @method     ChildQuothed findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildQuothed matching the query, or a new ChildQuothed object populated from the query conditions when no match is found
  *
- * @method     ChildQuothed findOneBySessionid(string $sessionid) Return the first ChildQuothed filtered by the sessionid column
- * @method     ChildQuothed findOneByRecno(int $recno) Return the first ChildQuothed filtered by the recno column
- * @method     ChildQuothed findOneByDate(int $date) Return the first ChildQuothed filtered by the date column
- * @method     ChildQuothed findOneByTime(int $time) Return the first ChildQuothed filtered by the time column
- * @method     ChildQuothed findOneByQuotnbr(string $quotnbr) Return the first ChildQuothed filtered by the quotnbr column
- * @method     ChildQuothed findOneByStatus(string $status) Return the first ChildQuothed filtered by the status column
- * @method     ChildQuothed findOneByCustid(string $custid) Return the first ChildQuothed filtered by the custid column
- * @method     ChildQuothed findOneByBillname(string $billname) Return the first ChildQuothed filtered by the billname column
- * @method     ChildQuothed findOneByBilladdress(string $billaddress) Return the first ChildQuothed filtered by the billaddress column
- * @method     ChildQuothed findOneByBilladdress2(string $billaddress2) Return the first ChildQuothed filtered by the billaddress2 column
- * @method     ChildQuothed findOneByBilladdress3(string $billaddress3) Return the first ChildQuothed filtered by the billaddress3 column
- * @method     ChildQuothed findOneByBillcountry(string $billcountry) Return the first ChildQuothed filtered by the billcountry column
- * @method     ChildQuothed findOneByBillcity(string $billcity) Return the first ChildQuothed filtered by the billcity column
- * @method     ChildQuothed findOneByBillstate(string $billstate) Return the first ChildQuothed filtered by the billstate column
- * @method     ChildQuothed findOneByBillzip(string $billzip) Return the first ChildQuothed filtered by the billzip column
- * @method     ChildQuothed findOneByShiptoid(string $shiptoid) Return the first ChildQuothed filtered by the shiptoid column
- * @method     ChildQuothed findOneByShipname(string $shipname) Return the first ChildQuothed filtered by the shipname column
- * @method     ChildQuothed findOneByShipaddress(string $shipaddress) Return the first ChildQuothed filtered by the shipaddress column
- * @method     ChildQuothed findOneByShipaddress2(string $shipaddress2) Return the first ChildQuothed filtered by the shipaddress2 column
- * @method     ChildQuothed findOneByShipaddress3(string $shipaddress3) Return the first ChildQuothed filtered by the shipaddress3 column
- * @method     ChildQuothed findOneByShipcountry(string $shipcountry) Return the first ChildQuothed filtered by the shipcountry column
- * @method     ChildQuothed findOneByShipcity(string $shipcity) Return the first ChildQuothed filtered by the shipcity column
- * @method     ChildQuothed findOneByShipstate(string $shipstate) Return the first ChildQuothed filtered by the shipstate column
- * @method     ChildQuothed findOneByShipzip(string $shipzip) Return the first ChildQuothed filtered by the shipzip column
- * @method     ChildQuothed findOneByContact(string $contact) Return the first ChildQuothed filtered by the contact column
- * @method     ChildQuothed findOneByPhone(string $phone) Return the first ChildQuothed filtered by the phone column
- * @method     ChildQuothed findOneByFaxnbr(string $faxnbr) Return the first ChildQuothed filtered by the faxnbr column
- * @method     ChildQuothed findOneByEmail(string $email) Return the first ChildQuothed filtered by the email column
- * @method     ChildQuothed findOneByCareof(string $careof) Return the first ChildQuothed filtered by the careof column
- * @method     ChildQuothed findOneByQuotdate(string $quotdate) Return the first ChildQuothed filtered by the quotdate column
- * @method     ChildQuothed findOneByRevdate(string $revdate) Return the first ChildQuothed filtered by the revdate column
- * @method     ChildQuothed findOneByExpdate(string $expdate) Return the first ChildQuothed filtered by the expdate column
- * @method     ChildQuothed findOneByPricecode(string $pricecode) Return the first ChildQuothed filtered by the pricecode column
- * @method     ChildQuothed findOneByPricecodedesc(string $pricecodedesc) Return the first ChildQuothed filtered by the pricecodedesc column
- * @method     ChildQuothed findOneByTaxcode(string $taxcode) Return the first ChildQuothed filtered by the taxcode column
- * @method     ChildQuothed findOneByTaxcodedesc(string $taxcodedesc) Return the first ChildQuothed filtered by the taxcodedesc column
- * @method     ChildQuothed findOneByTermcode(string $termcode) Return the first ChildQuothed filtered by the termcode column
- * @method     ChildQuothed findOneByTermcodedesc(string $termcodedesc) Return the first ChildQuothed filtered by the termcodedesc column
- * @method     ChildQuothed findOneByShipviacd(string $shipviacd) Return the first ChildQuothed filtered by the shipviacd column
- * @method     ChildQuothed findOneByShipviadesc(string $shipviadesc) Return the first ChildQuothed filtered by the shipviadesc column
- * @method     ChildQuothed findOneBySp1(string $sp1) Return the first ChildQuothed filtered by the sp1 column
- * @method     ChildQuothed findOneBySp1pct(string $sp1pct) Return the first ChildQuothed filtered by the sp1pct column
- * @method     ChildQuothed findOneBySp1name(string $sp1name) Return the first ChildQuothed filtered by the sp1name column
- * @method     ChildQuothed findOneBySp2(string $sp2) Return the first ChildQuothed filtered by the sp2 column
- * @method     ChildQuothed findOneBySp2pct(string $sp2pct) Return the first ChildQuothed filtered by the sp2pct column
- * @method     ChildQuothed findOneBySp2name(string $sp2name) Return the first ChildQuothed filtered by the sp2name column
- * @method     ChildQuothed findOneBySp3(string $sp3) Return the first ChildQuothed filtered by the sp3 column
- * @method     ChildQuothed findOneBySp3pct(string $sp3pct) Return the first ChildQuothed filtered by the sp3pct column
- * @method     ChildQuothed findOneBySp3name(string $sp3name) Return the first ChildQuothed filtered by the sp3name column
- * @method     ChildQuothed findOneByFob(string $fob) Return the first ChildQuothed filtered by the fob column
- * @method     ChildQuothed findOneByDeliverydesc(string $deliverydesc) Return the first ChildQuothed filtered by the deliverydesc column
- * @method     ChildQuothed findOneByWhse(string $whse) Return the first ChildQuothed filtered by the whse column
- * @method     ChildQuothed findOneByCustpo(string $custpo) Return the first ChildQuothed filtered by the custpo column
- * @method     ChildQuothed findOneByCustref(string $custref) Return the first ChildQuothed filtered by the custref column
- * @method     ChildQuothed findOneByHasnotes(string $hasnotes) Return the first ChildQuothed filtered by the hasnotes column
- * @method     ChildQuothed findOneByError(string $error) Return the first ChildQuothed filtered by the error column
- * @method     ChildQuothed findOneByErrormsg(string $errormsg) Return the first ChildQuothed filtered by the errormsg column
- * @method     ChildQuothed findOneBySubtotal(string $subtotal) Return the first ChildQuothed filtered by the subtotal column
- * @method     ChildQuothed findOneBySalestax(string $salestax) Return the first ChildQuothed filtered by the salestax column
- * @method     ChildQuothed findOneByFreight(string $freight) Return the first ChildQuothed filtered by the freight column
- * @method     ChildQuothed findOneByMisccost(string $misccost) Return the first ChildQuothed filtered by the misccost column
- * @method     ChildQuothed findOneByOrdertotal(string $ordertotal) Return the first ChildQuothed filtered by the ordertotal column
- * @method     ChildQuothed findOneByCostTotal(string $cost_total) Return the first ChildQuothed filtered by the cost_total column
- * @method     ChildQuothed findOneByMarginAmt(string $margin_amt) Return the first ChildQuothed filtered by the margin_amt column
- * @method     ChildQuothed findOneByMarginPct(string $margin_pct) Return the first ChildQuothed filtered by the margin_pct column
- * @method     ChildQuothed findOneByDummy(string $dummy) Return the first ChildQuothed filtered by the dummy column *
-
- * @method     ChildQuothed requirePk($key, ConnectionInterface $con = null) Return the ChildQuothed by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildQuothed requireOne(ConnectionInterface $con = null) Return the first ChildQuothed matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildQuothed|null findOneBySessionid(string $sessionid) Return the first ChildQuothed filtered by the sessionid column
+ * @method     ChildQuothed|null findOneByRecno(int $recno) Return the first ChildQuothed filtered by the recno column
+ * @method     ChildQuothed|null findOneByDate(int $date) Return the first ChildQuothed filtered by the date column
+ * @method     ChildQuothed|null findOneByTime(int $time) Return the first ChildQuothed filtered by the time column
+ * @method     ChildQuothed|null findOneByQuotnbr(string $quotnbr) Return the first ChildQuothed filtered by the quotnbr column
+ * @method     ChildQuothed|null findOneByStatus(string $status) Return the first ChildQuothed filtered by the status column
+ * @method     ChildQuothed|null findOneByCustid(string $custid) Return the first ChildQuothed filtered by the custid column
+ * @method     ChildQuothed|null findOneByBillname(string $billname) Return the first ChildQuothed filtered by the billname column
+ * @method     ChildQuothed|null findOneByBilladdress(string $billaddress) Return the first ChildQuothed filtered by the billaddress column
+ * @method     ChildQuothed|null findOneByBilladdress2(string $billaddress2) Return the first ChildQuothed filtered by the billaddress2 column
+ * @method     ChildQuothed|null findOneByBilladdress3(string $billaddress3) Return the first ChildQuothed filtered by the billaddress3 column
+ * @method     ChildQuothed|null findOneByBillcountry(string $billcountry) Return the first ChildQuothed filtered by the billcountry column
+ * @method     ChildQuothed|null findOneByBillcity(string $billcity) Return the first ChildQuothed filtered by the billcity column
+ * @method     ChildQuothed|null findOneByBillstate(string $billstate) Return the first ChildQuothed filtered by the billstate column
+ * @method     ChildQuothed|null findOneByBillzip(string $billzip) Return the first ChildQuothed filtered by the billzip column
+ * @method     ChildQuothed|null findOneByShiptoid(string $shiptoid) Return the first ChildQuothed filtered by the shiptoid column
+ * @method     ChildQuothed|null findOneByShipname(string $shipname) Return the first ChildQuothed filtered by the shipname column
+ * @method     ChildQuothed|null findOneByShipaddress(string $shipaddress) Return the first ChildQuothed filtered by the shipaddress column
+ * @method     ChildQuothed|null findOneByShipaddress2(string $shipaddress2) Return the first ChildQuothed filtered by the shipaddress2 column
+ * @method     ChildQuothed|null findOneByShipaddress3(string $shipaddress3) Return the first ChildQuothed filtered by the shipaddress3 column
+ * @method     ChildQuothed|null findOneByShipcountry(string $shipcountry) Return the first ChildQuothed filtered by the shipcountry column
+ * @method     ChildQuothed|null findOneByShipcity(string $shipcity) Return the first ChildQuothed filtered by the shipcity column
+ * @method     ChildQuothed|null findOneByShipstate(string $shipstate) Return the first ChildQuothed filtered by the shipstate column
+ * @method     ChildQuothed|null findOneByShipzip(string $shipzip) Return the first ChildQuothed filtered by the shipzip column
+ * @method     ChildQuothed|null findOneByContact(string $contact) Return the first ChildQuothed filtered by the contact column
+ * @method     ChildQuothed|null findOneByPhone(string $phone) Return the first ChildQuothed filtered by the phone column
+ * @method     ChildQuothed|null findOneByFaxnbr(string $faxnbr) Return the first ChildQuothed filtered by the faxnbr column
+ * @method     ChildQuothed|null findOneByEmail(string $email) Return the first ChildQuothed filtered by the email column
+ * @method     ChildQuothed|null findOneByCareof(string $careof) Return the first ChildQuothed filtered by the careof column
+ * @method     ChildQuothed|null findOneByQuotdate(string $quotdate) Return the first ChildQuothed filtered by the quotdate column
+ * @method     ChildQuothed|null findOneByRevdate(string $revdate) Return the first ChildQuothed filtered by the revdate column
+ * @method     ChildQuothed|null findOneByExpdate(string $expdate) Return the first ChildQuothed filtered by the expdate column
+ * @method     ChildQuothed|null findOneByPricecode(string $pricecode) Return the first ChildQuothed filtered by the pricecode column
+ * @method     ChildQuothed|null findOneByPricecodedesc(string $pricecodedesc) Return the first ChildQuothed filtered by the pricecodedesc column
+ * @method     ChildQuothed|null findOneByTaxcode(string $taxcode) Return the first ChildQuothed filtered by the taxcode column
+ * @method     ChildQuothed|null findOneByTaxcodedesc(string $taxcodedesc) Return the first ChildQuothed filtered by the taxcodedesc column
+ * @method     ChildQuothed|null findOneByTermcode(string $termcode) Return the first ChildQuothed filtered by the termcode column
+ * @method     ChildQuothed|null findOneByTermcodedesc(string $termcodedesc) Return the first ChildQuothed filtered by the termcodedesc column
+ * @method     ChildQuothed|null findOneByShipviacd(string $shipviacd) Return the first ChildQuothed filtered by the shipviacd column
+ * @method     ChildQuothed|null findOneByShipviadesc(string $shipviadesc) Return the first ChildQuothed filtered by the shipviadesc column
+ * @method     ChildQuothed|null findOneBySp1(string $sp1) Return the first ChildQuothed filtered by the sp1 column
+ * @method     ChildQuothed|null findOneBySp1pct(string $sp1pct) Return the first ChildQuothed filtered by the sp1pct column
+ * @method     ChildQuothed|null findOneBySp1name(string $sp1name) Return the first ChildQuothed filtered by the sp1name column
+ * @method     ChildQuothed|null findOneBySp2(string $sp2) Return the first ChildQuothed filtered by the sp2 column
+ * @method     ChildQuothed|null findOneBySp2pct(string $sp2pct) Return the first ChildQuothed filtered by the sp2pct column
+ * @method     ChildQuothed|null findOneBySp2name(string $sp2name) Return the first ChildQuothed filtered by the sp2name column
+ * @method     ChildQuothed|null findOneBySp3(string $sp3) Return the first ChildQuothed filtered by the sp3 column
+ * @method     ChildQuothed|null findOneBySp3pct(string $sp3pct) Return the first ChildQuothed filtered by the sp3pct column
+ * @method     ChildQuothed|null findOneBySp3name(string $sp3name) Return the first ChildQuothed filtered by the sp3name column
+ * @method     ChildQuothed|null findOneByFob(string $fob) Return the first ChildQuothed filtered by the fob column
+ * @method     ChildQuothed|null findOneByDeliverydesc(string $deliverydesc) Return the first ChildQuothed filtered by the deliverydesc column
+ * @method     ChildQuothed|null findOneByWhse(string $whse) Return the first ChildQuothed filtered by the whse column
+ * @method     ChildQuothed|null findOneByCustpo(string $custpo) Return the first ChildQuothed filtered by the custpo column
+ * @method     ChildQuothed|null findOneByCustref(string $custref) Return the first ChildQuothed filtered by the custref column
+ * @method     ChildQuothed|null findOneByHasnotes(string $hasnotes) Return the first ChildQuothed filtered by the hasnotes column
+ * @method     ChildQuothed|null findOneByError(string $error) Return the first ChildQuothed filtered by the error column
+ * @method     ChildQuothed|null findOneByErrormsg(string $errormsg) Return the first ChildQuothed filtered by the errormsg column
+ * @method     ChildQuothed|null findOneBySubtotal(string $subtotal) Return the first ChildQuothed filtered by the subtotal column
+ * @method     ChildQuothed|null findOneBySalestax(string $salestax) Return the first ChildQuothed filtered by the salestax column
+ * @method     ChildQuothed|null findOneByFreight(string $freight) Return the first ChildQuothed filtered by the freight column
+ * @method     ChildQuothed|null findOneByMisccost(string $misccost) Return the first ChildQuothed filtered by the misccost column
+ * @method     ChildQuothed|null findOneByOrdertotal(string $ordertotal) Return the first ChildQuothed filtered by the ordertotal column
+ * @method     ChildQuothed|null findOneByCostTotal(string $cost_total) Return the first ChildQuothed filtered by the cost_total column
+ * @method     ChildQuothed|null findOneByMarginAmt(string $margin_amt) Return the first ChildQuothed filtered by the margin_amt column
+ * @method     ChildQuothed|null findOneByMarginPct(string $margin_pct) Return the first ChildQuothed filtered by the margin_pct column
+ * @method     ChildQuothed|null findOneByDummy(string $dummy) Return the first ChildQuothed filtered by the dummy column
+ *
+ * @method     ChildQuothed requirePk($key, ?ConnectionInterface $con = null) Return the ChildQuothed by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildQuothed requireOne(?ConnectionInterface $con = null) Return the first ChildQuothed matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildQuothed requireOneBySessionid(string $sessionid) Return the first ChildQuothed filtered by the sessionid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildQuothed requireOneByRecno(int $recno) Return the first ChildQuothed filtered by the recno column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -301,75 +299,144 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildQuothed requireOneByMarginPct(string $margin_pct) Return the first ChildQuothed filtered by the margin_pct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildQuothed requireOneByDummy(string $dummy) Return the first ChildQuothed filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildQuothed[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildQuothed objects based on current ModelCriteria
- * @method     ChildQuothed[]|ObjectCollection findBySessionid(string $sessionid) Return ChildQuothed objects filtered by the sessionid column
- * @method     ChildQuothed[]|ObjectCollection findByRecno(int $recno) Return ChildQuothed objects filtered by the recno column
- * @method     ChildQuothed[]|ObjectCollection findByDate(int $date) Return ChildQuothed objects filtered by the date column
- * @method     ChildQuothed[]|ObjectCollection findByTime(int $time) Return ChildQuothed objects filtered by the time column
- * @method     ChildQuothed[]|ObjectCollection findByQuotnbr(string $quotnbr) Return ChildQuothed objects filtered by the quotnbr column
- * @method     ChildQuothed[]|ObjectCollection findByStatus(string $status) Return ChildQuothed objects filtered by the status column
- * @method     ChildQuothed[]|ObjectCollection findByCustid(string $custid) Return ChildQuothed objects filtered by the custid column
- * @method     ChildQuothed[]|ObjectCollection findByBillname(string $billname) Return ChildQuothed objects filtered by the billname column
- * @method     ChildQuothed[]|ObjectCollection findByBilladdress(string $billaddress) Return ChildQuothed objects filtered by the billaddress column
- * @method     ChildQuothed[]|ObjectCollection findByBilladdress2(string $billaddress2) Return ChildQuothed objects filtered by the billaddress2 column
- * @method     ChildQuothed[]|ObjectCollection findByBilladdress3(string $billaddress3) Return ChildQuothed objects filtered by the billaddress3 column
- * @method     ChildQuothed[]|ObjectCollection findByBillcountry(string $billcountry) Return ChildQuothed objects filtered by the billcountry column
- * @method     ChildQuothed[]|ObjectCollection findByBillcity(string $billcity) Return ChildQuothed objects filtered by the billcity column
- * @method     ChildQuothed[]|ObjectCollection findByBillstate(string $billstate) Return ChildQuothed objects filtered by the billstate column
- * @method     ChildQuothed[]|ObjectCollection findByBillzip(string $billzip) Return ChildQuothed objects filtered by the billzip column
- * @method     ChildQuothed[]|ObjectCollection findByShiptoid(string $shiptoid) Return ChildQuothed objects filtered by the shiptoid column
- * @method     ChildQuothed[]|ObjectCollection findByShipname(string $shipname) Return ChildQuothed objects filtered by the shipname column
- * @method     ChildQuothed[]|ObjectCollection findByShipaddress(string $shipaddress) Return ChildQuothed objects filtered by the shipaddress column
- * @method     ChildQuothed[]|ObjectCollection findByShipaddress2(string $shipaddress2) Return ChildQuothed objects filtered by the shipaddress2 column
- * @method     ChildQuothed[]|ObjectCollection findByShipaddress3(string $shipaddress3) Return ChildQuothed objects filtered by the shipaddress3 column
- * @method     ChildQuothed[]|ObjectCollection findByShipcountry(string $shipcountry) Return ChildQuothed objects filtered by the shipcountry column
- * @method     ChildQuothed[]|ObjectCollection findByShipcity(string $shipcity) Return ChildQuothed objects filtered by the shipcity column
- * @method     ChildQuothed[]|ObjectCollection findByShipstate(string $shipstate) Return ChildQuothed objects filtered by the shipstate column
- * @method     ChildQuothed[]|ObjectCollection findByShipzip(string $shipzip) Return ChildQuothed objects filtered by the shipzip column
- * @method     ChildQuothed[]|ObjectCollection findByContact(string $contact) Return ChildQuothed objects filtered by the contact column
- * @method     ChildQuothed[]|ObjectCollection findByPhone(string $phone) Return ChildQuothed objects filtered by the phone column
- * @method     ChildQuothed[]|ObjectCollection findByFaxnbr(string $faxnbr) Return ChildQuothed objects filtered by the faxnbr column
- * @method     ChildQuothed[]|ObjectCollection findByEmail(string $email) Return ChildQuothed objects filtered by the email column
- * @method     ChildQuothed[]|ObjectCollection findByCareof(string $careof) Return ChildQuothed objects filtered by the careof column
- * @method     ChildQuothed[]|ObjectCollection findByQuotdate(string $quotdate) Return ChildQuothed objects filtered by the quotdate column
- * @method     ChildQuothed[]|ObjectCollection findByRevdate(string $revdate) Return ChildQuothed objects filtered by the revdate column
- * @method     ChildQuothed[]|ObjectCollection findByExpdate(string $expdate) Return ChildQuothed objects filtered by the expdate column
- * @method     ChildQuothed[]|ObjectCollection findByPricecode(string $pricecode) Return ChildQuothed objects filtered by the pricecode column
- * @method     ChildQuothed[]|ObjectCollection findByPricecodedesc(string $pricecodedesc) Return ChildQuothed objects filtered by the pricecodedesc column
- * @method     ChildQuothed[]|ObjectCollection findByTaxcode(string $taxcode) Return ChildQuothed objects filtered by the taxcode column
- * @method     ChildQuothed[]|ObjectCollection findByTaxcodedesc(string $taxcodedesc) Return ChildQuothed objects filtered by the taxcodedesc column
- * @method     ChildQuothed[]|ObjectCollection findByTermcode(string $termcode) Return ChildQuothed objects filtered by the termcode column
- * @method     ChildQuothed[]|ObjectCollection findByTermcodedesc(string $termcodedesc) Return ChildQuothed objects filtered by the termcodedesc column
- * @method     ChildQuothed[]|ObjectCollection findByShipviacd(string $shipviacd) Return ChildQuothed objects filtered by the shipviacd column
- * @method     ChildQuothed[]|ObjectCollection findByShipviadesc(string $shipviadesc) Return ChildQuothed objects filtered by the shipviadesc column
- * @method     ChildQuothed[]|ObjectCollection findBySp1(string $sp1) Return ChildQuothed objects filtered by the sp1 column
- * @method     ChildQuothed[]|ObjectCollection findBySp1pct(string $sp1pct) Return ChildQuothed objects filtered by the sp1pct column
- * @method     ChildQuothed[]|ObjectCollection findBySp1name(string $sp1name) Return ChildQuothed objects filtered by the sp1name column
- * @method     ChildQuothed[]|ObjectCollection findBySp2(string $sp2) Return ChildQuothed objects filtered by the sp2 column
- * @method     ChildQuothed[]|ObjectCollection findBySp2pct(string $sp2pct) Return ChildQuothed objects filtered by the sp2pct column
- * @method     ChildQuothed[]|ObjectCollection findBySp2name(string $sp2name) Return ChildQuothed objects filtered by the sp2name column
- * @method     ChildQuothed[]|ObjectCollection findBySp3(string $sp3) Return ChildQuothed objects filtered by the sp3 column
- * @method     ChildQuothed[]|ObjectCollection findBySp3pct(string $sp3pct) Return ChildQuothed objects filtered by the sp3pct column
- * @method     ChildQuothed[]|ObjectCollection findBySp3name(string $sp3name) Return ChildQuothed objects filtered by the sp3name column
- * @method     ChildQuothed[]|ObjectCollection findByFob(string $fob) Return ChildQuothed objects filtered by the fob column
- * @method     ChildQuothed[]|ObjectCollection findByDeliverydesc(string $deliverydesc) Return ChildQuothed objects filtered by the deliverydesc column
- * @method     ChildQuothed[]|ObjectCollection findByWhse(string $whse) Return ChildQuothed objects filtered by the whse column
- * @method     ChildQuothed[]|ObjectCollection findByCustpo(string $custpo) Return ChildQuothed objects filtered by the custpo column
- * @method     ChildQuothed[]|ObjectCollection findByCustref(string $custref) Return ChildQuothed objects filtered by the custref column
- * @method     ChildQuothed[]|ObjectCollection findByHasnotes(string $hasnotes) Return ChildQuothed objects filtered by the hasnotes column
- * @method     ChildQuothed[]|ObjectCollection findByError(string $error) Return ChildQuothed objects filtered by the error column
- * @method     ChildQuothed[]|ObjectCollection findByErrormsg(string $errormsg) Return ChildQuothed objects filtered by the errormsg column
- * @method     ChildQuothed[]|ObjectCollection findBySubtotal(string $subtotal) Return ChildQuothed objects filtered by the subtotal column
- * @method     ChildQuothed[]|ObjectCollection findBySalestax(string $salestax) Return ChildQuothed objects filtered by the salestax column
- * @method     ChildQuothed[]|ObjectCollection findByFreight(string $freight) Return ChildQuothed objects filtered by the freight column
- * @method     ChildQuothed[]|ObjectCollection findByMisccost(string $misccost) Return ChildQuothed objects filtered by the misccost column
- * @method     ChildQuothed[]|ObjectCollection findByOrdertotal(string $ordertotal) Return ChildQuothed objects filtered by the ordertotal column
- * @method     ChildQuothed[]|ObjectCollection findByCostTotal(string $cost_total) Return ChildQuothed objects filtered by the cost_total column
- * @method     ChildQuothed[]|ObjectCollection findByMarginAmt(string $margin_amt) Return ChildQuothed objects filtered by the margin_amt column
- * @method     ChildQuothed[]|ObjectCollection findByMarginPct(string $margin_pct) Return ChildQuothed objects filtered by the margin_pct column
- * @method     ChildQuothed[]|ObjectCollection findByDummy(string $dummy) Return ChildQuothed objects filtered by the dummy column
- * @method     ChildQuothed[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildQuothed[]|Collection find(?ConnectionInterface $con = null) Return ChildQuothed objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildQuothed> find(?ConnectionInterface $con = null) Return ChildQuothed objects based on current ModelCriteria
  *
+ * @method     ChildQuothed[]|Collection findBySessionid(string|array<string> $sessionid) Return ChildQuothed objects filtered by the sessionid column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findBySessionid(string|array<string> $sessionid) Return ChildQuothed objects filtered by the sessionid column
+ * @method     ChildQuothed[]|Collection findByRecno(int|array<int> $recno) Return ChildQuothed objects filtered by the recno column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByRecno(int|array<int> $recno) Return ChildQuothed objects filtered by the recno column
+ * @method     ChildQuothed[]|Collection findByDate(int|array<int> $date) Return ChildQuothed objects filtered by the date column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByDate(int|array<int> $date) Return ChildQuothed objects filtered by the date column
+ * @method     ChildQuothed[]|Collection findByTime(int|array<int> $time) Return ChildQuothed objects filtered by the time column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByTime(int|array<int> $time) Return ChildQuothed objects filtered by the time column
+ * @method     ChildQuothed[]|Collection findByQuotnbr(string|array<string> $quotnbr) Return ChildQuothed objects filtered by the quotnbr column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByQuotnbr(string|array<string> $quotnbr) Return ChildQuothed objects filtered by the quotnbr column
+ * @method     ChildQuothed[]|Collection findByStatus(string|array<string> $status) Return ChildQuothed objects filtered by the status column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByStatus(string|array<string> $status) Return ChildQuothed objects filtered by the status column
+ * @method     ChildQuothed[]|Collection findByCustid(string|array<string> $custid) Return ChildQuothed objects filtered by the custid column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByCustid(string|array<string> $custid) Return ChildQuothed objects filtered by the custid column
+ * @method     ChildQuothed[]|Collection findByBillname(string|array<string> $billname) Return ChildQuothed objects filtered by the billname column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByBillname(string|array<string> $billname) Return ChildQuothed objects filtered by the billname column
+ * @method     ChildQuothed[]|Collection findByBilladdress(string|array<string> $billaddress) Return ChildQuothed objects filtered by the billaddress column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByBilladdress(string|array<string> $billaddress) Return ChildQuothed objects filtered by the billaddress column
+ * @method     ChildQuothed[]|Collection findByBilladdress2(string|array<string> $billaddress2) Return ChildQuothed objects filtered by the billaddress2 column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByBilladdress2(string|array<string> $billaddress2) Return ChildQuothed objects filtered by the billaddress2 column
+ * @method     ChildQuothed[]|Collection findByBilladdress3(string|array<string> $billaddress3) Return ChildQuothed objects filtered by the billaddress3 column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByBilladdress3(string|array<string> $billaddress3) Return ChildQuothed objects filtered by the billaddress3 column
+ * @method     ChildQuothed[]|Collection findByBillcountry(string|array<string> $billcountry) Return ChildQuothed objects filtered by the billcountry column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByBillcountry(string|array<string> $billcountry) Return ChildQuothed objects filtered by the billcountry column
+ * @method     ChildQuothed[]|Collection findByBillcity(string|array<string> $billcity) Return ChildQuothed objects filtered by the billcity column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByBillcity(string|array<string> $billcity) Return ChildQuothed objects filtered by the billcity column
+ * @method     ChildQuothed[]|Collection findByBillstate(string|array<string> $billstate) Return ChildQuothed objects filtered by the billstate column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByBillstate(string|array<string> $billstate) Return ChildQuothed objects filtered by the billstate column
+ * @method     ChildQuothed[]|Collection findByBillzip(string|array<string> $billzip) Return ChildQuothed objects filtered by the billzip column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByBillzip(string|array<string> $billzip) Return ChildQuothed objects filtered by the billzip column
+ * @method     ChildQuothed[]|Collection findByShiptoid(string|array<string> $shiptoid) Return ChildQuothed objects filtered by the shiptoid column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByShiptoid(string|array<string> $shiptoid) Return ChildQuothed objects filtered by the shiptoid column
+ * @method     ChildQuothed[]|Collection findByShipname(string|array<string> $shipname) Return ChildQuothed objects filtered by the shipname column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByShipname(string|array<string> $shipname) Return ChildQuothed objects filtered by the shipname column
+ * @method     ChildQuothed[]|Collection findByShipaddress(string|array<string> $shipaddress) Return ChildQuothed objects filtered by the shipaddress column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByShipaddress(string|array<string> $shipaddress) Return ChildQuothed objects filtered by the shipaddress column
+ * @method     ChildQuothed[]|Collection findByShipaddress2(string|array<string> $shipaddress2) Return ChildQuothed objects filtered by the shipaddress2 column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByShipaddress2(string|array<string> $shipaddress2) Return ChildQuothed objects filtered by the shipaddress2 column
+ * @method     ChildQuothed[]|Collection findByShipaddress3(string|array<string> $shipaddress3) Return ChildQuothed objects filtered by the shipaddress3 column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByShipaddress3(string|array<string> $shipaddress3) Return ChildQuothed objects filtered by the shipaddress3 column
+ * @method     ChildQuothed[]|Collection findByShipcountry(string|array<string> $shipcountry) Return ChildQuothed objects filtered by the shipcountry column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByShipcountry(string|array<string> $shipcountry) Return ChildQuothed objects filtered by the shipcountry column
+ * @method     ChildQuothed[]|Collection findByShipcity(string|array<string> $shipcity) Return ChildQuothed objects filtered by the shipcity column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByShipcity(string|array<string> $shipcity) Return ChildQuothed objects filtered by the shipcity column
+ * @method     ChildQuothed[]|Collection findByShipstate(string|array<string> $shipstate) Return ChildQuothed objects filtered by the shipstate column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByShipstate(string|array<string> $shipstate) Return ChildQuothed objects filtered by the shipstate column
+ * @method     ChildQuothed[]|Collection findByShipzip(string|array<string> $shipzip) Return ChildQuothed objects filtered by the shipzip column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByShipzip(string|array<string> $shipzip) Return ChildQuothed objects filtered by the shipzip column
+ * @method     ChildQuothed[]|Collection findByContact(string|array<string> $contact) Return ChildQuothed objects filtered by the contact column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByContact(string|array<string> $contact) Return ChildQuothed objects filtered by the contact column
+ * @method     ChildQuothed[]|Collection findByPhone(string|array<string> $phone) Return ChildQuothed objects filtered by the phone column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByPhone(string|array<string> $phone) Return ChildQuothed objects filtered by the phone column
+ * @method     ChildQuothed[]|Collection findByFaxnbr(string|array<string> $faxnbr) Return ChildQuothed objects filtered by the faxnbr column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByFaxnbr(string|array<string> $faxnbr) Return ChildQuothed objects filtered by the faxnbr column
+ * @method     ChildQuothed[]|Collection findByEmail(string|array<string> $email) Return ChildQuothed objects filtered by the email column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByEmail(string|array<string> $email) Return ChildQuothed objects filtered by the email column
+ * @method     ChildQuothed[]|Collection findByCareof(string|array<string> $careof) Return ChildQuothed objects filtered by the careof column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByCareof(string|array<string> $careof) Return ChildQuothed objects filtered by the careof column
+ * @method     ChildQuothed[]|Collection findByQuotdate(string|array<string> $quotdate) Return ChildQuothed objects filtered by the quotdate column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByQuotdate(string|array<string> $quotdate) Return ChildQuothed objects filtered by the quotdate column
+ * @method     ChildQuothed[]|Collection findByRevdate(string|array<string> $revdate) Return ChildQuothed objects filtered by the revdate column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByRevdate(string|array<string> $revdate) Return ChildQuothed objects filtered by the revdate column
+ * @method     ChildQuothed[]|Collection findByExpdate(string|array<string> $expdate) Return ChildQuothed objects filtered by the expdate column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByExpdate(string|array<string> $expdate) Return ChildQuothed objects filtered by the expdate column
+ * @method     ChildQuothed[]|Collection findByPricecode(string|array<string> $pricecode) Return ChildQuothed objects filtered by the pricecode column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByPricecode(string|array<string> $pricecode) Return ChildQuothed objects filtered by the pricecode column
+ * @method     ChildQuothed[]|Collection findByPricecodedesc(string|array<string> $pricecodedesc) Return ChildQuothed objects filtered by the pricecodedesc column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByPricecodedesc(string|array<string> $pricecodedesc) Return ChildQuothed objects filtered by the pricecodedesc column
+ * @method     ChildQuothed[]|Collection findByTaxcode(string|array<string> $taxcode) Return ChildQuothed objects filtered by the taxcode column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByTaxcode(string|array<string> $taxcode) Return ChildQuothed objects filtered by the taxcode column
+ * @method     ChildQuothed[]|Collection findByTaxcodedesc(string|array<string> $taxcodedesc) Return ChildQuothed objects filtered by the taxcodedesc column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByTaxcodedesc(string|array<string> $taxcodedesc) Return ChildQuothed objects filtered by the taxcodedesc column
+ * @method     ChildQuothed[]|Collection findByTermcode(string|array<string> $termcode) Return ChildQuothed objects filtered by the termcode column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByTermcode(string|array<string> $termcode) Return ChildQuothed objects filtered by the termcode column
+ * @method     ChildQuothed[]|Collection findByTermcodedesc(string|array<string> $termcodedesc) Return ChildQuothed objects filtered by the termcodedesc column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByTermcodedesc(string|array<string> $termcodedesc) Return ChildQuothed objects filtered by the termcodedesc column
+ * @method     ChildQuothed[]|Collection findByShipviacd(string|array<string> $shipviacd) Return ChildQuothed objects filtered by the shipviacd column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByShipviacd(string|array<string> $shipviacd) Return ChildQuothed objects filtered by the shipviacd column
+ * @method     ChildQuothed[]|Collection findByShipviadesc(string|array<string> $shipviadesc) Return ChildQuothed objects filtered by the shipviadesc column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByShipviadesc(string|array<string> $shipviadesc) Return ChildQuothed objects filtered by the shipviadesc column
+ * @method     ChildQuothed[]|Collection findBySp1(string|array<string> $sp1) Return ChildQuothed objects filtered by the sp1 column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findBySp1(string|array<string> $sp1) Return ChildQuothed objects filtered by the sp1 column
+ * @method     ChildQuothed[]|Collection findBySp1pct(string|array<string> $sp1pct) Return ChildQuothed objects filtered by the sp1pct column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findBySp1pct(string|array<string> $sp1pct) Return ChildQuothed objects filtered by the sp1pct column
+ * @method     ChildQuothed[]|Collection findBySp1name(string|array<string> $sp1name) Return ChildQuothed objects filtered by the sp1name column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findBySp1name(string|array<string> $sp1name) Return ChildQuothed objects filtered by the sp1name column
+ * @method     ChildQuothed[]|Collection findBySp2(string|array<string> $sp2) Return ChildQuothed objects filtered by the sp2 column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findBySp2(string|array<string> $sp2) Return ChildQuothed objects filtered by the sp2 column
+ * @method     ChildQuothed[]|Collection findBySp2pct(string|array<string> $sp2pct) Return ChildQuothed objects filtered by the sp2pct column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findBySp2pct(string|array<string> $sp2pct) Return ChildQuothed objects filtered by the sp2pct column
+ * @method     ChildQuothed[]|Collection findBySp2name(string|array<string> $sp2name) Return ChildQuothed objects filtered by the sp2name column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findBySp2name(string|array<string> $sp2name) Return ChildQuothed objects filtered by the sp2name column
+ * @method     ChildQuothed[]|Collection findBySp3(string|array<string> $sp3) Return ChildQuothed objects filtered by the sp3 column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findBySp3(string|array<string> $sp3) Return ChildQuothed objects filtered by the sp3 column
+ * @method     ChildQuothed[]|Collection findBySp3pct(string|array<string> $sp3pct) Return ChildQuothed objects filtered by the sp3pct column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findBySp3pct(string|array<string> $sp3pct) Return ChildQuothed objects filtered by the sp3pct column
+ * @method     ChildQuothed[]|Collection findBySp3name(string|array<string> $sp3name) Return ChildQuothed objects filtered by the sp3name column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findBySp3name(string|array<string> $sp3name) Return ChildQuothed objects filtered by the sp3name column
+ * @method     ChildQuothed[]|Collection findByFob(string|array<string> $fob) Return ChildQuothed objects filtered by the fob column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByFob(string|array<string> $fob) Return ChildQuothed objects filtered by the fob column
+ * @method     ChildQuothed[]|Collection findByDeliverydesc(string|array<string> $deliverydesc) Return ChildQuothed objects filtered by the deliverydesc column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByDeliverydesc(string|array<string> $deliverydesc) Return ChildQuothed objects filtered by the deliverydesc column
+ * @method     ChildQuothed[]|Collection findByWhse(string|array<string> $whse) Return ChildQuothed objects filtered by the whse column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByWhse(string|array<string> $whse) Return ChildQuothed objects filtered by the whse column
+ * @method     ChildQuothed[]|Collection findByCustpo(string|array<string> $custpo) Return ChildQuothed objects filtered by the custpo column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByCustpo(string|array<string> $custpo) Return ChildQuothed objects filtered by the custpo column
+ * @method     ChildQuothed[]|Collection findByCustref(string|array<string> $custref) Return ChildQuothed objects filtered by the custref column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByCustref(string|array<string> $custref) Return ChildQuothed objects filtered by the custref column
+ * @method     ChildQuothed[]|Collection findByHasnotes(string|array<string> $hasnotes) Return ChildQuothed objects filtered by the hasnotes column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByHasnotes(string|array<string> $hasnotes) Return ChildQuothed objects filtered by the hasnotes column
+ * @method     ChildQuothed[]|Collection findByError(string|array<string> $error) Return ChildQuothed objects filtered by the error column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByError(string|array<string> $error) Return ChildQuothed objects filtered by the error column
+ * @method     ChildQuothed[]|Collection findByErrormsg(string|array<string> $errormsg) Return ChildQuothed objects filtered by the errormsg column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByErrormsg(string|array<string> $errormsg) Return ChildQuothed objects filtered by the errormsg column
+ * @method     ChildQuothed[]|Collection findBySubtotal(string|array<string> $subtotal) Return ChildQuothed objects filtered by the subtotal column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findBySubtotal(string|array<string> $subtotal) Return ChildQuothed objects filtered by the subtotal column
+ * @method     ChildQuothed[]|Collection findBySalestax(string|array<string> $salestax) Return ChildQuothed objects filtered by the salestax column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findBySalestax(string|array<string> $salestax) Return ChildQuothed objects filtered by the salestax column
+ * @method     ChildQuothed[]|Collection findByFreight(string|array<string> $freight) Return ChildQuothed objects filtered by the freight column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByFreight(string|array<string> $freight) Return ChildQuothed objects filtered by the freight column
+ * @method     ChildQuothed[]|Collection findByMisccost(string|array<string> $misccost) Return ChildQuothed objects filtered by the misccost column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByMisccost(string|array<string> $misccost) Return ChildQuothed objects filtered by the misccost column
+ * @method     ChildQuothed[]|Collection findByOrdertotal(string|array<string> $ordertotal) Return ChildQuothed objects filtered by the ordertotal column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByOrdertotal(string|array<string> $ordertotal) Return ChildQuothed objects filtered by the ordertotal column
+ * @method     ChildQuothed[]|Collection findByCostTotal(string|array<string> $cost_total) Return ChildQuothed objects filtered by the cost_total column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByCostTotal(string|array<string> $cost_total) Return ChildQuothed objects filtered by the cost_total column
+ * @method     ChildQuothed[]|Collection findByMarginAmt(string|array<string> $margin_amt) Return ChildQuothed objects filtered by the margin_amt column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByMarginAmt(string|array<string> $margin_amt) Return ChildQuothed objects filtered by the margin_amt column
+ * @method     ChildQuothed[]|Collection findByMarginPct(string|array<string> $margin_pct) Return ChildQuothed objects filtered by the margin_pct column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByMarginPct(string|array<string> $margin_pct) Return ChildQuothed objects filtered by the margin_pct column
+ * @method     ChildQuothed[]|Collection findByDummy(string|array<string> $dummy) Return ChildQuothed objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildQuothed> findByDummy(string|array<string> $dummy) Return ChildQuothed objects filtered by the dummy column
+ *
+ * @method     ChildQuothed[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildQuothed> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class QuothedQuery extends ModelCriteria
 {
@@ -378,9 +445,9 @@ abstract class QuothedQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\QuothedQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'dplusodb', $modelName = '\\Quothed', $modelAlias = null)
     {
@@ -390,12 +457,12 @@ abstract class QuothedQuery extends ModelCriteria
     /**
      * Returns a new ChildQuothedQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildQuothedQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildQuothedQuery) {
             return $criteria;
@@ -425,7 +492,7 @@ abstract class QuothedQuery extends ModelCriteria
      *
      * @return ChildQuothed|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -457,8 +524,8 @@ abstract class QuothedQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -491,8 +558,8 @@ abstract class QuothedQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildQuothed|array|mixed the result, formatted by the current formatter
      */
@@ -512,12 +579,12 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -534,9 +601,9 @@ abstract class QuothedQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -549,14 +616,16 @@ abstract class QuothedQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(QuothedTableMap::COL_SESSIONID, $key[0], Criteria::EQUAL);
@@ -575,14 +644,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterBySessionid('fooValue');   // WHERE sessionid = 'fooValue'
      * $query->filterBySessionid('%fooValue%', Criteria::LIKE); // WHERE sessionid LIKE '%fooValue%'
+     * $query->filterBySessionid(['foo', 'bar']); // WHERE sessionid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sessionid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sessionid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySessionid($sessionid = null, $comparison = null)
+    public function filterBySessionid($sessionid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sessionid)) {
@@ -590,7 +660,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_SESSIONID, $sessionid, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_SESSIONID, $sessionid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -603,15 +675,15 @@ abstract class QuothedQuery extends ModelCriteria
      * $query->filterByRecno(array('min' => 12)); // WHERE recno > 12
      * </code>
      *
-     * @param     mixed $recno The value to use as filter.
+     * @param mixed $recno The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByRecno($recno = null, $comparison = null)
+    public function filterByRecno($recno = null, ?string $comparison = null)
     {
         if (is_array($recno)) {
             $useMinMax = false;
@@ -631,7 +703,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_RECNO, $recno, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_RECNO, $recno, $comparison);
+
+        return $this;
     }
 
     /**
@@ -644,15 +718,15 @@ abstract class QuothedQuery extends ModelCriteria
      * $query->filterByDate(array('min' => 12)); // WHERE date > 12
      * </code>
      *
-     * @param     mixed $date The value to use as filter.
+     * @param mixed $date The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDate($date = null, $comparison = null)
+    public function filterByDate($date = null, ?string $comparison = null)
     {
         if (is_array($date)) {
             $useMinMax = false;
@@ -672,7 +746,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_DATE, $date, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_DATE, $date, $comparison);
+
+        return $this;
     }
 
     /**
@@ -685,15 +761,15 @@ abstract class QuothedQuery extends ModelCriteria
      * $query->filterByTime(array('min' => 12)); // WHERE time > 12
      * </code>
      *
-     * @param     mixed $time The value to use as filter.
+     * @param mixed $time The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTime($time = null, $comparison = null)
+    public function filterByTime($time = null, ?string $comparison = null)
     {
         if (is_array($time)) {
             $useMinMax = false;
@@ -713,7 +789,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_TIME, $time, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_TIME, $time, $comparison);
+
+        return $this;
     }
 
     /**
@@ -723,14 +801,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByQuotnbr('fooValue');   // WHERE quotnbr = 'fooValue'
      * $query->filterByQuotnbr('%fooValue%', Criteria::LIKE); // WHERE quotnbr LIKE '%fooValue%'
+     * $query->filterByQuotnbr(['foo', 'bar']); // WHERE quotnbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $quotnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $quotnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQuotnbr($quotnbr = null, $comparison = null)
+    public function filterByQuotnbr($quotnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($quotnbr)) {
@@ -738,7 +817,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_QUOTNBR, $quotnbr, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_QUOTNBR, $quotnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -748,14 +829,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByStatus('fooValue');   // WHERE status = 'fooValue'
      * $query->filterByStatus('%fooValue%', Criteria::LIKE); // WHERE status LIKE '%fooValue%'
+     * $query->filterByStatus(['foo', 'bar']); // WHERE status IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $status The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $status The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByStatus($status = null, $comparison = null)
+    public function filterByStatus($status = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($status)) {
@@ -763,7 +845,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_STATUS, $status, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_STATUS, $status, $comparison);
+
+        return $this;
     }
 
     /**
@@ -773,14 +857,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByCustid('fooValue');   // WHERE custid = 'fooValue'
      * $query->filterByCustid('%fooValue%', Criteria::LIKE); // WHERE custid LIKE '%fooValue%'
+     * $query->filterByCustid(['foo', 'bar']); // WHERE custid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $custid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $custid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustid($custid = null, $comparison = null)
+    public function filterByCustid($custid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($custid)) {
@@ -788,7 +873,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_CUSTID, $custid, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_CUSTID, $custid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -798,14 +885,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByBillname('fooValue');   // WHERE billname = 'fooValue'
      * $query->filterByBillname('%fooValue%', Criteria::LIKE); // WHERE billname LIKE '%fooValue%'
+     * $query->filterByBillname(['foo', 'bar']); // WHERE billname IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $billname The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $billname The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBillname($billname = null, $comparison = null)
+    public function filterByBillname($billname = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($billname)) {
@@ -813,7 +901,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_BILLNAME, $billname, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_BILLNAME, $billname, $comparison);
+
+        return $this;
     }
 
     /**
@@ -823,14 +913,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByBilladdress('fooValue');   // WHERE billaddress = 'fooValue'
      * $query->filterByBilladdress('%fooValue%', Criteria::LIKE); // WHERE billaddress LIKE '%fooValue%'
+     * $query->filterByBilladdress(['foo', 'bar']); // WHERE billaddress IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $billaddress The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $billaddress The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBilladdress($billaddress = null, $comparison = null)
+    public function filterByBilladdress($billaddress = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($billaddress)) {
@@ -838,7 +929,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_BILLADDRESS, $billaddress, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_BILLADDRESS, $billaddress, $comparison);
+
+        return $this;
     }
 
     /**
@@ -848,14 +941,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByBilladdress2('fooValue');   // WHERE billaddress2 = 'fooValue'
      * $query->filterByBilladdress2('%fooValue%', Criteria::LIKE); // WHERE billaddress2 LIKE '%fooValue%'
+     * $query->filterByBilladdress2(['foo', 'bar']); // WHERE billaddress2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $billaddress2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $billaddress2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBilladdress2($billaddress2 = null, $comparison = null)
+    public function filterByBilladdress2($billaddress2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($billaddress2)) {
@@ -863,7 +957,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_BILLADDRESS2, $billaddress2, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_BILLADDRESS2, $billaddress2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -873,14 +969,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByBilladdress3('fooValue');   // WHERE billaddress3 = 'fooValue'
      * $query->filterByBilladdress3('%fooValue%', Criteria::LIKE); // WHERE billaddress3 LIKE '%fooValue%'
+     * $query->filterByBilladdress3(['foo', 'bar']); // WHERE billaddress3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $billaddress3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $billaddress3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBilladdress3($billaddress3 = null, $comparison = null)
+    public function filterByBilladdress3($billaddress3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($billaddress3)) {
@@ -888,7 +985,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_BILLADDRESS3, $billaddress3, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_BILLADDRESS3, $billaddress3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -898,14 +997,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByBillcountry('fooValue');   // WHERE billcountry = 'fooValue'
      * $query->filterByBillcountry('%fooValue%', Criteria::LIKE); // WHERE billcountry LIKE '%fooValue%'
+     * $query->filterByBillcountry(['foo', 'bar']); // WHERE billcountry IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $billcountry The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $billcountry The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBillcountry($billcountry = null, $comparison = null)
+    public function filterByBillcountry($billcountry = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($billcountry)) {
@@ -913,7 +1013,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_BILLCOUNTRY, $billcountry, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_BILLCOUNTRY, $billcountry, $comparison);
+
+        return $this;
     }
 
     /**
@@ -923,14 +1025,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByBillcity('fooValue');   // WHERE billcity = 'fooValue'
      * $query->filterByBillcity('%fooValue%', Criteria::LIKE); // WHERE billcity LIKE '%fooValue%'
+     * $query->filterByBillcity(['foo', 'bar']); // WHERE billcity IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $billcity The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $billcity The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBillcity($billcity = null, $comparison = null)
+    public function filterByBillcity($billcity = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($billcity)) {
@@ -938,7 +1041,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_BILLCITY, $billcity, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_BILLCITY, $billcity, $comparison);
+
+        return $this;
     }
 
     /**
@@ -948,14 +1053,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByBillstate('fooValue');   // WHERE billstate = 'fooValue'
      * $query->filterByBillstate('%fooValue%', Criteria::LIKE); // WHERE billstate LIKE '%fooValue%'
+     * $query->filterByBillstate(['foo', 'bar']); // WHERE billstate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $billstate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $billstate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBillstate($billstate = null, $comparison = null)
+    public function filterByBillstate($billstate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($billstate)) {
@@ -963,7 +1069,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_BILLSTATE, $billstate, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_BILLSTATE, $billstate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -973,14 +1081,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByBillzip('fooValue');   // WHERE billzip = 'fooValue'
      * $query->filterByBillzip('%fooValue%', Criteria::LIKE); // WHERE billzip LIKE '%fooValue%'
+     * $query->filterByBillzip(['foo', 'bar']); // WHERE billzip IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $billzip The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $billzip The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBillzip($billzip = null, $comparison = null)
+    public function filterByBillzip($billzip = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($billzip)) {
@@ -988,7 +1097,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_BILLZIP, $billzip, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_BILLZIP, $billzip, $comparison);
+
+        return $this;
     }
 
     /**
@@ -998,14 +1109,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByShiptoid('fooValue');   // WHERE shiptoid = 'fooValue'
      * $query->filterByShiptoid('%fooValue%', Criteria::LIKE); // WHERE shiptoid LIKE '%fooValue%'
+     * $query->filterByShiptoid(['foo', 'bar']); // WHERE shiptoid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shiptoid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shiptoid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShiptoid($shiptoid = null, $comparison = null)
+    public function filterByShiptoid($shiptoid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shiptoid)) {
@@ -1013,7 +1125,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_SHIPTOID, $shiptoid, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_SHIPTOID, $shiptoid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1023,14 +1137,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByShipname('fooValue');   // WHERE shipname = 'fooValue'
      * $query->filterByShipname('%fooValue%', Criteria::LIKE); // WHERE shipname LIKE '%fooValue%'
+     * $query->filterByShipname(['foo', 'bar']); // WHERE shipname IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shipname The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shipname The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipname($shipname = null, $comparison = null)
+    public function filterByShipname($shipname = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shipname)) {
@@ -1038,7 +1153,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_SHIPNAME, $shipname, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_SHIPNAME, $shipname, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1048,14 +1165,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByShipaddress('fooValue');   // WHERE shipaddress = 'fooValue'
      * $query->filterByShipaddress('%fooValue%', Criteria::LIKE); // WHERE shipaddress LIKE '%fooValue%'
+     * $query->filterByShipaddress(['foo', 'bar']); // WHERE shipaddress IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shipaddress The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shipaddress The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipaddress($shipaddress = null, $comparison = null)
+    public function filterByShipaddress($shipaddress = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shipaddress)) {
@@ -1063,7 +1181,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_SHIPADDRESS, $shipaddress, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_SHIPADDRESS, $shipaddress, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1073,14 +1193,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByShipaddress2('fooValue');   // WHERE shipaddress2 = 'fooValue'
      * $query->filterByShipaddress2('%fooValue%', Criteria::LIKE); // WHERE shipaddress2 LIKE '%fooValue%'
+     * $query->filterByShipaddress2(['foo', 'bar']); // WHERE shipaddress2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shipaddress2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shipaddress2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipaddress2($shipaddress2 = null, $comparison = null)
+    public function filterByShipaddress2($shipaddress2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shipaddress2)) {
@@ -1088,7 +1209,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_SHIPADDRESS2, $shipaddress2, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_SHIPADDRESS2, $shipaddress2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1098,14 +1221,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByShipaddress3('fooValue');   // WHERE shipaddress3 = 'fooValue'
      * $query->filterByShipaddress3('%fooValue%', Criteria::LIKE); // WHERE shipaddress3 LIKE '%fooValue%'
+     * $query->filterByShipaddress3(['foo', 'bar']); // WHERE shipaddress3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shipaddress3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shipaddress3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipaddress3($shipaddress3 = null, $comparison = null)
+    public function filterByShipaddress3($shipaddress3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shipaddress3)) {
@@ -1113,7 +1237,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_SHIPADDRESS3, $shipaddress3, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_SHIPADDRESS3, $shipaddress3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1123,14 +1249,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByShipcountry('fooValue');   // WHERE shipcountry = 'fooValue'
      * $query->filterByShipcountry('%fooValue%', Criteria::LIKE); // WHERE shipcountry LIKE '%fooValue%'
+     * $query->filterByShipcountry(['foo', 'bar']); // WHERE shipcountry IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shipcountry The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shipcountry The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipcountry($shipcountry = null, $comparison = null)
+    public function filterByShipcountry($shipcountry = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shipcountry)) {
@@ -1138,7 +1265,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_SHIPCOUNTRY, $shipcountry, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_SHIPCOUNTRY, $shipcountry, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1148,14 +1277,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByShipcity('fooValue');   // WHERE shipcity = 'fooValue'
      * $query->filterByShipcity('%fooValue%', Criteria::LIKE); // WHERE shipcity LIKE '%fooValue%'
+     * $query->filterByShipcity(['foo', 'bar']); // WHERE shipcity IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shipcity The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shipcity The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipcity($shipcity = null, $comparison = null)
+    public function filterByShipcity($shipcity = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shipcity)) {
@@ -1163,7 +1293,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_SHIPCITY, $shipcity, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_SHIPCITY, $shipcity, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1173,14 +1305,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByShipstate('fooValue');   // WHERE shipstate = 'fooValue'
      * $query->filterByShipstate('%fooValue%', Criteria::LIKE); // WHERE shipstate LIKE '%fooValue%'
+     * $query->filterByShipstate(['foo', 'bar']); // WHERE shipstate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shipstate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shipstate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipstate($shipstate = null, $comparison = null)
+    public function filterByShipstate($shipstate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shipstate)) {
@@ -1188,7 +1321,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_SHIPSTATE, $shipstate, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_SHIPSTATE, $shipstate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1198,14 +1333,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByShipzip('fooValue');   // WHERE shipzip = 'fooValue'
      * $query->filterByShipzip('%fooValue%', Criteria::LIKE); // WHERE shipzip LIKE '%fooValue%'
+     * $query->filterByShipzip(['foo', 'bar']); // WHERE shipzip IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shipzip The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shipzip The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipzip($shipzip = null, $comparison = null)
+    public function filterByShipzip($shipzip = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shipzip)) {
@@ -1213,7 +1349,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_SHIPZIP, $shipzip, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_SHIPZIP, $shipzip, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1223,14 +1361,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByContact('fooValue');   // WHERE contact = 'fooValue'
      * $query->filterByContact('%fooValue%', Criteria::LIKE); // WHERE contact LIKE '%fooValue%'
+     * $query->filterByContact(['foo', 'bar']); // WHERE contact IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $contact The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $contact The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByContact($contact = null, $comparison = null)
+    public function filterByContact($contact = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($contact)) {
@@ -1238,7 +1377,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_CONTACT, $contact, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_CONTACT, $contact, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1248,14 +1389,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByPhone('fooValue');   // WHERE phone = 'fooValue'
      * $query->filterByPhone('%fooValue%', Criteria::LIKE); // WHERE phone LIKE '%fooValue%'
+     * $query->filterByPhone(['foo', 'bar']); // WHERE phone IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $phone The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $phone The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPhone($phone = null, $comparison = null)
+    public function filterByPhone($phone = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($phone)) {
@@ -1263,7 +1405,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_PHONE, $phone, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_PHONE, $phone, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1273,14 +1417,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByFaxnbr('fooValue');   // WHERE faxnbr = 'fooValue'
      * $query->filterByFaxnbr('%fooValue%', Criteria::LIKE); // WHERE faxnbr LIKE '%fooValue%'
+     * $query->filterByFaxnbr(['foo', 'bar']); // WHERE faxnbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $faxnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $faxnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByFaxnbr($faxnbr = null, $comparison = null)
+    public function filterByFaxnbr($faxnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($faxnbr)) {
@@ -1288,7 +1433,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_FAXNBR, $faxnbr, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_FAXNBR, $faxnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1298,14 +1445,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByEmail('fooValue');   // WHERE email = 'fooValue'
      * $query->filterByEmail('%fooValue%', Criteria::LIKE); // WHERE email LIKE '%fooValue%'
+     * $query->filterByEmail(['foo', 'bar']); // WHERE email IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $email The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $email The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByEmail($email = null, $comparison = null)
+    public function filterByEmail($email = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($email)) {
@@ -1313,7 +1461,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_EMAIL, $email, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_EMAIL, $email, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1323,14 +1473,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByCareof('fooValue');   // WHERE careof = 'fooValue'
      * $query->filterByCareof('%fooValue%', Criteria::LIKE); // WHERE careof LIKE '%fooValue%'
+     * $query->filterByCareof(['foo', 'bar']); // WHERE careof IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $careof The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $careof The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCareof($careof = null, $comparison = null)
+    public function filterByCareof($careof = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($careof)) {
@@ -1338,7 +1489,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_CAREOF, $careof, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_CAREOF, $careof, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1348,14 +1501,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByQuotdate('fooValue');   // WHERE quotdate = 'fooValue'
      * $query->filterByQuotdate('%fooValue%', Criteria::LIKE); // WHERE quotdate LIKE '%fooValue%'
+     * $query->filterByQuotdate(['foo', 'bar']); // WHERE quotdate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $quotdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $quotdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQuotdate($quotdate = null, $comparison = null)
+    public function filterByQuotdate($quotdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($quotdate)) {
@@ -1363,7 +1517,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_QUOTDATE, $quotdate, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_QUOTDATE, $quotdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1373,14 +1529,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByRevdate('fooValue');   // WHERE revdate = 'fooValue'
      * $query->filterByRevdate('%fooValue%', Criteria::LIKE); // WHERE revdate LIKE '%fooValue%'
+     * $query->filterByRevdate(['foo', 'bar']); // WHERE revdate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $revdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $revdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByRevdate($revdate = null, $comparison = null)
+    public function filterByRevdate($revdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($revdate)) {
@@ -1388,7 +1545,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_REVDATE, $revdate, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_REVDATE, $revdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1398,14 +1557,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByExpdate('fooValue');   // WHERE expdate = 'fooValue'
      * $query->filterByExpdate('%fooValue%', Criteria::LIKE); // WHERE expdate LIKE '%fooValue%'
+     * $query->filterByExpdate(['foo', 'bar']); // WHERE expdate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $expdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $expdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByExpdate($expdate = null, $comparison = null)
+    public function filterByExpdate($expdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($expdate)) {
@@ -1413,7 +1573,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_EXPDATE, $expdate, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_EXPDATE, $expdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1423,14 +1585,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByPricecode('fooValue');   // WHERE pricecode = 'fooValue'
      * $query->filterByPricecode('%fooValue%', Criteria::LIKE); // WHERE pricecode LIKE '%fooValue%'
+     * $query->filterByPricecode(['foo', 'bar']); // WHERE pricecode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $pricecode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $pricecode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPricecode($pricecode = null, $comparison = null)
+    public function filterByPricecode($pricecode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($pricecode)) {
@@ -1438,7 +1601,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_PRICECODE, $pricecode, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_PRICECODE, $pricecode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1448,14 +1613,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByPricecodedesc('fooValue');   // WHERE pricecodedesc = 'fooValue'
      * $query->filterByPricecodedesc('%fooValue%', Criteria::LIKE); // WHERE pricecodedesc LIKE '%fooValue%'
+     * $query->filterByPricecodedesc(['foo', 'bar']); // WHERE pricecodedesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $pricecodedesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $pricecodedesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPricecodedesc($pricecodedesc = null, $comparison = null)
+    public function filterByPricecodedesc($pricecodedesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($pricecodedesc)) {
@@ -1463,7 +1629,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_PRICECODEDESC, $pricecodedesc, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_PRICECODEDESC, $pricecodedesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1473,14 +1641,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByTaxcode('fooValue');   // WHERE taxcode = 'fooValue'
      * $query->filterByTaxcode('%fooValue%', Criteria::LIKE); // WHERE taxcode LIKE '%fooValue%'
+     * $query->filterByTaxcode(['foo', 'bar']); // WHERE taxcode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $taxcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $taxcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTaxcode($taxcode = null, $comparison = null)
+    public function filterByTaxcode($taxcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($taxcode)) {
@@ -1488,7 +1657,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_TAXCODE, $taxcode, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_TAXCODE, $taxcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1498,14 +1669,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByTaxcodedesc('fooValue');   // WHERE taxcodedesc = 'fooValue'
      * $query->filterByTaxcodedesc('%fooValue%', Criteria::LIKE); // WHERE taxcodedesc LIKE '%fooValue%'
+     * $query->filterByTaxcodedesc(['foo', 'bar']); // WHERE taxcodedesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $taxcodedesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $taxcodedesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTaxcodedesc($taxcodedesc = null, $comparison = null)
+    public function filterByTaxcodedesc($taxcodedesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($taxcodedesc)) {
@@ -1513,7 +1685,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_TAXCODEDESC, $taxcodedesc, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_TAXCODEDESC, $taxcodedesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1523,14 +1697,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByTermcode('fooValue');   // WHERE termcode = 'fooValue'
      * $query->filterByTermcode('%fooValue%', Criteria::LIKE); // WHERE termcode LIKE '%fooValue%'
+     * $query->filterByTermcode(['foo', 'bar']); // WHERE termcode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $termcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $termcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTermcode($termcode = null, $comparison = null)
+    public function filterByTermcode($termcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($termcode)) {
@@ -1538,7 +1713,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_TERMCODE, $termcode, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_TERMCODE, $termcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1548,14 +1725,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByTermcodedesc('fooValue');   // WHERE termcodedesc = 'fooValue'
      * $query->filterByTermcodedesc('%fooValue%', Criteria::LIKE); // WHERE termcodedesc LIKE '%fooValue%'
+     * $query->filterByTermcodedesc(['foo', 'bar']); // WHERE termcodedesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $termcodedesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $termcodedesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTermcodedesc($termcodedesc = null, $comparison = null)
+    public function filterByTermcodedesc($termcodedesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($termcodedesc)) {
@@ -1563,7 +1741,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_TERMCODEDESC, $termcodedesc, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_TERMCODEDESC, $termcodedesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1573,14 +1753,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByShipviacd('fooValue');   // WHERE shipviacd = 'fooValue'
      * $query->filterByShipviacd('%fooValue%', Criteria::LIKE); // WHERE shipviacd LIKE '%fooValue%'
+     * $query->filterByShipviacd(['foo', 'bar']); // WHERE shipviacd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shipviacd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shipviacd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipviacd($shipviacd = null, $comparison = null)
+    public function filterByShipviacd($shipviacd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shipviacd)) {
@@ -1588,7 +1769,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_SHIPVIACD, $shipviacd, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_SHIPVIACD, $shipviacd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1598,14 +1781,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByShipviadesc('fooValue');   // WHERE shipviadesc = 'fooValue'
      * $query->filterByShipviadesc('%fooValue%', Criteria::LIKE); // WHERE shipviadesc LIKE '%fooValue%'
+     * $query->filterByShipviadesc(['foo', 'bar']); // WHERE shipviadesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shipviadesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shipviadesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipviadesc($shipviadesc = null, $comparison = null)
+    public function filterByShipviadesc($shipviadesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shipviadesc)) {
@@ -1613,7 +1797,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_SHIPVIADESC, $shipviadesc, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_SHIPVIADESC, $shipviadesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1623,14 +1809,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterBySp1('fooValue');   // WHERE sp1 = 'fooValue'
      * $query->filterBySp1('%fooValue%', Criteria::LIKE); // WHERE sp1 LIKE '%fooValue%'
+     * $query->filterBySp1(['foo', 'bar']); // WHERE sp1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sp1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sp1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySp1($sp1 = null, $comparison = null)
+    public function filterBySp1($sp1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sp1)) {
@@ -1638,7 +1825,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_SP1, $sp1, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_SP1, $sp1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1648,14 +1837,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterBySp1pct('fooValue');   // WHERE sp1pct = 'fooValue'
      * $query->filterBySp1pct('%fooValue%', Criteria::LIKE); // WHERE sp1pct LIKE '%fooValue%'
+     * $query->filterBySp1pct(['foo', 'bar']); // WHERE sp1pct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sp1pct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sp1pct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySp1pct($sp1pct = null, $comparison = null)
+    public function filterBySp1pct($sp1pct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sp1pct)) {
@@ -1663,7 +1853,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_SP1PCT, $sp1pct, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_SP1PCT, $sp1pct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1673,14 +1865,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterBySp1name('fooValue');   // WHERE sp1name = 'fooValue'
      * $query->filterBySp1name('%fooValue%', Criteria::LIKE); // WHERE sp1name LIKE '%fooValue%'
+     * $query->filterBySp1name(['foo', 'bar']); // WHERE sp1name IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sp1name The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sp1name The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySp1name($sp1name = null, $comparison = null)
+    public function filterBySp1name($sp1name = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sp1name)) {
@@ -1688,7 +1881,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_SP1NAME, $sp1name, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_SP1NAME, $sp1name, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1698,14 +1893,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterBySp2('fooValue');   // WHERE sp2 = 'fooValue'
      * $query->filterBySp2('%fooValue%', Criteria::LIKE); // WHERE sp2 LIKE '%fooValue%'
+     * $query->filterBySp2(['foo', 'bar']); // WHERE sp2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sp2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sp2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySp2($sp2 = null, $comparison = null)
+    public function filterBySp2($sp2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sp2)) {
@@ -1713,7 +1909,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_SP2, $sp2, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_SP2, $sp2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1723,14 +1921,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterBySp2pct('fooValue');   // WHERE sp2pct = 'fooValue'
      * $query->filterBySp2pct('%fooValue%', Criteria::LIKE); // WHERE sp2pct LIKE '%fooValue%'
+     * $query->filterBySp2pct(['foo', 'bar']); // WHERE sp2pct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sp2pct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sp2pct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySp2pct($sp2pct = null, $comparison = null)
+    public function filterBySp2pct($sp2pct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sp2pct)) {
@@ -1738,7 +1937,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_SP2PCT, $sp2pct, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_SP2PCT, $sp2pct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1748,14 +1949,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterBySp2name('fooValue');   // WHERE sp2name = 'fooValue'
      * $query->filterBySp2name('%fooValue%', Criteria::LIKE); // WHERE sp2name LIKE '%fooValue%'
+     * $query->filterBySp2name(['foo', 'bar']); // WHERE sp2name IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sp2name The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sp2name The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySp2name($sp2name = null, $comparison = null)
+    public function filterBySp2name($sp2name = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sp2name)) {
@@ -1763,7 +1965,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_SP2NAME, $sp2name, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_SP2NAME, $sp2name, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1773,14 +1977,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterBySp3('fooValue');   // WHERE sp3 = 'fooValue'
      * $query->filterBySp3('%fooValue%', Criteria::LIKE); // WHERE sp3 LIKE '%fooValue%'
+     * $query->filterBySp3(['foo', 'bar']); // WHERE sp3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sp3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sp3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySp3($sp3 = null, $comparison = null)
+    public function filterBySp3($sp3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sp3)) {
@@ -1788,7 +1993,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_SP3, $sp3, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_SP3, $sp3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1798,14 +2005,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterBySp3pct('fooValue');   // WHERE sp3pct = 'fooValue'
      * $query->filterBySp3pct('%fooValue%', Criteria::LIKE); // WHERE sp3pct LIKE '%fooValue%'
+     * $query->filterBySp3pct(['foo', 'bar']); // WHERE sp3pct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sp3pct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sp3pct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySp3pct($sp3pct = null, $comparison = null)
+    public function filterBySp3pct($sp3pct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sp3pct)) {
@@ -1813,7 +2021,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_SP3PCT, $sp3pct, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_SP3PCT, $sp3pct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1823,14 +2033,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterBySp3name('fooValue');   // WHERE sp3name = 'fooValue'
      * $query->filterBySp3name('%fooValue%', Criteria::LIKE); // WHERE sp3name LIKE '%fooValue%'
+     * $query->filterBySp3name(['foo', 'bar']); // WHERE sp3name IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sp3name The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sp3name The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySp3name($sp3name = null, $comparison = null)
+    public function filterBySp3name($sp3name = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sp3name)) {
@@ -1838,7 +2049,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_SP3NAME, $sp3name, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_SP3NAME, $sp3name, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1848,14 +2061,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByFob('fooValue');   // WHERE fob = 'fooValue'
      * $query->filterByFob('%fooValue%', Criteria::LIKE); // WHERE fob LIKE '%fooValue%'
+     * $query->filterByFob(['foo', 'bar']); // WHERE fob IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $fob The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $fob The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByFob($fob = null, $comparison = null)
+    public function filterByFob($fob = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($fob)) {
@@ -1863,7 +2077,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_FOB, $fob, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_FOB, $fob, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1873,14 +2089,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByDeliverydesc('fooValue');   // WHERE deliverydesc = 'fooValue'
      * $query->filterByDeliverydesc('%fooValue%', Criteria::LIKE); // WHERE deliverydesc LIKE '%fooValue%'
+     * $query->filterByDeliverydesc(['foo', 'bar']); // WHERE deliverydesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $deliverydesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $deliverydesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDeliverydesc($deliverydesc = null, $comparison = null)
+    public function filterByDeliverydesc($deliverydesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($deliverydesc)) {
@@ -1888,7 +2105,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_DELIVERYDESC, $deliverydesc, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_DELIVERYDESC, $deliverydesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1898,14 +2117,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByWhse('fooValue');   // WHERE whse = 'fooValue'
      * $query->filterByWhse('%fooValue%', Criteria::LIKE); // WHERE whse LIKE '%fooValue%'
+     * $query->filterByWhse(['foo', 'bar']); // WHERE whse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $whse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $whse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByWhse($whse = null, $comparison = null)
+    public function filterByWhse($whse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($whse)) {
@@ -1913,7 +2133,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_WHSE, $whse, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_WHSE, $whse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1923,14 +2145,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByCustpo('fooValue');   // WHERE custpo = 'fooValue'
      * $query->filterByCustpo('%fooValue%', Criteria::LIKE); // WHERE custpo LIKE '%fooValue%'
+     * $query->filterByCustpo(['foo', 'bar']); // WHERE custpo IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $custpo The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $custpo The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustpo($custpo = null, $comparison = null)
+    public function filterByCustpo($custpo = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($custpo)) {
@@ -1938,7 +2161,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_CUSTPO, $custpo, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_CUSTPO, $custpo, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1948,14 +2173,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByCustref('fooValue');   // WHERE custref = 'fooValue'
      * $query->filterByCustref('%fooValue%', Criteria::LIKE); // WHERE custref LIKE '%fooValue%'
+     * $query->filterByCustref(['foo', 'bar']); // WHERE custref IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $custref The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $custref The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustref($custref = null, $comparison = null)
+    public function filterByCustref($custref = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($custref)) {
@@ -1963,7 +2189,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_CUSTREF, $custref, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_CUSTREF, $custref, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1973,14 +2201,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByHasnotes('fooValue');   // WHERE hasnotes = 'fooValue'
      * $query->filterByHasnotes('%fooValue%', Criteria::LIKE); // WHERE hasnotes LIKE '%fooValue%'
+     * $query->filterByHasnotes(['foo', 'bar']); // WHERE hasnotes IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $hasnotes The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $hasnotes The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByHasnotes($hasnotes = null, $comparison = null)
+    public function filterByHasnotes($hasnotes = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($hasnotes)) {
@@ -1988,7 +2217,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_HASNOTES, $hasnotes, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_HASNOTES, $hasnotes, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1998,14 +2229,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByError('fooValue');   // WHERE error = 'fooValue'
      * $query->filterByError('%fooValue%', Criteria::LIKE); // WHERE error LIKE '%fooValue%'
+     * $query->filterByError(['foo', 'bar']); // WHERE error IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $error The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $error The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByError($error = null, $comparison = null)
+    public function filterByError($error = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($error)) {
@@ -2013,7 +2245,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_ERROR, $error, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_ERROR, $error, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2023,14 +2257,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByErrormsg('fooValue');   // WHERE errormsg = 'fooValue'
      * $query->filterByErrormsg('%fooValue%', Criteria::LIKE); // WHERE errormsg LIKE '%fooValue%'
+     * $query->filterByErrormsg(['foo', 'bar']); // WHERE errormsg IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $errormsg The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $errormsg The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByErrormsg($errormsg = null, $comparison = null)
+    public function filterByErrormsg($errormsg = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($errormsg)) {
@@ -2038,7 +2273,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_ERRORMSG, $errormsg, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_ERRORMSG, $errormsg, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2051,15 +2288,15 @@ abstract class QuothedQuery extends ModelCriteria
      * $query->filterBySubtotal(array('min' => 12)); // WHERE subtotal > 12
      * </code>
      *
-     * @param     mixed $subtotal The value to use as filter.
+     * @param mixed $subtotal The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySubtotal($subtotal = null, $comparison = null)
+    public function filterBySubtotal($subtotal = null, ?string $comparison = null)
     {
         if (is_array($subtotal)) {
             $useMinMax = false;
@@ -2079,7 +2316,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_SUBTOTAL, $subtotal, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_SUBTOTAL, $subtotal, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2092,15 +2331,15 @@ abstract class QuothedQuery extends ModelCriteria
      * $query->filterBySalestax(array('min' => 12)); // WHERE salestax > 12
      * </code>
      *
-     * @param     mixed $salestax The value to use as filter.
+     * @param mixed $salestax The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalestax($salestax = null, $comparison = null)
+    public function filterBySalestax($salestax = null, ?string $comparison = null)
     {
         if (is_array($salestax)) {
             $useMinMax = false;
@@ -2120,7 +2359,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_SALESTAX, $salestax, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_SALESTAX, $salestax, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2133,15 +2374,15 @@ abstract class QuothedQuery extends ModelCriteria
      * $query->filterByFreight(array('min' => 12)); // WHERE freight > 12
      * </code>
      *
-     * @param     mixed $freight The value to use as filter.
+     * @param mixed $freight The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByFreight($freight = null, $comparison = null)
+    public function filterByFreight($freight = null, ?string $comparison = null)
     {
         if (is_array($freight)) {
             $useMinMax = false;
@@ -2161,7 +2402,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_FREIGHT, $freight, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_FREIGHT, $freight, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2174,15 +2417,15 @@ abstract class QuothedQuery extends ModelCriteria
      * $query->filterByMisccost(array('min' => 12)); // WHERE misccost > 12
      * </code>
      *
-     * @param     mixed $misccost The value to use as filter.
+     * @param mixed $misccost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByMisccost($misccost = null, $comparison = null)
+    public function filterByMisccost($misccost = null, ?string $comparison = null)
     {
         if (is_array($misccost)) {
             $useMinMax = false;
@@ -2202,7 +2445,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_MISCCOST, $misccost, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_MISCCOST, $misccost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2215,15 +2460,15 @@ abstract class QuothedQuery extends ModelCriteria
      * $query->filterByOrdertotal(array('min' => 12)); // WHERE ordertotal > 12
      * </code>
      *
-     * @param     mixed $ordertotal The value to use as filter.
+     * @param mixed $ordertotal The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOrdertotal($ordertotal = null, $comparison = null)
+    public function filterByOrdertotal($ordertotal = null, ?string $comparison = null)
     {
         if (is_array($ordertotal)) {
             $useMinMax = false;
@@ -2243,7 +2488,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_ORDERTOTAL, $ordertotal, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_ORDERTOTAL, $ordertotal, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2256,15 +2503,15 @@ abstract class QuothedQuery extends ModelCriteria
      * $query->filterByCostTotal(array('min' => 12)); // WHERE cost_total > 12
      * </code>
      *
-     * @param     mixed $costTotal The value to use as filter.
+     * @param mixed $costTotal The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCostTotal($costTotal = null, $comparison = null)
+    public function filterByCostTotal($costTotal = null, ?string $comparison = null)
     {
         if (is_array($costTotal)) {
             $useMinMax = false;
@@ -2284,7 +2531,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_COST_TOTAL, $costTotal, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_COST_TOTAL, $costTotal, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2294,14 +2543,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByMarginAmt('fooValue');   // WHERE margin_amt = 'fooValue'
      * $query->filterByMarginAmt('%fooValue%', Criteria::LIKE); // WHERE margin_amt LIKE '%fooValue%'
+     * $query->filterByMarginAmt(['foo', 'bar']); // WHERE margin_amt IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $marginAmt The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $marginAmt The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByMarginAmt($marginAmt = null, $comparison = null)
+    public function filterByMarginAmt($marginAmt = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($marginAmt)) {
@@ -2309,7 +2559,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_MARGIN_AMT, $marginAmt, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_MARGIN_AMT, $marginAmt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2319,14 +2571,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByMarginPct('fooValue');   // WHERE margin_pct = 'fooValue'
      * $query->filterByMarginPct('%fooValue%', Criteria::LIKE); // WHERE margin_pct LIKE '%fooValue%'
+     * $query->filterByMarginPct(['foo', 'bar']); // WHERE margin_pct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $marginPct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $marginPct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByMarginPct($marginPct = null, $comparison = null)
+    public function filterByMarginPct($marginPct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($marginPct)) {
@@ -2334,7 +2587,9 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_MARGIN_PCT, $marginPct, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_MARGIN_PCT, $marginPct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2344,14 +2599,15 @@ abstract class QuothedQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -2359,15 +2615,17 @@ abstract class QuothedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuothedTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(QuothedTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildQuothed $quothed Object to remove from the list of results
+     * @param ChildQuothed $quothed Object to remove from the list of results
      *
-     * @return $this|ChildQuothedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($quothed = null)
     {
@@ -2386,7 +2644,7 @@ abstract class QuothedQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(QuothedTableMap::DATABASE_NAME);
@@ -2411,12 +2669,12 @@ abstract class QuothedQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(QuothedTableMap::DATABASE_NAME);
@@ -2441,4 +2699,4 @@ abstract class QuothedQuery extends ModelCriteria
         });
     }
 
-} // QuothedQuery
+}

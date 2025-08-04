@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class BincntlTableMap extends TableMap
 {
@@ -34,119 +33,178 @@ class BincntlTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.BincntlTableMap';
+    public const CLASS_NAME = '.Map.BincntlTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'dplusodb';
+    public const DATABASE_NAME = 'dplusodb';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'bincntl';
+    public const TABLE_NAME = 'bincntl';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'Bincntl';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\Bincntl';
+    public const OM_CLASS = '\\Bincntl';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'Bincntl';
+    public const CLASS_DEFAULT = 'Bincntl';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 7;
+    public const NUM_COLUMNS = 7;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 7;
+    public const NUM_HYDRATE_COLUMNS = 7;
 
     /**
      * the column name for the warehouse field
      */
-    const COL_WAREHOUSE = 'bincntl.warehouse';
+    public const COL_WAREHOUSE = 'bincntl.warehouse';
 
     /**
      * the column name for the binfrom field
      */
-    const COL_BINFROM = 'bincntl.binfrom';
+    public const COL_BINFROM = 'bincntl.binfrom';
 
     /**
      * the column name for the binthru field
      */
-    const COL_BINTHRU = 'bincntl.binthru';
+    public const COL_BINTHRU = 'bincntl.binthru';
 
     /**
      * the column name for the bintype field
      */
-    const COL_BINTYPE = 'bincntl.bintype';
+    public const COL_BINTYPE = 'bincntl.bintype';
 
     /**
      * the column name for the binarea field
      */
-    const COL_BINAREA = 'bincntl.binarea';
+    public const COL_BINAREA = 'bincntl.binarea';
 
     /**
      * the column name for the bindesc field
      */
-    const COL_BINDESC = 'bincntl.bindesc';
+    public const COL_BINDESC = 'bincntl.bindesc';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'bincntl.dummy';
+    public const COL_DUMMY = 'bincntl.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Warehouse', 'Binfrom', 'Binthru', 'Bintype', 'Binarea', 'Bindesc', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('warehouse', 'binfrom', 'binthru', 'bintype', 'binarea', 'bindesc', 'dummy', ),
-        self::TYPE_COLNAME       => array(BincntlTableMap::COL_WAREHOUSE, BincntlTableMap::COL_BINFROM, BincntlTableMap::COL_BINTHRU, BincntlTableMap::COL_BINTYPE, BincntlTableMap::COL_BINAREA, BincntlTableMap::COL_BINDESC, BincntlTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('warehouse', 'binfrom', 'binthru', 'bintype', 'binarea', 'bindesc', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Warehouse', 'Binfrom', 'Binthru', 'Bintype', 'Binarea', 'Bindesc', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['warehouse', 'binfrom', 'binthru', 'bintype', 'binarea', 'bindesc', 'dummy', ],
+        self::TYPE_COLNAME       => [BincntlTableMap::COL_WAREHOUSE, BincntlTableMap::COL_BINFROM, BincntlTableMap::COL_BINTHRU, BincntlTableMap::COL_BINTYPE, BincntlTableMap::COL_BINAREA, BincntlTableMap::COL_BINDESC, BincntlTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['warehouse', 'binfrom', 'binthru', 'bintype', 'binarea', 'bindesc', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Warehouse' => 0, 'Binfrom' => 1, 'Binthru' => 2, 'Bintype' => 3, 'Binarea' => 4, 'Bindesc' => 5, 'Dummy' => 6, ),
-        self::TYPE_CAMELNAME     => array('warehouse' => 0, 'binfrom' => 1, 'binthru' => 2, 'bintype' => 3, 'binarea' => 4, 'bindesc' => 5, 'dummy' => 6, ),
-        self::TYPE_COLNAME       => array(BincntlTableMap::COL_WAREHOUSE => 0, BincntlTableMap::COL_BINFROM => 1, BincntlTableMap::COL_BINTHRU => 2, BincntlTableMap::COL_BINTYPE => 3, BincntlTableMap::COL_BINAREA => 4, BincntlTableMap::COL_BINDESC => 5, BincntlTableMap::COL_DUMMY => 6, ),
-        self::TYPE_FIELDNAME     => array('warehouse' => 0, 'binfrom' => 1, 'binthru' => 2, 'bintype' => 3, 'binarea' => 4, 'bindesc' => 5, 'dummy' => 6, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Warehouse' => 0, 'Binfrom' => 1, 'Binthru' => 2, 'Bintype' => 3, 'Binarea' => 4, 'Bindesc' => 5, 'Dummy' => 6, ],
+        self::TYPE_CAMELNAME     => ['warehouse' => 0, 'binfrom' => 1, 'binthru' => 2, 'bintype' => 3, 'binarea' => 4, 'bindesc' => 5, 'dummy' => 6, ],
+        self::TYPE_COLNAME       => [BincntlTableMap::COL_WAREHOUSE => 0, BincntlTableMap::COL_BINFROM => 1, BincntlTableMap::COL_BINTHRU => 2, BincntlTableMap::COL_BINTYPE => 3, BincntlTableMap::COL_BINAREA => 4, BincntlTableMap::COL_BINDESC => 5, BincntlTableMap::COL_DUMMY => 6, ],
+        self::TYPE_FIELDNAME     => ['warehouse' => 0, 'binfrom' => 1, 'binthru' => 2, 'bintype' => 3, 'binarea' => 4, 'bindesc' => 5, 'dummy' => 6, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Warehouse' => 'WAREHOUSE',
+        'Bincntl.Warehouse' => 'WAREHOUSE',
+        'warehouse' => 'WAREHOUSE',
+        'bincntl.warehouse' => 'WAREHOUSE',
+        'BincntlTableMap::COL_WAREHOUSE' => 'WAREHOUSE',
+        'COL_WAREHOUSE' => 'WAREHOUSE',
+        'Binfrom' => 'BINFROM',
+        'Bincntl.Binfrom' => 'BINFROM',
+        'binfrom' => 'BINFROM',
+        'bincntl.binfrom' => 'BINFROM',
+        'BincntlTableMap::COL_BINFROM' => 'BINFROM',
+        'COL_BINFROM' => 'BINFROM',
+        'Binthru' => 'BINTHRU',
+        'Bincntl.Binthru' => 'BINTHRU',
+        'binthru' => 'BINTHRU',
+        'bincntl.binthru' => 'BINTHRU',
+        'BincntlTableMap::COL_BINTHRU' => 'BINTHRU',
+        'COL_BINTHRU' => 'BINTHRU',
+        'Bintype' => 'BINTYPE',
+        'Bincntl.Bintype' => 'BINTYPE',
+        'bintype' => 'BINTYPE',
+        'bincntl.bintype' => 'BINTYPE',
+        'BincntlTableMap::COL_BINTYPE' => 'BINTYPE',
+        'COL_BINTYPE' => 'BINTYPE',
+        'Binarea' => 'BINAREA',
+        'Bincntl.Binarea' => 'BINAREA',
+        'binarea' => 'BINAREA',
+        'bincntl.binarea' => 'BINAREA',
+        'BincntlTableMap::COL_BINAREA' => 'BINAREA',
+        'COL_BINAREA' => 'BINAREA',
+        'Bindesc' => 'BINDESC',
+        'Bincntl.Bindesc' => 'BINDESC',
+        'bindesc' => 'BINDESC',
+        'bincntl.bindesc' => 'BINDESC',
+        'BincntlTableMap::COL_BINDESC' => 'BINDESC',
+        'COL_BINDESC' => 'BINDESC',
+        'Dummy' => 'DUMMY',
+        'Bincntl.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'bincntl.dummy' => 'DUMMY',
+        'BincntlTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('bincntl');
@@ -163,14 +221,16 @@ class BincntlTableMap extends TableMap
         $this->addColumn('binarea', 'Binarea', 'VARCHAR', false, 2, null);
         $this->addColumn('bindesc', 'Bindesc', 'VARCHAR', false, 20, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -181,9 +241,11 @@ class BincntlTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \Bincntl $obj A \Bincntl object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(Bincntl $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -202,8 +264,10 @@ class BincntlTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \Bincntl object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \Bincntl) {
@@ -231,14 +295,14 @@ class BincntlTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Warehouse', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Binfrom', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Binthru', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -253,14 +317,14 @@ class BincntlTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -291,10 +355,10 @@ class BincntlTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? BincntlTableMap::CLASS_DEFAULT : BincntlTableMap::OM_CLASS;
     }
@@ -302,17 +366,17 @@ class BincntlTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (Bincntl object, last column rank)
+     * @return array (Bincntl object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = BincntlTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = BincntlTableMap::getInstanceFromPool($key))) {
@@ -328,7 +392,7 @@ class BincntlTableMap extends TableMap
             BincntlTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -336,13 +400,13 @@ class BincntlTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -372,12 +436,13 @@ class BincntlTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(BincntlTableMap::COL_WAREHOUSE);
@@ -399,40 +464,62 @@ class BincntlTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(BincntlTableMap::COL_WAREHOUSE);
+            $criteria->removeSelectColumn(BincntlTableMap::COL_BINFROM);
+            $criteria->removeSelectColumn(BincntlTableMap::COL_BINTHRU);
+            $criteria->removeSelectColumn(BincntlTableMap::COL_BINTYPE);
+            $criteria->removeSelectColumn(BincntlTableMap::COL_BINAREA);
+            $criteria->removeSelectColumn(BincntlTableMap::COL_BINDESC);
+            $criteria->removeSelectColumn(BincntlTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.warehouse');
+            $criteria->removeSelectColumn($alias . '.binfrom');
+            $criteria->removeSelectColumn($alias . '.binthru');
+            $criteria->removeSelectColumn($alias . '.bintype');
+            $criteria->removeSelectColumn($alias . '.binarea');
+            $criteria->removeSelectColumn($alias . '.bindesc');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(BincntlTableMap::DATABASE_NAME)->getTable(BincntlTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(BincntlTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(BincntlTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new BincntlTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a Bincntl or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or Bincntl object or primary key or array of primary keys
+     * @param mixed $values Criteria or Bincntl object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(BincntlTableMap::DATABASE_NAME);
@@ -450,7 +537,7 @@ class BincntlTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(BincntlTableMap::COL_WAREHOUSE, $value[0]);
@@ -479,7 +566,7 @@ class BincntlTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return BincntlQuery::create()->doDeleteAll($con);
     }
@@ -487,13 +574,13 @@ class BincntlTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a Bincntl or Criteria object.
      *
-     * @param mixed               $criteria Criteria or Bincntl object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or Bincntl object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(BincntlTableMap::DATABASE_NAME);
@@ -516,7 +603,4 @@ class BincntlTableMap extends TableMap
         });
     }
 
-} // BincntlTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-BincntlTableMap::buildTableMap();
+}

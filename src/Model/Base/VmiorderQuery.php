@@ -10,14 +10,12 @@ use Map\VmiOrderTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'vmiorder' table.
- *
- *
+ * Base class that represents a query for the `vmiorder` table.
  *
  * @method     ChildVmiOrderQuery orderById($order = Criteria::ASC) Order by the id column
  * @method     ChildVmiOrderQuery orderBySessionid($order = Criteria::ASC) Order by the sessionid column
@@ -53,24 +51,24 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildVmiOrderQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildVmiOrderQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildVmiOrder findOne(ConnectionInterface $con = null) Return the first ChildVmiOrder matching the query
- * @method     ChildVmiOrder findOneOrCreate(ConnectionInterface $con = null) Return the first ChildVmiOrder matching the query, or a new ChildVmiOrder object populated from the query conditions when no match is found
+ * @method     ChildVmiOrder|null findOne(?ConnectionInterface $con = null) Return the first ChildVmiOrder matching the query
+ * @method     ChildVmiOrder findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildVmiOrder matching the query, or a new ChildVmiOrder object populated from the query conditions when no match is found
  *
- * @method     ChildVmiOrder findOneById(int $id) Return the first ChildVmiOrder filtered by the id column
- * @method     ChildVmiOrder findOneBySessionid(string $sessionid) Return the first ChildVmiOrder filtered by the sessionid column
- * @method     ChildVmiOrder findOneByUserid(string $userid) Return the first ChildVmiOrder filtered by the userid column
- * @method     ChildVmiOrder findOneByCustid(string $custid) Return the first ChildVmiOrder filtered by the custid column
- * @method     ChildVmiOrder findOneByShiptoid(string $shiptoid) Return the first ChildVmiOrder filtered by the shiptoid column
- * @method     ChildVmiOrder findOneByCell(string $cell) Return the first ChildVmiOrder filtered by the cell column
- * @method     ChildVmiOrder findOneByItemid(string $itemid) Return the first ChildVmiOrder filtered by the itemid column
- * @method     ChildVmiOrder findOneByCustitemid(string $custitemid) Return the first ChildVmiOrder filtered by the custitemid column
- * @method     ChildVmiOrder findOneByCases(int $cases) Return the first ChildVmiOrder filtered by the cases column
- * @method     ChildVmiOrder findOneByQty(int $qty) Return the first ChildVmiOrder filtered by the qty column
- * @method     ChildVmiOrder findOneByDate(int $date) Return the first ChildVmiOrder filtered by the date column
- * @method     ChildVmiOrder findOneByTime(int $time) Return the first ChildVmiOrder filtered by the time column *
-
- * @method     ChildVmiOrder requirePk($key, ConnectionInterface $con = null) Return the ChildVmiOrder by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildVmiOrder requireOne(ConnectionInterface $con = null) Return the first ChildVmiOrder matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildVmiOrder|null findOneById(int $id) Return the first ChildVmiOrder filtered by the id column
+ * @method     ChildVmiOrder|null findOneBySessionid(string $sessionid) Return the first ChildVmiOrder filtered by the sessionid column
+ * @method     ChildVmiOrder|null findOneByUserid(string $userid) Return the first ChildVmiOrder filtered by the userid column
+ * @method     ChildVmiOrder|null findOneByCustid(string $custid) Return the first ChildVmiOrder filtered by the custid column
+ * @method     ChildVmiOrder|null findOneByShiptoid(string $shiptoid) Return the first ChildVmiOrder filtered by the shiptoid column
+ * @method     ChildVmiOrder|null findOneByCell(string $cell) Return the first ChildVmiOrder filtered by the cell column
+ * @method     ChildVmiOrder|null findOneByItemid(string $itemid) Return the first ChildVmiOrder filtered by the itemid column
+ * @method     ChildVmiOrder|null findOneByCustitemid(string $custitemid) Return the first ChildVmiOrder filtered by the custitemid column
+ * @method     ChildVmiOrder|null findOneByCases(int $cases) Return the first ChildVmiOrder filtered by the cases column
+ * @method     ChildVmiOrder|null findOneByQty(int $qty) Return the first ChildVmiOrder filtered by the qty column
+ * @method     ChildVmiOrder|null findOneByDate(int $date) Return the first ChildVmiOrder filtered by the date column
+ * @method     ChildVmiOrder|null findOneByTime(int $time) Return the first ChildVmiOrder filtered by the time column
+ *
+ * @method     ChildVmiOrder requirePk($key, ?ConnectionInterface $con = null) Return the ChildVmiOrder by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildVmiOrder requireOne(?ConnectionInterface $con = null) Return the first ChildVmiOrder matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildVmiOrder requireOneById(int $id) Return the first ChildVmiOrder filtered by the id column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildVmiOrder requireOneBySessionid(string $sessionid) Return the first ChildVmiOrder filtered by the sessionid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -85,21 +83,36 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildVmiOrder requireOneByDate(int $date) Return the first ChildVmiOrder filtered by the date column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildVmiOrder requireOneByTime(int $time) Return the first ChildVmiOrder filtered by the time column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildVmiOrder[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildVmiOrder objects based on current ModelCriteria
- * @method     ChildVmiOrder[]|ObjectCollection findById(int $id) Return ChildVmiOrder objects filtered by the id column
- * @method     ChildVmiOrder[]|ObjectCollection findBySessionid(string $sessionid) Return ChildVmiOrder objects filtered by the sessionid column
- * @method     ChildVmiOrder[]|ObjectCollection findByUserid(string $userid) Return ChildVmiOrder objects filtered by the userid column
- * @method     ChildVmiOrder[]|ObjectCollection findByCustid(string $custid) Return ChildVmiOrder objects filtered by the custid column
- * @method     ChildVmiOrder[]|ObjectCollection findByShiptoid(string $shiptoid) Return ChildVmiOrder objects filtered by the shiptoid column
- * @method     ChildVmiOrder[]|ObjectCollection findByCell(string $cell) Return ChildVmiOrder objects filtered by the cell column
- * @method     ChildVmiOrder[]|ObjectCollection findByItemid(string $itemid) Return ChildVmiOrder objects filtered by the itemid column
- * @method     ChildVmiOrder[]|ObjectCollection findByCustitemid(string $custitemid) Return ChildVmiOrder objects filtered by the custitemid column
- * @method     ChildVmiOrder[]|ObjectCollection findByCases(int $cases) Return ChildVmiOrder objects filtered by the cases column
- * @method     ChildVmiOrder[]|ObjectCollection findByQty(int $qty) Return ChildVmiOrder objects filtered by the qty column
- * @method     ChildVmiOrder[]|ObjectCollection findByDate(int $date) Return ChildVmiOrder objects filtered by the date column
- * @method     ChildVmiOrder[]|ObjectCollection findByTime(int $time) Return ChildVmiOrder objects filtered by the time column
- * @method     ChildVmiOrder[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildVmiOrder[]|Collection find(?ConnectionInterface $con = null) Return ChildVmiOrder objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildVmiOrder> find(?ConnectionInterface $con = null) Return ChildVmiOrder objects based on current ModelCriteria
  *
+ * @method     ChildVmiOrder[]|Collection findById(int|array<int> $id) Return ChildVmiOrder objects filtered by the id column
+ * @psalm-method Collection&\Traversable<ChildVmiOrder> findById(int|array<int> $id) Return ChildVmiOrder objects filtered by the id column
+ * @method     ChildVmiOrder[]|Collection findBySessionid(string|array<string> $sessionid) Return ChildVmiOrder objects filtered by the sessionid column
+ * @psalm-method Collection&\Traversable<ChildVmiOrder> findBySessionid(string|array<string> $sessionid) Return ChildVmiOrder objects filtered by the sessionid column
+ * @method     ChildVmiOrder[]|Collection findByUserid(string|array<string> $userid) Return ChildVmiOrder objects filtered by the userid column
+ * @psalm-method Collection&\Traversable<ChildVmiOrder> findByUserid(string|array<string> $userid) Return ChildVmiOrder objects filtered by the userid column
+ * @method     ChildVmiOrder[]|Collection findByCustid(string|array<string> $custid) Return ChildVmiOrder objects filtered by the custid column
+ * @psalm-method Collection&\Traversable<ChildVmiOrder> findByCustid(string|array<string> $custid) Return ChildVmiOrder objects filtered by the custid column
+ * @method     ChildVmiOrder[]|Collection findByShiptoid(string|array<string> $shiptoid) Return ChildVmiOrder objects filtered by the shiptoid column
+ * @psalm-method Collection&\Traversable<ChildVmiOrder> findByShiptoid(string|array<string> $shiptoid) Return ChildVmiOrder objects filtered by the shiptoid column
+ * @method     ChildVmiOrder[]|Collection findByCell(string|array<string> $cell) Return ChildVmiOrder objects filtered by the cell column
+ * @psalm-method Collection&\Traversable<ChildVmiOrder> findByCell(string|array<string> $cell) Return ChildVmiOrder objects filtered by the cell column
+ * @method     ChildVmiOrder[]|Collection findByItemid(string|array<string> $itemid) Return ChildVmiOrder objects filtered by the itemid column
+ * @psalm-method Collection&\Traversable<ChildVmiOrder> findByItemid(string|array<string> $itemid) Return ChildVmiOrder objects filtered by the itemid column
+ * @method     ChildVmiOrder[]|Collection findByCustitemid(string|array<string> $custitemid) Return ChildVmiOrder objects filtered by the custitemid column
+ * @psalm-method Collection&\Traversable<ChildVmiOrder> findByCustitemid(string|array<string> $custitemid) Return ChildVmiOrder objects filtered by the custitemid column
+ * @method     ChildVmiOrder[]|Collection findByCases(int|array<int> $cases) Return ChildVmiOrder objects filtered by the cases column
+ * @psalm-method Collection&\Traversable<ChildVmiOrder> findByCases(int|array<int> $cases) Return ChildVmiOrder objects filtered by the cases column
+ * @method     ChildVmiOrder[]|Collection findByQty(int|array<int> $qty) Return ChildVmiOrder objects filtered by the qty column
+ * @psalm-method Collection&\Traversable<ChildVmiOrder> findByQty(int|array<int> $qty) Return ChildVmiOrder objects filtered by the qty column
+ * @method     ChildVmiOrder[]|Collection findByDate(int|array<int> $date) Return ChildVmiOrder objects filtered by the date column
+ * @psalm-method Collection&\Traversable<ChildVmiOrder> findByDate(int|array<int> $date) Return ChildVmiOrder objects filtered by the date column
+ * @method     ChildVmiOrder[]|Collection findByTime(int|array<int> $time) Return ChildVmiOrder objects filtered by the time column
+ * @psalm-method Collection&\Traversable<ChildVmiOrder> findByTime(int|array<int> $time) Return ChildVmiOrder objects filtered by the time column
+ *
+ * @method     ChildVmiOrder[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildVmiOrder> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class VmiOrderQuery extends ModelCriteria
 {
@@ -108,9 +121,9 @@ abstract class VmiOrderQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\VmiOrderQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'dplusodb', $modelName = '\\VmiOrder', $modelAlias = null)
     {
@@ -120,12 +133,12 @@ abstract class VmiOrderQuery extends ModelCriteria
     /**
      * Returns a new ChildVmiOrderQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildVmiOrderQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildVmiOrderQuery) {
             return $criteria;
@@ -155,7 +168,7 @@ abstract class VmiOrderQuery extends ModelCriteria
      *
      * @return ChildVmiOrder|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -187,8 +200,8 @@ abstract class VmiOrderQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -220,8 +233,8 @@ abstract class VmiOrderQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildVmiOrder|array|mixed the result, formatted by the current formatter
      */
@@ -241,12 +254,12 @@ abstract class VmiOrderQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -263,27 +276,31 @@ abstract class VmiOrderQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildVmiOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(VmiOrderTableMap::COL_ID, $key, Criteria::EQUAL);
+        $this->addUsingAlias(VmiOrderTableMap::COL_ID, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildVmiOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(VmiOrderTableMap::COL_ID, $keys, Criteria::IN);
+        $this->addUsingAlias(VmiOrderTableMap::COL_ID, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -296,15 +313,15 @@ abstract class VmiOrderQuery extends ModelCriteria
      * $query->filterById(array('min' => 12)); // WHERE id > 12
      * </code>
      *
-     * @param     mixed $id The value to use as filter.
+     * @param mixed $id The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVmiOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterById($id = null, $comparison = null)
+    public function filterById($id = null, ?string $comparison = null)
     {
         if (is_array($id)) {
             $useMinMax = false;
@@ -324,7 +341,9 @@ abstract class VmiOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VmiOrderTableMap::COL_ID, $id, $comparison);
+        $this->addUsingAlias(VmiOrderTableMap::COL_ID, $id, $comparison);
+
+        return $this;
     }
 
     /**
@@ -334,14 +353,15 @@ abstract class VmiOrderQuery extends ModelCriteria
      * <code>
      * $query->filterBySessionid('fooValue');   // WHERE sessionid = 'fooValue'
      * $query->filterBySessionid('%fooValue%', Criteria::LIKE); // WHERE sessionid LIKE '%fooValue%'
+     * $query->filterBySessionid(['foo', 'bar']); // WHERE sessionid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sessionid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sessionid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVmiOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySessionid($sessionid = null, $comparison = null)
+    public function filterBySessionid($sessionid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sessionid)) {
@@ -349,7 +369,9 @@ abstract class VmiOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VmiOrderTableMap::COL_SESSIONID, $sessionid, $comparison);
+        $this->addUsingAlias(VmiOrderTableMap::COL_SESSIONID, $sessionid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -359,14 +381,15 @@ abstract class VmiOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByUserid('fooValue');   // WHERE userid = 'fooValue'
      * $query->filterByUserid('%fooValue%', Criteria::LIKE); // WHERE userid LIKE '%fooValue%'
+     * $query->filterByUserid(['foo', 'bar']); // WHERE userid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $userid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $userid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVmiOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUserid($userid = null, $comparison = null)
+    public function filterByUserid($userid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($userid)) {
@@ -374,7 +397,9 @@ abstract class VmiOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VmiOrderTableMap::COL_USERID, $userid, $comparison);
+        $this->addUsingAlias(VmiOrderTableMap::COL_USERID, $userid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -384,14 +409,15 @@ abstract class VmiOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByCustid('fooValue');   // WHERE custid = 'fooValue'
      * $query->filterByCustid('%fooValue%', Criteria::LIKE); // WHERE custid LIKE '%fooValue%'
+     * $query->filterByCustid(['foo', 'bar']); // WHERE custid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $custid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $custid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVmiOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustid($custid = null, $comparison = null)
+    public function filterByCustid($custid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($custid)) {
@@ -399,7 +425,9 @@ abstract class VmiOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VmiOrderTableMap::COL_CUSTID, $custid, $comparison);
+        $this->addUsingAlias(VmiOrderTableMap::COL_CUSTID, $custid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -409,14 +437,15 @@ abstract class VmiOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByShiptoid('fooValue');   // WHERE shiptoid = 'fooValue'
      * $query->filterByShiptoid('%fooValue%', Criteria::LIKE); // WHERE shiptoid LIKE '%fooValue%'
+     * $query->filterByShiptoid(['foo', 'bar']); // WHERE shiptoid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shiptoid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shiptoid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVmiOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShiptoid($shiptoid = null, $comparison = null)
+    public function filterByShiptoid($shiptoid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shiptoid)) {
@@ -424,7 +453,9 @@ abstract class VmiOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VmiOrderTableMap::COL_SHIPTOID, $shiptoid, $comparison);
+        $this->addUsingAlias(VmiOrderTableMap::COL_SHIPTOID, $shiptoid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -434,14 +465,15 @@ abstract class VmiOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByCell('fooValue');   // WHERE cell = 'fooValue'
      * $query->filterByCell('%fooValue%', Criteria::LIKE); // WHERE cell LIKE '%fooValue%'
+     * $query->filterByCell(['foo', 'bar']); // WHERE cell IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cell The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cell The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVmiOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCell($cell = null, $comparison = null)
+    public function filterByCell($cell = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cell)) {
@@ -449,7 +481,9 @@ abstract class VmiOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VmiOrderTableMap::COL_CELL, $cell, $comparison);
+        $this->addUsingAlias(VmiOrderTableMap::COL_CELL, $cell, $comparison);
+
+        return $this;
     }
 
     /**
@@ -459,14 +493,15 @@ abstract class VmiOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByItemid('fooValue');   // WHERE itemid = 'fooValue'
      * $query->filterByItemid('%fooValue%', Criteria::LIKE); // WHERE itemid LIKE '%fooValue%'
+     * $query->filterByItemid(['foo', 'bar']); // WHERE itemid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itemid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itemid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVmiOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemid($itemid = null, $comparison = null)
+    public function filterByItemid($itemid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itemid)) {
@@ -474,7 +509,9 @@ abstract class VmiOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VmiOrderTableMap::COL_ITEMID, $itemid, $comparison);
+        $this->addUsingAlias(VmiOrderTableMap::COL_ITEMID, $itemid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -484,14 +521,15 @@ abstract class VmiOrderQuery extends ModelCriteria
      * <code>
      * $query->filterByCustitemid('fooValue');   // WHERE custitemid = 'fooValue'
      * $query->filterByCustitemid('%fooValue%', Criteria::LIKE); // WHERE custitemid LIKE '%fooValue%'
+     * $query->filterByCustitemid(['foo', 'bar']); // WHERE custitemid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $custitemid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $custitemid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVmiOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustitemid($custitemid = null, $comparison = null)
+    public function filterByCustitemid($custitemid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($custitemid)) {
@@ -499,7 +537,9 @@ abstract class VmiOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VmiOrderTableMap::COL_CUSTITEMID, $custitemid, $comparison);
+        $this->addUsingAlias(VmiOrderTableMap::COL_CUSTITEMID, $custitemid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -512,15 +552,15 @@ abstract class VmiOrderQuery extends ModelCriteria
      * $query->filterByCases(array('min' => 12)); // WHERE cases > 12
      * </code>
      *
-     * @param     mixed $cases The value to use as filter.
+     * @param mixed $cases The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVmiOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCases($cases = null, $comparison = null)
+    public function filterByCases($cases = null, ?string $comparison = null)
     {
         if (is_array($cases)) {
             $useMinMax = false;
@@ -540,7 +580,9 @@ abstract class VmiOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VmiOrderTableMap::COL_CASES, $cases, $comparison);
+        $this->addUsingAlias(VmiOrderTableMap::COL_CASES, $cases, $comparison);
+
+        return $this;
     }
 
     /**
@@ -553,15 +595,15 @@ abstract class VmiOrderQuery extends ModelCriteria
      * $query->filterByQty(array('min' => 12)); // WHERE qty > 12
      * </code>
      *
-     * @param     mixed $qty The value to use as filter.
+     * @param mixed $qty The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVmiOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQty($qty = null, $comparison = null)
+    public function filterByQty($qty = null, ?string $comparison = null)
     {
         if (is_array($qty)) {
             $useMinMax = false;
@@ -581,7 +623,9 @@ abstract class VmiOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VmiOrderTableMap::COL_QTY, $qty, $comparison);
+        $this->addUsingAlias(VmiOrderTableMap::COL_QTY, $qty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -594,15 +638,15 @@ abstract class VmiOrderQuery extends ModelCriteria
      * $query->filterByDate(array('min' => 12)); // WHERE date > 12
      * </code>
      *
-     * @param     mixed $date The value to use as filter.
+     * @param mixed $date The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVmiOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDate($date = null, $comparison = null)
+    public function filterByDate($date = null, ?string $comparison = null)
     {
         if (is_array($date)) {
             $useMinMax = false;
@@ -622,7 +666,9 @@ abstract class VmiOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VmiOrderTableMap::COL_DATE, $date, $comparison);
+        $this->addUsingAlias(VmiOrderTableMap::COL_DATE, $date, $comparison);
+
+        return $this;
     }
 
     /**
@@ -635,15 +681,15 @@ abstract class VmiOrderQuery extends ModelCriteria
      * $query->filterByTime(array('min' => 12)); // WHERE time > 12
      * </code>
      *
-     * @param     mixed $time The value to use as filter.
+     * @param mixed $time The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVmiOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTime($time = null, $comparison = null)
+    public function filterByTime($time = null, ?string $comparison = null)
     {
         if (is_array($time)) {
             $useMinMax = false;
@@ -663,20 +709,22 @@ abstract class VmiOrderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VmiOrderTableMap::COL_TIME, $time, $comparison);
+        $this->addUsingAlias(VmiOrderTableMap::COL_TIME, $time, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildVmiOrder $vmiorder Object to remove from the list of results
+     * @param ChildVmiOrder $vmiOrder Object to remove from the list of results
      *
-     * @return $this|ChildVmiOrderQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function prune($vmiorder = null)
+    public function prune($vmiOrder = null)
     {
-        if ($vmiorder) {
-            $this->addUsingAlias(VmiOrderTableMap::COL_ID, $vmiorder->getId(), Criteria::NOT_EQUAL);
+        if ($vmiOrder) {
+            $this->addUsingAlias(VmiOrderTableMap::COL_ID, $vmiOrder->getId(), Criteria::NOT_EQUAL);
         }
 
         return $this;
@@ -688,7 +736,7 @@ abstract class VmiOrderQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(VmiOrderTableMap::DATABASE_NAME);
@@ -713,12 +761,12 @@ abstract class VmiOrderQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(VmiOrderTableMap::DATABASE_NAME);
@@ -743,4 +791,4 @@ abstract class VmiOrderQuery extends ModelCriteria
         });
     }
 
-} // VmiOrderQuery
+}

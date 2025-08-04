@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class WhseitemphysicalcountTableMap extends TableMap
 {
@@ -34,159 +33,266 @@ class WhseitemphysicalcountTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.WhseitemphysicalcountTableMap';
+    public const CLASS_NAME = '.Map.WhseitemphysicalcountTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'dplusodb';
+    public const DATABASE_NAME = 'dplusodb';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'whseitemphysicalcount';
+    public const TABLE_NAME = 'whseitemphysicalcount';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'Whseitemphysicalcount';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\Whseitemphysicalcount';
+    public const OM_CLASS = '\\Whseitemphysicalcount';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'Whseitemphysicalcount';
+    public const CLASS_DEFAULT = 'Whseitemphysicalcount';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 15;
+    public const NUM_COLUMNS = 15;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 15;
+    public const NUM_HYDRATE_COLUMNS = 15;
 
     /**
      * the column name for the sessionid field
      */
-    const COL_SESSIONID = 'whseitemphysicalcount.sessionid';
+    public const COL_SESSIONID = 'whseitemphysicalcount.sessionid';
 
     /**
      * the column name for the recno field
      */
-    const COL_RECNO = 'whseitemphysicalcount.recno';
+    public const COL_RECNO = 'whseitemphysicalcount.recno';
 
     /**
      * the column name for the itemid field
      */
-    const COL_ITEMID = 'whseitemphysicalcount.itemid';
+    public const COL_ITEMID = 'whseitemphysicalcount.itemid';
 
     /**
      * the column name for the scan field
      */
-    const COL_SCAN = 'whseitemphysicalcount.scan';
+    public const COL_SCAN = 'whseitemphysicalcount.scan';
 
     /**
      * the column name for the type field
      */
-    const COL_TYPE = 'whseitemphysicalcount.type';
+    public const COL_TYPE = 'whseitemphysicalcount.type';
 
     /**
      * the column name for the lotserial field
      */
-    const COL_LOTSERIAL = 'whseitemphysicalcount.lotserial';
+    public const COL_LOTSERIAL = 'whseitemphysicalcount.lotserial';
 
     /**
      * the column name for the lotserialref field
      */
-    const COL_LOTSERIALREF = 'whseitemphysicalcount.lotserialref';
+    public const COL_LOTSERIALREF = 'whseitemphysicalcount.lotserialref';
 
     /**
      * the column name for the bin field
      */
-    const COL_BIN = 'whseitemphysicalcount.bin';
+    public const COL_BIN = 'whseitemphysicalcount.bin';
 
     /**
      * the column name for the qty field
      */
-    const COL_QTY = 'whseitemphysicalcount.qty';
+    public const COL_QTY = 'whseitemphysicalcount.qty';
 
     /**
      * the column name for the productiondate field
      */
-    const COL_PRODUCTIONDATE = 'whseitemphysicalcount.productiondate';
+    public const COL_PRODUCTIONDATE = 'whseitemphysicalcount.productiondate';
 
     /**
      * the column name for the complete field
      */
-    const COL_COMPLETE = 'whseitemphysicalcount.complete';
+    public const COL_COMPLETE = 'whseitemphysicalcount.complete';
 
     /**
      * the column name for the status field
      */
-    const COL_STATUS = 'whseitemphysicalcount.status';
+    public const COL_STATUS = 'whseitemphysicalcount.status';
 
     /**
      * the column name for the date field
      */
-    const COL_DATE = 'whseitemphysicalcount.date';
+    public const COL_DATE = 'whseitemphysicalcount.date';
 
     /**
      * the column name for the time field
      */
-    const COL_TIME = 'whseitemphysicalcount.time';
+    public const COL_TIME = 'whseitemphysicalcount.time';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'whseitemphysicalcount.dummy';
+    public const COL_DUMMY = 'whseitemphysicalcount.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Sessionid', 'Recno', 'Itemid', 'Scan', 'Type', 'Lotserial', 'Lotserialref', 'Bin', 'Qty', 'Productiondate', 'Complete', 'Status', 'Date', 'Time', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('sessionid', 'recno', 'itemid', 'scan', 'type', 'lotserial', 'lotserialref', 'bin', 'qty', 'productiondate', 'complete', 'status', 'date', 'time', 'dummy', ),
-        self::TYPE_COLNAME       => array(WhseitemphysicalcountTableMap::COL_SESSIONID, WhseitemphysicalcountTableMap::COL_RECNO, WhseitemphysicalcountTableMap::COL_ITEMID, WhseitemphysicalcountTableMap::COL_SCAN, WhseitemphysicalcountTableMap::COL_TYPE, WhseitemphysicalcountTableMap::COL_LOTSERIAL, WhseitemphysicalcountTableMap::COL_LOTSERIALREF, WhseitemphysicalcountTableMap::COL_BIN, WhseitemphysicalcountTableMap::COL_QTY, WhseitemphysicalcountTableMap::COL_PRODUCTIONDATE, WhseitemphysicalcountTableMap::COL_COMPLETE, WhseitemphysicalcountTableMap::COL_STATUS, WhseitemphysicalcountTableMap::COL_DATE, WhseitemphysicalcountTableMap::COL_TIME, WhseitemphysicalcountTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('sessionid', 'recno', 'itemid', 'scan', 'type', 'lotserial', 'lotserialref', 'bin', 'qty', 'productiondate', 'complete', 'status', 'date', 'time', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Sessionid', 'Recno', 'Itemid', 'Scan', 'Type', 'Lotserial', 'Lotserialref', 'Bin', 'Qty', 'Productiondate', 'Complete', 'Status', 'Date', 'Time', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['sessionid', 'recno', 'itemid', 'scan', 'type', 'lotserial', 'lotserialref', 'bin', 'qty', 'productiondate', 'complete', 'status', 'date', 'time', 'dummy', ],
+        self::TYPE_COLNAME       => [WhseitemphysicalcountTableMap::COL_SESSIONID, WhseitemphysicalcountTableMap::COL_RECNO, WhseitemphysicalcountTableMap::COL_ITEMID, WhseitemphysicalcountTableMap::COL_SCAN, WhseitemphysicalcountTableMap::COL_TYPE, WhseitemphysicalcountTableMap::COL_LOTSERIAL, WhseitemphysicalcountTableMap::COL_LOTSERIALREF, WhseitemphysicalcountTableMap::COL_BIN, WhseitemphysicalcountTableMap::COL_QTY, WhseitemphysicalcountTableMap::COL_PRODUCTIONDATE, WhseitemphysicalcountTableMap::COL_COMPLETE, WhseitemphysicalcountTableMap::COL_STATUS, WhseitemphysicalcountTableMap::COL_DATE, WhseitemphysicalcountTableMap::COL_TIME, WhseitemphysicalcountTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['sessionid', 'recno', 'itemid', 'scan', 'type', 'lotserial', 'lotserialref', 'bin', 'qty', 'productiondate', 'complete', 'status', 'date', 'time', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Recno' => 1, 'Itemid' => 2, 'Scan' => 3, 'Type' => 4, 'Lotserial' => 5, 'Lotserialref' => 6, 'Bin' => 7, 'Qty' => 8, 'Productiondate' => 9, 'Complete' => 10, 'Status' => 11, 'Date' => 12, 'Time' => 13, 'Dummy' => 14, ),
-        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'recno' => 1, 'itemid' => 2, 'scan' => 3, 'type' => 4, 'lotserial' => 5, 'lotserialref' => 6, 'bin' => 7, 'qty' => 8, 'productiondate' => 9, 'complete' => 10, 'status' => 11, 'date' => 12, 'time' => 13, 'dummy' => 14, ),
-        self::TYPE_COLNAME       => array(WhseitemphysicalcountTableMap::COL_SESSIONID => 0, WhseitemphysicalcountTableMap::COL_RECNO => 1, WhseitemphysicalcountTableMap::COL_ITEMID => 2, WhseitemphysicalcountTableMap::COL_SCAN => 3, WhseitemphysicalcountTableMap::COL_TYPE => 4, WhseitemphysicalcountTableMap::COL_LOTSERIAL => 5, WhseitemphysicalcountTableMap::COL_LOTSERIALREF => 6, WhseitemphysicalcountTableMap::COL_BIN => 7, WhseitemphysicalcountTableMap::COL_QTY => 8, WhseitemphysicalcountTableMap::COL_PRODUCTIONDATE => 9, WhseitemphysicalcountTableMap::COL_COMPLETE => 10, WhseitemphysicalcountTableMap::COL_STATUS => 11, WhseitemphysicalcountTableMap::COL_DATE => 12, WhseitemphysicalcountTableMap::COL_TIME => 13, WhseitemphysicalcountTableMap::COL_DUMMY => 14, ),
-        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'recno' => 1, 'itemid' => 2, 'scan' => 3, 'type' => 4, 'lotserial' => 5, 'lotserialref' => 6, 'bin' => 7, 'qty' => 8, 'productiondate' => 9, 'complete' => 10, 'status' => 11, 'date' => 12, 'time' => 13, 'dummy' => 14, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Sessionid' => 0, 'Recno' => 1, 'Itemid' => 2, 'Scan' => 3, 'Type' => 4, 'Lotserial' => 5, 'Lotserialref' => 6, 'Bin' => 7, 'Qty' => 8, 'Productiondate' => 9, 'Complete' => 10, 'Status' => 11, 'Date' => 12, 'Time' => 13, 'Dummy' => 14, ],
+        self::TYPE_CAMELNAME     => ['sessionid' => 0, 'recno' => 1, 'itemid' => 2, 'scan' => 3, 'type' => 4, 'lotserial' => 5, 'lotserialref' => 6, 'bin' => 7, 'qty' => 8, 'productiondate' => 9, 'complete' => 10, 'status' => 11, 'date' => 12, 'time' => 13, 'dummy' => 14, ],
+        self::TYPE_COLNAME       => [WhseitemphysicalcountTableMap::COL_SESSIONID => 0, WhseitemphysicalcountTableMap::COL_RECNO => 1, WhseitemphysicalcountTableMap::COL_ITEMID => 2, WhseitemphysicalcountTableMap::COL_SCAN => 3, WhseitemphysicalcountTableMap::COL_TYPE => 4, WhseitemphysicalcountTableMap::COL_LOTSERIAL => 5, WhseitemphysicalcountTableMap::COL_LOTSERIALREF => 6, WhseitemphysicalcountTableMap::COL_BIN => 7, WhseitemphysicalcountTableMap::COL_QTY => 8, WhseitemphysicalcountTableMap::COL_PRODUCTIONDATE => 9, WhseitemphysicalcountTableMap::COL_COMPLETE => 10, WhseitemphysicalcountTableMap::COL_STATUS => 11, WhseitemphysicalcountTableMap::COL_DATE => 12, WhseitemphysicalcountTableMap::COL_TIME => 13, WhseitemphysicalcountTableMap::COL_DUMMY => 14, ],
+        self::TYPE_FIELDNAME     => ['sessionid' => 0, 'recno' => 1, 'itemid' => 2, 'scan' => 3, 'type' => 4, 'lotserial' => 5, 'lotserialref' => 6, 'bin' => 7, 'qty' => 8, 'productiondate' => 9, 'complete' => 10, 'status' => 11, 'date' => 12, 'time' => 13, 'dummy' => 14, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Sessionid' => 'SESSIONID',
+        'Whseitemphysicalcount.Sessionid' => 'SESSIONID',
+        'sessionid' => 'SESSIONID',
+        'whseitemphysicalcount.sessionid' => 'SESSIONID',
+        'WhseitemphysicalcountTableMap::COL_SESSIONID' => 'SESSIONID',
+        'COL_SESSIONID' => 'SESSIONID',
+        'Recno' => 'RECNO',
+        'Whseitemphysicalcount.Recno' => 'RECNO',
+        'recno' => 'RECNO',
+        'whseitemphysicalcount.recno' => 'RECNO',
+        'WhseitemphysicalcountTableMap::COL_RECNO' => 'RECNO',
+        'COL_RECNO' => 'RECNO',
+        'Itemid' => 'ITEMID',
+        'Whseitemphysicalcount.Itemid' => 'ITEMID',
+        'itemid' => 'ITEMID',
+        'whseitemphysicalcount.itemid' => 'ITEMID',
+        'WhseitemphysicalcountTableMap::COL_ITEMID' => 'ITEMID',
+        'COL_ITEMID' => 'ITEMID',
+        'Scan' => 'SCAN',
+        'Whseitemphysicalcount.Scan' => 'SCAN',
+        'scan' => 'SCAN',
+        'whseitemphysicalcount.scan' => 'SCAN',
+        'WhseitemphysicalcountTableMap::COL_SCAN' => 'SCAN',
+        'COL_SCAN' => 'SCAN',
+        'Type' => 'TYPE',
+        'Whseitemphysicalcount.Type' => 'TYPE',
+        'type' => 'TYPE',
+        'whseitemphysicalcount.type' => 'TYPE',
+        'WhseitemphysicalcountTableMap::COL_TYPE' => 'TYPE',
+        'COL_TYPE' => 'TYPE',
+        'Lotserial' => 'LOTSERIAL',
+        'Whseitemphysicalcount.Lotserial' => 'LOTSERIAL',
+        'lotserial' => 'LOTSERIAL',
+        'whseitemphysicalcount.lotserial' => 'LOTSERIAL',
+        'WhseitemphysicalcountTableMap::COL_LOTSERIAL' => 'LOTSERIAL',
+        'COL_LOTSERIAL' => 'LOTSERIAL',
+        'Lotserialref' => 'LOTSERIALREF',
+        'Whseitemphysicalcount.Lotserialref' => 'LOTSERIALREF',
+        'lotserialref' => 'LOTSERIALREF',
+        'whseitemphysicalcount.lotserialref' => 'LOTSERIALREF',
+        'WhseitemphysicalcountTableMap::COL_LOTSERIALREF' => 'LOTSERIALREF',
+        'COL_LOTSERIALREF' => 'LOTSERIALREF',
+        'Bin' => 'BIN',
+        'Whseitemphysicalcount.Bin' => 'BIN',
+        'bin' => 'BIN',
+        'whseitemphysicalcount.bin' => 'BIN',
+        'WhseitemphysicalcountTableMap::COL_BIN' => 'BIN',
+        'COL_BIN' => 'BIN',
+        'Qty' => 'QTY',
+        'Whseitemphysicalcount.Qty' => 'QTY',
+        'qty' => 'QTY',
+        'whseitemphysicalcount.qty' => 'QTY',
+        'WhseitemphysicalcountTableMap::COL_QTY' => 'QTY',
+        'COL_QTY' => 'QTY',
+        'Productiondate' => 'PRODUCTIONDATE',
+        'Whseitemphysicalcount.Productiondate' => 'PRODUCTIONDATE',
+        'productiondate' => 'PRODUCTIONDATE',
+        'whseitemphysicalcount.productiondate' => 'PRODUCTIONDATE',
+        'WhseitemphysicalcountTableMap::COL_PRODUCTIONDATE' => 'PRODUCTIONDATE',
+        'COL_PRODUCTIONDATE' => 'PRODUCTIONDATE',
+        'Complete' => 'COMPLETE',
+        'Whseitemphysicalcount.Complete' => 'COMPLETE',
+        'complete' => 'COMPLETE',
+        'whseitemphysicalcount.complete' => 'COMPLETE',
+        'WhseitemphysicalcountTableMap::COL_COMPLETE' => 'COMPLETE',
+        'COL_COMPLETE' => 'COMPLETE',
+        'Status' => 'STATUS',
+        'Whseitemphysicalcount.Status' => 'STATUS',
+        'status' => 'STATUS',
+        'whseitemphysicalcount.status' => 'STATUS',
+        'WhseitemphysicalcountTableMap::COL_STATUS' => 'STATUS',
+        'COL_STATUS' => 'STATUS',
+        'Date' => 'DATE',
+        'Whseitemphysicalcount.Date' => 'DATE',
+        'date' => 'DATE',
+        'whseitemphysicalcount.date' => 'DATE',
+        'WhseitemphysicalcountTableMap::COL_DATE' => 'DATE',
+        'COL_DATE' => 'DATE',
+        'Time' => 'TIME',
+        'Whseitemphysicalcount.Time' => 'TIME',
+        'time' => 'TIME',
+        'whseitemphysicalcount.time' => 'TIME',
+        'WhseitemphysicalcountTableMap::COL_TIME' => 'TIME',
+        'COL_TIME' => 'TIME',
+        'Dummy' => 'DUMMY',
+        'Whseitemphysicalcount.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'whseitemphysicalcount.dummy' => 'DUMMY',
+        'WhseitemphysicalcountTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('whseitemphysicalcount');
@@ -211,14 +317,16 @@ class WhseitemphysicalcountTableMap extends TableMap
         $this->addColumn('date', 'Date', 'INTEGER', false, 8, null);
         $this->addColumn('time', 'Time', 'INTEGER', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -229,9 +337,11 @@ class WhseitemphysicalcountTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \Whseitemphysicalcount $obj A \Whseitemphysicalcount object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(Whseitemphysicalcount $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -250,8 +360,10 @@ class WhseitemphysicalcountTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \Whseitemphysicalcount object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \Whseitemphysicalcount) {
@@ -279,14 +391,14 @@ class WhseitemphysicalcountTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Recno', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -301,14 +413,14 @@ class WhseitemphysicalcountTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -334,10 +446,10 @@ class WhseitemphysicalcountTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? WhseitemphysicalcountTableMap::CLASS_DEFAULT : WhseitemphysicalcountTableMap::OM_CLASS;
     }
@@ -345,17 +457,17 @@ class WhseitemphysicalcountTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (Whseitemphysicalcount object, last column rank)
+     * @return array (Whseitemphysicalcount object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = WhseitemphysicalcountTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = WhseitemphysicalcountTableMap::getInstanceFromPool($key))) {
@@ -371,7 +483,7 @@ class WhseitemphysicalcountTableMap extends TableMap
             WhseitemphysicalcountTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -379,13 +491,13 @@ class WhseitemphysicalcountTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -415,12 +527,13 @@ class WhseitemphysicalcountTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(WhseitemphysicalcountTableMap::COL_SESSIONID);
@@ -458,40 +571,78 @@ class WhseitemphysicalcountTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(WhseitemphysicalcountTableMap::COL_SESSIONID);
+            $criteria->removeSelectColumn(WhseitemphysicalcountTableMap::COL_RECNO);
+            $criteria->removeSelectColumn(WhseitemphysicalcountTableMap::COL_ITEMID);
+            $criteria->removeSelectColumn(WhseitemphysicalcountTableMap::COL_SCAN);
+            $criteria->removeSelectColumn(WhseitemphysicalcountTableMap::COL_TYPE);
+            $criteria->removeSelectColumn(WhseitemphysicalcountTableMap::COL_LOTSERIAL);
+            $criteria->removeSelectColumn(WhseitemphysicalcountTableMap::COL_LOTSERIALREF);
+            $criteria->removeSelectColumn(WhseitemphysicalcountTableMap::COL_BIN);
+            $criteria->removeSelectColumn(WhseitemphysicalcountTableMap::COL_QTY);
+            $criteria->removeSelectColumn(WhseitemphysicalcountTableMap::COL_PRODUCTIONDATE);
+            $criteria->removeSelectColumn(WhseitemphysicalcountTableMap::COL_COMPLETE);
+            $criteria->removeSelectColumn(WhseitemphysicalcountTableMap::COL_STATUS);
+            $criteria->removeSelectColumn(WhseitemphysicalcountTableMap::COL_DATE);
+            $criteria->removeSelectColumn(WhseitemphysicalcountTableMap::COL_TIME);
+            $criteria->removeSelectColumn(WhseitemphysicalcountTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.sessionid');
+            $criteria->removeSelectColumn($alias . '.recno');
+            $criteria->removeSelectColumn($alias . '.itemid');
+            $criteria->removeSelectColumn($alias . '.scan');
+            $criteria->removeSelectColumn($alias . '.type');
+            $criteria->removeSelectColumn($alias . '.lotserial');
+            $criteria->removeSelectColumn($alias . '.lotserialref');
+            $criteria->removeSelectColumn($alias . '.bin');
+            $criteria->removeSelectColumn($alias . '.qty');
+            $criteria->removeSelectColumn($alias . '.productiondate');
+            $criteria->removeSelectColumn($alias . '.complete');
+            $criteria->removeSelectColumn($alias . '.status');
+            $criteria->removeSelectColumn($alias . '.date');
+            $criteria->removeSelectColumn($alias . '.time');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(WhseitemphysicalcountTableMap::DATABASE_NAME)->getTable(WhseitemphysicalcountTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(WhseitemphysicalcountTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(WhseitemphysicalcountTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new WhseitemphysicalcountTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a Whseitemphysicalcount or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or Whseitemphysicalcount object or primary key or array of primary keys
+     * @param mixed $values Criteria or Whseitemphysicalcount object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(WhseitemphysicalcountTableMap::DATABASE_NAME);
@@ -509,7 +660,7 @@ class WhseitemphysicalcountTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(WhseitemphysicalcountTableMap::COL_SESSIONID, $value[0]);
@@ -537,7 +688,7 @@ class WhseitemphysicalcountTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return WhseitemphysicalcountQuery::create()->doDeleteAll($con);
     }
@@ -545,13 +696,13 @@ class WhseitemphysicalcountTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a Whseitemphysicalcount or Criteria object.
      *
-     * @param mixed               $criteria Criteria or Whseitemphysicalcount object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or Whseitemphysicalcount object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(WhseitemphysicalcountTableMap::DATABASE_NAME);
@@ -574,7 +725,4 @@ class WhseitemphysicalcountTableMap extends TableMap
         });
     }
 
-} // WhseitemphysicalcountTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-WhseitemphysicalcountTableMap::buildTableMap();
+}

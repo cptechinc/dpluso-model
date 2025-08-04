@@ -10,14 +10,12 @@ use Map\TaskschedulerTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'taskscheduler' table.
- *
- *
+ * Base class that represents a query for the `taskscheduler` table.
  *
  * @method     ChildTaskschedulerQuery orderById($order = Criteria::ASC) Order by the id column
  * @method     ChildTaskschedulerQuery orderByDatecreated($order = Criteria::ASC) Order by the datecreated column
@@ -51,23 +49,23 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildTaskschedulerQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildTaskschedulerQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildTaskscheduler findOne(ConnectionInterface $con = null) Return the first ChildTaskscheduler matching the query
- * @method     ChildTaskscheduler findOneOrCreate(ConnectionInterface $con = null) Return the first ChildTaskscheduler matching the query, or a new ChildTaskscheduler object populated from the query conditions when no match is found
+ * @method     ChildTaskscheduler|null findOne(?ConnectionInterface $con = null) Return the first ChildTaskscheduler matching the query
+ * @method     ChildTaskscheduler findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildTaskscheduler matching the query, or a new ChildTaskscheduler object populated from the query conditions when no match is found
  *
- * @method     ChildTaskscheduler findOneById(int $id) Return the first ChildTaskscheduler filtered by the id column
- * @method     ChildTaskscheduler findOneByDatecreated(string $datecreated) Return the first ChildTaskscheduler filtered by the datecreated column
- * @method     ChildTaskscheduler findOneByStartdate(string $startdate) Return the first ChildTaskscheduler filtered by the startdate column
- * @method     ChildTaskscheduler findOneByUser(string $user) Return the first ChildTaskscheduler filtered by the user column
- * @method     ChildTaskscheduler findOneByActive(string $active) Return the first ChildTaskscheduler filtered by the active column
- * @method     ChildTaskscheduler findOneByDescription(string $description) Return the first ChildTaskscheduler filtered by the description column
- * @method     ChildTaskscheduler findOneByTasktype(string $tasktype) Return the first ChildTaskscheduler filtered by the tasktype column
- * @method     ChildTaskscheduler findOneByRepeatlogic(string $repeatlogic) Return the first ChildTaskscheduler filtered by the repeatlogic column
- * @method     ChildTaskscheduler findOneByCustomerlink(string $customerlink) Return the first ChildTaskscheduler filtered by the customerlink column
- * @method     ChildTaskscheduler findOneByShiptolink(string $shiptolink) Return the first ChildTaskscheduler filtered by the shiptolink column
- * @method     ChildTaskscheduler findOneByContactlink(string $contactlink) Return the first ChildTaskscheduler filtered by the contactlink column *
-
- * @method     ChildTaskscheduler requirePk($key, ConnectionInterface $con = null) Return the ChildTaskscheduler by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildTaskscheduler requireOne(ConnectionInterface $con = null) Return the first ChildTaskscheduler matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildTaskscheduler|null findOneById(int $id) Return the first ChildTaskscheduler filtered by the id column
+ * @method     ChildTaskscheduler|null findOneByDatecreated(string $datecreated) Return the first ChildTaskscheduler filtered by the datecreated column
+ * @method     ChildTaskscheduler|null findOneByStartdate(string $startdate) Return the first ChildTaskscheduler filtered by the startdate column
+ * @method     ChildTaskscheduler|null findOneByUser(string $user) Return the first ChildTaskscheduler filtered by the user column
+ * @method     ChildTaskscheduler|null findOneByActive(string $active) Return the first ChildTaskscheduler filtered by the active column
+ * @method     ChildTaskscheduler|null findOneByDescription(string $description) Return the first ChildTaskscheduler filtered by the description column
+ * @method     ChildTaskscheduler|null findOneByTasktype(string $tasktype) Return the first ChildTaskscheduler filtered by the tasktype column
+ * @method     ChildTaskscheduler|null findOneByRepeatlogic(string $repeatlogic) Return the first ChildTaskscheduler filtered by the repeatlogic column
+ * @method     ChildTaskscheduler|null findOneByCustomerlink(string $customerlink) Return the first ChildTaskscheduler filtered by the customerlink column
+ * @method     ChildTaskscheduler|null findOneByShiptolink(string $shiptolink) Return the first ChildTaskscheduler filtered by the shiptolink column
+ * @method     ChildTaskscheduler|null findOneByContactlink(string $contactlink) Return the first ChildTaskscheduler filtered by the contactlink column
+ *
+ * @method     ChildTaskscheduler requirePk($key, ?ConnectionInterface $con = null) Return the ChildTaskscheduler by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildTaskscheduler requireOne(?ConnectionInterface $con = null) Return the first ChildTaskscheduler matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildTaskscheduler requireOneById(int $id) Return the first ChildTaskscheduler filtered by the id column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildTaskscheduler requireOneByDatecreated(string $datecreated) Return the first ChildTaskscheduler filtered by the datecreated column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -81,20 +79,34 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildTaskscheduler requireOneByShiptolink(string $shiptolink) Return the first ChildTaskscheduler filtered by the shiptolink column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildTaskscheduler requireOneByContactlink(string $contactlink) Return the first ChildTaskscheduler filtered by the contactlink column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildTaskscheduler[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildTaskscheduler objects based on current ModelCriteria
- * @method     ChildTaskscheduler[]|ObjectCollection findById(int $id) Return ChildTaskscheduler objects filtered by the id column
- * @method     ChildTaskscheduler[]|ObjectCollection findByDatecreated(string $datecreated) Return ChildTaskscheduler objects filtered by the datecreated column
- * @method     ChildTaskscheduler[]|ObjectCollection findByStartdate(string $startdate) Return ChildTaskscheduler objects filtered by the startdate column
- * @method     ChildTaskscheduler[]|ObjectCollection findByUser(string $user) Return ChildTaskscheduler objects filtered by the user column
- * @method     ChildTaskscheduler[]|ObjectCollection findByActive(string $active) Return ChildTaskscheduler objects filtered by the active column
- * @method     ChildTaskscheduler[]|ObjectCollection findByDescription(string $description) Return ChildTaskscheduler objects filtered by the description column
- * @method     ChildTaskscheduler[]|ObjectCollection findByTasktype(string $tasktype) Return ChildTaskscheduler objects filtered by the tasktype column
- * @method     ChildTaskscheduler[]|ObjectCollection findByRepeatlogic(string $repeatlogic) Return ChildTaskscheduler objects filtered by the repeatlogic column
- * @method     ChildTaskscheduler[]|ObjectCollection findByCustomerlink(string $customerlink) Return ChildTaskscheduler objects filtered by the customerlink column
- * @method     ChildTaskscheduler[]|ObjectCollection findByShiptolink(string $shiptolink) Return ChildTaskscheduler objects filtered by the shiptolink column
- * @method     ChildTaskscheduler[]|ObjectCollection findByContactlink(string $contactlink) Return ChildTaskscheduler objects filtered by the contactlink column
- * @method     ChildTaskscheduler[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildTaskscheduler[]|Collection find(?ConnectionInterface $con = null) Return ChildTaskscheduler objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildTaskscheduler> find(?ConnectionInterface $con = null) Return ChildTaskscheduler objects based on current ModelCriteria
  *
+ * @method     ChildTaskscheduler[]|Collection findById(int|array<int> $id) Return ChildTaskscheduler objects filtered by the id column
+ * @psalm-method Collection&\Traversable<ChildTaskscheduler> findById(int|array<int> $id) Return ChildTaskscheduler objects filtered by the id column
+ * @method     ChildTaskscheduler[]|Collection findByDatecreated(string|array<string> $datecreated) Return ChildTaskscheduler objects filtered by the datecreated column
+ * @psalm-method Collection&\Traversable<ChildTaskscheduler> findByDatecreated(string|array<string> $datecreated) Return ChildTaskscheduler objects filtered by the datecreated column
+ * @method     ChildTaskscheduler[]|Collection findByStartdate(string|array<string> $startdate) Return ChildTaskscheduler objects filtered by the startdate column
+ * @psalm-method Collection&\Traversable<ChildTaskscheduler> findByStartdate(string|array<string> $startdate) Return ChildTaskscheduler objects filtered by the startdate column
+ * @method     ChildTaskscheduler[]|Collection findByUser(string|array<string> $user) Return ChildTaskscheduler objects filtered by the user column
+ * @psalm-method Collection&\Traversable<ChildTaskscheduler> findByUser(string|array<string> $user) Return ChildTaskscheduler objects filtered by the user column
+ * @method     ChildTaskscheduler[]|Collection findByActive(string|array<string> $active) Return ChildTaskscheduler objects filtered by the active column
+ * @psalm-method Collection&\Traversable<ChildTaskscheduler> findByActive(string|array<string> $active) Return ChildTaskscheduler objects filtered by the active column
+ * @method     ChildTaskscheduler[]|Collection findByDescription(string|array<string> $description) Return ChildTaskscheduler objects filtered by the description column
+ * @psalm-method Collection&\Traversable<ChildTaskscheduler> findByDescription(string|array<string> $description) Return ChildTaskscheduler objects filtered by the description column
+ * @method     ChildTaskscheduler[]|Collection findByTasktype(string|array<string> $tasktype) Return ChildTaskscheduler objects filtered by the tasktype column
+ * @psalm-method Collection&\Traversable<ChildTaskscheduler> findByTasktype(string|array<string> $tasktype) Return ChildTaskscheduler objects filtered by the tasktype column
+ * @method     ChildTaskscheduler[]|Collection findByRepeatlogic(string|array<string> $repeatlogic) Return ChildTaskscheduler objects filtered by the repeatlogic column
+ * @psalm-method Collection&\Traversable<ChildTaskscheduler> findByRepeatlogic(string|array<string> $repeatlogic) Return ChildTaskscheduler objects filtered by the repeatlogic column
+ * @method     ChildTaskscheduler[]|Collection findByCustomerlink(string|array<string> $customerlink) Return ChildTaskscheduler objects filtered by the customerlink column
+ * @psalm-method Collection&\Traversable<ChildTaskscheduler> findByCustomerlink(string|array<string> $customerlink) Return ChildTaskscheduler objects filtered by the customerlink column
+ * @method     ChildTaskscheduler[]|Collection findByShiptolink(string|array<string> $shiptolink) Return ChildTaskscheduler objects filtered by the shiptolink column
+ * @psalm-method Collection&\Traversable<ChildTaskscheduler> findByShiptolink(string|array<string> $shiptolink) Return ChildTaskscheduler objects filtered by the shiptolink column
+ * @method     ChildTaskscheduler[]|Collection findByContactlink(string|array<string> $contactlink) Return ChildTaskscheduler objects filtered by the contactlink column
+ * @psalm-method Collection&\Traversable<ChildTaskscheduler> findByContactlink(string|array<string> $contactlink) Return ChildTaskscheduler objects filtered by the contactlink column
+ *
+ * @method     ChildTaskscheduler[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildTaskscheduler> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class TaskschedulerQuery extends ModelCriteria
 {
@@ -103,9 +115,9 @@ abstract class TaskschedulerQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\TaskschedulerQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'dplusodb', $modelName = '\\Taskscheduler', $modelAlias = null)
     {
@@ -115,12 +127,12 @@ abstract class TaskschedulerQuery extends ModelCriteria
     /**
      * Returns a new ChildTaskschedulerQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildTaskschedulerQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildTaskschedulerQuery) {
             return $criteria;
@@ -150,7 +162,7 @@ abstract class TaskschedulerQuery extends ModelCriteria
      *
      * @return ChildTaskscheduler|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -182,8 +194,8 @@ abstract class TaskschedulerQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -215,8 +227,8 @@ abstract class TaskschedulerQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildTaskscheduler|array|mixed the result, formatted by the current formatter
      */
@@ -236,12 +248,12 @@ abstract class TaskschedulerQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -258,27 +270,31 @@ abstract class TaskschedulerQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildTaskschedulerQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(TaskschedulerTableMap::COL_ID, $key, Criteria::EQUAL);
+        $this->addUsingAlias(TaskschedulerTableMap::COL_ID, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildTaskschedulerQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(TaskschedulerTableMap::COL_ID, $keys, Criteria::IN);
+        $this->addUsingAlias(TaskschedulerTableMap::COL_ID, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -291,15 +307,15 @@ abstract class TaskschedulerQuery extends ModelCriteria
      * $query->filterById(array('min' => 12)); // WHERE id > 12
      * </code>
      *
-     * @param     mixed $id The value to use as filter.
+     * @param mixed $id The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaskschedulerQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterById($id = null, $comparison = null)
+    public function filterById($id = null, ?string $comparison = null)
     {
         if (is_array($id)) {
             $useMinMax = false;
@@ -319,7 +335,9 @@ abstract class TaskschedulerQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaskschedulerTableMap::COL_ID, $id, $comparison);
+        $this->addUsingAlias(TaskschedulerTableMap::COL_ID, $id, $comparison);
+
+        return $this;
     }
 
     /**
@@ -332,17 +350,17 @@ abstract class TaskschedulerQuery extends ModelCriteria
      * $query->filterByDatecreated(array('max' => 'yesterday')); // WHERE datecreated > '2011-03-13'
      * </code>
      *
-     * @param     mixed $datecreated The value to use as filter.
+     * @param mixed $datecreated The value to use as filter.
      *              Values can be integers (unix timestamps), DateTime objects, or strings.
      *              Empty strings are treated as NULL.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaskschedulerQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDatecreated($datecreated = null, $comparison = null)
+    public function filterByDatecreated($datecreated = null, ?string $comparison = null)
     {
         if (is_array($datecreated)) {
             $useMinMax = false;
@@ -362,7 +380,9 @@ abstract class TaskschedulerQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaskschedulerTableMap::COL_DATECREATED, $datecreated, $comparison);
+        $this->addUsingAlias(TaskschedulerTableMap::COL_DATECREATED, $datecreated, $comparison);
+
+        return $this;
     }
 
     /**
@@ -375,17 +395,17 @@ abstract class TaskschedulerQuery extends ModelCriteria
      * $query->filterByStartdate(array('max' => 'yesterday')); // WHERE startdate > '2011-03-13'
      * </code>
      *
-     * @param     mixed $startdate The value to use as filter.
+     * @param mixed $startdate The value to use as filter.
      *              Values can be integers (unix timestamps), DateTime objects, or strings.
      *              Empty strings are treated as NULL.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaskschedulerQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByStartdate($startdate = null, $comparison = null)
+    public function filterByStartdate($startdate = null, ?string $comparison = null)
     {
         if (is_array($startdate)) {
             $useMinMax = false;
@@ -405,7 +425,9 @@ abstract class TaskschedulerQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaskschedulerTableMap::COL_STARTDATE, $startdate, $comparison);
+        $this->addUsingAlias(TaskschedulerTableMap::COL_STARTDATE, $startdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -415,14 +437,15 @@ abstract class TaskschedulerQuery extends ModelCriteria
      * <code>
      * $query->filterByUser('fooValue');   // WHERE user = 'fooValue'
      * $query->filterByUser('%fooValue%', Criteria::LIKE); // WHERE user LIKE '%fooValue%'
+     * $query->filterByUser(['foo', 'bar']); // WHERE user IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $user The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $user The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaskschedulerQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUser($user = null, $comparison = null)
+    public function filterByUser($user = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($user)) {
@@ -430,7 +453,9 @@ abstract class TaskschedulerQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaskschedulerTableMap::COL_USER, $user, $comparison);
+        $this->addUsingAlias(TaskschedulerTableMap::COL_USER, $user, $comparison);
+
+        return $this;
     }
 
     /**
@@ -440,14 +465,15 @@ abstract class TaskschedulerQuery extends ModelCriteria
      * <code>
      * $query->filterByActive('fooValue');   // WHERE active = 'fooValue'
      * $query->filterByActive('%fooValue%', Criteria::LIKE); // WHERE active LIKE '%fooValue%'
+     * $query->filterByActive(['foo', 'bar']); // WHERE active IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $active The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $active The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaskschedulerQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByActive($active = null, $comparison = null)
+    public function filterByActive($active = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($active)) {
@@ -455,7 +481,9 @@ abstract class TaskschedulerQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaskschedulerTableMap::COL_ACTIVE, $active, $comparison);
+        $this->addUsingAlias(TaskschedulerTableMap::COL_ACTIVE, $active, $comparison);
+
+        return $this;
     }
 
     /**
@@ -465,14 +493,15 @@ abstract class TaskschedulerQuery extends ModelCriteria
      * <code>
      * $query->filterByDescription('fooValue');   // WHERE description = 'fooValue'
      * $query->filterByDescription('%fooValue%', Criteria::LIKE); // WHERE description LIKE '%fooValue%'
+     * $query->filterByDescription(['foo', 'bar']); // WHERE description IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $description The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $description The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaskschedulerQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDescription($description = null, $comparison = null)
+    public function filterByDescription($description = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($description)) {
@@ -480,7 +509,9 @@ abstract class TaskschedulerQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaskschedulerTableMap::COL_DESCRIPTION, $description, $comparison);
+        $this->addUsingAlias(TaskschedulerTableMap::COL_DESCRIPTION, $description, $comparison);
+
+        return $this;
     }
 
     /**
@@ -490,14 +521,15 @@ abstract class TaskschedulerQuery extends ModelCriteria
      * <code>
      * $query->filterByTasktype('fooValue');   // WHERE tasktype = 'fooValue'
      * $query->filterByTasktype('%fooValue%', Criteria::LIKE); // WHERE tasktype LIKE '%fooValue%'
+     * $query->filterByTasktype(['foo', 'bar']); // WHERE tasktype IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $tasktype The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $tasktype The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaskschedulerQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTasktype($tasktype = null, $comparison = null)
+    public function filterByTasktype($tasktype = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($tasktype)) {
@@ -505,7 +537,9 @@ abstract class TaskschedulerQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaskschedulerTableMap::COL_TASKTYPE, $tasktype, $comparison);
+        $this->addUsingAlias(TaskschedulerTableMap::COL_TASKTYPE, $tasktype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -515,14 +549,15 @@ abstract class TaskschedulerQuery extends ModelCriteria
      * <code>
      * $query->filterByRepeatlogic('fooValue');   // WHERE repeatlogic = 'fooValue'
      * $query->filterByRepeatlogic('%fooValue%', Criteria::LIKE); // WHERE repeatlogic LIKE '%fooValue%'
+     * $query->filterByRepeatlogic(['foo', 'bar']); // WHERE repeatlogic IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $repeatlogic The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $repeatlogic The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaskschedulerQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByRepeatlogic($repeatlogic = null, $comparison = null)
+    public function filterByRepeatlogic($repeatlogic = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($repeatlogic)) {
@@ -530,7 +565,9 @@ abstract class TaskschedulerQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaskschedulerTableMap::COL_REPEATLOGIC, $repeatlogic, $comparison);
+        $this->addUsingAlias(TaskschedulerTableMap::COL_REPEATLOGIC, $repeatlogic, $comparison);
+
+        return $this;
     }
 
     /**
@@ -540,14 +577,15 @@ abstract class TaskschedulerQuery extends ModelCriteria
      * <code>
      * $query->filterByCustomerlink('fooValue');   // WHERE customerlink = 'fooValue'
      * $query->filterByCustomerlink('%fooValue%', Criteria::LIKE); // WHERE customerlink LIKE '%fooValue%'
+     * $query->filterByCustomerlink(['foo', 'bar']); // WHERE customerlink IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $customerlink The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $customerlink The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaskschedulerQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustomerlink($customerlink = null, $comparison = null)
+    public function filterByCustomerlink($customerlink = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($customerlink)) {
@@ -555,7 +593,9 @@ abstract class TaskschedulerQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaskschedulerTableMap::COL_CUSTOMERLINK, $customerlink, $comparison);
+        $this->addUsingAlias(TaskschedulerTableMap::COL_CUSTOMERLINK, $customerlink, $comparison);
+
+        return $this;
     }
 
     /**
@@ -565,14 +605,15 @@ abstract class TaskschedulerQuery extends ModelCriteria
      * <code>
      * $query->filterByShiptolink('fooValue');   // WHERE shiptolink = 'fooValue'
      * $query->filterByShiptolink('%fooValue%', Criteria::LIKE); // WHERE shiptolink LIKE '%fooValue%'
+     * $query->filterByShiptolink(['foo', 'bar']); // WHERE shiptolink IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shiptolink The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shiptolink The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaskschedulerQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShiptolink($shiptolink = null, $comparison = null)
+    public function filterByShiptolink($shiptolink = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shiptolink)) {
@@ -580,7 +621,9 @@ abstract class TaskschedulerQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaskschedulerTableMap::COL_SHIPTOLINK, $shiptolink, $comparison);
+        $this->addUsingAlias(TaskschedulerTableMap::COL_SHIPTOLINK, $shiptolink, $comparison);
+
+        return $this;
     }
 
     /**
@@ -590,14 +633,15 @@ abstract class TaskschedulerQuery extends ModelCriteria
      * <code>
      * $query->filterByContactlink('fooValue');   // WHERE contactlink = 'fooValue'
      * $query->filterByContactlink('%fooValue%', Criteria::LIKE); // WHERE contactlink LIKE '%fooValue%'
+     * $query->filterByContactlink(['foo', 'bar']); // WHERE contactlink IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $contactlink The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $contactlink The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaskschedulerQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByContactlink($contactlink = null, $comparison = null)
+    public function filterByContactlink($contactlink = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($contactlink)) {
@@ -605,15 +649,17 @@ abstract class TaskschedulerQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaskschedulerTableMap::COL_CONTACTLINK, $contactlink, $comparison);
+        $this->addUsingAlias(TaskschedulerTableMap::COL_CONTACTLINK, $contactlink, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildTaskscheduler $taskscheduler Object to remove from the list of results
+     * @param ChildTaskscheduler $taskscheduler Object to remove from the list of results
      *
-     * @return $this|ChildTaskschedulerQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($taskscheduler = null)
     {
@@ -630,7 +676,7 @@ abstract class TaskschedulerQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(TaskschedulerTableMap::DATABASE_NAME);
@@ -655,12 +701,12 @@ abstract class TaskschedulerQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(TaskschedulerTableMap::DATABASE_NAME);
@@ -685,4 +731,4 @@ abstract class TaskschedulerQuery extends ModelCriteria
         });
     }
 
-} // TaskschedulerQuery
+}

@@ -10,14 +10,12 @@ use Map\LogmTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'logm' table.
- *
- *
+ * Base class that represents a query for the `logm` table.
  *
  * @method     ChildLogmQuery orderByLoginid($order = Criteria::ASC) Order by the loginid column
  * @method     ChildLogmQuery orderByName($order = Criteria::ASC) Order by the name column
@@ -51,23 +49,23 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildLogmQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildLogmQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildLogm findOne(ConnectionInterface $con = null) Return the first ChildLogm matching the query
- * @method     ChildLogm findOneOrCreate(ConnectionInterface $con = null) Return the first ChildLogm matching the query, or a new ChildLogm object populated from the query conditions when no match is found
+ * @method     ChildLogm|null findOne(?ConnectionInterface $con = null) Return the first ChildLogm matching the query
+ * @method     ChildLogm findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildLogm matching the query, or a new ChildLogm object populated from the query conditions when no match is found
  *
- * @method     ChildLogm findOneByLoginid(string $loginid) Return the first ChildLogm filtered by the loginid column
- * @method     ChildLogm findOneByName(string $name) Return the first ChildLogm filtered by the name column
- * @method     ChildLogm findOneByWhseid(string $whseid) Return the first ChildLogm filtered by the whseid column
- * @method     ChildLogm findOneByRole(string $role) Return the first ChildLogm filtered by the role column
- * @method     ChildLogm findOneByCompany(string $company) Return the first ChildLogm filtered by the company column
- * @method     ChildLogm findOneByFax(string $fax) Return the first ChildLogm filtered by the fax column
- * @method     ChildLogm findOneByPhone(string $phone) Return the first ChildLogm filtered by the phone column
- * @method     ChildLogm findOneByEmail(string $email) Return the first ChildLogm filtered by the email column
- * @method     ChildLogm findOneByRoleid(string $roleid) Return the first ChildLogm filtered by the roleid column
- * @method     ChildLogm findOneByRolename(string $rolename) Return the first ChildLogm filtered by the rolename column
- * @method     ChildLogm findOneByDummy(string $dummy) Return the first ChildLogm filtered by the dummy column *
-
- * @method     ChildLogm requirePk($key, ConnectionInterface $con = null) Return the ChildLogm by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildLogm requireOne(ConnectionInterface $con = null) Return the first ChildLogm matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildLogm|null findOneByLoginid(string $loginid) Return the first ChildLogm filtered by the loginid column
+ * @method     ChildLogm|null findOneByName(string $name) Return the first ChildLogm filtered by the name column
+ * @method     ChildLogm|null findOneByWhseid(string $whseid) Return the first ChildLogm filtered by the whseid column
+ * @method     ChildLogm|null findOneByRole(string $role) Return the first ChildLogm filtered by the role column
+ * @method     ChildLogm|null findOneByCompany(string $company) Return the first ChildLogm filtered by the company column
+ * @method     ChildLogm|null findOneByFax(string $fax) Return the first ChildLogm filtered by the fax column
+ * @method     ChildLogm|null findOneByPhone(string $phone) Return the first ChildLogm filtered by the phone column
+ * @method     ChildLogm|null findOneByEmail(string $email) Return the first ChildLogm filtered by the email column
+ * @method     ChildLogm|null findOneByRoleid(string $roleid) Return the first ChildLogm filtered by the roleid column
+ * @method     ChildLogm|null findOneByRolename(string $rolename) Return the first ChildLogm filtered by the rolename column
+ * @method     ChildLogm|null findOneByDummy(string $dummy) Return the first ChildLogm filtered by the dummy column
+ *
+ * @method     ChildLogm requirePk($key, ?ConnectionInterface $con = null) Return the ChildLogm by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildLogm requireOne(?ConnectionInterface $con = null) Return the first ChildLogm matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildLogm requireOneByLoginid(string $loginid) Return the first ChildLogm filtered by the loginid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildLogm requireOneByName(string $name) Return the first ChildLogm filtered by the name column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -81,20 +79,34 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildLogm requireOneByRolename(string $rolename) Return the first ChildLogm filtered by the rolename column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildLogm requireOneByDummy(string $dummy) Return the first ChildLogm filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildLogm[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildLogm objects based on current ModelCriteria
- * @method     ChildLogm[]|ObjectCollection findByLoginid(string $loginid) Return ChildLogm objects filtered by the loginid column
- * @method     ChildLogm[]|ObjectCollection findByName(string $name) Return ChildLogm objects filtered by the name column
- * @method     ChildLogm[]|ObjectCollection findByWhseid(string $whseid) Return ChildLogm objects filtered by the whseid column
- * @method     ChildLogm[]|ObjectCollection findByRole(string $role) Return ChildLogm objects filtered by the role column
- * @method     ChildLogm[]|ObjectCollection findByCompany(string $company) Return ChildLogm objects filtered by the company column
- * @method     ChildLogm[]|ObjectCollection findByFax(string $fax) Return ChildLogm objects filtered by the fax column
- * @method     ChildLogm[]|ObjectCollection findByPhone(string $phone) Return ChildLogm objects filtered by the phone column
- * @method     ChildLogm[]|ObjectCollection findByEmail(string $email) Return ChildLogm objects filtered by the email column
- * @method     ChildLogm[]|ObjectCollection findByRoleid(string $roleid) Return ChildLogm objects filtered by the roleid column
- * @method     ChildLogm[]|ObjectCollection findByRolename(string $rolename) Return ChildLogm objects filtered by the rolename column
- * @method     ChildLogm[]|ObjectCollection findByDummy(string $dummy) Return ChildLogm objects filtered by the dummy column
- * @method     ChildLogm[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildLogm[]|Collection find(?ConnectionInterface $con = null) Return ChildLogm objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildLogm> find(?ConnectionInterface $con = null) Return ChildLogm objects based on current ModelCriteria
  *
+ * @method     ChildLogm[]|Collection findByLoginid(string|array<string> $loginid) Return ChildLogm objects filtered by the loginid column
+ * @psalm-method Collection&\Traversable<ChildLogm> findByLoginid(string|array<string> $loginid) Return ChildLogm objects filtered by the loginid column
+ * @method     ChildLogm[]|Collection findByName(string|array<string> $name) Return ChildLogm objects filtered by the name column
+ * @psalm-method Collection&\Traversable<ChildLogm> findByName(string|array<string> $name) Return ChildLogm objects filtered by the name column
+ * @method     ChildLogm[]|Collection findByWhseid(string|array<string> $whseid) Return ChildLogm objects filtered by the whseid column
+ * @psalm-method Collection&\Traversable<ChildLogm> findByWhseid(string|array<string> $whseid) Return ChildLogm objects filtered by the whseid column
+ * @method     ChildLogm[]|Collection findByRole(string|array<string> $role) Return ChildLogm objects filtered by the role column
+ * @psalm-method Collection&\Traversable<ChildLogm> findByRole(string|array<string> $role) Return ChildLogm objects filtered by the role column
+ * @method     ChildLogm[]|Collection findByCompany(string|array<string> $company) Return ChildLogm objects filtered by the company column
+ * @psalm-method Collection&\Traversable<ChildLogm> findByCompany(string|array<string> $company) Return ChildLogm objects filtered by the company column
+ * @method     ChildLogm[]|Collection findByFax(string|array<string> $fax) Return ChildLogm objects filtered by the fax column
+ * @psalm-method Collection&\Traversable<ChildLogm> findByFax(string|array<string> $fax) Return ChildLogm objects filtered by the fax column
+ * @method     ChildLogm[]|Collection findByPhone(string|array<string> $phone) Return ChildLogm objects filtered by the phone column
+ * @psalm-method Collection&\Traversable<ChildLogm> findByPhone(string|array<string> $phone) Return ChildLogm objects filtered by the phone column
+ * @method     ChildLogm[]|Collection findByEmail(string|array<string> $email) Return ChildLogm objects filtered by the email column
+ * @psalm-method Collection&\Traversable<ChildLogm> findByEmail(string|array<string> $email) Return ChildLogm objects filtered by the email column
+ * @method     ChildLogm[]|Collection findByRoleid(string|array<string> $roleid) Return ChildLogm objects filtered by the roleid column
+ * @psalm-method Collection&\Traversable<ChildLogm> findByRoleid(string|array<string> $roleid) Return ChildLogm objects filtered by the roleid column
+ * @method     ChildLogm[]|Collection findByRolename(string|array<string> $rolename) Return ChildLogm objects filtered by the rolename column
+ * @psalm-method Collection&\Traversable<ChildLogm> findByRolename(string|array<string> $rolename) Return ChildLogm objects filtered by the rolename column
+ * @method     ChildLogm[]|Collection findByDummy(string|array<string> $dummy) Return ChildLogm objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildLogm> findByDummy(string|array<string> $dummy) Return ChildLogm objects filtered by the dummy column
+ *
+ * @method     ChildLogm[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildLogm> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class LogmQuery extends ModelCriteria
 {
@@ -103,9 +115,9 @@ abstract class LogmQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\LogmQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'dplusodb', $modelName = '\\Logm', $modelAlias = null)
     {
@@ -115,12 +127,12 @@ abstract class LogmQuery extends ModelCriteria
     /**
      * Returns a new ChildLogmQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildLogmQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildLogmQuery) {
             return $criteria;
@@ -150,7 +162,7 @@ abstract class LogmQuery extends ModelCriteria
      *
      * @return ChildLogm|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -182,8 +194,8 @@ abstract class LogmQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -215,8 +227,8 @@ abstract class LogmQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildLogm|array|mixed the result, formatted by the current formatter
      */
@@ -236,12 +248,12 @@ abstract class LogmQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -258,27 +270,31 @@ abstract class LogmQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildLogmQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(LogmTableMap::COL_LOGINID, $key, Criteria::EQUAL);
+        $this->addUsingAlias(LogmTableMap::COL_LOGINID, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildLogmQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(LogmTableMap::COL_LOGINID, $keys, Criteria::IN);
+        $this->addUsingAlias(LogmTableMap::COL_LOGINID, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -288,14 +304,15 @@ abstract class LogmQuery extends ModelCriteria
      * <code>
      * $query->filterByLoginid('fooValue');   // WHERE loginid = 'fooValue'
      * $query->filterByLoginid('%fooValue%', Criteria::LIKE); // WHERE loginid LIKE '%fooValue%'
+     * $query->filterByLoginid(['foo', 'bar']); // WHERE loginid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $loginid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $loginid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLogmQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLoginid($loginid = null, $comparison = null)
+    public function filterByLoginid($loginid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($loginid)) {
@@ -303,7 +320,9 @@ abstract class LogmQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LogmTableMap::COL_LOGINID, $loginid, $comparison);
+        $this->addUsingAlias(LogmTableMap::COL_LOGINID, $loginid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -313,14 +332,15 @@ abstract class LogmQuery extends ModelCriteria
      * <code>
      * $query->filterByName('fooValue');   // WHERE name = 'fooValue'
      * $query->filterByName('%fooValue%', Criteria::LIKE); // WHERE name LIKE '%fooValue%'
+     * $query->filterByName(['foo', 'bar']); // WHERE name IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $name The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $name The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLogmQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByName($name = null, $comparison = null)
+    public function filterByName($name = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($name)) {
@@ -328,7 +348,9 @@ abstract class LogmQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LogmTableMap::COL_NAME, $name, $comparison);
+        $this->addUsingAlias(LogmTableMap::COL_NAME, $name, $comparison);
+
+        return $this;
     }
 
     /**
@@ -338,14 +360,15 @@ abstract class LogmQuery extends ModelCriteria
      * <code>
      * $query->filterByWhseid('fooValue');   // WHERE whseid = 'fooValue'
      * $query->filterByWhseid('%fooValue%', Criteria::LIKE); // WHERE whseid LIKE '%fooValue%'
+     * $query->filterByWhseid(['foo', 'bar']); // WHERE whseid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $whseid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $whseid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLogmQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByWhseid($whseid = null, $comparison = null)
+    public function filterByWhseid($whseid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($whseid)) {
@@ -353,7 +376,9 @@ abstract class LogmQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LogmTableMap::COL_WHSEID, $whseid, $comparison);
+        $this->addUsingAlias(LogmTableMap::COL_WHSEID, $whseid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -363,14 +388,15 @@ abstract class LogmQuery extends ModelCriteria
      * <code>
      * $query->filterByRole('fooValue');   // WHERE role = 'fooValue'
      * $query->filterByRole('%fooValue%', Criteria::LIKE); // WHERE role LIKE '%fooValue%'
+     * $query->filterByRole(['foo', 'bar']); // WHERE role IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $role The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $role The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLogmQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByRole($role = null, $comparison = null)
+    public function filterByRole($role = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($role)) {
@@ -378,7 +404,9 @@ abstract class LogmQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LogmTableMap::COL_ROLE, $role, $comparison);
+        $this->addUsingAlias(LogmTableMap::COL_ROLE, $role, $comparison);
+
+        return $this;
     }
 
     /**
@@ -388,14 +416,15 @@ abstract class LogmQuery extends ModelCriteria
      * <code>
      * $query->filterByCompany('fooValue');   // WHERE company = 'fooValue'
      * $query->filterByCompany('%fooValue%', Criteria::LIKE); // WHERE company LIKE '%fooValue%'
+     * $query->filterByCompany(['foo', 'bar']); // WHERE company IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $company The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $company The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLogmQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCompany($company = null, $comparison = null)
+    public function filterByCompany($company = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($company)) {
@@ -403,7 +432,9 @@ abstract class LogmQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LogmTableMap::COL_COMPANY, $company, $comparison);
+        $this->addUsingAlias(LogmTableMap::COL_COMPANY, $company, $comparison);
+
+        return $this;
     }
 
     /**
@@ -413,14 +444,15 @@ abstract class LogmQuery extends ModelCriteria
      * <code>
      * $query->filterByFax('fooValue');   // WHERE fax = 'fooValue'
      * $query->filterByFax('%fooValue%', Criteria::LIKE); // WHERE fax LIKE '%fooValue%'
+     * $query->filterByFax(['foo', 'bar']); // WHERE fax IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $fax The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $fax The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLogmQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByFax($fax = null, $comparison = null)
+    public function filterByFax($fax = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($fax)) {
@@ -428,7 +460,9 @@ abstract class LogmQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LogmTableMap::COL_FAX, $fax, $comparison);
+        $this->addUsingAlias(LogmTableMap::COL_FAX, $fax, $comparison);
+
+        return $this;
     }
 
     /**
@@ -438,14 +472,15 @@ abstract class LogmQuery extends ModelCriteria
      * <code>
      * $query->filterByPhone('fooValue');   // WHERE phone = 'fooValue'
      * $query->filterByPhone('%fooValue%', Criteria::LIKE); // WHERE phone LIKE '%fooValue%'
+     * $query->filterByPhone(['foo', 'bar']); // WHERE phone IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $phone The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $phone The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLogmQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPhone($phone = null, $comparison = null)
+    public function filterByPhone($phone = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($phone)) {
@@ -453,7 +488,9 @@ abstract class LogmQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LogmTableMap::COL_PHONE, $phone, $comparison);
+        $this->addUsingAlias(LogmTableMap::COL_PHONE, $phone, $comparison);
+
+        return $this;
     }
 
     /**
@@ -463,14 +500,15 @@ abstract class LogmQuery extends ModelCriteria
      * <code>
      * $query->filterByEmail('fooValue');   // WHERE email = 'fooValue'
      * $query->filterByEmail('%fooValue%', Criteria::LIKE); // WHERE email LIKE '%fooValue%'
+     * $query->filterByEmail(['foo', 'bar']); // WHERE email IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $email The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $email The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLogmQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByEmail($email = null, $comparison = null)
+    public function filterByEmail($email = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($email)) {
@@ -478,7 +516,9 @@ abstract class LogmQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LogmTableMap::COL_EMAIL, $email, $comparison);
+        $this->addUsingAlias(LogmTableMap::COL_EMAIL, $email, $comparison);
+
+        return $this;
     }
 
     /**
@@ -488,14 +528,15 @@ abstract class LogmQuery extends ModelCriteria
      * <code>
      * $query->filterByRoleid('fooValue');   // WHERE roleid = 'fooValue'
      * $query->filterByRoleid('%fooValue%', Criteria::LIKE); // WHERE roleid LIKE '%fooValue%'
+     * $query->filterByRoleid(['foo', 'bar']); // WHERE roleid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $roleid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $roleid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLogmQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByRoleid($roleid = null, $comparison = null)
+    public function filterByRoleid($roleid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($roleid)) {
@@ -503,7 +544,9 @@ abstract class LogmQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LogmTableMap::COL_ROLEID, $roleid, $comparison);
+        $this->addUsingAlias(LogmTableMap::COL_ROLEID, $roleid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -513,14 +556,15 @@ abstract class LogmQuery extends ModelCriteria
      * <code>
      * $query->filterByRolename('fooValue');   // WHERE rolename = 'fooValue'
      * $query->filterByRolename('%fooValue%', Criteria::LIKE); // WHERE rolename LIKE '%fooValue%'
+     * $query->filterByRolename(['foo', 'bar']); // WHERE rolename IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $rolename The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $rolename The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLogmQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByRolename($rolename = null, $comparison = null)
+    public function filterByRolename($rolename = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($rolename)) {
@@ -528,7 +572,9 @@ abstract class LogmQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LogmTableMap::COL_ROLENAME, $rolename, $comparison);
+        $this->addUsingAlias(LogmTableMap::COL_ROLENAME, $rolename, $comparison);
+
+        return $this;
     }
 
     /**
@@ -538,14 +584,15 @@ abstract class LogmQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLogmQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -553,15 +600,17 @@ abstract class LogmQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LogmTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(LogmTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildLogm $logm Object to remove from the list of results
+     * @param ChildLogm $logm Object to remove from the list of results
      *
-     * @return $this|ChildLogmQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($logm = null)
     {
@@ -578,7 +627,7 @@ abstract class LogmQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(LogmTableMap::DATABASE_NAME);
@@ -603,12 +652,12 @@ abstract class LogmQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(LogmTableMap::DATABASE_NAME);
@@ -633,4 +682,4 @@ abstract class LogmQuery extends ModelCriteria
         });
     }
 
-} // LogmQuery
+}

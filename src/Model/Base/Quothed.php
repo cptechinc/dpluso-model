@@ -29,19 +29,21 @@ abstract class Quothed implements ActiveRecordInterface
 {
     /**
      * TableMap class name
+     *
+     * @var string
      */
-    const TABLE_MAP = '\\Map\\QuothedTableMap';
+    public const TABLE_MAP = '\\Map\\QuothedTableMap';
 
 
     /**
      * attribute to determine if this object has previously been saved.
-     * @var boolean
+     * @var bool
      */
     protected $new = true;
 
     /**
      * attribute to determine whether this object has been deleted.
-     * @var boolean
+     * @var bool
      */
     protected $deleted = false;
 
@@ -50,14 +52,14 @@ abstract class Quothed implements ActiveRecordInterface
      * Tracking modified columns allows us to only update modified columns.
      * @var array
      */
-    protected $modifiedColumns = array();
+    protected $modifiedColumns = [];
 
     /**
      * The (virtual) columns that are added at runtime
      * The formatters can add supplementary columns based on a resultset
      * @var array
      */
-    protected $virtualColumns = array();
+    protected $virtualColumns = [];
 
     /**
      * The value for the sessionid field.
@@ -76,14 +78,14 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * The value for the date field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $date;
 
     /**
      * The value for the time field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $time;
 
@@ -91,7 +93,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the quotnbr field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $quotnbr;
 
@@ -99,7 +101,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the status field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $status;
 
@@ -107,7 +109,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the custid field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $custid;
 
@@ -115,7 +117,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the billname field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $billname;
 
@@ -123,7 +125,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the billaddress field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $billaddress;
 
@@ -131,7 +133,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the billaddress2 field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $billaddress2;
 
@@ -139,7 +141,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the billaddress3 field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $billaddress3;
 
@@ -147,7 +149,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the billcountry field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $billcountry;
 
@@ -155,7 +157,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the billcity field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $billcity;
 
@@ -163,7 +165,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the billstate field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $billstate;
 
@@ -171,7 +173,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the billzip field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $billzip;
 
@@ -179,7 +181,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the shiptoid field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $shiptoid;
 
@@ -187,7 +189,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the shipname field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $shipname;
 
@@ -195,7 +197,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the shipaddress field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $shipaddress;
 
@@ -203,7 +205,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the shipaddress2 field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $shipaddress2;
 
@@ -211,7 +213,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the shipaddress3 field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $shipaddress3;
 
@@ -219,7 +221,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the shipcountry field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $shipcountry;
 
@@ -227,7 +229,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the shipcity field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $shipcity;
 
@@ -235,7 +237,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the shipstate field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $shipstate;
 
@@ -243,7 +245,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the shipzip field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $shipzip;
 
@@ -251,7 +253,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the contact field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $contact;
 
@@ -259,7 +261,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the phone field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $phone;
 
@@ -267,7 +269,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the faxnbr field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $faxnbr;
 
@@ -275,7 +277,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the email field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $email;
 
@@ -283,7 +285,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the careof field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $careof;
 
@@ -291,7 +293,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the quotdate field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $quotdate;
 
@@ -299,7 +301,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the revdate field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $revdate;
 
@@ -307,7 +309,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the expdate field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $expdate;
 
@@ -315,7 +317,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the pricecode field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $pricecode;
 
@@ -323,7 +325,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the pricecodedesc field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $pricecodedesc;
 
@@ -331,7 +333,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the taxcode field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $taxcode;
 
@@ -339,7 +341,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the taxcodedesc field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $taxcodedesc;
 
@@ -347,7 +349,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the termcode field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $termcode;
 
@@ -355,7 +357,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the termcodedesc field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $termcodedesc;
 
@@ -363,7 +365,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the shipviacd field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $shipviacd;
 
@@ -371,7 +373,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the shipviadesc field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $shipviadesc;
 
@@ -379,7 +381,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the sp1 field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $sp1;
 
@@ -387,7 +389,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the sp1pct field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $sp1pct;
 
@@ -395,7 +397,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the sp1name field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $sp1name;
 
@@ -403,7 +405,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the sp2 field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $sp2;
 
@@ -411,7 +413,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the sp2pct field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $sp2pct;
 
@@ -419,7 +421,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the sp2name field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $sp2name;
 
@@ -427,7 +429,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the sp3 field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $sp3;
 
@@ -435,7 +437,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the sp3pct field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $sp3pct;
 
@@ -443,7 +445,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the sp3name field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $sp3name;
 
@@ -451,7 +453,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the fob field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $fob;
 
@@ -459,7 +461,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the deliverydesc field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $deliverydesc;
 
@@ -467,7 +469,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the whse field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $whse;
 
@@ -475,7 +477,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the custpo field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $custpo;
 
@@ -483,7 +485,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the custref field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $custref;
 
@@ -491,7 +493,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the hasnotes field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $hasnotes;
 
@@ -499,7 +501,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the error field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $error;
 
@@ -507,7 +509,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the errormsg field.
      *
      * Note: this column has a database default value of: ''
-     * @var        string
+     * @var        string|null
      */
     protected $errormsg;
 
@@ -515,7 +517,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the subtotal field.
      *
      * Note: this column has a database default value of: '0.00'
-     * @var        string
+     * @var        string|null
      */
     protected $subtotal;
 
@@ -523,7 +525,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the salestax field.
      *
      * Note: this column has a database default value of: '0.00'
-     * @var        string
+     * @var        string|null
      */
     protected $salestax;
 
@@ -531,7 +533,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the freight field.
      *
      * Note: this column has a database default value of: '0.00'
-     * @var        string
+     * @var        string|null
      */
     protected $freight;
 
@@ -539,7 +541,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the misccost field.
      *
      * Note: this column has a database default value of: '0.00'
-     * @var        string
+     * @var        string|null
      */
     protected $misccost;
 
@@ -547,7 +549,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the ordertotal field.
      *
      * Note: this column has a database default value of: '0.00'
-     * @var        string
+     * @var        string|null
      */
     protected $ordertotal;
 
@@ -555,7 +557,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the cost_total field.
      *
      * Note: this column has a database default value of: '0.00'
-     * @var        string
+     * @var        string|null
      */
     protected $cost_total;
 
@@ -563,7 +565,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the margin_amt field.
      *
      * Note: this column has a database default value of: '0.00'
-     * @var        string
+     * @var        string|null
      */
     protected $margin_amt;
 
@@ -571,7 +573,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the margin_pct field.
      *
      * Note: this column has a database default value of: '0.00'
-     * @var        string
+     * @var        string|null
      */
     protected $margin_pct;
 
@@ -579,7 +581,7 @@ abstract class Quothed implements ActiveRecordInterface
      * The value for the dummy field.
      *
      * Note: this column has a database default value of: 'x'
-     * @var        string
+     * @var        string|null
      */
     protected $dummy;
 
@@ -587,7 +589,7 @@ abstract class Quothed implements ActiveRecordInterface
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
-     * @var boolean
+     * @var bool
      */
     protected $alreadyInSave = false;
 
@@ -597,7 +599,7 @@ abstract class Quothed implements ActiveRecordInterface
      * equivalent initialization method).
      * @see __construct()
      */
-    public function applyDefaultValues()
+    public function applyDefaultValues(): void
     {
         $this->quotnbr = '';
         $this->status = '';
@@ -675,9 +677,9 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Returns whether the object has been modified.
      *
-     * @return boolean True if the object has been modified.
+     * @return bool True if the object has been modified.
      */
-    public function isModified()
+    public function isModified(): bool
     {
         return !!$this->modifiedColumns;
     }
@@ -685,10 +687,10 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Has specified column been modified?
      *
-     * @param  string  $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
-     * @return boolean True if $col has been modified.
+     * @param string $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
+     * @return bool True if $col has been modified.
      */
-    public function isColumnModified($col)
+    public function isColumnModified(string $col): bool
     {
         return $this->modifiedColumns && isset($this->modifiedColumns[$col]);
     }
@@ -697,7 +699,7 @@ abstract class Quothed implements ActiveRecordInterface
      * Get the columns that have been modified in this object.
      * @return array A unique list of the modified column names for this object.
      */
-    public function getModifiedColumns()
+    public function getModifiedColumns(): array
     {
         return $this->modifiedColumns ? array_keys($this->modifiedColumns) : [];
     }
@@ -707,9 +709,9 @@ abstract class Quothed implements ActiveRecordInterface
      * be false, if the object was retrieved from storage or was created
      * and then saved.
      *
-     * @return boolean true, if the object has never been persisted.
+     * @return bool True, if the object has never been persisted.
      */
-    public function isNew()
+    public function isNew(): bool
     {
         return $this->new;
     }
@@ -718,45 +720,43 @@ abstract class Quothed implements ActiveRecordInterface
      * Setter for the isNew attribute.  This method will be called
      * by Propel-generated children and objects.
      *
-     * @param boolean $b the state of the object.
+     * @param bool $b the state of the object.
      */
-    public function setNew($b)
+    public function setNew(bool $b): void
     {
-        $this->new = (boolean) $b;
+        $this->new = $b;
     }
 
     /**
      * Whether this object has been deleted.
-     * @return boolean The deleted state of this object.
+     * @return bool The deleted state of this object.
      */
-    public function isDeleted()
+    public function isDeleted(): bool
     {
         return $this->deleted;
     }
 
     /**
      * Specify whether this object has been deleted.
-     * @param  boolean $b The deleted state of this object.
+     * @param bool $b The deleted state of this object.
      * @return void
      */
-    public function setDeleted($b)
+    public function setDeleted(bool $b): void
     {
-        $this->deleted = (boolean) $b;
+        $this->deleted = $b;
     }
 
     /**
      * Sets the modified state for the object to be false.
-     * @param  string $col If supplied, only the specified column is reset.
+     * @param string $col If supplied, only the specified column is reset.
      * @return void
      */
-    public function resetModified($col = null)
+    public function resetModified(?string $col = null): void
     {
         if (null !== $col) {
-            if (isset($this->modifiedColumns[$col])) {
-                unset($this->modifiedColumns[$col]);
-            }
+            unset($this->modifiedColumns[$col]);
         } else {
-            $this->modifiedColumns = array();
+            $this->modifiedColumns = [];
         }
     }
 
@@ -765,10 +765,10 @@ abstract class Quothed implements ActiveRecordInterface
      * <code>obj</code> is an instance of <code>Quothed</code>, delegates to
      * <code>equals(Quothed)</code>.  Otherwise, returns <code>false</code>.
      *
-     * @param  mixed   $obj The object to compare to.
-     * @return boolean Whether equal to the object specified.
+     * @param mixed $obj The object to compare to.
+     * @return bool Whether equal to the object specified.
      */
-    public function equals($obj)
+    public function equals($obj): bool
     {
         if (!$obj instanceof static) {
             return false;
@@ -790,7 +790,7 @@ abstract class Quothed implements ActiveRecordInterface
      *
      * @return array
      */
-    public function getVirtualColumns()
+    public function getVirtualColumns(): array
     {
         return $this->virtualColumns;
     }
@@ -798,10 +798,10 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Checks the existence of a virtual column in this object
      *
-     * @param  string  $name The virtual column name
-     * @return boolean
+     * @param string $name The virtual column name
+     * @return bool
      */
-    public function hasVirtualColumn($name)
+    public function hasVirtualColumn(string $name): bool
     {
         return array_key_exists($name, $this->virtualColumns);
     }
@@ -809,15 +809,15 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the value of a virtual column in this object
      *
-     * @param  string $name The virtual column name
+     * @param string $name The virtual column name
      * @return mixed
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getVirtualColumn($name)
+    public function getVirtualColumn(string $name)
     {
         if (!$this->hasVirtualColumn($name)) {
-            throw new PropelException(sprintf('Cannot get value of inexistent virtual column %s.', $name));
+            throw new PropelException(sprintf('Cannot get value of nonexistent virtual column `%s`.', $name));
         }
 
         return $this->virtualColumns[$name];
@@ -826,12 +826,12 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Set the value of a virtual column in this object
      *
-     * @param string $name  The virtual column name
-     * @param mixed  $value The value to give to the virtual column
+     * @param string $name The virtual column name
+     * @param mixed $value The value to give to the virtual column
      *
-     * @return $this|Quothed The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function setVirtualColumn($name, $value)
+    public function setVirtualColumn(string $name, $value)
     {
         $this->virtualColumns[$name] = $value;
 
@@ -841,13 +841,13 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param  string  $msg
-     * @param  int     $priority One of the Propel::LOG_* logging levels
-     * @return boolean
+     * @param string $msg
+     * @param int $priority One of the Propel::LOG_* logging levels
+     * @return void
      */
-    protected function log($msg, $priority = Propel::LOG_INFO)
+    protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
-        return Propel::log(get_class($this) . ': ' . $msg, $priority);
+        Propel::log(get_class($this) . ': ' . $msg, $priority);
     }
 
     /**
@@ -858,24 +858,27 @@ abstract class Quothed implements ActiveRecordInterface
      *  => {"Id":9012,"Title":"Don Juan","ISBN":"0140422161","Price":12.99,"PublisherId":1234,"AuthorId":5678}');
      * </code>
      *
-     * @param  mixed   $parser                 A AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
-     * @param  boolean $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
-     * @return string  The exported data
+     * @param \Propel\Runtime\Parser\AbstractParser|string $parser An AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME, TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM. Defaults to TableMap::TYPE_PHPNAME.
+     * @return string The exported data
      */
-    public function exportTo($parser, $includeLazyLoadColumns = true)
+    public function exportTo($parser, bool $includeLazyLoadColumns = true, string $keyType = TableMap::TYPE_PHPNAME): string
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray(TableMap::TYPE_PHPNAME, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
     }
 
     /**
      * Clean up internal collections prior to serializing
      * Avoids recursive loops that turn into segmentation faults when serializing
+     *
+     * @return array<string>
      */
-    public function __sleep()
+    public function __sleep(): array
     {
         $this->clearAllReferences();
 
@@ -913,7 +916,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [date] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getDate()
     {
@@ -923,7 +926,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [time] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getTime()
     {
@@ -933,7 +936,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [quotnbr] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQuotnbr()
     {
@@ -943,7 +946,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [status] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getStatus()
     {
@@ -953,7 +956,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [custid] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getCustid()
     {
@@ -963,7 +966,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [billname] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getBillname()
     {
@@ -973,7 +976,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [billaddress] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getBilladdress()
     {
@@ -983,7 +986,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [billaddress2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getBilladdress2()
     {
@@ -993,7 +996,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [billaddress3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getBilladdress3()
     {
@@ -1003,7 +1006,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [billcountry] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getBillcountry()
     {
@@ -1013,7 +1016,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [billcity] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getBillcity()
     {
@@ -1023,7 +1026,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [billstate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getBillstate()
     {
@@ -1033,7 +1036,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [billzip] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getBillzip()
     {
@@ -1043,7 +1046,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [shiptoid] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getShiptoid()
     {
@@ -1053,7 +1056,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [shipname] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getShipname()
     {
@@ -1063,7 +1066,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [shipaddress] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getShipaddress()
     {
@@ -1073,7 +1076,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [shipaddress2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getShipaddress2()
     {
@@ -1083,7 +1086,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [shipaddress3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getShipaddress3()
     {
@@ -1093,7 +1096,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [shipcountry] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getShipcountry()
     {
@@ -1103,7 +1106,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [shipcity] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getShipcity()
     {
@@ -1113,7 +1116,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [shipstate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getShipstate()
     {
@@ -1123,7 +1126,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [shipzip] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getShipzip()
     {
@@ -1133,7 +1136,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [contact] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getContact()
     {
@@ -1143,7 +1146,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [phone] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getPhone()
     {
@@ -1153,7 +1156,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [faxnbr] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getFaxnbr()
     {
@@ -1163,7 +1166,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [email] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getEmail()
     {
@@ -1173,7 +1176,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [careof] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getCareof()
     {
@@ -1183,7 +1186,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [quotdate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQuotdate()
     {
@@ -1193,7 +1196,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [revdate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getRevdate()
     {
@@ -1203,7 +1206,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [expdate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getExpdate()
     {
@@ -1213,7 +1216,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [pricecode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getPricecode()
     {
@@ -1223,7 +1226,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [pricecodedesc] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getPricecodedesc()
     {
@@ -1233,7 +1236,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [taxcode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getTaxcode()
     {
@@ -1243,7 +1246,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [taxcodedesc] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getTaxcodedesc()
     {
@@ -1253,7 +1256,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [termcode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getTermcode()
     {
@@ -1263,7 +1266,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [termcodedesc] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getTermcodedesc()
     {
@@ -1273,7 +1276,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [shipviacd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getShipviacd()
     {
@@ -1283,7 +1286,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [shipviadesc] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getShipviadesc()
     {
@@ -1293,7 +1296,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [sp1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getSp1()
     {
@@ -1303,7 +1306,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [sp1pct] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getSp1pct()
     {
@@ -1313,7 +1316,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [sp1name] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getSp1name()
     {
@@ -1323,7 +1326,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [sp2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getSp2()
     {
@@ -1333,7 +1336,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [sp2pct] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getSp2pct()
     {
@@ -1343,7 +1346,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [sp2name] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getSp2name()
     {
@@ -1353,7 +1356,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [sp3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getSp3()
     {
@@ -1363,7 +1366,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [sp3pct] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getSp3pct()
     {
@@ -1373,7 +1376,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [sp3name] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getSp3name()
     {
@@ -1383,7 +1386,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [fob] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getFob()
     {
@@ -1393,7 +1396,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [deliverydesc] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getDeliverydesc()
     {
@@ -1403,7 +1406,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [whse] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getWhse()
     {
@@ -1413,7 +1416,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [custpo] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getCustpo()
     {
@@ -1423,7 +1426,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [custref] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getCustref()
     {
@@ -1433,7 +1436,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [hasnotes] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getHasnotes()
     {
@@ -1443,7 +1446,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [error] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getError()
     {
@@ -1453,7 +1456,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [errormsg] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getErrormsg()
     {
@@ -1463,7 +1466,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [subtotal] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getSubtotal()
     {
@@ -1473,7 +1476,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [salestax] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getSalestax()
     {
@@ -1483,7 +1486,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [freight] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getFreight()
     {
@@ -1493,7 +1496,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [misccost] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getMisccost()
     {
@@ -1503,7 +1506,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [ordertotal] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getOrdertotal()
     {
@@ -1513,7 +1516,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [cost_total] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getCostTotal()
     {
@@ -1523,7 +1526,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [margin_amt] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getMarginAmt()
     {
@@ -1533,7 +1536,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [margin_pct] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getMarginPct()
     {
@@ -1543,7 +1546,7 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Get the [dummy] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getDummy()
     {
@@ -1553,8 +1556,8 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Set the value of [sessionid] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setSessionid($v)
     {
@@ -1568,13 +1571,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setSessionid()
+    }
 
     /**
      * Set the value of [recno] column.
      *
-     * @param int $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setRecno($v)
     {
@@ -1588,13 +1591,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setRecno()
+    }
 
     /**
      * Set the value of [date] column.
      *
-     * @param int $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDate($v)
     {
@@ -1608,13 +1611,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDate()
+    }
 
     /**
      * Set the value of [time] column.
      *
-     * @param int $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTime($v)
     {
@@ -1628,13 +1631,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTime()
+    }
 
     /**
      * Set the value of [quotnbr] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQuotnbr($v)
     {
@@ -1648,13 +1651,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQuotnbr()
+    }
 
     /**
      * Set the value of [status] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setStatus($v)
     {
@@ -1668,13 +1671,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setStatus()
+    }
 
     /**
      * Set the value of [custid] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setCustid($v)
     {
@@ -1688,13 +1691,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setCustid()
+    }
 
     /**
      * Set the value of [billname] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setBillname($v)
     {
@@ -1708,13 +1711,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setBillname()
+    }
 
     /**
      * Set the value of [billaddress] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setBilladdress($v)
     {
@@ -1728,13 +1731,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setBilladdress()
+    }
 
     /**
      * Set the value of [billaddress2] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setBilladdress2($v)
     {
@@ -1748,13 +1751,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setBilladdress2()
+    }
 
     /**
      * Set the value of [billaddress3] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setBilladdress3($v)
     {
@@ -1768,13 +1771,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setBilladdress3()
+    }
 
     /**
      * Set the value of [billcountry] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setBillcountry($v)
     {
@@ -1788,13 +1791,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setBillcountry()
+    }
 
     /**
      * Set the value of [billcity] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setBillcity($v)
     {
@@ -1808,13 +1811,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setBillcity()
+    }
 
     /**
      * Set the value of [billstate] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setBillstate($v)
     {
@@ -1828,13 +1831,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setBillstate()
+    }
 
     /**
      * Set the value of [billzip] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setBillzip($v)
     {
@@ -1848,13 +1851,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setBillzip()
+    }
 
     /**
      * Set the value of [shiptoid] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setShiptoid($v)
     {
@@ -1868,13 +1871,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setShiptoid()
+    }
 
     /**
      * Set the value of [shipname] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setShipname($v)
     {
@@ -1888,13 +1891,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setShipname()
+    }
 
     /**
      * Set the value of [shipaddress] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setShipaddress($v)
     {
@@ -1908,13 +1911,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setShipaddress()
+    }
 
     /**
      * Set the value of [shipaddress2] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setShipaddress2($v)
     {
@@ -1928,13 +1931,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setShipaddress2()
+    }
 
     /**
      * Set the value of [shipaddress3] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setShipaddress3($v)
     {
@@ -1948,13 +1951,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setShipaddress3()
+    }
 
     /**
      * Set the value of [shipcountry] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setShipcountry($v)
     {
@@ -1968,13 +1971,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setShipcountry()
+    }
 
     /**
      * Set the value of [shipcity] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setShipcity($v)
     {
@@ -1988,13 +1991,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setShipcity()
+    }
 
     /**
      * Set the value of [shipstate] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setShipstate($v)
     {
@@ -2008,13 +2011,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setShipstate()
+    }
 
     /**
      * Set the value of [shipzip] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setShipzip($v)
     {
@@ -2028,13 +2031,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setShipzip()
+    }
 
     /**
      * Set the value of [contact] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setContact($v)
     {
@@ -2048,13 +2051,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setContact()
+    }
 
     /**
      * Set the value of [phone] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPhone($v)
     {
@@ -2068,13 +2071,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPhone()
+    }
 
     /**
      * Set the value of [faxnbr] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setFaxnbr($v)
     {
@@ -2088,13 +2091,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setFaxnbr()
+    }
 
     /**
      * Set the value of [email] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setEmail($v)
     {
@@ -2108,13 +2111,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setEmail()
+    }
 
     /**
      * Set the value of [careof] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setCareof($v)
     {
@@ -2128,13 +2131,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setCareof()
+    }
 
     /**
      * Set the value of [quotdate] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQuotdate($v)
     {
@@ -2148,13 +2151,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQuotdate()
+    }
 
     /**
      * Set the value of [revdate] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setRevdate($v)
     {
@@ -2168,13 +2171,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setRevdate()
+    }
 
     /**
      * Set the value of [expdate] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setExpdate($v)
     {
@@ -2188,13 +2191,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setExpdate()
+    }
 
     /**
      * Set the value of [pricecode] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPricecode($v)
     {
@@ -2208,13 +2211,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPricecode()
+    }
 
     /**
      * Set the value of [pricecodedesc] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPricecodedesc($v)
     {
@@ -2228,13 +2231,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPricecodedesc()
+    }
 
     /**
      * Set the value of [taxcode] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTaxcode($v)
     {
@@ -2248,13 +2251,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTaxcode()
+    }
 
     /**
      * Set the value of [taxcodedesc] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTaxcodedesc($v)
     {
@@ -2268,13 +2271,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTaxcodedesc()
+    }
 
     /**
      * Set the value of [termcode] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTermcode($v)
     {
@@ -2288,13 +2291,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTermcode()
+    }
 
     /**
      * Set the value of [termcodedesc] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTermcodedesc($v)
     {
@@ -2308,13 +2311,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTermcodedesc()
+    }
 
     /**
      * Set the value of [shipviacd] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setShipviacd($v)
     {
@@ -2328,13 +2331,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setShipviacd()
+    }
 
     /**
      * Set the value of [shipviadesc] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setShipviadesc($v)
     {
@@ -2348,13 +2351,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setShipviadesc()
+    }
 
     /**
      * Set the value of [sp1] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setSp1($v)
     {
@@ -2368,13 +2371,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setSp1()
+    }
 
     /**
      * Set the value of [sp1pct] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setSp1pct($v)
     {
@@ -2388,13 +2391,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setSp1pct()
+    }
 
     /**
      * Set the value of [sp1name] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setSp1name($v)
     {
@@ -2408,13 +2411,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setSp1name()
+    }
 
     /**
      * Set the value of [sp2] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setSp2($v)
     {
@@ -2428,13 +2431,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setSp2()
+    }
 
     /**
      * Set the value of [sp2pct] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setSp2pct($v)
     {
@@ -2448,13 +2451,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setSp2pct()
+    }
 
     /**
      * Set the value of [sp2name] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setSp2name($v)
     {
@@ -2468,13 +2471,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setSp2name()
+    }
 
     /**
      * Set the value of [sp3] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setSp3($v)
     {
@@ -2488,13 +2491,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setSp3()
+    }
 
     /**
      * Set the value of [sp3pct] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setSp3pct($v)
     {
@@ -2508,13 +2511,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setSp3pct()
+    }
 
     /**
      * Set the value of [sp3name] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setSp3name($v)
     {
@@ -2528,13 +2531,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setSp3name()
+    }
 
     /**
      * Set the value of [fob] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setFob($v)
     {
@@ -2548,13 +2551,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setFob()
+    }
 
     /**
      * Set the value of [deliverydesc] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDeliverydesc($v)
     {
@@ -2568,13 +2571,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDeliverydesc()
+    }
 
     /**
      * Set the value of [whse] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setWhse($v)
     {
@@ -2588,13 +2591,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setWhse()
+    }
 
     /**
      * Set the value of [custpo] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setCustpo($v)
     {
@@ -2608,13 +2611,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setCustpo()
+    }
 
     /**
      * Set the value of [custref] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setCustref($v)
     {
@@ -2628,13 +2631,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setCustref()
+    }
 
     /**
      * Set the value of [hasnotes] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setHasnotes($v)
     {
@@ -2648,13 +2651,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setHasnotes()
+    }
 
     /**
      * Set the value of [error] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setError($v)
     {
@@ -2668,13 +2671,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setError()
+    }
 
     /**
      * Set the value of [errormsg] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setErrormsg($v)
     {
@@ -2688,13 +2691,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setErrormsg()
+    }
 
     /**
      * Set the value of [subtotal] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setSubtotal($v)
     {
@@ -2708,13 +2711,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setSubtotal()
+    }
 
     /**
      * Set the value of [salestax] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setSalestax($v)
     {
@@ -2728,13 +2731,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setSalestax()
+    }
 
     /**
      * Set the value of [freight] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setFreight($v)
     {
@@ -2748,13 +2751,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setFreight()
+    }
 
     /**
      * Set the value of [misccost] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setMisccost($v)
     {
@@ -2768,13 +2771,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setMisccost()
+    }
 
     /**
      * Set the value of [ordertotal] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOrdertotal($v)
     {
@@ -2788,13 +2791,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOrdertotal()
+    }
 
     /**
      * Set the value of [cost_total] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setCostTotal($v)
     {
@@ -2808,13 +2811,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setCostTotal()
+    }
 
     /**
      * Set the value of [margin_amt] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setMarginAmt($v)
     {
@@ -2828,13 +2831,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setMarginAmt()
+    }
 
     /**
      * Set the value of [margin_pct] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setMarginPct($v)
     {
@@ -2848,13 +2851,13 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setMarginPct()
+    }
 
     /**
      * Set the value of [dummy] column.
      *
-     * @param string $v new value
-     * @return $this|\Quothed The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -2868,7 +2871,7 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDummy()
+    }
 
     /**
      * Indicates whether the columns in this object are only set to default values.
@@ -2876,9 +2879,9 @@ abstract class Quothed implements ActiveRecordInterface
      * This method can be used in conjunction with isModified() to indicate whether an object is both
      * modified _and_ has some values set which are non-default.
      *
-     * @return boolean Whether the columns in this object are only been set with default values.
+     * @return bool Whether the columns in this object are only been set with default values.
      */
-    public function hasOnlyDefaultValues()
+    public function hasOnlyDefaultValues(): bool
     {
             if ($this->quotnbr !== '') {
                 return false;
@@ -3130,7 +3133,7 @@ abstract class Quothed implements ActiveRecordInterface
 
         // otherwise, everything was equal, so return TRUE
         return true;
-    } // hasOnlyDefaultValues()
+    }
 
     /**
      * Hydrates (populates) the object variables with values from the database resultset.
@@ -3140,17 +3143,17 @@ abstract class Quothed implements ActiveRecordInterface
      * for results of JOIN queries where the resultset row includes columns from two or
      * more tables.
      *
-     * @param array   $row       The row returned by DataFetcher->fetch().
-     * @param int     $startcol  0-based offset column which indicates which restultset column to start with.
-     * @param boolean $rehydrate Whether this object is being re-hydrated from the database.
-     * @param string  $indexType The index type of $row. Mostly DataFetcher->getIndexType().
+     * @param array $row The row returned by DataFetcher->fetch().
+     * @param int $startcol 0-based offset column which indicates which resultset column to start with.
+     * @param bool $rehydrate Whether this object is being re-hydrated from the database.
+     * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                   One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                            TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @return int             next starting column
-     * @throws PropelException - Any caught Exception will be rewrapped as a PropelException.
+     * @return int next starting column
+     * @throws \Propel\Runtime\Exception\PropelException - Any caught Exception will be rewrapped as a PropelException.
      */
-    public function hydrate($row, $startcol = 0, $rehydrate = false, $indexType = TableMap::TYPE_NUM)
+    public function hydrate(array $row, int $startcol = 0, bool $rehydrate = false, string $indexType = TableMap::TYPE_NUM): int
     {
         try {
 
@@ -3351,8 +3354,8 @@ abstract class Quothed implements ActiveRecordInterface
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 65 + $startcol : QuothedTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
-            $this->resetModified();
 
+            $this->resetModified();
             $this->setNew(false);
 
             if ($rehydrate) {
@@ -3377,23 +3380,24 @@ abstract class Quothed implements ActiveRecordInterface
      * the base method from the overridden method (i.e. parent::ensureConsistency()),
      * in case your model changes.
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function ensureConsistency()
+    public function ensureConsistency(): void
     {
-    } // ensureConsistency
+    }
 
     /**
      * Reloads this object from datastore based on primary key and (optionally) resets all associated objects.
      *
      * This will only work if the object has been saved and has a valid primary key set.
      *
-     * @param      boolean $deep (optional) Whether to also de-associated any related objects.
-     * @param      ConnectionInterface $con (optional) The ConnectionInterface connection to use.
+     * @param bool $deep (optional) Whether to also de-associated any related objects.
+     * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
      * @return void
-     * @throws PropelException - if this object is deleted, unsaved or doesn't have pk match in db
+     * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
-    public function reload($deep = false, ConnectionInterface $con = null)
+    public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("Cannot reload a deleted object.");
@@ -3426,13 +3430,13 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Removes this object from datastore and sets delete attribute.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see Quothed::setDeleted()
      * @see Quothed::isDeleted()
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("This object has already been deleted.");
@@ -3462,12 +3466,12 @@ abstract class Quothed implements ActiveRecordInterface
      * method.  This method wraps all precipitate database operations in a
      * single transaction.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    public function save(ConnectionInterface $con = null)
+    public function save(?ConnectionInterface $con = null): int
     {
         if ($this->isDeleted()) {
             throw new PropelException("You cannot save an object that has been deleted.");
@@ -3512,12 +3516,12 @@ abstract class Quothed implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
      */
-    protected function doSave(ConnectionInterface $con)
+    protected function doSave(ConnectionInterface $con): int
     {
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
@@ -3539,19 +3543,19 @@ abstract class Quothed implements ActiveRecordInterface
         }
 
         return $affectedRows;
-    } // doSave()
+    }
 
     /**
      * Insert the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    protected function doInsert(ConnectionInterface $con)
+    protected function doInsert(ConnectionInterface $con): void
     {
-        $modifiedColumns = array();
+        $modifiedColumns = [];
         $index = 0;
 
 
@@ -3767,201 +3771,267 @@ abstract class Quothed implements ActiveRecordInterface
                 switch ($columnName) {
                     case 'sessionid':
                         $stmt->bindValue($identifier, $this->sessionid, PDO::PARAM_STR);
+
                         break;
                     case 'recno':
                         $stmt->bindValue($identifier, $this->recno, PDO::PARAM_INT);
+
                         break;
                     case 'date':
                         $stmt->bindValue($identifier, $this->date, PDO::PARAM_INT);
+
                         break;
                     case 'time':
                         $stmt->bindValue($identifier, $this->time, PDO::PARAM_INT);
+
                         break;
                     case 'quotnbr':
                         $stmt->bindValue($identifier, $this->quotnbr, PDO::PARAM_STR);
+
                         break;
                     case 'status':
                         $stmt->bindValue($identifier, $this->status, PDO::PARAM_STR);
+
                         break;
                     case 'custid':
                         $stmt->bindValue($identifier, $this->custid, PDO::PARAM_STR);
+
                         break;
                     case 'billname':
                         $stmt->bindValue($identifier, $this->billname, PDO::PARAM_STR);
+
                         break;
                     case 'billaddress':
                         $stmt->bindValue($identifier, $this->billaddress, PDO::PARAM_STR);
+
                         break;
                     case 'billaddress2':
                         $stmt->bindValue($identifier, $this->billaddress2, PDO::PARAM_STR);
+
                         break;
                     case 'billaddress3':
                         $stmt->bindValue($identifier, $this->billaddress3, PDO::PARAM_STR);
+
                         break;
                     case 'billcountry':
                         $stmt->bindValue($identifier, $this->billcountry, PDO::PARAM_STR);
+
                         break;
                     case 'billcity':
                         $stmt->bindValue($identifier, $this->billcity, PDO::PARAM_STR);
+
                         break;
                     case 'billstate':
                         $stmt->bindValue($identifier, $this->billstate, PDO::PARAM_STR);
+
                         break;
                     case 'billzip':
                         $stmt->bindValue($identifier, $this->billzip, PDO::PARAM_STR);
+
                         break;
                     case 'shiptoid':
                         $stmt->bindValue($identifier, $this->shiptoid, PDO::PARAM_STR);
+
                         break;
                     case 'shipname':
                         $stmt->bindValue($identifier, $this->shipname, PDO::PARAM_STR);
+
                         break;
                     case 'shipaddress':
                         $stmt->bindValue($identifier, $this->shipaddress, PDO::PARAM_STR);
+
                         break;
                     case 'shipaddress2':
                         $stmt->bindValue($identifier, $this->shipaddress2, PDO::PARAM_STR);
+
                         break;
                     case 'shipaddress3':
                         $stmt->bindValue($identifier, $this->shipaddress3, PDO::PARAM_STR);
+
                         break;
                     case 'shipcountry':
                         $stmt->bindValue($identifier, $this->shipcountry, PDO::PARAM_STR);
+
                         break;
                     case 'shipcity':
                         $stmt->bindValue($identifier, $this->shipcity, PDO::PARAM_STR);
+
                         break;
                     case 'shipstate':
                         $stmt->bindValue($identifier, $this->shipstate, PDO::PARAM_STR);
+
                         break;
                     case 'shipzip':
                         $stmt->bindValue($identifier, $this->shipzip, PDO::PARAM_STR);
+
                         break;
                     case 'contact':
                         $stmt->bindValue($identifier, $this->contact, PDO::PARAM_STR);
+
                         break;
                     case 'phone':
                         $stmt->bindValue($identifier, $this->phone, PDO::PARAM_STR);
+
                         break;
                     case 'faxnbr':
                         $stmt->bindValue($identifier, $this->faxnbr, PDO::PARAM_STR);
+
                         break;
                     case 'email':
                         $stmt->bindValue($identifier, $this->email, PDO::PARAM_STR);
+
                         break;
                     case 'careof':
                         $stmt->bindValue($identifier, $this->careof, PDO::PARAM_STR);
+
                         break;
                     case 'quotdate':
                         $stmt->bindValue($identifier, $this->quotdate, PDO::PARAM_STR);
+
                         break;
                     case 'revdate':
                         $stmt->bindValue($identifier, $this->revdate, PDO::PARAM_STR);
+
                         break;
                     case 'expdate':
                         $stmt->bindValue($identifier, $this->expdate, PDO::PARAM_STR);
+
                         break;
                     case 'pricecode':
                         $stmt->bindValue($identifier, $this->pricecode, PDO::PARAM_STR);
+
                         break;
                     case 'pricecodedesc':
                         $stmt->bindValue($identifier, $this->pricecodedesc, PDO::PARAM_STR);
+
                         break;
                     case 'taxcode':
                         $stmt->bindValue($identifier, $this->taxcode, PDO::PARAM_STR);
+
                         break;
                     case 'taxcodedesc':
                         $stmt->bindValue($identifier, $this->taxcodedesc, PDO::PARAM_STR);
+
                         break;
                     case 'termcode':
                         $stmt->bindValue($identifier, $this->termcode, PDO::PARAM_STR);
+
                         break;
                     case 'termcodedesc':
                         $stmt->bindValue($identifier, $this->termcodedesc, PDO::PARAM_STR);
+
                         break;
                     case 'shipviacd':
                         $stmt->bindValue($identifier, $this->shipviacd, PDO::PARAM_STR);
+
                         break;
                     case 'shipviadesc':
                         $stmt->bindValue($identifier, $this->shipviadesc, PDO::PARAM_STR);
+
                         break;
                     case 'sp1':
                         $stmt->bindValue($identifier, $this->sp1, PDO::PARAM_STR);
+
                         break;
                     case 'sp1pct':
                         $stmt->bindValue($identifier, $this->sp1pct, PDO::PARAM_STR);
+
                         break;
                     case 'sp1name':
                         $stmt->bindValue($identifier, $this->sp1name, PDO::PARAM_STR);
+
                         break;
                     case 'sp2':
                         $stmt->bindValue($identifier, $this->sp2, PDO::PARAM_STR);
+
                         break;
                     case 'sp2pct':
                         $stmt->bindValue($identifier, $this->sp2pct, PDO::PARAM_STR);
+
                         break;
                     case 'sp2name':
                         $stmt->bindValue($identifier, $this->sp2name, PDO::PARAM_STR);
+
                         break;
                     case 'sp3':
                         $stmt->bindValue($identifier, $this->sp3, PDO::PARAM_STR);
+
                         break;
                     case 'sp3pct':
                         $stmt->bindValue($identifier, $this->sp3pct, PDO::PARAM_STR);
+
                         break;
                     case 'sp3name':
                         $stmt->bindValue($identifier, $this->sp3name, PDO::PARAM_STR);
+
                         break;
                     case 'fob':
                         $stmt->bindValue($identifier, $this->fob, PDO::PARAM_STR);
+
                         break;
                     case 'deliverydesc':
                         $stmt->bindValue($identifier, $this->deliverydesc, PDO::PARAM_STR);
+
                         break;
                     case 'whse':
                         $stmt->bindValue($identifier, $this->whse, PDO::PARAM_STR);
+
                         break;
                     case 'custpo':
                         $stmt->bindValue($identifier, $this->custpo, PDO::PARAM_STR);
+
                         break;
                     case 'custref':
                         $stmt->bindValue($identifier, $this->custref, PDO::PARAM_STR);
+
                         break;
                     case 'hasnotes':
                         $stmt->bindValue($identifier, $this->hasnotes, PDO::PARAM_STR);
+
                         break;
                     case 'error':
                         $stmt->bindValue($identifier, $this->error, PDO::PARAM_STR);
+
                         break;
                     case 'errormsg':
                         $stmt->bindValue($identifier, $this->errormsg, PDO::PARAM_STR);
+
                         break;
                     case 'subtotal':
                         $stmt->bindValue($identifier, $this->subtotal, PDO::PARAM_STR);
+
                         break;
                     case 'salestax':
                         $stmt->bindValue($identifier, $this->salestax, PDO::PARAM_STR);
+
                         break;
                     case 'freight':
                         $stmt->bindValue($identifier, $this->freight, PDO::PARAM_STR);
+
                         break;
                     case 'misccost':
                         $stmt->bindValue($identifier, $this->misccost, PDO::PARAM_STR);
+
                         break;
                     case 'ordertotal':
                         $stmt->bindValue($identifier, $this->ordertotal, PDO::PARAM_STR);
+
                         break;
                     case 'cost_total':
                         $stmt->bindValue($identifier, $this->cost_total, PDO::PARAM_STR);
+
                         break;
                     case 'margin_amt':
                         $stmt->bindValue($identifier, $this->margin_amt, PDO::PARAM_STR);
+
                         break;
                     case 'margin_pct':
                         $stmt->bindValue($identifier, $this->margin_pct, PDO::PARAM_STR);
+
                         break;
                     case 'dummy':
                         $stmt->bindValue($identifier, $this->dummy, PDO::PARAM_STR);
+
                         break;
                 }
             }
@@ -3977,12 +4047,12 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @return Integer Number of updated rows
+     * @return int Number of updated rows
      * @see doSave()
      */
-    protected function doUpdate(ConnectionInterface $con)
+    protected function doUpdate(ConnectionInterface $con): int
     {
         $selectCriteria = $this->buildPkeyCriteria();
         $valuesCriteria = $this->buildCriteria();
@@ -3993,14 +4063,14 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Retrieves a field from the object by name passed in as a string.
      *
-     * @param      string $name name
-     * @param      string $type The type of fieldname the $name is of:
+     * @param string $name name
+     * @param string $type The type of fieldname the $name is of:
      *                     one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                     TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                     Defaults to TableMap::TYPE_PHPNAME.
      * @return mixed Value of field.
      */
-    public function getByName($name, $type = TableMap::TYPE_PHPNAME)
+    public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = QuothedTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
@@ -4012,213 +4082,212 @@ abstract class Quothed implements ActiveRecordInterface
      * Retrieves a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param      int $pos position in xml schema
+     * @param int $pos Position in XML schema
      * @return mixed Value of field at $pos
      */
-    public function getByPosition($pos)
+    public function getByPosition(int $pos)
     {
         switch ($pos) {
             case 0:
                 return $this->getSessionid();
-                break;
+
             case 1:
                 return $this->getRecno();
-                break;
+
             case 2:
                 return $this->getDate();
-                break;
+
             case 3:
                 return $this->getTime();
-                break;
+
             case 4:
                 return $this->getQuotnbr();
-                break;
+
             case 5:
                 return $this->getStatus();
-                break;
+
             case 6:
                 return $this->getCustid();
-                break;
+
             case 7:
                 return $this->getBillname();
-                break;
+
             case 8:
                 return $this->getBilladdress();
-                break;
+
             case 9:
                 return $this->getBilladdress2();
-                break;
+
             case 10:
                 return $this->getBilladdress3();
-                break;
+
             case 11:
                 return $this->getBillcountry();
-                break;
+
             case 12:
                 return $this->getBillcity();
-                break;
+
             case 13:
                 return $this->getBillstate();
-                break;
+
             case 14:
                 return $this->getBillzip();
-                break;
+
             case 15:
                 return $this->getShiptoid();
-                break;
+
             case 16:
                 return $this->getShipname();
-                break;
+
             case 17:
                 return $this->getShipaddress();
-                break;
+
             case 18:
                 return $this->getShipaddress2();
-                break;
+
             case 19:
                 return $this->getShipaddress3();
-                break;
+
             case 20:
                 return $this->getShipcountry();
-                break;
+
             case 21:
                 return $this->getShipcity();
-                break;
+
             case 22:
                 return $this->getShipstate();
-                break;
+
             case 23:
                 return $this->getShipzip();
-                break;
+
             case 24:
                 return $this->getContact();
-                break;
+
             case 25:
                 return $this->getPhone();
-                break;
+
             case 26:
                 return $this->getFaxnbr();
-                break;
+
             case 27:
                 return $this->getEmail();
-                break;
+
             case 28:
                 return $this->getCareof();
-                break;
+
             case 29:
                 return $this->getQuotdate();
-                break;
+
             case 30:
                 return $this->getRevdate();
-                break;
+
             case 31:
                 return $this->getExpdate();
-                break;
+
             case 32:
                 return $this->getPricecode();
-                break;
+
             case 33:
                 return $this->getPricecodedesc();
-                break;
+
             case 34:
                 return $this->getTaxcode();
-                break;
+
             case 35:
                 return $this->getTaxcodedesc();
-                break;
+
             case 36:
                 return $this->getTermcode();
-                break;
+
             case 37:
                 return $this->getTermcodedesc();
-                break;
+
             case 38:
                 return $this->getShipviacd();
-                break;
+
             case 39:
                 return $this->getShipviadesc();
-                break;
+
             case 40:
                 return $this->getSp1();
-                break;
+
             case 41:
                 return $this->getSp1pct();
-                break;
+
             case 42:
                 return $this->getSp1name();
-                break;
+
             case 43:
                 return $this->getSp2();
-                break;
+
             case 44:
                 return $this->getSp2pct();
-                break;
+
             case 45:
                 return $this->getSp2name();
-                break;
+
             case 46:
                 return $this->getSp3();
-                break;
+
             case 47:
                 return $this->getSp3pct();
-                break;
+
             case 48:
                 return $this->getSp3name();
-                break;
+
             case 49:
                 return $this->getFob();
-                break;
+
             case 50:
                 return $this->getDeliverydesc();
-                break;
+
             case 51:
                 return $this->getWhse();
-                break;
+
             case 52:
                 return $this->getCustpo();
-                break;
+
             case 53:
                 return $this->getCustref();
-                break;
+
             case 54:
                 return $this->getHasnotes();
-                break;
+
             case 55:
                 return $this->getError();
-                break;
+
             case 56:
                 return $this->getErrormsg();
-                break;
+
             case 57:
                 return $this->getSubtotal();
-                break;
+
             case 58:
                 return $this->getSalestax();
-                break;
+
             case 59:
                 return $this->getFreight();
-                break;
+
             case 60:
                 return $this->getMisccost();
-                break;
+
             case 61:
                 return $this->getOrdertotal();
-                break;
+
             case 62:
                 return $this->getCostTotal();
-                break;
+
             case 63:
                 return $this->getMarginAmt();
-                break;
+
             case 64:
                 return $this->getMarginPct();
-                break;
+
             case 65:
                 return $this->getDummy();
-                break;
+
             default:
                 return null;
-                break;
         } // switch()
     }
 
@@ -4228,23 +4297,22 @@ abstract class Quothed implements ActiveRecordInterface
      * You can specify the key type of the array by passing one of the class
      * type constants.
      *
-     * @param     string  $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
      *                    TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                    Defaults to TableMap::TYPE_PHPNAME.
-     * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
-     * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
+     * @param array $alreadyDumpedObjects List of objects to skip to avoid recursion
      *
-     * @return array an associative array containing the field names (as keys) and field values
+     * @return array An associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray(string $keyType = TableMap::TYPE_PHPNAME, bool $includeLazyLoadColumns = true, array $alreadyDumpedObjects = []): array
     {
-
         if (isset($alreadyDumpedObjects['Quothed'][$this->hashCode()])) {
-            return '*RECURSION*';
+            return ['*RECURSION*'];
         }
         $alreadyDumpedObjects['Quothed'][$this->hashCode()] = true;
         $keys = QuothedTableMap::getFieldNames($keyType);
-        $result = array(
+        $result = [
             $keys[0] => $this->getSessionid(),
             $keys[1] => $this->getRecno(),
             $keys[2] => $this->getDate(),
@@ -4311,7 +4379,7 @@ abstract class Quothed implements ActiveRecordInterface
             $keys[63] => $this->getMarginAmt(),
             $keys[64] => $this->getMarginPct(),
             $keys[65] => $this->getDummy(),
-        );
+        ];
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
             $result[$key] = $virtualColumn;
@@ -4324,30 +4392,32 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param  string $name
-     * @param  mixed  $value field value
-     * @param  string $type The type of fieldname the $name is of:
+     * @param string $name
+     * @param mixed $value field value
+     * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\Quothed
+     * @return $this
      */
-    public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
+    public function setByName(string $name, $value, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = QuothedTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
-        return $this->setByPosition($pos, $value);
+        $this->setByPosition($pos, $value);
+
+        return $this;
     }
 
     /**
      * Sets a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param  int $pos position in xml schema
-     * @param  mixed $value field value
-     * @return $this|\Quothed
+     * @param int $pos position in xml schema
+     * @param mixed $value field value
+     * @return $this
      */
-    public function setByPosition($pos, $value)
+    public function setByPosition(int $pos, $value)
     {
         switch ($pos) {
             case 0:
@@ -4566,11 +4636,11 @@ abstract class Quothed implements ActiveRecordInterface
      * TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      * The default key type is the column's TableMap::TYPE_PHPNAME.
      *
-     * @param      array  $arr     An array to populate the object from.
-     * @param      string $keyType The type of keys the array uses.
-     * @return void
+     * @param array $arr An array to populate the object from.
+     * @param string $keyType The type of keys the array uses.
+     * @return $this
      */
-    public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
+    public function fromArray(array $arr, string $keyType = TableMap::TYPE_PHPNAME)
     {
         $keys = QuothedTableMap::getFieldNames($keyType);
 
@@ -4772,6 +4842,8 @@ abstract class Quothed implements ActiveRecordInterface
         if (array_key_exists($keys[65], $arr)) {
             $this->setDummy($arr[$keys[65]]);
         }
+
+        return $this;
     }
 
      /**
@@ -4791,9 +4863,9 @@ abstract class Quothed implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\Quothed The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
+    public function importFrom($parser, string $data, string $keyType = TableMap::TYPE_PHPNAME)
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
@@ -4807,9 +4879,9 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Build a Criteria object containing the values of all modified columns in this object.
      *
-     * @return Criteria The Criteria object containing all modified values.
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing all modified values.
      */
-    public function buildCriteria()
+    public function buildCriteria(): Criteria
     {
         $criteria = new Criteria(QuothedTableMap::DATABASE_NAME);
 
@@ -5019,13 +5091,13 @@ abstract class Quothed implements ActiveRecordInterface
      * Builds a Criteria object containing the primary key for this object.
      *
      * Unlike buildCriteria() this method includes the primary key values regardless
-     * of whether or not they have been modified.
+     * of whether they have been modified.
      *
      * @throws LogicException if no primary key is defined
      *
-     * @return Criteria The Criteria object containing value(s) for primary key(s).
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing value(s) for primary key(s).
      */
-    public function buildPkeyCriteria()
+    public function buildPkeyCriteria(): Criteria
     {
         $criteria = ChildQuothedQuery::create();
         $criteria->add(QuothedTableMap::COL_SESSIONID, $this->sessionid);
@@ -5038,7 +5110,7 @@ abstract class Quothed implements ActiveRecordInterface
      * If the primary key is not null, return the hashcode of the
      * primary key. Otherwise, return the hash code of the object.
      *
-     * @return int Hashcode
+     * @return int|string Hashcode
      */
     public function hashCode()
     {
@@ -5064,7 +5136,7 @@ abstract class Quothed implements ActiveRecordInterface
      */
     public function getPrimaryKey()
     {
-        $pks = array();
+        $pks = [];
         $pks[0] = $this->getSessionid();
         $pks[1] = $this->getRecno();
 
@@ -5074,10 +5146,10 @@ abstract class Quothed implements ActiveRecordInterface
     /**
      * Set the [composite] primary key.
      *
-     * @param      array $keys The elements of the composite key (order must match the order in XML file).
+     * @param array $keys The elements of the composite key (order must match the order in XML file).
      * @return void
      */
-    public function setPrimaryKey($keys)
+    public function setPrimaryKey(array $keys): void
     {
         $this->setSessionid($keys[0]);
         $this->setRecno($keys[1]);
@@ -5085,9 +5157,10 @@ abstract class Quothed implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     * @return boolean
+     *
+     * @return bool
      */
-    public function isPrimaryKeyNull()
+    public function isPrimaryKeyNull(): bool
     {
         return (null === $this->getSessionid()) && (null === $this->getRecno());
     }
@@ -5098,12 +5171,13 @@ abstract class Quothed implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \Quothed (or compatible) type.
-     * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
-     * @throws PropelException
+     * @param object $copyObj An object of \Quothed (or compatible) type.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
+    public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
         $copyObj->setSessionid($this->getSessionid());
         $copyObj->setRecno($this->getRecno());
@@ -5184,11 +5258,11 @@ abstract class Quothed implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @return \Quothed Clone of current object.
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function copy($deepCopy = false)
+    public function copy(bool $deepCopy = false)
     {
         // we use get_class(), because this might be a subclass
         $clazz = get_class($this);
@@ -5202,6 +5276,8 @@ abstract class Quothed implements ActiveRecordInterface
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
+     *
+     * @return $this
      */
     public function clear()
     {
@@ -5277,6 +5353,8 @@ abstract class Quothed implements ActiveRecordInterface
         $this->resetModified();
         $this->setNew(true);
         $this->setDeleted(false);
+
+        return $this;
     }
 
     /**
@@ -5285,13 +5363,15 @@ abstract class Quothed implements ActiveRecordInterface
      * This method is used to reset all php object references (not the actual reference in the database).
      * Necessary for object serialisation.
      *
-     * @param      boolean $deep Whether to also clear the references on all referrer objects.
+     * @param bool $deep Whether to also clear the references on all referrer objects.
+     * @return $this
      */
-    public function clearAllReferences($deep = false)
+    public function clearAllReferences(bool $deep = false)
     {
         if ($deep) {
         } // if ($deep)
 
+        return $this;
     }
 
     /**
@@ -5306,99 +5386,79 @@ abstract class Quothed implements ActiveRecordInterface
 
     /**
      * Code to be run before persisting the object
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preSave(ConnectionInterface $con = null)
+    public function preSave(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preSave')) {
-            return parent::preSave($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postSave(ConnectionInterface $con = null)
+    public function postSave(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postSave')) {
-            parent::postSave($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before inserting to database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preInsert(ConnectionInterface $con = null)
+    public function preInsert(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preInsert')) {
-            return parent::preInsert($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postInsert(ConnectionInterface $con = null)
+    public function postInsert(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postInsert')) {
-            parent::postInsert($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before updating the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preUpdate(ConnectionInterface $con = null)
+    public function preUpdate(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preUpdate')) {
-            return parent::preUpdate($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postUpdate(ConnectionInterface $con = null)
+    public function postUpdate(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postUpdate')) {
-            parent::postUpdate($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before deleting the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preDelete(ConnectionInterface $con = null)
+    public function preDelete(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preDelete')) {
-            return parent::preDelete($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postDelete(ConnectionInterface $con = null)
+    public function postDelete(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postDelete')) {
-            parent::postDelete($con);
-        }
-    }
+            }
 
 
     /**
@@ -5408,7 +5468,7 @@ abstract class Quothed implements ActiveRecordInterface
      * Allows to define default __call() behavior if you overwrite __call()
      *
      * @param string $name
-     * @param mixed  $params
+     * @param mixed $params
      *
      * @return array|string
      */
@@ -5428,15 +5488,18 @@ abstract class Quothed implements ActiveRecordInterface
 
         if (0 === strpos($name, 'from')) {
             $format = substr($name, 4);
+            $inputData = $params[0];
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->importFrom($format, reset($params));
+            return $this->importFrom($format, $inputData, $keyType);
         }
 
         if (0 === strpos($name, 'to')) {
             $format = substr($name, 2);
-            $includeLazyLoadColumns = isset($params[0]) ? $params[0] : true;
+            $includeLazyLoadColumns = $params[0] ?? true;
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->exportTo($format, $includeLazyLoadColumns);
+            return $this->exportTo($format, $includeLazyLoadColumns, $keyType);
         }
 
         throw new BadMethodCallException(sprintf('Call to undefined method: %s.', $name));

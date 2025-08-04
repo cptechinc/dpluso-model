@@ -10,14 +10,12 @@ use Map\PricingTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'pricing' table.
- *
- *
+ * Base class that represents a query for the `pricing` table.
  *
  * @method     ChildPricingQuery orderBySessionid($order = Criteria::ASC) Order by the sessionid column
  * @method     ChildPricingQuery orderByRecno($order = Criteria::ASC) Order by the recno column
@@ -159,77 +157,77 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPricingQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildPricingQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildPricing findOne(ConnectionInterface $con = null) Return the first ChildPricing matching the query
- * @method     ChildPricing findOneOrCreate(ConnectionInterface $con = null) Return the first ChildPricing matching the query, or a new ChildPricing object populated from the query conditions when no match is found
+ * @method     ChildPricing|null findOne(?ConnectionInterface $con = null) Return the first ChildPricing matching the query
+ * @method     ChildPricing findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildPricing matching the query, or a new ChildPricing object populated from the query conditions when no match is found
  *
- * @method     ChildPricing findOneBySessionid(string $sessionid) Return the first ChildPricing filtered by the sessionid column
- * @method     ChildPricing findOneByRecno(int $recno) Return the first ChildPricing filtered by the recno column
- * @method     ChildPricing findOneByDate(int $date) Return the first ChildPricing filtered by the date column
- * @method     ChildPricing findOneByTime(int $time) Return the first ChildPricing filtered by the time column
- * @method     ChildPricing findOneByItemid(string $itemid) Return the first ChildPricing filtered by the itemid column
- * @method     ChildPricing findOneByPrice(string $price) Return the first ChildPricing filtered by the price column
- * @method     ChildPricing findOneByQty(int $qty) Return the first ChildPricing filtered by the qty column
- * @method     ChildPricing findOneByPriceqty1(int $priceqty1) Return the first ChildPricing filtered by the priceqty1 column
- * @method     ChildPricing findOneByPriceqty2(int $priceqty2) Return the first ChildPricing filtered by the priceqty2 column
- * @method     ChildPricing findOneByPriceqty3(int $priceqty3) Return the first ChildPricing filtered by the priceqty3 column
- * @method     ChildPricing findOneByPriceqty4(int $priceqty4) Return the first ChildPricing filtered by the priceqty4 column
- * @method     ChildPricing findOneByPriceqty5(int $priceqty5) Return the first ChildPricing filtered by the priceqty5 column
- * @method     ChildPricing findOneByPriceqty6(int $priceqty6) Return the first ChildPricing filtered by the priceqty6 column
- * @method     ChildPricing findOneByPriceprice1(string $priceprice1) Return the first ChildPricing filtered by the priceprice1 column
- * @method     ChildPricing findOneByPriceprice2(string $priceprice2) Return the first ChildPricing filtered by the priceprice2 column
- * @method     ChildPricing findOneByPriceprice3(string $priceprice3) Return the first ChildPricing filtered by the priceprice3 column
- * @method     ChildPricing findOneByPriceprice4(string $priceprice4) Return the first ChildPricing filtered by the priceprice4 column
- * @method     ChildPricing findOneByPriceprice5(string $priceprice5) Return the first ChildPricing filtered by the priceprice5 column
- * @method     ChildPricing findOneByPriceprice6(string $priceprice6) Return the first ChildPricing filtered by the priceprice6 column
- * @method     ChildPricing findOneByUnit(string $unit) Return the first ChildPricing filtered by the unit column
- * @method     ChildPricing findOneByListprice(string $listprice) Return the first ChildPricing filtered by the listprice column
- * @method     ChildPricing findOneByName1(string $name1) Return the first ChildPricing filtered by the name1 column
- * @method     ChildPricing findOneByName2(string $name2) Return the first ChildPricing filtered by the name2 column
- * @method     ChildPricing findOneByShortdesc(string $shortdesc) Return the first ChildPricing filtered by the shortdesc column
- * @method     ChildPricing findOneByImage(string $image) Return the first ChildPricing filtered by the image column
- * @method     ChildPricing findOneByFamilyid(string $familyid) Return the first ChildPricing filtered by the familyid column
- * @method     ChildPricing findOneByErmes(string $ermes) Return the first ChildPricing filtered by the ermes column
- * @method     ChildPricing findOneBySpeca(string $speca) Return the first ChildPricing filtered by the speca column
- * @method     ChildPricing findOneBySpecb(string $specb) Return the first ChildPricing filtered by the specb column
- * @method     ChildPricing findOneBySpecc(string $specc) Return the first ChildPricing filtered by the specc column
- * @method     ChildPricing findOneBySpecd(string $specd) Return the first ChildPricing filtered by the specd column
- * @method     ChildPricing findOneBySpece(string $spece) Return the first ChildPricing filtered by the spece column
- * @method     ChildPricing findOneBySpecf(string $specf) Return the first ChildPricing filtered by the specf column
- * @method     ChildPricing findOneBySpecg(string $specg) Return the first ChildPricing filtered by the specg column
- * @method     ChildPricing findOneBySpech(string $spech) Return the first ChildPricing filtered by the spech column
- * @method     ChildPricing findOneByLongdesc(string $longdesc) Return the first ChildPricing filtered by the longdesc column
- * @method     ChildPricing findOneByOrderno(string $orderno) Return the first ChildPricing filtered by the orderno column
- * @method     ChildPricing findOneByName3(string $name3) Return the first ChildPricing filtered by the name3 column
- * @method     ChildPricing findOneByName4(string $name4) Return the first ChildPricing filtered by the name4 column
- * @method     ChildPricing findOneByThumb(string $thumb) Return the first ChildPricing filtered by the thumb column
- * @method     ChildPricing findOneByWidth(string $width) Return the first ChildPricing filtered by the width column
- * @method     ChildPricing findOneByHeight(string $height) Return the first ChildPricing filtered by the height column
- * @method     ChildPricing findOneByFamilydes(string $familydes) Return the first ChildPricing filtered by the familydes column
- * @method     ChildPricing findOneByKeywords(string $keywords) Return the first ChildPricing filtered by the keywords column
- * @method     ChildPricing findOneByVpn(string $vpn) Return the first ChildPricing filtered by the vpn column
- * @method     ChildPricing findOneByUomdesc(string $uomdesc) Return the first ChildPricing filtered by the uomdesc column
- * @method     ChildPricing findOneByVidinffg(string $vidinffg) Return the first ChildPricing filtered by the vidinffg column
- * @method     ChildPricing findOneByVidinflk(string $vidinflk) Return the first ChildPricing filtered by the vidinflk column
- * @method     ChildPricing findOneByAdditemflag(string $additemflag) Return the first ChildPricing filtered by the additemflag column
- * @method     ChildPricing findOneBySchemafam(string $schemafam) Return the first ChildPricing filtered by the schemafam column
- * @method     ChildPricing findOneByOrigitemid(string $origitemid) Return the first ChildPricing filtered by the origitemid column
- * @method     ChildPricing findOneByTechspecflg(string $techspecflg) Return the first ChildPricing filtered by the techspecflg column
- * @method     ChildPricing findOneByTechspecname(string $techspecname) Return the first ChildPricing filtered by the techspecname column
- * @method     ChildPricing findOneByCost(string $cost) Return the first ChildPricing filtered by the cost column
- * @method     ChildPricing findOneByProp65(string $prop65) Return the first ChildPricing filtered by the prop65 column
- * @method     ChildPricing findOneByLeadfree(string $leadfree) Return the first ChildPricing filtered by the leadfree column
- * @method     ChildPricing findOneByExtendesc(string $extendesc) Return the first ChildPricing filtered by the extendesc column
- * @method     ChildPricing findOneByMinprice(string $minprice) Return the first ChildPricing filtered by the minprice column
- * @method     ChildPricing findOneBySpcord(string $spcord) Return the first ChildPricing filtered by the spcord column
- * @method     ChildPricing findOneByVendorid(string $vendorid) Return the first ChildPricing filtered by the vendorid column
- * @method     ChildPricing findOneByVendoritemid(string $vendoritemid) Return the first ChildPricing filtered by the vendoritemid column
- * @method     ChildPricing findOneByShipfromid(string $shipfromid) Return the first ChildPricing filtered by the shipfromid column
- * @method     ChildPricing findOneByNsitemgroup(string $nsitemgroup) Return the first ChildPricing filtered by the nsitemgroup column
- * @method     ChildPricing findOneByItemtype(string $itemtype) Return the first ChildPricing filtered by the itemtype column
- * @method     ChildPricing findOneByDummy(string $dummy) Return the first ChildPricing filtered by the dummy column *
-
- * @method     ChildPricing requirePk($key, ConnectionInterface $con = null) Return the ChildPricing by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildPricing requireOne(ConnectionInterface $con = null) Return the first ChildPricing matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPricing|null findOneBySessionid(string $sessionid) Return the first ChildPricing filtered by the sessionid column
+ * @method     ChildPricing|null findOneByRecno(int $recno) Return the first ChildPricing filtered by the recno column
+ * @method     ChildPricing|null findOneByDate(int $date) Return the first ChildPricing filtered by the date column
+ * @method     ChildPricing|null findOneByTime(int $time) Return the first ChildPricing filtered by the time column
+ * @method     ChildPricing|null findOneByItemid(string $itemid) Return the first ChildPricing filtered by the itemid column
+ * @method     ChildPricing|null findOneByPrice(string $price) Return the first ChildPricing filtered by the price column
+ * @method     ChildPricing|null findOneByQty(int $qty) Return the first ChildPricing filtered by the qty column
+ * @method     ChildPricing|null findOneByPriceqty1(int $priceqty1) Return the first ChildPricing filtered by the priceqty1 column
+ * @method     ChildPricing|null findOneByPriceqty2(int $priceqty2) Return the first ChildPricing filtered by the priceqty2 column
+ * @method     ChildPricing|null findOneByPriceqty3(int $priceqty3) Return the first ChildPricing filtered by the priceqty3 column
+ * @method     ChildPricing|null findOneByPriceqty4(int $priceqty4) Return the first ChildPricing filtered by the priceqty4 column
+ * @method     ChildPricing|null findOneByPriceqty5(int $priceqty5) Return the first ChildPricing filtered by the priceqty5 column
+ * @method     ChildPricing|null findOneByPriceqty6(int $priceqty6) Return the first ChildPricing filtered by the priceqty6 column
+ * @method     ChildPricing|null findOneByPriceprice1(string $priceprice1) Return the first ChildPricing filtered by the priceprice1 column
+ * @method     ChildPricing|null findOneByPriceprice2(string $priceprice2) Return the first ChildPricing filtered by the priceprice2 column
+ * @method     ChildPricing|null findOneByPriceprice3(string $priceprice3) Return the first ChildPricing filtered by the priceprice3 column
+ * @method     ChildPricing|null findOneByPriceprice4(string $priceprice4) Return the first ChildPricing filtered by the priceprice4 column
+ * @method     ChildPricing|null findOneByPriceprice5(string $priceprice5) Return the first ChildPricing filtered by the priceprice5 column
+ * @method     ChildPricing|null findOneByPriceprice6(string $priceprice6) Return the first ChildPricing filtered by the priceprice6 column
+ * @method     ChildPricing|null findOneByUnit(string $unit) Return the first ChildPricing filtered by the unit column
+ * @method     ChildPricing|null findOneByListprice(string $listprice) Return the first ChildPricing filtered by the listprice column
+ * @method     ChildPricing|null findOneByName1(string $name1) Return the first ChildPricing filtered by the name1 column
+ * @method     ChildPricing|null findOneByName2(string $name2) Return the first ChildPricing filtered by the name2 column
+ * @method     ChildPricing|null findOneByShortdesc(string $shortdesc) Return the first ChildPricing filtered by the shortdesc column
+ * @method     ChildPricing|null findOneByImage(string $image) Return the first ChildPricing filtered by the image column
+ * @method     ChildPricing|null findOneByFamilyid(string $familyid) Return the first ChildPricing filtered by the familyid column
+ * @method     ChildPricing|null findOneByErmes(string $ermes) Return the first ChildPricing filtered by the ermes column
+ * @method     ChildPricing|null findOneBySpeca(string $speca) Return the first ChildPricing filtered by the speca column
+ * @method     ChildPricing|null findOneBySpecb(string $specb) Return the first ChildPricing filtered by the specb column
+ * @method     ChildPricing|null findOneBySpecc(string $specc) Return the first ChildPricing filtered by the specc column
+ * @method     ChildPricing|null findOneBySpecd(string $specd) Return the first ChildPricing filtered by the specd column
+ * @method     ChildPricing|null findOneBySpece(string $spece) Return the first ChildPricing filtered by the spece column
+ * @method     ChildPricing|null findOneBySpecf(string $specf) Return the first ChildPricing filtered by the specf column
+ * @method     ChildPricing|null findOneBySpecg(string $specg) Return the first ChildPricing filtered by the specg column
+ * @method     ChildPricing|null findOneBySpech(string $spech) Return the first ChildPricing filtered by the spech column
+ * @method     ChildPricing|null findOneByLongdesc(string $longdesc) Return the first ChildPricing filtered by the longdesc column
+ * @method     ChildPricing|null findOneByOrderno(string $orderno) Return the first ChildPricing filtered by the orderno column
+ * @method     ChildPricing|null findOneByName3(string $name3) Return the first ChildPricing filtered by the name3 column
+ * @method     ChildPricing|null findOneByName4(string $name4) Return the first ChildPricing filtered by the name4 column
+ * @method     ChildPricing|null findOneByThumb(string $thumb) Return the first ChildPricing filtered by the thumb column
+ * @method     ChildPricing|null findOneByWidth(string $width) Return the first ChildPricing filtered by the width column
+ * @method     ChildPricing|null findOneByHeight(string $height) Return the first ChildPricing filtered by the height column
+ * @method     ChildPricing|null findOneByFamilydes(string $familydes) Return the first ChildPricing filtered by the familydes column
+ * @method     ChildPricing|null findOneByKeywords(string $keywords) Return the first ChildPricing filtered by the keywords column
+ * @method     ChildPricing|null findOneByVpn(string $vpn) Return the first ChildPricing filtered by the vpn column
+ * @method     ChildPricing|null findOneByUomdesc(string $uomdesc) Return the first ChildPricing filtered by the uomdesc column
+ * @method     ChildPricing|null findOneByVidinffg(string $vidinffg) Return the first ChildPricing filtered by the vidinffg column
+ * @method     ChildPricing|null findOneByVidinflk(string $vidinflk) Return the first ChildPricing filtered by the vidinflk column
+ * @method     ChildPricing|null findOneByAdditemflag(string $additemflag) Return the first ChildPricing filtered by the additemflag column
+ * @method     ChildPricing|null findOneBySchemafam(string $schemafam) Return the first ChildPricing filtered by the schemafam column
+ * @method     ChildPricing|null findOneByOrigitemid(string $origitemid) Return the first ChildPricing filtered by the origitemid column
+ * @method     ChildPricing|null findOneByTechspecflg(string $techspecflg) Return the first ChildPricing filtered by the techspecflg column
+ * @method     ChildPricing|null findOneByTechspecname(string $techspecname) Return the first ChildPricing filtered by the techspecname column
+ * @method     ChildPricing|null findOneByCost(string $cost) Return the first ChildPricing filtered by the cost column
+ * @method     ChildPricing|null findOneByProp65(string $prop65) Return the first ChildPricing filtered by the prop65 column
+ * @method     ChildPricing|null findOneByLeadfree(string $leadfree) Return the first ChildPricing filtered by the leadfree column
+ * @method     ChildPricing|null findOneByExtendesc(string $extendesc) Return the first ChildPricing filtered by the extendesc column
+ * @method     ChildPricing|null findOneByMinprice(string $minprice) Return the first ChildPricing filtered by the minprice column
+ * @method     ChildPricing|null findOneBySpcord(string $spcord) Return the first ChildPricing filtered by the spcord column
+ * @method     ChildPricing|null findOneByVendorid(string $vendorid) Return the first ChildPricing filtered by the vendorid column
+ * @method     ChildPricing|null findOneByVendoritemid(string $vendoritemid) Return the first ChildPricing filtered by the vendoritemid column
+ * @method     ChildPricing|null findOneByShipfromid(string $shipfromid) Return the first ChildPricing filtered by the shipfromid column
+ * @method     ChildPricing|null findOneByNsitemgroup(string $nsitemgroup) Return the first ChildPricing filtered by the nsitemgroup column
+ * @method     ChildPricing|null findOneByItemtype(string $itemtype) Return the first ChildPricing filtered by the itemtype column
+ * @method     ChildPricing|null findOneByDummy(string $dummy) Return the first ChildPricing filtered by the dummy column
+ *
+ * @method     ChildPricing requirePk($key, ?ConnectionInterface $con = null) Return the ChildPricing by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPricing requireOne(?ConnectionInterface $con = null) Return the first ChildPricing matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildPricing requireOneBySessionid(string $sessionid) Return the first ChildPricing filtered by the sessionid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPricing requireOneByRecno(int $recno) Return the first ChildPricing filtered by the recno column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -297,74 +295,142 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPricing requireOneByItemtype(string $itemtype) Return the first ChildPricing filtered by the itemtype column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPricing requireOneByDummy(string $dummy) Return the first ChildPricing filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildPricing[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildPricing objects based on current ModelCriteria
- * @method     ChildPricing[]|ObjectCollection findBySessionid(string $sessionid) Return ChildPricing objects filtered by the sessionid column
- * @method     ChildPricing[]|ObjectCollection findByRecno(int $recno) Return ChildPricing objects filtered by the recno column
- * @method     ChildPricing[]|ObjectCollection findByDate(int $date) Return ChildPricing objects filtered by the date column
- * @method     ChildPricing[]|ObjectCollection findByTime(int $time) Return ChildPricing objects filtered by the time column
- * @method     ChildPricing[]|ObjectCollection findByItemid(string $itemid) Return ChildPricing objects filtered by the itemid column
- * @method     ChildPricing[]|ObjectCollection findByPrice(string $price) Return ChildPricing objects filtered by the price column
- * @method     ChildPricing[]|ObjectCollection findByQty(int $qty) Return ChildPricing objects filtered by the qty column
- * @method     ChildPricing[]|ObjectCollection findByPriceqty1(int $priceqty1) Return ChildPricing objects filtered by the priceqty1 column
- * @method     ChildPricing[]|ObjectCollection findByPriceqty2(int $priceqty2) Return ChildPricing objects filtered by the priceqty2 column
- * @method     ChildPricing[]|ObjectCollection findByPriceqty3(int $priceqty3) Return ChildPricing objects filtered by the priceqty3 column
- * @method     ChildPricing[]|ObjectCollection findByPriceqty4(int $priceqty4) Return ChildPricing objects filtered by the priceqty4 column
- * @method     ChildPricing[]|ObjectCollection findByPriceqty5(int $priceqty5) Return ChildPricing objects filtered by the priceqty5 column
- * @method     ChildPricing[]|ObjectCollection findByPriceqty6(int $priceqty6) Return ChildPricing objects filtered by the priceqty6 column
- * @method     ChildPricing[]|ObjectCollection findByPriceprice1(string $priceprice1) Return ChildPricing objects filtered by the priceprice1 column
- * @method     ChildPricing[]|ObjectCollection findByPriceprice2(string $priceprice2) Return ChildPricing objects filtered by the priceprice2 column
- * @method     ChildPricing[]|ObjectCollection findByPriceprice3(string $priceprice3) Return ChildPricing objects filtered by the priceprice3 column
- * @method     ChildPricing[]|ObjectCollection findByPriceprice4(string $priceprice4) Return ChildPricing objects filtered by the priceprice4 column
- * @method     ChildPricing[]|ObjectCollection findByPriceprice5(string $priceprice5) Return ChildPricing objects filtered by the priceprice5 column
- * @method     ChildPricing[]|ObjectCollection findByPriceprice6(string $priceprice6) Return ChildPricing objects filtered by the priceprice6 column
- * @method     ChildPricing[]|ObjectCollection findByUnit(string $unit) Return ChildPricing objects filtered by the unit column
- * @method     ChildPricing[]|ObjectCollection findByListprice(string $listprice) Return ChildPricing objects filtered by the listprice column
- * @method     ChildPricing[]|ObjectCollection findByName1(string $name1) Return ChildPricing objects filtered by the name1 column
- * @method     ChildPricing[]|ObjectCollection findByName2(string $name2) Return ChildPricing objects filtered by the name2 column
- * @method     ChildPricing[]|ObjectCollection findByShortdesc(string $shortdesc) Return ChildPricing objects filtered by the shortdesc column
- * @method     ChildPricing[]|ObjectCollection findByImage(string $image) Return ChildPricing objects filtered by the image column
- * @method     ChildPricing[]|ObjectCollection findByFamilyid(string $familyid) Return ChildPricing objects filtered by the familyid column
- * @method     ChildPricing[]|ObjectCollection findByErmes(string $ermes) Return ChildPricing objects filtered by the ermes column
- * @method     ChildPricing[]|ObjectCollection findBySpeca(string $speca) Return ChildPricing objects filtered by the speca column
- * @method     ChildPricing[]|ObjectCollection findBySpecb(string $specb) Return ChildPricing objects filtered by the specb column
- * @method     ChildPricing[]|ObjectCollection findBySpecc(string $specc) Return ChildPricing objects filtered by the specc column
- * @method     ChildPricing[]|ObjectCollection findBySpecd(string $specd) Return ChildPricing objects filtered by the specd column
- * @method     ChildPricing[]|ObjectCollection findBySpece(string $spece) Return ChildPricing objects filtered by the spece column
- * @method     ChildPricing[]|ObjectCollection findBySpecf(string $specf) Return ChildPricing objects filtered by the specf column
- * @method     ChildPricing[]|ObjectCollection findBySpecg(string $specg) Return ChildPricing objects filtered by the specg column
- * @method     ChildPricing[]|ObjectCollection findBySpech(string $spech) Return ChildPricing objects filtered by the spech column
- * @method     ChildPricing[]|ObjectCollection findByLongdesc(string $longdesc) Return ChildPricing objects filtered by the longdesc column
- * @method     ChildPricing[]|ObjectCollection findByOrderno(string $orderno) Return ChildPricing objects filtered by the orderno column
- * @method     ChildPricing[]|ObjectCollection findByName3(string $name3) Return ChildPricing objects filtered by the name3 column
- * @method     ChildPricing[]|ObjectCollection findByName4(string $name4) Return ChildPricing objects filtered by the name4 column
- * @method     ChildPricing[]|ObjectCollection findByThumb(string $thumb) Return ChildPricing objects filtered by the thumb column
- * @method     ChildPricing[]|ObjectCollection findByWidth(string $width) Return ChildPricing objects filtered by the width column
- * @method     ChildPricing[]|ObjectCollection findByHeight(string $height) Return ChildPricing objects filtered by the height column
- * @method     ChildPricing[]|ObjectCollection findByFamilydes(string $familydes) Return ChildPricing objects filtered by the familydes column
- * @method     ChildPricing[]|ObjectCollection findByKeywords(string $keywords) Return ChildPricing objects filtered by the keywords column
- * @method     ChildPricing[]|ObjectCollection findByVpn(string $vpn) Return ChildPricing objects filtered by the vpn column
- * @method     ChildPricing[]|ObjectCollection findByUomdesc(string $uomdesc) Return ChildPricing objects filtered by the uomdesc column
- * @method     ChildPricing[]|ObjectCollection findByVidinffg(string $vidinffg) Return ChildPricing objects filtered by the vidinffg column
- * @method     ChildPricing[]|ObjectCollection findByVidinflk(string $vidinflk) Return ChildPricing objects filtered by the vidinflk column
- * @method     ChildPricing[]|ObjectCollection findByAdditemflag(string $additemflag) Return ChildPricing objects filtered by the additemflag column
- * @method     ChildPricing[]|ObjectCollection findBySchemafam(string $schemafam) Return ChildPricing objects filtered by the schemafam column
- * @method     ChildPricing[]|ObjectCollection findByOrigitemid(string $origitemid) Return ChildPricing objects filtered by the origitemid column
- * @method     ChildPricing[]|ObjectCollection findByTechspecflg(string $techspecflg) Return ChildPricing objects filtered by the techspecflg column
- * @method     ChildPricing[]|ObjectCollection findByTechspecname(string $techspecname) Return ChildPricing objects filtered by the techspecname column
- * @method     ChildPricing[]|ObjectCollection findByCost(string $cost) Return ChildPricing objects filtered by the cost column
- * @method     ChildPricing[]|ObjectCollection findByProp65(string $prop65) Return ChildPricing objects filtered by the prop65 column
- * @method     ChildPricing[]|ObjectCollection findByLeadfree(string $leadfree) Return ChildPricing objects filtered by the leadfree column
- * @method     ChildPricing[]|ObjectCollection findByExtendesc(string $extendesc) Return ChildPricing objects filtered by the extendesc column
- * @method     ChildPricing[]|ObjectCollection findByMinprice(string $minprice) Return ChildPricing objects filtered by the minprice column
- * @method     ChildPricing[]|ObjectCollection findBySpcord(string $spcord) Return ChildPricing objects filtered by the spcord column
- * @method     ChildPricing[]|ObjectCollection findByVendorid(string $vendorid) Return ChildPricing objects filtered by the vendorid column
- * @method     ChildPricing[]|ObjectCollection findByVendoritemid(string $vendoritemid) Return ChildPricing objects filtered by the vendoritemid column
- * @method     ChildPricing[]|ObjectCollection findByShipfromid(string $shipfromid) Return ChildPricing objects filtered by the shipfromid column
- * @method     ChildPricing[]|ObjectCollection findByNsitemgroup(string $nsitemgroup) Return ChildPricing objects filtered by the nsitemgroup column
- * @method     ChildPricing[]|ObjectCollection findByItemtype(string $itemtype) Return ChildPricing objects filtered by the itemtype column
- * @method     ChildPricing[]|ObjectCollection findByDummy(string $dummy) Return ChildPricing objects filtered by the dummy column
- * @method     ChildPricing[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildPricing[]|Collection find(?ConnectionInterface $con = null) Return ChildPricing objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildPricing> find(?ConnectionInterface $con = null) Return ChildPricing objects based on current ModelCriteria
  *
+ * @method     ChildPricing[]|Collection findBySessionid(string|array<string> $sessionid) Return ChildPricing objects filtered by the sessionid column
+ * @psalm-method Collection&\Traversable<ChildPricing> findBySessionid(string|array<string> $sessionid) Return ChildPricing objects filtered by the sessionid column
+ * @method     ChildPricing[]|Collection findByRecno(int|array<int> $recno) Return ChildPricing objects filtered by the recno column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByRecno(int|array<int> $recno) Return ChildPricing objects filtered by the recno column
+ * @method     ChildPricing[]|Collection findByDate(int|array<int> $date) Return ChildPricing objects filtered by the date column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByDate(int|array<int> $date) Return ChildPricing objects filtered by the date column
+ * @method     ChildPricing[]|Collection findByTime(int|array<int> $time) Return ChildPricing objects filtered by the time column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByTime(int|array<int> $time) Return ChildPricing objects filtered by the time column
+ * @method     ChildPricing[]|Collection findByItemid(string|array<string> $itemid) Return ChildPricing objects filtered by the itemid column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByItemid(string|array<string> $itemid) Return ChildPricing objects filtered by the itemid column
+ * @method     ChildPricing[]|Collection findByPrice(string|array<string> $price) Return ChildPricing objects filtered by the price column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByPrice(string|array<string> $price) Return ChildPricing objects filtered by the price column
+ * @method     ChildPricing[]|Collection findByQty(int|array<int> $qty) Return ChildPricing objects filtered by the qty column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByQty(int|array<int> $qty) Return ChildPricing objects filtered by the qty column
+ * @method     ChildPricing[]|Collection findByPriceqty1(int|array<int> $priceqty1) Return ChildPricing objects filtered by the priceqty1 column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByPriceqty1(int|array<int> $priceqty1) Return ChildPricing objects filtered by the priceqty1 column
+ * @method     ChildPricing[]|Collection findByPriceqty2(int|array<int> $priceqty2) Return ChildPricing objects filtered by the priceqty2 column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByPriceqty2(int|array<int> $priceqty2) Return ChildPricing objects filtered by the priceqty2 column
+ * @method     ChildPricing[]|Collection findByPriceqty3(int|array<int> $priceqty3) Return ChildPricing objects filtered by the priceqty3 column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByPriceqty3(int|array<int> $priceqty3) Return ChildPricing objects filtered by the priceqty3 column
+ * @method     ChildPricing[]|Collection findByPriceqty4(int|array<int> $priceqty4) Return ChildPricing objects filtered by the priceqty4 column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByPriceqty4(int|array<int> $priceqty4) Return ChildPricing objects filtered by the priceqty4 column
+ * @method     ChildPricing[]|Collection findByPriceqty5(int|array<int> $priceqty5) Return ChildPricing objects filtered by the priceqty5 column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByPriceqty5(int|array<int> $priceqty5) Return ChildPricing objects filtered by the priceqty5 column
+ * @method     ChildPricing[]|Collection findByPriceqty6(int|array<int> $priceqty6) Return ChildPricing objects filtered by the priceqty6 column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByPriceqty6(int|array<int> $priceqty6) Return ChildPricing objects filtered by the priceqty6 column
+ * @method     ChildPricing[]|Collection findByPriceprice1(string|array<string> $priceprice1) Return ChildPricing objects filtered by the priceprice1 column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByPriceprice1(string|array<string> $priceprice1) Return ChildPricing objects filtered by the priceprice1 column
+ * @method     ChildPricing[]|Collection findByPriceprice2(string|array<string> $priceprice2) Return ChildPricing objects filtered by the priceprice2 column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByPriceprice2(string|array<string> $priceprice2) Return ChildPricing objects filtered by the priceprice2 column
+ * @method     ChildPricing[]|Collection findByPriceprice3(string|array<string> $priceprice3) Return ChildPricing objects filtered by the priceprice3 column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByPriceprice3(string|array<string> $priceprice3) Return ChildPricing objects filtered by the priceprice3 column
+ * @method     ChildPricing[]|Collection findByPriceprice4(string|array<string> $priceprice4) Return ChildPricing objects filtered by the priceprice4 column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByPriceprice4(string|array<string> $priceprice4) Return ChildPricing objects filtered by the priceprice4 column
+ * @method     ChildPricing[]|Collection findByPriceprice5(string|array<string> $priceprice5) Return ChildPricing objects filtered by the priceprice5 column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByPriceprice5(string|array<string> $priceprice5) Return ChildPricing objects filtered by the priceprice5 column
+ * @method     ChildPricing[]|Collection findByPriceprice6(string|array<string> $priceprice6) Return ChildPricing objects filtered by the priceprice6 column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByPriceprice6(string|array<string> $priceprice6) Return ChildPricing objects filtered by the priceprice6 column
+ * @method     ChildPricing[]|Collection findByUnit(string|array<string> $unit) Return ChildPricing objects filtered by the unit column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByUnit(string|array<string> $unit) Return ChildPricing objects filtered by the unit column
+ * @method     ChildPricing[]|Collection findByListprice(string|array<string> $listprice) Return ChildPricing objects filtered by the listprice column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByListprice(string|array<string> $listprice) Return ChildPricing objects filtered by the listprice column
+ * @method     ChildPricing[]|Collection findByName1(string|array<string> $name1) Return ChildPricing objects filtered by the name1 column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByName1(string|array<string> $name1) Return ChildPricing objects filtered by the name1 column
+ * @method     ChildPricing[]|Collection findByName2(string|array<string> $name2) Return ChildPricing objects filtered by the name2 column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByName2(string|array<string> $name2) Return ChildPricing objects filtered by the name2 column
+ * @method     ChildPricing[]|Collection findByShortdesc(string|array<string> $shortdesc) Return ChildPricing objects filtered by the shortdesc column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByShortdesc(string|array<string> $shortdesc) Return ChildPricing objects filtered by the shortdesc column
+ * @method     ChildPricing[]|Collection findByImage(string|array<string> $image) Return ChildPricing objects filtered by the image column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByImage(string|array<string> $image) Return ChildPricing objects filtered by the image column
+ * @method     ChildPricing[]|Collection findByFamilyid(string|array<string> $familyid) Return ChildPricing objects filtered by the familyid column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByFamilyid(string|array<string> $familyid) Return ChildPricing objects filtered by the familyid column
+ * @method     ChildPricing[]|Collection findByErmes(string|array<string> $ermes) Return ChildPricing objects filtered by the ermes column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByErmes(string|array<string> $ermes) Return ChildPricing objects filtered by the ermes column
+ * @method     ChildPricing[]|Collection findBySpeca(string|array<string> $speca) Return ChildPricing objects filtered by the speca column
+ * @psalm-method Collection&\Traversable<ChildPricing> findBySpeca(string|array<string> $speca) Return ChildPricing objects filtered by the speca column
+ * @method     ChildPricing[]|Collection findBySpecb(string|array<string> $specb) Return ChildPricing objects filtered by the specb column
+ * @psalm-method Collection&\Traversable<ChildPricing> findBySpecb(string|array<string> $specb) Return ChildPricing objects filtered by the specb column
+ * @method     ChildPricing[]|Collection findBySpecc(string|array<string> $specc) Return ChildPricing objects filtered by the specc column
+ * @psalm-method Collection&\Traversable<ChildPricing> findBySpecc(string|array<string> $specc) Return ChildPricing objects filtered by the specc column
+ * @method     ChildPricing[]|Collection findBySpecd(string|array<string> $specd) Return ChildPricing objects filtered by the specd column
+ * @psalm-method Collection&\Traversable<ChildPricing> findBySpecd(string|array<string> $specd) Return ChildPricing objects filtered by the specd column
+ * @method     ChildPricing[]|Collection findBySpece(string|array<string> $spece) Return ChildPricing objects filtered by the spece column
+ * @psalm-method Collection&\Traversable<ChildPricing> findBySpece(string|array<string> $spece) Return ChildPricing objects filtered by the spece column
+ * @method     ChildPricing[]|Collection findBySpecf(string|array<string> $specf) Return ChildPricing objects filtered by the specf column
+ * @psalm-method Collection&\Traversable<ChildPricing> findBySpecf(string|array<string> $specf) Return ChildPricing objects filtered by the specf column
+ * @method     ChildPricing[]|Collection findBySpecg(string|array<string> $specg) Return ChildPricing objects filtered by the specg column
+ * @psalm-method Collection&\Traversable<ChildPricing> findBySpecg(string|array<string> $specg) Return ChildPricing objects filtered by the specg column
+ * @method     ChildPricing[]|Collection findBySpech(string|array<string> $spech) Return ChildPricing objects filtered by the spech column
+ * @psalm-method Collection&\Traversable<ChildPricing> findBySpech(string|array<string> $spech) Return ChildPricing objects filtered by the spech column
+ * @method     ChildPricing[]|Collection findByLongdesc(string|array<string> $longdesc) Return ChildPricing objects filtered by the longdesc column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByLongdesc(string|array<string> $longdesc) Return ChildPricing objects filtered by the longdesc column
+ * @method     ChildPricing[]|Collection findByOrderno(string|array<string> $orderno) Return ChildPricing objects filtered by the orderno column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByOrderno(string|array<string> $orderno) Return ChildPricing objects filtered by the orderno column
+ * @method     ChildPricing[]|Collection findByName3(string|array<string> $name3) Return ChildPricing objects filtered by the name3 column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByName3(string|array<string> $name3) Return ChildPricing objects filtered by the name3 column
+ * @method     ChildPricing[]|Collection findByName4(string|array<string> $name4) Return ChildPricing objects filtered by the name4 column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByName4(string|array<string> $name4) Return ChildPricing objects filtered by the name4 column
+ * @method     ChildPricing[]|Collection findByThumb(string|array<string> $thumb) Return ChildPricing objects filtered by the thumb column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByThumb(string|array<string> $thumb) Return ChildPricing objects filtered by the thumb column
+ * @method     ChildPricing[]|Collection findByWidth(string|array<string> $width) Return ChildPricing objects filtered by the width column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByWidth(string|array<string> $width) Return ChildPricing objects filtered by the width column
+ * @method     ChildPricing[]|Collection findByHeight(string|array<string> $height) Return ChildPricing objects filtered by the height column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByHeight(string|array<string> $height) Return ChildPricing objects filtered by the height column
+ * @method     ChildPricing[]|Collection findByFamilydes(string|array<string> $familydes) Return ChildPricing objects filtered by the familydes column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByFamilydes(string|array<string> $familydes) Return ChildPricing objects filtered by the familydes column
+ * @method     ChildPricing[]|Collection findByKeywords(string|array<string> $keywords) Return ChildPricing objects filtered by the keywords column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByKeywords(string|array<string> $keywords) Return ChildPricing objects filtered by the keywords column
+ * @method     ChildPricing[]|Collection findByVpn(string|array<string> $vpn) Return ChildPricing objects filtered by the vpn column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByVpn(string|array<string> $vpn) Return ChildPricing objects filtered by the vpn column
+ * @method     ChildPricing[]|Collection findByUomdesc(string|array<string> $uomdesc) Return ChildPricing objects filtered by the uomdesc column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByUomdesc(string|array<string> $uomdesc) Return ChildPricing objects filtered by the uomdesc column
+ * @method     ChildPricing[]|Collection findByVidinffg(string|array<string> $vidinffg) Return ChildPricing objects filtered by the vidinffg column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByVidinffg(string|array<string> $vidinffg) Return ChildPricing objects filtered by the vidinffg column
+ * @method     ChildPricing[]|Collection findByVidinflk(string|array<string> $vidinflk) Return ChildPricing objects filtered by the vidinflk column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByVidinflk(string|array<string> $vidinflk) Return ChildPricing objects filtered by the vidinflk column
+ * @method     ChildPricing[]|Collection findByAdditemflag(string|array<string> $additemflag) Return ChildPricing objects filtered by the additemflag column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByAdditemflag(string|array<string> $additemflag) Return ChildPricing objects filtered by the additemflag column
+ * @method     ChildPricing[]|Collection findBySchemafam(string|array<string> $schemafam) Return ChildPricing objects filtered by the schemafam column
+ * @psalm-method Collection&\Traversable<ChildPricing> findBySchemafam(string|array<string> $schemafam) Return ChildPricing objects filtered by the schemafam column
+ * @method     ChildPricing[]|Collection findByOrigitemid(string|array<string> $origitemid) Return ChildPricing objects filtered by the origitemid column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByOrigitemid(string|array<string> $origitemid) Return ChildPricing objects filtered by the origitemid column
+ * @method     ChildPricing[]|Collection findByTechspecflg(string|array<string> $techspecflg) Return ChildPricing objects filtered by the techspecflg column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByTechspecflg(string|array<string> $techspecflg) Return ChildPricing objects filtered by the techspecflg column
+ * @method     ChildPricing[]|Collection findByTechspecname(string|array<string> $techspecname) Return ChildPricing objects filtered by the techspecname column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByTechspecname(string|array<string> $techspecname) Return ChildPricing objects filtered by the techspecname column
+ * @method     ChildPricing[]|Collection findByCost(string|array<string> $cost) Return ChildPricing objects filtered by the cost column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByCost(string|array<string> $cost) Return ChildPricing objects filtered by the cost column
+ * @method     ChildPricing[]|Collection findByProp65(string|array<string> $prop65) Return ChildPricing objects filtered by the prop65 column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByProp65(string|array<string> $prop65) Return ChildPricing objects filtered by the prop65 column
+ * @method     ChildPricing[]|Collection findByLeadfree(string|array<string> $leadfree) Return ChildPricing objects filtered by the leadfree column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByLeadfree(string|array<string> $leadfree) Return ChildPricing objects filtered by the leadfree column
+ * @method     ChildPricing[]|Collection findByExtendesc(string|array<string> $extendesc) Return ChildPricing objects filtered by the extendesc column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByExtendesc(string|array<string> $extendesc) Return ChildPricing objects filtered by the extendesc column
+ * @method     ChildPricing[]|Collection findByMinprice(string|array<string> $minprice) Return ChildPricing objects filtered by the minprice column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByMinprice(string|array<string> $minprice) Return ChildPricing objects filtered by the minprice column
+ * @method     ChildPricing[]|Collection findBySpcord(string|array<string> $spcord) Return ChildPricing objects filtered by the spcord column
+ * @psalm-method Collection&\Traversable<ChildPricing> findBySpcord(string|array<string> $spcord) Return ChildPricing objects filtered by the spcord column
+ * @method     ChildPricing[]|Collection findByVendorid(string|array<string> $vendorid) Return ChildPricing objects filtered by the vendorid column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByVendorid(string|array<string> $vendorid) Return ChildPricing objects filtered by the vendorid column
+ * @method     ChildPricing[]|Collection findByVendoritemid(string|array<string> $vendoritemid) Return ChildPricing objects filtered by the vendoritemid column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByVendoritemid(string|array<string> $vendoritemid) Return ChildPricing objects filtered by the vendoritemid column
+ * @method     ChildPricing[]|Collection findByShipfromid(string|array<string> $shipfromid) Return ChildPricing objects filtered by the shipfromid column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByShipfromid(string|array<string> $shipfromid) Return ChildPricing objects filtered by the shipfromid column
+ * @method     ChildPricing[]|Collection findByNsitemgroup(string|array<string> $nsitemgroup) Return ChildPricing objects filtered by the nsitemgroup column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByNsitemgroup(string|array<string> $nsitemgroup) Return ChildPricing objects filtered by the nsitemgroup column
+ * @method     ChildPricing[]|Collection findByItemtype(string|array<string> $itemtype) Return ChildPricing objects filtered by the itemtype column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByItemtype(string|array<string> $itemtype) Return ChildPricing objects filtered by the itemtype column
+ * @method     ChildPricing[]|Collection findByDummy(string|array<string> $dummy) Return ChildPricing objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildPricing> findByDummy(string|array<string> $dummy) Return ChildPricing objects filtered by the dummy column
+ *
+ * @method     ChildPricing[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildPricing> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class PricingQuery extends ModelCriteria
 {
@@ -373,9 +439,9 @@ abstract class PricingQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\PricingQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'dplusodb', $modelName = '\\Pricing', $modelAlias = null)
     {
@@ -385,12 +451,12 @@ abstract class PricingQuery extends ModelCriteria
     /**
      * Returns a new ChildPricingQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildPricingQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildPricingQuery) {
             return $criteria;
@@ -420,7 +486,7 @@ abstract class PricingQuery extends ModelCriteria
      *
      * @return ChildPricing|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -452,8 +518,8 @@ abstract class PricingQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -486,8 +552,8 @@ abstract class PricingQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildPricing|array|mixed the result, formatted by the current formatter
      */
@@ -507,12 +573,12 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -529,9 +595,9 @@ abstract class PricingQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -544,14 +610,16 @@ abstract class PricingQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(PricingTableMap::COL_SESSIONID, $key[0], Criteria::EQUAL);
@@ -570,14 +638,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterBySessionid('fooValue');   // WHERE sessionid = 'fooValue'
      * $query->filterBySessionid('%fooValue%', Criteria::LIKE); // WHERE sessionid LIKE '%fooValue%'
+     * $query->filterBySessionid(['foo', 'bar']); // WHERE sessionid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sessionid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sessionid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySessionid($sessionid = null, $comparison = null)
+    public function filterBySessionid($sessionid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sessionid)) {
@@ -585,7 +654,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_SESSIONID, $sessionid, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_SESSIONID, $sessionid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -598,15 +669,15 @@ abstract class PricingQuery extends ModelCriteria
      * $query->filterByRecno(array('min' => 12)); // WHERE recno > 12
      * </code>
      *
-     * @param     mixed $recno The value to use as filter.
+     * @param mixed $recno The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByRecno($recno = null, $comparison = null)
+    public function filterByRecno($recno = null, ?string $comparison = null)
     {
         if (is_array($recno)) {
             $useMinMax = false;
@@ -626,7 +697,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_RECNO, $recno, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_RECNO, $recno, $comparison);
+
+        return $this;
     }
 
     /**
@@ -639,15 +712,15 @@ abstract class PricingQuery extends ModelCriteria
      * $query->filterByDate(array('min' => 12)); // WHERE date > 12
      * </code>
      *
-     * @param     mixed $date The value to use as filter.
+     * @param mixed $date The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDate($date = null, $comparison = null)
+    public function filterByDate($date = null, ?string $comparison = null)
     {
         if (is_array($date)) {
             $useMinMax = false;
@@ -667,7 +740,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_DATE, $date, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_DATE, $date, $comparison);
+
+        return $this;
     }
 
     /**
@@ -680,15 +755,15 @@ abstract class PricingQuery extends ModelCriteria
      * $query->filterByTime(array('min' => 12)); // WHERE time > 12
      * </code>
      *
-     * @param     mixed $time The value to use as filter.
+     * @param mixed $time The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTime($time = null, $comparison = null)
+    public function filterByTime($time = null, ?string $comparison = null)
     {
         if (is_array($time)) {
             $useMinMax = false;
@@ -708,7 +783,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_TIME, $time, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_TIME, $time, $comparison);
+
+        return $this;
     }
 
     /**
@@ -718,14 +795,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterByItemid('fooValue');   // WHERE itemid = 'fooValue'
      * $query->filterByItemid('%fooValue%', Criteria::LIKE); // WHERE itemid LIKE '%fooValue%'
+     * $query->filterByItemid(['foo', 'bar']); // WHERE itemid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itemid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itemid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemid($itemid = null, $comparison = null)
+    public function filterByItemid($itemid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itemid)) {
@@ -733,7 +811,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_ITEMID, $itemid, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_ITEMID, $itemid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -746,15 +826,15 @@ abstract class PricingQuery extends ModelCriteria
      * $query->filterByPrice(array('min' => 12)); // WHERE price > 12
      * </code>
      *
-     * @param     mixed $price The value to use as filter.
+     * @param mixed $price The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPrice($price = null, $comparison = null)
+    public function filterByPrice($price = null, ?string $comparison = null)
     {
         if (is_array($price)) {
             $useMinMax = false;
@@ -774,7 +854,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_PRICE, $price, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_PRICE, $price, $comparison);
+
+        return $this;
     }
 
     /**
@@ -787,15 +869,15 @@ abstract class PricingQuery extends ModelCriteria
      * $query->filterByQty(array('min' => 12)); // WHERE qty > 12
      * </code>
      *
-     * @param     mixed $qty The value to use as filter.
+     * @param mixed $qty The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQty($qty = null, $comparison = null)
+    public function filterByQty($qty = null, ?string $comparison = null)
     {
         if (is_array($qty)) {
             $useMinMax = false;
@@ -815,7 +897,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_QTY, $qty, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_QTY, $qty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -828,15 +912,15 @@ abstract class PricingQuery extends ModelCriteria
      * $query->filterByPriceqty1(array('min' => 12)); // WHERE priceqty1 > 12
      * </code>
      *
-     * @param     mixed $priceqty1 The value to use as filter.
+     * @param mixed $priceqty1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPriceqty1($priceqty1 = null, $comparison = null)
+    public function filterByPriceqty1($priceqty1 = null, ?string $comparison = null)
     {
         if (is_array($priceqty1)) {
             $useMinMax = false;
@@ -856,7 +940,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_PRICEQTY1, $priceqty1, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_PRICEQTY1, $priceqty1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -869,15 +955,15 @@ abstract class PricingQuery extends ModelCriteria
      * $query->filterByPriceqty2(array('min' => 12)); // WHERE priceqty2 > 12
      * </code>
      *
-     * @param     mixed $priceqty2 The value to use as filter.
+     * @param mixed $priceqty2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPriceqty2($priceqty2 = null, $comparison = null)
+    public function filterByPriceqty2($priceqty2 = null, ?string $comparison = null)
     {
         if (is_array($priceqty2)) {
             $useMinMax = false;
@@ -897,7 +983,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_PRICEQTY2, $priceqty2, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_PRICEQTY2, $priceqty2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -910,15 +998,15 @@ abstract class PricingQuery extends ModelCriteria
      * $query->filterByPriceqty3(array('min' => 12)); // WHERE priceqty3 > 12
      * </code>
      *
-     * @param     mixed $priceqty3 The value to use as filter.
+     * @param mixed $priceqty3 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPriceqty3($priceqty3 = null, $comparison = null)
+    public function filterByPriceqty3($priceqty3 = null, ?string $comparison = null)
     {
         if (is_array($priceqty3)) {
             $useMinMax = false;
@@ -938,7 +1026,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_PRICEQTY3, $priceqty3, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_PRICEQTY3, $priceqty3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -951,15 +1041,15 @@ abstract class PricingQuery extends ModelCriteria
      * $query->filterByPriceqty4(array('min' => 12)); // WHERE priceqty4 > 12
      * </code>
      *
-     * @param     mixed $priceqty4 The value to use as filter.
+     * @param mixed $priceqty4 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPriceqty4($priceqty4 = null, $comparison = null)
+    public function filterByPriceqty4($priceqty4 = null, ?string $comparison = null)
     {
         if (is_array($priceqty4)) {
             $useMinMax = false;
@@ -979,7 +1069,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_PRICEQTY4, $priceqty4, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_PRICEQTY4, $priceqty4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -992,15 +1084,15 @@ abstract class PricingQuery extends ModelCriteria
      * $query->filterByPriceqty5(array('min' => 12)); // WHERE priceqty5 > 12
      * </code>
      *
-     * @param     mixed $priceqty5 The value to use as filter.
+     * @param mixed $priceqty5 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPriceqty5($priceqty5 = null, $comparison = null)
+    public function filterByPriceqty5($priceqty5 = null, ?string $comparison = null)
     {
         if (is_array($priceqty5)) {
             $useMinMax = false;
@@ -1020,7 +1112,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_PRICEQTY5, $priceqty5, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_PRICEQTY5, $priceqty5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1033,15 +1127,15 @@ abstract class PricingQuery extends ModelCriteria
      * $query->filterByPriceqty6(array('min' => 12)); // WHERE priceqty6 > 12
      * </code>
      *
-     * @param     mixed $priceqty6 The value to use as filter.
+     * @param mixed $priceqty6 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPriceqty6($priceqty6 = null, $comparison = null)
+    public function filterByPriceqty6($priceqty6 = null, ?string $comparison = null)
     {
         if (is_array($priceqty6)) {
             $useMinMax = false;
@@ -1061,7 +1155,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_PRICEQTY6, $priceqty6, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_PRICEQTY6, $priceqty6, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1074,15 +1170,15 @@ abstract class PricingQuery extends ModelCriteria
      * $query->filterByPriceprice1(array('min' => 12)); // WHERE priceprice1 > 12
      * </code>
      *
-     * @param     mixed $priceprice1 The value to use as filter.
+     * @param mixed $priceprice1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPriceprice1($priceprice1 = null, $comparison = null)
+    public function filterByPriceprice1($priceprice1 = null, ?string $comparison = null)
     {
         if (is_array($priceprice1)) {
             $useMinMax = false;
@@ -1102,7 +1198,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_PRICEPRICE1, $priceprice1, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_PRICEPRICE1, $priceprice1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1115,15 +1213,15 @@ abstract class PricingQuery extends ModelCriteria
      * $query->filterByPriceprice2(array('min' => 12)); // WHERE priceprice2 > 12
      * </code>
      *
-     * @param     mixed $priceprice2 The value to use as filter.
+     * @param mixed $priceprice2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPriceprice2($priceprice2 = null, $comparison = null)
+    public function filterByPriceprice2($priceprice2 = null, ?string $comparison = null)
     {
         if (is_array($priceprice2)) {
             $useMinMax = false;
@@ -1143,7 +1241,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_PRICEPRICE2, $priceprice2, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_PRICEPRICE2, $priceprice2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1156,15 +1256,15 @@ abstract class PricingQuery extends ModelCriteria
      * $query->filterByPriceprice3(array('min' => 12)); // WHERE priceprice3 > 12
      * </code>
      *
-     * @param     mixed $priceprice3 The value to use as filter.
+     * @param mixed $priceprice3 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPriceprice3($priceprice3 = null, $comparison = null)
+    public function filterByPriceprice3($priceprice3 = null, ?string $comparison = null)
     {
         if (is_array($priceprice3)) {
             $useMinMax = false;
@@ -1184,7 +1284,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_PRICEPRICE3, $priceprice3, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_PRICEPRICE3, $priceprice3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1197,15 +1299,15 @@ abstract class PricingQuery extends ModelCriteria
      * $query->filterByPriceprice4(array('min' => 12)); // WHERE priceprice4 > 12
      * </code>
      *
-     * @param     mixed $priceprice4 The value to use as filter.
+     * @param mixed $priceprice4 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPriceprice4($priceprice4 = null, $comparison = null)
+    public function filterByPriceprice4($priceprice4 = null, ?string $comparison = null)
     {
         if (is_array($priceprice4)) {
             $useMinMax = false;
@@ -1225,7 +1327,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_PRICEPRICE4, $priceprice4, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_PRICEPRICE4, $priceprice4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1238,15 +1342,15 @@ abstract class PricingQuery extends ModelCriteria
      * $query->filterByPriceprice5(array('min' => 12)); // WHERE priceprice5 > 12
      * </code>
      *
-     * @param     mixed $priceprice5 The value to use as filter.
+     * @param mixed $priceprice5 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPriceprice5($priceprice5 = null, $comparison = null)
+    public function filterByPriceprice5($priceprice5 = null, ?string $comparison = null)
     {
         if (is_array($priceprice5)) {
             $useMinMax = false;
@@ -1266,7 +1370,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_PRICEPRICE5, $priceprice5, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_PRICEPRICE5, $priceprice5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1279,15 +1385,15 @@ abstract class PricingQuery extends ModelCriteria
      * $query->filterByPriceprice6(array('min' => 12)); // WHERE priceprice6 > 12
      * </code>
      *
-     * @param     mixed $priceprice6 The value to use as filter.
+     * @param mixed $priceprice6 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPriceprice6($priceprice6 = null, $comparison = null)
+    public function filterByPriceprice6($priceprice6 = null, ?string $comparison = null)
     {
         if (is_array($priceprice6)) {
             $useMinMax = false;
@@ -1307,7 +1413,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_PRICEPRICE6, $priceprice6, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_PRICEPRICE6, $priceprice6, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1317,14 +1425,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterByUnit('fooValue');   // WHERE unit = 'fooValue'
      * $query->filterByUnit('%fooValue%', Criteria::LIKE); // WHERE unit LIKE '%fooValue%'
+     * $query->filterByUnit(['foo', 'bar']); // WHERE unit IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $unit The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $unit The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUnit($unit = null, $comparison = null)
+    public function filterByUnit($unit = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($unit)) {
@@ -1332,7 +1441,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_UNIT, $unit, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_UNIT, $unit, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1345,15 +1456,15 @@ abstract class PricingQuery extends ModelCriteria
      * $query->filterByListprice(array('min' => 12)); // WHERE listprice > 12
      * </code>
      *
-     * @param     mixed $listprice The value to use as filter.
+     * @param mixed $listprice The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByListprice($listprice = null, $comparison = null)
+    public function filterByListprice($listprice = null, ?string $comparison = null)
     {
         if (is_array($listprice)) {
             $useMinMax = false;
@@ -1373,7 +1484,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_LISTPRICE, $listprice, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_LISTPRICE, $listprice, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1383,14 +1496,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterByName1('fooValue');   // WHERE name1 = 'fooValue'
      * $query->filterByName1('%fooValue%', Criteria::LIKE); // WHERE name1 LIKE '%fooValue%'
+     * $query->filterByName1(['foo', 'bar']); // WHERE name1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $name1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $name1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByName1($name1 = null, $comparison = null)
+    public function filterByName1($name1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($name1)) {
@@ -1398,7 +1512,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_NAME1, $name1, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_NAME1, $name1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1408,14 +1524,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterByName2('fooValue');   // WHERE name2 = 'fooValue'
      * $query->filterByName2('%fooValue%', Criteria::LIKE); // WHERE name2 LIKE '%fooValue%'
+     * $query->filterByName2(['foo', 'bar']); // WHERE name2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $name2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $name2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByName2($name2 = null, $comparison = null)
+    public function filterByName2($name2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($name2)) {
@@ -1423,7 +1540,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_NAME2, $name2, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_NAME2, $name2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1433,14 +1552,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterByShortdesc('fooValue');   // WHERE shortdesc = 'fooValue'
      * $query->filterByShortdesc('%fooValue%', Criteria::LIKE); // WHERE shortdesc LIKE '%fooValue%'
+     * $query->filterByShortdesc(['foo', 'bar']); // WHERE shortdesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shortdesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shortdesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShortdesc($shortdesc = null, $comparison = null)
+    public function filterByShortdesc($shortdesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shortdesc)) {
@@ -1448,7 +1568,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_SHORTDESC, $shortdesc, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_SHORTDESC, $shortdesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1458,14 +1580,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterByImage('fooValue');   // WHERE image = 'fooValue'
      * $query->filterByImage('%fooValue%', Criteria::LIKE); // WHERE image LIKE '%fooValue%'
+     * $query->filterByImage(['foo', 'bar']); // WHERE image IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $image The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $image The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByImage($image = null, $comparison = null)
+    public function filterByImage($image = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($image)) {
@@ -1473,7 +1596,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_IMAGE, $image, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_IMAGE, $image, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1483,14 +1608,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterByFamilyid('fooValue');   // WHERE familyid = 'fooValue'
      * $query->filterByFamilyid('%fooValue%', Criteria::LIKE); // WHERE familyid LIKE '%fooValue%'
+     * $query->filterByFamilyid(['foo', 'bar']); // WHERE familyid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $familyid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $familyid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByFamilyid($familyid = null, $comparison = null)
+    public function filterByFamilyid($familyid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($familyid)) {
@@ -1498,7 +1624,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_FAMILYID, $familyid, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_FAMILYID, $familyid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1508,14 +1636,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterByErmes('fooValue');   // WHERE ermes = 'fooValue'
      * $query->filterByErmes('%fooValue%', Criteria::LIKE); // WHERE ermes LIKE '%fooValue%'
+     * $query->filterByErmes(['foo', 'bar']); // WHERE ermes IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $ermes The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $ermes The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByErmes($ermes = null, $comparison = null)
+    public function filterByErmes($ermes = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($ermes)) {
@@ -1523,7 +1652,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_ERMES, $ermes, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_ERMES, $ermes, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1533,14 +1664,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterBySpeca('fooValue');   // WHERE speca = 'fooValue'
      * $query->filterBySpeca('%fooValue%', Criteria::LIKE); // WHERE speca LIKE '%fooValue%'
+     * $query->filterBySpeca(['foo', 'bar']); // WHERE speca IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $speca The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $speca The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySpeca($speca = null, $comparison = null)
+    public function filterBySpeca($speca = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($speca)) {
@@ -1548,7 +1680,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_SPECA, $speca, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_SPECA, $speca, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1558,14 +1692,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterBySpecb('fooValue');   // WHERE specb = 'fooValue'
      * $query->filterBySpecb('%fooValue%', Criteria::LIKE); // WHERE specb LIKE '%fooValue%'
+     * $query->filterBySpecb(['foo', 'bar']); // WHERE specb IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $specb The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $specb The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySpecb($specb = null, $comparison = null)
+    public function filterBySpecb($specb = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($specb)) {
@@ -1573,7 +1708,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_SPECB, $specb, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_SPECB, $specb, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1583,14 +1720,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterBySpecc('fooValue');   // WHERE specc = 'fooValue'
      * $query->filterBySpecc('%fooValue%', Criteria::LIKE); // WHERE specc LIKE '%fooValue%'
+     * $query->filterBySpecc(['foo', 'bar']); // WHERE specc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $specc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $specc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySpecc($specc = null, $comparison = null)
+    public function filterBySpecc($specc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($specc)) {
@@ -1598,7 +1736,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_SPECC, $specc, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_SPECC, $specc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1608,14 +1748,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterBySpecd('fooValue');   // WHERE specd = 'fooValue'
      * $query->filterBySpecd('%fooValue%', Criteria::LIKE); // WHERE specd LIKE '%fooValue%'
+     * $query->filterBySpecd(['foo', 'bar']); // WHERE specd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $specd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $specd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySpecd($specd = null, $comparison = null)
+    public function filterBySpecd($specd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($specd)) {
@@ -1623,7 +1764,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_SPECD, $specd, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_SPECD, $specd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1633,14 +1776,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterBySpece('fooValue');   // WHERE spece = 'fooValue'
      * $query->filterBySpece('%fooValue%', Criteria::LIKE); // WHERE spece LIKE '%fooValue%'
+     * $query->filterBySpece(['foo', 'bar']); // WHERE spece IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $spece The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $spece The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySpece($spece = null, $comparison = null)
+    public function filterBySpece($spece = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($spece)) {
@@ -1648,7 +1792,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_SPECE, $spece, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_SPECE, $spece, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1658,14 +1804,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterBySpecf('fooValue');   // WHERE specf = 'fooValue'
      * $query->filterBySpecf('%fooValue%', Criteria::LIKE); // WHERE specf LIKE '%fooValue%'
+     * $query->filterBySpecf(['foo', 'bar']); // WHERE specf IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $specf The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $specf The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySpecf($specf = null, $comparison = null)
+    public function filterBySpecf($specf = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($specf)) {
@@ -1673,7 +1820,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_SPECF, $specf, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_SPECF, $specf, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1683,14 +1832,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterBySpecg('fooValue');   // WHERE specg = 'fooValue'
      * $query->filterBySpecg('%fooValue%', Criteria::LIKE); // WHERE specg LIKE '%fooValue%'
+     * $query->filterBySpecg(['foo', 'bar']); // WHERE specg IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $specg The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $specg The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySpecg($specg = null, $comparison = null)
+    public function filterBySpecg($specg = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($specg)) {
@@ -1698,7 +1848,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_SPECG, $specg, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_SPECG, $specg, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1708,14 +1860,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterBySpech('fooValue');   // WHERE spech = 'fooValue'
      * $query->filterBySpech('%fooValue%', Criteria::LIKE); // WHERE spech LIKE '%fooValue%'
+     * $query->filterBySpech(['foo', 'bar']); // WHERE spech IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $spech The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $spech The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySpech($spech = null, $comparison = null)
+    public function filterBySpech($spech = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($spech)) {
@@ -1723,7 +1876,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_SPECH, $spech, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_SPECH, $spech, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1733,14 +1888,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterByLongdesc('fooValue');   // WHERE longdesc = 'fooValue'
      * $query->filterByLongdesc('%fooValue%', Criteria::LIKE); // WHERE longdesc LIKE '%fooValue%'
+     * $query->filterByLongdesc(['foo', 'bar']); // WHERE longdesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $longdesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $longdesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLongdesc($longdesc = null, $comparison = null)
+    public function filterByLongdesc($longdesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($longdesc)) {
@@ -1748,7 +1904,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_LONGDESC, $longdesc, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_LONGDESC, $longdesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1758,14 +1916,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterByOrderno('fooValue');   // WHERE orderno = 'fooValue'
      * $query->filterByOrderno('%fooValue%', Criteria::LIKE); // WHERE orderno LIKE '%fooValue%'
+     * $query->filterByOrderno(['foo', 'bar']); // WHERE orderno IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $orderno The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $orderno The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOrderno($orderno = null, $comparison = null)
+    public function filterByOrderno($orderno = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($orderno)) {
@@ -1773,7 +1932,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_ORDERNO, $orderno, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_ORDERNO, $orderno, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1783,14 +1944,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterByName3('fooValue');   // WHERE name3 = 'fooValue'
      * $query->filterByName3('%fooValue%', Criteria::LIKE); // WHERE name3 LIKE '%fooValue%'
+     * $query->filterByName3(['foo', 'bar']); // WHERE name3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $name3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $name3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByName3($name3 = null, $comparison = null)
+    public function filterByName3($name3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($name3)) {
@@ -1798,7 +1960,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_NAME3, $name3, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_NAME3, $name3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1808,14 +1972,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterByName4('fooValue');   // WHERE name4 = 'fooValue'
      * $query->filterByName4('%fooValue%', Criteria::LIKE); // WHERE name4 LIKE '%fooValue%'
+     * $query->filterByName4(['foo', 'bar']); // WHERE name4 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $name4 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $name4 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByName4($name4 = null, $comparison = null)
+    public function filterByName4($name4 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($name4)) {
@@ -1823,7 +1988,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_NAME4, $name4, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_NAME4, $name4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1833,14 +2000,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterByThumb('fooValue');   // WHERE thumb = 'fooValue'
      * $query->filterByThumb('%fooValue%', Criteria::LIKE); // WHERE thumb LIKE '%fooValue%'
+     * $query->filterByThumb(['foo', 'bar']); // WHERE thumb IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $thumb The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $thumb The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByThumb($thumb = null, $comparison = null)
+    public function filterByThumb($thumb = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($thumb)) {
@@ -1848,7 +2016,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_THUMB, $thumb, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_THUMB, $thumb, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1858,14 +2028,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterByWidth('fooValue');   // WHERE width = 'fooValue'
      * $query->filterByWidth('%fooValue%', Criteria::LIKE); // WHERE width LIKE '%fooValue%'
+     * $query->filterByWidth(['foo', 'bar']); // WHERE width IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $width The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $width The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByWidth($width = null, $comparison = null)
+    public function filterByWidth($width = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($width)) {
@@ -1873,7 +2044,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_WIDTH, $width, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_WIDTH, $width, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1883,14 +2056,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterByHeight('fooValue');   // WHERE height = 'fooValue'
      * $query->filterByHeight('%fooValue%', Criteria::LIKE); // WHERE height LIKE '%fooValue%'
+     * $query->filterByHeight(['foo', 'bar']); // WHERE height IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $height The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $height The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByHeight($height = null, $comparison = null)
+    public function filterByHeight($height = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($height)) {
@@ -1898,7 +2072,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_HEIGHT, $height, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_HEIGHT, $height, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1908,14 +2084,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterByFamilydes('fooValue');   // WHERE familydes = 'fooValue'
      * $query->filterByFamilydes('%fooValue%', Criteria::LIKE); // WHERE familydes LIKE '%fooValue%'
+     * $query->filterByFamilydes(['foo', 'bar']); // WHERE familydes IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $familydes The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $familydes The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByFamilydes($familydes = null, $comparison = null)
+    public function filterByFamilydes($familydes = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($familydes)) {
@@ -1923,7 +2100,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_FAMILYDES, $familydes, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_FAMILYDES, $familydes, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1933,14 +2112,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterByKeywords('fooValue');   // WHERE keywords = 'fooValue'
      * $query->filterByKeywords('%fooValue%', Criteria::LIKE); // WHERE keywords LIKE '%fooValue%'
+     * $query->filterByKeywords(['foo', 'bar']); // WHERE keywords IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $keywords The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $keywords The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByKeywords($keywords = null, $comparison = null)
+    public function filterByKeywords($keywords = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($keywords)) {
@@ -1948,7 +2128,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_KEYWORDS, $keywords, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_KEYWORDS, $keywords, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1958,14 +2140,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterByVpn('fooValue');   // WHERE vpn = 'fooValue'
      * $query->filterByVpn('%fooValue%', Criteria::LIKE); // WHERE vpn LIKE '%fooValue%'
+     * $query->filterByVpn(['foo', 'bar']); // WHERE vpn IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $vpn The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $vpn The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVpn($vpn = null, $comparison = null)
+    public function filterByVpn($vpn = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($vpn)) {
@@ -1973,7 +2156,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_VPN, $vpn, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_VPN, $vpn, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1983,14 +2168,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterByUomdesc('fooValue');   // WHERE uomdesc = 'fooValue'
      * $query->filterByUomdesc('%fooValue%', Criteria::LIKE); // WHERE uomdesc LIKE '%fooValue%'
+     * $query->filterByUomdesc(['foo', 'bar']); // WHERE uomdesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $uomdesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $uomdesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUomdesc($uomdesc = null, $comparison = null)
+    public function filterByUomdesc($uomdesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($uomdesc)) {
@@ -1998,7 +2184,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_UOMDESC, $uomdesc, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_UOMDESC, $uomdesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2008,14 +2196,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterByVidinffg('fooValue');   // WHERE vidinffg = 'fooValue'
      * $query->filterByVidinffg('%fooValue%', Criteria::LIKE); // WHERE vidinffg LIKE '%fooValue%'
+     * $query->filterByVidinffg(['foo', 'bar']); // WHERE vidinffg IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $vidinffg The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $vidinffg The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVidinffg($vidinffg = null, $comparison = null)
+    public function filterByVidinffg($vidinffg = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($vidinffg)) {
@@ -2023,7 +2212,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_VIDINFFG, $vidinffg, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_VIDINFFG, $vidinffg, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2033,14 +2224,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterByVidinflk('fooValue');   // WHERE vidinflk = 'fooValue'
      * $query->filterByVidinflk('%fooValue%', Criteria::LIKE); // WHERE vidinflk LIKE '%fooValue%'
+     * $query->filterByVidinflk(['foo', 'bar']); // WHERE vidinflk IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $vidinflk The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $vidinflk The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVidinflk($vidinflk = null, $comparison = null)
+    public function filterByVidinflk($vidinflk = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($vidinflk)) {
@@ -2048,7 +2240,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_VIDINFLK, $vidinflk, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_VIDINFLK, $vidinflk, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2058,14 +2252,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterByAdditemflag('fooValue');   // WHERE additemflag = 'fooValue'
      * $query->filterByAdditemflag('%fooValue%', Criteria::LIKE); // WHERE additemflag LIKE '%fooValue%'
+     * $query->filterByAdditemflag(['foo', 'bar']); // WHERE additemflag IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $additemflag The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $additemflag The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAdditemflag($additemflag = null, $comparison = null)
+    public function filterByAdditemflag($additemflag = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($additemflag)) {
@@ -2073,7 +2268,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_ADDITEMFLAG, $additemflag, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_ADDITEMFLAG, $additemflag, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2083,14 +2280,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterBySchemafam('fooValue');   // WHERE schemafam = 'fooValue'
      * $query->filterBySchemafam('%fooValue%', Criteria::LIKE); // WHERE schemafam LIKE '%fooValue%'
+     * $query->filterBySchemafam(['foo', 'bar']); // WHERE schemafam IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $schemafam The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $schemafam The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySchemafam($schemafam = null, $comparison = null)
+    public function filterBySchemafam($schemafam = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($schemafam)) {
@@ -2098,7 +2296,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_SCHEMAFAM, $schemafam, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_SCHEMAFAM, $schemafam, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2108,14 +2308,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterByOrigitemid('fooValue');   // WHERE origitemid = 'fooValue'
      * $query->filterByOrigitemid('%fooValue%', Criteria::LIKE); // WHERE origitemid LIKE '%fooValue%'
+     * $query->filterByOrigitemid(['foo', 'bar']); // WHERE origitemid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $origitemid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $origitemid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOrigitemid($origitemid = null, $comparison = null)
+    public function filterByOrigitemid($origitemid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($origitemid)) {
@@ -2123,7 +2324,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_ORIGITEMID, $origitemid, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_ORIGITEMID, $origitemid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2133,14 +2336,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterByTechspecflg('fooValue');   // WHERE techspecflg = 'fooValue'
      * $query->filterByTechspecflg('%fooValue%', Criteria::LIKE); // WHERE techspecflg LIKE '%fooValue%'
+     * $query->filterByTechspecflg(['foo', 'bar']); // WHERE techspecflg IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $techspecflg The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $techspecflg The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTechspecflg($techspecflg = null, $comparison = null)
+    public function filterByTechspecflg($techspecflg = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($techspecflg)) {
@@ -2148,7 +2352,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_TECHSPECFLG, $techspecflg, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_TECHSPECFLG, $techspecflg, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2158,14 +2364,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterByTechspecname('fooValue');   // WHERE techspecname = 'fooValue'
      * $query->filterByTechspecname('%fooValue%', Criteria::LIKE); // WHERE techspecname LIKE '%fooValue%'
+     * $query->filterByTechspecname(['foo', 'bar']); // WHERE techspecname IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $techspecname The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $techspecname The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTechspecname($techspecname = null, $comparison = null)
+    public function filterByTechspecname($techspecname = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($techspecname)) {
@@ -2173,7 +2380,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_TECHSPECNAME, $techspecname, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_TECHSPECNAME, $techspecname, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2186,15 +2395,15 @@ abstract class PricingQuery extends ModelCriteria
      * $query->filterByCost(array('min' => 12)); // WHERE cost > 12
      * </code>
      *
-     * @param     mixed $cost The value to use as filter.
+     * @param mixed $cost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCost($cost = null, $comparison = null)
+    public function filterByCost($cost = null, ?string $comparison = null)
     {
         if (is_array($cost)) {
             $useMinMax = false;
@@ -2214,7 +2423,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_COST, $cost, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_COST, $cost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2224,14 +2435,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterByProp65('fooValue');   // WHERE prop65 = 'fooValue'
      * $query->filterByProp65('%fooValue%', Criteria::LIKE); // WHERE prop65 LIKE '%fooValue%'
+     * $query->filterByProp65(['foo', 'bar']); // WHERE prop65 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $prop65 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $prop65 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByProp65($prop65 = null, $comparison = null)
+    public function filterByProp65($prop65 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($prop65)) {
@@ -2239,7 +2451,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_PROP65, $prop65, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_PROP65, $prop65, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2249,14 +2463,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterByLeadfree('fooValue');   // WHERE leadfree = 'fooValue'
      * $query->filterByLeadfree('%fooValue%', Criteria::LIKE); // WHERE leadfree LIKE '%fooValue%'
+     * $query->filterByLeadfree(['foo', 'bar']); // WHERE leadfree IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $leadfree The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $leadfree The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLeadfree($leadfree = null, $comparison = null)
+    public function filterByLeadfree($leadfree = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($leadfree)) {
@@ -2264,7 +2479,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_LEADFREE, $leadfree, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_LEADFREE, $leadfree, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2274,14 +2491,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterByExtendesc('fooValue');   // WHERE extendesc = 'fooValue'
      * $query->filterByExtendesc('%fooValue%', Criteria::LIKE); // WHERE extendesc LIKE '%fooValue%'
+     * $query->filterByExtendesc(['foo', 'bar']); // WHERE extendesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $extendesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $extendesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByExtendesc($extendesc = null, $comparison = null)
+    public function filterByExtendesc($extendesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($extendesc)) {
@@ -2289,7 +2507,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_EXTENDESC, $extendesc, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_EXTENDESC, $extendesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2302,15 +2522,15 @@ abstract class PricingQuery extends ModelCriteria
      * $query->filterByMinprice(array('min' => 12)); // WHERE minprice > 12
      * </code>
      *
-     * @param     mixed $minprice The value to use as filter.
+     * @param mixed $minprice The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByMinprice($minprice = null, $comparison = null)
+    public function filterByMinprice($minprice = null, ?string $comparison = null)
     {
         if (is_array($minprice)) {
             $useMinMax = false;
@@ -2330,7 +2550,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_MINPRICE, $minprice, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_MINPRICE, $minprice, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2340,14 +2562,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterBySpcord('fooValue');   // WHERE spcord = 'fooValue'
      * $query->filterBySpcord('%fooValue%', Criteria::LIKE); // WHERE spcord LIKE '%fooValue%'
+     * $query->filterBySpcord(['foo', 'bar']); // WHERE spcord IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $spcord The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $spcord The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySpcord($spcord = null, $comparison = null)
+    public function filterBySpcord($spcord = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($spcord)) {
@@ -2355,7 +2578,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_SPCORD, $spcord, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_SPCORD, $spcord, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2365,14 +2590,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterByVendorid('fooValue');   // WHERE vendorid = 'fooValue'
      * $query->filterByVendorid('%fooValue%', Criteria::LIKE); // WHERE vendorid LIKE '%fooValue%'
+     * $query->filterByVendorid(['foo', 'bar']); // WHERE vendorid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $vendorid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $vendorid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVendorid($vendorid = null, $comparison = null)
+    public function filterByVendorid($vendorid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($vendorid)) {
@@ -2380,7 +2606,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_VENDORID, $vendorid, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_VENDORID, $vendorid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2390,14 +2618,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterByVendoritemid('fooValue');   // WHERE vendoritemid = 'fooValue'
      * $query->filterByVendoritemid('%fooValue%', Criteria::LIKE); // WHERE vendoritemid LIKE '%fooValue%'
+     * $query->filterByVendoritemid(['foo', 'bar']); // WHERE vendoritemid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $vendoritemid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $vendoritemid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVendoritemid($vendoritemid = null, $comparison = null)
+    public function filterByVendoritemid($vendoritemid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($vendoritemid)) {
@@ -2405,7 +2634,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_VENDORITEMID, $vendoritemid, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_VENDORITEMID, $vendoritemid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2415,14 +2646,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterByShipfromid('fooValue');   // WHERE shipfromid = 'fooValue'
      * $query->filterByShipfromid('%fooValue%', Criteria::LIKE); // WHERE shipfromid LIKE '%fooValue%'
+     * $query->filterByShipfromid(['foo', 'bar']); // WHERE shipfromid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shipfromid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shipfromid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipfromid($shipfromid = null, $comparison = null)
+    public function filterByShipfromid($shipfromid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shipfromid)) {
@@ -2430,7 +2662,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_SHIPFROMID, $shipfromid, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_SHIPFROMID, $shipfromid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2440,14 +2674,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterByNsitemgroup('fooValue');   // WHERE nsitemgroup = 'fooValue'
      * $query->filterByNsitemgroup('%fooValue%', Criteria::LIKE); // WHERE nsitemgroup LIKE '%fooValue%'
+     * $query->filterByNsitemgroup(['foo', 'bar']); // WHERE nsitemgroup IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $nsitemgroup The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $nsitemgroup The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByNsitemgroup($nsitemgroup = null, $comparison = null)
+    public function filterByNsitemgroup($nsitemgroup = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($nsitemgroup)) {
@@ -2455,7 +2690,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_NSITEMGROUP, $nsitemgroup, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_NSITEMGROUP, $nsitemgroup, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2465,14 +2702,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterByItemtype('fooValue');   // WHERE itemtype = 'fooValue'
      * $query->filterByItemtype('%fooValue%', Criteria::LIKE); // WHERE itemtype LIKE '%fooValue%'
+     * $query->filterByItemtype(['foo', 'bar']); // WHERE itemtype IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itemtype The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itemtype The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemtype($itemtype = null, $comparison = null)
+    public function filterByItemtype($itemtype = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itemtype)) {
@@ -2480,7 +2718,9 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_ITEMTYPE, $itemtype, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_ITEMTYPE, $itemtype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2490,14 +2730,15 @@ abstract class PricingQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -2505,15 +2746,17 @@ abstract class PricingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PricingTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(PricingTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildPricing $pricing Object to remove from the list of results
+     * @param ChildPricing $pricing Object to remove from the list of results
      *
-     * @return $this|ChildPricingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($pricing = null)
     {
@@ -2532,7 +2775,7 @@ abstract class PricingQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(PricingTableMap::DATABASE_NAME);
@@ -2557,12 +2800,12 @@ abstract class PricingQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(PricingTableMap::DATABASE_NAME);
@@ -2587,4 +2830,4 @@ abstract class PricingQuery extends ModelCriteria
         });
     }
 
-} // PricingQuery
+}

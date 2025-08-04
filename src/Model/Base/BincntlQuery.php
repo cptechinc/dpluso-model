@@ -10,14 +10,12 @@ use Map\BincntlTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'bincntl' table.
- *
- *
+ * Base class that represents a query for the `bincntl` table.
  *
  * @method     ChildBincntlQuery orderByWarehouse($order = Criteria::ASC) Order by the warehouse column
  * @method     ChildBincntlQuery orderByBinfrom($order = Criteria::ASC) Order by the binfrom column
@@ -43,19 +41,19 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildBincntlQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildBincntlQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildBincntl findOne(ConnectionInterface $con = null) Return the first ChildBincntl matching the query
- * @method     ChildBincntl findOneOrCreate(ConnectionInterface $con = null) Return the first ChildBincntl matching the query, or a new ChildBincntl object populated from the query conditions when no match is found
+ * @method     ChildBincntl|null findOne(?ConnectionInterface $con = null) Return the first ChildBincntl matching the query
+ * @method     ChildBincntl findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildBincntl matching the query, or a new ChildBincntl object populated from the query conditions when no match is found
  *
- * @method     ChildBincntl findOneByWarehouse(string $warehouse) Return the first ChildBincntl filtered by the warehouse column
- * @method     ChildBincntl findOneByBinfrom(string $binfrom) Return the first ChildBincntl filtered by the binfrom column
- * @method     ChildBincntl findOneByBinthru(string $binthru) Return the first ChildBincntl filtered by the binthru column
- * @method     ChildBincntl findOneByBintype(string $bintype) Return the first ChildBincntl filtered by the bintype column
- * @method     ChildBincntl findOneByBinarea(string $binarea) Return the first ChildBincntl filtered by the binarea column
- * @method     ChildBincntl findOneByBindesc(string $bindesc) Return the first ChildBincntl filtered by the bindesc column
- * @method     ChildBincntl findOneByDummy(string $dummy) Return the first ChildBincntl filtered by the dummy column *
-
- * @method     ChildBincntl requirePk($key, ConnectionInterface $con = null) Return the ChildBincntl by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildBincntl requireOne(ConnectionInterface $con = null) Return the first ChildBincntl matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildBincntl|null findOneByWarehouse(string $warehouse) Return the first ChildBincntl filtered by the warehouse column
+ * @method     ChildBincntl|null findOneByBinfrom(string $binfrom) Return the first ChildBincntl filtered by the binfrom column
+ * @method     ChildBincntl|null findOneByBinthru(string $binthru) Return the first ChildBincntl filtered by the binthru column
+ * @method     ChildBincntl|null findOneByBintype(string $bintype) Return the first ChildBincntl filtered by the bintype column
+ * @method     ChildBincntl|null findOneByBinarea(string $binarea) Return the first ChildBincntl filtered by the binarea column
+ * @method     ChildBincntl|null findOneByBindesc(string $bindesc) Return the first ChildBincntl filtered by the bindesc column
+ * @method     ChildBincntl|null findOneByDummy(string $dummy) Return the first ChildBincntl filtered by the dummy column
+ *
+ * @method     ChildBincntl requirePk($key, ?ConnectionInterface $con = null) Return the ChildBincntl by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildBincntl requireOne(?ConnectionInterface $con = null) Return the first ChildBincntl matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildBincntl requireOneByWarehouse(string $warehouse) Return the first ChildBincntl filtered by the warehouse column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildBincntl requireOneByBinfrom(string $binfrom) Return the first ChildBincntl filtered by the binfrom column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -65,16 +63,26 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildBincntl requireOneByBindesc(string $bindesc) Return the first ChildBincntl filtered by the bindesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildBincntl requireOneByDummy(string $dummy) Return the first ChildBincntl filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildBincntl[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildBincntl objects based on current ModelCriteria
- * @method     ChildBincntl[]|ObjectCollection findByWarehouse(string $warehouse) Return ChildBincntl objects filtered by the warehouse column
- * @method     ChildBincntl[]|ObjectCollection findByBinfrom(string $binfrom) Return ChildBincntl objects filtered by the binfrom column
- * @method     ChildBincntl[]|ObjectCollection findByBinthru(string $binthru) Return ChildBincntl objects filtered by the binthru column
- * @method     ChildBincntl[]|ObjectCollection findByBintype(string $bintype) Return ChildBincntl objects filtered by the bintype column
- * @method     ChildBincntl[]|ObjectCollection findByBinarea(string $binarea) Return ChildBincntl objects filtered by the binarea column
- * @method     ChildBincntl[]|ObjectCollection findByBindesc(string $bindesc) Return ChildBincntl objects filtered by the bindesc column
- * @method     ChildBincntl[]|ObjectCollection findByDummy(string $dummy) Return ChildBincntl objects filtered by the dummy column
- * @method     ChildBincntl[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildBincntl[]|Collection find(?ConnectionInterface $con = null) Return ChildBincntl objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildBincntl> find(?ConnectionInterface $con = null) Return ChildBincntl objects based on current ModelCriteria
  *
+ * @method     ChildBincntl[]|Collection findByWarehouse(string|array<string> $warehouse) Return ChildBincntl objects filtered by the warehouse column
+ * @psalm-method Collection&\Traversable<ChildBincntl> findByWarehouse(string|array<string> $warehouse) Return ChildBincntl objects filtered by the warehouse column
+ * @method     ChildBincntl[]|Collection findByBinfrom(string|array<string> $binfrom) Return ChildBincntl objects filtered by the binfrom column
+ * @psalm-method Collection&\Traversable<ChildBincntl> findByBinfrom(string|array<string> $binfrom) Return ChildBincntl objects filtered by the binfrom column
+ * @method     ChildBincntl[]|Collection findByBinthru(string|array<string> $binthru) Return ChildBincntl objects filtered by the binthru column
+ * @psalm-method Collection&\Traversable<ChildBincntl> findByBinthru(string|array<string> $binthru) Return ChildBincntl objects filtered by the binthru column
+ * @method     ChildBincntl[]|Collection findByBintype(string|array<string> $bintype) Return ChildBincntl objects filtered by the bintype column
+ * @psalm-method Collection&\Traversable<ChildBincntl> findByBintype(string|array<string> $bintype) Return ChildBincntl objects filtered by the bintype column
+ * @method     ChildBincntl[]|Collection findByBinarea(string|array<string> $binarea) Return ChildBincntl objects filtered by the binarea column
+ * @psalm-method Collection&\Traversable<ChildBincntl> findByBinarea(string|array<string> $binarea) Return ChildBincntl objects filtered by the binarea column
+ * @method     ChildBincntl[]|Collection findByBindesc(string|array<string> $bindesc) Return ChildBincntl objects filtered by the bindesc column
+ * @psalm-method Collection&\Traversable<ChildBincntl> findByBindesc(string|array<string> $bindesc) Return ChildBincntl objects filtered by the bindesc column
+ * @method     ChildBincntl[]|Collection findByDummy(string|array<string> $dummy) Return ChildBincntl objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildBincntl> findByDummy(string|array<string> $dummy) Return ChildBincntl objects filtered by the dummy column
+ *
+ * @method     ChildBincntl[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildBincntl> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class BincntlQuery extends ModelCriteria
 {
@@ -83,9 +91,9 @@ abstract class BincntlQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\BincntlQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'dplusodb', $modelName = '\\Bincntl', $modelAlias = null)
     {
@@ -95,12 +103,12 @@ abstract class BincntlQuery extends ModelCriteria
     /**
      * Returns a new ChildBincntlQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildBincntlQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildBincntlQuery) {
             return $criteria;
@@ -130,7 +138,7 @@ abstract class BincntlQuery extends ModelCriteria
      *
      * @return ChildBincntl|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -162,8 +170,8 @@ abstract class BincntlQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -197,8 +205,8 @@ abstract class BincntlQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildBincntl|array|mixed the result, formatted by the current formatter
      */
@@ -218,12 +226,12 @@ abstract class BincntlQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -240,9 +248,9 @@ abstract class BincntlQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildBincntlQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -256,14 +264,16 @@ abstract class BincntlQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildBincntlQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(BincntlTableMap::COL_WAREHOUSE, $key[0], Criteria::EQUAL);
@@ -284,14 +294,15 @@ abstract class BincntlQuery extends ModelCriteria
      * <code>
      * $query->filterByWarehouse('fooValue');   // WHERE warehouse = 'fooValue'
      * $query->filterByWarehouse('%fooValue%', Criteria::LIKE); // WHERE warehouse LIKE '%fooValue%'
+     * $query->filterByWarehouse(['foo', 'bar']); // WHERE warehouse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $warehouse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $warehouse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBincntlQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByWarehouse($warehouse = null, $comparison = null)
+    public function filterByWarehouse($warehouse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($warehouse)) {
@@ -299,7 +310,9 @@ abstract class BincntlQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BincntlTableMap::COL_WAREHOUSE, $warehouse, $comparison);
+        $this->addUsingAlias(BincntlTableMap::COL_WAREHOUSE, $warehouse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -309,14 +322,15 @@ abstract class BincntlQuery extends ModelCriteria
      * <code>
      * $query->filterByBinfrom('fooValue');   // WHERE binfrom = 'fooValue'
      * $query->filterByBinfrom('%fooValue%', Criteria::LIKE); // WHERE binfrom LIKE '%fooValue%'
+     * $query->filterByBinfrom(['foo', 'bar']); // WHERE binfrom IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $binfrom The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $binfrom The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBincntlQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBinfrom($binfrom = null, $comparison = null)
+    public function filterByBinfrom($binfrom = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($binfrom)) {
@@ -324,7 +338,9 @@ abstract class BincntlQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BincntlTableMap::COL_BINFROM, $binfrom, $comparison);
+        $this->addUsingAlias(BincntlTableMap::COL_BINFROM, $binfrom, $comparison);
+
+        return $this;
     }
 
     /**
@@ -334,14 +350,15 @@ abstract class BincntlQuery extends ModelCriteria
      * <code>
      * $query->filterByBinthru('fooValue');   // WHERE binthru = 'fooValue'
      * $query->filterByBinthru('%fooValue%', Criteria::LIKE); // WHERE binthru LIKE '%fooValue%'
+     * $query->filterByBinthru(['foo', 'bar']); // WHERE binthru IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $binthru The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $binthru The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBincntlQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBinthru($binthru = null, $comparison = null)
+    public function filterByBinthru($binthru = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($binthru)) {
@@ -349,7 +366,9 @@ abstract class BincntlQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BincntlTableMap::COL_BINTHRU, $binthru, $comparison);
+        $this->addUsingAlias(BincntlTableMap::COL_BINTHRU, $binthru, $comparison);
+
+        return $this;
     }
 
     /**
@@ -359,14 +378,15 @@ abstract class BincntlQuery extends ModelCriteria
      * <code>
      * $query->filterByBintype('fooValue');   // WHERE bintype = 'fooValue'
      * $query->filterByBintype('%fooValue%', Criteria::LIKE); // WHERE bintype LIKE '%fooValue%'
+     * $query->filterByBintype(['foo', 'bar']); // WHERE bintype IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $bintype The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $bintype The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBincntlQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBintype($bintype = null, $comparison = null)
+    public function filterByBintype($bintype = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($bintype)) {
@@ -374,7 +394,9 @@ abstract class BincntlQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BincntlTableMap::COL_BINTYPE, $bintype, $comparison);
+        $this->addUsingAlias(BincntlTableMap::COL_BINTYPE, $bintype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -384,14 +406,15 @@ abstract class BincntlQuery extends ModelCriteria
      * <code>
      * $query->filterByBinarea('fooValue');   // WHERE binarea = 'fooValue'
      * $query->filterByBinarea('%fooValue%', Criteria::LIKE); // WHERE binarea LIKE '%fooValue%'
+     * $query->filterByBinarea(['foo', 'bar']); // WHERE binarea IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $binarea The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $binarea The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBincntlQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBinarea($binarea = null, $comparison = null)
+    public function filterByBinarea($binarea = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($binarea)) {
@@ -399,7 +422,9 @@ abstract class BincntlQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BincntlTableMap::COL_BINAREA, $binarea, $comparison);
+        $this->addUsingAlias(BincntlTableMap::COL_BINAREA, $binarea, $comparison);
+
+        return $this;
     }
 
     /**
@@ -409,14 +434,15 @@ abstract class BincntlQuery extends ModelCriteria
      * <code>
      * $query->filterByBindesc('fooValue');   // WHERE bindesc = 'fooValue'
      * $query->filterByBindesc('%fooValue%', Criteria::LIKE); // WHERE bindesc LIKE '%fooValue%'
+     * $query->filterByBindesc(['foo', 'bar']); // WHERE bindesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $bindesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $bindesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBincntlQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBindesc($bindesc = null, $comparison = null)
+    public function filterByBindesc($bindesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($bindesc)) {
@@ -424,7 +450,9 @@ abstract class BincntlQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BincntlTableMap::COL_BINDESC, $bindesc, $comparison);
+        $this->addUsingAlias(BincntlTableMap::COL_BINDESC, $bindesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -434,14 +462,15 @@ abstract class BincntlQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBincntlQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -449,15 +478,17 @@ abstract class BincntlQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BincntlTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(BincntlTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildBincntl $bincntl Object to remove from the list of results
+     * @param ChildBincntl $bincntl Object to remove from the list of results
      *
-     * @return $this|ChildBincntlQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($bincntl = null)
     {
@@ -477,7 +508,7 @@ abstract class BincntlQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(BincntlTableMap::DATABASE_NAME);
@@ -502,12 +533,12 @@ abstract class BincntlQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(BincntlTableMap::DATABASE_NAME);
@@ -532,4 +563,4 @@ abstract class BincntlQuery extends ModelCriteria
         });
     }
 
-} // BincntlQuery
+}

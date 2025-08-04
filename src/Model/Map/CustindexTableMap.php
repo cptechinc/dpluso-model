@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class CustindexTableMap extends TableMap
 {
@@ -34,229 +33,420 @@ class CustindexTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.CustindexTableMap';
+    public const CLASS_NAME = '.Map.CustindexTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'dplusodb';
+    public const DATABASE_NAME = 'dplusodb';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'custindex';
+    public const TABLE_NAME = 'custindex';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'Custindex';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\Custindex';
+    public const OM_CLASS = '\\Custindex';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'Custindex';
+    public const CLASS_DEFAULT = 'Custindex';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 29;
+    public const NUM_COLUMNS = 29;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 29;
+    public const NUM_HYDRATE_COLUMNS = 29;
 
     /**
      * the column name for the recno field
      */
-    const COL_RECNO = 'custindex.recno';
+    public const COL_RECNO = 'custindex.recno';
 
     /**
      * the column name for the date field
      */
-    const COL_DATE = 'custindex.date';
+    public const COL_DATE = 'custindex.date';
 
     /**
      * the column name for the time field
      */
-    const COL_TIME = 'custindex.time';
+    public const COL_TIME = 'custindex.time';
 
     /**
      * the column name for the splogin1 field
      */
-    const COL_SPLOGIN1 = 'custindex.splogin1';
+    public const COL_SPLOGIN1 = 'custindex.splogin1';
 
     /**
      * the column name for the splogin2 field
      */
-    const COL_SPLOGIN2 = 'custindex.splogin2';
+    public const COL_SPLOGIN2 = 'custindex.splogin2';
 
     /**
      * the column name for the splogin3 field
      */
-    const COL_SPLOGIN3 = 'custindex.splogin3';
+    public const COL_SPLOGIN3 = 'custindex.splogin3';
 
     /**
      * the column name for the custid field
      */
-    const COL_CUSTID = 'custindex.custid';
+    public const COL_CUSTID = 'custindex.custid';
 
     /**
      * the column name for the shiptoid field
      */
-    const COL_SHIPTOID = 'custindex.shiptoid';
+    public const COL_SHIPTOID = 'custindex.shiptoid';
 
     /**
      * the column name for the name field
      */
-    const COL_NAME = 'custindex.name';
+    public const COL_NAME = 'custindex.name';
 
     /**
      * the column name for the addr1 field
      */
-    const COL_ADDR1 = 'custindex.addr1';
+    public const COL_ADDR1 = 'custindex.addr1';
 
     /**
      * the column name for the addr2 field
      */
-    const COL_ADDR2 = 'custindex.addr2';
+    public const COL_ADDR2 = 'custindex.addr2';
 
     /**
      * the column name for the city field
      */
-    const COL_CITY = 'custindex.city';
+    public const COL_CITY = 'custindex.city';
 
     /**
      * the column name for the state field
      */
-    const COL_STATE = 'custindex.state';
+    public const COL_STATE = 'custindex.state';
 
     /**
      * the column name for the zip field
      */
-    const COL_ZIP = 'custindex.zip';
+    public const COL_ZIP = 'custindex.zip';
 
     /**
      * the column name for the phone field
      */
-    const COL_PHONE = 'custindex.phone';
+    public const COL_PHONE = 'custindex.phone';
 
     /**
      * the column name for the cellphone field
      */
-    const COL_CELLPHONE = 'custindex.cellphone';
+    public const COL_CELLPHONE = 'custindex.cellphone';
 
     /**
      * the column name for the contact field
      */
-    const COL_CONTACT = 'custindex.contact';
+    public const COL_CONTACT = 'custindex.contact';
 
     /**
      * the column name for the source field
      */
-    const COL_SOURCE = 'custindex.source';
+    public const COL_SOURCE = 'custindex.source';
 
     /**
      * the column name for the extension field
      */
-    const COL_EXTENSION = 'custindex.extension';
+    public const COL_EXTENSION = 'custindex.extension';
 
     /**
      * the column name for the email field
      */
-    const COL_EMAIL = 'custindex.email';
+    public const COL_EMAIL = 'custindex.email';
 
     /**
      * the column name for the typecode field
      */
-    const COL_TYPECODE = 'custindex.typecode';
+    public const COL_TYPECODE = 'custindex.typecode';
 
     /**
      * the column name for the faxnbr field
      */
-    const COL_FAXNBR = 'custindex.faxnbr';
+    public const COL_FAXNBR = 'custindex.faxnbr';
 
     /**
      * the column name for the title field
      */
-    const COL_TITLE = 'custindex.title';
+    public const COL_TITLE = 'custindex.title';
 
     /**
      * the column name for the arcontact field
      */
-    const COL_ARCONTACT = 'custindex.arcontact';
+    public const COL_ARCONTACT = 'custindex.arcontact';
 
     /**
      * the column name for the dunningcontact field
      */
-    const COL_DUNNINGCONTACT = 'custindex.dunningcontact';
+    public const COL_DUNNINGCONTACT = 'custindex.dunningcontact';
 
     /**
      * the column name for the buyingcontact field
      */
-    const COL_BUYINGCONTACT = 'custindex.buyingcontact';
+    public const COL_BUYINGCONTACT = 'custindex.buyingcontact';
 
     /**
      * the column name for the certcontact field
      */
-    const COL_CERTCONTACT = 'custindex.certcontact';
+    public const COL_CERTCONTACT = 'custindex.certcontact';
 
     /**
      * the column name for the ackcontact field
      */
-    const COL_ACKCONTACT = 'custindex.ackcontact';
+    public const COL_ACKCONTACT = 'custindex.ackcontact';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'custindex.dummy';
+    public const COL_DUMMY = 'custindex.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Recno', 'Date', 'Time', 'Splogin1', 'Splogin2', 'Splogin3', 'Custid', 'Shiptoid', 'Name', 'Addr1', 'Addr2', 'City', 'State', 'Zip', 'Phone', 'Cellphone', 'Contact', 'Source', 'Extension', 'Email', 'Typecode', 'Faxnbr', 'Title', 'Arcontact', 'Dunningcontact', 'Buyingcontact', 'Certcontact', 'Ackcontact', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('recno', 'date', 'time', 'splogin1', 'splogin2', 'splogin3', 'custid', 'shiptoid', 'name', 'addr1', 'addr2', 'city', 'state', 'zip', 'phone', 'cellphone', 'contact', 'source', 'extension', 'email', 'typecode', 'faxnbr', 'title', 'arcontact', 'dunningcontact', 'buyingcontact', 'certcontact', 'ackcontact', 'dummy', ),
-        self::TYPE_COLNAME       => array(CustindexTableMap::COL_RECNO, CustindexTableMap::COL_DATE, CustindexTableMap::COL_TIME, CustindexTableMap::COL_SPLOGIN1, CustindexTableMap::COL_SPLOGIN2, CustindexTableMap::COL_SPLOGIN3, CustindexTableMap::COL_CUSTID, CustindexTableMap::COL_SHIPTOID, CustindexTableMap::COL_NAME, CustindexTableMap::COL_ADDR1, CustindexTableMap::COL_ADDR2, CustindexTableMap::COL_CITY, CustindexTableMap::COL_STATE, CustindexTableMap::COL_ZIP, CustindexTableMap::COL_PHONE, CustindexTableMap::COL_CELLPHONE, CustindexTableMap::COL_CONTACT, CustindexTableMap::COL_SOURCE, CustindexTableMap::COL_EXTENSION, CustindexTableMap::COL_EMAIL, CustindexTableMap::COL_TYPECODE, CustindexTableMap::COL_FAXNBR, CustindexTableMap::COL_TITLE, CustindexTableMap::COL_ARCONTACT, CustindexTableMap::COL_DUNNINGCONTACT, CustindexTableMap::COL_BUYINGCONTACT, CustindexTableMap::COL_CERTCONTACT, CustindexTableMap::COL_ACKCONTACT, CustindexTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('recno', 'date', 'time', 'splogin1', 'splogin2', 'splogin3', 'custid', 'shiptoid', 'name', 'addr1', 'addr2', 'city', 'state', 'zip', 'phone', 'cellphone', 'contact', 'source', 'extension', 'email', 'typecode', 'faxnbr', 'title', 'arcontact', 'dunningcontact', 'buyingcontact', 'certcontact', 'ackcontact', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Recno', 'Date', 'Time', 'Splogin1', 'Splogin2', 'Splogin3', 'Custid', 'Shiptoid', 'Name', 'Addr1', 'Addr2', 'City', 'State', 'Zip', 'Phone', 'Cellphone', 'Contact', 'Source', 'Extension', 'Email', 'Typecode', 'Faxnbr', 'Title', 'Arcontact', 'Dunningcontact', 'Buyingcontact', 'Certcontact', 'Ackcontact', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['recno', 'date', 'time', 'splogin1', 'splogin2', 'splogin3', 'custid', 'shiptoid', 'name', 'addr1', 'addr2', 'city', 'state', 'zip', 'phone', 'cellphone', 'contact', 'source', 'extension', 'email', 'typecode', 'faxnbr', 'title', 'arcontact', 'dunningcontact', 'buyingcontact', 'certcontact', 'ackcontact', 'dummy', ],
+        self::TYPE_COLNAME       => [CustindexTableMap::COL_RECNO, CustindexTableMap::COL_DATE, CustindexTableMap::COL_TIME, CustindexTableMap::COL_SPLOGIN1, CustindexTableMap::COL_SPLOGIN2, CustindexTableMap::COL_SPLOGIN3, CustindexTableMap::COL_CUSTID, CustindexTableMap::COL_SHIPTOID, CustindexTableMap::COL_NAME, CustindexTableMap::COL_ADDR1, CustindexTableMap::COL_ADDR2, CustindexTableMap::COL_CITY, CustindexTableMap::COL_STATE, CustindexTableMap::COL_ZIP, CustindexTableMap::COL_PHONE, CustindexTableMap::COL_CELLPHONE, CustindexTableMap::COL_CONTACT, CustindexTableMap::COL_SOURCE, CustindexTableMap::COL_EXTENSION, CustindexTableMap::COL_EMAIL, CustindexTableMap::COL_TYPECODE, CustindexTableMap::COL_FAXNBR, CustindexTableMap::COL_TITLE, CustindexTableMap::COL_ARCONTACT, CustindexTableMap::COL_DUNNINGCONTACT, CustindexTableMap::COL_BUYINGCONTACT, CustindexTableMap::COL_CERTCONTACT, CustindexTableMap::COL_ACKCONTACT, CustindexTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['recno', 'date', 'time', 'splogin1', 'splogin2', 'splogin3', 'custid', 'shiptoid', 'name', 'addr1', 'addr2', 'city', 'state', 'zip', 'phone', 'cellphone', 'contact', 'source', 'extension', 'email', 'typecode', 'faxnbr', 'title', 'arcontact', 'dunningcontact', 'buyingcontact', 'certcontact', 'ackcontact', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Recno' => 0, 'Date' => 1, 'Time' => 2, 'Splogin1' => 3, 'Splogin2' => 4, 'Splogin3' => 5, 'Custid' => 6, 'Shiptoid' => 7, 'Name' => 8, 'Addr1' => 9, 'Addr2' => 10, 'City' => 11, 'State' => 12, 'Zip' => 13, 'Phone' => 14, 'Cellphone' => 15, 'Contact' => 16, 'Source' => 17, 'Extension' => 18, 'Email' => 19, 'Typecode' => 20, 'Faxnbr' => 21, 'Title' => 22, 'Arcontact' => 23, 'Dunningcontact' => 24, 'Buyingcontact' => 25, 'Certcontact' => 26, 'Ackcontact' => 27, 'Dummy' => 28, ),
-        self::TYPE_CAMELNAME     => array('recno' => 0, 'date' => 1, 'time' => 2, 'splogin1' => 3, 'splogin2' => 4, 'splogin3' => 5, 'custid' => 6, 'shiptoid' => 7, 'name' => 8, 'addr1' => 9, 'addr2' => 10, 'city' => 11, 'state' => 12, 'zip' => 13, 'phone' => 14, 'cellphone' => 15, 'contact' => 16, 'source' => 17, 'extension' => 18, 'email' => 19, 'typecode' => 20, 'faxnbr' => 21, 'title' => 22, 'arcontact' => 23, 'dunningcontact' => 24, 'buyingcontact' => 25, 'certcontact' => 26, 'ackcontact' => 27, 'dummy' => 28, ),
-        self::TYPE_COLNAME       => array(CustindexTableMap::COL_RECNO => 0, CustindexTableMap::COL_DATE => 1, CustindexTableMap::COL_TIME => 2, CustindexTableMap::COL_SPLOGIN1 => 3, CustindexTableMap::COL_SPLOGIN2 => 4, CustindexTableMap::COL_SPLOGIN3 => 5, CustindexTableMap::COL_CUSTID => 6, CustindexTableMap::COL_SHIPTOID => 7, CustindexTableMap::COL_NAME => 8, CustindexTableMap::COL_ADDR1 => 9, CustindexTableMap::COL_ADDR2 => 10, CustindexTableMap::COL_CITY => 11, CustindexTableMap::COL_STATE => 12, CustindexTableMap::COL_ZIP => 13, CustindexTableMap::COL_PHONE => 14, CustindexTableMap::COL_CELLPHONE => 15, CustindexTableMap::COL_CONTACT => 16, CustindexTableMap::COL_SOURCE => 17, CustindexTableMap::COL_EXTENSION => 18, CustindexTableMap::COL_EMAIL => 19, CustindexTableMap::COL_TYPECODE => 20, CustindexTableMap::COL_FAXNBR => 21, CustindexTableMap::COL_TITLE => 22, CustindexTableMap::COL_ARCONTACT => 23, CustindexTableMap::COL_DUNNINGCONTACT => 24, CustindexTableMap::COL_BUYINGCONTACT => 25, CustindexTableMap::COL_CERTCONTACT => 26, CustindexTableMap::COL_ACKCONTACT => 27, CustindexTableMap::COL_DUMMY => 28, ),
-        self::TYPE_FIELDNAME     => array('recno' => 0, 'date' => 1, 'time' => 2, 'splogin1' => 3, 'splogin2' => 4, 'splogin3' => 5, 'custid' => 6, 'shiptoid' => 7, 'name' => 8, 'addr1' => 9, 'addr2' => 10, 'city' => 11, 'state' => 12, 'zip' => 13, 'phone' => 14, 'cellphone' => 15, 'contact' => 16, 'source' => 17, 'extension' => 18, 'email' => 19, 'typecode' => 20, 'faxnbr' => 21, 'title' => 22, 'arcontact' => 23, 'dunningcontact' => 24, 'buyingcontact' => 25, 'certcontact' => 26, 'ackcontact' => 27, 'dummy' => 28, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Recno' => 0, 'Date' => 1, 'Time' => 2, 'Splogin1' => 3, 'Splogin2' => 4, 'Splogin3' => 5, 'Custid' => 6, 'Shiptoid' => 7, 'Name' => 8, 'Addr1' => 9, 'Addr2' => 10, 'City' => 11, 'State' => 12, 'Zip' => 13, 'Phone' => 14, 'Cellphone' => 15, 'Contact' => 16, 'Source' => 17, 'Extension' => 18, 'Email' => 19, 'Typecode' => 20, 'Faxnbr' => 21, 'Title' => 22, 'Arcontact' => 23, 'Dunningcontact' => 24, 'Buyingcontact' => 25, 'Certcontact' => 26, 'Ackcontact' => 27, 'Dummy' => 28, ],
+        self::TYPE_CAMELNAME     => ['recno' => 0, 'date' => 1, 'time' => 2, 'splogin1' => 3, 'splogin2' => 4, 'splogin3' => 5, 'custid' => 6, 'shiptoid' => 7, 'name' => 8, 'addr1' => 9, 'addr2' => 10, 'city' => 11, 'state' => 12, 'zip' => 13, 'phone' => 14, 'cellphone' => 15, 'contact' => 16, 'source' => 17, 'extension' => 18, 'email' => 19, 'typecode' => 20, 'faxnbr' => 21, 'title' => 22, 'arcontact' => 23, 'dunningcontact' => 24, 'buyingcontact' => 25, 'certcontact' => 26, 'ackcontact' => 27, 'dummy' => 28, ],
+        self::TYPE_COLNAME       => [CustindexTableMap::COL_RECNO => 0, CustindexTableMap::COL_DATE => 1, CustindexTableMap::COL_TIME => 2, CustindexTableMap::COL_SPLOGIN1 => 3, CustindexTableMap::COL_SPLOGIN2 => 4, CustindexTableMap::COL_SPLOGIN3 => 5, CustindexTableMap::COL_CUSTID => 6, CustindexTableMap::COL_SHIPTOID => 7, CustindexTableMap::COL_NAME => 8, CustindexTableMap::COL_ADDR1 => 9, CustindexTableMap::COL_ADDR2 => 10, CustindexTableMap::COL_CITY => 11, CustindexTableMap::COL_STATE => 12, CustindexTableMap::COL_ZIP => 13, CustindexTableMap::COL_PHONE => 14, CustindexTableMap::COL_CELLPHONE => 15, CustindexTableMap::COL_CONTACT => 16, CustindexTableMap::COL_SOURCE => 17, CustindexTableMap::COL_EXTENSION => 18, CustindexTableMap::COL_EMAIL => 19, CustindexTableMap::COL_TYPECODE => 20, CustindexTableMap::COL_FAXNBR => 21, CustindexTableMap::COL_TITLE => 22, CustindexTableMap::COL_ARCONTACT => 23, CustindexTableMap::COL_DUNNINGCONTACT => 24, CustindexTableMap::COL_BUYINGCONTACT => 25, CustindexTableMap::COL_CERTCONTACT => 26, CustindexTableMap::COL_ACKCONTACT => 27, CustindexTableMap::COL_DUMMY => 28, ],
+        self::TYPE_FIELDNAME     => ['recno' => 0, 'date' => 1, 'time' => 2, 'splogin1' => 3, 'splogin2' => 4, 'splogin3' => 5, 'custid' => 6, 'shiptoid' => 7, 'name' => 8, 'addr1' => 9, 'addr2' => 10, 'city' => 11, 'state' => 12, 'zip' => 13, 'phone' => 14, 'cellphone' => 15, 'contact' => 16, 'source' => 17, 'extension' => 18, 'email' => 19, 'typecode' => 20, 'faxnbr' => 21, 'title' => 22, 'arcontact' => 23, 'dunningcontact' => 24, 'buyingcontact' => 25, 'certcontact' => 26, 'ackcontact' => 27, 'dummy' => 28, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Recno' => 'RECNO',
+        'Custindex.Recno' => 'RECNO',
+        'recno' => 'RECNO',
+        'custindex.recno' => 'RECNO',
+        'CustindexTableMap::COL_RECNO' => 'RECNO',
+        'COL_RECNO' => 'RECNO',
+        'Date' => 'DATE',
+        'Custindex.Date' => 'DATE',
+        'date' => 'DATE',
+        'custindex.date' => 'DATE',
+        'CustindexTableMap::COL_DATE' => 'DATE',
+        'COL_DATE' => 'DATE',
+        'Time' => 'TIME',
+        'Custindex.Time' => 'TIME',
+        'time' => 'TIME',
+        'custindex.time' => 'TIME',
+        'CustindexTableMap::COL_TIME' => 'TIME',
+        'COL_TIME' => 'TIME',
+        'Splogin1' => 'SPLOGIN1',
+        'Custindex.Splogin1' => 'SPLOGIN1',
+        'splogin1' => 'SPLOGIN1',
+        'custindex.splogin1' => 'SPLOGIN1',
+        'CustindexTableMap::COL_SPLOGIN1' => 'SPLOGIN1',
+        'COL_SPLOGIN1' => 'SPLOGIN1',
+        'Splogin2' => 'SPLOGIN2',
+        'Custindex.Splogin2' => 'SPLOGIN2',
+        'splogin2' => 'SPLOGIN2',
+        'custindex.splogin2' => 'SPLOGIN2',
+        'CustindexTableMap::COL_SPLOGIN2' => 'SPLOGIN2',
+        'COL_SPLOGIN2' => 'SPLOGIN2',
+        'Splogin3' => 'SPLOGIN3',
+        'Custindex.Splogin3' => 'SPLOGIN3',
+        'splogin3' => 'SPLOGIN3',
+        'custindex.splogin3' => 'SPLOGIN3',
+        'CustindexTableMap::COL_SPLOGIN3' => 'SPLOGIN3',
+        'COL_SPLOGIN3' => 'SPLOGIN3',
+        'Custid' => 'CUSTID',
+        'Custindex.Custid' => 'CUSTID',
+        'custid' => 'CUSTID',
+        'custindex.custid' => 'CUSTID',
+        'CustindexTableMap::COL_CUSTID' => 'CUSTID',
+        'COL_CUSTID' => 'CUSTID',
+        'Shiptoid' => 'SHIPTOID',
+        'Custindex.Shiptoid' => 'SHIPTOID',
+        'shiptoid' => 'SHIPTOID',
+        'custindex.shiptoid' => 'SHIPTOID',
+        'CustindexTableMap::COL_SHIPTOID' => 'SHIPTOID',
+        'COL_SHIPTOID' => 'SHIPTOID',
+        'Name' => 'NAME',
+        'Custindex.Name' => 'NAME',
+        'name' => 'NAME',
+        'custindex.name' => 'NAME',
+        'CustindexTableMap::COL_NAME' => 'NAME',
+        'COL_NAME' => 'NAME',
+        'Addr1' => 'ADDR1',
+        'Custindex.Addr1' => 'ADDR1',
+        'addr1' => 'ADDR1',
+        'custindex.addr1' => 'ADDR1',
+        'CustindexTableMap::COL_ADDR1' => 'ADDR1',
+        'COL_ADDR1' => 'ADDR1',
+        'Addr2' => 'ADDR2',
+        'Custindex.Addr2' => 'ADDR2',
+        'addr2' => 'ADDR2',
+        'custindex.addr2' => 'ADDR2',
+        'CustindexTableMap::COL_ADDR2' => 'ADDR2',
+        'COL_ADDR2' => 'ADDR2',
+        'City' => 'CITY',
+        'Custindex.City' => 'CITY',
+        'city' => 'CITY',
+        'custindex.city' => 'CITY',
+        'CustindexTableMap::COL_CITY' => 'CITY',
+        'COL_CITY' => 'CITY',
+        'State' => 'STATE',
+        'Custindex.State' => 'STATE',
+        'state' => 'STATE',
+        'custindex.state' => 'STATE',
+        'CustindexTableMap::COL_STATE' => 'STATE',
+        'COL_STATE' => 'STATE',
+        'Zip' => 'ZIP',
+        'Custindex.Zip' => 'ZIP',
+        'zip' => 'ZIP',
+        'custindex.zip' => 'ZIP',
+        'CustindexTableMap::COL_ZIP' => 'ZIP',
+        'COL_ZIP' => 'ZIP',
+        'Phone' => 'PHONE',
+        'Custindex.Phone' => 'PHONE',
+        'phone' => 'PHONE',
+        'custindex.phone' => 'PHONE',
+        'CustindexTableMap::COL_PHONE' => 'PHONE',
+        'COL_PHONE' => 'PHONE',
+        'Cellphone' => 'CELLPHONE',
+        'Custindex.Cellphone' => 'CELLPHONE',
+        'cellphone' => 'CELLPHONE',
+        'custindex.cellphone' => 'CELLPHONE',
+        'CustindexTableMap::COL_CELLPHONE' => 'CELLPHONE',
+        'COL_CELLPHONE' => 'CELLPHONE',
+        'Contact' => 'CONTACT',
+        'Custindex.Contact' => 'CONTACT',
+        'contact' => 'CONTACT',
+        'custindex.contact' => 'CONTACT',
+        'CustindexTableMap::COL_CONTACT' => 'CONTACT',
+        'COL_CONTACT' => 'CONTACT',
+        'Source' => 'SOURCE',
+        'Custindex.Source' => 'SOURCE',
+        'source' => 'SOURCE',
+        'custindex.source' => 'SOURCE',
+        'CustindexTableMap::COL_SOURCE' => 'SOURCE',
+        'COL_SOURCE' => 'SOURCE',
+        'Extension' => 'EXTENSION',
+        'Custindex.Extension' => 'EXTENSION',
+        'extension' => 'EXTENSION',
+        'custindex.extension' => 'EXTENSION',
+        'CustindexTableMap::COL_EXTENSION' => 'EXTENSION',
+        'COL_EXTENSION' => 'EXTENSION',
+        'Email' => 'EMAIL',
+        'Custindex.Email' => 'EMAIL',
+        'email' => 'EMAIL',
+        'custindex.email' => 'EMAIL',
+        'CustindexTableMap::COL_EMAIL' => 'EMAIL',
+        'COL_EMAIL' => 'EMAIL',
+        'Typecode' => 'TYPECODE',
+        'Custindex.Typecode' => 'TYPECODE',
+        'typecode' => 'TYPECODE',
+        'custindex.typecode' => 'TYPECODE',
+        'CustindexTableMap::COL_TYPECODE' => 'TYPECODE',
+        'COL_TYPECODE' => 'TYPECODE',
+        'Faxnbr' => 'FAXNBR',
+        'Custindex.Faxnbr' => 'FAXNBR',
+        'faxnbr' => 'FAXNBR',
+        'custindex.faxnbr' => 'FAXNBR',
+        'CustindexTableMap::COL_FAXNBR' => 'FAXNBR',
+        'COL_FAXNBR' => 'FAXNBR',
+        'Title' => 'TITLE',
+        'Custindex.Title' => 'TITLE',
+        'title' => 'TITLE',
+        'custindex.title' => 'TITLE',
+        'CustindexTableMap::COL_TITLE' => 'TITLE',
+        'COL_TITLE' => 'TITLE',
+        'Arcontact' => 'ARCONTACT',
+        'Custindex.Arcontact' => 'ARCONTACT',
+        'arcontact' => 'ARCONTACT',
+        'custindex.arcontact' => 'ARCONTACT',
+        'CustindexTableMap::COL_ARCONTACT' => 'ARCONTACT',
+        'COL_ARCONTACT' => 'ARCONTACT',
+        'Dunningcontact' => 'DUNNINGCONTACT',
+        'Custindex.Dunningcontact' => 'DUNNINGCONTACT',
+        'dunningcontact' => 'DUNNINGCONTACT',
+        'custindex.dunningcontact' => 'DUNNINGCONTACT',
+        'CustindexTableMap::COL_DUNNINGCONTACT' => 'DUNNINGCONTACT',
+        'COL_DUNNINGCONTACT' => 'DUNNINGCONTACT',
+        'Buyingcontact' => 'BUYINGCONTACT',
+        'Custindex.Buyingcontact' => 'BUYINGCONTACT',
+        'buyingcontact' => 'BUYINGCONTACT',
+        'custindex.buyingcontact' => 'BUYINGCONTACT',
+        'CustindexTableMap::COL_BUYINGCONTACT' => 'BUYINGCONTACT',
+        'COL_BUYINGCONTACT' => 'BUYINGCONTACT',
+        'Certcontact' => 'CERTCONTACT',
+        'Custindex.Certcontact' => 'CERTCONTACT',
+        'certcontact' => 'CERTCONTACT',
+        'custindex.certcontact' => 'CERTCONTACT',
+        'CustindexTableMap::COL_CERTCONTACT' => 'CERTCONTACT',
+        'COL_CERTCONTACT' => 'CERTCONTACT',
+        'Ackcontact' => 'ACKCONTACT',
+        'Custindex.Ackcontact' => 'ACKCONTACT',
+        'ackcontact' => 'ACKCONTACT',
+        'custindex.ackcontact' => 'ACKCONTACT',
+        'CustindexTableMap::COL_ACKCONTACT' => 'ACKCONTACT',
+        'COL_ACKCONTACT' => 'ACKCONTACT',
+        'Dummy' => 'DUMMY',
+        'Custindex.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'custindex.dummy' => 'DUMMY',
+        'CustindexTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('custindex');
@@ -295,14 +485,16 @@ class CustindexTableMap extends TableMap
         $this->addColumn('certcontact', 'Certcontact', 'VARCHAR', true, 1, null);
         $this->addColumn('ackcontact', 'Ackcontact', 'VARCHAR', true, 1, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', true, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Retrieves a string version of the primary key from the DB resultset row that can be used to uniquely identify a row in this table.
@@ -310,14 +502,14 @@ class CustindexTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Recno', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -332,14 +524,14 @@ class CustindexTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
         return (int) $row[
             $indexType == TableMap::TYPE_NUM
@@ -356,10 +548,10 @@ class CustindexTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? CustindexTableMap::CLASS_DEFAULT : CustindexTableMap::OM_CLASS;
     }
@@ -367,17 +559,17 @@ class CustindexTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (Custindex object, last column rank)
+     * @return array (Custindex object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = CustindexTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = CustindexTableMap::getInstanceFromPool($key))) {
@@ -393,7 +585,7 @@ class CustindexTableMap extends TableMap
             CustindexTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -401,13 +593,13 @@ class CustindexTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -437,12 +629,13 @@ class CustindexTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(CustindexTableMap::COL_RECNO);
@@ -508,40 +701,106 @@ class CustindexTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(CustindexTableMap::COL_RECNO);
+            $criteria->removeSelectColumn(CustindexTableMap::COL_DATE);
+            $criteria->removeSelectColumn(CustindexTableMap::COL_TIME);
+            $criteria->removeSelectColumn(CustindexTableMap::COL_SPLOGIN1);
+            $criteria->removeSelectColumn(CustindexTableMap::COL_SPLOGIN2);
+            $criteria->removeSelectColumn(CustindexTableMap::COL_SPLOGIN3);
+            $criteria->removeSelectColumn(CustindexTableMap::COL_CUSTID);
+            $criteria->removeSelectColumn(CustindexTableMap::COL_SHIPTOID);
+            $criteria->removeSelectColumn(CustindexTableMap::COL_NAME);
+            $criteria->removeSelectColumn(CustindexTableMap::COL_ADDR1);
+            $criteria->removeSelectColumn(CustindexTableMap::COL_ADDR2);
+            $criteria->removeSelectColumn(CustindexTableMap::COL_CITY);
+            $criteria->removeSelectColumn(CustindexTableMap::COL_STATE);
+            $criteria->removeSelectColumn(CustindexTableMap::COL_ZIP);
+            $criteria->removeSelectColumn(CustindexTableMap::COL_PHONE);
+            $criteria->removeSelectColumn(CustindexTableMap::COL_CELLPHONE);
+            $criteria->removeSelectColumn(CustindexTableMap::COL_CONTACT);
+            $criteria->removeSelectColumn(CustindexTableMap::COL_SOURCE);
+            $criteria->removeSelectColumn(CustindexTableMap::COL_EXTENSION);
+            $criteria->removeSelectColumn(CustindexTableMap::COL_EMAIL);
+            $criteria->removeSelectColumn(CustindexTableMap::COL_TYPECODE);
+            $criteria->removeSelectColumn(CustindexTableMap::COL_FAXNBR);
+            $criteria->removeSelectColumn(CustindexTableMap::COL_TITLE);
+            $criteria->removeSelectColumn(CustindexTableMap::COL_ARCONTACT);
+            $criteria->removeSelectColumn(CustindexTableMap::COL_DUNNINGCONTACT);
+            $criteria->removeSelectColumn(CustindexTableMap::COL_BUYINGCONTACT);
+            $criteria->removeSelectColumn(CustindexTableMap::COL_CERTCONTACT);
+            $criteria->removeSelectColumn(CustindexTableMap::COL_ACKCONTACT);
+            $criteria->removeSelectColumn(CustindexTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.recno');
+            $criteria->removeSelectColumn($alias . '.date');
+            $criteria->removeSelectColumn($alias . '.time');
+            $criteria->removeSelectColumn($alias . '.splogin1');
+            $criteria->removeSelectColumn($alias . '.splogin2');
+            $criteria->removeSelectColumn($alias . '.splogin3');
+            $criteria->removeSelectColumn($alias . '.custid');
+            $criteria->removeSelectColumn($alias . '.shiptoid');
+            $criteria->removeSelectColumn($alias . '.name');
+            $criteria->removeSelectColumn($alias . '.addr1');
+            $criteria->removeSelectColumn($alias . '.addr2');
+            $criteria->removeSelectColumn($alias . '.city');
+            $criteria->removeSelectColumn($alias . '.state');
+            $criteria->removeSelectColumn($alias . '.zip');
+            $criteria->removeSelectColumn($alias . '.phone');
+            $criteria->removeSelectColumn($alias . '.cellphone');
+            $criteria->removeSelectColumn($alias . '.contact');
+            $criteria->removeSelectColumn($alias . '.source');
+            $criteria->removeSelectColumn($alias . '.extension');
+            $criteria->removeSelectColumn($alias . '.email');
+            $criteria->removeSelectColumn($alias . '.typecode');
+            $criteria->removeSelectColumn($alias . '.faxnbr');
+            $criteria->removeSelectColumn($alias . '.title');
+            $criteria->removeSelectColumn($alias . '.arcontact');
+            $criteria->removeSelectColumn($alias . '.dunningcontact');
+            $criteria->removeSelectColumn($alias . '.buyingcontact');
+            $criteria->removeSelectColumn($alias . '.certcontact');
+            $criteria->removeSelectColumn($alias . '.ackcontact');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(CustindexTableMap::DATABASE_NAME)->getTable(CustindexTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(CustindexTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(CustindexTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new CustindexTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a Custindex or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or Custindex object or primary key or array of primary keys
+     * @param mixed $values Criteria or Custindex object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CustindexTableMap::DATABASE_NAME);
@@ -577,7 +836,7 @@ class CustindexTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return CustindexQuery::create()->doDeleteAll($con);
     }
@@ -585,13 +844,13 @@ class CustindexTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a Custindex or Criteria object.
      *
-     * @param mixed               $criteria Criteria or Custindex object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or Custindex object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CustindexTableMap::DATABASE_NAME);
@@ -614,7 +873,4 @@ class CustindexTableMap extends TableMap
         });
     }
 
-} // CustindexTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-CustindexTableMap::buildTableMap();
+}

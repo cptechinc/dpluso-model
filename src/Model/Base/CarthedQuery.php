@@ -10,14 +10,12 @@ use Map\CarthedTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'carthed' table.
- *
- *
+ * Base class that represents a query for the `carthed` table.
  *
  * @method     ChildCarthedQuery orderBySessionid($order = Criteria::ASC) Order by the sessionid column
  * @method     ChildCarthedQuery orderByRecno($order = Criteria::ASC) Order by the recno column
@@ -145,70 +143,70 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCarthedQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildCarthedQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildCarthed findOne(ConnectionInterface $con = null) Return the first ChildCarthed matching the query
- * @method     ChildCarthed findOneOrCreate(ConnectionInterface $con = null) Return the first ChildCarthed matching the query, or a new ChildCarthed object populated from the query conditions when no match is found
+ * @method     ChildCarthed|null findOne(?ConnectionInterface $con = null) Return the first ChildCarthed matching the query
+ * @method     ChildCarthed findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildCarthed matching the query, or a new ChildCarthed object populated from the query conditions when no match is found
  *
- * @method     ChildCarthed findOneBySessionid(string $sessionid) Return the first ChildCarthed filtered by the sessionid column
- * @method     ChildCarthed findOneByRecno(int $recno) Return the first ChildCarthed filtered by the recno column
- * @method     ChildCarthed findOneByDate(int $date) Return the first ChildCarthed filtered by the date column
- * @method     ChildCarthed findOneByTime(int $time) Return the first ChildCarthed filtered by the time column
- * @method     ChildCarthed findOneByCustid(string $custid) Return the first ChildCarthed filtered by the custid column
- * @method     ChildCarthed findOneByShiptoid(string $shiptoid) Return the first ChildCarthed filtered by the shiptoid column
- * @method     ChildCarthed findOneByCustname(string $custname) Return the first ChildCarthed filtered by the custname column
- * @method     ChildCarthed findOneByOrderno(string $orderno) Return the first ChildCarthed filtered by the orderno column
- * @method     ChildCarthed findOneByCustpo(string $custpo) Return the first ChildCarthed filtered by the custpo column
- * @method     ChildCarthed findOneByStatus(string $status) Return the first ChildCarthed filtered by the status column
- * @method     ChildCarthed findOneByOrderdate(string $orderdate) Return the first ChildCarthed filtered by the orderdate column
- * @method     ChildCarthed findOneByInvdate(string $invdate) Return the first ChildCarthed filtered by the invdate column
- * @method     ChildCarthed findOneByShipdate(string $shipdate) Return the first ChildCarthed filtered by the shipdate column
- * @method     ChildCarthed findOneByHasdocuments(string $hasdocuments) Return the first ChildCarthed filtered by the hasdocuments column
- * @method     ChildCarthed findOneByHastracking(string $hastracking) Return the first ChildCarthed filtered by the hastracking column
- * @method     ChildCarthed findOneBySubtotal(string $subtotal) Return the first ChildCarthed filtered by the subtotal column
- * @method     ChildCarthed findOneBySalestax(string $salestax) Return the first ChildCarthed filtered by the salestax column
- * @method     ChildCarthed findOneByFreight(string $freight) Return the first ChildCarthed filtered by the freight column
- * @method     ChildCarthed findOneByMisccost(string $misccost) Return the first ChildCarthed filtered by the misccost column
- * @method     ChildCarthed findOneByOrdertotal(string $ordertotal) Return the first ChildCarthed filtered by the ordertotal column
- * @method     ChildCarthed findOneByHasnotes(string $hasnotes) Return the first ChildCarthed filtered by the hasnotes column
- * @method     ChildCarthed findOneByEditord(string $editord) Return the first ChildCarthed filtered by the editord column
- * @method     ChildCarthed findOneByError(string $error) Return the first ChildCarthed filtered by the error column
- * @method     ChildCarthed findOneByErrormsg(string $errormsg) Return the first ChildCarthed filtered by the errormsg column
- * @method     ChildCarthed findOneBySconame(string $sconame) Return the first ChildCarthed filtered by the sconame column
- * @method     ChildCarthed findOneByShipname(string $shipname) Return the first ChildCarthed filtered by the shipname column
- * @method     ChildCarthed findOneByShipaddress(string $shipaddress) Return the first ChildCarthed filtered by the shipaddress column
- * @method     ChildCarthed findOneByShipaddress2(string $shipaddress2) Return the first ChildCarthed filtered by the shipaddress2 column
- * @method     ChildCarthed findOneByShipcity(string $shipcity) Return the first ChildCarthed filtered by the shipcity column
- * @method     ChildCarthed findOneByShipstate(string $shipstate) Return the first ChildCarthed filtered by the shipstate column
- * @method     ChildCarthed findOneByShipzip(string $shipzip) Return the first ChildCarthed filtered by the shipzip column
- * @method     ChildCarthed findOneByShipcountry(string $shipcountry) Return the first ChildCarthed filtered by the shipcountry column
- * @method     ChildCarthed findOneByContact(string $contact) Return the first ChildCarthed filtered by the contact column
- * @method     ChildCarthed findOneByPhintl(string $phintl) Return the first ChildCarthed filtered by the phintl column
- * @method     ChildCarthed findOneByPhone(string $phone) Return the first ChildCarthed filtered by the phone column
- * @method     ChildCarthed findOneByExtension(string $extension) Return the first ChildCarthed filtered by the extension column
- * @method     ChildCarthed findOneByFaxnbr(string $faxnbr) Return the first ChildCarthed filtered by the faxnbr column
- * @method     ChildCarthed findOneByEmail(string $email) Return the first ChildCarthed filtered by the email column
- * @method     ChildCarthed findOneByReleasenbr(string $releasenbr) Return the first ChildCarthed filtered by the releasenbr column
- * @method     ChildCarthed findOneByShipviacd(string $shipviacd) Return the first ChildCarthed filtered by the shipviacd column
- * @method     ChildCarthed findOneByShipviadesc(string $shipviadesc) Return the first ChildCarthed filtered by the shipviadesc column
- * @method     ChildCarthed findOneByTermcode(string $termcode) Return the first ChildCarthed filtered by the termcode column
- * @method     ChildCarthed findOneByTermtype(string $termtype) Return the first ChildCarthed filtered by the termtype column
- * @method     ChildCarthed findOneByTermdesc(string $termdesc) Return the first ChildCarthed filtered by the termdesc column
- * @method     ChildCarthed findOneByRqstdate(string $rqstdate) Return the first ChildCarthed filtered by the rqstdate column
- * @method     ChildCarthed findOneByShipcom(string $shipcom) Return the first ChildCarthed filtered by the shipcom column
- * @method     ChildCarthed findOneBySp1(string $sp1) Return the first ChildCarthed filtered by the sp1 column
- * @method     ChildCarthed findOneBySp1name(string $sp1name) Return the first ChildCarthed filtered by the sp1name column
- * @method     ChildCarthed findOneByCardnumber(string $cardnumber) Return the first ChildCarthed filtered by the cardnumber column
- * @method     ChildCarthed findOneByCardexpire(string $cardexpire) Return the first ChildCarthed filtered by the cardexpire column
- * @method     ChildCarthed findOneByCardcode(string $cardcode) Return the first ChildCarthed filtered by the cardcode column
- * @method     ChildCarthed findOneByCardapproval(string $cardapproval) Return the first ChildCarthed filtered by the cardapproval column
- * @method     ChildCarthed findOneByTotalcost(string $totalcost) Return the first ChildCarthed filtered by the totalcost column
- * @method     ChildCarthed findOneByTotaldiscount(string $totaldiscount) Return the first ChildCarthed filtered by the totaldiscount column
- * @method     ChildCarthed findOneByPaymenttype(string $paymenttype) Return the first ChildCarthed filtered by the paymenttype column
- * @method     ChildCarthed findOneBySrcdatefrom(string $srcdatefrom) Return the first ChildCarthed filtered by the srcdatefrom column
- * @method     ChildCarthed findOneBySrcdatethru(string $srcdatethru) Return the first ChildCarthed filtered by the srcdatethru column
- * @method     ChildCarthed findOneByDummy(string $dummy) Return the first ChildCarthed filtered by the dummy column *
-
- * @method     ChildCarthed requirePk($key, ConnectionInterface $con = null) Return the ChildCarthed by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCarthed requireOne(ConnectionInterface $con = null) Return the first ChildCarthed matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCarthed|null findOneBySessionid(string $sessionid) Return the first ChildCarthed filtered by the sessionid column
+ * @method     ChildCarthed|null findOneByRecno(int $recno) Return the first ChildCarthed filtered by the recno column
+ * @method     ChildCarthed|null findOneByDate(int $date) Return the first ChildCarthed filtered by the date column
+ * @method     ChildCarthed|null findOneByTime(int $time) Return the first ChildCarthed filtered by the time column
+ * @method     ChildCarthed|null findOneByCustid(string $custid) Return the first ChildCarthed filtered by the custid column
+ * @method     ChildCarthed|null findOneByShiptoid(string $shiptoid) Return the first ChildCarthed filtered by the shiptoid column
+ * @method     ChildCarthed|null findOneByCustname(string $custname) Return the first ChildCarthed filtered by the custname column
+ * @method     ChildCarthed|null findOneByOrderno(string $orderno) Return the first ChildCarthed filtered by the orderno column
+ * @method     ChildCarthed|null findOneByCustpo(string $custpo) Return the first ChildCarthed filtered by the custpo column
+ * @method     ChildCarthed|null findOneByStatus(string $status) Return the first ChildCarthed filtered by the status column
+ * @method     ChildCarthed|null findOneByOrderdate(string $orderdate) Return the first ChildCarthed filtered by the orderdate column
+ * @method     ChildCarthed|null findOneByInvdate(string $invdate) Return the first ChildCarthed filtered by the invdate column
+ * @method     ChildCarthed|null findOneByShipdate(string $shipdate) Return the first ChildCarthed filtered by the shipdate column
+ * @method     ChildCarthed|null findOneByHasdocuments(string $hasdocuments) Return the first ChildCarthed filtered by the hasdocuments column
+ * @method     ChildCarthed|null findOneByHastracking(string $hastracking) Return the first ChildCarthed filtered by the hastracking column
+ * @method     ChildCarthed|null findOneBySubtotal(string $subtotal) Return the first ChildCarthed filtered by the subtotal column
+ * @method     ChildCarthed|null findOneBySalestax(string $salestax) Return the first ChildCarthed filtered by the salestax column
+ * @method     ChildCarthed|null findOneByFreight(string $freight) Return the first ChildCarthed filtered by the freight column
+ * @method     ChildCarthed|null findOneByMisccost(string $misccost) Return the first ChildCarthed filtered by the misccost column
+ * @method     ChildCarthed|null findOneByOrdertotal(string $ordertotal) Return the first ChildCarthed filtered by the ordertotal column
+ * @method     ChildCarthed|null findOneByHasnotes(string $hasnotes) Return the first ChildCarthed filtered by the hasnotes column
+ * @method     ChildCarthed|null findOneByEditord(string $editord) Return the first ChildCarthed filtered by the editord column
+ * @method     ChildCarthed|null findOneByError(string $error) Return the first ChildCarthed filtered by the error column
+ * @method     ChildCarthed|null findOneByErrormsg(string $errormsg) Return the first ChildCarthed filtered by the errormsg column
+ * @method     ChildCarthed|null findOneBySconame(string $sconame) Return the first ChildCarthed filtered by the sconame column
+ * @method     ChildCarthed|null findOneByShipname(string $shipname) Return the first ChildCarthed filtered by the shipname column
+ * @method     ChildCarthed|null findOneByShipaddress(string $shipaddress) Return the first ChildCarthed filtered by the shipaddress column
+ * @method     ChildCarthed|null findOneByShipaddress2(string $shipaddress2) Return the first ChildCarthed filtered by the shipaddress2 column
+ * @method     ChildCarthed|null findOneByShipcity(string $shipcity) Return the first ChildCarthed filtered by the shipcity column
+ * @method     ChildCarthed|null findOneByShipstate(string $shipstate) Return the first ChildCarthed filtered by the shipstate column
+ * @method     ChildCarthed|null findOneByShipzip(string $shipzip) Return the first ChildCarthed filtered by the shipzip column
+ * @method     ChildCarthed|null findOneByShipcountry(string $shipcountry) Return the first ChildCarthed filtered by the shipcountry column
+ * @method     ChildCarthed|null findOneByContact(string $contact) Return the first ChildCarthed filtered by the contact column
+ * @method     ChildCarthed|null findOneByPhintl(string $phintl) Return the first ChildCarthed filtered by the phintl column
+ * @method     ChildCarthed|null findOneByPhone(string $phone) Return the first ChildCarthed filtered by the phone column
+ * @method     ChildCarthed|null findOneByExtension(string $extension) Return the first ChildCarthed filtered by the extension column
+ * @method     ChildCarthed|null findOneByFaxnbr(string $faxnbr) Return the first ChildCarthed filtered by the faxnbr column
+ * @method     ChildCarthed|null findOneByEmail(string $email) Return the first ChildCarthed filtered by the email column
+ * @method     ChildCarthed|null findOneByReleasenbr(string $releasenbr) Return the first ChildCarthed filtered by the releasenbr column
+ * @method     ChildCarthed|null findOneByShipviacd(string $shipviacd) Return the first ChildCarthed filtered by the shipviacd column
+ * @method     ChildCarthed|null findOneByShipviadesc(string $shipviadesc) Return the first ChildCarthed filtered by the shipviadesc column
+ * @method     ChildCarthed|null findOneByTermcode(string $termcode) Return the first ChildCarthed filtered by the termcode column
+ * @method     ChildCarthed|null findOneByTermtype(string $termtype) Return the first ChildCarthed filtered by the termtype column
+ * @method     ChildCarthed|null findOneByTermdesc(string $termdesc) Return the first ChildCarthed filtered by the termdesc column
+ * @method     ChildCarthed|null findOneByRqstdate(string $rqstdate) Return the first ChildCarthed filtered by the rqstdate column
+ * @method     ChildCarthed|null findOneByShipcom(string $shipcom) Return the first ChildCarthed filtered by the shipcom column
+ * @method     ChildCarthed|null findOneBySp1(string $sp1) Return the first ChildCarthed filtered by the sp1 column
+ * @method     ChildCarthed|null findOneBySp1name(string $sp1name) Return the first ChildCarthed filtered by the sp1name column
+ * @method     ChildCarthed|null findOneByCardnumber(string $cardnumber) Return the first ChildCarthed filtered by the cardnumber column
+ * @method     ChildCarthed|null findOneByCardexpire(string $cardexpire) Return the first ChildCarthed filtered by the cardexpire column
+ * @method     ChildCarthed|null findOneByCardcode(string $cardcode) Return the first ChildCarthed filtered by the cardcode column
+ * @method     ChildCarthed|null findOneByCardapproval(string $cardapproval) Return the first ChildCarthed filtered by the cardapproval column
+ * @method     ChildCarthed|null findOneByTotalcost(string $totalcost) Return the first ChildCarthed filtered by the totalcost column
+ * @method     ChildCarthed|null findOneByTotaldiscount(string $totaldiscount) Return the first ChildCarthed filtered by the totaldiscount column
+ * @method     ChildCarthed|null findOneByPaymenttype(string $paymenttype) Return the first ChildCarthed filtered by the paymenttype column
+ * @method     ChildCarthed|null findOneBySrcdatefrom(string $srcdatefrom) Return the first ChildCarthed filtered by the srcdatefrom column
+ * @method     ChildCarthed|null findOneBySrcdatethru(string $srcdatethru) Return the first ChildCarthed filtered by the srcdatethru column
+ * @method     ChildCarthed|null findOneByDummy(string $dummy) Return the first ChildCarthed filtered by the dummy column
+ *
+ * @method     ChildCarthed requirePk($key, ?ConnectionInterface $con = null) Return the ChildCarthed by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCarthed requireOne(?ConnectionInterface $con = null) Return the first ChildCarthed matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildCarthed requireOneBySessionid(string $sessionid) Return the first ChildCarthed filtered by the sessionid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCarthed requireOneByRecno(int $recno) Return the first ChildCarthed filtered by the recno column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -269,67 +267,128 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCarthed requireOneBySrcdatethru(string $srcdatethru) Return the first ChildCarthed filtered by the srcdatethru column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCarthed requireOneByDummy(string $dummy) Return the first ChildCarthed filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildCarthed[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildCarthed objects based on current ModelCriteria
- * @method     ChildCarthed[]|ObjectCollection findBySessionid(string $sessionid) Return ChildCarthed objects filtered by the sessionid column
- * @method     ChildCarthed[]|ObjectCollection findByRecno(int $recno) Return ChildCarthed objects filtered by the recno column
- * @method     ChildCarthed[]|ObjectCollection findByDate(int $date) Return ChildCarthed objects filtered by the date column
- * @method     ChildCarthed[]|ObjectCollection findByTime(int $time) Return ChildCarthed objects filtered by the time column
- * @method     ChildCarthed[]|ObjectCollection findByCustid(string $custid) Return ChildCarthed objects filtered by the custid column
- * @method     ChildCarthed[]|ObjectCollection findByShiptoid(string $shiptoid) Return ChildCarthed objects filtered by the shiptoid column
- * @method     ChildCarthed[]|ObjectCollection findByCustname(string $custname) Return ChildCarthed objects filtered by the custname column
- * @method     ChildCarthed[]|ObjectCollection findByOrderno(string $orderno) Return ChildCarthed objects filtered by the orderno column
- * @method     ChildCarthed[]|ObjectCollection findByCustpo(string $custpo) Return ChildCarthed objects filtered by the custpo column
- * @method     ChildCarthed[]|ObjectCollection findByStatus(string $status) Return ChildCarthed objects filtered by the status column
- * @method     ChildCarthed[]|ObjectCollection findByOrderdate(string $orderdate) Return ChildCarthed objects filtered by the orderdate column
- * @method     ChildCarthed[]|ObjectCollection findByInvdate(string $invdate) Return ChildCarthed objects filtered by the invdate column
- * @method     ChildCarthed[]|ObjectCollection findByShipdate(string $shipdate) Return ChildCarthed objects filtered by the shipdate column
- * @method     ChildCarthed[]|ObjectCollection findByHasdocuments(string $hasdocuments) Return ChildCarthed objects filtered by the hasdocuments column
- * @method     ChildCarthed[]|ObjectCollection findByHastracking(string $hastracking) Return ChildCarthed objects filtered by the hastracking column
- * @method     ChildCarthed[]|ObjectCollection findBySubtotal(string $subtotal) Return ChildCarthed objects filtered by the subtotal column
- * @method     ChildCarthed[]|ObjectCollection findBySalestax(string $salestax) Return ChildCarthed objects filtered by the salestax column
- * @method     ChildCarthed[]|ObjectCollection findByFreight(string $freight) Return ChildCarthed objects filtered by the freight column
- * @method     ChildCarthed[]|ObjectCollection findByMisccost(string $misccost) Return ChildCarthed objects filtered by the misccost column
- * @method     ChildCarthed[]|ObjectCollection findByOrdertotal(string $ordertotal) Return ChildCarthed objects filtered by the ordertotal column
- * @method     ChildCarthed[]|ObjectCollection findByHasnotes(string $hasnotes) Return ChildCarthed objects filtered by the hasnotes column
- * @method     ChildCarthed[]|ObjectCollection findByEditord(string $editord) Return ChildCarthed objects filtered by the editord column
- * @method     ChildCarthed[]|ObjectCollection findByError(string $error) Return ChildCarthed objects filtered by the error column
- * @method     ChildCarthed[]|ObjectCollection findByErrormsg(string $errormsg) Return ChildCarthed objects filtered by the errormsg column
- * @method     ChildCarthed[]|ObjectCollection findBySconame(string $sconame) Return ChildCarthed objects filtered by the sconame column
- * @method     ChildCarthed[]|ObjectCollection findByShipname(string $shipname) Return ChildCarthed objects filtered by the shipname column
- * @method     ChildCarthed[]|ObjectCollection findByShipaddress(string $shipaddress) Return ChildCarthed objects filtered by the shipaddress column
- * @method     ChildCarthed[]|ObjectCollection findByShipaddress2(string $shipaddress2) Return ChildCarthed objects filtered by the shipaddress2 column
- * @method     ChildCarthed[]|ObjectCollection findByShipcity(string $shipcity) Return ChildCarthed objects filtered by the shipcity column
- * @method     ChildCarthed[]|ObjectCollection findByShipstate(string $shipstate) Return ChildCarthed objects filtered by the shipstate column
- * @method     ChildCarthed[]|ObjectCollection findByShipzip(string $shipzip) Return ChildCarthed objects filtered by the shipzip column
- * @method     ChildCarthed[]|ObjectCollection findByShipcountry(string $shipcountry) Return ChildCarthed objects filtered by the shipcountry column
- * @method     ChildCarthed[]|ObjectCollection findByContact(string $contact) Return ChildCarthed objects filtered by the contact column
- * @method     ChildCarthed[]|ObjectCollection findByPhintl(string $phintl) Return ChildCarthed objects filtered by the phintl column
- * @method     ChildCarthed[]|ObjectCollection findByPhone(string $phone) Return ChildCarthed objects filtered by the phone column
- * @method     ChildCarthed[]|ObjectCollection findByExtension(string $extension) Return ChildCarthed objects filtered by the extension column
- * @method     ChildCarthed[]|ObjectCollection findByFaxnbr(string $faxnbr) Return ChildCarthed objects filtered by the faxnbr column
- * @method     ChildCarthed[]|ObjectCollection findByEmail(string $email) Return ChildCarthed objects filtered by the email column
- * @method     ChildCarthed[]|ObjectCollection findByReleasenbr(string $releasenbr) Return ChildCarthed objects filtered by the releasenbr column
- * @method     ChildCarthed[]|ObjectCollection findByShipviacd(string $shipviacd) Return ChildCarthed objects filtered by the shipviacd column
- * @method     ChildCarthed[]|ObjectCollection findByShipviadesc(string $shipviadesc) Return ChildCarthed objects filtered by the shipviadesc column
- * @method     ChildCarthed[]|ObjectCollection findByTermcode(string $termcode) Return ChildCarthed objects filtered by the termcode column
- * @method     ChildCarthed[]|ObjectCollection findByTermtype(string $termtype) Return ChildCarthed objects filtered by the termtype column
- * @method     ChildCarthed[]|ObjectCollection findByTermdesc(string $termdesc) Return ChildCarthed objects filtered by the termdesc column
- * @method     ChildCarthed[]|ObjectCollection findByRqstdate(string $rqstdate) Return ChildCarthed objects filtered by the rqstdate column
- * @method     ChildCarthed[]|ObjectCollection findByShipcom(string $shipcom) Return ChildCarthed objects filtered by the shipcom column
- * @method     ChildCarthed[]|ObjectCollection findBySp1(string $sp1) Return ChildCarthed objects filtered by the sp1 column
- * @method     ChildCarthed[]|ObjectCollection findBySp1name(string $sp1name) Return ChildCarthed objects filtered by the sp1name column
- * @method     ChildCarthed[]|ObjectCollection findByCardnumber(string $cardnumber) Return ChildCarthed objects filtered by the cardnumber column
- * @method     ChildCarthed[]|ObjectCollection findByCardexpire(string $cardexpire) Return ChildCarthed objects filtered by the cardexpire column
- * @method     ChildCarthed[]|ObjectCollection findByCardcode(string $cardcode) Return ChildCarthed objects filtered by the cardcode column
- * @method     ChildCarthed[]|ObjectCollection findByCardapproval(string $cardapproval) Return ChildCarthed objects filtered by the cardapproval column
- * @method     ChildCarthed[]|ObjectCollection findByTotalcost(string $totalcost) Return ChildCarthed objects filtered by the totalcost column
- * @method     ChildCarthed[]|ObjectCollection findByTotaldiscount(string $totaldiscount) Return ChildCarthed objects filtered by the totaldiscount column
- * @method     ChildCarthed[]|ObjectCollection findByPaymenttype(string $paymenttype) Return ChildCarthed objects filtered by the paymenttype column
- * @method     ChildCarthed[]|ObjectCollection findBySrcdatefrom(string $srcdatefrom) Return ChildCarthed objects filtered by the srcdatefrom column
- * @method     ChildCarthed[]|ObjectCollection findBySrcdatethru(string $srcdatethru) Return ChildCarthed objects filtered by the srcdatethru column
- * @method     ChildCarthed[]|ObjectCollection findByDummy(string $dummy) Return ChildCarthed objects filtered by the dummy column
- * @method     ChildCarthed[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildCarthed[]|Collection find(?ConnectionInterface $con = null) Return ChildCarthed objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildCarthed> find(?ConnectionInterface $con = null) Return ChildCarthed objects based on current ModelCriteria
  *
+ * @method     ChildCarthed[]|Collection findBySessionid(string|array<string> $sessionid) Return ChildCarthed objects filtered by the sessionid column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findBySessionid(string|array<string> $sessionid) Return ChildCarthed objects filtered by the sessionid column
+ * @method     ChildCarthed[]|Collection findByRecno(int|array<int> $recno) Return ChildCarthed objects filtered by the recno column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByRecno(int|array<int> $recno) Return ChildCarthed objects filtered by the recno column
+ * @method     ChildCarthed[]|Collection findByDate(int|array<int> $date) Return ChildCarthed objects filtered by the date column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByDate(int|array<int> $date) Return ChildCarthed objects filtered by the date column
+ * @method     ChildCarthed[]|Collection findByTime(int|array<int> $time) Return ChildCarthed objects filtered by the time column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByTime(int|array<int> $time) Return ChildCarthed objects filtered by the time column
+ * @method     ChildCarthed[]|Collection findByCustid(string|array<string> $custid) Return ChildCarthed objects filtered by the custid column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByCustid(string|array<string> $custid) Return ChildCarthed objects filtered by the custid column
+ * @method     ChildCarthed[]|Collection findByShiptoid(string|array<string> $shiptoid) Return ChildCarthed objects filtered by the shiptoid column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByShiptoid(string|array<string> $shiptoid) Return ChildCarthed objects filtered by the shiptoid column
+ * @method     ChildCarthed[]|Collection findByCustname(string|array<string> $custname) Return ChildCarthed objects filtered by the custname column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByCustname(string|array<string> $custname) Return ChildCarthed objects filtered by the custname column
+ * @method     ChildCarthed[]|Collection findByOrderno(string|array<string> $orderno) Return ChildCarthed objects filtered by the orderno column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByOrderno(string|array<string> $orderno) Return ChildCarthed objects filtered by the orderno column
+ * @method     ChildCarthed[]|Collection findByCustpo(string|array<string> $custpo) Return ChildCarthed objects filtered by the custpo column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByCustpo(string|array<string> $custpo) Return ChildCarthed objects filtered by the custpo column
+ * @method     ChildCarthed[]|Collection findByStatus(string|array<string> $status) Return ChildCarthed objects filtered by the status column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByStatus(string|array<string> $status) Return ChildCarthed objects filtered by the status column
+ * @method     ChildCarthed[]|Collection findByOrderdate(string|array<string> $orderdate) Return ChildCarthed objects filtered by the orderdate column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByOrderdate(string|array<string> $orderdate) Return ChildCarthed objects filtered by the orderdate column
+ * @method     ChildCarthed[]|Collection findByInvdate(string|array<string> $invdate) Return ChildCarthed objects filtered by the invdate column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByInvdate(string|array<string> $invdate) Return ChildCarthed objects filtered by the invdate column
+ * @method     ChildCarthed[]|Collection findByShipdate(string|array<string> $shipdate) Return ChildCarthed objects filtered by the shipdate column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByShipdate(string|array<string> $shipdate) Return ChildCarthed objects filtered by the shipdate column
+ * @method     ChildCarthed[]|Collection findByHasdocuments(string|array<string> $hasdocuments) Return ChildCarthed objects filtered by the hasdocuments column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByHasdocuments(string|array<string> $hasdocuments) Return ChildCarthed objects filtered by the hasdocuments column
+ * @method     ChildCarthed[]|Collection findByHastracking(string|array<string> $hastracking) Return ChildCarthed objects filtered by the hastracking column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByHastracking(string|array<string> $hastracking) Return ChildCarthed objects filtered by the hastracking column
+ * @method     ChildCarthed[]|Collection findBySubtotal(string|array<string> $subtotal) Return ChildCarthed objects filtered by the subtotal column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findBySubtotal(string|array<string> $subtotal) Return ChildCarthed objects filtered by the subtotal column
+ * @method     ChildCarthed[]|Collection findBySalestax(string|array<string> $salestax) Return ChildCarthed objects filtered by the salestax column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findBySalestax(string|array<string> $salestax) Return ChildCarthed objects filtered by the salestax column
+ * @method     ChildCarthed[]|Collection findByFreight(string|array<string> $freight) Return ChildCarthed objects filtered by the freight column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByFreight(string|array<string> $freight) Return ChildCarthed objects filtered by the freight column
+ * @method     ChildCarthed[]|Collection findByMisccost(string|array<string> $misccost) Return ChildCarthed objects filtered by the misccost column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByMisccost(string|array<string> $misccost) Return ChildCarthed objects filtered by the misccost column
+ * @method     ChildCarthed[]|Collection findByOrdertotal(string|array<string> $ordertotal) Return ChildCarthed objects filtered by the ordertotal column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByOrdertotal(string|array<string> $ordertotal) Return ChildCarthed objects filtered by the ordertotal column
+ * @method     ChildCarthed[]|Collection findByHasnotes(string|array<string> $hasnotes) Return ChildCarthed objects filtered by the hasnotes column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByHasnotes(string|array<string> $hasnotes) Return ChildCarthed objects filtered by the hasnotes column
+ * @method     ChildCarthed[]|Collection findByEditord(string|array<string> $editord) Return ChildCarthed objects filtered by the editord column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByEditord(string|array<string> $editord) Return ChildCarthed objects filtered by the editord column
+ * @method     ChildCarthed[]|Collection findByError(string|array<string> $error) Return ChildCarthed objects filtered by the error column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByError(string|array<string> $error) Return ChildCarthed objects filtered by the error column
+ * @method     ChildCarthed[]|Collection findByErrormsg(string|array<string> $errormsg) Return ChildCarthed objects filtered by the errormsg column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByErrormsg(string|array<string> $errormsg) Return ChildCarthed objects filtered by the errormsg column
+ * @method     ChildCarthed[]|Collection findBySconame(string|array<string> $sconame) Return ChildCarthed objects filtered by the sconame column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findBySconame(string|array<string> $sconame) Return ChildCarthed objects filtered by the sconame column
+ * @method     ChildCarthed[]|Collection findByShipname(string|array<string> $shipname) Return ChildCarthed objects filtered by the shipname column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByShipname(string|array<string> $shipname) Return ChildCarthed objects filtered by the shipname column
+ * @method     ChildCarthed[]|Collection findByShipaddress(string|array<string> $shipaddress) Return ChildCarthed objects filtered by the shipaddress column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByShipaddress(string|array<string> $shipaddress) Return ChildCarthed objects filtered by the shipaddress column
+ * @method     ChildCarthed[]|Collection findByShipaddress2(string|array<string> $shipaddress2) Return ChildCarthed objects filtered by the shipaddress2 column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByShipaddress2(string|array<string> $shipaddress2) Return ChildCarthed objects filtered by the shipaddress2 column
+ * @method     ChildCarthed[]|Collection findByShipcity(string|array<string> $shipcity) Return ChildCarthed objects filtered by the shipcity column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByShipcity(string|array<string> $shipcity) Return ChildCarthed objects filtered by the shipcity column
+ * @method     ChildCarthed[]|Collection findByShipstate(string|array<string> $shipstate) Return ChildCarthed objects filtered by the shipstate column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByShipstate(string|array<string> $shipstate) Return ChildCarthed objects filtered by the shipstate column
+ * @method     ChildCarthed[]|Collection findByShipzip(string|array<string> $shipzip) Return ChildCarthed objects filtered by the shipzip column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByShipzip(string|array<string> $shipzip) Return ChildCarthed objects filtered by the shipzip column
+ * @method     ChildCarthed[]|Collection findByShipcountry(string|array<string> $shipcountry) Return ChildCarthed objects filtered by the shipcountry column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByShipcountry(string|array<string> $shipcountry) Return ChildCarthed objects filtered by the shipcountry column
+ * @method     ChildCarthed[]|Collection findByContact(string|array<string> $contact) Return ChildCarthed objects filtered by the contact column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByContact(string|array<string> $contact) Return ChildCarthed objects filtered by the contact column
+ * @method     ChildCarthed[]|Collection findByPhintl(string|array<string> $phintl) Return ChildCarthed objects filtered by the phintl column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByPhintl(string|array<string> $phintl) Return ChildCarthed objects filtered by the phintl column
+ * @method     ChildCarthed[]|Collection findByPhone(string|array<string> $phone) Return ChildCarthed objects filtered by the phone column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByPhone(string|array<string> $phone) Return ChildCarthed objects filtered by the phone column
+ * @method     ChildCarthed[]|Collection findByExtension(string|array<string> $extension) Return ChildCarthed objects filtered by the extension column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByExtension(string|array<string> $extension) Return ChildCarthed objects filtered by the extension column
+ * @method     ChildCarthed[]|Collection findByFaxnbr(string|array<string> $faxnbr) Return ChildCarthed objects filtered by the faxnbr column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByFaxnbr(string|array<string> $faxnbr) Return ChildCarthed objects filtered by the faxnbr column
+ * @method     ChildCarthed[]|Collection findByEmail(string|array<string> $email) Return ChildCarthed objects filtered by the email column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByEmail(string|array<string> $email) Return ChildCarthed objects filtered by the email column
+ * @method     ChildCarthed[]|Collection findByReleasenbr(string|array<string> $releasenbr) Return ChildCarthed objects filtered by the releasenbr column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByReleasenbr(string|array<string> $releasenbr) Return ChildCarthed objects filtered by the releasenbr column
+ * @method     ChildCarthed[]|Collection findByShipviacd(string|array<string> $shipviacd) Return ChildCarthed objects filtered by the shipviacd column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByShipviacd(string|array<string> $shipviacd) Return ChildCarthed objects filtered by the shipviacd column
+ * @method     ChildCarthed[]|Collection findByShipviadesc(string|array<string> $shipviadesc) Return ChildCarthed objects filtered by the shipviadesc column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByShipviadesc(string|array<string> $shipviadesc) Return ChildCarthed objects filtered by the shipviadesc column
+ * @method     ChildCarthed[]|Collection findByTermcode(string|array<string> $termcode) Return ChildCarthed objects filtered by the termcode column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByTermcode(string|array<string> $termcode) Return ChildCarthed objects filtered by the termcode column
+ * @method     ChildCarthed[]|Collection findByTermtype(string|array<string> $termtype) Return ChildCarthed objects filtered by the termtype column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByTermtype(string|array<string> $termtype) Return ChildCarthed objects filtered by the termtype column
+ * @method     ChildCarthed[]|Collection findByTermdesc(string|array<string> $termdesc) Return ChildCarthed objects filtered by the termdesc column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByTermdesc(string|array<string> $termdesc) Return ChildCarthed objects filtered by the termdesc column
+ * @method     ChildCarthed[]|Collection findByRqstdate(string|array<string> $rqstdate) Return ChildCarthed objects filtered by the rqstdate column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByRqstdate(string|array<string> $rqstdate) Return ChildCarthed objects filtered by the rqstdate column
+ * @method     ChildCarthed[]|Collection findByShipcom(string|array<string> $shipcom) Return ChildCarthed objects filtered by the shipcom column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByShipcom(string|array<string> $shipcom) Return ChildCarthed objects filtered by the shipcom column
+ * @method     ChildCarthed[]|Collection findBySp1(string|array<string> $sp1) Return ChildCarthed objects filtered by the sp1 column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findBySp1(string|array<string> $sp1) Return ChildCarthed objects filtered by the sp1 column
+ * @method     ChildCarthed[]|Collection findBySp1name(string|array<string> $sp1name) Return ChildCarthed objects filtered by the sp1name column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findBySp1name(string|array<string> $sp1name) Return ChildCarthed objects filtered by the sp1name column
+ * @method     ChildCarthed[]|Collection findByCardnumber(string|array<string> $cardnumber) Return ChildCarthed objects filtered by the cardnumber column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByCardnumber(string|array<string> $cardnumber) Return ChildCarthed objects filtered by the cardnumber column
+ * @method     ChildCarthed[]|Collection findByCardexpire(string|array<string> $cardexpire) Return ChildCarthed objects filtered by the cardexpire column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByCardexpire(string|array<string> $cardexpire) Return ChildCarthed objects filtered by the cardexpire column
+ * @method     ChildCarthed[]|Collection findByCardcode(string|array<string> $cardcode) Return ChildCarthed objects filtered by the cardcode column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByCardcode(string|array<string> $cardcode) Return ChildCarthed objects filtered by the cardcode column
+ * @method     ChildCarthed[]|Collection findByCardapproval(string|array<string> $cardapproval) Return ChildCarthed objects filtered by the cardapproval column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByCardapproval(string|array<string> $cardapproval) Return ChildCarthed objects filtered by the cardapproval column
+ * @method     ChildCarthed[]|Collection findByTotalcost(string|array<string> $totalcost) Return ChildCarthed objects filtered by the totalcost column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByTotalcost(string|array<string> $totalcost) Return ChildCarthed objects filtered by the totalcost column
+ * @method     ChildCarthed[]|Collection findByTotaldiscount(string|array<string> $totaldiscount) Return ChildCarthed objects filtered by the totaldiscount column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByTotaldiscount(string|array<string> $totaldiscount) Return ChildCarthed objects filtered by the totaldiscount column
+ * @method     ChildCarthed[]|Collection findByPaymenttype(string|array<string> $paymenttype) Return ChildCarthed objects filtered by the paymenttype column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByPaymenttype(string|array<string> $paymenttype) Return ChildCarthed objects filtered by the paymenttype column
+ * @method     ChildCarthed[]|Collection findBySrcdatefrom(string|array<string> $srcdatefrom) Return ChildCarthed objects filtered by the srcdatefrom column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findBySrcdatefrom(string|array<string> $srcdatefrom) Return ChildCarthed objects filtered by the srcdatefrom column
+ * @method     ChildCarthed[]|Collection findBySrcdatethru(string|array<string> $srcdatethru) Return ChildCarthed objects filtered by the srcdatethru column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findBySrcdatethru(string|array<string> $srcdatethru) Return ChildCarthed objects filtered by the srcdatethru column
+ * @method     ChildCarthed[]|Collection findByDummy(string|array<string> $dummy) Return ChildCarthed objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildCarthed> findByDummy(string|array<string> $dummy) Return ChildCarthed objects filtered by the dummy column
+ *
+ * @method     ChildCarthed[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildCarthed> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class CarthedQuery extends ModelCriteria
 {
@@ -338,9 +397,9 @@ abstract class CarthedQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\CarthedQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'dplusodb', $modelName = '\\Carthed', $modelAlias = null)
     {
@@ -350,12 +409,12 @@ abstract class CarthedQuery extends ModelCriteria
     /**
      * Returns a new ChildCarthedQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildCarthedQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildCarthedQuery) {
             return $criteria;
@@ -385,7 +444,7 @@ abstract class CarthedQuery extends ModelCriteria
      *
      * @return ChildCarthed|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -417,8 +476,8 @@ abstract class CarthedQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -451,8 +510,8 @@ abstract class CarthedQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildCarthed|array|mixed the result, formatted by the current formatter
      */
@@ -472,12 +531,12 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -494,9 +553,9 @@ abstract class CarthedQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -509,14 +568,16 @@ abstract class CarthedQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(CarthedTableMap::COL_SESSIONID, $key[0], Criteria::EQUAL);
@@ -535,14 +596,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterBySessionid('fooValue');   // WHERE sessionid = 'fooValue'
      * $query->filterBySessionid('%fooValue%', Criteria::LIKE); // WHERE sessionid LIKE '%fooValue%'
+     * $query->filterBySessionid(['foo', 'bar']); // WHERE sessionid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sessionid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sessionid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySessionid($sessionid = null, $comparison = null)
+    public function filterBySessionid($sessionid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sessionid)) {
@@ -550,7 +612,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_SESSIONID, $sessionid, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_SESSIONID, $sessionid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -563,15 +627,15 @@ abstract class CarthedQuery extends ModelCriteria
      * $query->filterByRecno(array('min' => 12)); // WHERE recno > 12
      * </code>
      *
-     * @param     mixed $recno The value to use as filter.
+     * @param mixed $recno The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByRecno($recno = null, $comparison = null)
+    public function filterByRecno($recno = null, ?string $comparison = null)
     {
         if (is_array($recno)) {
             $useMinMax = false;
@@ -591,7 +655,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_RECNO, $recno, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_RECNO, $recno, $comparison);
+
+        return $this;
     }
 
     /**
@@ -604,15 +670,15 @@ abstract class CarthedQuery extends ModelCriteria
      * $query->filterByDate(array('min' => 12)); // WHERE date > 12
      * </code>
      *
-     * @param     mixed $date The value to use as filter.
+     * @param mixed $date The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDate($date = null, $comparison = null)
+    public function filterByDate($date = null, ?string $comparison = null)
     {
         if (is_array($date)) {
             $useMinMax = false;
@@ -632,7 +698,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_DATE, $date, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_DATE, $date, $comparison);
+
+        return $this;
     }
 
     /**
@@ -645,15 +713,15 @@ abstract class CarthedQuery extends ModelCriteria
      * $query->filterByTime(array('min' => 12)); // WHERE time > 12
      * </code>
      *
-     * @param     mixed $time The value to use as filter.
+     * @param mixed $time The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTime($time = null, $comparison = null)
+    public function filterByTime($time = null, ?string $comparison = null)
     {
         if (is_array($time)) {
             $useMinMax = false;
@@ -673,7 +741,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_TIME, $time, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_TIME, $time, $comparison);
+
+        return $this;
     }
 
     /**
@@ -683,14 +753,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByCustid('fooValue');   // WHERE custid = 'fooValue'
      * $query->filterByCustid('%fooValue%', Criteria::LIKE); // WHERE custid LIKE '%fooValue%'
+     * $query->filterByCustid(['foo', 'bar']); // WHERE custid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $custid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $custid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustid($custid = null, $comparison = null)
+    public function filterByCustid($custid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($custid)) {
@@ -698,7 +769,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_CUSTID, $custid, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_CUSTID, $custid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -708,14 +781,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByShiptoid('fooValue');   // WHERE shiptoid = 'fooValue'
      * $query->filterByShiptoid('%fooValue%', Criteria::LIKE); // WHERE shiptoid LIKE '%fooValue%'
+     * $query->filterByShiptoid(['foo', 'bar']); // WHERE shiptoid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shiptoid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shiptoid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShiptoid($shiptoid = null, $comparison = null)
+    public function filterByShiptoid($shiptoid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shiptoid)) {
@@ -723,7 +797,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_SHIPTOID, $shiptoid, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_SHIPTOID, $shiptoid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -733,14 +809,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByCustname('fooValue');   // WHERE custname = 'fooValue'
      * $query->filterByCustname('%fooValue%', Criteria::LIKE); // WHERE custname LIKE '%fooValue%'
+     * $query->filterByCustname(['foo', 'bar']); // WHERE custname IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $custname The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $custname The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustname($custname = null, $comparison = null)
+    public function filterByCustname($custname = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($custname)) {
@@ -748,7 +825,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_CUSTNAME, $custname, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_CUSTNAME, $custname, $comparison);
+
+        return $this;
     }
 
     /**
@@ -758,14 +837,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByOrderno('fooValue');   // WHERE orderno = 'fooValue'
      * $query->filterByOrderno('%fooValue%', Criteria::LIKE); // WHERE orderno LIKE '%fooValue%'
+     * $query->filterByOrderno(['foo', 'bar']); // WHERE orderno IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $orderno The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $orderno The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOrderno($orderno = null, $comparison = null)
+    public function filterByOrderno($orderno = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($orderno)) {
@@ -773,7 +853,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_ORDERNO, $orderno, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_ORDERNO, $orderno, $comparison);
+
+        return $this;
     }
 
     /**
@@ -783,14 +865,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByCustpo('fooValue');   // WHERE custpo = 'fooValue'
      * $query->filterByCustpo('%fooValue%', Criteria::LIKE); // WHERE custpo LIKE '%fooValue%'
+     * $query->filterByCustpo(['foo', 'bar']); // WHERE custpo IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $custpo The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $custpo The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustpo($custpo = null, $comparison = null)
+    public function filterByCustpo($custpo = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($custpo)) {
@@ -798,7 +881,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_CUSTPO, $custpo, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_CUSTPO, $custpo, $comparison);
+
+        return $this;
     }
 
     /**
@@ -808,14 +893,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByStatus('fooValue');   // WHERE status = 'fooValue'
      * $query->filterByStatus('%fooValue%', Criteria::LIKE); // WHERE status LIKE '%fooValue%'
+     * $query->filterByStatus(['foo', 'bar']); // WHERE status IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $status The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $status The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByStatus($status = null, $comparison = null)
+    public function filterByStatus($status = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($status)) {
@@ -823,7 +909,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_STATUS, $status, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_STATUS, $status, $comparison);
+
+        return $this;
     }
 
     /**
@@ -833,14 +921,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByOrderdate('fooValue');   // WHERE orderdate = 'fooValue'
      * $query->filterByOrderdate('%fooValue%', Criteria::LIKE); // WHERE orderdate LIKE '%fooValue%'
+     * $query->filterByOrderdate(['foo', 'bar']); // WHERE orderdate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $orderdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $orderdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOrderdate($orderdate = null, $comparison = null)
+    public function filterByOrderdate($orderdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($orderdate)) {
@@ -848,7 +937,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_ORDERDATE, $orderdate, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_ORDERDATE, $orderdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -858,14 +949,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByInvdate('fooValue');   // WHERE invdate = 'fooValue'
      * $query->filterByInvdate('%fooValue%', Criteria::LIKE); // WHERE invdate LIKE '%fooValue%'
+     * $query->filterByInvdate(['foo', 'bar']); // WHERE invdate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $invdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $invdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvdate($invdate = null, $comparison = null)
+    public function filterByInvdate($invdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($invdate)) {
@@ -873,7 +965,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_INVDATE, $invdate, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_INVDATE, $invdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -883,14 +977,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByShipdate('fooValue');   // WHERE shipdate = 'fooValue'
      * $query->filterByShipdate('%fooValue%', Criteria::LIKE); // WHERE shipdate LIKE '%fooValue%'
+     * $query->filterByShipdate(['foo', 'bar']); // WHERE shipdate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shipdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shipdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipdate($shipdate = null, $comparison = null)
+    public function filterByShipdate($shipdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shipdate)) {
@@ -898,7 +993,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_SHIPDATE, $shipdate, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_SHIPDATE, $shipdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -908,14 +1005,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByHasdocuments('fooValue');   // WHERE hasdocuments = 'fooValue'
      * $query->filterByHasdocuments('%fooValue%', Criteria::LIKE); // WHERE hasdocuments LIKE '%fooValue%'
+     * $query->filterByHasdocuments(['foo', 'bar']); // WHERE hasdocuments IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $hasdocuments The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $hasdocuments The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByHasdocuments($hasdocuments = null, $comparison = null)
+    public function filterByHasdocuments($hasdocuments = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($hasdocuments)) {
@@ -923,7 +1021,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_HASDOCUMENTS, $hasdocuments, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_HASDOCUMENTS, $hasdocuments, $comparison);
+
+        return $this;
     }
 
     /**
@@ -933,14 +1033,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByHastracking('fooValue');   // WHERE hastracking = 'fooValue'
      * $query->filterByHastracking('%fooValue%', Criteria::LIKE); // WHERE hastracking LIKE '%fooValue%'
+     * $query->filterByHastracking(['foo', 'bar']); // WHERE hastracking IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $hastracking The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $hastracking The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByHastracking($hastracking = null, $comparison = null)
+    public function filterByHastracking($hastracking = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($hastracking)) {
@@ -948,7 +1049,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_HASTRACKING, $hastracking, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_HASTRACKING, $hastracking, $comparison);
+
+        return $this;
     }
 
     /**
@@ -958,14 +1061,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterBySubtotal('fooValue');   // WHERE subtotal = 'fooValue'
      * $query->filterBySubtotal('%fooValue%', Criteria::LIKE); // WHERE subtotal LIKE '%fooValue%'
+     * $query->filterBySubtotal(['foo', 'bar']); // WHERE subtotal IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $subtotal The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $subtotal The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySubtotal($subtotal = null, $comparison = null)
+    public function filterBySubtotal($subtotal = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($subtotal)) {
@@ -973,7 +1077,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_SUBTOTAL, $subtotal, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_SUBTOTAL, $subtotal, $comparison);
+
+        return $this;
     }
 
     /**
@@ -983,14 +1089,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterBySalestax('fooValue');   // WHERE salestax = 'fooValue'
      * $query->filterBySalestax('%fooValue%', Criteria::LIKE); // WHERE salestax LIKE '%fooValue%'
+     * $query->filterBySalestax(['foo', 'bar']); // WHERE salestax IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $salestax The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $salestax The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalestax($salestax = null, $comparison = null)
+    public function filterBySalestax($salestax = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($salestax)) {
@@ -998,7 +1105,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_SALESTAX, $salestax, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_SALESTAX, $salestax, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1008,14 +1117,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByFreight('fooValue');   // WHERE freight = 'fooValue'
      * $query->filterByFreight('%fooValue%', Criteria::LIKE); // WHERE freight LIKE '%fooValue%'
+     * $query->filterByFreight(['foo', 'bar']); // WHERE freight IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $freight The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $freight The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByFreight($freight = null, $comparison = null)
+    public function filterByFreight($freight = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($freight)) {
@@ -1023,7 +1133,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_FREIGHT, $freight, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_FREIGHT, $freight, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1033,14 +1145,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByMisccost('fooValue');   // WHERE misccost = 'fooValue'
      * $query->filterByMisccost('%fooValue%', Criteria::LIKE); // WHERE misccost LIKE '%fooValue%'
+     * $query->filterByMisccost(['foo', 'bar']); // WHERE misccost IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $misccost The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $misccost The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByMisccost($misccost = null, $comparison = null)
+    public function filterByMisccost($misccost = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($misccost)) {
@@ -1048,7 +1161,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_MISCCOST, $misccost, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_MISCCOST, $misccost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1058,14 +1173,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByOrdertotal('fooValue');   // WHERE ordertotal = 'fooValue'
      * $query->filterByOrdertotal('%fooValue%', Criteria::LIKE); // WHERE ordertotal LIKE '%fooValue%'
+     * $query->filterByOrdertotal(['foo', 'bar']); // WHERE ordertotal IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $ordertotal The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $ordertotal The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOrdertotal($ordertotal = null, $comparison = null)
+    public function filterByOrdertotal($ordertotal = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($ordertotal)) {
@@ -1073,7 +1189,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_ORDERTOTAL, $ordertotal, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_ORDERTOTAL, $ordertotal, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1083,14 +1201,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByHasnotes('fooValue');   // WHERE hasnotes = 'fooValue'
      * $query->filterByHasnotes('%fooValue%', Criteria::LIKE); // WHERE hasnotes LIKE '%fooValue%'
+     * $query->filterByHasnotes(['foo', 'bar']); // WHERE hasnotes IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $hasnotes The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $hasnotes The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByHasnotes($hasnotes = null, $comparison = null)
+    public function filterByHasnotes($hasnotes = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($hasnotes)) {
@@ -1098,7 +1217,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_HASNOTES, $hasnotes, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_HASNOTES, $hasnotes, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1108,14 +1229,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByEditord('fooValue');   // WHERE editord = 'fooValue'
      * $query->filterByEditord('%fooValue%', Criteria::LIKE); // WHERE editord LIKE '%fooValue%'
+     * $query->filterByEditord(['foo', 'bar']); // WHERE editord IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $editord The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $editord The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByEditord($editord = null, $comparison = null)
+    public function filterByEditord($editord = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($editord)) {
@@ -1123,7 +1245,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_EDITORD, $editord, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_EDITORD, $editord, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1133,14 +1257,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByError('fooValue');   // WHERE error = 'fooValue'
      * $query->filterByError('%fooValue%', Criteria::LIKE); // WHERE error LIKE '%fooValue%'
+     * $query->filterByError(['foo', 'bar']); // WHERE error IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $error The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $error The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByError($error = null, $comparison = null)
+    public function filterByError($error = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($error)) {
@@ -1148,7 +1273,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_ERROR, $error, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_ERROR, $error, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1158,14 +1285,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByErrormsg('fooValue');   // WHERE errormsg = 'fooValue'
      * $query->filterByErrormsg('%fooValue%', Criteria::LIKE); // WHERE errormsg LIKE '%fooValue%'
+     * $query->filterByErrormsg(['foo', 'bar']); // WHERE errormsg IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $errormsg The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $errormsg The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByErrormsg($errormsg = null, $comparison = null)
+    public function filterByErrormsg($errormsg = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($errormsg)) {
@@ -1173,7 +1301,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_ERRORMSG, $errormsg, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_ERRORMSG, $errormsg, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1183,14 +1313,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterBySconame('fooValue');   // WHERE sconame = 'fooValue'
      * $query->filterBySconame('%fooValue%', Criteria::LIKE); // WHERE sconame LIKE '%fooValue%'
+     * $query->filterBySconame(['foo', 'bar']); // WHERE sconame IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sconame The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sconame The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySconame($sconame = null, $comparison = null)
+    public function filterBySconame($sconame = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sconame)) {
@@ -1198,7 +1329,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_SCONAME, $sconame, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_SCONAME, $sconame, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1208,14 +1341,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByShipname('fooValue');   // WHERE shipname = 'fooValue'
      * $query->filterByShipname('%fooValue%', Criteria::LIKE); // WHERE shipname LIKE '%fooValue%'
+     * $query->filterByShipname(['foo', 'bar']); // WHERE shipname IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shipname The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shipname The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipname($shipname = null, $comparison = null)
+    public function filterByShipname($shipname = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shipname)) {
@@ -1223,7 +1357,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_SHIPNAME, $shipname, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_SHIPNAME, $shipname, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1233,14 +1369,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByShipaddress('fooValue');   // WHERE shipaddress = 'fooValue'
      * $query->filterByShipaddress('%fooValue%', Criteria::LIKE); // WHERE shipaddress LIKE '%fooValue%'
+     * $query->filterByShipaddress(['foo', 'bar']); // WHERE shipaddress IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shipaddress The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shipaddress The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipaddress($shipaddress = null, $comparison = null)
+    public function filterByShipaddress($shipaddress = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shipaddress)) {
@@ -1248,7 +1385,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_SHIPADDRESS, $shipaddress, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_SHIPADDRESS, $shipaddress, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1258,14 +1397,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByShipaddress2('fooValue');   // WHERE shipaddress2 = 'fooValue'
      * $query->filterByShipaddress2('%fooValue%', Criteria::LIKE); // WHERE shipaddress2 LIKE '%fooValue%'
+     * $query->filterByShipaddress2(['foo', 'bar']); // WHERE shipaddress2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shipaddress2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shipaddress2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipaddress2($shipaddress2 = null, $comparison = null)
+    public function filterByShipaddress2($shipaddress2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shipaddress2)) {
@@ -1273,7 +1413,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_SHIPADDRESS2, $shipaddress2, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_SHIPADDRESS2, $shipaddress2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1283,14 +1425,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByShipcity('fooValue');   // WHERE shipcity = 'fooValue'
      * $query->filterByShipcity('%fooValue%', Criteria::LIKE); // WHERE shipcity LIKE '%fooValue%'
+     * $query->filterByShipcity(['foo', 'bar']); // WHERE shipcity IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shipcity The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shipcity The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipcity($shipcity = null, $comparison = null)
+    public function filterByShipcity($shipcity = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shipcity)) {
@@ -1298,7 +1441,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_SHIPCITY, $shipcity, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_SHIPCITY, $shipcity, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1308,14 +1453,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByShipstate('fooValue');   // WHERE shipstate = 'fooValue'
      * $query->filterByShipstate('%fooValue%', Criteria::LIKE); // WHERE shipstate LIKE '%fooValue%'
+     * $query->filterByShipstate(['foo', 'bar']); // WHERE shipstate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shipstate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shipstate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipstate($shipstate = null, $comparison = null)
+    public function filterByShipstate($shipstate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shipstate)) {
@@ -1323,7 +1469,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_SHIPSTATE, $shipstate, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_SHIPSTATE, $shipstate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1333,14 +1481,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByShipzip('fooValue');   // WHERE shipzip = 'fooValue'
      * $query->filterByShipzip('%fooValue%', Criteria::LIKE); // WHERE shipzip LIKE '%fooValue%'
+     * $query->filterByShipzip(['foo', 'bar']); // WHERE shipzip IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shipzip The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shipzip The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipzip($shipzip = null, $comparison = null)
+    public function filterByShipzip($shipzip = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shipzip)) {
@@ -1348,7 +1497,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_SHIPZIP, $shipzip, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_SHIPZIP, $shipzip, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1358,14 +1509,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByShipcountry('fooValue');   // WHERE shipcountry = 'fooValue'
      * $query->filterByShipcountry('%fooValue%', Criteria::LIKE); // WHERE shipcountry LIKE '%fooValue%'
+     * $query->filterByShipcountry(['foo', 'bar']); // WHERE shipcountry IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shipcountry The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shipcountry The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipcountry($shipcountry = null, $comparison = null)
+    public function filterByShipcountry($shipcountry = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shipcountry)) {
@@ -1373,7 +1525,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_SHIPCOUNTRY, $shipcountry, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_SHIPCOUNTRY, $shipcountry, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1383,14 +1537,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByContact('fooValue');   // WHERE contact = 'fooValue'
      * $query->filterByContact('%fooValue%', Criteria::LIKE); // WHERE contact LIKE '%fooValue%'
+     * $query->filterByContact(['foo', 'bar']); // WHERE contact IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $contact The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $contact The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByContact($contact = null, $comparison = null)
+    public function filterByContact($contact = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($contact)) {
@@ -1398,7 +1553,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_CONTACT, $contact, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_CONTACT, $contact, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1408,14 +1565,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByPhintl('fooValue');   // WHERE phintl = 'fooValue'
      * $query->filterByPhintl('%fooValue%', Criteria::LIKE); // WHERE phintl LIKE '%fooValue%'
+     * $query->filterByPhintl(['foo', 'bar']); // WHERE phintl IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $phintl The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $phintl The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPhintl($phintl = null, $comparison = null)
+    public function filterByPhintl($phintl = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($phintl)) {
@@ -1423,7 +1581,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_PHINTL, $phintl, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_PHINTL, $phintl, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1433,14 +1593,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByPhone('fooValue');   // WHERE phone = 'fooValue'
      * $query->filterByPhone('%fooValue%', Criteria::LIKE); // WHERE phone LIKE '%fooValue%'
+     * $query->filterByPhone(['foo', 'bar']); // WHERE phone IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $phone The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $phone The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPhone($phone = null, $comparison = null)
+    public function filterByPhone($phone = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($phone)) {
@@ -1448,7 +1609,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_PHONE, $phone, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_PHONE, $phone, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1458,14 +1621,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByExtension('fooValue');   // WHERE extension = 'fooValue'
      * $query->filterByExtension('%fooValue%', Criteria::LIKE); // WHERE extension LIKE '%fooValue%'
+     * $query->filterByExtension(['foo', 'bar']); // WHERE extension IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $extension The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $extension The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByExtension($extension = null, $comparison = null)
+    public function filterByExtension($extension = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($extension)) {
@@ -1473,7 +1637,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_EXTENSION, $extension, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_EXTENSION, $extension, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1483,14 +1649,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByFaxnbr('fooValue');   // WHERE faxnbr = 'fooValue'
      * $query->filterByFaxnbr('%fooValue%', Criteria::LIKE); // WHERE faxnbr LIKE '%fooValue%'
+     * $query->filterByFaxnbr(['foo', 'bar']); // WHERE faxnbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $faxnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $faxnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByFaxnbr($faxnbr = null, $comparison = null)
+    public function filterByFaxnbr($faxnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($faxnbr)) {
@@ -1498,7 +1665,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_FAXNBR, $faxnbr, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_FAXNBR, $faxnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1508,14 +1677,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByEmail('fooValue');   // WHERE email = 'fooValue'
      * $query->filterByEmail('%fooValue%', Criteria::LIKE); // WHERE email LIKE '%fooValue%'
+     * $query->filterByEmail(['foo', 'bar']); // WHERE email IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $email The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $email The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByEmail($email = null, $comparison = null)
+    public function filterByEmail($email = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($email)) {
@@ -1523,7 +1693,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_EMAIL, $email, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_EMAIL, $email, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1533,14 +1705,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByReleasenbr('fooValue');   // WHERE releasenbr = 'fooValue'
      * $query->filterByReleasenbr('%fooValue%', Criteria::LIKE); // WHERE releasenbr LIKE '%fooValue%'
+     * $query->filterByReleasenbr(['foo', 'bar']); // WHERE releasenbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $releasenbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $releasenbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByReleasenbr($releasenbr = null, $comparison = null)
+    public function filterByReleasenbr($releasenbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($releasenbr)) {
@@ -1548,7 +1721,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_RELEASENBR, $releasenbr, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_RELEASENBR, $releasenbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1558,14 +1733,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByShipviacd('fooValue');   // WHERE shipviacd = 'fooValue'
      * $query->filterByShipviacd('%fooValue%', Criteria::LIKE); // WHERE shipviacd LIKE '%fooValue%'
+     * $query->filterByShipviacd(['foo', 'bar']); // WHERE shipviacd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shipviacd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shipviacd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipviacd($shipviacd = null, $comparison = null)
+    public function filterByShipviacd($shipviacd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shipviacd)) {
@@ -1573,7 +1749,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_SHIPVIACD, $shipviacd, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_SHIPVIACD, $shipviacd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1583,14 +1761,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByShipviadesc('fooValue');   // WHERE shipviadesc = 'fooValue'
      * $query->filterByShipviadesc('%fooValue%', Criteria::LIKE); // WHERE shipviadesc LIKE '%fooValue%'
+     * $query->filterByShipviadesc(['foo', 'bar']); // WHERE shipviadesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shipviadesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shipviadesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipviadesc($shipviadesc = null, $comparison = null)
+    public function filterByShipviadesc($shipviadesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shipviadesc)) {
@@ -1598,7 +1777,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_SHIPVIADESC, $shipviadesc, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_SHIPVIADESC, $shipviadesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1608,14 +1789,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByTermcode('fooValue');   // WHERE termcode = 'fooValue'
      * $query->filterByTermcode('%fooValue%', Criteria::LIKE); // WHERE termcode LIKE '%fooValue%'
+     * $query->filterByTermcode(['foo', 'bar']); // WHERE termcode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $termcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $termcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTermcode($termcode = null, $comparison = null)
+    public function filterByTermcode($termcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($termcode)) {
@@ -1623,7 +1805,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_TERMCODE, $termcode, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_TERMCODE, $termcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1633,14 +1817,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByTermtype('fooValue');   // WHERE termtype = 'fooValue'
      * $query->filterByTermtype('%fooValue%', Criteria::LIKE); // WHERE termtype LIKE '%fooValue%'
+     * $query->filterByTermtype(['foo', 'bar']); // WHERE termtype IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $termtype The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $termtype The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTermtype($termtype = null, $comparison = null)
+    public function filterByTermtype($termtype = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($termtype)) {
@@ -1648,7 +1833,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_TERMTYPE, $termtype, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_TERMTYPE, $termtype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1658,14 +1845,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByTermdesc('fooValue');   // WHERE termdesc = 'fooValue'
      * $query->filterByTermdesc('%fooValue%', Criteria::LIKE); // WHERE termdesc LIKE '%fooValue%'
+     * $query->filterByTermdesc(['foo', 'bar']); // WHERE termdesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $termdesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $termdesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTermdesc($termdesc = null, $comparison = null)
+    public function filterByTermdesc($termdesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($termdesc)) {
@@ -1673,7 +1861,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_TERMDESC, $termdesc, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_TERMDESC, $termdesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1683,14 +1873,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByRqstdate('fooValue');   // WHERE rqstdate = 'fooValue'
      * $query->filterByRqstdate('%fooValue%', Criteria::LIKE); // WHERE rqstdate LIKE '%fooValue%'
+     * $query->filterByRqstdate(['foo', 'bar']); // WHERE rqstdate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $rqstdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $rqstdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByRqstdate($rqstdate = null, $comparison = null)
+    public function filterByRqstdate($rqstdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($rqstdate)) {
@@ -1698,7 +1889,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_RQSTDATE, $rqstdate, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_RQSTDATE, $rqstdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1708,14 +1901,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByShipcom('fooValue');   // WHERE shipcom = 'fooValue'
      * $query->filterByShipcom('%fooValue%', Criteria::LIKE); // WHERE shipcom LIKE '%fooValue%'
+     * $query->filterByShipcom(['foo', 'bar']); // WHERE shipcom IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shipcom The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shipcom The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipcom($shipcom = null, $comparison = null)
+    public function filterByShipcom($shipcom = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shipcom)) {
@@ -1723,7 +1917,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_SHIPCOM, $shipcom, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_SHIPCOM, $shipcom, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1733,14 +1929,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterBySp1('fooValue');   // WHERE sp1 = 'fooValue'
      * $query->filterBySp1('%fooValue%', Criteria::LIKE); // WHERE sp1 LIKE '%fooValue%'
+     * $query->filterBySp1(['foo', 'bar']); // WHERE sp1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sp1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sp1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySp1($sp1 = null, $comparison = null)
+    public function filterBySp1($sp1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sp1)) {
@@ -1748,7 +1945,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_SP1, $sp1, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_SP1, $sp1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1758,14 +1957,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterBySp1name('fooValue');   // WHERE sp1name = 'fooValue'
      * $query->filterBySp1name('%fooValue%', Criteria::LIKE); // WHERE sp1name LIKE '%fooValue%'
+     * $query->filterBySp1name(['foo', 'bar']); // WHERE sp1name IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sp1name The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sp1name The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySp1name($sp1name = null, $comparison = null)
+    public function filterBySp1name($sp1name = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sp1name)) {
@@ -1773,7 +1973,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_SP1NAME, $sp1name, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_SP1NAME, $sp1name, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1783,14 +1985,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByCardnumber('fooValue');   // WHERE cardnumber = 'fooValue'
      * $query->filterByCardnumber('%fooValue%', Criteria::LIKE); // WHERE cardnumber LIKE '%fooValue%'
+     * $query->filterByCardnumber(['foo', 'bar']); // WHERE cardnumber IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cardnumber The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cardnumber The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCardnumber($cardnumber = null, $comparison = null)
+    public function filterByCardnumber($cardnumber = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cardnumber)) {
@@ -1798,7 +2001,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_CARDNUMBER, $cardnumber, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_CARDNUMBER, $cardnumber, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1808,14 +2013,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByCardexpire('fooValue');   // WHERE cardexpire = 'fooValue'
      * $query->filterByCardexpire('%fooValue%', Criteria::LIKE); // WHERE cardexpire LIKE '%fooValue%'
+     * $query->filterByCardexpire(['foo', 'bar']); // WHERE cardexpire IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cardexpire The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cardexpire The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCardexpire($cardexpire = null, $comparison = null)
+    public function filterByCardexpire($cardexpire = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cardexpire)) {
@@ -1823,7 +2029,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_CARDEXPIRE, $cardexpire, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_CARDEXPIRE, $cardexpire, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1833,14 +2041,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByCardcode('fooValue');   // WHERE cardcode = 'fooValue'
      * $query->filterByCardcode('%fooValue%', Criteria::LIKE); // WHERE cardcode LIKE '%fooValue%'
+     * $query->filterByCardcode(['foo', 'bar']); // WHERE cardcode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cardcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cardcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCardcode($cardcode = null, $comparison = null)
+    public function filterByCardcode($cardcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cardcode)) {
@@ -1848,7 +2057,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_CARDCODE, $cardcode, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_CARDCODE, $cardcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1858,14 +2069,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByCardapproval('fooValue');   // WHERE cardapproval = 'fooValue'
      * $query->filterByCardapproval('%fooValue%', Criteria::LIKE); // WHERE cardapproval LIKE '%fooValue%'
+     * $query->filterByCardapproval(['foo', 'bar']); // WHERE cardapproval IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cardapproval The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cardapproval The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCardapproval($cardapproval = null, $comparison = null)
+    public function filterByCardapproval($cardapproval = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cardapproval)) {
@@ -1873,7 +2085,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_CARDAPPROVAL, $cardapproval, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_CARDAPPROVAL, $cardapproval, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1883,14 +2097,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByTotalcost('fooValue');   // WHERE totalcost = 'fooValue'
      * $query->filterByTotalcost('%fooValue%', Criteria::LIKE); // WHERE totalcost LIKE '%fooValue%'
+     * $query->filterByTotalcost(['foo', 'bar']); // WHERE totalcost IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $totalcost The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $totalcost The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTotalcost($totalcost = null, $comparison = null)
+    public function filterByTotalcost($totalcost = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($totalcost)) {
@@ -1898,7 +2113,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_TOTALCOST, $totalcost, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_TOTALCOST, $totalcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1908,14 +2125,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByTotaldiscount('fooValue');   // WHERE totaldiscount = 'fooValue'
      * $query->filterByTotaldiscount('%fooValue%', Criteria::LIKE); // WHERE totaldiscount LIKE '%fooValue%'
+     * $query->filterByTotaldiscount(['foo', 'bar']); // WHERE totaldiscount IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $totaldiscount The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $totaldiscount The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTotaldiscount($totaldiscount = null, $comparison = null)
+    public function filterByTotaldiscount($totaldiscount = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($totaldiscount)) {
@@ -1923,7 +2141,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_TOTALDISCOUNT, $totaldiscount, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_TOTALDISCOUNT, $totaldiscount, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1933,14 +2153,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByPaymenttype('fooValue');   // WHERE paymenttype = 'fooValue'
      * $query->filterByPaymenttype('%fooValue%', Criteria::LIKE); // WHERE paymenttype LIKE '%fooValue%'
+     * $query->filterByPaymenttype(['foo', 'bar']); // WHERE paymenttype IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $paymenttype The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $paymenttype The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPaymenttype($paymenttype = null, $comparison = null)
+    public function filterByPaymenttype($paymenttype = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($paymenttype)) {
@@ -1948,7 +2169,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_PAYMENTTYPE, $paymenttype, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_PAYMENTTYPE, $paymenttype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1958,14 +2181,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterBySrcdatefrom('fooValue');   // WHERE srcdatefrom = 'fooValue'
      * $query->filterBySrcdatefrom('%fooValue%', Criteria::LIKE); // WHERE srcdatefrom LIKE '%fooValue%'
+     * $query->filterBySrcdatefrom(['foo', 'bar']); // WHERE srcdatefrom IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $srcdatefrom The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $srcdatefrom The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySrcdatefrom($srcdatefrom = null, $comparison = null)
+    public function filterBySrcdatefrom($srcdatefrom = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($srcdatefrom)) {
@@ -1973,7 +2197,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_SRCDATEFROM, $srcdatefrom, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_SRCDATEFROM, $srcdatefrom, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1983,14 +2209,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterBySrcdatethru('fooValue');   // WHERE srcdatethru = 'fooValue'
      * $query->filterBySrcdatethru('%fooValue%', Criteria::LIKE); // WHERE srcdatethru LIKE '%fooValue%'
+     * $query->filterBySrcdatethru(['foo', 'bar']); // WHERE srcdatethru IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $srcdatethru The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $srcdatethru The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySrcdatethru($srcdatethru = null, $comparison = null)
+    public function filterBySrcdatethru($srcdatethru = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($srcdatethru)) {
@@ -1998,7 +2225,9 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_SRCDATETHRU, $srcdatethru, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_SRCDATETHRU, $srcdatethru, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2008,14 +2237,15 @@ abstract class CarthedQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -2023,15 +2253,17 @@ abstract class CarthedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CarthedTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(CarthedTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildCarthed $carthed Object to remove from the list of results
+     * @param ChildCarthed $carthed Object to remove from the list of results
      *
-     * @return $this|ChildCarthedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($carthed = null)
     {
@@ -2050,7 +2282,7 @@ abstract class CarthedQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CarthedTableMap::DATABASE_NAME);
@@ -2075,12 +2307,12 @@ abstract class CarthedQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CarthedTableMap::DATABASE_NAME);
@@ -2105,4 +2337,4 @@ abstract class CarthedQuery extends ModelCriteria
         });
     }
 
-} // CarthedQuery
+}

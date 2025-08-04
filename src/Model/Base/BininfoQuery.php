@@ -10,14 +10,12 @@ use Map\BininfoTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'bininfo' table.
- *
- *
+ * Base class that represents a query for the `bininfo` table.
  *
  * @method     ChildBininfoQuery orderBySessionid($order = Criteria::ASC) Order by the sessionid column
  * @method     ChildBininfoQuery orderByRecno($order = Criteria::ASC) Order by the recno column
@@ -51,23 +49,23 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildBininfoQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildBininfoQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildBininfo findOne(ConnectionInterface $con = null) Return the first ChildBininfo matching the query
- * @method     ChildBininfo findOneOrCreate(ConnectionInterface $con = null) Return the first ChildBininfo matching the query, or a new ChildBininfo object populated from the query conditions when no match is found
+ * @method     ChildBininfo|null findOne(?ConnectionInterface $con = null) Return the first ChildBininfo matching the query
+ * @method     ChildBininfo findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildBininfo matching the query, or a new ChildBininfo object populated from the query conditions when no match is found
  *
- * @method     ChildBininfo findOneBySessionid(string $sessionid) Return the first ChildBininfo filtered by the sessionid column
- * @method     ChildBininfo findOneByRecno(int $recno) Return the first ChildBininfo filtered by the recno column
- * @method     ChildBininfo findOneByDate(int $date) Return the first ChildBininfo filtered by the date column
- * @method     ChildBininfo findOneByTime(int $time) Return the first ChildBininfo filtered by the time column
- * @method     ChildBininfo findOneByItemid(string $itemid) Return the first ChildBininfo filtered by the itemid column
- * @method     ChildBininfo findOneByWhse(string $whse) Return the first ChildBininfo filtered by the whse column
- * @method     ChildBininfo findOneByLotserial(string $lotserial) Return the first ChildBininfo filtered by the lotserial column
- * @method     ChildBininfo findOneByBin(string $bin) Return the first ChildBininfo filtered by the bin column
- * @method     ChildBininfo findOneByQty(string $qty) Return the first ChildBininfo filtered by the qty column
- * @method     ChildBininfo findOneByLotref(string $lotref) Return the first ChildBininfo filtered by the lotref column
- * @method     ChildBininfo findOneByDummy(string $dummy) Return the first ChildBininfo filtered by the dummy column *
-
- * @method     ChildBininfo requirePk($key, ConnectionInterface $con = null) Return the ChildBininfo by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildBininfo requireOne(ConnectionInterface $con = null) Return the first ChildBininfo matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildBininfo|null findOneBySessionid(string $sessionid) Return the first ChildBininfo filtered by the sessionid column
+ * @method     ChildBininfo|null findOneByRecno(int $recno) Return the first ChildBininfo filtered by the recno column
+ * @method     ChildBininfo|null findOneByDate(int $date) Return the first ChildBininfo filtered by the date column
+ * @method     ChildBininfo|null findOneByTime(int $time) Return the first ChildBininfo filtered by the time column
+ * @method     ChildBininfo|null findOneByItemid(string $itemid) Return the first ChildBininfo filtered by the itemid column
+ * @method     ChildBininfo|null findOneByWhse(string $whse) Return the first ChildBininfo filtered by the whse column
+ * @method     ChildBininfo|null findOneByLotserial(string $lotserial) Return the first ChildBininfo filtered by the lotserial column
+ * @method     ChildBininfo|null findOneByBin(string $bin) Return the first ChildBininfo filtered by the bin column
+ * @method     ChildBininfo|null findOneByQty(string $qty) Return the first ChildBininfo filtered by the qty column
+ * @method     ChildBininfo|null findOneByLotref(string $lotref) Return the first ChildBininfo filtered by the lotref column
+ * @method     ChildBininfo|null findOneByDummy(string $dummy) Return the first ChildBininfo filtered by the dummy column
+ *
+ * @method     ChildBininfo requirePk($key, ?ConnectionInterface $con = null) Return the ChildBininfo by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildBininfo requireOne(?ConnectionInterface $con = null) Return the first ChildBininfo matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildBininfo requireOneBySessionid(string $sessionid) Return the first ChildBininfo filtered by the sessionid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildBininfo requireOneByRecno(int $recno) Return the first ChildBininfo filtered by the recno column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -81,20 +79,34 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildBininfo requireOneByLotref(string $lotref) Return the first ChildBininfo filtered by the lotref column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildBininfo requireOneByDummy(string $dummy) Return the first ChildBininfo filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildBininfo[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildBininfo objects based on current ModelCriteria
- * @method     ChildBininfo[]|ObjectCollection findBySessionid(string $sessionid) Return ChildBininfo objects filtered by the sessionid column
- * @method     ChildBininfo[]|ObjectCollection findByRecno(int $recno) Return ChildBininfo objects filtered by the recno column
- * @method     ChildBininfo[]|ObjectCollection findByDate(int $date) Return ChildBininfo objects filtered by the date column
- * @method     ChildBininfo[]|ObjectCollection findByTime(int $time) Return ChildBininfo objects filtered by the time column
- * @method     ChildBininfo[]|ObjectCollection findByItemid(string $itemid) Return ChildBininfo objects filtered by the itemid column
- * @method     ChildBininfo[]|ObjectCollection findByWhse(string $whse) Return ChildBininfo objects filtered by the whse column
- * @method     ChildBininfo[]|ObjectCollection findByLotserial(string $lotserial) Return ChildBininfo objects filtered by the lotserial column
- * @method     ChildBininfo[]|ObjectCollection findByBin(string $bin) Return ChildBininfo objects filtered by the bin column
- * @method     ChildBininfo[]|ObjectCollection findByQty(string $qty) Return ChildBininfo objects filtered by the qty column
- * @method     ChildBininfo[]|ObjectCollection findByLotref(string $lotref) Return ChildBininfo objects filtered by the lotref column
- * @method     ChildBininfo[]|ObjectCollection findByDummy(string $dummy) Return ChildBininfo objects filtered by the dummy column
- * @method     ChildBininfo[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildBininfo[]|Collection find(?ConnectionInterface $con = null) Return ChildBininfo objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildBininfo> find(?ConnectionInterface $con = null) Return ChildBininfo objects based on current ModelCriteria
  *
+ * @method     ChildBininfo[]|Collection findBySessionid(string|array<string> $sessionid) Return ChildBininfo objects filtered by the sessionid column
+ * @psalm-method Collection&\Traversable<ChildBininfo> findBySessionid(string|array<string> $sessionid) Return ChildBininfo objects filtered by the sessionid column
+ * @method     ChildBininfo[]|Collection findByRecno(int|array<int> $recno) Return ChildBininfo objects filtered by the recno column
+ * @psalm-method Collection&\Traversable<ChildBininfo> findByRecno(int|array<int> $recno) Return ChildBininfo objects filtered by the recno column
+ * @method     ChildBininfo[]|Collection findByDate(int|array<int> $date) Return ChildBininfo objects filtered by the date column
+ * @psalm-method Collection&\Traversable<ChildBininfo> findByDate(int|array<int> $date) Return ChildBininfo objects filtered by the date column
+ * @method     ChildBininfo[]|Collection findByTime(int|array<int> $time) Return ChildBininfo objects filtered by the time column
+ * @psalm-method Collection&\Traversable<ChildBininfo> findByTime(int|array<int> $time) Return ChildBininfo objects filtered by the time column
+ * @method     ChildBininfo[]|Collection findByItemid(string|array<string> $itemid) Return ChildBininfo objects filtered by the itemid column
+ * @psalm-method Collection&\Traversable<ChildBininfo> findByItemid(string|array<string> $itemid) Return ChildBininfo objects filtered by the itemid column
+ * @method     ChildBininfo[]|Collection findByWhse(string|array<string> $whse) Return ChildBininfo objects filtered by the whse column
+ * @psalm-method Collection&\Traversable<ChildBininfo> findByWhse(string|array<string> $whse) Return ChildBininfo objects filtered by the whse column
+ * @method     ChildBininfo[]|Collection findByLotserial(string|array<string> $lotserial) Return ChildBininfo objects filtered by the lotserial column
+ * @psalm-method Collection&\Traversable<ChildBininfo> findByLotserial(string|array<string> $lotserial) Return ChildBininfo objects filtered by the lotserial column
+ * @method     ChildBininfo[]|Collection findByBin(string|array<string> $bin) Return ChildBininfo objects filtered by the bin column
+ * @psalm-method Collection&\Traversable<ChildBininfo> findByBin(string|array<string> $bin) Return ChildBininfo objects filtered by the bin column
+ * @method     ChildBininfo[]|Collection findByQty(string|array<string> $qty) Return ChildBininfo objects filtered by the qty column
+ * @psalm-method Collection&\Traversable<ChildBininfo> findByQty(string|array<string> $qty) Return ChildBininfo objects filtered by the qty column
+ * @method     ChildBininfo[]|Collection findByLotref(string|array<string> $lotref) Return ChildBininfo objects filtered by the lotref column
+ * @psalm-method Collection&\Traversable<ChildBininfo> findByLotref(string|array<string> $lotref) Return ChildBininfo objects filtered by the lotref column
+ * @method     ChildBininfo[]|Collection findByDummy(string|array<string> $dummy) Return ChildBininfo objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildBininfo> findByDummy(string|array<string> $dummy) Return ChildBininfo objects filtered by the dummy column
+ *
+ * @method     ChildBininfo[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildBininfo> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class BininfoQuery extends ModelCriteria
 {
@@ -103,9 +115,9 @@ abstract class BininfoQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\BininfoQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'dplusodb', $modelName = '\\Bininfo', $modelAlias = null)
     {
@@ -115,12 +127,12 @@ abstract class BininfoQuery extends ModelCriteria
     /**
      * Returns a new ChildBininfoQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildBininfoQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildBininfoQuery) {
             return $criteria;
@@ -150,7 +162,7 @@ abstract class BininfoQuery extends ModelCriteria
      *
      * @return ChildBininfo|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -182,8 +194,8 @@ abstract class BininfoQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -216,8 +228,8 @@ abstract class BininfoQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildBininfo|array|mixed the result, formatted by the current formatter
      */
@@ -237,12 +249,12 @@ abstract class BininfoQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -259,9 +271,9 @@ abstract class BininfoQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildBininfoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -274,14 +286,16 @@ abstract class BininfoQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildBininfoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(BininfoTableMap::COL_SESSIONID, $key[0], Criteria::EQUAL);
@@ -300,14 +314,15 @@ abstract class BininfoQuery extends ModelCriteria
      * <code>
      * $query->filterBySessionid('fooValue');   // WHERE sessionid = 'fooValue'
      * $query->filterBySessionid('%fooValue%', Criteria::LIKE); // WHERE sessionid LIKE '%fooValue%'
+     * $query->filterBySessionid(['foo', 'bar']); // WHERE sessionid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sessionid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sessionid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBininfoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySessionid($sessionid = null, $comparison = null)
+    public function filterBySessionid($sessionid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sessionid)) {
@@ -315,7 +330,9 @@ abstract class BininfoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BininfoTableMap::COL_SESSIONID, $sessionid, $comparison);
+        $this->addUsingAlias(BininfoTableMap::COL_SESSIONID, $sessionid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -328,15 +345,15 @@ abstract class BininfoQuery extends ModelCriteria
      * $query->filterByRecno(array('min' => 12)); // WHERE recno > 12
      * </code>
      *
-     * @param     mixed $recno The value to use as filter.
+     * @param mixed $recno The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBininfoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByRecno($recno = null, $comparison = null)
+    public function filterByRecno($recno = null, ?string $comparison = null)
     {
         if (is_array($recno)) {
             $useMinMax = false;
@@ -356,7 +373,9 @@ abstract class BininfoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BininfoTableMap::COL_RECNO, $recno, $comparison);
+        $this->addUsingAlias(BininfoTableMap::COL_RECNO, $recno, $comparison);
+
+        return $this;
     }
 
     /**
@@ -369,15 +388,15 @@ abstract class BininfoQuery extends ModelCriteria
      * $query->filterByDate(array('min' => 12)); // WHERE date > 12
      * </code>
      *
-     * @param     mixed $date The value to use as filter.
+     * @param mixed $date The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBininfoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDate($date = null, $comparison = null)
+    public function filterByDate($date = null, ?string $comparison = null)
     {
         if (is_array($date)) {
             $useMinMax = false;
@@ -397,7 +416,9 @@ abstract class BininfoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BininfoTableMap::COL_DATE, $date, $comparison);
+        $this->addUsingAlias(BininfoTableMap::COL_DATE, $date, $comparison);
+
+        return $this;
     }
 
     /**
@@ -410,15 +431,15 @@ abstract class BininfoQuery extends ModelCriteria
      * $query->filterByTime(array('min' => 12)); // WHERE time > 12
      * </code>
      *
-     * @param     mixed $time The value to use as filter.
+     * @param mixed $time The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBininfoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTime($time = null, $comparison = null)
+    public function filterByTime($time = null, ?string $comparison = null)
     {
         if (is_array($time)) {
             $useMinMax = false;
@@ -438,7 +459,9 @@ abstract class BininfoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BininfoTableMap::COL_TIME, $time, $comparison);
+        $this->addUsingAlias(BininfoTableMap::COL_TIME, $time, $comparison);
+
+        return $this;
     }
 
     /**
@@ -448,14 +471,15 @@ abstract class BininfoQuery extends ModelCriteria
      * <code>
      * $query->filterByItemid('fooValue');   // WHERE itemid = 'fooValue'
      * $query->filterByItemid('%fooValue%', Criteria::LIKE); // WHERE itemid LIKE '%fooValue%'
+     * $query->filterByItemid(['foo', 'bar']); // WHERE itemid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itemid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itemid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBininfoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemid($itemid = null, $comparison = null)
+    public function filterByItemid($itemid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itemid)) {
@@ -463,7 +487,9 @@ abstract class BininfoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BininfoTableMap::COL_ITEMID, $itemid, $comparison);
+        $this->addUsingAlias(BininfoTableMap::COL_ITEMID, $itemid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -473,14 +499,15 @@ abstract class BininfoQuery extends ModelCriteria
      * <code>
      * $query->filterByWhse('fooValue');   // WHERE whse = 'fooValue'
      * $query->filterByWhse('%fooValue%', Criteria::LIKE); // WHERE whse LIKE '%fooValue%'
+     * $query->filterByWhse(['foo', 'bar']); // WHERE whse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $whse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $whse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBininfoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByWhse($whse = null, $comparison = null)
+    public function filterByWhse($whse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($whse)) {
@@ -488,7 +515,9 @@ abstract class BininfoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BininfoTableMap::COL_WHSE, $whse, $comparison);
+        $this->addUsingAlias(BininfoTableMap::COL_WHSE, $whse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -498,14 +527,15 @@ abstract class BininfoQuery extends ModelCriteria
      * <code>
      * $query->filterByLotserial('fooValue');   // WHERE lotserial = 'fooValue'
      * $query->filterByLotserial('%fooValue%', Criteria::LIKE); // WHERE lotserial LIKE '%fooValue%'
+     * $query->filterByLotserial(['foo', 'bar']); // WHERE lotserial IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lotserial The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lotserial The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBininfoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLotserial($lotserial = null, $comparison = null)
+    public function filterByLotserial($lotserial = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lotserial)) {
@@ -513,7 +543,9 @@ abstract class BininfoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BininfoTableMap::COL_LOTSERIAL, $lotserial, $comparison);
+        $this->addUsingAlias(BininfoTableMap::COL_LOTSERIAL, $lotserial, $comparison);
+
+        return $this;
     }
 
     /**
@@ -523,14 +555,15 @@ abstract class BininfoQuery extends ModelCriteria
      * <code>
      * $query->filterByBin('fooValue');   // WHERE bin = 'fooValue'
      * $query->filterByBin('%fooValue%', Criteria::LIKE); // WHERE bin LIKE '%fooValue%'
+     * $query->filterByBin(['foo', 'bar']); // WHERE bin IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $bin The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $bin The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBininfoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBin($bin = null, $comparison = null)
+    public function filterByBin($bin = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($bin)) {
@@ -538,7 +571,9 @@ abstract class BininfoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BininfoTableMap::COL_BIN, $bin, $comparison);
+        $this->addUsingAlias(BininfoTableMap::COL_BIN, $bin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -548,14 +583,15 @@ abstract class BininfoQuery extends ModelCriteria
      * <code>
      * $query->filterByQty('fooValue');   // WHERE qty = 'fooValue'
      * $query->filterByQty('%fooValue%', Criteria::LIKE); // WHERE qty LIKE '%fooValue%'
+     * $query->filterByQty(['foo', 'bar']); // WHERE qty IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qty The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qty The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBininfoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQty($qty = null, $comparison = null)
+    public function filterByQty($qty = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qty)) {
@@ -563,7 +599,9 @@ abstract class BininfoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BininfoTableMap::COL_QTY, $qty, $comparison);
+        $this->addUsingAlias(BininfoTableMap::COL_QTY, $qty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -573,14 +611,15 @@ abstract class BininfoQuery extends ModelCriteria
      * <code>
      * $query->filterByLotref('fooValue');   // WHERE lotref = 'fooValue'
      * $query->filterByLotref('%fooValue%', Criteria::LIKE); // WHERE lotref LIKE '%fooValue%'
+     * $query->filterByLotref(['foo', 'bar']); // WHERE lotref IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lotref The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lotref The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBininfoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLotref($lotref = null, $comparison = null)
+    public function filterByLotref($lotref = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lotref)) {
@@ -588,7 +627,9 @@ abstract class BininfoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BininfoTableMap::COL_LOTREF, $lotref, $comparison);
+        $this->addUsingAlias(BininfoTableMap::COL_LOTREF, $lotref, $comparison);
+
+        return $this;
     }
 
     /**
@@ -598,14 +639,15 @@ abstract class BininfoQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBininfoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -613,15 +655,17 @@ abstract class BininfoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BininfoTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(BininfoTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildBininfo $bininfo Object to remove from the list of results
+     * @param ChildBininfo $bininfo Object to remove from the list of results
      *
-     * @return $this|ChildBininfoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($bininfo = null)
     {
@@ -640,7 +684,7 @@ abstract class BininfoQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(BininfoTableMap::DATABASE_NAME);
@@ -665,12 +709,12 @@ abstract class BininfoQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(BininfoTableMap::DATABASE_NAME);
@@ -695,4 +739,4 @@ abstract class BininfoQuery extends ModelCriteria
         });
     }
 
-} // BininfoQuery
+}

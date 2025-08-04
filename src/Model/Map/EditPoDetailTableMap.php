@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class EditPoDetailTableMap extends TableMap
 {
@@ -34,309 +33,683 @@ class EditPoDetailTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.EditPoDetailTableMap';
+    public const CLASS_NAME = '.Map.EditPoDetailTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'dplusodb';
+    public const DATABASE_NAME = 'dplusodb';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'edit_po_detail';
+    public const TABLE_NAME = 'edit_po_detail';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'EditPoDetail';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\EditPoDetail';
+    public const OM_CLASS = '\\EditPoDetail';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'EditPoDetail';
+    public const CLASS_DEFAULT = 'EditPoDetail';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 45;
+    public const NUM_COLUMNS = 45;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 45;
+    public const NUM_HYDRATE_COLUMNS = 45;
 
     /**
      * the column name for the sessionid field
      */
-    const COL_SESSIONID = 'edit_po_detail.sessionid';
+    public const COL_SESSIONID = 'edit_po_detail.sessionid';
 
     /**
      * the column name for the PohdNbr field
      */
-    const COL_POHDNBR = 'edit_po_detail.PohdNbr';
+    public const COL_POHDNBR = 'edit_po_detail.PohdNbr';
 
     /**
      * the column name for the PodtLine field
      */
-    const COL_PODTLINE = 'edit_po_detail.PodtLine';
+    public const COL_PODTLINE = 'edit_po_detail.PodtLine';
 
     /**
      * the column name for the InitItemNbr field
      */
-    const COL_INITITEMNBR = 'edit_po_detail.InitItemNbr';
+    public const COL_INITITEMNBR = 'edit_po_detail.InitItemNbr';
 
     /**
      * the column name for the PodtDesc1 field
      */
-    const COL_PODTDESC1 = 'edit_po_detail.PodtDesc1';
+    public const COL_PODTDESC1 = 'edit_po_detail.PodtDesc1';
 
     /**
      * the column name for the PodtDesc2 field
      */
-    const COL_PODTDESC2 = 'edit_po_detail.PodtDesc2';
+    public const COL_PODTDESC2 = 'edit_po_detail.PodtDesc2';
 
     /**
      * the column name for the PodtVendItemNbr field
      */
-    const COL_PODTVENDITEMNBR = 'edit_po_detail.PodtVendItemNbr';
+    public const COL_PODTVENDITEMNBR = 'edit_po_detail.PodtVendItemNbr';
 
     /**
      * the column name for the IntbWhse field
      */
-    const COL_INTBWHSE = 'edit_po_detail.IntbWhse';
+    public const COL_INTBWHSE = 'edit_po_detail.IntbWhse';
 
     /**
      * the column name for the PodtShipDate field
      */
-    const COL_PODTSHIPDATE = 'edit_po_detail.PodtShipDate';
+    public const COL_PODTSHIPDATE = 'edit_po_detail.PodtShipDate';
 
     /**
      * the column name for the PodtExptDate field
      */
-    const COL_PODTEXPTDATE = 'edit_po_detail.PodtExptDate';
+    public const COL_PODTEXPTDATE = 'edit_po_detail.PodtExptDate';
 
     /**
      * the column name for the PodtCancDate field
      */
-    const COL_PODTCANCDATE = 'edit_po_detail.PodtCancDate';
+    public const COL_PODTCANCDATE = 'edit_po_detail.PodtCancDate';
 
     /**
      * the column name for the IntbUomPur field
      */
-    const COL_INTBUOMPUR = 'edit_po_detail.IntbUomPur';
+    public const COL_INTBUOMPUR = 'edit_po_detail.IntbUomPur';
 
     /**
      * the column name for the PodtQtyOrd field
      */
-    const COL_PODTQTYORD = 'edit_po_detail.PodtQtyOrd';
+    public const COL_PODTQTYORD = 'edit_po_detail.PodtQtyOrd';
 
     /**
      * the column name for the PodtCost field
      */
-    const COL_PODTCOST = 'edit_po_detail.PodtCost';
+    public const COL_PODTCOST = 'edit_po_detail.PodtCost';
 
     /**
      * the column name for the PodtCostTot field
      */
-    const COL_PODTCOSTTOT = 'edit_po_detail.PodtCostTot';
+    public const COL_PODTCOSTTOT = 'edit_po_detail.PodtCostTot';
 
     /**
      * the column name for the PodtRel field
      */
-    const COL_PODTREL = 'edit_po_detail.PodtRel';
+    public const COL_PODTREL = 'edit_po_detail.PodtRel';
 
     /**
      * the column name for the PodtSpecOrdr field
      */
-    const COL_PODTSPECORDR = 'edit_po_detail.PodtSpecOrdr';
+    public const COL_PODTSPECORDR = 'edit_po_detail.PodtSpecOrdr';
 
     /**
      * the column name for the PodtGlAcct field
      */
-    const COL_PODTGLACCT = 'edit_po_detail.PodtGlAcct';
+    public const COL_PODTGLACCT = 'edit_po_detail.PodtGlAcct';
 
     /**
      * the column name for the PodtSoNbr field
      */
-    const COL_PODTSONBR = 'edit_po_detail.PodtSoNbr';
+    public const COL_PODTSONBR = 'edit_po_detail.PodtSoNbr';
 
     /**
      * the column name for the PodtStat field
      */
-    const COL_PODTSTAT = 'edit_po_detail.PodtStat';
+    public const COL_PODTSTAT = 'edit_po_detail.PodtStat';
 
     /**
      * the column name for the PodtOrigSoLine field
      */
-    const COL_PODTORIGSOLINE = 'edit_po_detail.PodtOrigSoLine';
+    public const COL_PODTORIGSOLINE = 'edit_po_detail.PodtOrigSoLine';
 
     /**
      * the column name for the PodtQtyDueIn field
      */
-    const COL_PODTQTYDUEIN = 'edit_po_detail.PodtQtyDueIn';
+    public const COL_PODTQTYDUEIN = 'edit_po_detail.PodtQtyDueIn';
 
     /**
      * the column name for the PodtType field
      */
-    const COL_PODTTYPE = 'edit_po_detail.PodtType';
+    public const COL_PODTTYPE = 'edit_po_detail.PodtType';
 
     /**
      * the column name for the PodtWghtTot field
      */
-    const COL_PODTWGHTTOT = 'edit_po_detail.PodtWghtTot';
+    public const COL_PODTWGHTTOT = 'edit_po_detail.PodtWghtTot';
 
     /**
      * the column name for the PodtForeignCost field
      */
-    const COL_PODTFOREIGNCOST = 'edit_po_detail.PodtForeignCost';
+    public const COL_PODTFOREIGNCOST = 'edit_po_detail.PodtForeignCost';
 
     /**
      * the column name for the PodtForeignCostTot field
      */
-    const COL_PODTFOREIGNCOSTTOT = 'edit_po_detail.PodtForeignCostTot';
+    public const COL_PODTFOREIGNCOSTTOT = 'edit_po_detail.PodtForeignCostTot';
 
     /**
      * the column name for the PodtStanUnitCost field
      */
-    const COL_PODTSTANUNITCOST = 'edit_po_detail.PodtStanUnitCost';
+    public const COL_PODTSTANUNITCOST = 'edit_po_detail.PodtStanUnitCost';
 
     /**
      * the column name for the PodtAckDate field
      */
-    const COL_PODTACKDATE = 'edit_po_detail.PodtAckDate';
+    public const COL_PODTACKDATE = 'edit_po_detail.PodtAckDate';
 
     /**
      * the column name for the PodtInvcClearFlag field
      */
-    const COL_PODTINVCCLEARFLAG = 'edit_po_detail.PodtInvcClearFlag';
+    public const COL_PODTINVCCLEARFLAG = 'edit_po_detail.PodtInvcClearFlag';
 
     /**
      * the column name for the PodtPrtKitDet field
      */
-    const COL_PODTPRTKITDET = 'edit_po_detail.PodtPrtKitDet';
+    public const COL_PODTPRTKITDET = 'edit_po_detail.PodtPrtKitDet';
 
     /**
      * the column name for the PodtDestWhse field
      */
-    const COL_PODTDESTWHSE = 'edit_po_detail.PodtDestWhse';
+    public const COL_PODTDESTWHSE = 'edit_po_detail.PodtDestWhse';
 
     /**
      * the column name for the PodtRevision field
      */
-    const COL_PODTREVISION = 'edit_po_detail.PodtRevision';
+    public const COL_PODTREVISION = 'edit_po_detail.PodtRevision';
 
     /**
      * the column name for the PodtPrtPoEOrU field
      */
-    const COL_PODTPRTPOEORU = 'edit_po_detail.PodtPrtPoEOrU';
+    public const COL_PODTPRTPOEORU = 'edit_po_detail.PodtPrtPoEOrU';
 
     /**
      * the column name for the PotbCnfmCode field
      */
-    const COL_POTBCNFMCODE = 'edit_po_detail.PotbCnfmCode';
+    public const COL_POTBCNFMCODE = 'edit_po_detail.PotbCnfmCode';
 
     /**
      * the column name for the PodtRcptNbr field
      */
-    const COL_PODTRCPTNBR = 'edit_po_detail.PodtRcptNbr';
+    public const COL_PODTRCPTNBR = 'edit_po_detail.PodtRcptNbr';
 
     /**
      * the column name for the PodtWipNbr field
      */
-    const COL_PODTWIPNBR = 'edit_po_detail.PodtWipNbr';
+    public const COL_PODTWIPNBR = 'edit_po_detail.PodtWipNbr';
 
     /**
      * the column name for the PodtOrdrAs field
      */
-    const COL_PODTORDRAS = 'edit_po_detail.PodtOrdrAs';
+    public const COL_PODTORDRAS = 'edit_po_detail.PodtOrdrAs';
 
     /**
      * the column name for the PodtBolDate field
      */
-    const COL_PODTBOLDATE = 'edit_po_detail.PodtBolDate';
+    public const COL_PODTBOLDATE = 'edit_po_detail.PodtBolDate';
 
     /**
      * the column name for the PodtListPric field
      */
-    const COL_PODTLISTPRIC = 'edit_po_detail.PodtListPric';
+    public const COL_PODTLISTPRIC = 'edit_po_detail.PodtListPric';
 
     /**
      * the column name for the PodtDeliveredDate field
      */
-    const COL_PODTDELIVEREDDATE = 'edit_po_detail.PodtDeliveredDate';
+    public const COL_PODTDELIVEREDDATE = 'edit_po_detail.PodtDeliveredDate';
 
     /**
      * the column name for the PodtLandCost field
      */
-    const COL_PODTLANDCOST = 'edit_po_detail.PodtLandCost';
+    public const COL_PODTLANDCOST = 'edit_po_detail.PodtLandCost';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'edit_po_detail.DateUpdtd';
+    public const COL_DATEUPDTD = 'edit_po_detail.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'edit_po_detail.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'edit_po_detail.TimeUpdtd';
 
     /**
      * the column name for the status field
      */
-    const COL_STATUS = 'edit_po_detail.status';
+    public const COL_STATUS = 'edit_po_detail.status';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'edit_po_detail.dummy';
+    public const COL_DUMMY = 'edit_po_detail.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Sessionid', 'Pohdnbr', 'Podtline', 'Inititemnbr', 'Podtdesc1', 'Podtdesc2', 'Podtvenditemnbr', 'Intbwhse', 'Podtshipdate', 'Podtexptdate', 'Podtcancdate', 'Intbuompur', 'Podtqtyord', 'Podtcost', 'Podtcosttot', 'Podtrel', 'Podtspecordr', 'Podtglacct', 'Podtsonbr', 'Podtstat', 'Podtorigsoline', 'Podtqtyduein', 'Podttype', 'Podtwghttot', 'Podtforeigncost', 'Podtforeigncosttot', 'Podtstanunitcost', 'Podtackdate', 'Podtinvcclearflag', 'Podtprtkitdet', 'Podtdestwhse', 'Podtrevision', 'Podtprtpoeoru', 'Potbcnfmcode', 'Podtrcptnbr', 'Podtwipnbr', 'Podtordras', 'Podtboldate', 'Podtlistpric', 'Podtdelivereddate', 'Podtlandcost', 'Dateupdtd', 'Timeupdtd', 'Status', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('sessionid', 'pohdnbr', 'podtline', 'inititemnbr', 'podtdesc1', 'podtdesc2', 'podtvenditemnbr', 'intbwhse', 'podtshipdate', 'podtexptdate', 'podtcancdate', 'intbuompur', 'podtqtyord', 'podtcost', 'podtcosttot', 'podtrel', 'podtspecordr', 'podtglacct', 'podtsonbr', 'podtstat', 'podtorigsoline', 'podtqtyduein', 'podttype', 'podtwghttot', 'podtforeigncost', 'podtforeigncosttot', 'podtstanunitcost', 'podtackdate', 'podtinvcclearflag', 'podtprtkitdet', 'podtdestwhse', 'podtrevision', 'podtprtpoeoru', 'potbcnfmcode', 'podtrcptnbr', 'podtwipnbr', 'podtordras', 'podtboldate', 'podtlistpric', 'podtdelivereddate', 'podtlandcost', 'dateupdtd', 'timeupdtd', 'status', 'dummy', ),
-        self::TYPE_COLNAME       => array(EditPoDetailTableMap::COL_SESSIONID, EditPoDetailTableMap::COL_POHDNBR, EditPoDetailTableMap::COL_PODTLINE, EditPoDetailTableMap::COL_INITITEMNBR, EditPoDetailTableMap::COL_PODTDESC1, EditPoDetailTableMap::COL_PODTDESC2, EditPoDetailTableMap::COL_PODTVENDITEMNBR, EditPoDetailTableMap::COL_INTBWHSE, EditPoDetailTableMap::COL_PODTSHIPDATE, EditPoDetailTableMap::COL_PODTEXPTDATE, EditPoDetailTableMap::COL_PODTCANCDATE, EditPoDetailTableMap::COL_INTBUOMPUR, EditPoDetailTableMap::COL_PODTQTYORD, EditPoDetailTableMap::COL_PODTCOST, EditPoDetailTableMap::COL_PODTCOSTTOT, EditPoDetailTableMap::COL_PODTREL, EditPoDetailTableMap::COL_PODTSPECORDR, EditPoDetailTableMap::COL_PODTGLACCT, EditPoDetailTableMap::COL_PODTSONBR, EditPoDetailTableMap::COL_PODTSTAT, EditPoDetailTableMap::COL_PODTORIGSOLINE, EditPoDetailTableMap::COL_PODTQTYDUEIN, EditPoDetailTableMap::COL_PODTTYPE, EditPoDetailTableMap::COL_PODTWGHTTOT, EditPoDetailTableMap::COL_PODTFOREIGNCOST, EditPoDetailTableMap::COL_PODTFOREIGNCOSTTOT, EditPoDetailTableMap::COL_PODTSTANUNITCOST, EditPoDetailTableMap::COL_PODTACKDATE, EditPoDetailTableMap::COL_PODTINVCCLEARFLAG, EditPoDetailTableMap::COL_PODTPRTKITDET, EditPoDetailTableMap::COL_PODTDESTWHSE, EditPoDetailTableMap::COL_PODTREVISION, EditPoDetailTableMap::COL_PODTPRTPOEORU, EditPoDetailTableMap::COL_POTBCNFMCODE, EditPoDetailTableMap::COL_PODTRCPTNBR, EditPoDetailTableMap::COL_PODTWIPNBR, EditPoDetailTableMap::COL_PODTORDRAS, EditPoDetailTableMap::COL_PODTBOLDATE, EditPoDetailTableMap::COL_PODTLISTPRIC, EditPoDetailTableMap::COL_PODTDELIVEREDDATE, EditPoDetailTableMap::COL_PODTLANDCOST, EditPoDetailTableMap::COL_DATEUPDTD, EditPoDetailTableMap::COL_TIMEUPDTD, EditPoDetailTableMap::COL_STATUS, EditPoDetailTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('sessionid', 'PohdNbr', 'PodtLine', 'InitItemNbr', 'PodtDesc1', 'PodtDesc2', 'PodtVendItemNbr', 'IntbWhse', 'PodtShipDate', 'PodtExptDate', 'PodtCancDate', 'IntbUomPur', 'PodtQtyOrd', 'PodtCost', 'PodtCostTot', 'PodtRel', 'PodtSpecOrdr', 'PodtGlAcct', 'PodtSoNbr', 'PodtStat', 'PodtOrigSoLine', 'PodtQtyDueIn', 'PodtType', 'PodtWghtTot', 'PodtForeignCost', 'PodtForeignCostTot', 'PodtStanUnitCost', 'PodtAckDate', 'PodtInvcClearFlag', 'PodtPrtKitDet', 'PodtDestWhse', 'PodtRevision', 'PodtPrtPoEOrU', 'PotbCnfmCode', 'PodtRcptNbr', 'PodtWipNbr', 'PodtOrdrAs', 'PodtBolDate', 'PodtListPric', 'PodtDeliveredDate', 'PodtLandCost', 'DateUpdtd', 'TimeUpdtd', 'status', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Sessionid', 'Pohdnbr', 'Podtline', 'Inititemnbr', 'Podtdesc1', 'Podtdesc2', 'Podtvenditemnbr', 'Intbwhse', 'Podtshipdate', 'Podtexptdate', 'Podtcancdate', 'Intbuompur', 'Podtqtyord', 'Podtcost', 'Podtcosttot', 'Podtrel', 'Podtspecordr', 'Podtglacct', 'Podtsonbr', 'Podtstat', 'Podtorigsoline', 'Podtqtyduein', 'Podttype', 'Podtwghttot', 'Podtforeigncost', 'Podtforeigncosttot', 'Podtstanunitcost', 'Podtackdate', 'Podtinvcclearflag', 'Podtprtkitdet', 'Podtdestwhse', 'Podtrevision', 'Podtprtpoeoru', 'Potbcnfmcode', 'Podtrcptnbr', 'Podtwipnbr', 'Podtordras', 'Podtboldate', 'Podtlistpric', 'Podtdelivereddate', 'Podtlandcost', 'Dateupdtd', 'Timeupdtd', 'Status', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['sessionid', 'pohdnbr', 'podtline', 'inititemnbr', 'podtdesc1', 'podtdesc2', 'podtvenditemnbr', 'intbwhse', 'podtshipdate', 'podtexptdate', 'podtcancdate', 'intbuompur', 'podtqtyord', 'podtcost', 'podtcosttot', 'podtrel', 'podtspecordr', 'podtglacct', 'podtsonbr', 'podtstat', 'podtorigsoline', 'podtqtyduein', 'podttype', 'podtwghttot', 'podtforeigncost', 'podtforeigncosttot', 'podtstanunitcost', 'podtackdate', 'podtinvcclearflag', 'podtprtkitdet', 'podtdestwhse', 'podtrevision', 'podtprtpoeoru', 'potbcnfmcode', 'podtrcptnbr', 'podtwipnbr', 'podtordras', 'podtboldate', 'podtlistpric', 'podtdelivereddate', 'podtlandcost', 'dateupdtd', 'timeupdtd', 'status', 'dummy', ],
+        self::TYPE_COLNAME       => [EditPoDetailTableMap::COL_SESSIONID, EditPoDetailTableMap::COL_POHDNBR, EditPoDetailTableMap::COL_PODTLINE, EditPoDetailTableMap::COL_INITITEMNBR, EditPoDetailTableMap::COL_PODTDESC1, EditPoDetailTableMap::COL_PODTDESC2, EditPoDetailTableMap::COL_PODTVENDITEMNBR, EditPoDetailTableMap::COL_INTBWHSE, EditPoDetailTableMap::COL_PODTSHIPDATE, EditPoDetailTableMap::COL_PODTEXPTDATE, EditPoDetailTableMap::COL_PODTCANCDATE, EditPoDetailTableMap::COL_INTBUOMPUR, EditPoDetailTableMap::COL_PODTQTYORD, EditPoDetailTableMap::COL_PODTCOST, EditPoDetailTableMap::COL_PODTCOSTTOT, EditPoDetailTableMap::COL_PODTREL, EditPoDetailTableMap::COL_PODTSPECORDR, EditPoDetailTableMap::COL_PODTGLACCT, EditPoDetailTableMap::COL_PODTSONBR, EditPoDetailTableMap::COL_PODTSTAT, EditPoDetailTableMap::COL_PODTORIGSOLINE, EditPoDetailTableMap::COL_PODTQTYDUEIN, EditPoDetailTableMap::COL_PODTTYPE, EditPoDetailTableMap::COL_PODTWGHTTOT, EditPoDetailTableMap::COL_PODTFOREIGNCOST, EditPoDetailTableMap::COL_PODTFOREIGNCOSTTOT, EditPoDetailTableMap::COL_PODTSTANUNITCOST, EditPoDetailTableMap::COL_PODTACKDATE, EditPoDetailTableMap::COL_PODTINVCCLEARFLAG, EditPoDetailTableMap::COL_PODTPRTKITDET, EditPoDetailTableMap::COL_PODTDESTWHSE, EditPoDetailTableMap::COL_PODTREVISION, EditPoDetailTableMap::COL_PODTPRTPOEORU, EditPoDetailTableMap::COL_POTBCNFMCODE, EditPoDetailTableMap::COL_PODTRCPTNBR, EditPoDetailTableMap::COL_PODTWIPNBR, EditPoDetailTableMap::COL_PODTORDRAS, EditPoDetailTableMap::COL_PODTBOLDATE, EditPoDetailTableMap::COL_PODTLISTPRIC, EditPoDetailTableMap::COL_PODTDELIVEREDDATE, EditPoDetailTableMap::COL_PODTLANDCOST, EditPoDetailTableMap::COL_DATEUPDTD, EditPoDetailTableMap::COL_TIMEUPDTD, EditPoDetailTableMap::COL_STATUS, EditPoDetailTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['sessionid', 'PohdNbr', 'PodtLine', 'InitItemNbr', 'PodtDesc1', 'PodtDesc2', 'PodtVendItemNbr', 'IntbWhse', 'PodtShipDate', 'PodtExptDate', 'PodtCancDate', 'IntbUomPur', 'PodtQtyOrd', 'PodtCost', 'PodtCostTot', 'PodtRel', 'PodtSpecOrdr', 'PodtGlAcct', 'PodtSoNbr', 'PodtStat', 'PodtOrigSoLine', 'PodtQtyDueIn', 'PodtType', 'PodtWghtTot', 'PodtForeignCost', 'PodtForeignCostTot', 'PodtStanUnitCost', 'PodtAckDate', 'PodtInvcClearFlag', 'PodtPrtKitDet', 'PodtDestWhse', 'PodtRevision', 'PodtPrtPoEOrU', 'PotbCnfmCode', 'PodtRcptNbr', 'PodtWipNbr', 'PodtOrdrAs', 'PodtBolDate', 'PodtListPric', 'PodtDeliveredDate', 'PodtLandCost', 'DateUpdtd', 'TimeUpdtd', 'status', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Pohdnbr' => 1, 'Podtline' => 2, 'Inititemnbr' => 3, 'Podtdesc1' => 4, 'Podtdesc2' => 5, 'Podtvenditemnbr' => 6, 'Intbwhse' => 7, 'Podtshipdate' => 8, 'Podtexptdate' => 9, 'Podtcancdate' => 10, 'Intbuompur' => 11, 'Podtqtyord' => 12, 'Podtcost' => 13, 'Podtcosttot' => 14, 'Podtrel' => 15, 'Podtspecordr' => 16, 'Podtglacct' => 17, 'Podtsonbr' => 18, 'Podtstat' => 19, 'Podtorigsoline' => 20, 'Podtqtyduein' => 21, 'Podttype' => 22, 'Podtwghttot' => 23, 'Podtforeigncost' => 24, 'Podtforeigncosttot' => 25, 'Podtstanunitcost' => 26, 'Podtackdate' => 27, 'Podtinvcclearflag' => 28, 'Podtprtkitdet' => 29, 'Podtdestwhse' => 30, 'Podtrevision' => 31, 'Podtprtpoeoru' => 32, 'Potbcnfmcode' => 33, 'Podtrcptnbr' => 34, 'Podtwipnbr' => 35, 'Podtordras' => 36, 'Podtboldate' => 37, 'Podtlistpric' => 38, 'Podtdelivereddate' => 39, 'Podtlandcost' => 40, 'Dateupdtd' => 41, 'Timeupdtd' => 42, 'Status' => 43, 'Dummy' => 44, ),
-        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'pohdnbr' => 1, 'podtline' => 2, 'inititemnbr' => 3, 'podtdesc1' => 4, 'podtdesc2' => 5, 'podtvenditemnbr' => 6, 'intbwhse' => 7, 'podtshipdate' => 8, 'podtexptdate' => 9, 'podtcancdate' => 10, 'intbuompur' => 11, 'podtqtyord' => 12, 'podtcost' => 13, 'podtcosttot' => 14, 'podtrel' => 15, 'podtspecordr' => 16, 'podtglacct' => 17, 'podtsonbr' => 18, 'podtstat' => 19, 'podtorigsoline' => 20, 'podtqtyduein' => 21, 'podttype' => 22, 'podtwghttot' => 23, 'podtforeigncost' => 24, 'podtforeigncosttot' => 25, 'podtstanunitcost' => 26, 'podtackdate' => 27, 'podtinvcclearflag' => 28, 'podtprtkitdet' => 29, 'podtdestwhse' => 30, 'podtrevision' => 31, 'podtprtpoeoru' => 32, 'potbcnfmcode' => 33, 'podtrcptnbr' => 34, 'podtwipnbr' => 35, 'podtordras' => 36, 'podtboldate' => 37, 'podtlistpric' => 38, 'podtdelivereddate' => 39, 'podtlandcost' => 40, 'dateupdtd' => 41, 'timeupdtd' => 42, 'status' => 43, 'dummy' => 44, ),
-        self::TYPE_COLNAME       => array(EditPoDetailTableMap::COL_SESSIONID => 0, EditPoDetailTableMap::COL_POHDNBR => 1, EditPoDetailTableMap::COL_PODTLINE => 2, EditPoDetailTableMap::COL_INITITEMNBR => 3, EditPoDetailTableMap::COL_PODTDESC1 => 4, EditPoDetailTableMap::COL_PODTDESC2 => 5, EditPoDetailTableMap::COL_PODTVENDITEMNBR => 6, EditPoDetailTableMap::COL_INTBWHSE => 7, EditPoDetailTableMap::COL_PODTSHIPDATE => 8, EditPoDetailTableMap::COL_PODTEXPTDATE => 9, EditPoDetailTableMap::COL_PODTCANCDATE => 10, EditPoDetailTableMap::COL_INTBUOMPUR => 11, EditPoDetailTableMap::COL_PODTQTYORD => 12, EditPoDetailTableMap::COL_PODTCOST => 13, EditPoDetailTableMap::COL_PODTCOSTTOT => 14, EditPoDetailTableMap::COL_PODTREL => 15, EditPoDetailTableMap::COL_PODTSPECORDR => 16, EditPoDetailTableMap::COL_PODTGLACCT => 17, EditPoDetailTableMap::COL_PODTSONBR => 18, EditPoDetailTableMap::COL_PODTSTAT => 19, EditPoDetailTableMap::COL_PODTORIGSOLINE => 20, EditPoDetailTableMap::COL_PODTQTYDUEIN => 21, EditPoDetailTableMap::COL_PODTTYPE => 22, EditPoDetailTableMap::COL_PODTWGHTTOT => 23, EditPoDetailTableMap::COL_PODTFOREIGNCOST => 24, EditPoDetailTableMap::COL_PODTFOREIGNCOSTTOT => 25, EditPoDetailTableMap::COL_PODTSTANUNITCOST => 26, EditPoDetailTableMap::COL_PODTACKDATE => 27, EditPoDetailTableMap::COL_PODTINVCCLEARFLAG => 28, EditPoDetailTableMap::COL_PODTPRTKITDET => 29, EditPoDetailTableMap::COL_PODTDESTWHSE => 30, EditPoDetailTableMap::COL_PODTREVISION => 31, EditPoDetailTableMap::COL_PODTPRTPOEORU => 32, EditPoDetailTableMap::COL_POTBCNFMCODE => 33, EditPoDetailTableMap::COL_PODTRCPTNBR => 34, EditPoDetailTableMap::COL_PODTWIPNBR => 35, EditPoDetailTableMap::COL_PODTORDRAS => 36, EditPoDetailTableMap::COL_PODTBOLDATE => 37, EditPoDetailTableMap::COL_PODTLISTPRIC => 38, EditPoDetailTableMap::COL_PODTDELIVEREDDATE => 39, EditPoDetailTableMap::COL_PODTLANDCOST => 40, EditPoDetailTableMap::COL_DATEUPDTD => 41, EditPoDetailTableMap::COL_TIMEUPDTD => 42, EditPoDetailTableMap::COL_STATUS => 43, EditPoDetailTableMap::COL_DUMMY => 44, ),
-        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'PohdNbr' => 1, 'PodtLine' => 2, 'InitItemNbr' => 3, 'PodtDesc1' => 4, 'PodtDesc2' => 5, 'PodtVendItemNbr' => 6, 'IntbWhse' => 7, 'PodtShipDate' => 8, 'PodtExptDate' => 9, 'PodtCancDate' => 10, 'IntbUomPur' => 11, 'PodtQtyOrd' => 12, 'PodtCost' => 13, 'PodtCostTot' => 14, 'PodtRel' => 15, 'PodtSpecOrdr' => 16, 'PodtGlAcct' => 17, 'PodtSoNbr' => 18, 'PodtStat' => 19, 'PodtOrigSoLine' => 20, 'PodtQtyDueIn' => 21, 'PodtType' => 22, 'PodtWghtTot' => 23, 'PodtForeignCost' => 24, 'PodtForeignCostTot' => 25, 'PodtStanUnitCost' => 26, 'PodtAckDate' => 27, 'PodtInvcClearFlag' => 28, 'PodtPrtKitDet' => 29, 'PodtDestWhse' => 30, 'PodtRevision' => 31, 'PodtPrtPoEOrU' => 32, 'PotbCnfmCode' => 33, 'PodtRcptNbr' => 34, 'PodtWipNbr' => 35, 'PodtOrdrAs' => 36, 'PodtBolDate' => 37, 'PodtListPric' => 38, 'PodtDeliveredDate' => 39, 'PodtLandCost' => 40, 'DateUpdtd' => 41, 'TimeUpdtd' => 42, 'status' => 43, 'dummy' => 44, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Sessionid' => 0, 'Pohdnbr' => 1, 'Podtline' => 2, 'Inititemnbr' => 3, 'Podtdesc1' => 4, 'Podtdesc2' => 5, 'Podtvenditemnbr' => 6, 'Intbwhse' => 7, 'Podtshipdate' => 8, 'Podtexptdate' => 9, 'Podtcancdate' => 10, 'Intbuompur' => 11, 'Podtqtyord' => 12, 'Podtcost' => 13, 'Podtcosttot' => 14, 'Podtrel' => 15, 'Podtspecordr' => 16, 'Podtglacct' => 17, 'Podtsonbr' => 18, 'Podtstat' => 19, 'Podtorigsoline' => 20, 'Podtqtyduein' => 21, 'Podttype' => 22, 'Podtwghttot' => 23, 'Podtforeigncost' => 24, 'Podtforeigncosttot' => 25, 'Podtstanunitcost' => 26, 'Podtackdate' => 27, 'Podtinvcclearflag' => 28, 'Podtprtkitdet' => 29, 'Podtdestwhse' => 30, 'Podtrevision' => 31, 'Podtprtpoeoru' => 32, 'Potbcnfmcode' => 33, 'Podtrcptnbr' => 34, 'Podtwipnbr' => 35, 'Podtordras' => 36, 'Podtboldate' => 37, 'Podtlistpric' => 38, 'Podtdelivereddate' => 39, 'Podtlandcost' => 40, 'Dateupdtd' => 41, 'Timeupdtd' => 42, 'Status' => 43, 'Dummy' => 44, ],
+        self::TYPE_CAMELNAME     => ['sessionid' => 0, 'pohdnbr' => 1, 'podtline' => 2, 'inititemnbr' => 3, 'podtdesc1' => 4, 'podtdesc2' => 5, 'podtvenditemnbr' => 6, 'intbwhse' => 7, 'podtshipdate' => 8, 'podtexptdate' => 9, 'podtcancdate' => 10, 'intbuompur' => 11, 'podtqtyord' => 12, 'podtcost' => 13, 'podtcosttot' => 14, 'podtrel' => 15, 'podtspecordr' => 16, 'podtglacct' => 17, 'podtsonbr' => 18, 'podtstat' => 19, 'podtorigsoline' => 20, 'podtqtyduein' => 21, 'podttype' => 22, 'podtwghttot' => 23, 'podtforeigncost' => 24, 'podtforeigncosttot' => 25, 'podtstanunitcost' => 26, 'podtackdate' => 27, 'podtinvcclearflag' => 28, 'podtprtkitdet' => 29, 'podtdestwhse' => 30, 'podtrevision' => 31, 'podtprtpoeoru' => 32, 'potbcnfmcode' => 33, 'podtrcptnbr' => 34, 'podtwipnbr' => 35, 'podtordras' => 36, 'podtboldate' => 37, 'podtlistpric' => 38, 'podtdelivereddate' => 39, 'podtlandcost' => 40, 'dateupdtd' => 41, 'timeupdtd' => 42, 'status' => 43, 'dummy' => 44, ],
+        self::TYPE_COLNAME       => [EditPoDetailTableMap::COL_SESSIONID => 0, EditPoDetailTableMap::COL_POHDNBR => 1, EditPoDetailTableMap::COL_PODTLINE => 2, EditPoDetailTableMap::COL_INITITEMNBR => 3, EditPoDetailTableMap::COL_PODTDESC1 => 4, EditPoDetailTableMap::COL_PODTDESC2 => 5, EditPoDetailTableMap::COL_PODTVENDITEMNBR => 6, EditPoDetailTableMap::COL_INTBWHSE => 7, EditPoDetailTableMap::COL_PODTSHIPDATE => 8, EditPoDetailTableMap::COL_PODTEXPTDATE => 9, EditPoDetailTableMap::COL_PODTCANCDATE => 10, EditPoDetailTableMap::COL_INTBUOMPUR => 11, EditPoDetailTableMap::COL_PODTQTYORD => 12, EditPoDetailTableMap::COL_PODTCOST => 13, EditPoDetailTableMap::COL_PODTCOSTTOT => 14, EditPoDetailTableMap::COL_PODTREL => 15, EditPoDetailTableMap::COL_PODTSPECORDR => 16, EditPoDetailTableMap::COL_PODTGLACCT => 17, EditPoDetailTableMap::COL_PODTSONBR => 18, EditPoDetailTableMap::COL_PODTSTAT => 19, EditPoDetailTableMap::COL_PODTORIGSOLINE => 20, EditPoDetailTableMap::COL_PODTQTYDUEIN => 21, EditPoDetailTableMap::COL_PODTTYPE => 22, EditPoDetailTableMap::COL_PODTWGHTTOT => 23, EditPoDetailTableMap::COL_PODTFOREIGNCOST => 24, EditPoDetailTableMap::COL_PODTFOREIGNCOSTTOT => 25, EditPoDetailTableMap::COL_PODTSTANUNITCOST => 26, EditPoDetailTableMap::COL_PODTACKDATE => 27, EditPoDetailTableMap::COL_PODTINVCCLEARFLAG => 28, EditPoDetailTableMap::COL_PODTPRTKITDET => 29, EditPoDetailTableMap::COL_PODTDESTWHSE => 30, EditPoDetailTableMap::COL_PODTREVISION => 31, EditPoDetailTableMap::COL_PODTPRTPOEORU => 32, EditPoDetailTableMap::COL_POTBCNFMCODE => 33, EditPoDetailTableMap::COL_PODTRCPTNBR => 34, EditPoDetailTableMap::COL_PODTWIPNBR => 35, EditPoDetailTableMap::COL_PODTORDRAS => 36, EditPoDetailTableMap::COL_PODTBOLDATE => 37, EditPoDetailTableMap::COL_PODTLISTPRIC => 38, EditPoDetailTableMap::COL_PODTDELIVEREDDATE => 39, EditPoDetailTableMap::COL_PODTLANDCOST => 40, EditPoDetailTableMap::COL_DATEUPDTD => 41, EditPoDetailTableMap::COL_TIMEUPDTD => 42, EditPoDetailTableMap::COL_STATUS => 43, EditPoDetailTableMap::COL_DUMMY => 44, ],
+        self::TYPE_FIELDNAME     => ['sessionid' => 0, 'PohdNbr' => 1, 'PodtLine' => 2, 'InitItemNbr' => 3, 'PodtDesc1' => 4, 'PodtDesc2' => 5, 'PodtVendItemNbr' => 6, 'IntbWhse' => 7, 'PodtShipDate' => 8, 'PodtExptDate' => 9, 'PodtCancDate' => 10, 'IntbUomPur' => 11, 'PodtQtyOrd' => 12, 'PodtCost' => 13, 'PodtCostTot' => 14, 'PodtRel' => 15, 'PodtSpecOrdr' => 16, 'PodtGlAcct' => 17, 'PodtSoNbr' => 18, 'PodtStat' => 19, 'PodtOrigSoLine' => 20, 'PodtQtyDueIn' => 21, 'PodtType' => 22, 'PodtWghtTot' => 23, 'PodtForeignCost' => 24, 'PodtForeignCostTot' => 25, 'PodtStanUnitCost' => 26, 'PodtAckDate' => 27, 'PodtInvcClearFlag' => 28, 'PodtPrtKitDet' => 29, 'PodtDestWhse' => 30, 'PodtRevision' => 31, 'PodtPrtPoEOrU' => 32, 'PotbCnfmCode' => 33, 'PodtRcptNbr' => 34, 'PodtWipNbr' => 35, 'PodtOrdrAs' => 36, 'PodtBolDate' => 37, 'PodtListPric' => 38, 'PodtDeliveredDate' => 39, 'PodtLandCost' => 40, 'DateUpdtd' => 41, 'TimeUpdtd' => 42, 'status' => 43, 'dummy' => 44, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Sessionid' => 'SESSIONID',
+        'EditPoDetail.Sessionid' => 'SESSIONID',
+        'sessionid' => 'SESSIONID',
+        'editPoDetail.sessionid' => 'SESSIONID',
+        'EditPoDetailTableMap::COL_SESSIONID' => 'SESSIONID',
+        'COL_SESSIONID' => 'SESSIONID',
+        'edit_po_detail.sessionid' => 'SESSIONID',
+        'Pohdnbr' => 'POHDNBR',
+        'EditPoDetail.Pohdnbr' => 'POHDNBR',
+        'pohdnbr' => 'POHDNBR',
+        'editPoDetail.pohdnbr' => 'POHDNBR',
+        'EditPoDetailTableMap::COL_POHDNBR' => 'POHDNBR',
+        'COL_POHDNBR' => 'POHDNBR',
+        'PohdNbr' => 'POHDNBR',
+        'edit_po_detail.PohdNbr' => 'POHDNBR',
+        'Podtline' => 'PODTLINE',
+        'EditPoDetail.Podtline' => 'PODTLINE',
+        'podtline' => 'PODTLINE',
+        'editPoDetail.podtline' => 'PODTLINE',
+        'EditPoDetailTableMap::COL_PODTLINE' => 'PODTLINE',
+        'COL_PODTLINE' => 'PODTLINE',
+        'PodtLine' => 'PODTLINE',
+        'edit_po_detail.PodtLine' => 'PODTLINE',
+        'Inititemnbr' => 'INITITEMNBR',
+        'EditPoDetail.Inititemnbr' => 'INITITEMNBR',
+        'inititemnbr' => 'INITITEMNBR',
+        'editPoDetail.inititemnbr' => 'INITITEMNBR',
+        'EditPoDetailTableMap::COL_INITITEMNBR' => 'INITITEMNBR',
+        'COL_INITITEMNBR' => 'INITITEMNBR',
+        'InitItemNbr' => 'INITITEMNBR',
+        'edit_po_detail.InitItemNbr' => 'INITITEMNBR',
+        'Podtdesc1' => 'PODTDESC1',
+        'EditPoDetail.Podtdesc1' => 'PODTDESC1',
+        'podtdesc1' => 'PODTDESC1',
+        'editPoDetail.podtdesc1' => 'PODTDESC1',
+        'EditPoDetailTableMap::COL_PODTDESC1' => 'PODTDESC1',
+        'COL_PODTDESC1' => 'PODTDESC1',
+        'PodtDesc1' => 'PODTDESC1',
+        'edit_po_detail.PodtDesc1' => 'PODTDESC1',
+        'Podtdesc2' => 'PODTDESC2',
+        'EditPoDetail.Podtdesc2' => 'PODTDESC2',
+        'podtdesc2' => 'PODTDESC2',
+        'editPoDetail.podtdesc2' => 'PODTDESC2',
+        'EditPoDetailTableMap::COL_PODTDESC2' => 'PODTDESC2',
+        'COL_PODTDESC2' => 'PODTDESC2',
+        'PodtDesc2' => 'PODTDESC2',
+        'edit_po_detail.PodtDesc2' => 'PODTDESC2',
+        'Podtvenditemnbr' => 'PODTVENDITEMNBR',
+        'EditPoDetail.Podtvenditemnbr' => 'PODTVENDITEMNBR',
+        'podtvenditemnbr' => 'PODTVENDITEMNBR',
+        'editPoDetail.podtvenditemnbr' => 'PODTVENDITEMNBR',
+        'EditPoDetailTableMap::COL_PODTVENDITEMNBR' => 'PODTVENDITEMNBR',
+        'COL_PODTVENDITEMNBR' => 'PODTVENDITEMNBR',
+        'PodtVendItemNbr' => 'PODTVENDITEMNBR',
+        'edit_po_detail.PodtVendItemNbr' => 'PODTVENDITEMNBR',
+        'Intbwhse' => 'INTBWHSE',
+        'EditPoDetail.Intbwhse' => 'INTBWHSE',
+        'intbwhse' => 'INTBWHSE',
+        'editPoDetail.intbwhse' => 'INTBWHSE',
+        'EditPoDetailTableMap::COL_INTBWHSE' => 'INTBWHSE',
+        'COL_INTBWHSE' => 'INTBWHSE',
+        'IntbWhse' => 'INTBWHSE',
+        'edit_po_detail.IntbWhse' => 'INTBWHSE',
+        'Podtshipdate' => 'PODTSHIPDATE',
+        'EditPoDetail.Podtshipdate' => 'PODTSHIPDATE',
+        'podtshipdate' => 'PODTSHIPDATE',
+        'editPoDetail.podtshipdate' => 'PODTSHIPDATE',
+        'EditPoDetailTableMap::COL_PODTSHIPDATE' => 'PODTSHIPDATE',
+        'COL_PODTSHIPDATE' => 'PODTSHIPDATE',
+        'PodtShipDate' => 'PODTSHIPDATE',
+        'edit_po_detail.PodtShipDate' => 'PODTSHIPDATE',
+        'Podtexptdate' => 'PODTEXPTDATE',
+        'EditPoDetail.Podtexptdate' => 'PODTEXPTDATE',
+        'podtexptdate' => 'PODTEXPTDATE',
+        'editPoDetail.podtexptdate' => 'PODTEXPTDATE',
+        'EditPoDetailTableMap::COL_PODTEXPTDATE' => 'PODTEXPTDATE',
+        'COL_PODTEXPTDATE' => 'PODTEXPTDATE',
+        'PodtExptDate' => 'PODTEXPTDATE',
+        'edit_po_detail.PodtExptDate' => 'PODTEXPTDATE',
+        'Podtcancdate' => 'PODTCANCDATE',
+        'EditPoDetail.Podtcancdate' => 'PODTCANCDATE',
+        'podtcancdate' => 'PODTCANCDATE',
+        'editPoDetail.podtcancdate' => 'PODTCANCDATE',
+        'EditPoDetailTableMap::COL_PODTCANCDATE' => 'PODTCANCDATE',
+        'COL_PODTCANCDATE' => 'PODTCANCDATE',
+        'PodtCancDate' => 'PODTCANCDATE',
+        'edit_po_detail.PodtCancDate' => 'PODTCANCDATE',
+        'Intbuompur' => 'INTBUOMPUR',
+        'EditPoDetail.Intbuompur' => 'INTBUOMPUR',
+        'intbuompur' => 'INTBUOMPUR',
+        'editPoDetail.intbuompur' => 'INTBUOMPUR',
+        'EditPoDetailTableMap::COL_INTBUOMPUR' => 'INTBUOMPUR',
+        'COL_INTBUOMPUR' => 'INTBUOMPUR',
+        'IntbUomPur' => 'INTBUOMPUR',
+        'edit_po_detail.IntbUomPur' => 'INTBUOMPUR',
+        'Podtqtyord' => 'PODTQTYORD',
+        'EditPoDetail.Podtqtyord' => 'PODTQTYORD',
+        'podtqtyord' => 'PODTQTYORD',
+        'editPoDetail.podtqtyord' => 'PODTQTYORD',
+        'EditPoDetailTableMap::COL_PODTQTYORD' => 'PODTQTYORD',
+        'COL_PODTQTYORD' => 'PODTQTYORD',
+        'PodtQtyOrd' => 'PODTQTYORD',
+        'edit_po_detail.PodtQtyOrd' => 'PODTQTYORD',
+        'Podtcost' => 'PODTCOST',
+        'EditPoDetail.Podtcost' => 'PODTCOST',
+        'podtcost' => 'PODTCOST',
+        'editPoDetail.podtcost' => 'PODTCOST',
+        'EditPoDetailTableMap::COL_PODTCOST' => 'PODTCOST',
+        'COL_PODTCOST' => 'PODTCOST',
+        'PodtCost' => 'PODTCOST',
+        'edit_po_detail.PodtCost' => 'PODTCOST',
+        'Podtcosttot' => 'PODTCOSTTOT',
+        'EditPoDetail.Podtcosttot' => 'PODTCOSTTOT',
+        'podtcosttot' => 'PODTCOSTTOT',
+        'editPoDetail.podtcosttot' => 'PODTCOSTTOT',
+        'EditPoDetailTableMap::COL_PODTCOSTTOT' => 'PODTCOSTTOT',
+        'COL_PODTCOSTTOT' => 'PODTCOSTTOT',
+        'PodtCostTot' => 'PODTCOSTTOT',
+        'edit_po_detail.PodtCostTot' => 'PODTCOSTTOT',
+        'Podtrel' => 'PODTREL',
+        'EditPoDetail.Podtrel' => 'PODTREL',
+        'podtrel' => 'PODTREL',
+        'editPoDetail.podtrel' => 'PODTREL',
+        'EditPoDetailTableMap::COL_PODTREL' => 'PODTREL',
+        'COL_PODTREL' => 'PODTREL',
+        'PodtRel' => 'PODTREL',
+        'edit_po_detail.PodtRel' => 'PODTREL',
+        'Podtspecordr' => 'PODTSPECORDR',
+        'EditPoDetail.Podtspecordr' => 'PODTSPECORDR',
+        'podtspecordr' => 'PODTSPECORDR',
+        'editPoDetail.podtspecordr' => 'PODTSPECORDR',
+        'EditPoDetailTableMap::COL_PODTSPECORDR' => 'PODTSPECORDR',
+        'COL_PODTSPECORDR' => 'PODTSPECORDR',
+        'PodtSpecOrdr' => 'PODTSPECORDR',
+        'edit_po_detail.PodtSpecOrdr' => 'PODTSPECORDR',
+        'Podtglacct' => 'PODTGLACCT',
+        'EditPoDetail.Podtglacct' => 'PODTGLACCT',
+        'podtglacct' => 'PODTGLACCT',
+        'editPoDetail.podtglacct' => 'PODTGLACCT',
+        'EditPoDetailTableMap::COL_PODTGLACCT' => 'PODTGLACCT',
+        'COL_PODTGLACCT' => 'PODTGLACCT',
+        'PodtGlAcct' => 'PODTGLACCT',
+        'edit_po_detail.PodtGlAcct' => 'PODTGLACCT',
+        'Podtsonbr' => 'PODTSONBR',
+        'EditPoDetail.Podtsonbr' => 'PODTSONBR',
+        'podtsonbr' => 'PODTSONBR',
+        'editPoDetail.podtsonbr' => 'PODTSONBR',
+        'EditPoDetailTableMap::COL_PODTSONBR' => 'PODTSONBR',
+        'COL_PODTSONBR' => 'PODTSONBR',
+        'PodtSoNbr' => 'PODTSONBR',
+        'edit_po_detail.PodtSoNbr' => 'PODTSONBR',
+        'Podtstat' => 'PODTSTAT',
+        'EditPoDetail.Podtstat' => 'PODTSTAT',
+        'podtstat' => 'PODTSTAT',
+        'editPoDetail.podtstat' => 'PODTSTAT',
+        'EditPoDetailTableMap::COL_PODTSTAT' => 'PODTSTAT',
+        'COL_PODTSTAT' => 'PODTSTAT',
+        'PodtStat' => 'PODTSTAT',
+        'edit_po_detail.PodtStat' => 'PODTSTAT',
+        'Podtorigsoline' => 'PODTORIGSOLINE',
+        'EditPoDetail.Podtorigsoline' => 'PODTORIGSOLINE',
+        'podtorigsoline' => 'PODTORIGSOLINE',
+        'editPoDetail.podtorigsoline' => 'PODTORIGSOLINE',
+        'EditPoDetailTableMap::COL_PODTORIGSOLINE' => 'PODTORIGSOLINE',
+        'COL_PODTORIGSOLINE' => 'PODTORIGSOLINE',
+        'PodtOrigSoLine' => 'PODTORIGSOLINE',
+        'edit_po_detail.PodtOrigSoLine' => 'PODTORIGSOLINE',
+        'Podtqtyduein' => 'PODTQTYDUEIN',
+        'EditPoDetail.Podtqtyduein' => 'PODTQTYDUEIN',
+        'podtqtyduein' => 'PODTQTYDUEIN',
+        'editPoDetail.podtqtyduein' => 'PODTQTYDUEIN',
+        'EditPoDetailTableMap::COL_PODTQTYDUEIN' => 'PODTQTYDUEIN',
+        'COL_PODTQTYDUEIN' => 'PODTQTYDUEIN',
+        'PodtQtyDueIn' => 'PODTQTYDUEIN',
+        'edit_po_detail.PodtQtyDueIn' => 'PODTQTYDUEIN',
+        'Podttype' => 'PODTTYPE',
+        'EditPoDetail.Podttype' => 'PODTTYPE',
+        'podttype' => 'PODTTYPE',
+        'editPoDetail.podttype' => 'PODTTYPE',
+        'EditPoDetailTableMap::COL_PODTTYPE' => 'PODTTYPE',
+        'COL_PODTTYPE' => 'PODTTYPE',
+        'PodtType' => 'PODTTYPE',
+        'edit_po_detail.PodtType' => 'PODTTYPE',
+        'Podtwghttot' => 'PODTWGHTTOT',
+        'EditPoDetail.Podtwghttot' => 'PODTWGHTTOT',
+        'podtwghttot' => 'PODTWGHTTOT',
+        'editPoDetail.podtwghttot' => 'PODTWGHTTOT',
+        'EditPoDetailTableMap::COL_PODTWGHTTOT' => 'PODTWGHTTOT',
+        'COL_PODTWGHTTOT' => 'PODTWGHTTOT',
+        'PodtWghtTot' => 'PODTWGHTTOT',
+        'edit_po_detail.PodtWghtTot' => 'PODTWGHTTOT',
+        'Podtforeigncost' => 'PODTFOREIGNCOST',
+        'EditPoDetail.Podtforeigncost' => 'PODTFOREIGNCOST',
+        'podtforeigncost' => 'PODTFOREIGNCOST',
+        'editPoDetail.podtforeigncost' => 'PODTFOREIGNCOST',
+        'EditPoDetailTableMap::COL_PODTFOREIGNCOST' => 'PODTFOREIGNCOST',
+        'COL_PODTFOREIGNCOST' => 'PODTFOREIGNCOST',
+        'PodtForeignCost' => 'PODTFOREIGNCOST',
+        'edit_po_detail.PodtForeignCost' => 'PODTFOREIGNCOST',
+        'Podtforeigncosttot' => 'PODTFOREIGNCOSTTOT',
+        'EditPoDetail.Podtforeigncosttot' => 'PODTFOREIGNCOSTTOT',
+        'podtforeigncosttot' => 'PODTFOREIGNCOSTTOT',
+        'editPoDetail.podtforeigncosttot' => 'PODTFOREIGNCOSTTOT',
+        'EditPoDetailTableMap::COL_PODTFOREIGNCOSTTOT' => 'PODTFOREIGNCOSTTOT',
+        'COL_PODTFOREIGNCOSTTOT' => 'PODTFOREIGNCOSTTOT',
+        'PodtForeignCostTot' => 'PODTFOREIGNCOSTTOT',
+        'edit_po_detail.PodtForeignCostTot' => 'PODTFOREIGNCOSTTOT',
+        'Podtstanunitcost' => 'PODTSTANUNITCOST',
+        'EditPoDetail.Podtstanunitcost' => 'PODTSTANUNITCOST',
+        'podtstanunitcost' => 'PODTSTANUNITCOST',
+        'editPoDetail.podtstanunitcost' => 'PODTSTANUNITCOST',
+        'EditPoDetailTableMap::COL_PODTSTANUNITCOST' => 'PODTSTANUNITCOST',
+        'COL_PODTSTANUNITCOST' => 'PODTSTANUNITCOST',
+        'PodtStanUnitCost' => 'PODTSTANUNITCOST',
+        'edit_po_detail.PodtStanUnitCost' => 'PODTSTANUNITCOST',
+        'Podtackdate' => 'PODTACKDATE',
+        'EditPoDetail.Podtackdate' => 'PODTACKDATE',
+        'podtackdate' => 'PODTACKDATE',
+        'editPoDetail.podtackdate' => 'PODTACKDATE',
+        'EditPoDetailTableMap::COL_PODTACKDATE' => 'PODTACKDATE',
+        'COL_PODTACKDATE' => 'PODTACKDATE',
+        'PodtAckDate' => 'PODTACKDATE',
+        'edit_po_detail.PodtAckDate' => 'PODTACKDATE',
+        'Podtinvcclearflag' => 'PODTINVCCLEARFLAG',
+        'EditPoDetail.Podtinvcclearflag' => 'PODTINVCCLEARFLAG',
+        'podtinvcclearflag' => 'PODTINVCCLEARFLAG',
+        'editPoDetail.podtinvcclearflag' => 'PODTINVCCLEARFLAG',
+        'EditPoDetailTableMap::COL_PODTINVCCLEARFLAG' => 'PODTINVCCLEARFLAG',
+        'COL_PODTINVCCLEARFLAG' => 'PODTINVCCLEARFLAG',
+        'PodtInvcClearFlag' => 'PODTINVCCLEARFLAG',
+        'edit_po_detail.PodtInvcClearFlag' => 'PODTINVCCLEARFLAG',
+        'Podtprtkitdet' => 'PODTPRTKITDET',
+        'EditPoDetail.Podtprtkitdet' => 'PODTPRTKITDET',
+        'podtprtkitdet' => 'PODTPRTKITDET',
+        'editPoDetail.podtprtkitdet' => 'PODTPRTKITDET',
+        'EditPoDetailTableMap::COL_PODTPRTKITDET' => 'PODTPRTKITDET',
+        'COL_PODTPRTKITDET' => 'PODTPRTKITDET',
+        'PodtPrtKitDet' => 'PODTPRTKITDET',
+        'edit_po_detail.PodtPrtKitDet' => 'PODTPRTKITDET',
+        'Podtdestwhse' => 'PODTDESTWHSE',
+        'EditPoDetail.Podtdestwhse' => 'PODTDESTWHSE',
+        'podtdestwhse' => 'PODTDESTWHSE',
+        'editPoDetail.podtdestwhse' => 'PODTDESTWHSE',
+        'EditPoDetailTableMap::COL_PODTDESTWHSE' => 'PODTDESTWHSE',
+        'COL_PODTDESTWHSE' => 'PODTDESTWHSE',
+        'PodtDestWhse' => 'PODTDESTWHSE',
+        'edit_po_detail.PodtDestWhse' => 'PODTDESTWHSE',
+        'Podtrevision' => 'PODTREVISION',
+        'EditPoDetail.Podtrevision' => 'PODTREVISION',
+        'podtrevision' => 'PODTREVISION',
+        'editPoDetail.podtrevision' => 'PODTREVISION',
+        'EditPoDetailTableMap::COL_PODTREVISION' => 'PODTREVISION',
+        'COL_PODTREVISION' => 'PODTREVISION',
+        'PodtRevision' => 'PODTREVISION',
+        'edit_po_detail.PodtRevision' => 'PODTREVISION',
+        'Podtprtpoeoru' => 'PODTPRTPOEORU',
+        'EditPoDetail.Podtprtpoeoru' => 'PODTPRTPOEORU',
+        'podtprtpoeoru' => 'PODTPRTPOEORU',
+        'editPoDetail.podtprtpoeoru' => 'PODTPRTPOEORU',
+        'EditPoDetailTableMap::COL_PODTPRTPOEORU' => 'PODTPRTPOEORU',
+        'COL_PODTPRTPOEORU' => 'PODTPRTPOEORU',
+        'PodtPrtPoEOrU' => 'PODTPRTPOEORU',
+        'edit_po_detail.PodtPrtPoEOrU' => 'PODTPRTPOEORU',
+        'Potbcnfmcode' => 'POTBCNFMCODE',
+        'EditPoDetail.Potbcnfmcode' => 'POTBCNFMCODE',
+        'potbcnfmcode' => 'POTBCNFMCODE',
+        'editPoDetail.potbcnfmcode' => 'POTBCNFMCODE',
+        'EditPoDetailTableMap::COL_POTBCNFMCODE' => 'POTBCNFMCODE',
+        'COL_POTBCNFMCODE' => 'POTBCNFMCODE',
+        'PotbCnfmCode' => 'POTBCNFMCODE',
+        'edit_po_detail.PotbCnfmCode' => 'POTBCNFMCODE',
+        'Podtrcptnbr' => 'PODTRCPTNBR',
+        'EditPoDetail.Podtrcptnbr' => 'PODTRCPTNBR',
+        'podtrcptnbr' => 'PODTRCPTNBR',
+        'editPoDetail.podtrcptnbr' => 'PODTRCPTNBR',
+        'EditPoDetailTableMap::COL_PODTRCPTNBR' => 'PODTRCPTNBR',
+        'COL_PODTRCPTNBR' => 'PODTRCPTNBR',
+        'PodtRcptNbr' => 'PODTRCPTNBR',
+        'edit_po_detail.PodtRcptNbr' => 'PODTRCPTNBR',
+        'Podtwipnbr' => 'PODTWIPNBR',
+        'EditPoDetail.Podtwipnbr' => 'PODTWIPNBR',
+        'podtwipnbr' => 'PODTWIPNBR',
+        'editPoDetail.podtwipnbr' => 'PODTWIPNBR',
+        'EditPoDetailTableMap::COL_PODTWIPNBR' => 'PODTWIPNBR',
+        'COL_PODTWIPNBR' => 'PODTWIPNBR',
+        'PodtWipNbr' => 'PODTWIPNBR',
+        'edit_po_detail.PodtWipNbr' => 'PODTWIPNBR',
+        'Podtordras' => 'PODTORDRAS',
+        'EditPoDetail.Podtordras' => 'PODTORDRAS',
+        'podtordras' => 'PODTORDRAS',
+        'editPoDetail.podtordras' => 'PODTORDRAS',
+        'EditPoDetailTableMap::COL_PODTORDRAS' => 'PODTORDRAS',
+        'COL_PODTORDRAS' => 'PODTORDRAS',
+        'PodtOrdrAs' => 'PODTORDRAS',
+        'edit_po_detail.PodtOrdrAs' => 'PODTORDRAS',
+        'Podtboldate' => 'PODTBOLDATE',
+        'EditPoDetail.Podtboldate' => 'PODTBOLDATE',
+        'podtboldate' => 'PODTBOLDATE',
+        'editPoDetail.podtboldate' => 'PODTBOLDATE',
+        'EditPoDetailTableMap::COL_PODTBOLDATE' => 'PODTBOLDATE',
+        'COL_PODTBOLDATE' => 'PODTBOLDATE',
+        'PodtBolDate' => 'PODTBOLDATE',
+        'edit_po_detail.PodtBolDate' => 'PODTBOLDATE',
+        'Podtlistpric' => 'PODTLISTPRIC',
+        'EditPoDetail.Podtlistpric' => 'PODTLISTPRIC',
+        'podtlistpric' => 'PODTLISTPRIC',
+        'editPoDetail.podtlistpric' => 'PODTLISTPRIC',
+        'EditPoDetailTableMap::COL_PODTLISTPRIC' => 'PODTLISTPRIC',
+        'COL_PODTLISTPRIC' => 'PODTLISTPRIC',
+        'PodtListPric' => 'PODTLISTPRIC',
+        'edit_po_detail.PodtListPric' => 'PODTLISTPRIC',
+        'Podtdelivereddate' => 'PODTDELIVEREDDATE',
+        'EditPoDetail.Podtdelivereddate' => 'PODTDELIVEREDDATE',
+        'podtdelivereddate' => 'PODTDELIVEREDDATE',
+        'editPoDetail.podtdelivereddate' => 'PODTDELIVEREDDATE',
+        'EditPoDetailTableMap::COL_PODTDELIVEREDDATE' => 'PODTDELIVEREDDATE',
+        'COL_PODTDELIVEREDDATE' => 'PODTDELIVEREDDATE',
+        'PodtDeliveredDate' => 'PODTDELIVEREDDATE',
+        'edit_po_detail.PodtDeliveredDate' => 'PODTDELIVEREDDATE',
+        'Podtlandcost' => 'PODTLANDCOST',
+        'EditPoDetail.Podtlandcost' => 'PODTLANDCOST',
+        'podtlandcost' => 'PODTLANDCOST',
+        'editPoDetail.podtlandcost' => 'PODTLANDCOST',
+        'EditPoDetailTableMap::COL_PODTLANDCOST' => 'PODTLANDCOST',
+        'COL_PODTLANDCOST' => 'PODTLANDCOST',
+        'PodtLandCost' => 'PODTLANDCOST',
+        'edit_po_detail.PodtLandCost' => 'PODTLANDCOST',
+        'Dateupdtd' => 'DATEUPDTD',
+        'EditPoDetail.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'editPoDetail.dateupdtd' => 'DATEUPDTD',
+        'EditPoDetailTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'edit_po_detail.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'EditPoDetail.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'editPoDetail.timeupdtd' => 'TIMEUPDTD',
+        'EditPoDetailTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'edit_po_detail.TimeUpdtd' => 'TIMEUPDTD',
+        'Status' => 'STATUS',
+        'EditPoDetail.Status' => 'STATUS',
+        'status' => 'STATUS',
+        'editPoDetail.status' => 'STATUS',
+        'EditPoDetailTableMap::COL_STATUS' => 'STATUS',
+        'COL_STATUS' => 'STATUS',
+        'edit_po_detail.status' => 'STATUS',
+        'Dummy' => 'DUMMY',
+        'EditPoDetail.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'editPoDetail.dummy' => 'DUMMY',
+        'EditPoDetailTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'edit_po_detail.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('edit_po_detail');
@@ -391,14 +764,16 @@ class EditPoDetailTableMap extends TableMap
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('status', 'Status', 'VARCHAR', false, 50, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -409,9 +784,11 @@ class EditPoDetailTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \EditPoDetail $obj A \EditPoDetail object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(EditPoDetail $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -430,8 +807,10 @@ class EditPoDetailTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \EditPoDetail object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \EditPoDetail) {
@@ -459,14 +838,14 @@ class EditPoDetailTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Pohdnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Podtline', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -481,14 +860,14 @@ class EditPoDetailTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -519,10 +898,10 @@ class EditPoDetailTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? EditPoDetailTableMap::CLASS_DEFAULT : EditPoDetailTableMap::OM_CLASS;
     }
@@ -530,17 +909,17 @@ class EditPoDetailTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (EditPoDetail object, last column rank)
+     * @return array (EditPoDetail object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = EditPoDetailTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = EditPoDetailTableMap::getInstanceFromPool($key))) {
@@ -556,7 +935,7 @@ class EditPoDetailTableMap extends TableMap
             EditPoDetailTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -564,13 +943,13 @@ class EditPoDetailTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -600,12 +979,13 @@ class EditPoDetailTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(EditPoDetailTableMap::COL_SESSIONID);
@@ -703,40 +1083,138 @@ class EditPoDetailTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_SESSIONID);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_POHDNBR);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTLINE);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_INITITEMNBR);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTDESC1);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTDESC2);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTVENDITEMNBR);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_INTBWHSE);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTSHIPDATE);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTEXPTDATE);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTCANCDATE);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_INTBUOMPUR);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTQTYORD);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTCOST);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTCOSTTOT);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTREL);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTSPECORDR);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTGLACCT);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTSONBR);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTSTAT);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTORIGSOLINE);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTQTYDUEIN);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTTYPE);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTWGHTTOT);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTFOREIGNCOST);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTFOREIGNCOSTTOT);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTSTANUNITCOST);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTACKDATE);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTINVCCLEARFLAG);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTPRTKITDET);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTDESTWHSE);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTREVISION);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTPRTPOEORU);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_POTBCNFMCODE);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTRCPTNBR);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTWIPNBR);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTORDRAS);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTBOLDATE);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTLISTPRIC);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTDELIVEREDDATE);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_PODTLANDCOST);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_STATUS);
+            $criteria->removeSelectColumn(EditPoDetailTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.sessionid');
+            $criteria->removeSelectColumn($alias . '.PohdNbr');
+            $criteria->removeSelectColumn($alias . '.PodtLine');
+            $criteria->removeSelectColumn($alias . '.InitItemNbr');
+            $criteria->removeSelectColumn($alias . '.PodtDesc1');
+            $criteria->removeSelectColumn($alias . '.PodtDesc2');
+            $criteria->removeSelectColumn($alias . '.PodtVendItemNbr');
+            $criteria->removeSelectColumn($alias . '.IntbWhse');
+            $criteria->removeSelectColumn($alias . '.PodtShipDate');
+            $criteria->removeSelectColumn($alias . '.PodtExptDate');
+            $criteria->removeSelectColumn($alias . '.PodtCancDate');
+            $criteria->removeSelectColumn($alias . '.IntbUomPur');
+            $criteria->removeSelectColumn($alias . '.PodtQtyOrd');
+            $criteria->removeSelectColumn($alias . '.PodtCost');
+            $criteria->removeSelectColumn($alias . '.PodtCostTot');
+            $criteria->removeSelectColumn($alias . '.PodtRel');
+            $criteria->removeSelectColumn($alias . '.PodtSpecOrdr');
+            $criteria->removeSelectColumn($alias . '.PodtGlAcct');
+            $criteria->removeSelectColumn($alias . '.PodtSoNbr');
+            $criteria->removeSelectColumn($alias . '.PodtStat');
+            $criteria->removeSelectColumn($alias . '.PodtOrigSoLine');
+            $criteria->removeSelectColumn($alias . '.PodtQtyDueIn');
+            $criteria->removeSelectColumn($alias . '.PodtType');
+            $criteria->removeSelectColumn($alias . '.PodtWghtTot');
+            $criteria->removeSelectColumn($alias . '.PodtForeignCost');
+            $criteria->removeSelectColumn($alias . '.PodtForeignCostTot');
+            $criteria->removeSelectColumn($alias . '.PodtStanUnitCost');
+            $criteria->removeSelectColumn($alias . '.PodtAckDate');
+            $criteria->removeSelectColumn($alias . '.PodtInvcClearFlag');
+            $criteria->removeSelectColumn($alias . '.PodtPrtKitDet');
+            $criteria->removeSelectColumn($alias . '.PodtDestWhse');
+            $criteria->removeSelectColumn($alias . '.PodtRevision');
+            $criteria->removeSelectColumn($alias . '.PodtPrtPoEOrU');
+            $criteria->removeSelectColumn($alias . '.PotbCnfmCode');
+            $criteria->removeSelectColumn($alias . '.PodtRcptNbr');
+            $criteria->removeSelectColumn($alias . '.PodtWipNbr');
+            $criteria->removeSelectColumn($alias . '.PodtOrdrAs');
+            $criteria->removeSelectColumn($alias . '.PodtBolDate');
+            $criteria->removeSelectColumn($alias . '.PodtListPric');
+            $criteria->removeSelectColumn($alias . '.PodtDeliveredDate');
+            $criteria->removeSelectColumn($alias . '.PodtLandCost');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.status');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(EditPoDetailTableMap::DATABASE_NAME)->getTable(EditPoDetailTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(EditPoDetailTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(EditPoDetailTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new EditPoDetailTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a EditPoDetail or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or EditPoDetail object or primary key or array of primary keys
+     * @param mixed $values Criteria or EditPoDetail object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(EditPoDetailTableMap::DATABASE_NAME);
@@ -754,7 +1232,7 @@ class EditPoDetailTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(EditPoDetailTableMap::COL_SESSIONID, $value[0]);
@@ -783,7 +1261,7 @@ class EditPoDetailTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return EditPoDetailQuery::create()->doDeleteAll($con);
     }
@@ -791,13 +1269,13 @@ class EditPoDetailTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a EditPoDetail or Criteria object.
      *
-     * @param mixed               $criteria Criteria or EditPoDetail object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or EditPoDetail object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(EditPoDetailTableMap::DATABASE_NAME);
@@ -820,7 +1298,4 @@ class EditPoDetailTableMap extends TableMap
         });
     }
 
-} // EditPoDetailTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-EditPoDetailTableMap::buildTableMap();
+}

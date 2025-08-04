@@ -10,14 +10,12 @@ use Map\WhseitemphysicalcountTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'whseitemphysicalcount' table.
- *
- *
+ * Base class that represents a query for the `whseitemphysicalcount` table.
  *
  * @method     ChildWhseitemphysicalcountQuery orderBySessionid($order = Criteria::ASC) Order by the sessionid column
  * @method     ChildWhseitemphysicalcountQuery orderByRecno($order = Criteria::ASC) Order by the recno column
@@ -59,27 +57,27 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWhseitemphysicalcountQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildWhseitemphysicalcountQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildWhseitemphysicalcount findOne(ConnectionInterface $con = null) Return the first ChildWhseitemphysicalcount matching the query
- * @method     ChildWhseitemphysicalcount findOneOrCreate(ConnectionInterface $con = null) Return the first ChildWhseitemphysicalcount matching the query, or a new ChildWhseitemphysicalcount object populated from the query conditions when no match is found
+ * @method     ChildWhseitemphysicalcount|null findOne(?ConnectionInterface $con = null) Return the first ChildWhseitemphysicalcount matching the query
+ * @method     ChildWhseitemphysicalcount findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildWhseitemphysicalcount matching the query, or a new ChildWhseitemphysicalcount object populated from the query conditions when no match is found
  *
- * @method     ChildWhseitemphysicalcount findOneBySessionid(string $sessionid) Return the first ChildWhseitemphysicalcount filtered by the sessionid column
- * @method     ChildWhseitemphysicalcount findOneByRecno(int $recno) Return the first ChildWhseitemphysicalcount filtered by the recno column
- * @method     ChildWhseitemphysicalcount findOneByItemid(string $itemid) Return the first ChildWhseitemphysicalcount filtered by the itemid column
- * @method     ChildWhseitemphysicalcount findOneByScan(string $scan) Return the first ChildWhseitemphysicalcount filtered by the scan column
- * @method     ChildWhseitemphysicalcount findOneByType(string $type) Return the first ChildWhseitemphysicalcount filtered by the type column
- * @method     ChildWhseitemphysicalcount findOneByLotserial(string $lotserial) Return the first ChildWhseitemphysicalcount filtered by the lotserial column
- * @method     ChildWhseitemphysicalcount findOneByLotserialref(string $lotserialref) Return the first ChildWhseitemphysicalcount filtered by the lotserialref column
- * @method     ChildWhseitemphysicalcount findOneByBin(string $bin) Return the first ChildWhseitemphysicalcount filtered by the bin column
- * @method     ChildWhseitemphysicalcount findOneByQty(string $qty) Return the first ChildWhseitemphysicalcount filtered by the qty column
- * @method     ChildWhseitemphysicalcount findOneByProductiondate(int $productiondate) Return the first ChildWhseitemphysicalcount filtered by the productiondate column
- * @method     ChildWhseitemphysicalcount findOneByComplete(string $complete) Return the first ChildWhseitemphysicalcount filtered by the complete column
- * @method     ChildWhseitemphysicalcount findOneByStatus(string $status) Return the first ChildWhseitemphysicalcount filtered by the status column
- * @method     ChildWhseitemphysicalcount findOneByDate(int $date) Return the first ChildWhseitemphysicalcount filtered by the date column
- * @method     ChildWhseitemphysicalcount findOneByTime(int $time) Return the first ChildWhseitemphysicalcount filtered by the time column
- * @method     ChildWhseitemphysicalcount findOneByDummy(string $dummy) Return the first ChildWhseitemphysicalcount filtered by the dummy column *
-
- * @method     ChildWhseitemphysicalcount requirePk($key, ConnectionInterface $con = null) Return the ChildWhseitemphysicalcount by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseitemphysicalcount requireOne(ConnectionInterface $con = null) Return the first ChildWhseitemphysicalcount matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWhseitemphysicalcount|null findOneBySessionid(string $sessionid) Return the first ChildWhseitemphysicalcount filtered by the sessionid column
+ * @method     ChildWhseitemphysicalcount|null findOneByRecno(int $recno) Return the first ChildWhseitemphysicalcount filtered by the recno column
+ * @method     ChildWhseitemphysicalcount|null findOneByItemid(string $itemid) Return the first ChildWhseitemphysicalcount filtered by the itemid column
+ * @method     ChildWhseitemphysicalcount|null findOneByScan(string $scan) Return the first ChildWhseitemphysicalcount filtered by the scan column
+ * @method     ChildWhseitemphysicalcount|null findOneByType(string $type) Return the first ChildWhseitemphysicalcount filtered by the type column
+ * @method     ChildWhseitemphysicalcount|null findOneByLotserial(string $lotserial) Return the first ChildWhseitemphysicalcount filtered by the lotserial column
+ * @method     ChildWhseitemphysicalcount|null findOneByLotserialref(string $lotserialref) Return the first ChildWhseitemphysicalcount filtered by the lotserialref column
+ * @method     ChildWhseitemphysicalcount|null findOneByBin(string $bin) Return the first ChildWhseitemphysicalcount filtered by the bin column
+ * @method     ChildWhseitemphysicalcount|null findOneByQty(string $qty) Return the first ChildWhseitemphysicalcount filtered by the qty column
+ * @method     ChildWhseitemphysicalcount|null findOneByProductiondate(int $productiondate) Return the first ChildWhseitemphysicalcount filtered by the productiondate column
+ * @method     ChildWhseitemphysicalcount|null findOneByComplete(string $complete) Return the first ChildWhseitemphysicalcount filtered by the complete column
+ * @method     ChildWhseitemphysicalcount|null findOneByStatus(string $status) Return the first ChildWhseitemphysicalcount filtered by the status column
+ * @method     ChildWhseitemphysicalcount|null findOneByDate(int $date) Return the first ChildWhseitemphysicalcount filtered by the date column
+ * @method     ChildWhseitemphysicalcount|null findOneByTime(int $time) Return the first ChildWhseitemphysicalcount filtered by the time column
+ * @method     ChildWhseitemphysicalcount|null findOneByDummy(string $dummy) Return the first ChildWhseitemphysicalcount filtered by the dummy column
+ *
+ * @method     ChildWhseitemphysicalcount requirePk($key, ?ConnectionInterface $con = null) Return the ChildWhseitemphysicalcount by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWhseitemphysicalcount requireOne(?ConnectionInterface $con = null) Return the first ChildWhseitemphysicalcount matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildWhseitemphysicalcount requireOneBySessionid(string $sessionid) Return the first ChildWhseitemphysicalcount filtered by the sessionid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitemphysicalcount requireOneByRecno(int $recno) Return the first ChildWhseitemphysicalcount filtered by the recno column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -97,24 +95,42 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWhseitemphysicalcount requireOneByTime(int $time) Return the first ChildWhseitemphysicalcount filtered by the time column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseitemphysicalcount requireOneByDummy(string $dummy) Return the first ChildWhseitemphysicalcount filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildWhseitemphysicalcount[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildWhseitemphysicalcount objects based on current ModelCriteria
- * @method     ChildWhseitemphysicalcount[]|ObjectCollection findBySessionid(string $sessionid) Return ChildWhseitemphysicalcount objects filtered by the sessionid column
- * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByRecno(int $recno) Return ChildWhseitemphysicalcount objects filtered by the recno column
- * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByItemid(string $itemid) Return ChildWhseitemphysicalcount objects filtered by the itemid column
- * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByScan(string $scan) Return ChildWhseitemphysicalcount objects filtered by the scan column
- * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByType(string $type) Return ChildWhseitemphysicalcount objects filtered by the type column
- * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByLotserial(string $lotserial) Return ChildWhseitemphysicalcount objects filtered by the lotserial column
- * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByLotserialref(string $lotserialref) Return ChildWhseitemphysicalcount objects filtered by the lotserialref column
- * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByBin(string $bin) Return ChildWhseitemphysicalcount objects filtered by the bin column
- * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByQty(string $qty) Return ChildWhseitemphysicalcount objects filtered by the qty column
- * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByProductiondate(int $productiondate) Return ChildWhseitemphysicalcount objects filtered by the productiondate column
- * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByComplete(string $complete) Return ChildWhseitemphysicalcount objects filtered by the complete column
- * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByStatus(string $status) Return ChildWhseitemphysicalcount objects filtered by the status column
- * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByDate(int $date) Return ChildWhseitemphysicalcount objects filtered by the date column
- * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByTime(int $time) Return ChildWhseitemphysicalcount objects filtered by the time column
- * @method     ChildWhseitemphysicalcount[]|ObjectCollection findByDummy(string $dummy) Return ChildWhseitemphysicalcount objects filtered by the dummy column
- * @method     ChildWhseitemphysicalcount[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildWhseitemphysicalcount[]|Collection find(?ConnectionInterface $con = null) Return ChildWhseitemphysicalcount objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildWhseitemphysicalcount> find(?ConnectionInterface $con = null) Return ChildWhseitemphysicalcount objects based on current ModelCriteria
  *
+ * @method     ChildWhseitemphysicalcount[]|Collection findBySessionid(string|array<string> $sessionid) Return ChildWhseitemphysicalcount objects filtered by the sessionid column
+ * @psalm-method Collection&\Traversable<ChildWhseitemphysicalcount> findBySessionid(string|array<string> $sessionid) Return ChildWhseitemphysicalcount objects filtered by the sessionid column
+ * @method     ChildWhseitemphysicalcount[]|Collection findByRecno(int|array<int> $recno) Return ChildWhseitemphysicalcount objects filtered by the recno column
+ * @psalm-method Collection&\Traversable<ChildWhseitemphysicalcount> findByRecno(int|array<int> $recno) Return ChildWhseitemphysicalcount objects filtered by the recno column
+ * @method     ChildWhseitemphysicalcount[]|Collection findByItemid(string|array<string> $itemid) Return ChildWhseitemphysicalcount objects filtered by the itemid column
+ * @psalm-method Collection&\Traversable<ChildWhseitemphysicalcount> findByItemid(string|array<string> $itemid) Return ChildWhseitemphysicalcount objects filtered by the itemid column
+ * @method     ChildWhseitemphysicalcount[]|Collection findByScan(string|array<string> $scan) Return ChildWhseitemphysicalcount objects filtered by the scan column
+ * @psalm-method Collection&\Traversable<ChildWhseitemphysicalcount> findByScan(string|array<string> $scan) Return ChildWhseitemphysicalcount objects filtered by the scan column
+ * @method     ChildWhseitemphysicalcount[]|Collection findByType(string|array<string> $type) Return ChildWhseitemphysicalcount objects filtered by the type column
+ * @psalm-method Collection&\Traversable<ChildWhseitemphysicalcount> findByType(string|array<string> $type) Return ChildWhseitemphysicalcount objects filtered by the type column
+ * @method     ChildWhseitemphysicalcount[]|Collection findByLotserial(string|array<string> $lotserial) Return ChildWhseitemphysicalcount objects filtered by the lotserial column
+ * @psalm-method Collection&\Traversable<ChildWhseitemphysicalcount> findByLotserial(string|array<string> $lotserial) Return ChildWhseitemphysicalcount objects filtered by the lotserial column
+ * @method     ChildWhseitemphysicalcount[]|Collection findByLotserialref(string|array<string> $lotserialref) Return ChildWhseitemphysicalcount objects filtered by the lotserialref column
+ * @psalm-method Collection&\Traversable<ChildWhseitemphysicalcount> findByLotserialref(string|array<string> $lotserialref) Return ChildWhseitemphysicalcount objects filtered by the lotserialref column
+ * @method     ChildWhseitemphysicalcount[]|Collection findByBin(string|array<string> $bin) Return ChildWhseitemphysicalcount objects filtered by the bin column
+ * @psalm-method Collection&\Traversable<ChildWhseitemphysicalcount> findByBin(string|array<string> $bin) Return ChildWhseitemphysicalcount objects filtered by the bin column
+ * @method     ChildWhseitemphysicalcount[]|Collection findByQty(string|array<string> $qty) Return ChildWhseitemphysicalcount objects filtered by the qty column
+ * @psalm-method Collection&\Traversable<ChildWhseitemphysicalcount> findByQty(string|array<string> $qty) Return ChildWhseitemphysicalcount objects filtered by the qty column
+ * @method     ChildWhseitemphysicalcount[]|Collection findByProductiondate(int|array<int> $productiondate) Return ChildWhseitemphysicalcount objects filtered by the productiondate column
+ * @psalm-method Collection&\Traversable<ChildWhseitemphysicalcount> findByProductiondate(int|array<int> $productiondate) Return ChildWhseitemphysicalcount objects filtered by the productiondate column
+ * @method     ChildWhseitemphysicalcount[]|Collection findByComplete(string|array<string> $complete) Return ChildWhseitemphysicalcount objects filtered by the complete column
+ * @psalm-method Collection&\Traversable<ChildWhseitemphysicalcount> findByComplete(string|array<string> $complete) Return ChildWhseitemphysicalcount objects filtered by the complete column
+ * @method     ChildWhseitemphysicalcount[]|Collection findByStatus(string|array<string> $status) Return ChildWhseitemphysicalcount objects filtered by the status column
+ * @psalm-method Collection&\Traversable<ChildWhseitemphysicalcount> findByStatus(string|array<string> $status) Return ChildWhseitemphysicalcount objects filtered by the status column
+ * @method     ChildWhseitemphysicalcount[]|Collection findByDate(int|array<int> $date) Return ChildWhseitemphysicalcount objects filtered by the date column
+ * @psalm-method Collection&\Traversable<ChildWhseitemphysicalcount> findByDate(int|array<int> $date) Return ChildWhseitemphysicalcount objects filtered by the date column
+ * @method     ChildWhseitemphysicalcount[]|Collection findByTime(int|array<int> $time) Return ChildWhseitemphysicalcount objects filtered by the time column
+ * @psalm-method Collection&\Traversable<ChildWhseitemphysicalcount> findByTime(int|array<int> $time) Return ChildWhseitemphysicalcount objects filtered by the time column
+ * @method     ChildWhseitemphysicalcount[]|Collection findByDummy(string|array<string> $dummy) Return ChildWhseitemphysicalcount objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildWhseitemphysicalcount> findByDummy(string|array<string> $dummy) Return ChildWhseitemphysicalcount objects filtered by the dummy column
+ *
+ * @method     ChildWhseitemphysicalcount[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildWhseitemphysicalcount> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class WhseitemphysicalcountQuery extends ModelCriteria
 {
@@ -123,9 +139,9 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\WhseitemphysicalcountQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'dplusodb', $modelName = '\\Whseitemphysicalcount', $modelAlias = null)
     {
@@ -135,12 +151,12 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
     /**
      * Returns a new ChildWhseitemphysicalcountQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildWhseitemphysicalcountQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildWhseitemphysicalcountQuery) {
             return $criteria;
@@ -170,7 +186,7 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
      *
      * @return ChildWhseitemphysicalcount|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -202,8 +218,8 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -236,8 +252,8 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildWhseitemphysicalcount|array|mixed the result, formatted by the current formatter
      */
@@ -257,12 +273,12 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -279,9 +295,9 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildWhseitemphysicalcountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -294,14 +310,16 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildWhseitemphysicalcountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(WhseitemphysicalcountTableMap::COL_SESSIONID, $key[0], Criteria::EQUAL);
@@ -320,14 +338,15 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
      * <code>
      * $query->filterBySessionid('fooValue');   // WHERE sessionid = 'fooValue'
      * $query->filterBySessionid('%fooValue%', Criteria::LIKE); // WHERE sessionid LIKE '%fooValue%'
+     * $query->filterBySessionid(['foo', 'bar']); // WHERE sessionid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sessionid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sessionid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitemphysicalcountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySessionid($sessionid = null, $comparison = null)
+    public function filterBySessionid($sessionid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sessionid)) {
@@ -335,7 +354,9 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_SESSIONID, $sessionid, $comparison);
+        $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_SESSIONID, $sessionid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -348,15 +369,15 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
      * $query->filterByRecno(array('min' => 12)); // WHERE recno > 12
      * </code>
      *
-     * @param     mixed $recno The value to use as filter.
+     * @param mixed $recno The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitemphysicalcountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByRecno($recno = null, $comparison = null)
+    public function filterByRecno($recno = null, ?string $comparison = null)
     {
         if (is_array($recno)) {
             $useMinMax = false;
@@ -376,7 +397,9 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_RECNO, $recno, $comparison);
+        $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_RECNO, $recno, $comparison);
+
+        return $this;
     }
 
     /**
@@ -386,14 +409,15 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
      * <code>
      * $query->filterByItemid('fooValue');   // WHERE itemid = 'fooValue'
      * $query->filterByItemid('%fooValue%', Criteria::LIKE); // WHERE itemid LIKE '%fooValue%'
+     * $query->filterByItemid(['foo', 'bar']); // WHERE itemid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itemid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itemid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitemphysicalcountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemid($itemid = null, $comparison = null)
+    public function filterByItemid($itemid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itemid)) {
@@ -401,7 +425,9 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_ITEMID, $itemid, $comparison);
+        $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_ITEMID, $itemid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -411,14 +437,15 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
      * <code>
      * $query->filterByScan('fooValue');   // WHERE scan = 'fooValue'
      * $query->filterByScan('%fooValue%', Criteria::LIKE); // WHERE scan LIKE '%fooValue%'
+     * $query->filterByScan(['foo', 'bar']); // WHERE scan IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $scan The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $scan The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitemphysicalcountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByScan($scan = null, $comparison = null)
+    public function filterByScan($scan = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($scan)) {
@@ -426,7 +453,9 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_SCAN, $scan, $comparison);
+        $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_SCAN, $scan, $comparison);
+
+        return $this;
     }
 
     /**
@@ -436,14 +465,15 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
      * <code>
      * $query->filterByType('fooValue');   // WHERE type = 'fooValue'
      * $query->filterByType('%fooValue%', Criteria::LIKE); // WHERE type LIKE '%fooValue%'
+     * $query->filterByType(['foo', 'bar']); // WHERE type IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $type The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $type The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitemphysicalcountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByType($type = null, $comparison = null)
+    public function filterByType($type = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($type)) {
@@ -451,7 +481,9 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_TYPE, $type, $comparison);
+        $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_TYPE, $type, $comparison);
+
+        return $this;
     }
 
     /**
@@ -461,14 +493,15 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
      * <code>
      * $query->filterByLotserial('fooValue');   // WHERE lotserial = 'fooValue'
      * $query->filterByLotserial('%fooValue%', Criteria::LIKE); // WHERE lotserial LIKE '%fooValue%'
+     * $query->filterByLotserial(['foo', 'bar']); // WHERE lotserial IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lotserial The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lotserial The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitemphysicalcountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLotserial($lotserial = null, $comparison = null)
+    public function filterByLotserial($lotserial = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lotserial)) {
@@ -476,7 +509,9 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_LOTSERIAL, $lotserial, $comparison);
+        $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_LOTSERIAL, $lotserial, $comparison);
+
+        return $this;
     }
 
     /**
@@ -486,14 +521,15 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
      * <code>
      * $query->filterByLotserialref('fooValue');   // WHERE lotserialref = 'fooValue'
      * $query->filterByLotserialref('%fooValue%', Criteria::LIKE); // WHERE lotserialref LIKE '%fooValue%'
+     * $query->filterByLotserialref(['foo', 'bar']); // WHERE lotserialref IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lotserialref The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lotserialref The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitemphysicalcountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLotserialref($lotserialref = null, $comparison = null)
+    public function filterByLotserialref($lotserialref = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lotserialref)) {
@@ -501,7 +537,9 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_LOTSERIALREF, $lotserialref, $comparison);
+        $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_LOTSERIALREF, $lotserialref, $comparison);
+
+        return $this;
     }
 
     /**
@@ -511,14 +549,15 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
      * <code>
      * $query->filterByBin('fooValue');   // WHERE bin = 'fooValue'
      * $query->filterByBin('%fooValue%', Criteria::LIKE); // WHERE bin LIKE '%fooValue%'
+     * $query->filterByBin(['foo', 'bar']); // WHERE bin IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $bin The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $bin The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitemphysicalcountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBin($bin = null, $comparison = null)
+    public function filterByBin($bin = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($bin)) {
@@ -526,7 +565,9 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_BIN, $bin, $comparison);
+        $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_BIN, $bin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -539,15 +580,15 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
      * $query->filterByQty(array('min' => 12)); // WHERE qty > 12
      * </code>
      *
-     * @param     mixed $qty The value to use as filter.
+     * @param mixed $qty The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitemphysicalcountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQty($qty = null, $comparison = null)
+    public function filterByQty($qty = null, ?string $comparison = null)
     {
         if (is_array($qty)) {
             $useMinMax = false;
@@ -567,7 +608,9 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_QTY, $qty, $comparison);
+        $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_QTY, $qty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -580,15 +623,15 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
      * $query->filterByProductiondate(array('min' => 12)); // WHERE productiondate > 12
      * </code>
      *
-     * @param     mixed $productiondate The value to use as filter.
+     * @param mixed $productiondate The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitemphysicalcountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByProductiondate($productiondate = null, $comparison = null)
+    public function filterByProductiondate($productiondate = null, ?string $comparison = null)
     {
         if (is_array($productiondate)) {
             $useMinMax = false;
@@ -608,7 +651,9 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_PRODUCTIONDATE, $productiondate, $comparison);
+        $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_PRODUCTIONDATE, $productiondate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -618,14 +663,15 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
      * <code>
      * $query->filterByComplete('fooValue');   // WHERE complete = 'fooValue'
      * $query->filterByComplete('%fooValue%', Criteria::LIKE); // WHERE complete LIKE '%fooValue%'
+     * $query->filterByComplete(['foo', 'bar']); // WHERE complete IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $complete The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $complete The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitemphysicalcountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByComplete($complete = null, $comparison = null)
+    public function filterByComplete($complete = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($complete)) {
@@ -633,7 +679,9 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_COMPLETE, $complete, $comparison);
+        $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_COMPLETE, $complete, $comparison);
+
+        return $this;
     }
 
     /**
@@ -643,14 +691,15 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
      * <code>
      * $query->filterByStatus('fooValue');   // WHERE status = 'fooValue'
      * $query->filterByStatus('%fooValue%', Criteria::LIKE); // WHERE status LIKE '%fooValue%'
+     * $query->filterByStatus(['foo', 'bar']); // WHERE status IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $status The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $status The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitemphysicalcountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByStatus($status = null, $comparison = null)
+    public function filterByStatus($status = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($status)) {
@@ -658,7 +707,9 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_STATUS, $status, $comparison);
+        $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_STATUS, $status, $comparison);
+
+        return $this;
     }
 
     /**
@@ -671,15 +722,15 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
      * $query->filterByDate(array('min' => 12)); // WHERE date > 12
      * </code>
      *
-     * @param     mixed $date The value to use as filter.
+     * @param mixed $date The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitemphysicalcountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDate($date = null, $comparison = null)
+    public function filterByDate($date = null, ?string $comparison = null)
     {
         if (is_array($date)) {
             $useMinMax = false;
@@ -699,7 +750,9 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_DATE, $date, $comparison);
+        $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_DATE, $date, $comparison);
+
+        return $this;
     }
 
     /**
@@ -712,15 +765,15 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
      * $query->filterByTime(array('min' => 12)); // WHERE time > 12
      * </code>
      *
-     * @param     mixed $time The value to use as filter.
+     * @param mixed $time The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitemphysicalcountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTime($time = null, $comparison = null)
+    public function filterByTime($time = null, ?string $comparison = null)
     {
         if (is_array($time)) {
             $useMinMax = false;
@@ -740,7 +793,9 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_TIME, $time, $comparison);
+        $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_TIME, $time, $comparison);
+
+        return $this;
     }
 
     /**
@@ -750,14 +805,15 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseitemphysicalcountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -765,15 +821,17 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(WhseitemphysicalcountTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildWhseitemphysicalcount $whseitemphysicalcount Object to remove from the list of results
+     * @param ChildWhseitemphysicalcount $whseitemphysicalcount Object to remove from the list of results
      *
-     * @return $this|ChildWhseitemphysicalcountQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($whseitemphysicalcount = null)
     {
@@ -792,7 +850,7 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(WhseitemphysicalcountTableMap::DATABASE_NAME);
@@ -817,12 +875,12 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(WhseitemphysicalcountTableMap::DATABASE_NAME);
@@ -847,4 +905,4 @@ abstract class WhseitemphysicalcountQuery extends ModelCriteria
         });
     }
 
-} // WhseitemphysicalcountQuery
+}

@@ -10,14 +10,12 @@ use Map\StatesandprovincesTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'statesandprovinces' table.
- *
- *
+ * Base class that represents a query for the `statesandprovinces` table.
  *
  * @method     ChildStatesandprovincesQuery orderById($order = Criteria::ASC) Order by the id column
  * @method     ChildStatesandprovincesQuery orderByName($order = Criteria::ASC) Order by the name column
@@ -41,18 +39,18 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildStatesandprovincesQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildStatesandprovincesQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildStatesandprovinces findOne(ConnectionInterface $con = null) Return the first ChildStatesandprovinces matching the query
- * @method     ChildStatesandprovinces findOneOrCreate(ConnectionInterface $con = null) Return the first ChildStatesandprovinces matching the query, or a new ChildStatesandprovinces object populated from the query conditions when no match is found
+ * @method     ChildStatesandprovinces|null findOne(?ConnectionInterface $con = null) Return the first ChildStatesandprovinces matching the query
+ * @method     ChildStatesandprovinces findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildStatesandprovinces matching the query, or a new ChildStatesandprovinces object populated from the query conditions when no match is found
  *
- * @method     ChildStatesandprovinces findOneById(int $id) Return the first ChildStatesandprovinces filtered by the id column
- * @method     ChildStatesandprovinces findOneByName(string $name) Return the first ChildStatesandprovinces filtered by the name column
- * @method     ChildStatesandprovinces findOneByAbbreviation(string $abbreviation) Return the first ChildStatesandprovinces filtered by the abbreviation column
- * @method     ChildStatesandprovinces findOneByCountry(string $country) Return the first ChildStatesandprovinces filtered by the country column
- * @method     ChildStatesandprovinces findOneByType(string $type) Return the first ChildStatesandprovinces filtered by the type column
- * @method     ChildStatesandprovinces findOneByAssocPress(string $assoc_press) Return the first ChildStatesandprovinces filtered by the assoc_press column *
-
- * @method     ChildStatesandprovinces requirePk($key, ConnectionInterface $con = null) Return the ChildStatesandprovinces by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildStatesandprovinces requireOne(ConnectionInterface $con = null) Return the first ChildStatesandprovinces matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildStatesandprovinces|null findOneById(int $id) Return the first ChildStatesandprovinces filtered by the id column
+ * @method     ChildStatesandprovinces|null findOneByName(string $name) Return the first ChildStatesandprovinces filtered by the name column
+ * @method     ChildStatesandprovinces|null findOneByAbbreviation(string $abbreviation) Return the first ChildStatesandprovinces filtered by the abbreviation column
+ * @method     ChildStatesandprovinces|null findOneByCountry(string $country) Return the first ChildStatesandprovinces filtered by the country column
+ * @method     ChildStatesandprovinces|null findOneByType(string $type) Return the first ChildStatesandprovinces filtered by the type column
+ * @method     ChildStatesandprovinces|null findOneByAssocPress(string $assoc_press) Return the first ChildStatesandprovinces filtered by the assoc_press column
+ *
+ * @method     ChildStatesandprovinces requirePk($key, ?ConnectionInterface $con = null) Return the ChildStatesandprovinces by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildStatesandprovinces requireOne(?ConnectionInterface $con = null) Return the first ChildStatesandprovinces matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildStatesandprovinces requireOneById(int $id) Return the first ChildStatesandprovinces filtered by the id column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildStatesandprovinces requireOneByName(string $name) Return the first ChildStatesandprovinces filtered by the name column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -61,15 +59,24 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildStatesandprovinces requireOneByType(string $type) Return the first ChildStatesandprovinces filtered by the type column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildStatesandprovinces requireOneByAssocPress(string $assoc_press) Return the first ChildStatesandprovinces filtered by the assoc_press column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildStatesandprovinces[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildStatesandprovinces objects based on current ModelCriteria
- * @method     ChildStatesandprovinces[]|ObjectCollection findById(int $id) Return ChildStatesandprovinces objects filtered by the id column
- * @method     ChildStatesandprovinces[]|ObjectCollection findByName(string $name) Return ChildStatesandprovinces objects filtered by the name column
- * @method     ChildStatesandprovinces[]|ObjectCollection findByAbbreviation(string $abbreviation) Return ChildStatesandprovinces objects filtered by the abbreviation column
- * @method     ChildStatesandprovinces[]|ObjectCollection findByCountry(string $country) Return ChildStatesandprovinces objects filtered by the country column
- * @method     ChildStatesandprovinces[]|ObjectCollection findByType(string $type) Return ChildStatesandprovinces objects filtered by the type column
- * @method     ChildStatesandprovinces[]|ObjectCollection findByAssocPress(string $assoc_press) Return ChildStatesandprovinces objects filtered by the assoc_press column
- * @method     ChildStatesandprovinces[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildStatesandprovinces[]|Collection find(?ConnectionInterface $con = null) Return ChildStatesandprovinces objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildStatesandprovinces> find(?ConnectionInterface $con = null) Return ChildStatesandprovinces objects based on current ModelCriteria
  *
+ * @method     ChildStatesandprovinces[]|Collection findById(int|array<int> $id) Return ChildStatesandprovinces objects filtered by the id column
+ * @psalm-method Collection&\Traversable<ChildStatesandprovinces> findById(int|array<int> $id) Return ChildStatesandprovinces objects filtered by the id column
+ * @method     ChildStatesandprovinces[]|Collection findByName(string|array<string> $name) Return ChildStatesandprovinces objects filtered by the name column
+ * @psalm-method Collection&\Traversable<ChildStatesandprovinces> findByName(string|array<string> $name) Return ChildStatesandprovinces objects filtered by the name column
+ * @method     ChildStatesandprovinces[]|Collection findByAbbreviation(string|array<string> $abbreviation) Return ChildStatesandprovinces objects filtered by the abbreviation column
+ * @psalm-method Collection&\Traversable<ChildStatesandprovinces> findByAbbreviation(string|array<string> $abbreviation) Return ChildStatesandprovinces objects filtered by the abbreviation column
+ * @method     ChildStatesandprovinces[]|Collection findByCountry(string|array<string> $country) Return ChildStatesandprovinces objects filtered by the country column
+ * @psalm-method Collection&\Traversable<ChildStatesandprovinces> findByCountry(string|array<string> $country) Return ChildStatesandprovinces objects filtered by the country column
+ * @method     ChildStatesandprovinces[]|Collection findByType(string|array<string> $type) Return ChildStatesandprovinces objects filtered by the type column
+ * @psalm-method Collection&\Traversable<ChildStatesandprovinces> findByType(string|array<string> $type) Return ChildStatesandprovinces objects filtered by the type column
+ * @method     ChildStatesandprovinces[]|Collection findByAssocPress(string|array<string> $assoc_press) Return ChildStatesandprovinces objects filtered by the assoc_press column
+ * @psalm-method Collection&\Traversable<ChildStatesandprovinces> findByAssocPress(string|array<string> $assoc_press) Return ChildStatesandprovinces objects filtered by the assoc_press column
+ *
+ * @method     ChildStatesandprovinces[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildStatesandprovinces> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class StatesandprovincesQuery extends ModelCriteria
 {
@@ -78,9 +85,9 @@ abstract class StatesandprovincesQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\StatesandprovincesQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'dplusodb', $modelName = '\\Statesandprovinces', $modelAlias = null)
     {
@@ -90,12 +97,12 @@ abstract class StatesandprovincesQuery extends ModelCriteria
     /**
      * Returns a new ChildStatesandprovincesQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildStatesandprovincesQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildStatesandprovincesQuery) {
             return $criteria;
@@ -125,7 +132,7 @@ abstract class StatesandprovincesQuery extends ModelCriteria
      *
      * @return ChildStatesandprovinces|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -157,8 +164,8 @@ abstract class StatesandprovincesQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -190,8 +197,8 @@ abstract class StatesandprovincesQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildStatesandprovinces|array|mixed the result, formatted by the current formatter
      */
@@ -211,12 +218,12 @@ abstract class StatesandprovincesQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -233,27 +240,31 @@ abstract class StatesandprovincesQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildStatesandprovincesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(StatesandprovincesTableMap::COL_ID, $key, Criteria::EQUAL);
+        $this->addUsingAlias(StatesandprovincesTableMap::COL_ID, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildStatesandprovincesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(StatesandprovincesTableMap::COL_ID, $keys, Criteria::IN);
+        $this->addUsingAlias(StatesandprovincesTableMap::COL_ID, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -266,15 +277,15 @@ abstract class StatesandprovincesQuery extends ModelCriteria
      * $query->filterById(array('min' => 12)); // WHERE id > 12
      * </code>
      *
-     * @param     mixed $id The value to use as filter.
+     * @param mixed $id The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildStatesandprovincesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterById($id = null, $comparison = null)
+    public function filterById($id = null, ?string $comparison = null)
     {
         if (is_array($id)) {
             $useMinMax = false;
@@ -294,7 +305,9 @@ abstract class StatesandprovincesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(StatesandprovincesTableMap::COL_ID, $id, $comparison);
+        $this->addUsingAlias(StatesandprovincesTableMap::COL_ID, $id, $comparison);
+
+        return $this;
     }
 
     /**
@@ -304,14 +317,15 @@ abstract class StatesandprovincesQuery extends ModelCriteria
      * <code>
      * $query->filterByName('fooValue');   // WHERE name = 'fooValue'
      * $query->filterByName('%fooValue%', Criteria::LIKE); // WHERE name LIKE '%fooValue%'
+     * $query->filterByName(['foo', 'bar']); // WHERE name IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $name The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $name The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildStatesandprovincesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByName($name = null, $comparison = null)
+    public function filterByName($name = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($name)) {
@@ -319,7 +333,9 @@ abstract class StatesandprovincesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(StatesandprovincesTableMap::COL_NAME, $name, $comparison);
+        $this->addUsingAlias(StatesandprovincesTableMap::COL_NAME, $name, $comparison);
+
+        return $this;
     }
 
     /**
@@ -329,14 +345,15 @@ abstract class StatesandprovincesQuery extends ModelCriteria
      * <code>
      * $query->filterByAbbreviation('fooValue');   // WHERE abbreviation = 'fooValue'
      * $query->filterByAbbreviation('%fooValue%', Criteria::LIKE); // WHERE abbreviation LIKE '%fooValue%'
+     * $query->filterByAbbreviation(['foo', 'bar']); // WHERE abbreviation IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $abbreviation The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $abbreviation The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildStatesandprovincesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAbbreviation($abbreviation = null, $comparison = null)
+    public function filterByAbbreviation($abbreviation = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($abbreviation)) {
@@ -344,7 +361,9 @@ abstract class StatesandprovincesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(StatesandprovincesTableMap::COL_ABBREVIATION, $abbreviation, $comparison);
+        $this->addUsingAlias(StatesandprovincesTableMap::COL_ABBREVIATION, $abbreviation, $comparison);
+
+        return $this;
     }
 
     /**
@@ -354,14 +373,15 @@ abstract class StatesandprovincesQuery extends ModelCriteria
      * <code>
      * $query->filterByCountry('fooValue');   // WHERE country = 'fooValue'
      * $query->filterByCountry('%fooValue%', Criteria::LIKE); // WHERE country LIKE '%fooValue%'
+     * $query->filterByCountry(['foo', 'bar']); // WHERE country IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $country The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $country The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildStatesandprovincesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCountry($country = null, $comparison = null)
+    public function filterByCountry($country = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($country)) {
@@ -369,7 +389,9 @@ abstract class StatesandprovincesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(StatesandprovincesTableMap::COL_COUNTRY, $country, $comparison);
+        $this->addUsingAlias(StatesandprovincesTableMap::COL_COUNTRY, $country, $comparison);
+
+        return $this;
     }
 
     /**
@@ -379,14 +401,15 @@ abstract class StatesandprovincesQuery extends ModelCriteria
      * <code>
      * $query->filterByType('fooValue');   // WHERE type = 'fooValue'
      * $query->filterByType('%fooValue%', Criteria::LIKE); // WHERE type LIKE '%fooValue%'
+     * $query->filterByType(['foo', 'bar']); // WHERE type IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $type The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $type The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildStatesandprovincesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByType($type = null, $comparison = null)
+    public function filterByType($type = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($type)) {
@@ -394,7 +417,9 @@ abstract class StatesandprovincesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(StatesandprovincesTableMap::COL_TYPE, $type, $comparison);
+        $this->addUsingAlias(StatesandprovincesTableMap::COL_TYPE, $type, $comparison);
+
+        return $this;
     }
 
     /**
@@ -404,14 +429,15 @@ abstract class StatesandprovincesQuery extends ModelCriteria
      * <code>
      * $query->filterByAssocPress('fooValue');   // WHERE assoc_press = 'fooValue'
      * $query->filterByAssocPress('%fooValue%', Criteria::LIKE); // WHERE assoc_press LIKE '%fooValue%'
+     * $query->filterByAssocPress(['foo', 'bar']); // WHERE assoc_press IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $assocPress The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $assocPress The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildStatesandprovincesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAssocPress($assocPress = null, $comparison = null)
+    public function filterByAssocPress($assocPress = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($assocPress)) {
@@ -419,15 +445,17 @@ abstract class StatesandprovincesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(StatesandprovincesTableMap::COL_ASSOC_PRESS, $assocPress, $comparison);
+        $this->addUsingAlias(StatesandprovincesTableMap::COL_ASSOC_PRESS, $assocPress, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildStatesandprovinces $statesandprovinces Object to remove from the list of results
+     * @param ChildStatesandprovinces $statesandprovinces Object to remove from the list of results
      *
-     * @return $this|ChildStatesandprovincesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($statesandprovinces = null)
     {
@@ -444,7 +472,7 @@ abstract class StatesandprovincesQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(StatesandprovincesTableMap::DATABASE_NAME);
@@ -469,12 +497,12 @@ abstract class StatesandprovincesQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(StatesandprovincesTableMap::DATABASE_NAME);
@@ -499,4 +527,4 @@ abstract class StatesandprovincesQuery extends ModelCriteria
         });
     }
 
-} // StatesandprovincesQuery
+}

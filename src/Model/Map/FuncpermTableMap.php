@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class FuncpermTableMap extends TableMap
 {
@@ -34,114 +33,167 @@ class FuncpermTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.FuncpermTableMap';
+    public const CLASS_NAME = '.Map.FuncpermTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'dplusodb';
+    public const DATABASE_NAME = 'dplusodb';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'funcperm';
+    public const TABLE_NAME = 'funcperm';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'Funcperm';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\Funcperm';
+    public const OM_CLASS = '\\Funcperm';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'Funcperm';
+    public const CLASS_DEFAULT = 'Funcperm';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 6;
+    public const NUM_COLUMNS = 6;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 6;
+    public const NUM_HYDRATE_COLUMNS = 6;
 
     /**
      * the column name for the loginid field
      */
-    const COL_LOGINID = 'funcperm.loginid';
+    public const COL_LOGINID = 'funcperm.loginid';
 
     /**
      * the column name for the function field
      */
-    const COL_FUNCTION = 'funcperm.function';
+    public const COL_FUNCTION = 'funcperm.function';
 
     /**
      * the column name for the permission field
      */
-    const COL_PERMISSION = 'funcperm.permission';
+    public const COL_PERMISSION = 'funcperm.permission';
 
     /**
      * the column name for the createdate field
      */
-    const COL_CREATEDATE = 'funcperm.createdate';
+    public const COL_CREATEDATE = 'funcperm.createdate';
 
     /**
      * the column name for the createtime field
      */
-    const COL_CREATETIME = 'funcperm.createtime';
+    public const COL_CREATETIME = 'funcperm.createtime';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'funcperm.dummy';
+    public const COL_DUMMY = 'funcperm.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Loginid', 'Function', 'Permission', 'Createdate', 'Createtime', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('loginid', 'function', 'permission', 'createdate', 'createtime', 'dummy', ),
-        self::TYPE_COLNAME       => array(FuncpermTableMap::COL_LOGINID, FuncpermTableMap::COL_FUNCTION, FuncpermTableMap::COL_PERMISSION, FuncpermTableMap::COL_CREATEDATE, FuncpermTableMap::COL_CREATETIME, FuncpermTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('loginid', 'function', 'permission', 'createdate', 'createtime', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Loginid', 'Function', 'Permission', 'Createdate', 'Createtime', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['loginid', 'function', 'permission', 'createdate', 'createtime', 'dummy', ],
+        self::TYPE_COLNAME       => [FuncpermTableMap::COL_LOGINID, FuncpermTableMap::COL_FUNCTION, FuncpermTableMap::COL_PERMISSION, FuncpermTableMap::COL_CREATEDATE, FuncpermTableMap::COL_CREATETIME, FuncpermTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['loginid', 'function', 'permission', 'createdate', 'createtime', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Loginid' => 0, 'Function' => 1, 'Permission' => 2, 'Createdate' => 3, 'Createtime' => 4, 'Dummy' => 5, ),
-        self::TYPE_CAMELNAME     => array('loginid' => 0, 'function' => 1, 'permission' => 2, 'createdate' => 3, 'createtime' => 4, 'dummy' => 5, ),
-        self::TYPE_COLNAME       => array(FuncpermTableMap::COL_LOGINID => 0, FuncpermTableMap::COL_FUNCTION => 1, FuncpermTableMap::COL_PERMISSION => 2, FuncpermTableMap::COL_CREATEDATE => 3, FuncpermTableMap::COL_CREATETIME => 4, FuncpermTableMap::COL_DUMMY => 5, ),
-        self::TYPE_FIELDNAME     => array('loginid' => 0, 'function' => 1, 'permission' => 2, 'createdate' => 3, 'createtime' => 4, 'dummy' => 5, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Loginid' => 0, 'Function' => 1, 'Permission' => 2, 'Createdate' => 3, 'Createtime' => 4, 'Dummy' => 5, ],
+        self::TYPE_CAMELNAME     => ['loginid' => 0, 'function' => 1, 'permission' => 2, 'createdate' => 3, 'createtime' => 4, 'dummy' => 5, ],
+        self::TYPE_COLNAME       => [FuncpermTableMap::COL_LOGINID => 0, FuncpermTableMap::COL_FUNCTION => 1, FuncpermTableMap::COL_PERMISSION => 2, FuncpermTableMap::COL_CREATEDATE => 3, FuncpermTableMap::COL_CREATETIME => 4, FuncpermTableMap::COL_DUMMY => 5, ],
+        self::TYPE_FIELDNAME     => ['loginid' => 0, 'function' => 1, 'permission' => 2, 'createdate' => 3, 'createtime' => 4, 'dummy' => 5, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Loginid' => 'LOGINID',
+        'Funcperm.Loginid' => 'LOGINID',
+        'loginid' => 'LOGINID',
+        'funcperm.loginid' => 'LOGINID',
+        'FuncpermTableMap::COL_LOGINID' => 'LOGINID',
+        'COL_LOGINID' => 'LOGINID',
+        'Function' => 'FUNCTION',
+        'Funcperm.Function' => 'FUNCTION',
+        'function' => 'FUNCTION',
+        'funcperm.function' => 'FUNCTION',
+        'FuncpermTableMap::COL_FUNCTION' => 'FUNCTION',
+        'COL_FUNCTION' => 'FUNCTION',
+        'Permission' => 'PERMISSION',
+        'Funcperm.Permission' => 'PERMISSION',
+        'permission' => 'PERMISSION',
+        'funcperm.permission' => 'PERMISSION',
+        'FuncpermTableMap::COL_PERMISSION' => 'PERMISSION',
+        'COL_PERMISSION' => 'PERMISSION',
+        'Createdate' => 'CREATEDATE',
+        'Funcperm.Createdate' => 'CREATEDATE',
+        'createdate' => 'CREATEDATE',
+        'funcperm.createdate' => 'CREATEDATE',
+        'FuncpermTableMap::COL_CREATEDATE' => 'CREATEDATE',
+        'COL_CREATEDATE' => 'CREATEDATE',
+        'Createtime' => 'CREATETIME',
+        'Funcperm.Createtime' => 'CREATETIME',
+        'createtime' => 'CREATETIME',
+        'funcperm.createtime' => 'CREATETIME',
+        'FuncpermTableMap::COL_CREATETIME' => 'CREATETIME',
+        'COL_CREATETIME' => 'CREATETIME',
+        'Dummy' => 'DUMMY',
+        'Funcperm.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'funcperm.dummy' => 'DUMMY',
+        'FuncpermTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('funcperm');
@@ -157,14 +209,16 @@ class FuncpermTableMap extends TableMap
         $this->addColumn('createdate', 'Createdate', 'VARCHAR', false, 8, null);
         $this->addColumn('createtime', 'Createtime', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -175,9 +229,11 @@ class FuncpermTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \Funcperm $obj A \Funcperm object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(Funcperm $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -196,8 +252,10 @@ class FuncpermTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \Funcperm object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \Funcperm) {
@@ -225,14 +283,14 @@ class FuncpermTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Loginid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Function', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -247,14 +305,14 @@ class FuncpermTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -280,10 +338,10 @@ class FuncpermTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? FuncpermTableMap::CLASS_DEFAULT : FuncpermTableMap::OM_CLASS;
     }
@@ -291,17 +349,17 @@ class FuncpermTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (Funcperm object, last column rank)
+     * @return array (Funcperm object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = FuncpermTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = FuncpermTableMap::getInstanceFromPool($key))) {
@@ -317,7 +375,7 @@ class FuncpermTableMap extends TableMap
             FuncpermTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -325,13 +383,13 @@ class FuncpermTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -361,12 +419,13 @@ class FuncpermTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(FuncpermTableMap::COL_LOGINID);
@@ -386,40 +445,60 @@ class FuncpermTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(FuncpermTableMap::COL_LOGINID);
+            $criteria->removeSelectColumn(FuncpermTableMap::COL_FUNCTION);
+            $criteria->removeSelectColumn(FuncpermTableMap::COL_PERMISSION);
+            $criteria->removeSelectColumn(FuncpermTableMap::COL_CREATEDATE);
+            $criteria->removeSelectColumn(FuncpermTableMap::COL_CREATETIME);
+            $criteria->removeSelectColumn(FuncpermTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.loginid');
+            $criteria->removeSelectColumn($alias . '.function');
+            $criteria->removeSelectColumn($alias . '.permission');
+            $criteria->removeSelectColumn($alias . '.createdate');
+            $criteria->removeSelectColumn($alias . '.createtime');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(FuncpermTableMap::DATABASE_NAME)->getTable(FuncpermTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(FuncpermTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(FuncpermTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new FuncpermTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a Funcperm or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or Funcperm object or primary key or array of primary keys
+     * @param mixed $values Criteria or Funcperm object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(FuncpermTableMap::DATABASE_NAME);
@@ -437,7 +516,7 @@ class FuncpermTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(FuncpermTableMap::COL_LOGINID, $value[0]);
@@ -465,7 +544,7 @@ class FuncpermTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return FuncpermQuery::create()->doDeleteAll($con);
     }
@@ -473,13 +552,13 @@ class FuncpermTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a Funcperm or Criteria object.
      *
-     * @param mixed               $criteria Criteria or Funcperm object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or Funcperm object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(FuncpermTableMap::DATABASE_NAME);
@@ -502,7 +581,4 @@ class FuncpermTableMap extends TableMap
         });
     }
 
-} // FuncpermTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-FuncpermTableMap::buildTableMap();
+}

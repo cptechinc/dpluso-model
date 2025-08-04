@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class CartdetTableMap extends TableMap
 {
@@ -34,289 +33,552 @@ class CartdetTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.CartdetTableMap';
+    public const CLASS_NAME = '.Map.CartdetTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'dplusodb';
+    public const DATABASE_NAME = 'dplusodb';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'cartdet';
+    public const TABLE_NAME = 'cartdet';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'Cartdet';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\Cartdet';
+    public const OM_CLASS = '\\Cartdet';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'Cartdet';
+    public const CLASS_DEFAULT = 'Cartdet';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 41;
+    public const NUM_COLUMNS = 41;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 41;
+    public const NUM_HYDRATE_COLUMNS = 41;
 
     /**
      * the column name for the sessionid field
      */
-    const COL_SESSIONID = 'cartdet.sessionid';
+    public const COL_SESSIONID = 'cartdet.sessionid';
 
     /**
      * the column name for the recno field
      */
-    const COL_RECNO = 'cartdet.recno';
+    public const COL_RECNO = 'cartdet.recno';
 
     /**
      * the column name for the date field
      */
-    const COL_DATE = 'cartdet.date';
+    public const COL_DATE = 'cartdet.date';
 
     /**
      * the column name for the time field
      */
-    const COL_TIME = 'cartdet.time';
+    public const COL_TIME = 'cartdet.time';
 
     /**
      * the column name for the orderno field
      */
-    const COL_ORDERNO = 'cartdet.orderno';
+    public const COL_ORDERNO = 'cartdet.orderno';
 
     /**
      * the column name for the linenbr field
      */
-    const COL_LINENBR = 'cartdet.linenbr';
+    public const COL_LINENBR = 'cartdet.linenbr';
 
     /**
      * the column name for the itemid field
      */
-    const COL_ITEMID = 'cartdet.itemid';
+    public const COL_ITEMID = 'cartdet.itemid';
 
     /**
      * the column name for the custitemid field
      */
-    const COL_CUSTITEMID = 'cartdet.custitemid';
+    public const COL_CUSTITEMID = 'cartdet.custitemid';
 
     /**
      * the column name for the desc1 field
      */
-    const COL_DESC1 = 'cartdet.desc1';
+    public const COL_DESC1 = 'cartdet.desc1';
 
     /**
      * the column name for the desc2 field
      */
-    const COL_DESC2 = 'cartdet.desc2';
+    public const COL_DESC2 = 'cartdet.desc2';
 
     /**
      * the column name for the price field
      */
-    const COL_PRICE = 'cartdet.price';
+    public const COL_PRICE = 'cartdet.price';
 
     /**
      * the column name for the totalprice field
      */
-    const COL_TOTALPRICE = 'cartdet.totalprice';
+    public const COL_TOTALPRICE = 'cartdet.totalprice';
 
     /**
      * the column name for the qty field
      */
-    const COL_QTY = 'cartdet.qty';
+    public const COL_QTY = 'cartdet.qty';
 
     /**
      * the column name for the qtyshipped field
      */
-    const COL_QTYSHIPPED = 'cartdet.qtyshipped';
+    public const COL_QTYSHIPPED = 'cartdet.qtyshipped';
 
     /**
      * the column name for the qtybackord field
      */
-    const COL_QTYBACKORD = 'cartdet.qtybackord';
+    public const COL_QTYBACKORD = 'cartdet.qtybackord';
 
     /**
      * the column name for the rshipdate field
      */
-    const COL_RSHIPDATE = 'cartdet.rshipdate';
+    public const COL_RSHIPDATE = 'cartdet.rshipdate';
 
     /**
      * the column name for the hasdocuments field
      */
-    const COL_HASDOCUMENTS = 'cartdet.hasdocuments';
+    public const COL_HASDOCUMENTS = 'cartdet.hasdocuments';
 
     /**
      * the column name for the qtyavail field
      */
-    const COL_QTYAVAIL = 'cartdet.qtyavail';
+    public const COL_QTYAVAIL = 'cartdet.qtyavail';
 
     /**
      * the column name for the hasnotes field
      */
-    const COL_HASNOTES = 'cartdet.hasnotes';
+    public const COL_HASNOTES = 'cartdet.hasnotes';
 
     /**
      * the column name for the cost field
      */
-    const COL_COST = 'cartdet.cost';
+    public const COL_COST = 'cartdet.cost';
 
     /**
      * the column name for the whse field
      */
-    const COL_WHSE = 'cartdet.whse';
+    public const COL_WHSE = 'cartdet.whse';
 
     /**
      * the column name for the uom field
      */
-    const COL_UOM = 'cartdet.uom';
+    public const COL_UOM = 'cartdet.uom';
 
     /**
      * the column name for the spcord field
      */
-    const COL_SPCORD = 'cartdet.spcord';
+    public const COL_SPCORD = 'cartdet.spcord';
 
     /**
      * the column name for the kititemflag field
      */
-    const COL_KITITEMFLAG = 'cartdet.kititemflag';
+    public const COL_KITITEMFLAG = 'cartdet.kititemflag';
 
     /**
      * the column name for the promocode field
      */
-    const COL_PROMOCODE = 'cartdet.promocode';
+    public const COL_PROMOCODE = 'cartdet.promocode';
 
     /**
      * the column name for the taxcode field
      */
-    const COL_TAXCODE = 'cartdet.taxcode';
+    public const COL_TAXCODE = 'cartdet.taxcode';
 
     /**
      * the column name for the taxcodeperc field
      */
-    const COL_TAXCODEPERC = 'cartdet.taxcodeperc';
+    public const COL_TAXCODEPERC = 'cartdet.taxcodeperc';
 
     /**
      * the column name for the discpct field
      */
-    const COL_DISCPCT = 'cartdet.discpct';
+    public const COL_DISCPCT = 'cartdet.discpct';
 
     /**
      * the column name for the listprice field
      */
-    const COL_LISTPRICE = 'cartdet.listprice';
+    public const COL_LISTPRICE = 'cartdet.listprice';
 
     /**
      * the column name for the uomconv field
      */
-    const COL_UOMCONV = 'cartdet.uomconv';
+    public const COL_UOMCONV = 'cartdet.uomconv';
 
     /**
      * the column name for the catlgid field
      */
-    const COL_CATLGID = 'cartdet.catlgid';
+    public const COL_CATLGID = 'cartdet.catlgid';
 
     /**
      * the column name for the errormsg field
      */
-    const COL_ERRORMSG = 'cartdet.errormsg';
+    public const COL_ERRORMSG = 'cartdet.errormsg';
 
     /**
      * the column name for the minprice field
      */
-    const COL_MINPRICE = 'cartdet.minprice';
+    public const COL_MINPRICE = 'cartdet.minprice';
 
     /**
      * the column name for the vendorid field
      */
-    const COL_VENDORID = 'cartdet.vendorid';
+    public const COL_VENDORID = 'cartdet.vendorid';
 
     /**
      * the column name for the vendoritemid field
      */
-    const COL_VENDORITEMID = 'cartdet.vendoritemid';
+    public const COL_VENDORITEMID = 'cartdet.vendoritemid';
 
     /**
      * the column name for the ponbr field
      */
-    const COL_PONBR = 'cartdet.ponbr';
+    public const COL_PONBR = 'cartdet.ponbr';
 
     /**
      * the column name for the poref field
      */
-    const COL_POREF = 'cartdet.poref';
+    public const COL_POREF = 'cartdet.poref';
 
     /**
      * the column name for the nsitemgroup field
      */
-    const COL_NSITEMGROUP = 'cartdet.nsitemgroup';
+    public const COL_NSITEMGROUP = 'cartdet.nsitemgroup';
 
     /**
      * the column name for the shipfromid field
      */
-    const COL_SHIPFROMID = 'cartdet.shipfromid';
+    public const COL_SHIPFROMID = 'cartdet.shipfromid';
 
     /**
      * the column name for the itemtype field
      */
-    const COL_ITEMTYPE = 'cartdet.itemtype';
+    public const COL_ITEMTYPE = 'cartdet.itemtype';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'cartdet.dummy';
+    public const COL_DUMMY = 'cartdet.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Sessionid', 'Recno', 'Date', 'Time', 'Orderno', 'Linenbr', 'Itemid', 'Custitemid', 'Desc1', 'Desc2', 'Price', 'Totalprice', 'Qty', 'Qtyshipped', 'Qtybackord', 'Rshipdate', 'Hasdocuments', 'Qtyavail', 'Hasnotes', 'Cost', 'Whse', 'Uom', 'Spcord', 'Kititemflag', 'Promocode', 'Taxcode', 'Taxcodeperc', 'Discpct', 'Listprice', 'Uomconv', 'Catlgid', 'Errormsg', 'Minprice', 'Vendorid', 'Vendoritemid', 'Ponbr', 'Poref', 'Nsitemgroup', 'Shipfromid', 'Itemtype', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('sessionid', 'recno', 'date', 'time', 'orderno', 'linenbr', 'itemid', 'custitemid', 'desc1', 'desc2', 'price', 'totalprice', 'qty', 'qtyshipped', 'qtybackord', 'rshipdate', 'hasdocuments', 'qtyavail', 'hasnotes', 'cost', 'whse', 'uom', 'spcord', 'kititemflag', 'promocode', 'taxcode', 'taxcodeperc', 'discpct', 'listprice', 'uomconv', 'catlgid', 'errormsg', 'minprice', 'vendorid', 'vendoritemid', 'ponbr', 'poref', 'nsitemgroup', 'shipfromid', 'itemtype', 'dummy', ),
-        self::TYPE_COLNAME       => array(CartdetTableMap::COL_SESSIONID, CartdetTableMap::COL_RECNO, CartdetTableMap::COL_DATE, CartdetTableMap::COL_TIME, CartdetTableMap::COL_ORDERNO, CartdetTableMap::COL_LINENBR, CartdetTableMap::COL_ITEMID, CartdetTableMap::COL_CUSTITEMID, CartdetTableMap::COL_DESC1, CartdetTableMap::COL_DESC2, CartdetTableMap::COL_PRICE, CartdetTableMap::COL_TOTALPRICE, CartdetTableMap::COL_QTY, CartdetTableMap::COL_QTYSHIPPED, CartdetTableMap::COL_QTYBACKORD, CartdetTableMap::COL_RSHIPDATE, CartdetTableMap::COL_HASDOCUMENTS, CartdetTableMap::COL_QTYAVAIL, CartdetTableMap::COL_HASNOTES, CartdetTableMap::COL_COST, CartdetTableMap::COL_WHSE, CartdetTableMap::COL_UOM, CartdetTableMap::COL_SPCORD, CartdetTableMap::COL_KITITEMFLAG, CartdetTableMap::COL_PROMOCODE, CartdetTableMap::COL_TAXCODE, CartdetTableMap::COL_TAXCODEPERC, CartdetTableMap::COL_DISCPCT, CartdetTableMap::COL_LISTPRICE, CartdetTableMap::COL_UOMCONV, CartdetTableMap::COL_CATLGID, CartdetTableMap::COL_ERRORMSG, CartdetTableMap::COL_MINPRICE, CartdetTableMap::COL_VENDORID, CartdetTableMap::COL_VENDORITEMID, CartdetTableMap::COL_PONBR, CartdetTableMap::COL_POREF, CartdetTableMap::COL_NSITEMGROUP, CartdetTableMap::COL_SHIPFROMID, CartdetTableMap::COL_ITEMTYPE, CartdetTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('sessionid', 'recno', 'date', 'time', 'orderno', 'linenbr', 'itemid', 'custitemid', 'desc1', 'desc2', 'price', 'totalprice', 'qty', 'qtyshipped', 'qtybackord', 'rshipdate', 'hasdocuments', 'qtyavail', 'hasnotes', 'cost', 'whse', 'uom', 'spcord', 'kititemflag', 'promocode', 'taxcode', 'taxcodeperc', 'discpct', 'listprice', 'uomconv', 'catlgid', 'errormsg', 'minprice', 'vendorid', 'vendoritemid', 'ponbr', 'poref', 'nsitemgroup', 'shipfromid', 'itemtype', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Sessionid', 'Recno', 'Date', 'Time', 'Orderno', 'Linenbr', 'Itemid', 'Custitemid', 'Desc1', 'Desc2', 'Price', 'Totalprice', 'Qty', 'Qtyshipped', 'Qtybackord', 'Rshipdate', 'Hasdocuments', 'Qtyavail', 'Hasnotes', 'Cost', 'Whse', 'Uom', 'Spcord', 'Kititemflag', 'Promocode', 'Taxcode', 'Taxcodeperc', 'Discpct', 'Listprice', 'Uomconv', 'Catlgid', 'Errormsg', 'Minprice', 'Vendorid', 'Vendoritemid', 'Ponbr', 'Poref', 'Nsitemgroup', 'Shipfromid', 'Itemtype', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['sessionid', 'recno', 'date', 'time', 'orderno', 'linenbr', 'itemid', 'custitemid', 'desc1', 'desc2', 'price', 'totalprice', 'qty', 'qtyshipped', 'qtybackord', 'rshipdate', 'hasdocuments', 'qtyavail', 'hasnotes', 'cost', 'whse', 'uom', 'spcord', 'kititemflag', 'promocode', 'taxcode', 'taxcodeperc', 'discpct', 'listprice', 'uomconv', 'catlgid', 'errormsg', 'minprice', 'vendorid', 'vendoritemid', 'ponbr', 'poref', 'nsitemgroup', 'shipfromid', 'itemtype', 'dummy', ],
+        self::TYPE_COLNAME       => [CartdetTableMap::COL_SESSIONID, CartdetTableMap::COL_RECNO, CartdetTableMap::COL_DATE, CartdetTableMap::COL_TIME, CartdetTableMap::COL_ORDERNO, CartdetTableMap::COL_LINENBR, CartdetTableMap::COL_ITEMID, CartdetTableMap::COL_CUSTITEMID, CartdetTableMap::COL_DESC1, CartdetTableMap::COL_DESC2, CartdetTableMap::COL_PRICE, CartdetTableMap::COL_TOTALPRICE, CartdetTableMap::COL_QTY, CartdetTableMap::COL_QTYSHIPPED, CartdetTableMap::COL_QTYBACKORD, CartdetTableMap::COL_RSHIPDATE, CartdetTableMap::COL_HASDOCUMENTS, CartdetTableMap::COL_QTYAVAIL, CartdetTableMap::COL_HASNOTES, CartdetTableMap::COL_COST, CartdetTableMap::COL_WHSE, CartdetTableMap::COL_UOM, CartdetTableMap::COL_SPCORD, CartdetTableMap::COL_KITITEMFLAG, CartdetTableMap::COL_PROMOCODE, CartdetTableMap::COL_TAXCODE, CartdetTableMap::COL_TAXCODEPERC, CartdetTableMap::COL_DISCPCT, CartdetTableMap::COL_LISTPRICE, CartdetTableMap::COL_UOMCONV, CartdetTableMap::COL_CATLGID, CartdetTableMap::COL_ERRORMSG, CartdetTableMap::COL_MINPRICE, CartdetTableMap::COL_VENDORID, CartdetTableMap::COL_VENDORITEMID, CartdetTableMap::COL_PONBR, CartdetTableMap::COL_POREF, CartdetTableMap::COL_NSITEMGROUP, CartdetTableMap::COL_SHIPFROMID, CartdetTableMap::COL_ITEMTYPE, CartdetTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['sessionid', 'recno', 'date', 'time', 'orderno', 'linenbr', 'itemid', 'custitemid', 'desc1', 'desc2', 'price', 'totalprice', 'qty', 'qtyshipped', 'qtybackord', 'rshipdate', 'hasdocuments', 'qtyavail', 'hasnotes', 'cost', 'whse', 'uom', 'spcord', 'kititemflag', 'promocode', 'taxcode', 'taxcodeperc', 'discpct', 'listprice', 'uomconv', 'catlgid', 'errormsg', 'minprice', 'vendorid', 'vendoritemid', 'ponbr', 'poref', 'nsitemgroup', 'shipfromid', 'itemtype', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Recno' => 1, 'Date' => 2, 'Time' => 3, 'Orderno' => 4, 'Linenbr' => 5, 'Itemid' => 6, 'Custitemid' => 7, 'Desc1' => 8, 'Desc2' => 9, 'Price' => 10, 'Totalprice' => 11, 'Qty' => 12, 'Qtyshipped' => 13, 'Qtybackord' => 14, 'Rshipdate' => 15, 'Hasdocuments' => 16, 'Qtyavail' => 17, 'Hasnotes' => 18, 'Cost' => 19, 'Whse' => 20, 'Uom' => 21, 'Spcord' => 22, 'Kititemflag' => 23, 'Promocode' => 24, 'Taxcode' => 25, 'Taxcodeperc' => 26, 'Discpct' => 27, 'Listprice' => 28, 'Uomconv' => 29, 'Catlgid' => 30, 'Errormsg' => 31, 'Minprice' => 32, 'Vendorid' => 33, 'Vendoritemid' => 34, 'Ponbr' => 35, 'Poref' => 36, 'Nsitemgroup' => 37, 'Shipfromid' => 38, 'Itemtype' => 39, 'Dummy' => 40, ),
-        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'orderno' => 4, 'linenbr' => 5, 'itemid' => 6, 'custitemid' => 7, 'desc1' => 8, 'desc2' => 9, 'price' => 10, 'totalprice' => 11, 'qty' => 12, 'qtyshipped' => 13, 'qtybackord' => 14, 'rshipdate' => 15, 'hasdocuments' => 16, 'qtyavail' => 17, 'hasnotes' => 18, 'cost' => 19, 'whse' => 20, 'uom' => 21, 'spcord' => 22, 'kititemflag' => 23, 'promocode' => 24, 'taxcode' => 25, 'taxcodeperc' => 26, 'discpct' => 27, 'listprice' => 28, 'uomconv' => 29, 'catlgid' => 30, 'errormsg' => 31, 'minprice' => 32, 'vendorid' => 33, 'vendoritemid' => 34, 'ponbr' => 35, 'poref' => 36, 'nsitemgroup' => 37, 'shipfromid' => 38, 'itemtype' => 39, 'dummy' => 40, ),
-        self::TYPE_COLNAME       => array(CartdetTableMap::COL_SESSIONID => 0, CartdetTableMap::COL_RECNO => 1, CartdetTableMap::COL_DATE => 2, CartdetTableMap::COL_TIME => 3, CartdetTableMap::COL_ORDERNO => 4, CartdetTableMap::COL_LINENBR => 5, CartdetTableMap::COL_ITEMID => 6, CartdetTableMap::COL_CUSTITEMID => 7, CartdetTableMap::COL_DESC1 => 8, CartdetTableMap::COL_DESC2 => 9, CartdetTableMap::COL_PRICE => 10, CartdetTableMap::COL_TOTALPRICE => 11, CartdetTableMap::COL_QTY => 12, CartdetTableMap::COL_QTYSHIPPED => 13, CartdetTableMap::COL_QTYBACKORD => 14, CartdetTableMap::COL_RSHIPDATE => 15, CartdetTableMap::COL_HASDOCUMENTS => 16, CartdetTableMap::COL_QTYAVAIL => 17, CartdetTableMap::COL_HASNOTES => 18, CartdetTableMap::COL_COST => 19, CartdetTableMap::COL_WHSE => 20, CartdetTableMap::COL_UOM => 21, CartdetTableMap::COL_SPCORD => 22, CartdetTableMap::COL_KITITEMFLAG => 23, CartdetTableMap::COL_PROMOCODE => 24, CartdetTableMap::COL_TAXCODE => 25, CartdetTableMap::COL_TAXCODEPERC => 26, CartdetTableMap::COL_DISCPCT => 27, CartdetTableMap::COL_LISTPRICE => 28, CartdetTableMap::COL_UOMCONV => 29, CartdetTableMap::COL_CATLGID => 30, CartdetTableMap::COL_ERRORMSG => 31, CartdetTableMap::COL_MINPRICE => 32, CartdetTableMap::COL_VENDORID => 33, CartdetTableMap::COL_VENDORITEMID => 34, CartdetTableMap::COL_PONBR => 35, CartdetTableMap::COL_POREF => 36, CartdetTableMap::COL_NSITEMGROUP => 37, CartdetTableMap::COL_SHIPFROMID => 38, CartdetTableMap::COL_ITEMTYPE => 39, CartdetTableMap::COL_DUMMY => 40, ),
-        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'orderno' => 4, 'linenbr' => 5, 'itemid' => 6, 'custitemid' => 7, 'desc1' => 8, 'desc2' => 9, 'price' => 10, 'totalprice' => 11, 'qty' => 12, 'qtyshipped' => 13, 'qtybackord' => 14, 'rshipdate' => 15, 'hasdocuments' => 16, 'qtyavail' => 17, 'hasnotes' => 18, 'cost' => 19, 'whse' => 20, 'uom' => 21, 'spcord' => 22, 'kititemflag' => 23, 'promocode' => 24, 'taxcode' => 25, 'taxcodeperc' => 26, 'discpct' => 27, 'listprice' => 28, 'uomconv' => 29, 'catlgid' => 30, 'errormsg' => 31, 'minprice' => 32, 'vendorid' => 33, 'vendoritemid' => 34, 'ponbr' => 35, 'poref' => 36, 'nsitemgroup' => 37, 'shipfromid' => 38, 'itemtype' => 39, 'dummy' => 40, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Sessionid' => 0, 'Recno' => 1, 'Date' => 2, 'Time' => 3, 'Orderno' => 4, 'Linenbr' => 5, 'Itemid' => 6, 'Custitemid' => 7, 'Desc1' => 8, 'Desc2' => 9, 'Price' => 10, 'Totalprice' => 11, 'Qty' => 12, 'Qtyshipped' => 13, 'Qtybackord' => 14, 'Rshipdate' => 15, 'Hasdocuments' => 16, 'Qtyavail' => 17, 'Hasnotes' => 18, 'Cost' => 19, 'Whse' => 20, 'Uom' => 21, 'Spcord' => 22, 'Kititemflag' => 23, 'Promocode' => 24, 'Taxcode' => 25, 'Taxcodeperc' => 26, 'Discpct' => 27, 'Listprice' => 28, 'Uomconv' => 29, 'Catlgid' => 30, 'Errormsg' => 31, 'Minprice' => 32, 'Vendorid' => 33, 'Vendoritemid' => 34, 'Ponbr' => 35, 'Poref' => 36, 'Nsitemgroup' => 37, 'Shipfromid' => 38, 'Itemtype' => 39, 'Dummy' => 40, ],
+        self::TYPE_CAMELNAME     => ['sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'orderno' => 4, 'linenbr' => 5, 'itemid' => 6, 'custitemid' => 7, 'desc1' => 8, 'desc2' => 9, 'price' => 10, 'totalprice' => 11, 'qty' => 12, 'qtyshipped' => 13, 'qtybackord' => 14, 'rshipdate' => 15, 'hasdocuments' => 16, 'qtyavail' => 17, 'hasnotes' => 18, 'cost' => 19, 'whse' => 20, 'uom' => 21, 'spcord' => 22, 'kititemflag' => 23, 'promocode' => 24, 'taxcode' => 25, 'taxcodeperc' => 26, 'discpct' => 27, 'listprice' => 28, 'uomconv' => 29, 'catlgid' => 30, 'errormsg' => 31, 'minprice' => 32, 'vendorid' => 33, 'vendoritemid' => 34, 'ponbr' => 35, 'poref' => 36, 'nsitemgroup' => 37, 'shipfromid' => 38, 'itemtype' => 39, 'dummy' => 40, ],
+        self::TYPE_COLNAME       => [CartdetTableMap::COL_SESSIONID => 0, CartdetTableMap::COL_RECNO => 1, CartdetTableMap::COL_DATE => 2, CartdetTableMap::COL_TIME => 3, CartdetTableMap::COL_ORDERNO => 4, CartdetTableMap::COL_LINENBR => 5, CartdetTableMap::COL_ITEMID => 6, CartdetTableMap::COL_CUSTITEMID => 7, CartdetTableMap::COL_DESC1 => 8, CartdetTableMap::COL_DESC2 => 9, CartdetTableMap::COL_PRICE => 10, CartdetTableMap::COL_TOTALPRICE => 11, CartdetTableMap::COL_QTY => 12, CartdetTableMap::COL_QTYSHIPPED => 13, CartdetTableMap::COL_QTYBACKORD => 14, CartdetTableMap::COL_RSHIPDATE => 15, CartdetTableMap::COL_HASDOCUMENTS => 16, CartdetTableMap::COL_QTYAVAIL => 17, CartdetTableMap::COL_HASNOTES => 18, CartdetTableMap::COL_COST => 19, CartdetTableMap::COL_WHSE => 20, CartdetTableMap::COL_UOM => 21, CartdetTableMap::COL_SPCORD => 22, CartdetTableMap::COL_KITITEMFLAG => 23, CartdetTableMap::COL_PROMOCODE => 24, CartdetTableMap::COL_TAXCODE => 25, CartdetTableMap::COL_TAXCODEPERC => 26, CartdetTableMap::COL_DISCPCT => 27, CartdetTableMap::COL_LISTPRICE => 28, CartdetTableMap::COL_UOMCONV => 29, CartdetTableMap::COL_CATLGID => 30, CartdetTableMap::COL_ERRORMSG => 31, CartdetTableMap::COL_MINPRICE => 32, CartdetTableMap::COL_VENDORID => 33, CartdetTableMap::COL_VENDORITEMID => 34, CartdetTableMap::COL_PONBR => 35, CartdetTableMap::COL_POREF => 36, CartdetTableMap::COL_NSITEMGROUP => 37, CartdetTableMap::COL_SHIPFROMID => 38, CartdetTableMap::COL_ITEMTYPE => 39, CartdetTableMap::COL_DUMMY => 40, ],
+        self::TYPE_FIELDNAME     => ['sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'orderno' => 4, 'linenbr' => 5, 'itemid' => 6, 'custitemid' => 7, 'desc1' => 8, 'desc2' => 9, 'price' => 10, 'totalprice' => 11, 'qty' => 12, 'qtyshipped' => 13, 'qtybackord' => 14, 'rshipdate' => 15, 'hasdocuments' => 16, 'qtyavail' => 17, 'hasnotes' => 18, 'cost' => 19, 'whse' => 20, 'uom' => 21, 'spcord' => 22, 'kititemflag' => 23, 'promocode' => 24, 'taxcode' => 25, 'taxcodeperc' => 26, 'discpct' => 27, 'listprice' => 28, 'uomconv' => 29, 'catlgid' => 30, 'errormsg' => 31, 'minprice' => 32, 'vendorid' => 33, 'vendoritemid' => 34, 'ponbr' => 35, 'poref' => 36, 'nsitemgroup' => 37, 'shipfromid' => 38, 'itemtype' => 39, 'dummy' => 40, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Sessionid' => 'SESSIONID',
+        'Cartdet.Sessionid' => 'SESSIONID',
+        'sessionid' => 'SESSIONID',
+        'cartdet.sessionid' => 'SESSIONID',
+        'CartdetTableMap::COL_SESSIONID' => 'SESSIONID',
+        'COL_SESSIONID' => 'SESSIONID',
+        'Recno' => 'RECNO',
+        'Cartdet.Recno' => 'RECNO',
+        'recno' => 'RECNO',
+        'cartdet.recno' => 'RECNO',
+        'CartdetTableMap::COL_RECNO' => 'RECNO',
+        'COL_RECNO' => 'RECNO',
+        'Date' => 'DATE',
+        'Cartdet.Date' => 'DATE',
+        'date' => 'DATE',
+        'cartdet.date' => 'DATE',
+        'CartdetTableMap::COL_DATE' => 'DATE',
+        'COL_DATE' => 'DATE',
+        'Time' => 'TIME',
+        'Cartdet.Time' => 'TIME',
+        'time' => 'TIME',
+        'cartdet.time' => 'TIME',
+        'CartdetTableMap::COL_TIME' => 'TIME',
+        'COL_TIME' => 'TIME',
+        'Orderno' => 'ORDERNO',
+        'Cartdet.Orderno' => 'ORDERNO',
+        'orderno' => 'ORDERNO',
+        'cartdet.orderno' => 'ORDERNO',
+        'CartdetTableMap::COL_ORDERNO' => 'ORDERNO',
+        'COL_ORDERNO' => 'ORDERNO',
+        'Linenbr' => 'LINENBR',
+        'Cartdet.Linenbr' => 'LINENBR',
+        'linenbr' => 'LINENBR',
+        'cartdet.linenbr' => 'LINENBR',
+        'CartdetTableMap::COL_LINENBR' => 'LINENBR',
+        'COL_LINENBR' => 'LINENBR',
+        'Itemid' => 'ITEMID',
+        'Cartdet.Itemid' => 'ITEMID',
+        'itemid' => 'ITEMID',
+        'cartdet.itemid' => 'ITEMID',
+        'CartdetTableMap::COL_ITEMID' => 'ITEMID',
+        'COL_ITEMID' => 'ITEMID',
+        'Custitemid' => 'CUSTITEMID',
+        'Cartdet.Custitemid' => 'CUSTITEMID',
+        'custitemid' => 'CUSTITEMID',
+        'cartdet.custitemid' => 'CUSTITEMID',
+        'CartdetTableMap::COL_CUSTITEMID' => 'CUSTITEMID',
+        'COL_CUSTITEMID' => 'CUSTITEMID',
+        'Desc1' => 'DESC1',
+        'Cartdet.Desc1' => 'DESC1',
+        'desc1' => 'DESC1',
+        'cartdet.desc1' => 'DESC1',
+        'CartdetTableMap::COL_DESC1' => 'DESC1',
+        'COL_DESC1' => 'DESC1',
+        'Desc2' => 'DESC2',
+        'Cartdet.Desc2' => 'DESC2',
+        'desc2' => 'DESC2',
+        'cartdet.desc2' => 'DESC2',
+        'CartdetTableMap::COL_DESC2' => 'DESC2',
+        'COL_DESC2' => 'DESC2',
+        'Price' => 'PRICE',
+        'Cartdet.Price' => 'PRICE',
+        'price' => 'PRICE',
+        'cartdet.price' => 'PRICE',
+        'CartdetTableMap::COL_PRICE' => 'PRICE',
+        'COL_PRICE' => 'PRICE',
+        'Totalprice' => 'TOTALPRICE',
+        'Cartdet.Totalprice' => 'TOTALPRICE',
+        'totalprice' => 'TOTALPRICE',
+        'cartdet.totalprice' => 'TOTALPRICE',
+        'CartdetTableMap::COL_TOTALPRICE' => 'TOTALPRICE',
+        'COL_TOTALPRICE' => 'TOTALPRICE',
+        'Qty' => 'QTY',
+        'Cartdet.Qty' => 'QTY',
+        'qty' => 'QTY',
+        'cartdet.qty' => 'QTY',
+        'CartdetTableMap::COL_QTY' => 'QTY',
+        'COL_QTY' => 'QTY',
+        'Qtyshipped' => 'QTYSHIPPED',
+        'Cartdet.Qtyshipped' => 'QTYSHIPPED',
+        'qtyshipped' => 'QTYSHIPPED',
+        'cartdet.qtyshipped' => 'QTYSHIPPED',
+        'CartdetTableMap::COL_QTYSHIPPED' => 'QTYSHIPPED',
+        'COL_QTYSHIPPED' => 'QTYSHIPPED',
+        'Qtybackord' => 'QTYBACKORD',
+        'Cartdet.Qtybackord' => 'QTYBACKORD',
+        'qtybackord' => 'QTYBACKORD',
+        'cartdet.qtybackord' => 'QTYBACKORD',
+        'CartdetTableMap::COL_QTYBACKORD' => 'QTYBACKORD',
+        'COL_QTYBACKORD' => 'QTYBACKORD',
+        'Rshipdate' => 'RSHIPDATE',
+        'Cartdet.Rshipdate' => 'RSHIPDATE',
+        'rshipdate' => 'RSHIPDATE',
+        'cartdet.rshipdate' => 'RSHIPDATE',
+        'CartdetTableMap::COL_RSHIPDATE' => 'RSHIPDATE',
+        'COL_RSHIPDATE' => 'RSHIPDATE',
+        'Hasdocuments' => 'HASDOCUMENTS',
+        'Cartdet.Hasdocuments' => 'HASDOCUMENTS',
+        'hasdocuments' => 'HASDOCUMENTS',
+        'cartdet.hasdocuments' => 'HASDOCUMENTS',
+        'CartdetTableMap::COL_HASDOCUMENTS' => 'HASDOCUMENTS',
+        'COL_HASDOCUMENTS' => 'HASDOCUMENTS',
+        'Qtyavail' => 'QTYAVAIL',
+        'Cartdet.Qtyavail' => 'QTYAVAIL',
+        'qtyavail' => 'QTYAVAIL',
+        'cartdet.qtyavail' => 'QTYAVAIL',
+        'CartdetTableMap::COL_QTYAVAIL' => 'QTYAVAIL',
+        'COL_QTYAVAIL' => 'QTYAVAIL',
+        'Hasnotes' => 'HASNOTES',
+        'Cartdet.Hasnotes' => 'HASNOTES',
+        'hasnotes' => 'HASNOTES',
+        'cartdet.hasnotes' => 'HASNOTES',
+        'CartdetTableMap::COL_HASNOTES' => 'HASNOTES',
+        'COL_HASNOTES' => 'HASNOTES',
+        'Cost' => 'COST',
+        'Cartdet.Cost' => 'COST',
+        'cost' => 'COST',
+        'cartdet.cost' => 'COST',
+        'CartdetTableMap::COL_COST' => 'COST',
+        'COL_COST' => 'COST',
+        'Whse' => 'WHSE',
+        'Cartdet.Whse' => 'WHSE',
+        'whse' => 'WHSE',
+        'cartdet.whse' => 'WHSE',
+        'CartdetTableMap::COL_WHSE' => 'WHSE',
+        'COL_WHSE' => 'WHSE',
+        'Uom' => 'UOM',
+        'Cartdet.Uom' => 'UOM',
+        'uom' => 'UOM',
+        'cartdet.uom' => 'UOM',
+        'CartdetTableMap::COL_UOM' => 'UOM',
+        'COL_UOM' => 'UOM',
+        'Spcord' => 'SPCORD',
+        'Cartdet.Spcord' => 'SPCORD',
+        'spcord' => 'SPCORD',
+        'cartdet.spcord' => 'SPCORD',
+        'CartdetTableMap::COL_SPCORD' => 'SPCORD',
+        'COL_SPCORD' => 'SPCORD',
+        'Kititemflag' => 'KITITEMFLAG',
+        'Cartdet.Kititemflag' => 'KITITEMFLAG',
+        'kititemflag' => 'KITITEMFLAG',
+        'cartdet.kititemflag' => 'KITITEMFLAG',
+        'CartdetTableMap::COL_KITITEMFLAG' => 'KITITEMFLAG',
+        'COL_KITITEMFLAG' => 'KITITEMFLAG',
+        'Promocode' => 'PROMOCODE',
+        'Cartdet.Promocode' => 'PROMOCODE',
+        'promocode' => 'PROMOCODE',
+        'cartdet.promocode' => 'PROMOCODE',
+        'CartdetTableMap::COL_PROMOCODE' => 'PROMOCODE',
+        'COL_PROMOCODE' => 'PROMOCODE',
+        'Taxcode' => 'TAXCODE',
+        'Cartdet.Taxcode' => 'TAXCODE',
+        'taxcode' => 'TAXCODE',
+        'cartdet.taxcode' => 'TAXCODE',
+        'CartdetTableMap::COL_TAXCODE' => 'TAXCODE',
+        'COL_TAXCODE' => 'TAXCODE',
+        'Taxcodeperc' => 'TAXCODEPERC',
+        'Cartdet.Taxcodeperc' => 'TAXCODEPERC',
+        'taxcodeperc' => 'TAXCODEPERC',
+        'cartdet.taxcodeperc' => 'TAXCODEPERC',
+        'CartdetTableMap::COL_TAXCODEPERC' => 'TAXCODEPERC',
+        'COL_TAXCODEPERC' => 'TAXCODEPERC',
+        'Discpct' => 'DISCPCT',
+        'Cartdet.Discpct' => 'DISCPCT',
+        'discpct' => 'DISCPCT',
+        'cartdet.discpct' => 'DISCPCT',
+        'CartdetTableMap::COL_DISCPCT' => 'DISCPCT',
+        'COL_DISCPCT' => 'DISCPCT',
+        'Listprice' => 'LISTPRICE',
+        'Cartdet.Listprice' => 'LISTPRICE',
+        'listprice' => 'LISTPRICE',
+        'cartdet.listprice' => 'LISTPRICE',
+        'CartdetTableMap::COL_LISTPRICE' => 'LISTPRICE',
+        'COL_LISTPRICE' => 'LISTPRICE',
+        'Uomconv' => 'UOMCONV',
+        'Cartdet.Uomconv' => 'UOMCONV',
+        'uomconv' => 'UOMCONV',
+        'cartdet.uomconv' => 'UOMCONV',
+        'CartdetTableMap::COL_UOMCONV' => 'UOMCONV',
+        'COL_UOMCONV' => 'UOMCONV',
+        'Catlgid' => 'CATLGID',
+        'Cartdet.Catlgid' => 'CATLGID',
+        'catlgid' => 'CATLGID',
+        'cartdet.catlgid' => 'CATLGID',
+        'CartdetTableMap::COL_CATLGID' => 'CATLGID',
+        'COL_CATLGID' => 'CATLGID',
+        'Errormsg' => 'ERRORMSG',
+        'Cartdet.Errormsg' => 'ERRORMSG',
+        'errormsg' => 'ERRORMSG',
+        'cartdet.errormsg' => 'ERRORMSG',
+        'CartdetTableMap::COL_ERRORMSG' => 'ERRORMSG',
+        'COL_ERRORMSG' => 'ERRORMSG',
+        'Minprice' => 'MINPRICE',
+        'Cartdet.Minprice' => 'MINPRICE',
+        'minprice' => 'MINPRICE',
+        'cartdet.minprice' => 'MINPRICE',
+        'CartdetTableMap::COL_MINPRICE' => 'MINPRICE',
+        'COL_MINPRICE' => 'MINPRICE',
+        'Vendorid' => 'VENDORID',
+        'Cartdet.Vendorid' => 'VENDORID',
+        'vendorid' => 'VENDORID',
+        'cartdet.vendorid' => 'VENDORID',
+        'CartdetTableMap::COL_VENDORID' => 'VENDORID',
+        'COL_VENDORID' => 'VENDORID',
+        'Vendoritemid' => 'VENDORITEMID',
+        'Cartdet.Vendoritemid' => 'VENDORITEMID',
+        'vendoritemid' => 'VENDORITEMID',
+        'cartdet.vendoritemid' => 'VENDORITEMID',
+        'CartdetTableMap::COL_VENDORITEMID' => 'VENDORITEMID',
+        'COL_VENDORITEMID' => 'VENDORITEMID',
+        'Ponbr' => 'PONBR',
+        'Cartdet.Ponbr' => 'PONBR',
+        'ponbr' => 'PONBR',
+        'cartdet.ponbr' => 'PONBR',
+        'CartdetTableMap::COL_PONBR' => 'PONBR',
+        'COL_PONBR' => 'PONBR',
+        'Poref' => 'POREF',
+        'Cartdet.Poref' => 'POREF',
+        'poref' => 'POREF',
+        'cartdet.poref' => 'POREF',
+        'CartdetTableMap::COL_POREF' => 'POREF',
+        'COL_POREF' => 'POREF',
+        'Nsitemgroup' => 'NSITEMGROUP',
+        'Cartdet.Nsitemgroup' => 'NSITEMGROUP',
+        'nsitemgroup' => 'NSITEMGROUP',
+        'cartdet.nsitemgroup' => 'NSITEMGROUP',
+        'CartdetTableMap::COL_NSITEMGROUP' => 'NSITEMGROUP',
+        'COL_NSITEMGROUP' => 'NSITEMGROUP',
+        'Shipfromid' => 'SHIPFROMID',
+        'Cartdet.Shipfromid' => 'SHIPFROMID',
+        'shipfromid' => 'SHIPFROMID',
+        'cartdet.shipfromid' => 'SHIPFROMID',
+        'CartdetTableMap::COL_SHIPFROMID' => 'SHIPFROMID',
+        'COL_SHIPFROMID' => 'SHIPFROMID',
+        'Itemtype' => 'ITEMTYPE',
+        'Cartdet.Itemtype' => 'ITEMTYPE',
+        'itemtype' => 'ITEMTYPE',
+        'cartdet.itemtype' => 'ITEMTYPE',
+        'CartdetTableMap::COL_ITEMTYPE' => 'ITEMTYPE',
+        'COL_ITEMTYPE' => 'ITEMTYPE',
+        'Dummy' => 'DUMMY',
+        'Cartdet.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'cartdet.dummy' => 'DUMMY',
+        'CartdetTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('cartdet');
@@ -367,14 +629,16 @@ class CartdetTableMap extends TableMap
         $this->addColumn('shipfromid', 'Shipfromid', 'VARCHAR', false, 6, '');
         $this->addColumn('itemtype', 'Itemtype', 'VARCHAR', false, 1, '');
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, 'x');
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -385,9 +649,11 @@ class CartdetTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \Cartdet $obj A \Cartdet object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(Cartdet $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -406,8 +672,10 @@ class CartdetTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \Cartdet object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \Cartdet) {
@@ -435,14 +703,14 @@ class CartdetTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Recno', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -457,14 +725,14 @@ class CartdetTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -490,10 +758,10 @@ class CartdetTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? CartdetTableMap::CLASS_DEFAULT : CartdetTableMap::OM_CLASS;
     }
@@ -501,17 +769,17 @@ class CartdetTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (Cartdet object, last column rank)
+     * @return array (Cartdet object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = CartdetTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = CartdetTableMap::getInstanceFromPool($key))) {
@@ -527,7 +795,7 @@ class CartdetTableMap extends TableMap
             CartdetTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -535,13 +803,13 @@ class CartdetTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -571,12 +839,13 @@ class CartdetTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(CartdetTableMap::COL_SESSIONID);
@@ -666,40 +935,130 @@ class CartdetTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(CartdetTableMap::COL_SESSIONID);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_RECNO);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_DATE);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_TIME);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_ORDERNO);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_LINENBR);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_ITEMID);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_CUSTITEMID);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_DESC1);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_DESC2);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_PRICE);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_TOTALPRICE);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_QTY);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_QTYSHIPPED);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_QTYBACKORD);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_RSHIPDATE);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_HASDOCUMENTS);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_QTYAVAIL);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_HASNOTES);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_COST);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_WHSE);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_UOM);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_SPCORD);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_KITITEMFLAG);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_PROMOCODE);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_TAXCODE);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_TAXCODEPERC);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_DISCPCT);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_LISTPRICE);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_UOMCONV);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_CATLGID);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_ERRORMSG);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_MINPRICE);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_VENDORID);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_VENDORITEMID);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_PONBR);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_POREF);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_NSITEMGROUP);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_SHIPFROMID);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_ITEMTYPE);
+            $criteria->removeSelectColumn(CartdetTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.sessionid');
+            $criteria->removeSelectColumn($alias . '.recno');
+            $criteria->removeSelectColumn($alias . '.date');
+            $criteria->removeSelectColumn($alias . '.time');
+            $criteria->removeSelectColumn($alias . '.orderno');
+            $criteria->removeSelectColumn($alias . '.linenbr');
+            $criteria->removeSelectColumn($alias . '.itemid');
+            $criteria->removeSelectColumn($alias . '.custitemid');
+            $criteria->removeSelectColumn($alias . '.desc1');
+            $criteria->removeSelectColumn($alias . '.desc2');
+            $criteria->removeSelectColumn($alias . '.price');
+            $criteria->removeSelectColumn($alias . '.totalprice');
+            $criteria->removeSelectColumn($alias . '.qty');
+            $criteria->removeSelectColumn($alias . '.qtyshipped');
+            $criteria->removeSelectColumn($alias . '.qtybackord');
+            $criteria->removeSelectColumn($alias . '.rshipdate');
+            $criteria->removeSelectColumn($alias . '.hasdocuments');
+            $criteria->removeSelectColumn($alias . '.qtyavail');
+            $criteria->removeSelectColumn($alias . '.hasnotes');
+            $criteria->removeSelectColumn($alias . '.cost');
+            $criteria->removeSelectColumn($alias . '.whse');
+            $criteria->removeSelectColumn($alias . '.uom');
+            $criteria->removeSelectColumn($alias . '.spcord');
+            $criteria->removeSelectColumn($alias . '.kititemflag');
+            $criteria->removeSelectColumn($alias . '.promocode');
+            $criteria->removeSelectColumn($alias . '.taxcode');
+            $criteria->removeSelectColumn($alias . '.taxcodeperc');
+            $criteria->removeSelectColumn($alias . '.discpct');
+            $criteria->removeSelectColumn($alias . '.listprice');
+            $criteria->removeSelectColumn($alias . '.uomconv');
+            $criteria->removeSelectColumn($alias . '.catlgid');
+            $criteria->removeSelectColumn($alias . '.errormsg');
+            $criteria->removeSelectColumn($alias . '.minprice');
+            $criteria->removeSelectColumn($alias . '.vendorid');
+            $criteria->removeSelectColumn($alias . '.vendoritemid');
+            $criteria->removeSelectColumn($alias . '.ponbr');
+            $criteria->removeSelectColumn($alias . '.poref');
+            $criteria->removeSelectColumn($alias . '.nsitemgroup');
+            $criteria->removeSelectColumn($alias . '.shipfromid');
+            $criteria->removeSelectColumn($alias . '.itemtype');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(CartdetTableMap::DATABASE_NAME)->getTable(CartdetTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(CartdetTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(CartdetTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new CartdetTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a Cartdet or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or Cartdet object or primary key or array of primary keys
+     * @param mixed $values Criteria or Cartdet object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CartdetTableMap::DATABASE_NAME);
@@ -717,7 +1076,7 @@ class CartdetTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(CartdetTableMap::COL_SESSIONID, $value[0]);
@@ -745,7 +1104,7 @@ class CartdetTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return CartdetQuery::create()->doDeleteAll($con);
     }
@@ -753,13 +1112,13 @@ class CartdetTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a Cartdet or Criteria object.
      *
-     * @param mixed               $criteria Criteria or Cartdet object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or Cartdet object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CartdetTableMap::DATABASE_NAME);
@@ -782,7 +1141,4 @@ class CartdetTableMap extends TableMap
         });
     }
 
-} // CartdetTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-CartdetTableMap::buildTableMap();
+}

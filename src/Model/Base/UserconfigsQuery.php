@@ -10,14 +10,12 @@ use Map\UserconfigsTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'userconfigs' table.
- *
- *
+ * Base class that represents a query for the `userconfigs` table.
  *
  * @method     ChildUserconfigsQuery orderById($order = Criteria::ASC) Order by the id column
  * @method     ChildUserconfigsQuery orderByUser($order = Criteria::ASC) Order by the user column
@@ -37,29 +35,36 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildUserconfigsQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildUserconfigsQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildUserconfigs findOne(ConnectionInterface $con = null) Return the first ChildUserconfigs matching the query
- * @method     ChildUserconfigs findOneOrCreate(ConnectionInterface $con = null) Return the first ChildUserconfigs matching the query, or a new ChildUserconfigs object populated from the query conditions when no match is found
+ * @method     ChildUserconfigs|null findOne(?ConnectionInterface $con = null) Return the first ChildUserconfigs matching the query
+ * @method     ChildUserconfigs findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildUserconfigs matching the query, or a new ChildUserconfigs object populated from the query conditions when no match is found
  *
- * @method     ChildUserconfigs findOneById(int $id) Return the first ChildUserconfigs filtered by the id column
- * @method     ChildUserconfigs findOneByUser(string $user) Return the first ChildUserconfigs filtered by the user column
- * @method     ChildUserconfigs findOneByConfigtype(string $configtype) Return the first ChildUserconfigs filtered by the configtype column
- * @method     ChildUserconfigs findOneByData(string $data) Return the first ChildUserconfigs filtered by the data column *
-
- * @method     ChildUserconfigs requirePk($key, ConnectionInterface $con = null) Return the ChildUserconfigs by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildUserconfigs requireOne(ConnectionInterface $con = null) Return the first ChildUserconfigs matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildUserconfigs|null findOneById(int $id) Return the first ChildUserconfigs filtered by the id column
+ * @method     ChildUserconfigs|null findOneByUser(string $user) Return the first ChildUserconfigs filtered by the user column
+ * @method     ChildUserconfigs|null findOneByConfigtype(string $configtype) Return the first ChildUserconfigs filtered by the configtype column
+ * @method     ChildUserconfigs|null findOneByData(string $data) Return the first ChildUserconfigs filtered by the data column
+ *
+ * @method     ChildUserconfigs requirePk($key, ?ConnectionInterface $con = null) Return the ChildUserconfigs by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildUserconfigs requireOne(?ConnectionInterface $con = null) Return the first ChildUserconfigs matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildUserconfigs requireOneById(int $id) Return the first ChildUserconfigs filtered by the id column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildUserconfigs requireOneByUser(string $user) Return the first ChildUserconfigs filtered by the user column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildUserconfigs requireOneByConfigtype(string $configtype) Return the first ChildUserconfigs filtered by the configtype column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildUserconfigs requireOneByData(string $data) Return the first ChildUserconfigs filtered by the data column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildUserconfigs[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildUserconfigs objects based on current ModelCriteria
- * @method     ChildUserconfigs[]|ObjectCollection findById(int $id) Return ChildUserconfigs objects filtered by the id column
- * @method     ChildUserconfigs[]|ObjectCollection findByUser(string $user) Return ChildUserconfigs objects filtered by the user column
- * @method     ChildUserconfigs[]|ObjectCollection findByConfigtype(string $configtype) Return ChildUserconfigs objects filtered by the configtype column
- * @method     ChildUserconfigs[]|ObjectCollection findByData(string $data) Return ChildUserconfigs objects filtered by the data column
- * @method     ChildUserconfigs[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildUserconfigs[]|Collection find(?ConnectionInterface $con = null) Return ChildUserconfigs objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildUserconfigs> find(?ConnectionInterface $con = null) Return ChildUserconfigs objects based on current ModelCriteria
  *
+ * @method     ChildUserconfigs[]|Collection findById(int|array<int> $id) Return ChildUserconfigs objects filtered by the id column
+ * @psalm-method Collection&\Traversable<ChildUserconfigs> findById(int|array<int> $id) Return ChildUserconfigs objects filtered by the id column
+ * @method     ChildUserconfigs[]|Collection findByUser(string|array<string> $user) Return ChildUserconfigs objects filtered by the user column
+ * @psalm-method Collection&\Traversable<ChildUserconfigs> findByUser(string|array<string> $user) Return ChildUserconfigs objects filtered by the user column
+ * @method     ChildUserconfigs[]|Collection findByConfigtype(string|array<string> $configtype) Return ChildUserconfigs objects filtered by the configtype column
+ * @psalm-method Collection&\Traversable<ChildUserconfigs> findByConfigtype(string|array<string> $configtype) Return ChildUserconfigs objects filtered by the configtype column
+ * @method     ChildUserconfigs[]|Collection findByData(string|array<string> $data) Return ChildUserconfigs objects filtered by the data column
+ * @psalm-method Collection&\Traversable<ChildUserconfigs> findByData(string|array<string> $data) Return ChildUserconfigs objects filtered by the data column
+ *
+ * @method     ChildUserconfigs[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildUserconfigs> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class UserconfigsQuery extends ModelCriteria
 {
@@ -68,9 +73,9 @@ abstract class UserconfigsQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\UserconfigsQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'dplusodb', $modelName = '\\Userconfigs', $modelAlias = null)
     {
@@ -80,12 +85,12 @@ abstract class UserconfigsQuery extends ModelCriteria
     /**
      * Returns a new ChildUserconfigsQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildUserconfigsQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildUserconfigsQuery) {
             return $criteria;
@@ -115,7 +120,7 @@ abstract class UserconfigsQuery extends ModelCriteria
      *
      * @return ChildUserconfigs|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -147,8 +152,8 @@ abstract class UserconfigsQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -180,8 +185,8 @@ abstract class UserconfigsQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildUserconfigs|array|mixed the result, formatted by the current formatter
      */
@@ -201,12 +206,12 @@ abstract class UserconfigsQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -223,27 +228,31 @@ abstract class UserconfigsQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildUserconfigsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(UserconfigsTableMap::COL_ID, $key, Criteria::EQUAL);
+        $this->addUsingAlias(UserconfigsTableMap::COL_ID, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildUserconfigsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(UserconfigsTableMap::COL_ID, $keys, Criteria::IN);
+        $this->addUsingAlias(UserconfigsTableMap::COL_ID, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -256,15 +265,15 @@ abstract class UserconfigsQuery extends ModelCriteria
      * $query->filterById(array('min' => 12)); // WHERE id > 12
      * </code>
      *
-     * @param     mixed $id The value to use as filter.
+     * @param mixed $id The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUserconfigsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterById($id = null, $comparison = null)
+    public function filterById($id = null, ?string $comparison = null)
     {
         if (is_array($id)) {
             $useMinMax = false;
@@ -284,7 +293,9 @@ abstract class UserconfigsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UserconfigsTableMap::COL_ID, $id, $comparison);
+        $this->addUsingAlias(UserconfigsTableMap::COL_ID, $id, $comparison);
+
+        return $this;
     }
 
     /**
@@ -294,14 +305,15 @@ abstract class UserconfigsQuery extends ModelCriteria
      * <code>
      * $query->filterByUser('fooValue');   // WHERE user = 'fooValue'
      * $query->filterByUser('%fooValue%', Criteria::LIKE); // WHERE user LIKE '%fooValue%'
+     * $query->filterByUser(['foo', 'bar']); // WHERE user IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $user The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $user The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUserconfigsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUser($user = null, $comparison = null)
+    public function filterByUser($user = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($user)) {
@@ -309,7 +321,9 @@ abstract class UserconfigsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UserconfigsTableMap::COL_USER, $user, $comparison);
+        $this->addUsingAlias(UserconfigsTableMap::COL_USER, $user, $comparison);
+
+        return $this;
     }
 
     /**
@@ -319,14 +333,15 @@ abstract class UserconfigsQuery extends ModelCriteria
      * <code>
      * $query->filterByConfigtype('fooValue');   // WHERE configtype = 'fooValue'
      * $query->filterByConfigtype('%fooValue%', Criteria::LIKE); // WHERE configtype LIKE '%fooValue%'
+     * $query->filterByConfigtype(['foo', 'bar']); // WHERE configtype IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $configtype The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $configtype The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUserconfigsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByConfigtype($configtype = null, $comparison = null)
+    public function filterByConfigtype($configtype = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($configtype)) {
@@ -334,7 +349,9 @@ abstract class UserconfigsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UserconfigsTableMap::COL_CONFIGTYPE, $configtype, $comparison);
+        $this->addUsingAlias(UserconfigsTableMap::COL_CONFIGTYPE, $configtype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -344,14 +361,15 @@ abstract class UserconfigsQuery extends ModelCriteria
      * <code>
      * $query->filterByData('fooValue');   // WHERE data = 'fooValue'
      * $query->filterByData('%fooValue%', Criteria::LIKE); // WHERE data LIKE '%fooValue%'
+     * $query->filterByData(['foo', 'bar']); // WHERE data IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $data The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $data The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUserconfigsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByData($data = null, $comparison = null)
+    public function filterByData($data = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($data)) {
@@ -359,15 +377,17 @@ abstract class UserconfigsQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UserconfigsTableMap::COL_DATA, $data, $comparison);
+        $this->addUsingAlias(UserconfigsTableMap::COL_DATA, $data, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildUserconfigs $userconfigs Object to remove from the list of results
+     * @param ChildUserconfigs $userconfigs Object to remove from the list of results
      *
-     * @return $this|ChildUserconfigsQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($userconfigs = null)
     {
@@ -384,7 +404,7 @@ abstract class UserconfigsQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(UserconfigsTableMap::DATABASE_NAME);
@@ -409,12 +429,12 @@ abstract class UserconfigsQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(UserconfigsTableMap::DATABASE_NAME);
@@ -439,4 +459,4 @@ abstract class UserconfigsQuery extends ModelCriteria
         });
     }
 
-} // UserconfigsQuery
+}

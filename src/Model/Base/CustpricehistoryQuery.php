@@ -10,14 +10,12 @@ use Map\CustpricehistoryTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'custpricehistory' table.
- *
- *
+ * Base class that represents a query for the `custpricehistory` table.
  *
  * @method     ChildCustpricehistoryQuery orderBySessionid($order = Criteria::ASC) Order by the sessionid column
  * @method     ChildCustpricehistoryQuery orderByItemid($order = Criteria::ASC) Order by the itemid column
@@ -43,19 +41,19 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustpricehistoryQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildCustpricehistoryQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildCustpricehistory findOne(ConnectionInterface $con = null) Return the first ChildCustpricehistory matching the query
- * @method     ChildCustpricehistory findOneOrCreate(ConnectionInterface $con = null) Return the first ChildCustpricehistory matching the query, or a new ChildCustpricehistory object populated from the query conditions when no match is found
+ * @method     ChildCustpricehistory|null findOne(?ConnectionInterface $con = null) Return the first ChildCustpricehistory matching the query
+ * @method     ChildCustpricehistory findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildCustpricehistory matching the query, or a new ChildCustpricehistory object populated from the query conditions when no match is found
  *
- * @method     ChildCustpricehistory findOneBySessionid(string $sessionid) Return the first ChildCustpricehistory filtered by the sessionid column
- * @method     ChildCustpricehistory findOneByItemid(string $itemid) Return the first ChildCustpricehistory filtered by the itemid column
- * @method     ChildCustpricehistory findOneByLastqty(string $lastqty) Return the first ChildCustpricehistory filtered by the lastqty column
- * @method     ChildCustpricehistory findOneByLastsold(string $lastsold) Return the first ChildCustpricehistory filtered by the lastsold column
- * @method     ChildCustpricehistory findOneByLastprice(string $lastprice) Return the first ChildCustpricehistory filtered by the lastprice column
- * @method     ChildCustpricehistory findOneByOrdn(string $ordn) Return the first ChildCustpricehistory filtered by the ordn column
- * @method     ChildCustpricehistory findOneByDummy(string $dummy) Return the first ChildCustpricehistory filtered by the dummy column *
-
- * @method     ChildCustpricehistory requirePk($key, ConnectionInterface $con = null) Return the ChildCustpricehistory by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustpricehistory requireOne(ConnectionInterface $con = null) Return the first ChildCustpricehistory matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustpricehistory|null findOneBySessionid(string $sessionid) Return the first ChildCustpricehistory filtered by the sessionid column
+ * @method     ChildCustpricehistory|null findOneByItemid(string $itemid) Return the first ChildCustpricehistory filtered by the itemid column
+ * @method     ChildCustpricehistory|null findOneByLastqty(string $lastqty) Return the first ChildCustpricehistory filtered by the lastqty column
+ * @method     ChildCustpricehistory|null findOneByLastsold(string $lastsold) Return the first ChildCustpricehistory filtered by the lastsold column
+ * @method     ChildCustpricehistory|null findOneByLastprice(string $lastprice) Return the first ChildCustpricehistory filtered by the lastprice column
+ * @method     ChildCustpricehistory|null findOneByOrdn(string $ordn) Return the first ChildCustpricehistory filtered by the ordn column
+ * @method     ChildCustpricehistory|null findOneByDummy(string $dummy) Return the first ChildCustpricehistory filtered by the dummy column
+ *
+ * @method     ChildCustpricehistory requirePk($key, ?ConnectionInterface $con = null) Return the ChildCustpricehistory by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustpricehistory requireOne(?ConnectionInterface $con = null) Return the first ChildCustpricehistory matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildCustpricehistory requireOneBySessionid(string $sessionid) Return the first ChildCustpricehistory filtered by the sessionid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustpricehistory requireOneByItemid(string $itemid) Return the first ChildCustpricehistory filtered by the itemid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -65,16 +63,26 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustpricehistory requireOneByOrdn(string $ordn) Return the first ChildCustpricehistory filtered by the ordn column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustpricehistory requireOneByDummy(string $dummy) Return the first ChildCustpricehistory filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildCustpricehistory[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildCustpricehistory objects based on current ModelCriteria
- * @method     ChildCustpricehistory[]|ObjectCollection findBySessionid(string $sessionid) Return ChildCustpricehistory objects filtered by the sessionid column
- * @method     ChildCustpricehistory[]|ObjectCollection findByItemid(string $itemid) Return ChildCustpricehistory objects filtered by the itemid column
- * @method     ChildCustpricehistory[]|ObjectCollection findByLastqty(string $lastqty) Return ChildCustpricehistory objects filtered by the lastqty column
- * @method     ChildCustpricehistory[]|ObjectCollection findByLastsold(string $lastsold) Return ChildCustpricehistory objects filtered by the lastsold column
- * @method     ChildCustpricehistory[]|ObjectCollection findByLastprice(string $lastprice) Return ChildCustpricehistory objects filtered by the lastprice column
- * @method     ChildCustpricehistory[]|ObjectCollection findByOrdn(string $ordn) Return ChildCustpricehistory objects filtered by the ordn column
- * @method     ChildCustpricehistory[]|ObjectCollection findByDummy(string $dummy) Return ChildCustpricehistory objects filtered by the dummy column
- * @method     ChildCustpricehistory[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildCustpricehistory[]|Collection find(?ConnectionInterface $con = null) Return ChildCustpricehistory objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildCustpricehistory> find(?ConnectionInterface $con = null) Return ChildCustpricehistory objects based on current ModelCriteria
  *
+ * @method     ChildCustpricehistory[]|Collection findBySessionid(string|array<string> $sessionid) Return ChildCustpricehistory objects filtered by the sessionid column
+ * @psalm-method Collection&\Traversable<ChildCustpricehistory> findBySessionid(string|array<string> $sessionid) Return ChildCustpricehistory objects filtered by the sessionid column
+ * @method     ChildCustpricehistory[]|Collection findByItemid(string|array<string> $itemid) Return ChildCustpricehistory objects filtered by the itemid column
+ * @psalm-method Collection&\Traversable<ChildCustpricehistory> findByItemid(string|array<string> $itemid) Return ChildCustpricehistory objects filtered by the itemid column
+ * @method     ChildCustpricehistory[]|Collection findByLastqty(string|array<string> $lastqty) Return ChildCustpricehistory objects filtered by the lastqty column
+ * @psalm-method Collection&\Traversable<ChildCustpricehistory> findByLastqty(string|array<string> $lastqty) Return ChildCustpricehistory objects filtered by the lastqty column
+ * @method     ChildCustpricehistory[]|Collection findByLastsold(string|array<string> $lastsold) Return ChildCustpricehistory objects filtered by the lastsold column
+ * @psalm-method Collection&\Traversable<ChildCustpricehistory> findByLastsold(string|array<string> $lastsold) Return ChildCustpricehistory objects filtered by the lastsold column
+ * @method     ChildCustpricehistory[]|Collection findByLastprice(string|array<string> $lastprice) Return ChildCustpricehistory objects filtered by the lastprice column
+ * @psalm-method Collection&\Traversable<ChildCustpricehistory> findByLastprice(string|array<string> $lastprice) Return ChildCustpricehistory objects filtered by the lastprice column
+ * @method     ChildCustpricehistory[]|Collection findByOrdn(string|array<string> $ordn) Return ChildCustpricehistory objects filtered by the ordn column
+ * @psalm-method Collection&\Traversable<ChildCustpricehistory> findByOrdn(string|array<string> $ordn) Return ChildCustpricehistory objects filtered by the ordn column
+ * @method     ChildCustpricehistory[]|Collection findByDummy(string|array<string> $dummy) Return ChildCustpricehistory objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildCustpricehistory> findByDummy(string|array<string> $dummy) Return ChildCustpricehistory objects filtered by the dummy column
+ *
+ * @method     ChildCustpricehistory[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildCustpricehistory> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class CustpricehistoryQuery extends ModelCriteria
 {
@@ -83,9 +91,9 @@ abstract class CustpricehistoryQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\CustpricehistoryQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'dplusodb', $modelName = '\\Custpricehistory', $modelAlias = null)
     {
@@ -95,12 +103,12 @@ abstract class CustpricehistoryQuery extends ModelCriteria
     /**
      * Returns a new ChildCustpricehistoryQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildCustpricehistoryQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildCustpricehistoryQuery) {
             return $criteria;
@@ -130,7 +138,7 @@ abstract class CustpricehistoryQuery extends ModelCriteria
      *
      * @return ChildCustpricehistory|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -162,8 +170,8 @@ abstract class CustpricehistoryQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -196,8 +204,8 @@ abstract class CustpricehistoryQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildCustpricehistory|array|mixed the result, formatted by the current formatter
      */
@@ -217,12 +225,12 @@ abstract class CustpricehistoryQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -239,9 +247,9 @@ abstract class CustpricehistoryQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildCustpricehistoryQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -254,14 +262,16 @@ abstract class CustpricehistoryQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildCustpricehistoryQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(CustpricehistoryTableMap::COL_SESSIONID, $key[0], Criteria::EQUAL);
@@ -280,14 +290,15 @@ abstract class CustpricehistoryQuery extends ModelCriteria
      * <code>
      * $query->filterBySessionid('fooValue');   // WHERE sessionid = 'fooValue'
      * $query->filterBySessionid('%fooValue%', Criteria::LIKE); // WHERE sessionid LIKE '%fooValue%'
+     * $query->filterBySessionid(['foo', 'bar']); // WHERE sessionid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sessionid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sessionid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustpricehistoryQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySessionid($sessionid = null, $comparison = null)
+    public function filterBySessionid($sessionid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sessionid)) {
@@ -295,7 +306,9 @@ abstract class CustpricehistoryQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustpricehistoryTableMap::COL_SESSIONID, $sessionid, $comparison);
+        $this->addUsingAlias(CustpricehistoryTableMap::COL_SESSIONID, $sessionid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -305,14 +318,15 @@ abstract class CustpricehistoryQuery extends ModelCriteria
      * <code>
      * $query->filterByItemid('fooValue');   // WHERE itemid = 'fooValue'
      * $query->filterByItemid('%fooValue%', Criteria::LIKE); // WHERE itemid LIKE '%fooValue%'
+     * $query->filterByItemid(['foo', 'bar']); // WHERE itemid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itemid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itemid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustpricehistoryQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemid($itemid = null, $comparison = null)
+    public function filterByItemid($itemid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itemid)) {
@@ -320,7 +334,9 @@ abstract class CustpricehistoryQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustpricehistoryTableMap::COL_ITEMID, $itemid, $comparison);
+        $this->addUsingAlias(CustpricehistoryTableMap::COL_ITEMID, $itemid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -330,14 +346,15 @@ abstract class CustpricehistoryQuery extends ModelCriteria
      * <code>
      * $query->filterByLastqty('fooValue');   // WHERE lastqty = 'fooValue'
      * $query->filterByLastqty('%fooValue%', Criteria::LIKE); // WHERE lastqty LIKE '%fooValue%'
+     * $query->filterByLastqty(['foo', 'bar']); // WHERE lastqty IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lastqty The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lastqty The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustpricehistoryQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLastqty($lastqty = null, $comparison = null)
+    public function filterByLastqty($lastqty = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lastqty)) {
@@ -345,7 +362,9 @@ abstract class CustpricehistoryQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustpricehistoryTableMap::COL_LASTQTY, $lastqty, $comparison);
+        $this->addUsingAlias(CustpricehistoryTableMap::COL_LASTQTY, $lastqty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -355,14 +374,15 @@ abstract class CustpricehistoryQuery extends ModelCriteria
      * <code>
      * $query->filterByLastsold('fooValue');   // WHERE lastsold = 'fooValue'
      * $query->filterByLastsold('%fooValue%', Criteria::LIKE); // WHERE lastsold LIKE '%fooValue%'
+     * $query->filterByLastsold(['foo', 'bar']); // WHERE lastsold IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lastsold The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lastsold The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustpricehistoryQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLastsold($lastsold = null, $comparison = null)
+    public function filterByLastsold($lastsold = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lastsold)) {
@@ -370,7 +390,9 @@ abstract class CustpricehistoryQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustpricehistoryTableMap::COL_LASTSOLD, $lastsold, $comparison);
+        $this->addUsingAlias(CustpricehistoryTableMap::COL_LASTSOLD, $lastsold, $comparison);
+
+        return $this;
     }
 
     /**
@@ -380,14 +402,15 @@ abstract class CustpricehistoryQuery extends ModelCriteria
      * <code>
      * $query->filterByLastprice('fooValue');   // WHERE lastprice = 'fooValue'
      * $query->filterByLastprice('%fooValue%', Criteria::LIKE); // WHERE lastprice LIKE '%fooValue%'
+     * $query->filterByLastprice(['foo', 'bar']); // WHERE lastprice IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lastprice The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lastprice The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustpricehistoryQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLastprice($lastprice = null, $comparison = null)
+    public function filterByLastprice($lastprice = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lastprice)) {
@@ -395,7 +418,9 @@ abstract class CustpricehistoryQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustpricehistoryTableMap::COL_LASTPRICE, $lastprice, $comparison);
+        $this->addUsingAlias(CustpricehistoryTableMap::COL_LASTPRICE, $lastprice, $comparison);
+
+        return $this;
     }
 
     /**
@@ -405,14 +430,15 @@ abstract class CustpricehistoryQuery extends ModelCriteria
      * <code>
      * $query->filterByOrdn('fooValue');   // WHERE ordn = 'fooValue'
      * $query->filterByOrdn('%fooValue%', Criteria::LIKE); // WHERE ordn LIKE '%fooValue%'
+     * $query->filterByOrdn(['foo', 'bar']); // WHERE ordn IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $ordn The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $ordn The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustpricehistoryQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOrdn($ordn = null, $comparison = null)
+    public function filterByOrdn($ordn = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($ordn)) {
@@ -420,7 +446,9 @@ abstract class CustpricehistoryQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustpricehistoryTableMap::COL_ORDN, $ordn, $comparison);
+        $this->addUsingAlias(CustpricehistoryTableMap::COL_ORDN, $ordn, $comparison);
+
+        return $this;
     }
 
     /**
@@ -430,14 +458,15 @@ abstract class CustpricehistoryQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustpricehistoryQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -445,15 +474,17 @@ abstract class CustpricehistoryQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustpricehistoryTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(CustpricehistoryTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildCustpricehistory $custpricehistory Object to remove from the list of results
+     * @param ChildCustpricehistory $custpricehistory Object to remove from the list of results
      *
-     * @return $this|ChildCustpricehistoryQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($custpricehistory = null)
     {
@@ -472,7 +503,7 @@ abstract class CustpricehistoryQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CustpricehistoryTableMap::DATABASE_NAME);
@@ -497,12 +528,12 @@ abstract class CustpricehistoryQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CustpricehistoryTableMap::DATABASE_NAME);
@@ -527,4 +558,4 @@ abstract class CustpricehistoryQuery extends ModelCriteria
         });
     }
 
-} // CustpricehistoryQuery
+}

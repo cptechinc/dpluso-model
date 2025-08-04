@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class ItemsearchTableMap extends TableMap
 {
@@ -34,149 +33,250 @@ class ItemsearchTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.ItemsearchTableMap';
+    public const CLASS_NAME = '.Map.ItemsearchTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'dplusodb';
+    public const DATABASE_NAME = 'dplusodb';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'itemsearch';
+    public const TABLE_NAME = 'itemsearch';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'Itemsearch';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\Itemsearch';
+    public const OM_CLASS = '\\Itemsearch';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'Itemsearch';
+    public const CLASS_DEFAULT = 'Itemsearch';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 13;
+    public const NUM_COLUMNS = 13;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 13;
+    public const NUM_HYDRATE_COLUMNS = 13;
 
     /**
      * the column name for the recno field
      */
-    const COL_RECNO = 'itemsearch.recno';
+    public const COL_RECNO = 'itemsearch.recno';
 
     /**
      * the column name for the itemid field
      */
-    const COL_ITEMID = 'itemsearch.itemid';
+    public const COL_ITEMID = 'itemsearch.itemid';
 
     /**
      * the column name for the origintype field
      */
-    const COL_ORIGINTYPE = 'itemsearch.origintype';
+    public const COL_ORIGINTYPE = 'itemsearch.origintype';
 
     /**
      * the column name for the originid field
      */
-    const COL_ORIGINID = 'itemsearch.originid';
+    public const COL_ORIGINID = 'itemsearch.originid';
 
     /**
      * the column name for the refitemid field
      */
-    const COL_REFITEMID = 'itemsearch.refitemid';
+    public const COL_REFITEMID = 'itemsearch.refitemid';
 
     /**
      * the column name for the desc1 field
      */
-    const COL_DESC1 = 'itemsearch.desc1';
+    public const COL_DESC1 = 'itemsearch.desc1';
 
     /**
      * the column name for the desc2 field
      */
-    const COL_DESC2 = 'itemsearch.desc2';
+    public const COL_DESC2 = 'itemsearch.desc2';
 
     /**
      * the column name for the image field
      */
-    const COL_IMAGE = 'itemsearch.image';
+    public const COL_IMAGE = 'itemsearch.image';
 
     /**
      * the column name for the qty_percase field
      */
-    const COL_QTY_PERCASE = 'itemsearch.qty_percase';
+    public const COL_QTY_PERCASE = 'itemsearch.qty_percase';
 
     /**
      * the column name for the create_date field
      */
-    const COL_CREATE_DATE = 'itemsearch.create_date';
+    public const COL_CREATE_DATE = 'itemsearch.create_date';
 
     /**
      * the column name for the create_time field
      */
-    const COL_CREATE_TIME = 'itemsearch.create_time';
+    public const COL_CREATE_TIME = 'itemsearch.create_time';
 
     /**
      * the column name for the itemstatus field
      */
-    const COL_ITEMSTATUS = 'itemsearch.itemstatus';
+    public const COL_ITEMSTATUS = 'itemsearch.itemstatus';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'itemsearch.dummy';
+    public const COL_DUMMY = 'itemsearch.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Recno', 'Itemid', 'Origintype', 'Originid', 'Refitemid', 'Desc1', 'Desc2', 'Image', 'QtyPercase', 'CreateDate', 'CreateTime', 'Itemstatus', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('recno', 'itemid', 'origintype', 'originid', 'refitemid', 'desc1', 'desc2', 'image', 'qtyPercase', 'createDate', 'createTime', 'itemstatus', 'dummy', ),
-        self::TYPE_COLNAME       => array(ItemsearchTableMap::COL_RECNO, ItemsearchTableMap::COL_ITEMID, ItemsearchTableMap::COL_ORIGINTYPE, ItemsearchTableMap::COL_ORIGINID, ItemsearchTableMap::COL_REFITEMID, ItemsearchTableMap::COL_DESC1, ItemsearchTableMap::COL_DESC2, ItemsearchTableMap::COL_IMAGE, ItemsearchTableMap::COL_QTY_PERCASE, ItemsearchTableMap::COL_CREATE_DATE, ItemsearchTableMap::COL_CREATE_TIME, ItemsearchTableMap::COL_ITEMSTATUS, ItemsearchTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('recno', 'itemid', 'origintype', 'originid', 'refitemid', 'desc1', 'desc2', 'image', 'qty_percase', 'create_date', 'create_time', 'itemstatus', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Recno', 'Itemid', 'Origintype', 'Originid', 'Refitemid', 'Desc1', 'Desc2', 'Image', 'QtyPercase', 'CreateDate', 'CreateTime', 'Itemstatus', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['recno', 'itemid', 'origintype', 'originid', 'refitemid', 'desc1', 'desc2', 'image', 'qtyPercase', 'createDate', 'createTime', 'itemstatus', 'dummy', ],
+        self::TYPE_COLNAME       => [ItemsearchTableMap::COL_RECNO, ItemsearchTableMap::COL_ITEMID, ItemsearchTableMap::COL_ORIGINTYPE, ItemsearchTableMap::COL_ORIGINID, ItemsearchTableMap::COL_REFITEMID, ItemsearchTableMap::COL_DESC1, ItemsearchTableMap::COL_DESC2, ItemsearchTableMap::COL_IMAGE, ItemsearchTableMap::COL_QTY_PERCASE, ItemsearchTableMap::COL_CREATE_DATE, ItemsearchTableMap::COL_CREATE_TIME, ItemsearchTableMap::COL_ITEMSTATUS, ItemsearchTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['recno', 'itemid', 'origintype', 'originid', 'refitemid', 'desc1', 'desc2', 'image', 'qty_percase', 'create_date', 'create_time', 'itemstatus', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Recno' => 0, 'Itemid' => 1, 'Origintype' => 2, 'Originid' => 3, 'Refitemid' => 4, 'Desc1' => 5, 'Desc2' => 6, 'Image' => 7, 'QtyPercase' => 8, 'CreateDate' => 9, 'CreateTime' => 10, 'Itemstatus' => 11, 'Dummy' => 12, ),
-        self::TYPE_CAMELNAME     => array('recno' => 0, 'itemid' => 1, 'origintype' => 2, 'originid' => 3, 'refitemid' => 4, 'desc1' => 5, 'desc2' => 6, 'image' => 7, 'qtyPercase' => 8, 'createDate' => 9, 'createTime' => 10, 'itemstatus' => 11, 'dummy' => 12, ),
-        self::TYPE_COLNAME       => array(ItemsearchTableMap::COL_RECNO => 0, ItemsearchTableMap::COL_ITEMID => 1, ItemsearchTableMap::COL_ORIGINTYPE => 2, ItemsearchTableMap::COL_ORIGINID => 3, ItemsearchTableMap::COL_REFITEMID => 4, ItemsearchTableMap::COL_DESC1 => 5, ItemsearchTableMap::COL_DESC2 => 6, ItemsearchTableMap::COL_IMAGE => 7, ItemsearchTableMap::COL_QTY_PERCASE => 8, ItemsearchTableMap::COL_CREATE_DATE => 9, ItemsearchTableMap::COL_CREATE_TIME => 10, ItemsearchTableMap::COL_ITEMSTATUS => 11, ItemsearchTableMap::COL_DUMMY => 12, ),
-        self::TYPE_FIELDNAME     => array('recno' => 0, 'itemid' => 1, 'origintype' => 2, 'originid' => 3, 'refitemid' => 4, 'desc1' => 5, 'desc2' => 6, 'image' => 7, 'qty_percase' => 8, 'create_date' => 9, 'create_time' => 10, 'itemstatus' => 11, 'dummy' => 12, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Recno' => 0, 'Itemid' => 1, 'Origintype' => 2, 'Originid' => 3, 'Refitemid' => 4, 'Desc1' => 5, 'Desc2' => 6, 'Image' => 7, 'QtyPercase' => 8, 'CreateDate' => 9, 'CreateTime' => 10, 'Itemstatus' => 11, 'Dummy' => 12, ],
+        self::TYPE_CAMELNAME     => ['recno' => 0, 'itemid' => 1, 'origintype' => 2, 'originid' => 3, 'refitemid' => 4, 'desc1' => 5, 'desc2' => 6, 'image' => 7, 'qtyPercase' => 8, 'createDate' => 9, 'createTime' => 10, 'itemstatus' => 11, 'dummy' => 12, ],
+        self::TYPE_COLNAME       => [ItemsearchTableMap::COL_RECNO => 0, ItemsearchTableMap::COL_ITEMID => 1, ItemsearchTableMap::COL_ORIGINTYPE => 2, ItemsearchTableMap::COL_ORIGINID => 3, ItemsearchTableMap::COL_REFITEMID => 4, ItemsearchTableMap::COL_DESC1 => 5, ItemsearchTableMap::COL_DESC2 => 6, ItemsearchTableMap::COL_IMAGE => 7, ItemsearchTableMap::COL_QTY_PERCASE => 8, ItemsearchTableMap::COL_CREATE_DATE => 9, ItemsearchTableMap::COL_CREATE_TIME => 10, ItemsearchTableMap::COL_ITEMSTATUS => 11, ItemsearchTableMap::COL_DUMMY => 12, ],
+        self::TYPE_FIELDNAME     => ['recno' => 0, 'itemid' => 1, 'origintype' => 2, 'originid' => 3, 'refitemid' => 4, 'desc1' => 5, 'desc2' => 6, 'image' => 7, 'qty_percase' => 8, 'create_date' => 9, 'create_time' => 10, 'itemstatus' => 11, 'dummy' => 12, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Recno' => 'RECNO',
+        'Itemsearch.Recno' => 'RECNO',
+        'recno' => 'RECNO',
+        'itemsearch.recno' => 'RECNO',
+        'ItemsearchTableMap::COL_RECNO' => 'RECNO',
+        'COL_RECNO' => 'RECNO',
+        'Itemid' => 'ITEMID',
+        'Itemsearch.Itemid' => 'ITEMID',
+        'itemid' => 'ITEMID',
+        'itemsearch.itemid' => 'ITEMID',
+        'ItemsearchTableMap::COL_ITEMID' => 'ITEMID',
+        'COL_ITEMID' => 'ITEMID',
+        'Origintype' => 'ORIGINTYPE',
+        'Itemsearch.Origintype' => 'ORIGINTYPE',
+        'origintype' => 'ORIGINTYPE',
+        'itemsearch.origintype' => 'ORIGINTYPE',
+        'ItemsearchTableMap::COL_ORIGINTYPE' => 'ORIGINTYPE',
+        'COL_ORIGINTYPE' => 'ORIGINTYPE',
+        'Originid' => 'ORIGINID',
+        'Itemsearch.Originid' => 'ORIGINID',
+        'originid' => 'ORIGINID',
+        'itemsearch.originid' => 'ORIGINID',
+        'ItemsearchTableMap::COL_ORIGINID' => 'ORIGINID',
+        'COL_ORIGINID' => 'ORIGINID',
+        'Refitemid' => 'REFITEMID',
+        'Itemsearch.Refitemid' => 'REFITEMID',
+        'refitemid' => 'REFITEMID',
+        'itemsearch.refitemid' => 'REFITEMID',
+        'ItemsearchTableMap::COL_REFITEMID' => 'REFITEMID',
+        'COL_REFITEMID' => 'REFITEMID',
+        'Desc1' => 'DESC1',
+        'Itemsearch.Desc1' => 'DESC1',
+        'desc1' => 'DESC1',
+        'itemsearch.desc1' => 'DESC1',
+        'ItemsearchTableMap::COL_DESC1' => 'DESC1',
+        'COL_DESC1' => 'DESC1',
+        'Desc2' => 'DESC2',
+        'Itemsearch.Desc2' => 'DESC2',
+        'desc2' => 'DESC2',
+        'itemsearch.desc2' => 'DESC2',
+        'ItemsearchTableMap::COL_DESC2' => 'DESC2',
+        'COL_DESC2' => 'DESC2',
+        'Image' => 'IMAGE',
+        'Itemsearch.Image' => 'IMAGE',
+        'image' => 'IMAGE',
+        'itemsearch.image' => 'IMAGE',
+        'ItemsearchTableMap::COL_IMAGE' => 'IMAGE',
+        'COL_IMAGE' => 'IMAGE',
+        'QtyPercase' => 'QTY_PERCASE',
+        'Itemsearch.QtyPercase' => 'QTY_PERCASE',
+        'qtyPercase' => 'QTY_PERCASE',
+        'itemsearch.qtyPercase' => 'QTY_PERCASE',
+        'ItemsearchTableMap::COL_QTY_PERCASE' => 'QTY_PERCASE',
+        'COL_QTY_PERCASE' => 'QTY_PERCASE',
+        'qty_percase' => 'QTY_PERCASE',
+        'itemsearch.qty_percase' => 'QTY_PERCASE',
+        'CreateDate' => 'CREATE_DATE',
+        'Itemsearch.CreateDate' => 'CREATE_DATE',
+        'createDate' => 'CREATE_DATE',
+        'itemsearch.createDate' => 'CREATE_DATE',
+        'ItemsearchTableMap::COL_CREATE_DATE' => 'CREATE_DATE',
+        'COL_CREATE_DATE' => 'CREATE_DATE',
+        'create_date' => 'CREATE_DATE',
+        'itemsearch.create_date' => 'CREATE_DATE',
+        'CreateTime' => 'CREATE_TIME',
+        'Itemsearch.CreateTime' => 'CREATE_TIME',
+        'createTime' => 'CREATE_TIME',
+        'itemsearch.createTime' => 'CREATE_TIME',
+        'ItemsearchTableMap::COL_CREATE_TIME' => 'CREATE_TIME',
+        'COL_CREATE_TIME' => 'CREATE_TIME',
+        'create_time' => 'CREATE_TIME',
+        'itemsearch.create_time' => 'CREATE_TIME',
+        'Itemstatus' => 'ITEMSTATUS',
+        'Itemsearch.Itemstatus' => 'ITEMSTATUS',
+        'itemstatus' => 'ITEMSTATUS',
+        'itemsearch.itemstatus' => 'ITEMSTATUS',
+        'ItemsearchTableMap::COL_ITEMSTATUS' => 'ITEMSTATUS',
+        'COL_ITEMSTATUS' => 'ITEMSTATUS',
+        'Dummy' => 'DUMMY',
+        'Itemsearch.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'itemsearch.dummy' => 'DUMMY',
+        'ItemsearchTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('itemsearch');
@@ -199,14 +299,16 @@ class ItemsearchTableMap extends TableMap
         $this->addColumn('create_time', 'CreateTime', 'VARCHAR', false, 8, null);
         $this->addColumn('itemstatus', 'Itemstatus', 'VARCHAR', false, 1, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -217,9 +319,11 @@ class ItemsearchTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \Itemsearch $obj A \Itemsearch object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(Itemsearch $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -238,8 +342,10 @@ class ItemsearchTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \Itemsearch object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \Itemsearch) {
@@ -267,14 +373,14 @@ class ItemsearchTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Itemid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Origintype', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Originid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Refitemid', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -289,14 +395,14 @@ class ItemsearchTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -332,10 +438,10 @@ class ItemsearchTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? ItemsearchTableMap::CLASS_DEFAULT : ItemsearchTableMap::OM_CLASS;
     }
@@ -343,17 +449,17 @@ class ItemsearchTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (Itemsearch object, last column rank)
+     * @return array (Itemsearch object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = ItemsearchTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = ItemsearchTableMap::getInstanceFromPool($key))) {
@@ -369,7 +475,7 @@ class ItemsearchTableMap extends TableMap
             ItemsearchTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -377,13 +483,13 @@ class ItemsearchTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -413,12 +519,13 @@ class ItemsearchTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(ItemsearchTableMap::COL_RECNO);
@@ -452,40 +559,74 @@ class ItemsearchTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(ItemsearchTableMap::COL_RECNO);
+            $criteria->removeSelectColumn(ItemsearchTableMap::COL_ITEMID);
+            $criteria->removeSelectColumn(ItemsearchTableMap::COL_ORIGINTYPE);
+            $criteria->removeSelectColumn(ItemsearchTableMap::COL_ORIGINID);
+            $criteria->removeSelectColumn(ItemsearchTableMap::COL_REFITEMID);
+            $criteria->removeSelectColumn(ItemsearchTableMap::COL_DESC1);
+            $criteria->removeSelectColumn(ItemsearchTableMap::COL_DESC2);
+            $criteria->removeSelectColumn(ItemsearchTableMap::COL_IMAGE);
+            $criteria->removeSelectColumn(ItemsearchTableMap::COL_QTY_PERCASE);
+            $criteria->removeSelectColumn(ItemsearchTableMap::COL_CREATE_DATE);
+            $criteria->removeSelectColumn(ItemsearchTableMap::COL_CREATE_TIME);
+            $criteria->removeSelectColumn(ItemsearchTableMap::COL_ITEMSTATUS);
+            $criteria->removeSelectColumn(ItemsearchTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.recno');
+            $criteria->removeSelectColumn($alias . '.itemid');
+            $criteria->removeSelectColumn($alias . '.origintype');
+            $criteria->removeSelectColumn($alias . '.originid');
+            $criteria->removeSelectColumn($alias . '.refitemid');
+            $criteria->removeSelectColumn($alias . '.desc1');
+            $criteria->removeSelectColumn($alias . '.desc2');
+            $criteria->removeSelectColumn($alias . '.image');
+            $criteria->removeSelectColumn($alias . '.qty_percase');
+            $criteria->removeSelectColumn($alias . '.create_date');
+            $criteria->removeSelectColumn($alias . '.create_time');
+            $criteria->removeSelectColumn($alias . '.itemstatus');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(ItemsearchTableMap::DATABASE_NAME)->getTable(ItemsearchTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ItemsearchTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(ItemsearchTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new ItemsearchTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a Itemsearch or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or Itemsearch object or primary key or array of primary keys
+     * @param mixed $values Criteria or Itemsearch object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemsearchTableMap::DATABASE_NAME);
@@ -503,7 +644,7 @@ class ItemsearchTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(ItemsearchTableMap::COL_ITEMID, $value[0]);
@@ -533,7 +674,7 @@ class ItemsearchTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return ItemsearchQuery::create()->doDeleteAll($con);
     }
@@ -541,13 +682,13 @@ class ItemsearchTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a Itemsearch or Criteria object.
      *
-     * @param mixed               $criteria Criteria or Itemsearch object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or Itemsearch object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemsearchTableMap::DATABASE_NAME);
@@ -570,7 +711,4 @@ class ItemsearchTableMap extends TableMap
         });
     }
 
-} // ItemsearchTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-ItemsearchTableMap::buildTableMap();
+}

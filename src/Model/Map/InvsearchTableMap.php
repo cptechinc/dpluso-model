@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class InvsearchTableMap extends TableMap
 {
@@ -34,169 +33,288 @@ class InvsearchTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.InvsearchTableMap';
+    public const CLASS_NAME = '.Map.InvsearchTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'dplusodb';
+    public const DATABASE_NAME = 'dplusodb';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'invsearch';
+    public const TABLE_NAME = 'invsearch';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'Invsearch';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\Invsearch';
+    public const OM_CLASS = '\\Invsearch';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'Invsearch';
+    public const CLASS_DEFAULT = 'Invsearch';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 17;
+    public const NUM_COLUMNS = 17;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 17;
+    public const NUM_HYDRATE_COLUMNS = 17;
 
     /**
      * the column name for the sessionid field
      */
-    const COL_SESSIONID = 'invsearch.sessionid';
+    public const COL_SESSIONID = 'invsearch.sessionid';
 
     /**
      * the column name for the recno field
      */
-    const COL_RECNO = 'invsearch.recno';
+    public const COL_RECNO = 'invsearch.recno';
 
     /**
      * the column name for the itemid field
      */
-    const COL_ITEMID = 'invsearch.itemid';
+    public const COL_ITEMID = 'invsearch.itemid';
 
     /**
      * the column name for the xitemid field
      */
-    const COL_XITEMID = 'invsearch.xitemid';
+    public const COL_XITEMID = 'invsearch.xitemid';
 
     /**
      * the column name for the xorigin field
      */
-    const COL_XORIGIN = 'invsearch.xorigin';
+    public const COL_XORIGIN = 'invsearch.xorigin';
 
     /**
      * the column name for the itemtype field
      */
-    const COL_ITEMTYPE = 'invsearch.itemtype';
+    public const COL_ITEMTYPE = 'invsearch.itemtype';
 
     /**
      * the column name for the lotserial field
      */
-    const COL_LOTSERIAL = 'invsearch.lotserial';
+    public const COL_LOTSERIAL = 'invsearch.lotserial';
 
     /**
      * the column name for the lotreference field
      */
-    const COL_LOTREFERENCE = 'invsearch.lotreference';
+    public const COL_LOTREFERENCE = 'invsearch.lotreference';
 
     /**
      * the column name for the expirationdate field
      */
-    const COL_EXPIRATIONDATE = 'invsearch.expirationdate';
+    public const COL_EXPIRATIONDATE = 'invsearch.expirationdate';
 
     /**
      * the column name for the desc1 field
      */
-    const COL_DESC1 = 'invsearch.desc1';
+    public const COL_DESC1 = 'invsearch.desc1';
 
     /**
      * the column name for the desc2 field
      */
-    const COL_DESC2 = 'invsearch.desc2';
+    public const COL_DESC2 = 'invsearch.desc2';
 
     /**
      * the column name for the primebin field
      */
-    const COL_PRIMEBIN = 'invsearch.primebin';
+    public const COL_PRIMEBIN = 'invsearch.primebin';
 
     /**
      * the column name for the bin field
      */
-    const COL_BIN = 'invsearch.bin';
+    public const COL_BIN = 'invsearch.bin';
 
     /**
      * the column name for the qty field
      */
-    const COL_QTY = 'invsearch.qty';
+    public const COL_QTY = 'invsearch.qty';
 
     /**
      * the column name for the date field
      */
-    const COL_DATE = 'invsearch.date';
+    public const COL_DATE = 'invsearch.date';
 
     /**
      * the column name for the time field
      */
-    const COL_TIME = 'invsearch.time';
+    public const COL_TIME = 'invsearch.time';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'invsearch.dummy';
+    public const COL_DUMMY = 'invsearch.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Sessionid', 'Recno', 'Itemid', 'Xitemid', 'Xorigin', 'Itemtype', 'Lotserial', 'Lotreference', 'Expirationdate', 'Desc1', 'Desc2', 'Primebin', 'Bin', 'Qty', 'Date', 'Time', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('sessionid', 'recno', 'itemid', 'xitemid', 'xorigin', 'itemtype', 'lotserial', 'lotreference', 'expirationdate', 'desc1', 'desc2', 'primebin', 'bin', 'qty', 'date', 'time', 'dummy', ),
-        self::TYPE_COLNAME       => array(InvsearchTableMap::COL_SESSIONID, InvsearchTableMap::COL_RECNO, InvsearchTableMap::COL_ITEMID, InvsearchTableMap::COL_XITEMID, InvsearchTableMap::COL_XORIGIN, InvsearchTableMap::COL_ITEMTYPE, InvsearchTableMap::COL_LOTSERIAL, InvsearchTableMap::COL_LOTREFERENCE, InvsearchTableMap::COL_EXPIRATIONDATE, InvsearchTableMap::COL_DESC1, InvsearchTableMap::COL_DESC2, InvsearchTableMap::COL_PRIMEBIN, InvsearchTableMap::COL_BIN, InvsearchTableMap::COL_QTY, InvsearchTableMap::COL_DATE, InvsearchTableMap::COL_TIME, InvsearchTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('sessionid', 'recno', 'itemid', 'xitemid', 'xorigin', 'itemtype', 'lotserial', 'lotreference', 'expirationdate', 'desc1', 'desc2', 'primebin', 'bin', 'qty', 'date', 'time', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Sessionid', 'Recno', 'Itemid', 'Xitemid', 'Xorigin', 'Itemtype', 'Lotserial', 'Lotreference', 'Expirationdate', 'Desc1', 'Desc2', 'Primebin', 'Bin', 'Qty', 'Date', 'Time', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['sessionid', 'recno', 'itemid', 'xitemid', 'xorigin', 'itemtype', 'lotserial', 'lotreference', 'expirationdate', 'desc1', 'desc2', 'primebin', 'bin', 'qty', 'date', 'time', 'dummy', ],
+        self::TYPE_COLNAME       => [InvsearchTableMap::COL_SESSIONID, InvsearchTableMap::COL_RECNO, InvsearchTableMap::COL_ITEMID, InvsearchTableMap::COL_XITEMID, InvsearchTableMap::COL_XORIGIN, InvsearchTableMap::COL_ITEMTYPE, InvsearchTableMap::COL_LOTSERIAL, InvsearchTableMap::COL_LOTREFERENCE, InvsearchTableMap::COL_EXPIRATIONDATE, InvsearchTableMap::COL_DESC1, InvsearchTableMap::COL_DESC2, InvsearchTableMap::COL_PRIMEBIN, InvsearchTableMap::COL_BIN, InvsearchTableMap::COL_QTY, InvsearchTableMap::COL_DATE, InvsearchTableMap::COL_TIME, InvsearchTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['sessionid', 'recno', 'itemid', 'xitemid', 'xorigin', 'itemtype', 'lotserial', 'lotreference', 'expirationdate', 'desc1', 'desc2', 'primebin', 'bin', 'qty', 'date', 'time', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Recno' => 1, 'Itemid' => 2, 'Xitemid' => 3, 'Xorigin' => 4, 'Itemtype' => 5, 'Lotserial' => 6, 'Lotreference' => 7, 'Expirationdate' => 8, 'Desc1' => 9, 'Desc2' => 10, 'Primebin' => 11, 'Bin' => 12, 'Qty' => 13, 'Date' => 14, 'Time' => 15, 'Dummy' => 16, ),
-        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'recno' => 1, 'itemid' => 2, 'xitemid' => 3, 'xorigin' => 4, 'itemtype' => 5, 'lotserial' => 6, 'lotreference' => 7, 'expirationdate' => 8, 'desc1' => 9, 'desc2' => 10, 'primebin' => 11, 'bin' => 12, 'qty' => 13, 'date' => 14, 'time' => 15, 'dummy' => 16, ),
-        self::TYPE_COLNAME       => array(InvsearchTableMap::COL_SESSIONID => 0, InvsearchTableMap::COL_RECNO => 1, InvsearchTableMap::COL_ITEMID => 2, InvsearchTableMap::COL_XITEMID => 3, InvsearchTableMap::COL_XORIGIN => 4, InvsearchTableMap::COL_ITEMTYPE => 5, InvsearchTableMap::COL_LOTSERIAL => 6, InvsearchTableMap::COL_LOTREFERENCE => 7, InvsearchTableMap::COL_EXPIRATIONDATE => 8, InvsearchTableMap::COL_DESC1 => 9, InvsearchTableMap::COL_DESC2 => 10, InvsearchTableMap::COL_PRIMEBIN => 11, InvsearchTableMap::COL_BIN => 12, InvsearchTableMap::COL_QTY => 13, InvsearchTableMap::COL_DATE => 14, InvsearchTableMap::COL_TIME => 15, InvsearchTableMap::COL_DUMMY => 16, ),
-        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'recno' => 1, 'itemid' => 2, 'xitemid' => 3, 'xorigin' => 4, 'itemtype' => 5, 'lotserial' => 6, 'lotreference' => 7, 'expirationdate' => 8, 'desc1' => 9, 'desc2' => 10, 'primebin' => 11, 'bin' => 12, 'qty' => 13, 'date' => 14, 'time' => 15, 'dummy' => 16, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Sessionid' => 0, 'Recno' => 1, 'Itemid' => 2, 'Xitemid' => 3, 'Xorigin' => 4, 'Itemtype' => 5, 'Lotserial' => 6, 'Lotreference' => 7, 'Expirationdate' => 8, 'Desc1' => 9, 'Desc2' => 10, 'Primebin' => 11, 'Bin' => 12, 'Qty' => 13, 'Date' => 14, 'Time' => 15, 'Dummy' => 16, ],
+        self::TYPE_CAMELNAME     => ['sessionid' => 0, 'recno' => 1, 'itemid' => 2, 'xitemid' => 3, 'xorigin' => 4, 'itemtype' => 5, 'lotserial' => 6, 'lotreference' => 7, 'expirationdate' => 8, 'desc1' => 9, 'desc2' => 10, 'primebin' => 11, 'bin' => 12, 'qty' => 13, 'date' => 14, 'time' => 15, 'dummy' => 16, ],
+        self::TYPE_COLNAME       => [InvsearchTableMap::COL_SESSIONID => 0, InvsearchTableMap::COL_RECNO => 1, InvsearchTableMap::COL_ITEMID => 2, InvsearchTableMap::COL_XITEMID => 3, InvsearchTableMap::COL_XORIGIN => 4, InvsearchTableMap::COL_ITEMTYPE => 5, InvsearchTableMap::COL_LOTSERIAL => 6, InvsearchTableMap::COL_LOTREFERENCE => 7, InvsearchTableMap::COL_EXPIRATIONDATE => 8, InvsearchTableMap::COL_DESC1 => 9, InvsearchTableMap::COL_DESC2 => 10, InvsearchTableMap::COL_PRIMEBIN => 11, InvsearchTableMap::COL_BIN => 12, InvsearchTableMap::COL_QTY => 13, InvsearchTableMap::COL_DATE => 14, InvsearchTableMap::COL_TIME => 15, InvsearchTableMap::COL_DUMMY => 16, ],
+        self::TYPE_FIELDNAME     => ['sessionid' => 0, 'recno' => 1, 'itemid' => 2, 'xitemid' => 3, 'xorigin' => 4, 'itemtype' => 5, 'lotserial' => 6, 'lotreference' => 7, 'expirationdate' => 8, 'desc1' => 9, 'desc2' => 10, 'primebin' => 11, 'bin' => 12, 'qty' => 13, 'date' => 14, 'time' => 15, 'dummy' => 16, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Sessionid' => 'SESSIONID',
+        'Invsearch.Sessionid' => 'SESSIONID',
+        'sessionid' => 'SESSIONID',
+        'invsearch.sessionid' => 'SESSIONID',
+        'InvsearchTableMap::COL_SESSIONID' => 'SESSIONID',
+        'COL_SESSIONID' => 'SESSIONID',
+        'Recno' => 'RECNO',
+        'Invsearch.Recno' => 'RECNO',
+        'recno' => 'RECNO',
+        'invsearch.recno' => 'RECNO',
+        'InvsearchTableMap::COL_RECNO' => 'RECNO',
+        'COL_RECNO' => 'RECNO',
+        'Itemid' => 'ITEMID',
+        'Invsearch.Itemid' => 'ITEMID',
+        'itemid' => 'ITEMID',
+        'invsearch.itemid' => 'ITEMID',
+        'InvsearchTableMap::COL_ITEMID' => 'ITEMID',
+        'COL_ITEMID' => 'ITEMID',
+        'Xitemid' => 'XITEMID',
+        'Invsearch.Xitemid' => 'XITEMID',
+        'xitemid' => 'XITEMID',
+        'invsearch.xitemid' => 'XITEMID',
+        'InvsearchTableMap::COL_XITEMID' => 'XITEMID',
+        'COL_XITEMID' => 'XITEMID',
+        'Xorigin' => 'XORIGIN',
+        'Invsearch.Xorigin' => 'XORIGIN',
+        'xorigin' => 'XORIGIN',
+        'invsearch.xorigin' => 'XORIGIN',
+        'InvsearchTableMap::COL_XORIGIN' => 'XORIGIN',
+        'COL_XORIGIN' => 'XORIGIN',
+        'Itemtype' => 'ITEMTYPE',
+        'Invsearch.Itemtype' => 'ITEMTYPE',
+        'itemtype' => 'ITEMTYPE',
+        'invsearch.itemtype' => 'ITEMTYPE',
+        'InvsearchTableMap::COL_ITEMTYPE' => 'ITEMTYPE',
+        'COL_ITEMTYPE' => 'ITEMTYPE',
+        'Lotserial' => 'LOTSERIAL',
+        'Invsearch.Lotserial' => 'LOTSERIAL',
+        'lotserial' => 'LOTSERIAL',
+        'invsearch.lotserial' => 'LOTSERIAL',
+        'InvsearchTableMap::COL_LOTSERIAL' => 'LOTSERIAL',
+        'COL_LOTSERIAL' => 'LOTSERIAL',
+        'Lotreference' => 'LOTREFERENCE',
+        'Invsearch.Lotreference' => 'LOTREFERENCE',
+        'lotreference' => 'LOTREFERENCE',
+        'invsearch.lotreference' => 'LOTREFERENCE',
+        'InvsearchTableMap::COL_LOTREFERENCE' => 'LOTREFERENCE',
+        'COL_LOTREFERENCE' => 'LOTREFERENCE',
+        'Expirationdate' => 'EXPIRATIONDATE',
+        'Invsearch.Expirationdate' => 'EXPIRATIONDATE',
+        'expirationdate' => 'EXPIRATIONDATE',
+        'invsearch.expirationdate' => 'EXPIRATIONDATE',
+        'InvsearchTableMap::COL_EXPIRATIONDATE' => 'EXPIRATIONDATE',
+        'COL_EXPIRATIONDATE' => 'EXPIRATIONDATE',
+        'Desc1' => 'DESC1',
+        'Invsearch.Desc1' => 'DESC1',
+        'desc1' => 'DESC1',
+        'invsearch.desc1' => 'DESC1',
+        'InvsearchTableMap::COL_DESC1' => 'DESC1',
+        'COL_DESC1' => 'DESC1',
+        'Desc2' => 'DESC2',
+        'Invsearch.Desc2' => 'DESC2',
+        'desc2' => 'DESC2',
+        'invsearch.desc2' => 'DESC2',
+        'InvsearchTableMap::COL_DESC2' => 'DESC2',
+        'COL_DESC2' => 'DESC2',
+        'Primebin' => 'PRIMEBIN',
+        'Invsearch.Primebin' => 'PRIMEBIN',
+        'primebin' => 'PRIMEBIN',
+        'invsearch.primebin' => 'PRIMEBIN',
+        'InvsearchTableMap::COL_PRIMEBIN' => 'PRIMEBIN',
+        'COL_PRIMEBIN' => 'PRIMEBIN',
+        'Bin' => 'BIN',
+        'Invsearch.Bin' => 'BIN',
+        'bin' => 'BIN',
+        'invsearch.bin' => 'BIN',
+        'InvsearchTableMap::COL_BIN' => 'BIN',
+        'COL_BIN' => 'BIN',
+        'Qty' => 'QTY',
+        'Invsearch.Qty' => 'QTY',
+        'qty' => 'QTY',
+        'invsearch.qty' => 'QTY',
+        'InvsearchTableMap::COL_QTY' => 'QTY',
+        'COL_QTY' => 'QTY',
+        'Date' => 'DATE',
+        'Invsearch.Date' => 'DATE',
+        'date' => 'DATE',
+        'invsearch.date' => 'DATE',
+        'InvsearchTableMap::COL_DATE' => 'DATE',
+        'COL_DATE' => 'DATE',
+        'Time' => 'TIME',
+        'Invsearch.Time' => 'TIME',
+        'time' => 'TIME',
+        'invsearch.time' => 'TIME',
+        'InvsearchTableMap::COL_TIME' => 'TIME',
+        'COL_TIME' => 'TIME',
+        'Dummy' => 'DUMMY',
+        'Invsearch.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'invsearch.dummy' => 'DUMMY',
+        'InvsearchTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('invsearch');
@@ -223,14 +341,16 @@ class InvsearchTableMap extends TableMap
         $this->addColumn('date', 'Date', 'INTEGER', false, 8, null);
         $this->addColumn('time', 'Time', 'INTEGER', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -241,9 +361,11 @@ class InvsearchTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \Invsearch $obj A \Invsearch object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(Invsearch $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -262,8 +384,10 @@ class InvsearchTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \Invsearch object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \Invsearch) {
@@ -291,14 +415,14 @@ class InvsearchTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Recno', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Itemid', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -313,14 +437,14 @@ class InvsearchTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -351,10 +475,10 @@ class InvsearchTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? InvsearchTableMap::CLASS_DEFAULT : InvsearchTableMap::OM_CLASS;
     }
@@ -362,17 +486,17 @@ class InvsearchTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (Invsearch object, last column rank)
+     * @return array (Invsearch object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = InvsearchTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = InvsearchTableMap::getInstanceFromPool($key))) {
@@ -388,7 +512,7 @@ class InvsearchTableMap extends TableMap
             InvsearchTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -396,13 +520,13 @@ class InvsearchTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -432,12 +556,13 @@ class InvsearchTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(InvsearchTableMap::COL_SESSIONID);
@@ -479,40 +604,82 @@ class InvsearchTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(InvsearchTableMap::COL_SESSIONID);
+            $criteria->removeSelectColumn(InvsearchTableMap::COL_RECNO);
+            $criteria->removeSelectColumn(InvsearchTableMap::COL_ITEMID);
+            $criteria->removeSelectColumn(InvsearchTableMap::COL_XITEMID);
+            $criteria->removeSelectColumn(InvsearchTableMap::COL_XORIGIN);
+            $criteria->removeSelectColumn(InvsearchTableMap::COL_ITEMTYPE);
+            $criteria->removeSelectColumn(InvsearchTableMap::COL_LOTSERIAL);
+            $criteria->removeSelectColumn(InvsearchTableMap::COL_LOTREFERENCE);
+            $criteria->removeSelectColumn(InvsearchTableMap::COL_EXPIRATIONDATE);
+            $criteria->removeSelectColumn(InvsearchTableMap::COL_DESC1);
+            $criteria->removeSelectColumn(InvsearchTableMap::COL_DESC2);
+            $criteria->removeSelectColumn(InvsearchTableMap::COL_PRIMEBIN);
+            $criteria->removeSelectColumn(InvsearchTableMap::COL_BIN);
+            $criteria->removeSelectColumn(InvsearchTableMap::COL_QTY);
+            $criteria->removeSelectColumn(InvsearchTableMap::COL_DATE);
+            $criteria->removeSelectColumn(InvsearchTableMap::COL_TIME);
+            $criteria->removeSelectColumn(InvsearchTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.sessionid');
+            $criteria->removeSelectColumn($alias . '.recno');
+            $criteria->removeSelectColumn($alias . '.itemid');
+            $criteria->removeSelectColumn($alias . '.xitemid');
+            $criteria->removeSelectColumn($alias . '.xorigin');
+            $criteria->removeSelectColumn($alias . '.itemtype');
+            $criteria->removeSelectColumn($alias . '.lotserial');
+            $criteria->removeSelectColumn($alias . '.lotreference');
+            $criteria->removeSelectColumn($alias . '.expirationdate');
+            $criteria->removeSelectColumn($alias . '.desc1');
+            $criteria->removeSelectColumn($alias . '.desc2');
+            $criteria->removeSelectColumn($alias . '.primebin');
+            $criteria->removeSelectColumn($alias . '.bin');
+            $criteria->removeSelectColumn($alias . '.qty');
+            $criteria->removeSelectColumn($alias . '.date');
+            $criteria->removeSelectColumn($alias . '.time');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(InvsearchTableMap::DATABASE_NAME)->getTable(InvsearchTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(InvsearchTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(InvsearchTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new InvsearchTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a Invsearch or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or Invsearch object or primary key or array of primary keys
+     * @param mixed $values Criteria or Invsearch object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvsearchTableMap::DATABASE_NAME);
@@ -530,7 +697,7 @@ class InvsearchTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(InvsearchTableMap::COL_SESSIONID, $value[0]);
@@ -559,7 +726,7 @@ class InvsearchTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return InvsearchQuery::create()->doDeleteAll($con);
     }
@@ -567,13 +734,13 @@ class InvsearchTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a Invsearch or Criteria object.
      *
-     * @param mixed               $criteria Criteria or Invsearch object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or Invsearch object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvsearchTableMap::DATABASE_NAME);
@@ -596,7 +763,4 @@ class InvsearchTableMap extends TableMap
         });
     }
 
-} // InvsearchTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-InvsearchTableMap::buildTableMap();
+}

@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class PricingTableMap extends TableMap
 {
@@ -34,409 +33,816 @@ class PricingTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.PricingTableMap';
+    public const CLASS_NAME = '.Map.PricingTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'dplusodb';
+    public const DATABASE_NAME = 'dplusodb';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'pricing';
+    public const TABLE_NAME = 'pricing';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'Pricing';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\Pricing';
+    public const OM_CLASS = '\\Pricing';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'Pricing';
+    public const CLASS_DEFAULT = 'Pricing';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 65;
+    public const NUM_COLUMNS = 65;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 65;
+    public const NUM_HYDRATE_COLUMNS = 65;
 
     /**
      * the column name for the sessionid field
      */
-    const COL_SESSIONID = 'pricing.sessionid';
+    public const COL_SESSIONID = 'pricing.sessionid';
 
     /**
      * the column name for the recno field
      */
-    const COL_RECNO = 'pricing.recno';
+    public const COL_RECNO = 'pricing.recno';
 
     /**
      * the column name for the date field
      */
-    const COL_DATE = 'pricing.date';
+    public const COL_DATE = 'pricing.date';
 
     /**
      * the column name for the time field
      */
-    const COL_TIME = 'pricing.time';
+    public const COL_TIME = 'pricing.time';
 
     /**
      * the column name for the itemid field
      */
-    const COL_ITEMID = 'pricing.itemid';
+    public const COL_ITEMID = 'pricing.itemid';
 
     /**
      * the column name for the price field
      */
-    const COL_PRICE = 'pricing.price';
+    public const COL_PRICE = 'pricing.price';
 
     /**
      * the column name for the qty field
      */
-    const COL_QTY = 'pricing.qty';
+    public const COL_QTY = 'pricing.qty';
 
     /**
      * the column name for the priceqty1 field
      */
-    const COL_PRICEQTY1 = 'pricing.priceqty1';
+    public const COL_PRICEQTY1 = 'pricing.priceqty1';
 
     /**
      * the column name for the priceqty2 field
      */
-    const COL_PRICEQTY2 = 'pricing.priceqty2';
+    public const COL_PRICEQTY2 = 'pricing.priceqty2';
 
     /**
      * the column name for the priceqty3 field
      */
-    const COL_PRICEQTY3 = 'pricing.priceqty3';
+    public const COL_PRICEQTY3 = 'pricing.priceqty3';
 
     /**
      * the column name for the priceqty4 field
      */
-    const COL_PRICEQTY4 = 'pricing.priceqty4';
+    public const COL_PRICEQTY4 = 'pricing.priceqty4';
 
     /**
      * the column name for the priceqty5 field
      */
-    const COL_PRICEQTY5 = 'pricing.priceqty5';
+    public const COL_PRICEQTY5 = 'pricing.priceqty5';
 
     /**
      * the column name for the priceqty6 field
      */
-    const COL_PRICEQTY6 = 'pricing.priceqty6';
+    public const COL_PRICEQTY6 = 'pricing.priceqty6';
 
     /**
      * the column name for the priceprice1 field
      */
-    const COL_PRICEPRICE1 = 'pricing.priceprice1';
+    public const COL_PRICEPRICE1 = 'pricing.priceprice1';
 
     /**
      * the column name for the priceprice2 field
      */
-    const COL_PRICEPRICE2 = 'pricing.priceprice2';
+    public const COL_PRICEPRICE2 = 'pricing.priceprice2';
 
     /**
      * the column name for the priceprice3 field
      */
-    const COL_PRICEPRICE3 = 'pricing.priceprice3';
+    public const COL_PRICEPRICE3 = 'pricing.priceprice3';
 
     /**
      * the column name for the priceprice4 field
      */
-    const COL_PRICEPRICE4 = 'pricing.priceprice4';
+    public const COL_PRICEPRICE4 = 'pricing.priceprice4';
 
     /**
      * the column name for the priceprice5 field
      */
-    const COL_PRICEPRICE5 = 'pricing.priceprice5';
+    public const COL_PRICEPRICE5 = 'pricing.priceprice5';
 
     /**
      * the column name for the priceprice6 field
      */
-    const COL_PRICEPRICE6 = 'pricing.priceprice6';
+    public const COL_PRICEPRICE6 = 'pricing.priceprice6';
 
     /**
      * the column name for the unit field
      */
-    const COL_UNIT = 'pricing.unit';
+    public const COL_UNIT = 'pricing.unit';
 
     /**
      * the column name for the listprice field
      */
-    const COL_LISTPRICE = 'pricing.listprice';
+    public const COL_LISTPRICE = 'pricing.listprice';
 
     /**
      * the column name for the name1 field
      */
-    const COL_NAME1 = 'pricing.name1';
+    public const COL_NAME1 = 'pricing.name1';
 
     /**
      * the column name for the name2 field
      */
-    const COL_NAME2 = 'pricing.name2';
+    public const COL_NAME2 = 'pricing.name2';
 
     /**
      * the column name for the shortdesc field
      */
-    const COL_SHORTDESC = 'pricing.shortdesc';
+    public const COL_SHORTDESC = 'pricing.shortdesc';
 
     /**
      * the column name for the image field
      */
-    const COL_IMAGE = 'pricing.image';
+    public const COL_IMAGE = 'pricing.image';
 
     /**
      * the column name for the familyid field
      */
-    const COL_FAMILYID = 'pricing.familyid';
+    public const COL_FAMILYID = 'pricing.familyid';
 
     /**
      * the column name for the ermes field
      */
-    const COL_ERMES = 'pricing.ermes';
+    public const COL_ERMES = 'pricing.ermes';
 
     /**
      * the column name for the speca field
      */
-    const COL_SPECA = 'pricing.speca';
+    public const COL_SPECA = 'pricing.speca';
 
     /**
      * the column name for the specb field
      */
-    const COL_SPECB = 'pricing.specb';
+    public const COL_SPECB = 'pricing.specb';
 
     /**
      * the column name for the specc field
      */
-    const COL_SPECC = 'pricing.specc';
+    public const COL_SPECC = 'pricing.specc';
 
     /**
      * the column name for the specd field
      */
-    const COL_SPECD = 'pricing.specd';
+    public const COL_SPECD = 'pricing.specd';
 
     /**
      * the column name for the spece field
      */
-    const COL_SPECE = 'pricing.spece';
+    public const COL_SPECE = 'pricing.spece';
 
     /**
      * the column name for the specf field
      */
-    const COL_SPECF = 'pricing.specf';
+    public const COL_SPECF = 'pricing.specf';
 
     /**
      * the column name for the specg field
      */
-    const COL_SPECG = 'pricing.specg';
+    public const COL_SPECG = 'pricing.specg';
 
     /**
      * the column name for the spech field
      */
-    const COL_SPECH = 'pricing.spech';
+    public const COL_SPECH = 'pricing.spech';
 
     /**
      * the column name for the longdesc field
      */
-    const COL_LONGDESC = 'pricing.longdesc';
+    public const COL_LONGDESC = 'pricing.longdesc';
 
     /**
      * the column name for the orderno field
      */
-    const COL_ORDERNO = 'pricing.orderno';
+    public const COL_ORDERNO = 'pricing.orderno';
 
     /**
      * the column name for the name3 field
      */
-    const COL_NAME3 = 'pricing.name3';
+    public const COL_NAME3 = 'pricing.name3';
 
     /**
      * the column name for the name4 field
      */
-    const COL_NAME4 = 'pricing.name4';
+    public const COL_NAME4 = 'pricing.name4';
 
     /**
      * the column name for the thumb field
      */
-    const COL_THUMB = 'pricing.thumb';
+    public const COL_THUMB = 'pricing.thumb';
 
     /**
      * the column name for the width field
      */
-    const COL_WIDTH = 'pricing.width';
+    public const COL_WIDTH = 'pricing.width';
 
     /**
      * the column name for the height field
      */
-    const COL_HEIGHT = 'pricing.height';
+    public const COL_HEIGHT = 'pricing.height';
 
     /**
      * the column name for the familydes field
      */
-    const COL_FAMILYDES = 'pricing.familydes';
+    public const COL_FAMILYDES = 'pricing.familydes';
 
     /**
      * the column name for the keywords field
      */
-    const COL_KEYWORDS = 'pricing.keywords';
+    public const COL_KEYWORDS = 'pricing.keywords';
 
     /**
      * the column name for the vpn field
      */
-    const COL_VPN = 'pricing.vpn';
+    public const COL_VPN = 'pricing.vpn';
 
     /**
      * the column name for the uomdesc field
      */
-    const COL_UOMDESC = 'pricing.uomdesc';
+    public const COL_UOMDESC = 'pricing.uomdesc';
 
     /**
      * the column name for the vidinffg field
      */
-    const COL_VIDINFFG = 'pricing.vidinffg';
+    public const COL_VIDINFFG = 'pricing.vidinffg';
 
     /**
      * the column name for the vidinflk field
      */
-    const COL_VIDINFLK = 'pricing.vidinflk';
+    public const COL_VIDINFLK = 'pricing.vidinflk';
 
     /**
      * the column name for the additemflag field
      */
-    const COL_ADDITEMFLAG = 'pricing.additemflag';
+    public const COL_ADDITEMFLAG = 'pricing.additemflag';
 
     /**
      * the column name for the schemafam field
      */
-    const COL_SCHEMAFAM = 'pricing.schemafam';
+    public const COL_SCHEMAFAM = 'pricing.schemafam';
 
     /**
      * the column name for the origitemid field
      */
-    const COL_ORIGITEMID = 'pricing.origitemid';
+    public const COL_ORIGITEMID = 'pricing.origitemid';
 
     /**
      * the column name for the techspecflg field
      */
-    const COL_TECHSPECFLG = 'pricing.techspecflg';
+    public const COL_TECHSPECFLG = 'pricing.techspecflg';
 
     /**
      * the column name for the techspecname field
      */
-    const COL_TECHSPECNAME = 'pricing.techspecname';
+    public const COL_TECHSPECNAME = 'pricing.techspecname';
 
     /**
      * the column name for the cost field
      */
-    const COL_COST = 'pricing.cost';
+    public const COL_COST = 'pricing.cost';
 
     /**
      * the column name for the prop65 field
      */
-    const COL_PROP65 = 'pricing.prop65';
+    public const COL_PROP65 = 'pricing.prop65';
 
     /**
      * the column name for the leadfree field
      */
-    const COL_LEADFREE = 'pricing.leadfree';
+    public const COL_LEADFREE = 'pricing.leadfree';
 
     /**
      * the column name for the extendesc field
      */
-    const COL_EXTENDESC = 'pricing.extendesc';
+    public const COL_EXTENDESC = 'pricing.extendesc';
 
     /**
      * the column name for the minprice field
      */
-    const COL_MINPRICE = 'pricing.minprice';
+    public const COL_MINPRICE = 'pricing.minprice';
 
     /**
      * the column name for the spcord field
      */
-    const COL_SPCORD = 'pricing.spcord';
+    public const COL_SPCORD = 'pricing.spcord';
 
     /**
      * the column name for the vendorid field
      */
-    const COL_VENDORID = 'pricing.vendorid';
+    public const COL_VENDORID = 'pricing.vendorid';
 
     /**
      * the column name for the vendoritemid field
      */
-    const COL_VENDORITEMID = 'pricing.vendoritemid';
+    public const COL_VENDORITEMID = 'pricing.vendoritemid';
 
     /**
      * the column name for the shipfromid field
      */
-    const COL_SHIPFROMID = 'pricing.shipfromid';
+    public const COL_SHIPFROMID = 'pricing.shipfromid';
 
     /**
      * the column name for the nsitemgroup field
      */
-    const COL_NSITEMGROUP = 'pricing.nsitemgroup';
+    public const COL_NSITEMGROUP = 'pricing.nsitemgroup';
 
     /**
      * the column name for the itemtype field
      */
-    const COL_ITEMTYPE = 'pricing.itemtype';
+    public const COL_ITEMTYPE = 'pricing.itemtype';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'pricing.dummy';
+    public const COL_DUMMY = 'pricing.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Sessionid', 'Recno', 'Date', 'Time', 'Itemid', 'Price', 'Qty', 'Priceqty1', 'Priceqty2', 'Priceqty3', 'Priceqty4', 'Priceqty5', 'Priceqty6', 'Priceprice1', 'Priceprice2', 'Priceprice3', 'Priceprice4', 'Priceprice5', 'Priceprice6', 'Unit', 'Listprice', 'Name1', 'Name2', 'Shortdesc', 'Image', 'Familyid', 'Ermes', 'Speca', 'Specb', 'Specc', 'Specd', 'Spece', 'Specf', 'Specg', 'Spech', 'Longdesc', 'Orderno', 'Name3', 'Name4', 'Thumb', 'Width', 'Height', 'Familydes', 'Keywords', 'Vpn', 'Uomdesc', 'Vidinffg', 'Vidinflk', 'Additemflag', 'Schemafam', 'Origitemid', 'Techspecflg', 'Techspecname', 'Cost', 'Prop65', 'Leadfree', 'Extendesc', 'Minprice', 'Spcord', 'Vendorid', 'Vendoritemid', 'Shipfromid', 'Nsitemgroup', 'Itemtype', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('sessionid', 'recno', 'date', 'time', 'itemid', 'price', 'qty', 'priceqty1', 'priceqty2', 'priceqty3', 'priceqty4', 'priceqty5', 'priceqty6', 'priceprice1', 'priceprice2', 'priceprice3', 'priceprice4', 'priceprice5', 'priceprice6', 'unit', 'listprice', 'name1', 'name2', 'shortdesc', 'image', 'familyid', 'ermes', 'speca', 'specb', 'specc', 'specd', 'spece', 'specf', 'specg', 'spech', 'longdesc', 'orderno', 'name3', 'name4', 'thumb', 'width', 'height', 'familydes', 'keywords', 'vpn', 'uomdesc', 'vidinffg', 'vidinflk', 'additemflag', 'schemafam', 'origitemid', 'techspecflg', 'techspecname', 'cost', 'prop65', 'leadfree', 'extendesc', 'minprice', 'spcord', 'vendorid', 'vendoritemid', 'shipfromid', 'nsitemgroup', 'itemtype', 'dummy', ),
-        self::TYPE_COLNAME       => array(PricingTableMap::COL_SESSIONID, PricingTableMap::COL_RECNO, PricingTableMap::COL_DATE, PricingTableMap::COL_TIME, PricingTableMap::COL_ITEMID, PricingTableMap::COL_PRICE, PricingTableMap::COL_QTY, PricingTableMap::COL_PRICEQTY1, PricingTableMap::COL_PRICEQTY2, PricingTableMap::COL_PRICEQTY3, PricingTableMap::COL_PRICEQTY4, PricingTableMap::COL_PRICEQTY5, PricingTableMap::COL_PRICEQTY6, PricingTableMap::COL_PRICEPRICE1, PricingTableMap::COL_PRICEPRICE2, PricingTableMap::COL_PRICEPRICE3, PricingTableMap::COL_PRICEPRICE4, PricingTableMap::COL_PRICEPRICE5, PricingTableMap::COL_PRICEPRICE6, PricingTableMap::COL_UNIT, PricingTableMap::COL_LISTPRICE, PricingTableMap::COL_NAME1, PricingTableMap::COL_NAME2, PricingTableMap::COL_SHORTDESC, PricingTableMap::COL_IMAGE, PricingTableMap::COL_FAMILYID, PricingTableMap::COL_ERMES, PricingTableMap::COL_SPECA, PricingTableMap::COL_SPECB, PricingTableMap::COL_SPECC, PricingTableMap::COL_SPECD, PricingTableMap::COL_SPECE, PricingTableMap::COL_SPECF, PricingTableMap::COL_SPECG, PricingTableMap::COL_SPECH, PricingTableMap::COL_LONGDESC, PricingTableMap::COL_ORDERNO, PricingTableMap::COL_NAME3, PricingTableMap::COL_NAME4, PricingTableMap::COL_THUMB, PricingTableMap::COL_WIDTH, PricingTableMap::COL_HEIGHT, PricingTableMap::COL_FAMILYDES, PricingTableMap::COL_KEYWORDS, PricingTableMap::COL_VPN, PricingTableMap::COL_UOMDESC, PricingTableMap::COL_VIDINFFG, PricingTableMap::COL_VIDINFLK, PricingTableMap::COL_ADDITEMFLAG, PricingTableMap::COL_SCHEMAFAM, PricingTableMap::COL_ORIGITEMID, PricingTableMap::COL_TECHSPECFLG, PricingTableMap::COL_TECHSPECNAME, PricingTableMap::COL_COST, PricingTableMap::COL_PROP65, PricingTableMap::COL_LEADFREE, PricingTableMap::COL_EXTENDESC, PricingTableMap::COL_MINPRICE, PricingTableMap::COL_SPCORD, PricingTableMap::COL_VENDORID, PricingTableMap::COL_VENDORITEMID, PricingTableMap::COL_SHIPFROMID, PricingTableMap::COL_NSITEMGROUP, PricingTableMap::COL_ITEMTYPE, PricingTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('sessionid', 'recno', 'date', 'time', 'itemid', 'price', 'qty', 'priceqty1', 'priceqty2', 'priceqty3', 'priceqty4', 'priceqty5', 'priceqty6', 'priceprice1', 'priceprice2', 'priceprice3', 'priceprice4', 'priceprice5', 'priceprice6', 'unit', 'listprice', 'name1', 'name2', 'shortdesc', 'image', 'familyid', 'ermes', 'speca', 'specb', 'specc', 'specd', 'spece', 'specf', 'specg', 'spech', 'longdesc', 'orderno', 'name3', 'name4', 'thumb', 'width', 'height', 'familydes', 'keywords', 'vpn', 'uomdesc', 'vidinffg', 'vidinflk', 'additemflag', 'schemafam', 'origitemid', 'techspecflg', 'techspecname', 'cost', 'prop65', 'leadfree', 'extendesc', 'minprice', 'spcord', 'vendorid', 'vendoritemid', 'shipfromid', 'nsitemgroup', 'itemtype', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Sessionid', 'Recno', 'Date', 'Time', 'Itemid', 'Price', 'Qty', 'Priceqty1', 'Priceqty2', 'Priceqty3', 'Priceqty4', 'Priceqty5', 'Priceqty6', 'Priceprice1', 'Priceprice2', 'Priceprice3', 'Priceprice4', 'Priceprice5', 'Priceprice6', 'Unit', 'Listprice', 'Name1', 'Name2', 'Shortdesc', 'Image', 'Familyid', 'Ermes', 'Speca', 'Specb', 'Specc', 'Specd', 'Spece', 'Specf', 'Specg', 'Spech', 'Longdesc', 'Orderno', 'Name3', 'Name4', 'Thumb', 'Width', 'Height', 'Familydes', 'Keywords', 'Vpn', 'Uomdesc', 'Vidinffg', 'Vidinflk', 'Additemflag', 'Schemafam', 'Origitemid', 'Techspecflg', 'Techspecname', 'Cost', 'Prop65', 'Leadfree', 'Extendesc', 'Minprice', 'Spcord', 'Vendorid', 'Vendoritemid', 'Shipfromid', 'Nsitemgroup', 'Itemtype', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['sessionid', 'recno', 'date', 'time', 'itemid', 'price', 'qty', 'priceqty1', 'priceqty2', 'priceqty3', 'priceqty4', 'priceqty5', 'priceqty6', 'priceprice1', 'priceprice2', 'priceprice3', 'priceprice4', 'priceprice5', 'priceprice6', 'unit', 'listprice', 'name1', 'name2', 'shortdesc', 'image', 'familyid', 'ermes', 'speca', 'specb', 'specc', 'specd', 'spece', 'specf', 'specg', 'spech', 'longdesc', 'orderno', 'name3', 'name4', 'thumb', 'width', 'height', 'familydes', 'keywords', 'vpn', 'uomdesc', 'vidinffg', 'vidinflk', 'additemflag', 'schemafam', 'origitemid', 'techspecflg', 'techspecname', 'cost', 'prop65', 'leadfree', 'extendesc', 'minprice', 'spcord', 'vendorid', 'vendoritemid', 'shipfromid', 'nsitemgroup', 'itemtype', 'dummy', ],
+        self::TYPE_COLNAME       => [PricingTableMap::COL_SESSIONID, PricingTableMap::COL_RECNO, PricingTableMap::COL_DATE, PricingTableMap::COL_TIME, PricingTableMap::COL_ITEMID, PricingTableMap::COL_PRICE, PricingTableMap::COL_QTY, PricingTableMap::COL_PRICEQTY1, PricingTableMap::COL_PRICEQTY2, PricingTableMap::COL_PRICEQTY3, PricingTableMap::COL_PRICEQTY4, PricingTableMap::COL_PRICEQTY5, PricingTableMap::COL_PRICEQTY6, PricingTableMap::COL_PRICEPRICE1, PricingTableMap::COL_PRICEPRICE2, PricingTableMap::COL_PRICEPRICE3, PricingTableMap::COL_PRICEPRICE4, PricingTableMap::COL_PRICEPRICE5, PricingTableMap::COL_PRICEPRICE6, PricingTableMap::COL_UNIT, PricingTableMap::COL_LISTPRICE, PricingTableMap::COL_NAME1, PricingTableMap::COL_NAME2, PricingTableMap::COL_SHORTDESC, PricingTableMap::COL_IMAGE, PricingTableMap::COL_FAMILYID, PricingTableMap::COL_ERMES, PricingTableMap::COL_SPECA, PricingTableMap::COL_SPECB, PricingTableMap::COL_SPECC, PricingTableMap::COL_SPECD, PricingTableMap::COL_SPECE, PricingTableMap::COL_SPECF, PricingTableMap::COL_SPECG, PricingTableMap::COL_SPECH, PricingTableMap::COL_LONGDESC, PricingTableMap::COL_ORDERNO, PricingTableMap::COL_NAME3, PricingTableMap::COL_NAME4, PricingTableMap::COL_THUMB, PricingTableMap::COL_WIDTH, PricingTableMap::COL_HEIGHT, PricingTableMap::COL_FAMILYDES, PricingTableMap::COL_KEYWORDS, PricingTableMap::COL_VPN, PricingTableMap::COL_UOMDESC, PricingTableMap::COL_VIDINFFG, PricingTableMap::COL_VIDINFLK, PricingTableMap::COL_ADDITEMFLAG, PricingTableMap::COL_SCHEMAFAM, PricingTableMap::COL_ORIGITEMID, PricingTableMap::COL_TECHSPECFLG, PricingTableMap::COL_TECHSPECNAME, PricingTableMap::COL_COST, PricingTableMap::COL_PROP65, PricingTableMap::COL_LEADFREE, PricingTableMap::COL_EXTENDESC, PricingTableMap::COL_MINPRICE, PricingTableMap::COL_SPCORD, PricingTableMap::COL_VENDORID, PricingTableMap::COL_VENDORITEMID, PricingTableMap::COL_SHIPFROMID, PricingTableMap::COL_NSITEMGROUP, PricingTableMap::COL_ITEMTYPE, PricingTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['sessionid', 'recno', 'date', 'time', 'itemid', 'price', 'qty', 'priceqty1', 'priceqty2', 'priceqty3', 'priceqty4', 'priceqty5', 'priceqty6', 'priceprice1', 'priceprice2', 'priceprice3', 'priceprice4', 'priceprice5', 'priceprice6', 'unit', 'listprice', 'name1', 'name2', 'shortdesc', 'image', 'familyid', 'ermes', 'speca', 'specb', 'specc', 'specd', 'spece', 'specf', 'specg', 'spech', 'longdesc', 'orderno', 'name3', 'name4', 'thumb', 'width', 'height', 'familydes', 'keywords', 'vpn', 'uomdesc', 'vidinffg', 'vidinflk', 'additemflag', 'schemafam', 'origitemid', 'techspecflg', 'techspecname', 'cost', 'prop65', 'leadfree', 'extendesc', 'minprice', 'spcord', 'vendorid', 'vendoritemid', 'shipfromid', 'nsitemgroup', 'itemtype', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Recno' => 1, 'Date' => 2, 'Time' => 3, 'Itemid' => 4, 'Price' => 5, 'Qty' => 6, 'Priceqty1' => 7, 'Priceqty2' => 8, 'Priceqty3' => 9, 'Priceqty4' => 10, 'Priceqty5' => 11, 'Priceqty6' => 12, 'Priceprice1' => 13, 'Priceprice2' => 14, 'Priceprice3' => 15, 'Priceprice4' => 16, 'Priceprice5' => 17, 'Priceprice6' => 18, 'Unit' => 19, 'Listprice' => 20, 'Name1' => 21, 'Name2' => 22, 'Shortdesc' => 23, 'Image' => 24, 'Familyid' => 25, 'Ermes' => 26, 'Speca' => 27, 'Specb' => 28, 'Specc' => 29, 'Specd' => 30, 'Spece' => 31, 'Specf' => 32, 'Specg' => 33, 'Spech' => 34, 'Longdesc' => 35, 'Orderno' => 36, 'Name3' => 37, 'Name4' => 38, 'Thumb' => 39, 'Width' => 40, 'Height' => 41, 'Familydes' => 42, 'Keywords' => 43, 'Vpn' => 44, 'Uomdesc' => 45, 'Vidinffg' => 46, 'Vidinflk' => 47, 'Additemflag' => 48, 'Schemafam' => 49, 'Origitemid' => 50, 'Techspecflg' => 51, 'Techspecname' => 52, 'Cost' => 53, 'Prop65' => 54, 'Leadfree' => 55, 'Extendesc' => 56, 'Minprice' => 57, 'Spcord' => 58, 'Vendorid' => 59, 'Vendoritemid' => 60, 'Shipfromid' => 61, 'Nsitemgroup' => 62, 'Itemtype' => 63, 'Dummy' => 64, ),
-        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'itemid' => 4, 'price' => 5, 'qty' => 6, 'priceqty1' => 7, 'priceqty2' => 8, 'priceqty3' => 9, 'priceqty4' => 10, 'priceqty5' => 11, 'priceqty6' => 12, 'priceprice1' => 13, 'priceprice2' => 14, 'priceprice3' => 15, 'priceprice4' => 16, 'priceprice5' => 17, 'priceprice6' => 18, 'unit' => 19, 'listprice' => 20, 'name1' => 21, 'name2' => 22, 'shortdesc' => 23, 'image' => 24, 'familyid' => 25, 'ermes' => 26, 'speca' => 27, 'specb' => 28, 'specc' => 29, 'specd' => 30, 'spece' => 31, 'specf' => 32, 'specg' => 33, 'spech' => 34, 'longdesc' => 35, 'orderno' => 36, 'name3' => 37, 'name4' => 38, 'thumb' => 39, 'width' => 40, 'height' => 41, 'familydes' => 42, 'keywords' => 43, 'vpn' => 44, 'uomdesc' => 45, 'vidinffg' => 46, 'vidinflk' => 47, 'additemflag' => 48, 'schemafam' => 49, 'origitemid' => 50, 'techspecflg' => 51, 'techspecname' => 52, 'cost' => 53, 'prop65' => 54, 'leadfree' => 55, 'extendesc' => 56, 'minprice' => 57, 'spcord' => 58, 'vendorid' => 59, 'vendoritemid' => 60, 'shipfromid' => 61, 'nsitemgroup' => 62, 'itemtype' => 63, 'dummy' => 64, ),
-        self::TYPE_COLNAME       => array(PricingTableMap::COL_SESSIONID => 0, PricingTableMap::COL_RECNO => 1, PricingTableMap::COL_DATE => 2, PricingTableMap::COL_TIME => 3, PricingTableMap::COL_ITEMID => 4, PricingTableMap::COL_PRICE => 5, PricingTableMap::COL_QTY => 6, PricingTableMap::COL_PRICEQTY1 => 7, PricingTableMap::COL_PRICEQTY2 => 8, PricingTableMap::COL_PRICEQTY3 => 9, PricingTableMap::COL_PRICEQTY4 => 10, PricingTableMap::COL_PRICEQTY5 => 11, PricingTableMap::COL_PRICEQTY6 => 12, PricingTableMap::COL_PRICEPRICE1 => 13, PricingTableMap::COL_PRICEPRICE2 => 14, PricingTableMap::COL_PRICEPRICE3 => 15, PricingTableMap::COL_PRICEPRICE4 => 16, PricingTableMap::COL_PRICEPRICE5 => 17, PricingTableMap::COL_PRICEPRICE6 => 18, PricingTableMap::COL_UNIT => 19, PricingTableMap::COL_LISTPRICE => 20, PricingTableMap::COL_NAME1 => 21, PricingTableMap::COL_NAME2 => 22, PricingTableMap::COL_SHORTDESC => 23, PricingTableMap::COL_IMAGE => 24, PricingTableMap::COL_FAMILYID => 25, PricingTableMap::COL_ERMES => 26, PricingTableMap::COL_SPECA => 27, PricingTableMap::COL_SPECB => 28, PricingTableMap::COL_SPECC => 29, PricingTableMap::COL_SPECD => 30, PricingTableMap::COL_SPECE => 31, PricingTableMap::COL_SPECF => 32, PricingTableMap::COL_SPECG => 33, PricingTableMap::COL_SPECH => 34, PricingTableMap::COL_LONGDESC => 35, PricingTableMap::COL_ORDERNO => 36, PricingTableMap::COL_NAME3 => 37, PricingTableMap::COL_NAME4 => 38, PricingTableMap::COL_THUMB => 39, PricingTableMap::COL_WIDTH => 40, PricingTableMap::COL_HEIGHT => 41, PricingTableMap::COL_FAMILYDES => 42, PricingTableMap::COL_KEYWORDS => 43, PricingTableMap::COL_VPN => 44, PricingTableMap::COL_UOMDESC => 45, PricingTableMap::COL_VIDINFFG => 46, PricingTableMap::COL_VIDINFLK => 47, PricingTableMap::COL_ADDITEMFLAG => 48, PricingTableMap::COL_SCHEMAFAM => 49, PricingTableMap::COL_ORIGITEMID => 50, PricingTableMap::COL_TECHSPECFLG => 51, PricingTableMap::COL_TECHSPECNAME => 52, PricingTableMap::COL_COST => 53, PricingTableMap::COL_PROP65 => 54, PricingTableMap::COL_LEADFREE => 55, PricingTableMap::COL_EXTENDESC => 56, PricingTableMap::COL_MINPRICE => 57, PricingTableMap::COL_SPCORD => 58, PricingTableMap::COL_VENDORID => 59, PricingTableMap::COL_VENDORITEMID => 60, PricingTableMap::COL_SHIPFROMID => 61, PricingTableMap::COL_NSITEMGROUP => 62, PricingTableMap::COL_ITEMTYPE => 63, PricingTableMap::COL_DUMMY => 64, ),
-        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'itemid' => 4, 'price' => 5, 'qty' => 6, 'priceqty1' => 7, 'priceqty2' => 8, 'priceqty3' => 9, 'priceqty4' => 10, 'priceqty5' => 11, 'priceqty6' => 12, 'priceprice1' => 13, 'priceprice2' => 14, 'priceprice3' => 15, 'priceprice4' => 16, 'priceprice5' => 17, 'priceprice6' => 18, 'unit' => 19, 'listprice' => 20, 'name1' => 21, 'name2' => 22, 'shortdesc' => 23, 'image' => 24, 'familyid' => 25, 'ermes' => 26, 'speca' => 27, 'specb' => 28, 'specc' => 29, 'specd' => 30, 'spece' => 31, 'specf' => 32, 'specg' => 33, 'spech' => 34, 'longdesc' => 35, 'orderno' => 36, 'name3' => 37, 'name4' => 38, 'thumb' => 39, 'width' => 40, 'height' => 41, 'familydes' => 42, 'keywords' => 43, 'vpn' => 44, 'uomdesc' => 45, 'vidinffg' => 46, 'vidinflk' => 47, 'additemflag' => 48, 'schemafam' => 49, 'origitemid' => 50, 'techspecflg' => 51, 'techspecname' => 52, 'cost' => 53, 'prop65' => 54, 'leadfree' => 55, 'extendesc' => 56, 'minprice' => 57, 'spcord' => 58, 'vendorid' => 59, 'vendoritemid' => 60, 'shipfromid' => 61, 'nsitemgroup' => 62, 'itemtype' => 63, 'dummy' => 64, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Sessionid' => 0, 'Recno' => 1, 'Date' => 2, 'Time' => 3, 'Itemid' => 4, 'Price' => 5, 'Qty' => 6, 'Priceqty1' => 7, 'Priceqty2' => 8, 'Priceqty3' => 9, 'Priceqty4' => 10, 'Priceqty5' => 11, 'Priceqty6' => 12, 'Priceprice1' => 13, 'Priceprice2' => 14, 'Priceprice3' => 15, 'Priceprice4' => 16, 'Priceprice5' => 17, 'Priceprice6' => 18, 'Unit' => 19, 'Listprice' => 20, 'Name1' => 21, 'Name2' => 22, 'Shortdesc' => 23, 'Image' => 24, 'Familyid' => 25, 'Ermes' => 26, 'Speca' => 27, 'Specb' => 28, 'Specc' => 29, 'Specd' => 30, 'Spece' => 31, 'Specf' => 32, 'Specg' => 33, 'Spech' => 34, 'Longdesc' => 35, 'Orderno' => 36, 'Name3' => 37, 'Name4' => 38, 'Thumb' => 39, 'Width' => 40, 'Height' => 41, 'Familydes' => 42, 'Keywords' => 43, 'Vpn' => 44, 'Uomdesc' => 45, 'Vidinffg' => 46, 'Vidinflk' => 47, 'Additemflag' => 48, 'Schemafam' => 49, 'Origitemid' => 50, 'Techspecflg' => 51, 'Techspecname' => 52, 'Cost' => 53, 'Prop65' => 54, 'Leadfree' => 55, 'Extendesc' => 56, 'Minprice' => 57, 'Spcord' => 58, 'Vendorid' => 59, 'Vendoritemid' => 60, 'Shipfromid' => 61, 'Nsitemgroup' => 62, 'Itemtype' => 63, 'Dummy' => 64, ],
+        self::TYPE_CAMELNAME     => ['sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'itemid' => 4, 'price' => 5, 'qty' => 6, 'priceqty1' => 7, 'priceqty2' => 8, 'priceqty3' => 9, 'priceqty4' => 10, 'priceqty5' => 11, 'priceqty6' => 12, 'priceprice1' => 13, 'priceprice2' => 14, 'priceprice3' => 15, 'priceprice4' => 16, 'priceprice5' => 17, 'priceprice6' => 18, 'unit' => 19, 'listprice' => 20, 'name1' => 21, 'name2' => 22, 'shortdesc' => 23, 'image' => 24, 'familyid' => 25, 'ermes' => 26, 'speca' => 27, 'specb' => 28, 'specc' => 29, 'specd' => 30, 'spece' => 31, 'specf' => 32, 'specg' => 33, 'spech' => 34, 'longdesc' => 35, 'orderno' => 36, 'name3' => 37, 'name4' => 38, 'thumb' => 39, 'width' => 40, 'height' => 41, 'familydes' => 42, 'keywords' => 43, 'vpn' => 44, 'uomdesc' => 45, 'vidinffg' => 46, 'vidinflk' => 47, 'additemflag' => 48, 'schemafam' => 49, 'origitemid' => 50, 'techspecflg' => 51, 'techspecname' => 52, 'cost' => 53, 'prop65' => 54, 'leadfree' => 55, 'extendesc' => 56, 'minprice' => 57, 'spcord' => 58, 'vendorid' => 59, 'vendoritemid' => 60, 'shipfromid' => 61, 'nsitemgroup' => 62, 'itemtype' => 63, 'dummy' => 64, ],
+        self::TYPE_COLNAME       => [PricingTableMap::COL_SESSIONID => 0, PricingTableMap::COL_RECNO => 1, PricingTableMap::COL_DATE => 2, PricingTableMap::COL_TIME => 3, PricingTableMap::COL_ITEMID => 4, PricingTableMap::COL_PRICE => 5, PricingTableMap::COL_QTY => 6, PricingTableMap::COL_PRICEQTY1 => 7, PricingTableMap::COL_PRICEQTY2 => 8, PricingTableMap::COL_PRICEQTY3 => 9, PricingTableMap::COL_PRICEQTY4 => 10, PricingTableMap::COL_PRICEQTY5 => 11, PricingTableMap::COL_PRICEQTY6 => 12, PricingTableMap::COL_PRICEPRICE1 => 13, PricingTableMap::COL_PRICEPRICE2 => 14, PricingTableMap::COL_PRICEPRICE3 => 15, PricingTableMap::COL_PRICEPRICE4 => 16, PricingTableMap::COL_PRICEPRICE5 => 17, PricingTableMap::COL_PRICEPRICE6 => 18, PricingTableMap::COL_UNIT => 19, PricingTableMap::COL_LISTPRICE => 20, PricingTableMap::COL_NAME1 => 21, PricingTableMap::COL_NAME2 => 22, PricingTableMap::COL_SHORTDESC => 23, PricingTableMap::COL_IMAGE => 24, PricingTableMap::COL_FAMILYID => 25, PricingTableMap::COL_ERMES => 26, PricingTableMap::COL_SPECA => 27, PricingTableMap::COL_SPECB => 28, PricingTableMap::COL_SPECC => 29, PricingTableMap::COL_SPECD => 30, PricingTableMap::COL_SPECE => 31, PricingTableMap::COL_SPECF => 32, PricingTableMap::COL_SPECG => 33, PricingTableMap::COL_SPECH => 34, PricingTableMap::COL_LONGDESC => 35, PricingTableMap::COL_ORDERNO => 36, PricingTableMap::COL_NAME3 => 37, PricingTableMap::COL_NAME4 => 38, PricingTableMap::COL_THUMB => 39, PricingTableMap::COL_WIDTH => 40, PricingTableMap::COL_HEIGHT => 41, PricingTableMap::COL_FAMILYDES => 42, PricingTableMap::COL_KEYWORDS => 43, PricingTableMap::COL_VPN => 44, PricingTableMap::COL_UOMDESC => 45, PricingTableMap::COL_VIDINFFG => 46, PricingTableMap::COL_VIDINFLK => 47, PricingTableMap::COL_ADDITEMFLAG => 48, PricingTableMap::COL_SCHEMAFAM => 49, PricingTableMap::COL_ORIGITEMID => 50, PricingTableMap::COL_TECHSPECFLG => 51, PricingTableMap::COL_TECHSPECNAME => 52, PricingTableMap::COL_COST => 53, PricingTableMap::COL_PROP65 => 54, PricingTableMap::COL_LEADFREE => 55, PricingTableMap::COL_EXTENDESC => 56, PricingTableMap::COL_MINPRICE => 57, PricingTableMap::COL_SPCORD => 58, PricingTableMap::COL_VENDORID => 59, PricingTableMap::COL_VENDORITEMID => 60, PricingTableMap::COL_SHIPFROMID => 61, PricingTableMap::COL_NSITEMGROUP => 62, PricingTableMap::COL_ITEMTYPE => 63, PricingTableMap::COL_DUMMY => 64, ],
+        self::TYPE_FIELDNAME     => ['sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'itemid' => 4, 'price' => 5, 'qty' => 6, 'priceqty1' => 7, 'priceqty2' => 8, 'priceqty3' => 9, 'priceqty4' => 10, 'priceqty5' => 11, 'priceqty6' => 12, 'priceprice1' => 13, 'priceprice2' => 14, 'priceprice3' => 15, 'priceprice4' => 16, 'priceprice5' => 17, 'priceprice6' => 18, 'unit' => 19, 'listprice' => 20, 'name1' => 21, 'name2' => 22, 'shortdesc' => 23, 'image' => 24, 'familyid' => 25, 'ermes' => 26, 'speca' => 27, 'specb' => 28, 'specc' => 29, 'specd' => 30, 'spece' => 31, 'specf' => 32, 'specg' => 33, 'spech' => 34, 'longdesc' => 35, 'orderno' => 36, 'name3' => 37, 'name4' => 38, 'thumb' => 39, 'width' => 40, 'height' => 41, 'familydes' => 42, 'keywords' => 43, 'vpn' => 44, 'uomdesc' => 45, 'vidinffg' => 46, 'vidinflk' => 47, 'additemflag' => 48, 'schemafam' => 49, 'origitemid' => 50, 'techspecflg' => 51, 'techspecname' => 52, 'cost' => 53, 'prop65' => 54, 'leadfree' => 55, 'extendesc' => 56, 'minprice' => 57, 'spcord' => 58, 'vendorid' => 59, 'vendoritemid' => 60, 'shipfromid' => 61, 'nsitemgroup' => 62, 'itemtype' => 63, 'dummy' => 64, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Sessionid' => 'SESSIONID',
+        'Pricing.Sessionid' => 'SESSIONID',
+        'sessionid' => 'SESSIONID',
+        'pricing.sessionid' => 'SESSIONID',
+        'PricingTableMap::COL_SESSIONID' => 'SESSIONID',
+        'COL_SESSIONID' => 'SESSIONID',
+        'Recno' => 'RECNO',
+        'Pricing.Recno' => 'RECNO',
+        'recno' => 'RECNO',
+        'pricing.recno' => 'RECNO',
+        'PricingTableMap::COL_RECNO' => 'RECNO',
+        'COL_RECNO' => 'RECNO',
+        'Date' => 'DATE',
+        'Pricing.Date' => 'DATE',
+        'date' => 'DATE',
+        'pricing.date' => 'DATE',
+        'PricingTableMap::COL_DATE' => 'DATE',
+        'COL_DATE' => 'DATE',
+        'Time' => 'TIME',
+        'Pricing.Time' => 'TIME',
+        'time' => 'TIME',
+        'pricing.time' => 'TIME',
+        'PricingTableMap::COL_TIME' => 'TIME',
+        'COL_TIME' => 'TIME',
+        'Itemid' => 'ITEMID',
+        'Pricing.Itemid' => 'ITEMID',
+        'itemid' => 'ITEMID',
+        'pricing.itemid' => 'ITEMID',
+        'PricingTableMap::COL_ITEMID' => 'ITEMID',
+        'COL_ITEMID' => 'ITEMID',
+        'Price' => 'PRICE',
+        'Pricing.Price' => 'PRICE',
+        'price' => 'PRICE',
+        'pricing.price' => 'PRICE',
+        'PricingTableMap::COL_PRICE' => 'PRICE',
+        'COL_PRICE' => 'PRICE',
+        'Qty' => 'QTY',
+        'Pricing.Qty' => 'QTY',
+        'qty' => 'QTY',
+        'pricing.qty' => 'QTY',
+        'PricingTableMap::COL_QTY' => 'QTY',
+        'COL_QTY' => 'QTY',
+        'Priceqty1' => 'PRICEQTY1',
+        'Pricing.Priceqty1' => 'PRICEQTY1',
+        'priceqty1' => 'PRICEQTY1',
+        'pricing.priceqty1' => 'PRICEQTY1',
+        'PricingTableMap::COL_PRICEQTY1' => 'PRICEQTY1',
+        'COL_PRICEQTY1' => 'PRICEQTY1',
+        'Priceqty2' => 'PRICEQTY2',
+        'Pricing.Priceqty2' => 'PRICEQTY2',
+        'priceqty2' => 'PRICEQTY2',
+        'pricing.priceqty2' => 'PRICEQTY2',
+        'PricingTableMap::COL_PRICEQTY2' => 'PRICEQTY2',
+        'COL_PRICEQTY2' => 'PRICEQTY2',
+        'Priceqty3' => 'PRICEQTY3',
+        'Pricing.Priceqty3' => 'PRICEQTY3',
+        'priceqty3' => 'PRICEQTY3',
+        'pricing.priceqty3' => 'PRICEQTY3',
+        'PricingTableMap::COL_PRICEQTY3' => 'PRICEQTY3',
+        'COL_PRICEQTY3' => 'PRICEQTY3',
+        'Priceqty4' => 'PRICEQTY4',
+        'Pricing.Priceqty4' => 'PRICEQTY4',
+        'priceqty4' => 'PRICEQTY4',
+        'pricing.priceqty4' => 'PRICEQTY4',
+        'PricingTableMap::COL_PRICEQTY4' => 'PRICEQTY4',
+        'COL_PRICEQTY4' => 'PRICEQTY4',
+        'Priceqty5' => 'PRICEQTY5',
+        'Pricing.Priceqty5' => 'PRICEQTY5',
+        'priceqty5' => 'PRICEQTY5',
+        'pricing.priceqty5' => 'PRICEQTY5',
+        'PricingTableMap::COL_PRICEQTY5' => 'PRICEQTY5',
+        'COL_PRICEQTY5' => 'PRICEQTY5',
+        'Priceqty6' => 'PRICEQTY6',
+        'Pricing.Priceqty6' => 'PRICEQTY6',
+        'priceqty6' => 'PRICEQTY6',
+        'pricing.priceqty6' => 'PRICEQTY6',
+        'PricingTableMap::COL_PRICEQTY6' => 'PRICEQTY6',
+        'COL_PRICEQTY6' => 'PRICEQTY6',
+        'Priceprice1' => 'PRICEPRICE1',
+        'Pricing.Priceprice1' => 'PRICEPRICE1',
+        'priceprice1' => 'PRICEPRICE1',
+        'pricing.priceprice1' => 'PRICEPRICE1',
+        'PricingTableMap::COL_PRICEPRICE1' => 'PRICEPRICE1',
+        'COL_PRICEPRICE1' => 'PRICEPRICE1',
+        'Priceprice2' => 'PRICEPRICE2',
+        'Pricing.Priceprice2' => 'PRICEPRICE2',
+        'priceprice2' => 'PRICEPRICE2',
+        'pricing.priceprice2' => 'PRICEPRICE2',
+        'PricingTableMap::COL_PRICEPRICE2' => 'PRICEPRICE2',
+        'COL_PRICEPRICE2' => 'PRICEPRICE2',
+        'Priceprice3' => 'PRICEPRICE3',
+        'Pricing.Priceprice3' => 'PRICEPRICE3',
+        'priceprice3' => 'PRICEPRICE3',
+        'pricing.priceprice3' => 'PRICEPRICE3',
+        'PricingTableMap::COL_PRICEPRICE3' => 'PRICEPRICE3',
+        'COL_PRICEPRICE3' => 'PRICEPRICE3',
+        'Priceprice4' => 'PRICEPRICE4',
+        'Pricing.Priceprice4' => 'PRICEPRICE4',
+        'priceprice4' => 'PRICEPRICE4',
+        'pricing.priceprice4' => 'PRICEPRICE4',
+        'PricingTableMap::COL_PRICEPRICE4' => 'PRICEPRICE4',
+        'COL_PRICEPRICE4' => 'PRICEPRICE4',
+        'Priceprice5' => 'PRICEPRICE5',
+        'Pricing.Priceprice5' => 'PRICEPRICE5',
+        'priceprice5' => 'PRICEPRICE5',
+        'pricing.priceprice5' => 'PRICEPRICE5',
+        'PricingTableMap::COL_PRICEPRICE5' => 'PRICEPRICE5',
+        'COL_PRICEPRICE5' => 'PRICEPRICE5',
+        'Priceprice6' => 'PRICEPRICE6',
+        'Pricing.Priceprice6' => 'PRICEPRICE6',
+        'priceprice6' => 'PRICEPRICE6',
+        'pricing.priceprice6' => 'PRICEPRICE6',
+        'PricingTableMap::COL_PRICEPRICE6' => 'PRICEPRICE6',
+        'COL_PRICEPRICE6' => 'PRICEPRICE6',
+        'Unit' => 'UNIT',
+        'Pricing.Unit' => 'UNIT',
+        'unit' => 'UNIT',
+        'pricing.unit' => 'UNIT',
+        'PricingTableMap::COL_UNIT' => 'UNIT',
+        'COL_UNIT' => 'UNIT',
+        'Listprice' => 'LISTPRICE',
+        'Pricing.Listprice' => 'LISTPRICE',
+        'listprice' => 'LISTPRICE',
+        'pricing.listprice' => 'LISTPRICE',
+        'PricingTableMap::COL_LISTPRICE' => 'LISTPRICE',
+        'COL_LISTPRICE' => 'LISTPRICE',
+        'Name1' => 'NAME1',
+        'Pricing.Name1' => 'NAME1',
+        'name1' => 'NAME1',
+        'pricing.name1' => 'NAME1',
+        'PricingTableMap::COL_NAME1' => 'NAME1',
+        'COL_NAME1' => 'NAME1',
+        'Name2' => 'NAME2',
+        'Pricing.Name2' => 'NAME2',
+        'name2' => 'NAME2',
+        'pricing.name2' => 'NAME2',
+        'PricingTableMap::COL_NAME2' => 'NAME2',
+        'COL_NAME2' => 'NAME2',
+        'Shortdesc' => 'SHORTDESC',
+        'Pricing.Shortdesc' => 'SHORTDESC',
+        'shortdesc' => 'SHORTDESC',
+        'pricing.shortdesc' => 'SHORTDESC',
+        'PricingTableMap::COL_SHORTDESC' => 'SHORTDESC',
+        'COL_SHORTDESC' => 'SHORTDESC',
+        'Image' => 'IMAGE',
+        'Pricing.Image' => 'IMAGE',
+        'image' => 'IMAGE',
+        'pricing.image' => 'IMAGE',
+        'PricingTableMap::COL_IMAGE' => 'IMAGE',
+        'COL_IMAGE' => 'IMAGE',
+        'Familyid' => 'FAMILYID',
+        'Pricing.Familyid' => 'FAMILYID',
+        'familyid' => 'FAMILYID',
+        'pricing.familyid' => 'FAMILYID',
+        'PricingTableMap::COL_FAMILYID' => 'FAMILYID',
+        'COL_FAMILYID' => 'FAMILYID',
+        'Ermes' => 'ERMES',
+        'Pricing.Ermes' => 'ERMES',
+        'ermes' => 'ERMES',
+        'pricing.ermes' => 'ERMES',
+        'PricingTableMap::COL_ERMES' => 'ERMES',
+        'COL_ERMES' => 'ERMES',
+        'Speca' => 'SPECA',
+        'Pricing.Speca' => 'SPECA',
+        'speca' => 'SPECA',
+        'pricing.speca' => 'SPECA',
+        'PricingTableMap::COL_SPECA' => 'SPECA',
+        'COL_SPECA' => 'SPECA',
+        'Specb' => 'SPECB',
+        'Pricing.Specb' => 'SPECB',
+        'specb' => 'SPECB',
+        'pricing.specb' => 'SPECB',
+        'PricingTableMap::COL_SPECB' => 'SPECB',
+        'COL_SPECB' => 'SPECB',
+        'Specc' => 'SPECC',
+        'Pricing.Specc' => 'SPECC',
+        'specc' => 'SPECC',
+        'pricing.specc' => 'SPECC',
+        'PricingTableMap::COL_SPECC' => 'SPECC',
+        'COL_SPECC' => 'SPECC',
+        'Specd' => 'SPECD',
+        'Pricing.Specd' => 'SPECD',
+        'specd' => 'SPECD',
+        'pricing.specd' => 'SPECD',
+        'PricingTableMap::COL_SPECD' => 'SPECD',
+        'COL_SPECD' => 'SPECD',
+        'Spece' => 'SPECE',
+        'Pricing.Spece' => 'SPECE',
+        'spece' => 'SPECE',
+        'pricing.spece' => 'SPECE',
+        'PricingTableMap::COL_SPECE' => 'SPECE',
+        'COL_SPECE' => 'SPECE',
+        'Specf' => 'SPECF',
+        'Pricing.Specf' => 'SPECF',
+        'specf' => 'SPECF',
+        'pricing.specf' => 'SPECF',
+        'PricingTableMap::COL_SPECF' => 'SPECF',
+        'COL_SPECF' => 'SPECF',
+        'Specg' => 'SPECG',
+        'Pricing.Specg' => 'SPECG',
+        'specg' => 'SPECG',
+        'pricing.specg' => 'SPECG',
+        'PricingTableMap::COL_SPECG' => 'SPECG',
+        'COL_SPECG' => 'SPECG',
+        'Spech' => 'SPECH',
+        'Pricing.Spech' => 'SPECH',
+        'spech' => 'SPECH',
+        'pricing.spech' => 'SPECH',
+        'PricingTableMap::COL_SPECH' => 'SPECH',
+        'COL_SPECH' => 'SPECH',
+        'Longdesc' => 'LONGDESC',
+        'Pricing.Longdesc' => 'LONGDESC',
+        'longdesc' => 'LONGDESC',
+        'pricing.longdesc' => 'LONGDESC',
+        'PricingTableMap::COL_LONGDESC' => 'LONGDESC',
+        'COL_LONGDESC' => 'LONGDESC',
+        'Orderno' => 'ORDERNO',
+        'Pricing.Orderno' => 'ORDERNO',
+        'orderno' => 'ORDERNO',
+        'pricing.orderno' => 'ORDERNO',
+        'PricingTableMap::COL_ORDERNO' => 'ORDERNO',
+        'COL_ORDERNO' => 'ORDERNO',
+        'Name3' => 'NAME3',
+        'Pricing.Name3' => 'NAME3',
+        'name3' => 'NAME3',
+        'pricing.name3' => 'NAME3',
+        'PricingTableMap::COL_NAME3' => 'NAME3',
+        'COL_NAME3' => 'NAME3',
+        'Name4' => 'NAME4',
+        'Pricing.Name4' => 'NAME4',
+        'name4' => 'NAME4',
+        'pricing.name4' => 'NAME4',
+        'PricingTableMap::COL_NAME4' => 'NAME4',
+        'COL_NAME4' => 'NAME4',
+        'Thumb' => 'THUMB',
+        'Pricing.Thumb' => 'THUMB',
+        'thumb' => 'THUMB',
+        'pricing.thumb' => 'THUMB',
+        'PricingTableMap::COL_THUMB' => 'THUMB',
+        'COL_THUMB' => 'THUMB',
+        'Width' => 'WIDTH',
+        'Pricing.Width' => 'WIDTH',
+        'width' => 'WIDTH',
+        'pricing.width' => 'WIDTH',
+        'PricingTableMap::COL_WIDTH' => 'WIDTH',
+        'COL_WIDTH' => 'WIDTH',
+        'Height' => 'HEIGHT',
+        'Pricing.Height' => 'HEIGHT',
+        'height' => 'HEIGHT',
+        'pricing.height' => 'HEIGHT',
+        'PricingTableMap::COL_HEIGHT' => 'HEIGHT',
+        'COL_HEIGHT' => 'HEIGHT',
+        'Familydes' => 'FAMILYDES',
+        'Pricing.Familydes' => 'FAMILYDES',
+        'familydes' => 'FAMILYDES',
+        'pricing.familydes' => 'FAMILYDES',
+        'PricingTableMap::COL_FAMILYDES' => 'FAMILYDES',
+        'COL_FAMILYDES' => 'FAMILYDES',
+        'Keywords' => 'KEYWORDS',
+        'Pricing.Keywords' => 'KEYWORDS',
+        'keywords' => 'KEYWORDS',
+        'pricing.keywords' => 'KEYWORDS',
+        'PricingTableMap::COL_KEYWORDS' => 'KEYWORDS',
+        'COL_KEYWORDS' => 'KEYWORDS',
+        'Vpn' => 'VPN',
+        'Pricing.Vpn' => 'VPN',
+        'vpn' => 'VPN',
+        'pricing.vpn' => 'VPN',
+        'PricingTableMap::COL_VPN' => 'VPN',
+        'COL_VPN' => 'VPN',
+        'Uomdesc' => 'UOMDESC',
+        'Pricing.Uomdesc' => 'UOMDESC',
+        'uomdesc' => 'UOMDESC',
+        'pricing.uomdesc' => 'UOMDESC',
+        'PricingTableMap::COL_UOMDESC' => 'UOMDESC',
+        'COL_UOMDESC' => 'UOMDESC',
+        'Vidinffg' => 'VIDINFFG',
+        'Pricing.Vidinffg' => 'VIDINFFG',
+        'vidinffg' => 'VIDINFFG',
+        'pricing.vidinffg' => 'VIDINFFG',
+        'PricingTableMap::COL_VIDINFFG' => 'VIDINFFG',
+        'COL_VIDINFFG' => 'VIDINFFG',
+        'Vidinflk' => 'VIDINFLK',
+        'Pricing.Vidinflk' => 'VIDINFLK',
+        'vidinflk' => 'VIDINFLK',
+        'pricing.vidinflk' => 'VIDINFLK',
+        'PricingTableMap::COL_VIDINFLK' => 'VIDINFLK',
+        'COL_VIDINFLK' => 'VIDINFLK',
+        'Additemflag' => 'ADDITEMFLAG',
+        'Pricing.Additemflag' => 'ADDITEMFLAG',
+        'additemflag' => 'ADDITEMFLAG',
+        'pricing.additemflag' => 'ADDITEMFLAG',
+        'PricingTableMap::COL_ADDITEMFLAG' => 'ADDITEMFLAG',
+        'COL_ADDITEMFLAG' => 'ADDITEMFLAG',
+        'Schemafam' => 'SCHEMAFAM',
+        'Pricing.Schemafam' => 'SCHEMAFAM',
+        'schemafam' => 'SCHEMAFAM',
+        'pricing.schemafam' => 'SCHEMAFAM',
+        'PricingTableMap::COL_SCHEMAFAM' => 'SCHEMAFAM',
+        'COL_SCHEMAFAM' => 'SCHEMAFAM',
+        'Origitemid' => 'ORIGITEMID',
+        'Pricing.Origitemid' => 'ORIGITEMID',
+        'origitemid' => 'ORIGITEMID',
+        'pricing.origitemid' => 'ORIGITEMID',
+        'PricingTableMap::COL_ORIGITEMID' => 'ORIGITEMID',
+        'COL_ORIGITEMID' => 'ORIGITEMID',
+        'Techspecflg' => 'TECHSPECFLG',
+        'Pricing.Techspecflg' => 'TECHSPECFLG',
+        'techspecflg' => 'TECHSPECFLG',
+        'pricing.techspecflg' => 'TECHSPECFLG',
+        'PricingTableMap::COL_TECHSPECFLG' => 'TECHSPECFLG',
+        'COL_TECHSPECFLG' => 'TECHSPECFLG',
+        'Techspecname' => 'TECHSPECNAME',
+        'Pricing.Techspecname' => 'TECHSPECNAME',
+        'techspecname' => 'TECHSPECNAME',
+        'pricing.techspecname' => 'TECHSPECNAME',
+        'PricingTableMap::COL_TECHSPECNAME' => 'TECHSPECNAME',
+        'COL_TECHSPECNAME' => 'TECHSPECNAME',
+        'Cost' => 'COST',
+        'Pricing.Cost' => 'COST',
+        'cost' => 'COST',
+        'pricing.cost' => 'COST',
+        'PricingTableMap::COL_COST' => 'COST',
+        'COL_COST' => 'COST',
+        'Prop65' => 'PROP65',
+        'Pricing.Prop65' => 'PROP65',
+        'prop65' => 'PROP65',
+        'pricing.prop65' => 'PROP65',
+        'PricingTableMap::COL_PROP65' => 'PROP65',
+        'COL_PROP65' => 'PROP65',
+        'Leadfree' => 'LEADFREE',
+        'Pricing.Leadfree' => 'LEADFREE',
+        'leadfree' => 'LEADFREE',
+        'pricing.leadfree' => 'LEADFREE',
+        'PricingTableMap::COL_LEADFREE' => 'LEADFREE',
+        'COL_LEADFREE' => 'LEADFREE',
+        'Extendesc' => 'EXTENDESC',
+        'Pricing.Extendesc' => 'EXTENDESC',
+        'extendesc' => 'EXTENDESC',
+        'pricing.extendesc' => 'EXTENDESC',
+        'PricingTableMap::COL_EXTENDESC' => 'EXTENDESC',
+        'COL_EXTENDESC' => 'EXTENDESC',
+        'Minprice' => 'MINPRICE',
+        'Pricing.Minprice' => 'MINPRICE',
+        'minprice' => 'MINPRICE',
+        'pricing.minprice' => 'MINPRICE',
+        'PricingTableMap::COL_MINPRICE' => 'MINPRICE',
+        'COL_MINPRICE' => 'MINPRICE',
+        'Spcord' => 'SPCORD',
+        'Pricing.Spcord' => 'SPCORD',
+        'spcord' => 'SPCORD',
+        'pricing.spcord' => 'SPCORD',
+        'PricingTableMap::COL_SPCORD' => 'SPCORD',
+        'COL_SPCORD' => 'SPCORD',
+        'Vendorid' => 'VENDORID',
+        'Pricing.Vendorid' => 'VENDORID',
+        'vendorid' => 'VENDORID',
+        'pricing.vendorid' => 'VENDORID',
+        'PricingTableMap::COL_VENDORID' => 'VENDORID',
+        'COL_VENDORID' => 'VENDORID',
+        'Vendoritemid' => 'VENDORITEMID',
+        'Pricing.Vendoritemid' => 'VENDORITEMID',
+        'vendoritemid' => 'VENDORITEMID',
+        'pricing.vendoritemid' => 'VENDORITEMID',
+        'PricingTableMap::COL_VENDORITEMID' => 'VENDORITEMID',
+        'COL_VENDORITEMID' => 'VENDORITEMID',
+        'Shipfromid' => 'SHIPFROMID',
+        'Pricing.Shipfromid' => 'SHIPFROMID',
+        'shipfromid' => 'SHIPFROMID',
+        'pricing.shipfromid' => 'SHIPFROMID',
+        'PricingTableMap::COL_SHIPFROMID' => 'SHIPFROMID',
+        'COL_SHIPFROMID' => 'SHIPFROMID',
+        'Nsitemgroup' => 'NSITEMGROUP',
+        'Pricing.Nsitemgroup' => 'NSITEMGROUP',
+        'nsitemgroup' => 'NSITEMGROUP',
+        'pricing.nsitemgroup' => 'NSITEMGROUP',
+        'PricingTableMap::COL_NSITEMGROUP' => 'NSITEMGROUP',
+        'COL_NSITEMGROUP' => 'NSITEMGROUP',
+        'Itemtype' => 'ITEMTYPE',
+        'Pricing.Itemtype' => 'ITEMTYPE',
+        'itemtype' => 'ITEMTYPE',
+        'pricing.itemtype' => 'ITEMTYPE',
+        'PricingTableMap::COL_ITEMTYPE' => 'ITEMTYPE',
+        'COL_ITEMTYPE' => 'ITEMTYPE',
+        'Dummy' => 'DUMMY',
+        'Pricing.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'pricing.dummy' => 'DUMMY',
+        'PricingTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('pricing');
@@ -511,14 +917,16 @@ class PricingTableMap extends TableMap
         $this->addColumn('nsitemgroup', 'Nsitemgroup', 'VARCHAR', false, 4, null);
         $this->addColumn('itemtype', 'Itemtype', 'VARCHAR', false, 1, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -529,9 +937,11 @@ class PricingTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \Pricing $obj A \Pricing object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(Pricing $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -550,8 +960,10 @@ class PricingTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \Pricing object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \Pricing) {
@@ -579,14 +991,14 @@ class PricingTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Recno', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -601,14 +1013,14 @@ class PricingTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -634,10 +1046,10 @@ class PricingTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? PricingTableMap::CLASS_DEFAULT : PricingTableMap::OM_CLASS;
     }
@@ -645,17 +1057,17 @@ class PricingTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (Pricing object, last column rank)
+     * @return array (Pricing object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = PricingTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = PricingTableMap::getInstanceFromPool($key))) {
@@ -671,7 +1083,7 @@ class PricingTableMap extends TableMap
             PricingTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -679,13 +1091,13 @@ class PricingTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -715,12 +1127,13 @@ class PricingTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(PricingTableMap::COL_SESSIONID);
@@ -858,40 +1271,178 @@ class PricingTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(PricingTableMap::COL_SESSIONID);
+            $criteria->removeSelectColumn(PricingTableMap::COL_RECNO);
+            $criteria->removeSelectColumn(PricingTableMap::COL_DATE);
+            $criteria->removeSelectColumn(PricingTableMap::COL_TIME);
+            $criteria->removeSelectColumn(PricingTableMap::COL_ITEMID);
+            $criteria->removeSelectColumn(PricingTableMap::COL_PRICE);
+            $criteria->removeSelectColumn(PricingTableMap::COL_QTY);
+            $criteria->removeSelectColumn(PricingTableMap::COL_PRICEQTY1);
+            $criteria->removeSelectColumn(PricingTableMap::COL_PRICEQTY2);
+            $criteria->removeSelectColumn(PricingTableMap::COL_PRICEQTY3);
+            $criteria->removeSelectColumn(PricingTableMap::COL_PRICEQTY4);
+            $criteria->removeSelectColumn(PricingTableMap::COL_PRICEQTY5);
+            $criteria->removeSelectColumn(PricingTableMap::COL_PRICEQTY6);
+            $criteria->removeSelectColumn(PricingTableMap::COL_PRICEPRICE1);
+            $criteria->removeSelectColumn(PricingTableMap::COL_PRICEPRICE2);
+            $criteria->removeSelectColumn(PricingTableMap::COL_PRICEPRICE3);
+            $criteria->removeSelectColumn(PricingTableMap::COL_PRICEPRICE4);
+            $criteria->removeSelectColumn(PricingTableMap::COL_PRICEPRICE5);
+            $criteria->removeSelectColumn(PricingTableMap::COL_PRICEPRICE6);
+            $criteria->removeSelectColumn(PricingTableMap::COL_UNIT);
+            $criteria->removeSelectColumn(PricingTableMap::COL_LISTPRICE);
+            $criteria->removeSelectColumn(PricingTableMap::COL_NAME1);
+            $criteria->removeSelectColumn(PricingTableMap::COL_NAME2);
+            $criteria->removeSelectColumn(PricingTableMap::COL_SHORTDESC);
+            $criteria->removeSelectColumn(PricingTableMap::COL_IMAGE);
+            $criteria->removeSelectColumn(PricingTableMap::COL_FAMILYID);
+            $criteria->removeSelectColumn(PricingTableMap::COL_ERMES);
+            $criteria->removeSelectColumn(PricingTableMap::COL_SPECA);
+            $criteria->removeSelectColumn(PricingTableMap::COL_SPECB);
+            $criteria->removeSelectColumn(PricingTableMap::COL_SPECC);
+            $criteria->removeSelectColumn(PricingTableMap::COL_SPECD);
+            $criteria->removeSelectColumn(PricingTableMap::COL_SPECE);
+            $criteria->removeSelectColumn(PricingTableMap::COL_SPECF);
+            $criteria->removeSelectColumn(PricingTableMap::COL_SPECG);
+            $criteria->removeSelectColumn(PricingTableMap::COL_SPECH);
+            $criteria->removeSelectColumn(PricingTableMap::COL_LONGDESC);
+            $criteria->removeSelectColumn(PricingTableMap::COL_ORDERNO);
+            $criteria->removeSelectColumn(PricingTableMap::COL_NAME3);
+            $criteria->removeSelectColumn(PricingTableMap::COL_NAME4);
+            $criteria->removeSelectColumn(PricingTableMap::COL_THUMB);
+            $criteria->removeSelectColumn(PricingTableMap::COL_WIDTH);
+            $criteria->removeSelectColumn(PricingTableMap::COL_HEIGHT);
+            $criteria->removeSelectColumn(PricingTableMap::COL_FAMILYDES);
+            $criteria->removeSelectColumn(PricingTableMap::COL_KEYWORDS);
+            $criteria->removeSelectColumn(PricingTableMap::COL_VPN);
+            $criteria->removeSelectColumn(PricingTableMap::COL_UOMDESC);
+            $criteria->removeSelectColumn(PricingTableMap::COL_VIDINFFG);
+            $criteria->removeSelectColumn(PricingTableMap::COL_VIDINFLK);
+            $criteria->removeSelectColumn(PricingTableMap::COL_ADDITEMFLAG);
+            $criteria->removeSelectColumn(PricingTableMap::COL_SCHEMAFAM);
+            $criteria->removeSelectColumn(PricingTableMap::COL_ORIGITEMID);
+            $criteria->removeSelectColumn(PricingTableMap::COL_TECHSPECFLG);
+            $criteria->removeSelectColumn(PricingTableMap::COL_TECHSPECNAME);
+            $criteria->removeSelectColumn(PricingTableMap::COL_COST);
+            $criteria->removeSelectColumn(PricingTableMap::COL_PROP65);
+            $criteria->removeSelectColumn(PricingTableMap::COL_LEADFREE);
+            $criteria->removeSelectColumn(PricingTableMap::COL_EXTENDESC);
+            $criteria->removeSelectColumn(PricingTableMap::COL_MINPRICE);
+            $criteria->removeSelectColumn(PricingTableMap::COL_SPCORD);
+            $criteria->removeSelectColumn(PricingTableMap::COL_VENDORID);
+            $criteria->removeSelectColumn(PricingTableMap::COL_VENDORITEMID);
+            $criteria->removeSelectColumn(PricingTableMap::COL_SHIPFROMID);
+            $criteria->removeSelectColumn(PricingTableMap::COL_NSITEMGROUP);
+            $criteria->removeSelectColumn(PricingTableMap::COL_ITEMTYPE);
+            $criteria->removeSelectColumn(PricingTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.sessionid');
+            $criteria->removeSelectColumn($alias . '.recno');
+            $criteria->removeSelectColumn($alias . '.date');
+            $criteria->removeSelectColumn($alias . '.time');
+            $criteria->removeSelectColumn($alias . '.itemid');
+            $criteria->removeSelectColumn($alias . '.price');
+            $criteria->removeSelectColumn($alias . '.qty');
+            $criteria->removeSelectColumn($alias . '.priceqty1');
+            $criteria->removeSelectColumn($alias . '.priceqty2');
+            $criteria->removeSelectColumn($alias . '.priceqty3');
+            $criteria->removeSelectColumn($alias . '.priceqty4');
+            $criteria->removeSelectColumn($alias . '.priceqty5');
+            $criteria->removeSelectColumn($alias . '.priceqty6');
+            $criteria->removeSelectColumn($alias . '.priceprice1');
+            $criteria->removeSelectColumn($alias . '.priceprice2');
+            $criteria->removeSelectColumn($alias . '.priceprice3');
+            $criteria->removeSelectColumn($alias . '.priceprice4');
+            $criteria->removeSelectColumn($alias . '.priceprice5');
+            $criteria->removeSelectColumn($alias . '.priceprice6');
+            $criteria->removeSelectColumn($alias . '.unit');
+            $criteria->removeSelectColumn($alias . '.listprice');
+            $criteria->removeSelectColumn($alias . '.name1');
+            $criteria->removeSelectColumn($alias . '.name2');
+            $criteria->removeSelectColumn($alias . '.shortdesc');
+            $criteria->removeSelectColumn($alias . '.image');
+            $criteria->removeSelectColumn($alias . '.familyid');
+            $criteria->removeSelectColumn($alias . '.ermes');
+            $criteria->removeSelectColumn($alias . '.speca');
+            $criteria->removeSelectColumn($alias . '.specb');
+            $criteria->removeSelectColumn($alias . '.specc');
+            $criteria->removeSelectColumn($alias . '.specd');
+            $criteria->removeSelectColumn($alias . '.spece');
+            $criteria->removeSelectColumn($alias . '.specf');
+            $criteria->removeSelectColumn($alias . '.specg');
+            $criteria->removeSelectColumn($alias . '.spech');
+            $criteria->removeSelectColumn($alias . '.longdesc');
+            $criteria->removeSelectColumn($alias . '.orderno');
+            $criteria->removeSelectColumn($alias . '.name3');
+            $criteria->removeSelectColumn($alias . '.name4');
+            $criteria->removeSelectColumn($alias . '.thumb');
+            $criteria->removeSelectColumn($alias . '.width');
+            $criteria->removeSelectColumn($alias . '.height');
+            $criteria->removeSelectColumn($alias . '.familydes');
+            $criteria->removeSelectColumn($alias . '.keywords');
+            $criteria->removeSelectColumn($alias . '.vpn');
+            $criteria->removeSelectColumn($alias . '.uomdesc');
+            $criteria->removeSelectColumn($alias . '.vidinffg');
+            $criteria->removeSelectColumn($alias . '.vidinflk');
+            $criteria->removeSelectColumn($alias . '.additemflag');
+            $criteria->removeSelectColumn($alias . '.schemafam');
+            $criteria->removeSelectColumn($alias . '.origitemid');
+            $criteria->removeSelectColumn($alias . '.techspecflg');
+            $criteria->removeSelectColumn($alias . '.techspecname');
+            $criteria->removeSelectColumn($alias . '.cost');
+            $criteria->removeSelectColumn($alias . '.prop65');
+            $criteria->removeSelectColumn($alias . '.leadfree');
+            $criteria->removeSelectColumn($alias . '.extendesc');
+            $criteria->removeSelectColumn($alias . '.minprice');
+            $criteria->removeSelectColumn($alias . '.spcord');
+            $criteria->removeSelectColumn($alias . '.vendorid');
+            $criteria->removeSelectColumn($alias . '.vendoritemid');
+            $criteria->removeSelectColumn($alias . '.shipfromid');
+            $criteria->removeSelectColumn($alias . '.nsitemgroup');
+            $criteria->removeSelectColumn($alias . '.itemtype');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(PricingTableMap::DATABASE_NAME)->getTable(PricingTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(PricingTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(PricingTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new PricingTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a Pricing or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or Pricing object or primary key or array of primary keys
+     * @param mixed $values Criteria or Pricing object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(PricingTableMap::DATABASE_NAME);
@@ -909,7 +1460,7 @@ class PricingTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(PricingTableMap::COL_SESSIONID, $value[0]);
@@ -937,7 +1488,7 @@ class PricingTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return PricingQuery::create()->doDeleteAll($con);
     }
@@ -945,13 +1496,13 @@ class PricingTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a Pricing or Criteria object.
      *
-     * @param mixed               $criteria Criteria or Pricing object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or Pricing object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(PricingTableMap::DATABASE_NAME);
@@ -974,7 +1525,4 @@ class PricingTableMap extends TableMap
         });
     }
 
-} // PricingTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-PricingTableMap::buildTableMap();
+}

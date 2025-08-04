@@ -10,14 +10,12 @@ use Map\ItemstockTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'itemstock' table.
- *
- *
+ * Base class that represents a query for the `itemstock` table.
  *
  * @method     ChildItemstockQuery orderBySessionid($order = Criteria::ASC) Order by the sessionid column
  * @method     ChildItemstockQuery orderByRecno($order = Criteria::ASC) Order by the recno column
@@ -53,24 +51,24 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemstockQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildItemstockQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildItemstock findOne(ConnectionInterface $con = null) Return the first ChildItemstock matching the query
- * @method     ChildItemstock findOneOrCreate(ConnectionInterface $con = null) Return the first ChildItemstock matching the query, or a new ChildItemstock object populated from the query conditions when no match is found
+ * @method     ChildItemstock|null findOne(?ConnectionInterface $con = null) Return the first ChildItemstock matching the query
+ * @method     ChildItemstock findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildItemstock matching the query, or a new ChildItemstock object populated from the query conditions when no match is found
  *
- * @method     ChildItemstock findOneBySessionid(string $sessionid) Return the first ChildItemstock filtered by the sessionid column
- * @method     ChildItemstock findOneByRecno(int $recno) Return the first ChildItemstock filtered by the recno column
- * @method     ChildItemstock findOneByDate(int $date) Return the first ChildItemstock filtered by the date column
- * @method     ChildItemstock findOneByTime(int $time) Return the first ChildItemstock filtered by the time column
- * @method     ChildItemstock findOneByItemid(string $itemid) Return the first ChildItemstock filtered by the itemid column
- * @method     ChildItemstock findOneByWhse(string $whse) Return the first ChildItemstock filtered by the whse column
- * @method     ChildItemstock findOneByOhhand(string $ohhand) Return the first ChildItemstock filtered by the ohhand column
- * @method     ChildItemstock findOneByCommitted(string $committed) Return the first ChildItemstock filtered by the committed column
- * @method     ChildItemstock findOneByOnorder(string $onorder) Return the first ChildItemstock filtered by the onorder column
- * @method     ChildItemstock findOneByAvailable(string $available) Return the first ChildItemstock filtered by the available column
- * @method     ChildItemstock findOneByEta(string $eta) Return the first ChildItemstock filtered by the eta column
- * @method     ChildItemstock findOneByDummy(string $dummy) Return the first ChildItemstock filtered by the dummy column *
-
- * @method     ChildItemstock requirePk($key, ConnectionInterface $con = null) Return the ChildItemstock by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemstock requireOne(ConnectionInterface $con = null) Return the first ChildItemstock matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildItemstock|null findOneBySessionid(string $sessionid) Return the first ChildItemstock filtered by the sessionid column
+ * @method     ChildItemstock|null findOneByRecno(int $recno) Return the first ChildItemstock filtered by the recno column
+ * @method     ChildItemstock|null findOneByDate(int $date) Return the first ChildItemstock filtered by the date column
+ * @method     ChildItemstock|null findOneByTime(int $time) Return the first ChildItemstock filtered by the time column
+ * @method     ChildItemstock|null findOneByItemid(string $itemid) Return the first ChildItemstock filtered by the itemid column
+ * @method     ChildItemstock|null findOneByWhse(string $whse) Return the first ChildItemstock filtered by the whse column
+ * @method     ChildItemstock|null findOneByOhhand(string $ohhand) Return the first ChildItemstock filtered by the ohhand column
+ * @method     ChildItemstock|null findOneByCommitted(string $committed) Return the first ChildItemstock filtered by the committed column
+ * @method     ChildItemstock|null findOneByOnorder(string $onorder) Return the first ChildItemstock filtered by the onorder column
+ * @method     ChildItemstock|null findOneByAvailable(string $available) Return the first ChildItemstock filtered by the available column
+ * @method     ChildItemstock|null findOneByEta(string $eta) Return the first ChildItemstock filtered by the eta column
+ * @method     ChildItemstock|null findOneByDummy(string $dummy) Return the first ChildItemstock filtered by the dummy column
+ *
+ * @method     ChildItemstock requirePk($key, ?ConnectionInterface $con = null) Return the ChildItemstock by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildItemstock requireOne(?ConnectionInterface $con = null) Return the first ChildItemstock matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildItemstock requireOneBySessionid(string $sessionid) Return the first ChildItemstock filtered by the sessionid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemstock requireOneByRecno(int $recno) Return the first ChildItemstock filtered by the recno column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -85,21 +83,36 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemstock requireOneByEta(string $eta) Return the first ChildItemstock filtered by the eta column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemstock requireOneByDummy(string $dummy) Return the first ChildItemstock filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildItemstock[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildItemstock objects based on current ModelCriteria
- * @method     ChildItemstock[]|ObjectCollection findBySessionid(string $sessionid) Return ChildItemstock objects filtered by the sessionid column
- * @method     ChildItemstock[]|ObjectCollection findByRecno(int $recno) Return ChildItemstock objects filtered by the recno column
- * @method     ChildItemstock[]|ObjectCollection findByDate(int $date) Return ChildItemstock objects filtered by the date column
- * @method     ChildItemstock[]|ObjectCollection findByTime(int $time) Return ChildItemstock objects filtered by the time column
- * @method     ChildItemstock[]|ObjectCollection findByItemid(string $itemid) Return ChildItemstock objects filtered by the itemid column
- * @method     ChildItemstock[]|ObjectCollection findByWhse(string $whse) Return ChildItemstock objects filtered by the whse column
- * @method     ChildItemstock[]|ObjectCollection findByOhhand(string $ohhand) Return ChildItemstock objects filtered by the ohhand column
- * @method     ChildItemstock[]|ObjectCollection findByCommitted(string $committed) Return ChildItemstock objects filtered by the committed column
- * @method     ChildItemstock[]|ObjectCollection findByOnorder(string $onorder) Return ChildItemstock objects filtered by the onorder column
- * @method     ChildItemstock[]|ObjectCollection findByAvailable(string $available) Return ChildItemstock objects filtered by the available column
- * @method     ChildItemstock[]|ObjectCollection findByEta(string $eta) Return ChildItemstock objects filtered by the eta column
- * @method     ChildItemstock[]|ObjectCollection findByDummy(string $dummy) Return ChildItemstock objects filtered by the dummy column
- * @method     ChildItemstock[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildItemstock[]|Collection find(?ConnectionInterface $con = null) Return ChildItemstock objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildItemstock> find(?ConnectionInterface $con = null) Return ChildItemstock objects based on current ModelCriteria
  *
+ * @method     ChildItemstock[]|Collection findBySessionid(string|array<string> $sessionid) Return ChildItemstock objects filtered by the sessionid column
+ * @psalm-method Collection&\Traversable<ChildItemstock> findBySessionid(string|array<string> $sessionid) Return ChildItemstock objects filtered by the sessionid column
+ * @method     ChildItemstock[]|Collection findByRecno(int|array<int> $recno) Return ChildItemstock objects filtered by the recno column
+ * @psalm-method Collection&\Traversable<ChildItemstock> findByRecno(int|array<int> $recno) Return ChildItemstock objects filtered by the recno column
+ * @method     ChildItemstock[]|Collection findByDate(int|array<int> $date) Return ChildItemstock objects filtered by the date column
+ * @psalm-method Collection&\Traversable<ChildItemstock> findByDate(int|array<int> $date) Return ChildItemstock objects filtered by the date column
+ * @method     ChildItemstock[]|Collection findByTime(int|array<int> $time) Return ChildItemstock objects filtered by the time column
+ * @psalm-method Collection&\Traversable<ChildItemstock> findByTime(int|array<int> $time) Return ChildItemstock objects filtered by the time column
+ * @method     ChildItemstock[]|Collection findByItemid(string|array<string> $itemid) Return ChildItemstock objects filtered by the itemid column
+ * @psalm-method Collection&\Traversable<ChildItemstock> findByItemid(string|array<string> $itemid) Return ChildItemstock objects filtered by the itemid column
+ * @method     ChildItemstock[]|Collection findByWhse(string|array<string> $whse) Return ChildItemstock objects filtered by the whse column
+ * @psalm-method Collection&\Traversable<ChildItemstock> findByWhse(string|array<string> $whse) Return ChildItemstock objects filtered by the whse column
+ * @method     ChildItemstock[]|Collection findByOhhand(string|array<string> $ohhand) Return ChildItemstock objects filtered by the ohhand column
+ * @psalm-method Collection&\Traversable<ChildItemstock> findByOhhand(string|array<string> $ohhand) Return ChildItemstock objects filtered by the ohhand column
+ * @method     ChildItemstock[]|Collection findByCommitted(string|array<string> $committed) Return ChildItemstock objects filtered by the committed column
+ * @psalm-method Collection&\Traversable<ChildItemstock> findByCommitted(string|array<string> $committed) Return ChildItemstock objects filtered by the committed column
+ * @method     ChildItemstock[]|Collection findByOnorder(string|array<string> $onorder) Return ChildItemstock objects filtered by the onorder column
+ * @psalm-method Collection&\Traversable<ChildItemstock> findByOnorder(string|array<string> $onorder) Return ChildItemstock objects filtered by the onorder column
+ * @method     ChildItemstock[]|Collection findByAvailable(string|array<string> $available) Return ChildItemstock objects filtered by the available column
+ * @psalm-method Collection&\Traversable<ChildItemstock> findByAvailable(string|array<string> $available) Return ChildItemstock objects filtered by the available column
+ * @method     ChildItemstock[]|Collection findByEta(string|array<string> $eta) Return ChildItemstock objects filtered by the eta column
+ * @psalm-method Collection&\Traversable<ChildItemstock> findByEta(string|array<string> $eta) Return ChildItemstock objects filtered by the eta column
+ * @method     ChildItemstock[]|Collection findByDummy(string|array<string> $dummy) Return ChildItemstock objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildItemstock> findByDummy(string|array<string> $dummy) Return ChildItemstock objects filtered by the dummy column
+ *
+ * @method     ChildItemstock[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildItemstock> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class ItemstockQuery extends ModelCriteria
 {
@@ -108,9 +121,9 @@ abstract class ItemstockQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\ItemstockQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'dplusodb', $modelName = '\\Itemstock', $modelAlias = null)
     {
@@ -120,12 +133,12 @@ abstract class ItemstockQuery extends ModelCriteria
     /**
      * Returns a new ChildItemstockQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildItemstockQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildItemstockQuery) {
             return $criteria;
@@ -155,7 +168,7 @@ abstract class ItemstockQuery extends ModelCriteria
      *
      * @return ChildItemstock|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -187,8 +200,8 @@ abstract class ItemstockQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -221,8 +234,8 @@ abstract class ItemstockQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildItemstock|array|mixed the result, formatted by the current formatter
      */
@@ -242,12 +255,12 @@ abstract class ItemstockQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -264,9 +277,9 @@ abstract class ItemstockQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildItemstockQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -279,14 +292,16 @@ abstract class ItemstockQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildItemstockQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(ItemstockTableMap::COL_SESSIONID, $key[0], Criteria::EQUAL);
@@ -305,14 +320,15 @@ abstract class ItemstockQuery extends ModelCriteria
      * <code>
      * $query->filterBySessionid('fooValue');   // WHERE sessionid = 'fooValue'
      * $query->filterBySessionid('%fooValue%', Criteria::LIKE); // WHERE sessionid LIKE '%fooValue%'
+     * $query->filterBySessionid(['foo', 'bar']); // WHERE sessionid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sessionid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sessionid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemstockQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySessionid($sessionid = null, $comparison = null)
+    public function filterBySessionid($sessionid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sessionid)) {
@@ -320,7 +336,9 @@ abstract class ItemstockQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemstockTableMap::COL_SESSIONID, $sessionid, $comparison);
+        $this->addUsingAlias(ItemstockTableMap::COL_SESSIONID, $sessionid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -333,15 +351,15 @@ abstract class ItemstockQuery extends ModelCriteria
      * $query->filterByRecno(array('min' => 12)); // WHERE recno > 12
      * </code>
      *
-     * @param     mixed $recno The value to use as filter.
+     * @param mixed $recno The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemstockQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByRecno($recno = null, $comparison = null)
+    public function filterByRecno($recno = null, ?string $comparison = null)
     {
         if (is_array($recno)) {
             $useMinMax = false;
@@ -361,7 +379,9 @@ abstract class ItemstockQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemstockTableMap::COL_RECNO, $recno, $comparison);
+        $this->addUsingAlias(ItemstockTableMap::COL_RECNO, $recno, $comparison);
+
+        return $this;
     }
 
     /**
@@ -374,15 +394,15 @@ abstract class ItemstockQuery extends ModelCriteria
      * $query->filterByDate(array('min' => 12)); // WHERE date > 12
      * </code>
      *
-     * @param     mixed $date The value to use as filter.
+     * @param mixed $date The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemstockQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDate($date = null, $comparison = null)
+    public function filterByDate($date = null, ?string $comparison = null)
     {
         if (is_array($date)) {
             $useMinMax = false;
@@ -402,7 +422,9 @@ abstract class ItemstockQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemstockTableMap::COL_DATE, $date, $comparison);
+        $this->addUsingAlias(ItemstockTableMap::COL_DATE, $date, $comparison);
+
+        return $this;
     }
 
     /**
@@ -415,15 +437,15 @@ abstract class ItemstockQuery extends ModelCriteria
      * $query->filterByTime(array('min' => 12)); // WHERE time > 12
      * </code>
      *
-     * @param     mixed $time The value to use as filter.
+     * @param mixed $time The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemstockQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTime($time = null, $comparison = null)
+    public function filterByTime($time = null, ?string $comparison = null)
     {
         if (is_array($time)) {
             $useMinMax = false;
@@ -443,7 +465,9 @@ abstract class ItemstockQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemstockTableMap::COL_TIME, $time, $comparison);
+        $this->addUsingAlias(ItemstockTableMap::COL_TIME, $time, $comparison);
+
+        return $this;
     }
 
     /**
@@ -453,14 +477,15 @@ abstract class ItemstockQuery extends ModelCriteria
      * <code>
      * $query->filterByItemid('fooValue');   // WHERE itemid = 'fooValue'
      * $query->filterByItemid('%fooValue%', Criteria::LIKE); // WHERE itemid LIKE '%fooValue%'
+     * $query->filterByItemid(['foo', 'bar']); // WHERE itemid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itemid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itemid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemstockQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemid($itemid = null, $comparison = null)
+    public function filterByItemid($itemid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itemid)) {
@@ -468,7 +493,9 @@ abstract class ItemstockQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemstockTableMap::COL_ITEMID, $itemid, $comparison);
+        $this->addUsingAlias(ItemstockTableMap::COL_ITEMID, $itemid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -478,14 +505,15 @@ abstract class ItemstockQuery extends ModelCriteria
      * <code>
      * $query->filterByWhse('fooValue');   // WHERE whse = 'fooValue'
      * $query->filterByWhse('%fooValue%', Criteria::LIKE); // WHERE whse LIKE '%fooValue%'
+     * $query->filterByWhse(['foo', 'bar']); // WHERE whse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $whse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $whse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemstockQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByWhse($whse = null, $comparison = null)
+    public function filterByWhse($whse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($whse)) {
@@ -493,7 +521,9 @@ abstract class ItemstockQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemstockTableMap::COL_WHSE, $whse, $comparison);
+        $this->addUsingAlias(ItemstockTableMap::COL_WHSE, $whse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -503,14 +533,15 @@ abstract class ItemstockQuery extends ModelCriteria
      * <code>
      * $query->filterByOhhand('fooValue');   // WHERE ohhand = 'fooValue'
      * $query->filterByOhhand('%fooValue%', Criteria::LIKE); // WHERE ohhand LIKE '%fooValue%'
+     * $query->filterByOhhand(['foo', 'bar']); // WHERE ohhand IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $ohhand The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $ohhand The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemstockQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOhhand($ohhand = null, $comparison = null)
+    public function filterByOhhand($ohhand = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($ohhand)) {
@@ -518,7 +549,9 @@ abstract class ItemstockQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemstockTableMap::COL_OHHAND, $ohhand, $comparison);
+        $this->addUsingAlias(ItemstockTableMap::COL_OHHAND, $ohhand, $comparison);
+
+        return $this;
     }
 
     /**
@@ -528,14 +561,15 @@ abstract class ItemstockQuery extends ModelCriteria
      * <code>
      * $query->filterByCommitted('fooValue');   // WHERE committed = 'fooValue'
      * $query->filterByCommitted('%fooValue%', Criteria::LIKE); // WHERE committed LIKE '%fooValue%'
+     * $query->filterByCommitted(['foo', 'bar']); // WHERE committed IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $committed The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $committed The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemstockQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCommitted($committed = null, $comparison = null)
+    public function filterByCommitted($committed = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($committed)) {
@@ -543,7 +577,9 @@ abstract class ItemstockQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemstockTableMap::COL_COMMITTED, $committed, $comparison);
+        $this->addUsingAlias(ItemstockTableMap::COL_COMMITTED, $committed, $comparison);
+
+        return $this;
     }
 
     /**
@@ -553,14 +589,15 @@ abstract class ItemstockQuery extends ModelCriteria
      * <code>
      * $query->filterByOnorder('fooValue');   // WHERE onorder = 'fooValue'
      * $query->filterByOnorder('%fooValue%', Criteria::LIKE); // WHERE onorder LIKE '%fooValue%'
+     * $query->filterByOnorder(['foo', 'bar']); // WHERE onorder IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $onorder The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $onorder The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemstockQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOnorder($onorder = null, $comparison = null)
+    public function filterByOnorder($onorder = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($onorder)) {
@@ -568,7 +605,9 @@ abstract class ItemstockQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemstockTableMap::COL_ONORDER, $onorder, $comparison);
+        $this->addUsingAlias(ItemstockTableMap::COL_ONORDER, $onorder, $comparison);
+
+        return $this;
     }
 
     /**
@@ -578,14 +617,15 @@ abstract class ItemstockQuery extends ModelCriteria
      * <code>
      * $query->filterByAvailable('fooValue');   // WHERE available = 'fooValue'
      * $query->filterByAvailable('%fooValue%', Criteria::LIKE); // WHERE available LIKE '%fooValue%'
+     * $query->filterByAvailable(['foo', 'bar']); // WHERE available IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $available The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $available The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemstockQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAvailable($available = null, $comparison = null)
+    public function filterByAvailable($available = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($available)) {
@@ -593,7 +633,9 @@ abstract class ItemstockQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemstockTableMap::COL_AVAILABLE, $available, $comparison);
+        $this->addUsingAlias(ItemstockTableMap::COL_AVAILABLE, $available, $comparison);
+
+        return $this;
     }
 
     /**
@@ -603,14 +645,15 @@ abstract class ItemstockQuery extends ModelCriteria
      * <code>
      * $query->filterByEta('fooValue');   // WHERE eta = 'fooValue'
      * $query->filterByEta('%fooValue%', Criteria::LIKE); // WHERE eta LIKE '%fooValue%'
+     * $query->filterByEta(['foo', 'bar']); // WHERE eta IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $eta The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $eta The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemstockQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByEta($eta = null, $comparison = null)
+    public function filterByEta($eta = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($eta)) {
@@ -618,7 +661,9 @@ abstract class ItemstockQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemstockTableMap::COL_ETA, $eta, $comparison);
+        $this->addUsingAlias(ItemstockTableMap::COL_ETA, $eta, $comparison);
+
+        return $this;
     }
 
     /**
@@ -628,14 +673,15 @@ abstract class ItemstockQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemstockQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -643,15 +689,17 @@ abstract class ItemstockQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemstockTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(ItemstockTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildItemstock $itemstock Object to remove from the list of results
+     * @param ChildItemstock $itemstock Object to remove from the list of results
      *
-     * @return $this|ChildItemstockQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($itemstock = null)
     {
@@ -670,7 +718,7 @@ abstract class ItemstockQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemstockTableMap::DATABASE_NAME);
@@ -695,12 +743,12 @@ abstract class ItemstockQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemstockTableMap::DATABASE_NAME);
@@ -725,4 +773,4 @@ abstract class ItemstockQuery extends ModelCriteria
         });
     }
 
-} // ItemstockQuery
+}

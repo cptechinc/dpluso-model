@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class LogpermTableMap extends TableMap
 {
@@ -34,154 +33,255 @@ class LogpermTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.LogpermTableMap';
+    public const CLASS_NAME = '.Map.LogpermTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'dplusodb';
+    public const DATABASE_NAME = 'dplusodb';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'logperm';
+    public const TABLE_NAME = 'logperm';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'Logperm';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\Logperm';
+    public const OM_CLASS = '\\Logperm';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'Logperm';
+    public const CLASS_DEFAULT = 'Logperm';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 14;
+    public const NUM_COLUMNS = 14;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 14;
+    public const NUM_HYDRATE_COLUMNS = 14;
 
     /**
      * the column name for the sessionid field
      */
-    const COL_SESSIONID = 'logperm.sessionid';
+    public const COL_SESSIONID = 'logperm.sessionid';
 
     /**
      * the column name for the recno field
      */
-    const COL_RECNO = 'logperm.recno';
+    public const COL_RECNO = 'logperm.recno';
 
     /**
      * the column name for the date field
      */
-    const COL_DATE = 'logperm.date';
+    public const COL_DATE = 'logperm.date';
 
     /**
      * the column name for the time field
      */
-    const COL_TIME = 'logperm.time';
+    public const COL_TIME = 'logperm.time';
 
     /**
      * the column name for the loginid field
      */
-    const COL_LOGINID = 'logperm.loginid';
+    public const COL_LOGINID = 'logperm.loginid';
 
     /**
      * the column name for the loginname field
      */
-    const COL_LOGINNAME = 'logperm.loginname';
+    public const COL_LOGINNAME = 'logperm.loginname';
 
     /**
      * the column name for the salespersonid field
      */
-    const COL_SALESPERSONID = 'logperm.salespersonid';
+    public const COL_SALESPERSONID = 'logperm.salespersonid';
 
     /**
      * the column name for the salespername field
      */
-    const COL_SALESPERNAME = 'logperm.salespername';
+    public const COL_SALESPERNAME = 'logperm.salespername';
 
     /**
      * the column name for the validlogin field
      */
-    const COL_VALIDLOGIN = 'logperm.validlogin';
+    public const COL_VALIDLOGIN = 'logperm.validlogin';
 
     /**
      * the column name for the restrictcustomers field
      */
-    const COL_RESTRICTCUSTOMERS = 'logperm.restrictcustomers';
+    public const COL_RESTRICTCUSTOMERS = 'logperm.restrictcustomers';
 
     /**
      * the column name for the errormsg field
      */
-    const COL_ERRORMSG = 'logperm.errormsg';
+    public const COL_ERRORMSG = 'logperm.errormsg';
 
     /**
      * the column name for the ordernbr field
      */
-    const COL_ORDERNBR = 'logperm.ordernbr';
+    public const COL_ORDERNBR = 'logperm.ordernbr';
 
     /**
      * the column name for the restrictaccess field
      */
-    const COL_RESTRICTACCESS = 'logperm.restrictaccess';
+    public const COL_RESTRICTACCESS = 'logperm.restrictaccess';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'logperm.dummy';
+    public const COL_DUMMY = 'logperm.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Sessionid', 'Recno', 'Date', 'Time', 'Loginid', 'Loginname', 'Salespersonid', 'Salespername', 'Validlogin', 'Restrictcustomers', 'Errormsg', 'Ordernbr', 'Restrictaccess', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('sessionid', 'recno', 'date', 'time', 'loginid', 'loginname', 'salespersonid', 'salespername', 'validlogin', 'restrictcustomers', 'errormsg', 'ordernbr', 'restrictaccess', 'dummy', ),
-        self::TYPE_COLNAME       => array(LogpermTableMap::COL_SESSIONID, LogpermTableMap::COL_RECNO, LogpermTableMap::COL_DATE, LogpermTableMap::COL_TIME, LogpermTableMap::COL_LOGINID, LogpermTableMap::COL_LOGINNAME, LogpermTableMap::COL_SALESPERSONID, LogpermTableMap::COL_SALESPERNAME, LogpermTableMap::COL_VALIDLOGIN, LogpermTableMap::COL_RESTRICTCUSTOMERS, LogpermTableMap::COL_ERRORMSG, LogpermTableMap::COL_ORDERNBR, LogpermTableMap::COL_RESTRICTACCESS, LogpermTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('sessionid', 'recno', 'date', 'time', 'loginid', 'loginname', 'salespersonid', 'salespername', 'validlogin', 'restrictcustomers', 'errormsg', 'ordernbr', 'restrictaccess', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Sessionid', 'Recno', 'Date', 'Time', 'Loginid', 'Loginname', 'Salespersonid', 'Salespername', 'Validlogin', 'Restrictcustomers', 'Errormsg', 'Ordernbr', 'Restrictaccess', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['sessionid', 'recno', 'date', 'time', 'loginid', 'loginname', 'salespersonid', 'salespername', 'validlogin', 'restrictcustomers', 'errormsg', 'ordernbr', 'restrictaccess', 'dummy', ],
+        self::TYPE_COLNAME       => [LogpermTableMap::COL_SESSIONID, LogpermTableMap::COL_RECNO, LogpermTableMap::COL_DATE, LogpermTableMap::COL_TIME, LogpermTableMap::COL_LOGINID, LogpermTableMap::COL_LOGINNAME, LogpermTableMap::COL_SALESPERSONID, LogpermTableMap::COL_SALESPERNAME, LogpermTableMap::COL_VALIDLOGIN, LogpermTableMap::COL_RESTRICTCUSTOMERS, LogpermTableMap::COL_ERRORMSG, LogpermTableMap::COL_ORDERNBR, LogpermTableMap::COL_RESTRICTACCESS, LogpermTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['sessionid', 'recno', 'date', 'time', 'loginid', 'loginname', 'salespersonid', 'salespername', 'validlogin', 'restrictcustomers', 'errormsg', 'ordernbr', 'restrictaccess', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Recno' => 1, 'Date' => 2, 'Time' => 3, 'Loginid' => 4, 'Loginname' => 5, 'Salespersonid' => 6, 'Salespername' => 7, 'Validlogin' => 8, 'Restrictcustomers' => 9, 'Errormsg' => 10, 'Ordernbr' => 11, 'Restrictaccess' => 12, 'Dummy' => 13, ),
-        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'loginid' => 4, 'loginname' => 5, 'salespersonid' => 6, 'salespername' => 7, 'validlogin' => 8, 'restrictcustomers' => 9, 'errormsg' => 10, 'ordernbr' => 11, 'restrictaccess' => 12, 'dummy' => 13, ),
-        self::TYPE_COLNAME       => array(LogpermTableMap::COL_SESSIONID => 0, LogpermTableMap::COL_RECNO => 1, LogpermTableMap::COL_DATE => 2, LogpermTableMap::COL_TIME => 3, LogpermTableMap::COL_LOGINID => 4, LogpermTableMap::COL_LOGINNAME => 5, LogpermTableMap::COL_SALESPERSONID => 6, LogpermTableMap::COL_SALESPERNAME => 7, LogpermTableMap::COL_VALIDLOGIN => 8, LogpermTableMap::COL_RESTRICTCUSTOMERS => 9, LogpermTableMap::COL_ERRORMSG => 10, LogpermTableMap::COL_ORDERNBR => 11, LogpermTableMap::COL_RESTRICTACCESS => 12, LogpermTableMap::COL_DUMMY => 13, ),
-        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'loginid' => 4, 'loginname' => 5, 'salespersonid' => 6, 'salespername' => 7, 'validlogin' => 8, 'restrictcustomers' => 9, 'errormsg' => 10, 'ordernbr' => 11, 'restrictaccess' => 12, 'dummy' => 13, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Sessionid' => 0, 'Recno' => 1, 'Date' => 2, 'Time' => 3, 'Loginid' => 4, 'Loginname' => 5, 'Salespersonid' => 6, 'Salespername' => 7, 'Validlogin' => 8, 'Restrictcustomers' => 9, 'Errormsg' => 10, 'Ordernbr' => 11, 'Restrictaccess' => 12, 'Dummy' => 13, ],
+        self::TYPE_CAMELNAME     => ['sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'loginid' => 4, 'loginname' => 5, 'salespersonid' => 6, 'salespername' => 7, 'validlogin' => 8, 'restrictcustomers' => 9, 'errormsg' => 10, 'ordernbr' => 11, 'restrictaccess' => 12, 'dummy' => 13, ],
+        self::TYPE_COLNAME       => [LogpermTableMap::COL_SESSIONID => 0, LogpermTableMap::COL_RECNO => 1, LogpermTableMap::COL_DATE => 2, LogpermTableMap::COL_TIME => 3, LogpermTableMap::COL_LOGINID => 4, LogpermTableMap::COL_LOGINNAME => 5, LogpermTableMap::COL_SALESPERSONID => 6, LogpermTableMap::COL_SALESPERNAME => 7, LogpermTableMap::COL_VALIDLOGIN => 8, LogpermTableMap::COL_RESTRICTCUSTOMERS => 9, LogpermTableMap::COL_ERRORMSG => 10, LogpermTableMap::COL_ORDERNBR => 11, LogpermTableMap::COL_RESTRICTACCESS => 12, LogpermTableMap::COL_DUMMY => 13, ],
+        self::TYPE_FIELDNAME     => ['sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'loginid' => 4, 'loginname' => 5, 'salespersonid' => 6, 'salespername' => 7, 'validlogin' => 8, 'restrictcustomers' => 9, 'errormsg' => 10, 'ordernbr' => 11, 'restrictaccess' => 12, 'dummy' => 13, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Sessionid' => 'SESSIONID',
+        'Logperm.Sessionid' => 'SESSIONID',
+        'sessionid' => 'SESSIONID',
+        'logperm.sessionid' => 'SESSIONID',
+        'LogpermTableMap::COL_SESSIONID' => 'SESSIONID',
+        'COL_SESSIONID' => 'SESSIONID',
+        'Recno' => 'RECNO',
+        'Logperm.Recno' => 'RECNO',
+        'recno' => 'RECNO',
+        'logperm.recno' => 'RECNO',
+        'LogpermTableMap::COL_RECNO' => 'RECNO',
+        'COL_RECNO' => 'RECNO',
+        'Date' => 'DATE',
+        'Logperm.Date' => 'DATE',
+        'date' => 'DATE',
+        'logperm.date' => 'DATE',
+        'LogpermTableMap::COL_DATE' => 'DATE',
+        'COL_DATE' => 'DATE',
+        'Time' => 'TIME',
+        'Logperm.Time' => 'TIME',
+        'time' => 'TIME',
+        'logperm.time' => 'TIME',
+        'LogpermTableMap::COL_TIME' => 'TIME',
+        'COL_TIME' => 'TIME',
+        'Loginid' => 'LOGINID',
+        'Logperm.Loginid' => 'LOGINID',
+        'loginid' => 'LOGINID',
+        'logperm.loginid' => 'LOGINID',
+        'LogpermTableMap::COL_LOGINID' => 'LOGINID',
+        'COL_LOGINID' => 'LOGINID',
+        'Loginname' => 'LOGINNAME',
+        'Logperm.Loginname' => 'LOGINNAME',
+        'loginname' => 'LOGINNAME',
+        'logperm.loginname' => 'LOGINNAME',
+        'LogpermTableMap::COL_LOGINNAME' => 'LOGINNAME',
+        'COL_LOGINNAME' => 'LOGINNAME',
+        'Salespersonid' => 'SALESPERSONID',
+        'Logperm.Salespersonid' => 'SALESPERSONID',
+        'salespersonid' => 'SALESPERSONID',
+        'logperm.salespersonid' => 'SALESPERSONID',
+        'LogpermTableMap::COL_SALESPERSONID' => 'SALESPERSONID',
+        'COL_SALESPERSONID' => 'SALESPERSONID',
+        'Salespername' => 'SALESPERNAME',
+        'Logperm.Salespername' => 'SALESPERNAME',
+        'salespername' => 'SALESPERNAME',
+        'logperm.salespername' => 'SALESPERNAME',
+        'LogpermTableMap::COL_SALESPERNAME' => 'SALESPERNAME',
+        'COL_SALESPERNAME' => 'SALESPERNAME',
+        'Validlogin' => 'VALIDLOGIN',
+        'Logperm.Validlogin' => 'VALIDLOGIN',
+        'validlogin' => 'VALIDLOGIN',
+        'logperm.validlogin' => 'VALIDLOGIN',
+        'LogpermTableMap::COL_VALIDLOGIN' => 'VALIDLOGIN',
+        'COL_VALIDLOGIN' => 'VALIDLOGIN',
+        'Restrictcustomers' => 'RESTRICTCUSTOMERS',
+        'Logperm.Restrictcustomers' => 'RESTRICTCUSTOMERS',
+        'restrictcustomers' => 'RESTRICTCUSTOMERS',
+        'logperm.restrictcustomers' => 'RESTRICTCUSTOMERS',
+        'LogpermTableMap::COL_RESTRICTCUSTOMERS' => 'RESTRICTCUSTOMERS',
+        'COL_RESTRICTCUSTOMERS' => 'RESTRICTCUSTOMERS',
+        'Errormsg' => 'ERRORMSG',
+        'Logperm.Errormsg' => 'ERRORMSG',
+        'errormsg' => 'ERRORMSG',
+        'logperm.errormsg' => 'ERRORMSG',
+        'LogpermTableMap::COL_ERRORMSG' => 'ERRORMSG',
+        'COL_ERRORMSG' => 'ERRORMSG',
+        'Ordernbr' => 'ORDERNBR',
+        'Logperm.Ordernbr' => 'ORDERNBR',
+        'ordernbr' => 'ORDERNBR',
+        'logperm.ordernbr' => 'ORDERNBR',
+        'LogpermTableMap::COL_ORDERNBR' => 'ORDERNBR',
+        'COL_ORDERNBR' => 'ORDERNBR',
+        'Restrictaccess' => 'RESTRICTACCESS',
+        'Logperm.Restrictaccess' => 'RESTRICTACCESS',
+        'restrictaccess' => 'RESTRICTACCESS',
+        'logperm.restrictaccess' => 'RESTRICTACCESS',
+        'LogpermTableMap::COL_RESTRICTACCESS' => 'RESTRICTACCESS',
+        'COL_RESTRICTACCESS' => 'RESTRICTACCESS',
+        'Dummy' => 'DUMMY',
+        'Logperm.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'logperm.dummy' => 'DUMMY',
+        'LogpermTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('logperm');
@@ -205,14 +305,16 @@ class LogpermTableMap extends TableMap
         $this->addColumn('ordernbr', 'Ordernbr', 'VARCHAR', false, 30, null);
         $this->addColumn('restrictaccess', 'Restrictaccess', 'VARCHAR', false, 1, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -223,9 +325,11 @@ class LogpermTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \Logperm $obj A \Logperm object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(Logperm $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -244,8 +348,10 @@ class LogpermTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \Logperm object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \Logperm) {
@@ -273,14 +379,14 @@ class LogpermTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Recno', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -295,14 +401,14 @@ class LogpermTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -328,10 +434,10 @@ class LogpermTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? LogpermTableMap::CLASS_DEFAULT : LogpermTableMap::OM_CLASS;
     }
@@ -339,17 +445,17 @@ class LogpermTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (Logperm object, last column rank)
+     * @return array (Logperm object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = LogpermTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = LogpermTableMap::getInstanceFromPool($key))) {
@@ -365,7 +471,7 @@ class LogpermTableMap extends TableMap
             LogpermTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -373,13 +479,13 @@ class LogpermTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -409,12 +515,13 @@ class LogpermTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(LogpermTableMap::COL_SESSIONID);
@@ -450,40 +557,76 @@ class LogpermTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(LogpermTableMap::COL_SESSIONID);
+            $criteria->removeSelectColumn(LogpermTableMap::COL_RECNO);
+            $criteria->removeSelectColumn(LogpermTableMap::COL_DATE);
+            $criteria->removeSelectColumn(LogpermTableMap::COL_TIME);
+            $criteria->removeSelectColumn(LogpermTableMap::COL_LOGINID);
+            $criteria->removeSelectColumn(LogpermTableMap::COL_LOGINNAME);
+            $criteria->removeSelectColumn(LogpermTableMap::COL_SALESPERSONID);
+            $criteria->removeSelectColumn(LogpermTableMap::COL_SALESPERNAME);
+            $criteria->removeSelectColumn(LogpermTableMap::COL_VALIDLOGIN);
+            $criteria->removeSelectColumn(LogpermTableMap::COL_RESTRICTCUSTOMERS);
+            $criteria->removeSelectColumn(LogpermTableMap::COL_ERRORMSG);
+            $criteria->removeSelectColumn(LogpermTableMap::COL_ORDERNBR);
+            $criteria->removeSelectColumn(LogpermTableMap::COL_RESTRICTACCESS);
+            $criteria->removeSelectColumn(LogpermTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.sessionid');
+            $criteria->removeSelectColumn($alias . '.recno');
+            $criteria->removeSelectColumn($alias . '.date');
+            $criteria->removeSelectColumn($alias . '.time');
+            $criteria->removeSelectColumn($alias . '.loginid');
+            $criteria->removeSelectColumn($alias . '.loginname');
+            $criteria->removeSelectColumn($alias . '.salespersonid');
+            $criteria->removeSelectColumn($alias . '.salespername');
+            $criteria->removeSelectColumn($alias . '.validlogin');
+            $criteria->removeSelectColumn($alias . '.restrictcustomers');
+            $criteria->removeSelectColumn($alias . '.errormsg');
+            $criteria->removeSelectColumn($alias . '.ordernbr');
+            $criteria->removeSelectColumn($alias . '.restrictaccess');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(LogpermTableMap::DATABASE_NAME)->getTable(LogpermTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(LogpermTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(LogpermTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new LogpermTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a Logperm or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or Logperm object or primary key or array of primary keys
+     * @param mixed $values Criteria or Logperm object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(LogpermTableMap::DATABASE_NAME);
@@ -501,7 +644,7 @@ class LogpermTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(LogpermTableMap::COL_SESSIONID, $value[0]);
@@ -529,7 +672,7 @@ class LogpermTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return LogpermQuery::create()->doDeleteAll($con);
     }
@@ -537,13 +680,13 @@ class LogpermTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a Logperm or Criteria object.
      *
-     * @param mixed               $criteria Criteria or Logperm object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or Logperm object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(LogpermTableMap::DATABASE_NAME);
@@ -566,7 +709,4 @@ class LogpermTableMap extends TableMap
         });
     }
 
-} // LogpermTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-LogpermTableMap::buildTableMap();
+}

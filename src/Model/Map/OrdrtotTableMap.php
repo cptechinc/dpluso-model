@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class OrdrtotTableMap extends TableMap
 {
@@ -34,194 +33,343 @@ class OrdrtotTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.OrdrtotTableMap';
+    public const CLASS_NAME = '.Map.OrdrtotTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'dplusodb';
+    public const DATABASE_NAME = 'dplusodb';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'ordrtot';
+    public const TABLE_NAME = 'ordrtot';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'Ordrtot';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\Ordrtot';
+    public const OM_CLASS = '\\Ordrtot';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'Ordrtot';
+    public const CLASS_DEFAULT = 'Ordrtot';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 22;
+    public const NUM_COLUMNS = 22;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 22;
+    public const NUM_HYDRATE_COLUMNS = 22;
 
     /**
      * the column name for the sessionid field
      */
-    const COL_SESSIONID = 'ordrtot.sessionid';
+    public const COL_SESSIONID = 'ordrtot.sessionid';
 
     /**
      * the column name for the recno field
      */
-    const COL_RECNO = 'ordrtot.recno';
+    public const COL_RECNO = 'ordrtot.recno';
 
     /**
      * the column name for the date field
      */
-    const COL_DATE = 'ordrtot.date';
+    public const COL_DATE = 'ordrtot.date';
 
     /**
      * the column name for the time field
      */
-    const COL_TIME = 'ordrtot.time';
+    public const COL_TIME = 'ordrtot.time';
 
     /**
      * the column name for the type field
      */
-    const COL_TYPE = 'ordrtot.type';
+    public const COL_TYPE = 'ordrtot.type';
 
     /**
      * the column name for the custid field
      */
-    const COL_CUSTID = 'ordrtot.custid';
+    public const COL_CUSTID = 'ordrtot.custid';
 
     /**
      * the column name for the shiptoid field
      */
-    const COL_SHIPTOID = 'ordrtot.shiptoid';
+    public const COL_SHIPTOID = 'ordrtot.shiptoid';
 
     /**
      * the column name for the saleordnbr field
      */
-    const COL_SALEORDNBR = 'ordrtot.saleordnbr';
+    public const COL_SALEORDNBR = 'ordrtot.saleordnbr';
 
     /**
      * the column name for the saleordamt field
      */
-    const COL_SALEORDAMT = 'ordrtot.saleordamt';
+    public const COL_SALEORDAMT = 'ordrtot.saleordamt';
 
     /**
      * the column name for the openinvnbr field
      */
-    const COL_OPENINVNBR = 'ordrtot.openinvnbr';
+    public const COL_OPENINVNBR = 'ordrtot.openinvnbr';
 
     /**
      * the column name for the openinvamt field
      */
-    const COL_OPENINVAMT = 'ordrtot.openinvamt';
+    public const COL_OPENINVAMT = 'ordrtot.openinvamt';
 
     /**
      * the column name for the quotesbr field
      */
-    const COL_QUOTESBR = 'ordrtot.quotesbr';
+    public const COL_QUOTESBR = 'ordrtot.quotesbr';
 
     /**
      * the column name for the quotesmt field
      */
-    const COL_QUOTESMT = 'ordrtot.quotesmt';
+    public const COL_QUOTESMT = 'ordrtot.quotesmt';
 
     /**
      * the column name for the monthtodatenbr field
      */
-    const COL_MONTHTODATENBR = 'ordrtot.monthtodatenbr';
+    public const COL_MONTHTODATENBR = 'ordrtot.monthtodatenbr';
 
     /**
      * the column name for the monthtodateamt field
      */
-    const COL_MONTHTODATEAMT = 'ordrtot.monthtodateamt';
+    public const COL_MONTHTODATEAMT = 'ordrtot.monthtodateamt';
 
     /**
      * the column name for the yeartodatenbr field
      */
-    const COL_YEARTODATENBR = 'ordrtot.yeartodatenbr';
+    public const COL_YEARTODATENBR = 'ordrtot.yeartodatenbr';
 
     /**
      * the column name for the yeartodateamt field
      */
-    const COL_YEARTODATEAMT = 'ordrtot.yeartodateamt';
+    public const COL_YEARTODATEAMT = 'ordrtot.yeartodateamt';
 
     /**
      * the column name for the last12nbr field
      */
-    const COL_LAST12NBR = 'ordrtot.last12nbr';
+    public const COL_LAST12NBR = 'ordrtot.last12nbr';
 
     /**
      * the column name for the last12amt field
      */
-    const COL_LAST12AMT = 'ordrtot.last12amt';
+    public const COL_LAST12AMT = 'ordrtot.last12amt';
 
     /**
      * the column name for the prevyearnbr field
      */
-    const COL_PREVYEARNBR = 'ordrtot.prevyearnbr';
+    public const COL_PREVYEARNBR = 'ordrtot.prevyearnbr';
 
     /**
      * the column name for the prevyearamt field
      */
-    const COL_PREVYEARAMT = 'ordrtot.prevyearamt';
+    public const COL_PREVYEARAMT = 'ordrtot.prevyearamt';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'ordrtot.dummy';
+    public const COL_DUMMY = 'ordrtot.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Sessionid', 'Recno', 'Date', 'Time', 'Type', 'Custid', 'Shiptoid', 'Saleordnbr', 'Saleordamt', 'Openinvnbr', 'Openinvamt', 'Quotesbr', 'Quotesmt', 'Monthtodatenbr', 'Monthtodateamt', 'Yeartodatenbr', 'Yeartodateamt', 'Last12nbr', 'Last12amt', 'Prevyearnbr', 'Prevyearamt', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('sessionid', 'recno', 'date', 'time', 'type', 'custid', 'shiptoid', 'saleordnbr', 'saleordamt', 'openinvnbr', 'openinvamt', 'quotesbr', 'quotesmt', 'monthtodatenbr', 'monthtodateamt', 'yeartodatenbr', 'yeartodateamt', 'last12nbr', 'last12amt', 'prevyearnbr', 'prevyearamt', 'dummy', ),
-        self::TYPE_COLNAME       => array(OrdrtotTableMap::COL_SESSIONID, OrdrtotTableMap::COL_RECNO, OrdrtotTableMap::COL_DATE, OrdrtotTableMap::COL_TIME, OrdrtotTableMap::COL_TYPE, OrdrtotTableMap::COL_CUSTID, OrdrtotTableMap::COL_SHIPTOID, OrdrtotTableMap::COL_SALEORDNBR, OrdrtotTableMap::COL_SALEORDAMT, OrdrtotTableMap::COL_OPENINVNBR, OrdrtotTableMap::COL_OPENINVAMT, OrdrtotTableMap::COL_QUOTESBR, OrdrtotTableMap::COL_QUOTESMT, OrdrtotTableMap::COL_MONTHTODATENBR, OrdrtotTableMap::COL_MONTHTODATEAMT, OrdrtotTableMap::COL_YEARTODATENBR, OrdrtotTableMap::COL_YEARTODATEAMT, OrdrtotTableMap::COL_LAST12NBR, OrdrtotTableMap::COL_LAST12AMT, OrdrtotTableMap::COL_PREVYEARNBR, OrdrtotTableMap::COL_PREVYEARAMT, OrdrtotTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('sessionid', 'recno', 'date', 'time', 'type', 'custid', 'shiptoid', 'saleordnbr', 'saleordamt', 'openinvnbr', 'openinvamt', 'quotesbr', 'quotesmt', 'monthtodatenbr', 'monthtodateamt', 'yeartodatenbr', 'yeartodateamt', 'last12nbr', 'last12amt', 'prevyearnbr', 'prevyearamt', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Sessionid', 'Recno', 'Date', 'Time', 'Type', 'Custid', 'Shiptoid', 'Saleordnbr', 'Saleordamt', 'Openinvnbr', 'Openinvamt', 'Quotesbr', 'Quotesmt', 'Monthtodatenbr', 'Monthtodateamt', 'Yeartodatenbr', 'Yeartodateamt', 'Last12nbr', 'Last12amt', 'Prevyearnbr', 'Prevyearamt', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['sessionid', 'recno', 'date', 'time', 'type', 'custid', 'shiptoid', 'saleordnbr', 'saleordamt', 'openinvnbr', 'openinvamt', 'quotesbr', 'quotesmt', 'monthtodatenbr', 'monthtodateamt', 'yeartodatenbr', 'yeartodateamt', 'last12nbr', 'last12amt', 'prevyearnbr', 'prevyearamt', 'dummy', ],
+        self::TYPE_COLNAME       => [OrdrtotTableMap::COL_SESSIONID, OrdrtotTableMap::COL_RECNO, OrdrtotTableMap::COL_DATE, OrdrtotTableMap::COL_TIME, OrdrtotTableMap::COL_TYPE, OrdrtotTableMap::COL_CUSTID, OrdrtotTableMap::COL_SHIPTOID, OrdrtotTableMap::COL_SALEORDNBR, OrdrtotTableMap::COL_SALEORDAMT, OrdrtotTableMap::COL_OPENINVNBR, OrdrtotTableMap::COL_OPENINVAMT, OrdrtotTableMap::COL_QUOTESBR, OrdrtotTableMap::COL_QUOTESMT, OrdrtotTableMap::COL_MONTHTODATENBR, OrdrtotTableMap::COL_MONTHTODATEAMT, OrdrtotTableMap::COL_YEARTODATENBR, OrdrtotTableMap::COL_YEARTODATEAMT, OrdrtotTableMap::COL_LAST12NBR, OrdrtotTableMap::COL_LAST12AMT, OrdrtotTableMap::COL_PREVYEARNBR, OrdrtotTableMap::COL_PREVYEARAMT, OrdrtotTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['sessionid', 'recno', 'date', 'time', 'type', 'custid', 'shiptoid', 'saleordnbr', 'saleordamt', 'openinvnbr', 'openinvamt', 'quotesbr', 'quotesmt', 'monthtodatenbr', 'monthtodateamt', 'yeartodatenbr', 'yeartodateamt', 'last12nbr', 'last12amt', 'prevyearnbr', 'prevyearamt', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Recno' => 1, 'Date' => 2, 'Time' => 3, 'Type' => 4, 'Custid' => 5, 'Shiptoid' => 6, 'Saleordnbr' => 7, 'Saleordamt' => 8, 'Openinvnbr' => 9, 'Openinvamt' => 10, 'Quotesbr' => 11, 'Quotesmt' => 12, 'Monthtodatenbr' => 13, 'Monthtodateamt' => 14, 'Yeartodatenbr' => 15, 'Yeartodateamt' => 16, 'Last12nbr' => 17, 'Last12amt' => 18, 'Prevyearnbr' => 19, 'Prevyearamt' => 20, 'Dummy' => 21, ),
-        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'type' => 4, 'custid' => 5, 'shiptoid' => 6, 'saleordnbr' => 7, 'saleordamt' => 8, 'openinvnbr' => 9, 'openinvamt' => 10, 'quotesbr' => 11, 'quotesmt' => 12, 'monthtodatenbr' => 13, 'monthtodateamt' => 14, 'yeartodatenbr' => 15, 'yeartodateamt' => 16, 'last12nbr' => 17, 'last12amt' => 18, 'prevyearnbr' => 19, 'prevyearamt' => 20, 'dummy' => 21, ),
-        self::TYPE_COLNAME       => array(OrdrtotTableMap::COL_SESSIONID => 0, OrdrtotTableMap::COL_RECNO => 1, OrdrtotTableMap::COL_DATE => 2, OrdrtotTableMap::COL_TIME => 3, OrdrtotTableMap::COL_TYPE => 4, OrdrtotTableMap::COL_CUSTID => 5, OrdrtotTableMap::COL_SHIPTOID => 6, OrdrtotTableMap::COL_SALEORDNBR => 7, OrdrtotTableMap::COL_SALEORDAMT => 8, OrdrtotTableMap::COL_OPENINVNBR => 9, OrdrtotTableMap::COL_OPENINVAMT => 10, OrdrtotTableMap::COL_QUOTESBR => 11, OrdrtotTableMap::COL_QUOTESMT => 12, OrdrtotTableMap::COL_MONTHTODATENBR => 13, OrdrtotTableMap::COL_MONTHTODATEAMT => 14, OrdrtotTableMap::COL_YEARTODATENBR => 15, OrdrtotTableMap::COL_YEARTODATEAMT => 16, OrdrtotTableMap::COL_LAST12NBR => 17, OrdrtotTableMap::COL_LAST12AMT => 18, OrdrtotTableMap::COL_PREVYEARNBR => 19, OrdrtotTableMap::COL_PREVYEARAMT => 20, OrdrtotTableMap::COL_DUMMY => 21, ),
-        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'type' => 4, 'custid' => 5, 'shiptoid' => 6, 'saleordnbr' => 7, 'saleordamt' => 8, 'openinvnbr' => 9, 'openinvamt' => 10, 'quotesbr' => 11, 'quotesmt' => 12, 'monthtodatenbr' => 13, 'monthtodateamt' => 14, 'yeartodatenbr' => 15, 'yeartodateamt' => 16, 'last12nbr' => 17, 'last12amt' => 18, 'prevyearnbr' => 19, 'prevyearamt' => 20, 'dummy' => 21, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Sessionid' => 0, 'Recno' => 1, 'Date' => 2, 'Time' => 3, 'Type' => 4, 'Custid' => 5, 'Shiptoid' => 6, 'Saleordnbr' => 7, 'Saleordamt' => 8, 'Openinvnbr' => 9, 'Openinvamt' => 10, 'Quotesbr' => 11, 'Quotesmt' => 12, 'Monthtodatenbr' => 13, 'Monthtodateamt' => 14, 'Yeartodatenbr' => 15, 'Yeartodateamt' => 16, 'Last12nbr' => 17, 'Last12amt' => 18, 'Prevyearnbr' => 19, 'Prevyearamt' => 20, 'Dummy' => 21, ],
+        self::TYPE_CAMELNAME     => ['sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'type' => 4, 'custid' => 5, 'shiptoid' => 6, 'saleordnbr' => 7, 'saleordamt' => 8, 'openinvnbr' => 9, 'openinvamt' => 10, 'quotesbr' => 11, 'quotesmt' => 12, 'monthtodatenbr' => 13, 'monthtodateamt' => 14, 'yeartodatenbr' => 15, 'yeartodateamt' => 16, 'last12nbr' => 17, 'last12amt' => 18, 'prevyearnbr' => 19, 'prevyearamt' => 20, 'dummy' => 21, ],
+        self::TYPE_COLNAME       => [OrdrtotTableMap::COL_SESSIONID => 0, OrdrtotTableMap::COL_RECNO => 1, OrdrtotTableMap::COL_DATE => 2, OrdrtotTableMap::COL_TIME => 3, OrdrtotTableMap::COL_TYPE => 4, OrdrtotTableMap::COL_CUSTID => 5, OrdrtotTableMap::COL_SHIPTOID => 6, OrdrtotTableMap::COL_SALEORDNBR => 7, OrdrtotTableMap::COL_SALEORDAMT => 8, OrdrtotTableMap::COL_OPENINVNBR => 9, OrdrtotTableMap::COL_OPENINVAMT => 10, OrdrtotTableMap::COL_QUOTESBR => 11, OrdrtotTableMap::COL_QUOTESMT => 12, OrdrtotTableMap::COL_MONTHTODATENBR => 13, OrdrtotTableMap::COL_MONTHTODATEAMT => 14, OrdrtotTableMap::COL_YEARTODATENBR => 15, OrdrtotTableMap::COL_YEARTODATEAMT => 16, OrdrtotTableMap::COL_LAST12NBR => 17, OrdrtotTableMap::COL_LAST12AMT => 18, OrdrtotTableMap::COL_PREVYEARNBR => 19, OrdrtotTableMap::COL_PREVYEARAMT => 20, OrdrtotTableMap::COL_DUMMY => 21, ],
+        self::TYPE_FIELDNAME     => ['sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'type' => 4, 'custid' => 5, 'shiptoid' => 6, 'saleordnbr' => 7, 'saleordamt' => 8, 'openinvnbr' => 9, 'openinvamt' => 10, 'quotesbr' => 11, 'quotesmt' => 12, 'monthtodatenbr' => 13, 'monthtodateamt' => 14, 'yeartodatenbr' => 15, 'yeartodateamt' => 16, 'last12nbr' => 17, 'last12amt' => 18, 'prevyearnbr' => 19, 'prevyearamt' => 20, 'dummy' => 21, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Sessionid' => 'SESSIONID',
+        'Ordrtot.Sessionid' => 'SESSIONID',
+        'sessionid' => 'SESSIONID',
+        'ordrtot.sessionid' => 'SESSIONID',
+        'OrdrtotTableMap::COL_SESSIONID' => 'SESSIONID',
+        'COL_SESSIONID' => 'SESSIONID',
+        'Recno' => 'RECNO',
+        'Ordrtot.Recno' => 'RECNO',
+        'recno' => 'RECNO',
+        'ordrtot.recno' => 'RECNO',
+        'OrdrtotTableMap::COL_RECNO' => 'RECNO',
+        'COL_RECNO' => 'RECNO',
+        'Date' => 'DATE',
+        'Ordrtot.Date' => 'DATE',
+        'date' => 'DATE',
+        'ordrtot.date' => 'DATE',
+        'OrdrtotTableMap::COL_DATE' => 'DATE',
+        'COL_DATE' => 'DATE',
+        'Time' => 'TIME',
+        'Ordrtot.Time' => 'TIME',
+        'time' => 'TIME',
+        'ordrtot.time' => 'TIME',
+        'OrdrtotTableMap::COL_TIME' => 'TIME',
+        'COL_TIME' => 'TIME',
+        'Type' => 'TYPE',
+        'Ordrtot.Type' => 'TYPE',
+        'type' => 'TYPE',
+        'ordrtot.type' => 'TYPE',
+        'OrdrtotTableMap::COL_TYPE' => 'TYPE',
+        'COL_TYPE' => 'TYPE',
+        'Custid' => 'CUSTID',
+        'Ordrtot.Custid' => 'CUSTID',
+        'custid' => 'CUSTID',
+        'ordrtot.custid' => 'CUSTID',
+        'OrdrtotTableMap::COL_CUSTID' => 'CUSTID',
+        'COL_CUSTID' => 'CUSTID',
+        'Shiptoid' => 'SHIPTOID',
+        'Ordrtot.Shiptoid' => 'SHIPTOID',
+        'shiptoid' => 'SHIPTOID',
+        'ordrtot.shiptoid' => 'SHIPTOID',
+        'OrdrtotTableMap::COL_SHIPTOID' => 'SHIPTOID',
+        'COL_SHIPTOID' => 'SHIPTOID',
+        'Saleordnbr' => 'SALEORDNBR',
+        'Ordrtot.Saleordnbr' => 'SALEORDNBR',
+        'saleordnbr' => 'SALEORDNBR',
+        'ordrtot.saleordnbr' => 'SALEORDNBR',
+        'OrdrtotTableMap::COL_SALEORDNBR' => 'SALEORDNBR',
+        'COL_SALEORDNBR' => 'SALEORDNBR',
+        'Saleordamt' => 'SALEORDAMT',
+        'Ordrtot.Saleordamt' => 'SALEORDAMT',
+        'saleordamt' => 'SALEORDAMT',
+        'ordrtot.saleordamt' => 'SALEORDAMT',
+        'OrdrtotTableMap::COL_SALEORDAMT' => 'SALEORDAMT',
+        'COL_SALEORDAMT' => 'SALEORDAMT',
+        'Openinvnbr' => 'OPENINVNBR',
+        'Ordrtot.Openinvnbr' => 'OPENINVNBR',
+        'openinvnbr' => 'OPENINVNBR',
+        'ordrtot.openinvnbr' => 'OPENINVNBR',
+        'OrdrtotTableMap::COL_OPENINVNBR' => 'OPENINVNBR',
+        'COL_OPENINVNBR' => 'OPENINVNBR',
+        'Openinvamt' => 'OPENINVAMT',
+        'Ordrtot.Openinvamt' => 'OPENINVAMT',
+        'openinvamt' => 'OPENINVAMT',
+        'ordrtot.openinvamt' => 'OPENINVAMT',
+        'OrdrtotTableMap::COL_OPENINVAMT' => 'OPENINVAMT',
+        'COL_OPENINVAMT' => 'OPENINVAMT',
+        'Quotesbr' => 'QUOTESBR',
+        'Ordrtot.Quotesbr' => 'QUOTESBR',
+        'quotesbr' => 'QUOTESBR',
+        'ordrtot.quotesbr' => 'QUOTESBR',
+        'OrdrtotTableMap::COL_QUOTESBR' => 'QUOTESBR',
+        'COL_QUOTESBR' => 'QUOTESBR',
+        'Quotesmt' => 'QUOTESMT',
+        'Ordrtot.Quotesmt' => 'QUOTESMT',
+        'quotesmt' => 'QUOTESMT',
+        'ordrtot.quotesmt' => 'QUOTESMT',
+        'OrdrtotTableMap::COL_QUOTESMT' => 'QUOTESMT',
+        'COL_QUOTESMT' => 'QUOTESMT',
+        'Monthtodatenbr' => 'MONTHTODATENBR',
+        'Ordrtot.Monthtodatenbr' => 'MONTHTODATENBR',
+        'monthtodatenbr' => 'MONTHTODATENBR',
+        'ordrtot.monthtodatenbr' => 'MONTHTODATENBR',
+        'OrdrtotTableMap::COL_MONTHTODATENBR' => 'MONTHTODATENBR',
+        'COL_MONTHTODATENBR' => 'MONTHTODATENBR',
+        'Monthtodateamt' => 'MONTHTODATEAMT',
+        'Ordrtot.Monthtodateamt' => 'MONTHTODATEAMT',
+        'monthtodateamt' => 'MONTHTODATEAMT',
+        'ordrtot.monthtodateamt' => 'MONTHTODATEAMT',
+        'OrdrtotTableMap::COL_MONTHTODATEAMT' => 'MONTHTODATEAMT',
+        'COL_MONTHTODATEAMT' => 'MONTHTODATEAMT',
+        'Yeartodatenbr' => 'YEARTODATENBR',
+        'Ordrtot.Yeartodatenbr' => 'YEARTODATENBR',
+        'yeartodatenbr' => 'YEARTODATENBR',
+        'ordrtot.yeartodatenbr' => 'YEARTODATENBR',
+        'OrdrtotTableMap::COL_YEARTODATENBR' => 'YEARTODATENBR',
+        'COL_YEARTODATENBR' => 'YEARTODATENBR',
+        'Yeartodateamt' => 'YEARTODATEAMT',
+        'Ordrtot.Yeartodateamt' => 'YEARTODATEAMT',
+        'yeartodateamt' => 'YEARTODATEAMT',
+        'ordrtot.yeartodateamt' => 'YEARTODATEAMT',
+        'OrdrtotTableMap::COL_YEARTODATEAMT' => 'YEARTODATEAMT',
+        'COL_YEARTODATEAMT' => 'YEARTODATEAMT',
+        'Last12nbr' => 'LAST12NBR',
+        'Ordrtot.Last12nbr' => 'LAST12NBR',
+        'last12nbr' => 'LAST12NBR',
+        'ordrtot.last12nbr' => 'LAST12NBR',
+        'OrdrtotTableMap::COL_LAST12NBR' => 'LAST12NBR',
+        'COL_LAST12NBR' => 'LAST12NBR',
+        'Last12amt' => 'LAST12AMT',
+        'Ordrtot.Last12amt' => 'LAST12AMT',
+        'last12amt' => 'LAST12AMT',
+        'ordrtot.last12amt' => 'LAST12AMT',
+        'OrdrtotTableMap::COL_LAST12AMT' => 'LAST12AMT',
+        'COL_LAST12AMT' => 'LAST12AMT',
+        'Prevyearnbr' => 'PREVYEARNBR',
+        'Ordrtot.Prevyearnbr' => 'PREVYEARNBR',
+        'prevyearnbr' => 'PREVYEARNBR',
+        'ordrtot.prevyearnbr' => 'PREVYEARNBR',
+        'OrdrtotTableMap::COL_PREVYEARNBR' => 'PREVYEARNBR',
+        'COL_PREVYEARNBR' => 'PREVYEARNBR',
+        'Prevyearamt' => 'PREVYEARAMT',
+        'Ordrtot.Prevyearamt' => 'PREVYEARAMT',
+        'prevyearamt' => 'PREVYEARAMT',
+        'ordrtot.prevyearamt' => 'PREVYEARAMT',
+        'OrdrtotTableMap::COL_PREVYEARAMT' => 'PREVYEARAMT',
+        'COL_PREVYEARAMT' => 'PREVYEARAMT',
+        'Dummy' => 'DUMMY',
+        'Ordrtot.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'ordrtot.dummy' => 'DUMMY',
+        'OrdrtotTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('ordrtot');
@@ -253,14 +401,16 @@ class OrdrtotTableMap extends TableMap
         $this->addColumn('prevyearnbr', 'Prevyearnbr', 'INTEGER', false, 8, null);
         $this->addColumn('prevyearamt', 'Prevyearamt', 'DECIMAL', false, 10, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -271,9 +421,11 @@ class OrdrtotTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \Ordrtot $obj A \Ordrtot object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(Ordrtot $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -292,8 +444,10 @@ class OrdrtotTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \Ordrtot object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \Ordrtot) {
@@ -321,14 +475,14 @@ class OrdrtotTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Recno', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -343,14 +497,14 @@ class OrdrtotTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -376,10 +530,10 @@ class OrdrtotTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? OrdrtotTableMap::CLASS_DEFAULT : OrdrtotTableMap::OM_CLASS;
     }
@@ -387,17 +541,17 @@ class OrdrtotTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (Ordrtot object, last column rank)
+     * @return array (Ordrtot object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = OrdrtotTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = OrdrtotTableMap::getInstanceFromPool($key))) {
@@ -413,7 +567,7 @@ class OrdrtotTableMap extends TableMap
             OrdrtotTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -421,13 +575,13 @@ class OrdrtotTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -457,12 +611,13 @@ class OrdrtotTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(OrdrtotTableMap::COL_SESSIONID);
@@ -514,40 +669,92 @@ class OrdrtotTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(OrdrtotTableMap::COL_SESSIONID);
+            $criteria->removeSelectColumn(OrdrtotTableMap::COL_RECNO);
+            $criteria->removeSelectColumn(OrdrtotTableMap::COL_DATE);
+            $criteria->removeSelectColumn(OrdrtotTableMap::COL_TIME);
+            $criteria->removeSelectColumn(OrdrtotTableMap::COL_TYPE);
+            $criteria->removeSelectColumn(OrdrtotTableMap::COL_CUSTID);
+            $criteria->removeSelectColumn(OrdrtotTableMap::COL_SHIPTOID);
+            $criteria->removeSelectColumn(OrdrtotTableMap::COL_SALEORDNBR);
+            $criteria->removeSelectColumn(OrdrtotTableMap::COL_SALEORDAMT);
+            $criteria->removeSelectColumn(OrdrtotTableMap::COL_OPENINVNBR);
+            $criteria->removeSelectColumn(OrdrtotTableMap::COL_OPENINVAMT);
+            $criteria->removeSelectColumn(OrdrtotTableMap::COL_QUOTESBR);
+            $criteria->removeSelectColumn(OrdrtotTableMap::COL_QUOTESMT);
+            $criteria->removeSelectColumn(OrdrtotTableMap::COL_MONTHTODATENBR);
+            $criteria->removeSelectColumn(OrdrtotTableMap::COL_MONTHTODATEAMT);
+            $criteria->removeSelectColumn(OrdrtotTableMap::COL_YEARTODATENBR);
+            $criteria->removeSelectColumn(OrdrtotTableMap::COL_YEARTODATEAMT);
+            $criteria->removeSelectColumn(OrdrtotTableMap::COL_LAST12NBR);
+            $criteria->removeSelectColumn(OrdrtotTableMap::COL_LAST12AMT);
+            $criteria->removeSelectColumn(OrdrtotTableMap::COL_PREVYEARNBR);
+            $criteria->removeSelectColumn(OrdrtotTableMap::COL_PREVYEARAMT);
+            $criteria->removeSelectColumn(OrdrtotTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.sessionid');
+            $criteria->removeSelectColumn($alias . '.recno');
+            $criteria->removeSelectColumn($alias . '.date');
+            $criteria->removeSelectColumn($alias . '.time');
+            $criteria->removeSelectColumn($alias . '.type');
+            $criteria->removeSelectColumn($alias . '.custid');
+            $criteria->removeSelectColumn($alias . '.shiptoid');
+            $criteria->removeSelectColumn($alias . '.saleordnbr');
+            $criteria->removeSelectColumn($alias . '.saleordamt');
+            $criteria->removeSelectColumn($alias . '.openinvnbr');
+            $criteria->removeSelectColumn($alias . '.openinvamt');
+            $criteria->removeSelectColumn($alias . '.quotesbr');
+            $criteria->removeSelectColumn($alias . '.quotesmt');
+            $criteria->removeSelectColumn($alias . '.monthtodatenbr');
+            $criteria->removeSelectColumn($alias . '.monthtodateamt');
+            $criteria->removeSelectColumn($alias . '.yeartodatenbr');
+            $criteria->removeSelectColumn($alias . '.yeartodateamt');
+            $criteria->removeSelectColumn($alias . '.last12nbr');
+            $criteria->removeSelectColumn($alias . '.last12amt');
+            $criteria->removeSelectColumn($alias . '.prevyearnbr');
+            $criteria->removeSelectColumn($alias . '.prevyearamt');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(OrdrtotTableMap::DATABASE_NAME)->getTable(OrdrtotTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(OrdrtotTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(OrdrtotTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new OrdrtotTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a Ordrtot or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or Ordrtot object or primary key or array of primary keys
+     * @param mixed $values Criteria or Ordrtot object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(OrdrtotTableMap::DATABASE_NAME);
@@ -565,7 +772,7 @@ class OrdrtotTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(OrdrtotTableMap::COL_SESSIONID, $value[0]);
@@ -593,7 +800,7 @@ class OrdrtotTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return OrdrtotQuery::create()->doDeleteAll($con);
     }
@@ -601,13 +808,13 @@ class OrdrtotTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a Ordrtot or Criteria object.
      *
-     * @param mixed               $criteria Criteria or Ordrtot object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or Ordrtot object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(OrdrtotTableMap::DATABASE_NAME);
@@ -630,7 +837,4 @@ class OrdrtotTableMap extends TableMap
         });
     }
 
-} // OrdrtotTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-OrdrtotTableMap::buildTableMap();
+}

@@ -10,14 +10,12 @@ use Map\BookingcTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'bookingc' table.
- *
- *
+ * Base class that represents a query for the `bookingc` table.
  *
  * @method     ChildBookingcQuery orderByCustid($order = Criteria::ASC) Order by the custid column
  * @method     ChildBookingcQuery orderByShiptoid($order = Criteria::ASC) Order by the shiptoid column
@@ -43,19 +41,19 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildBookingcQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildBookingcQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildBookingc findOne(ConnectionInterface $con = null) Return the first ChildBookingc matching the query
- * @method     ChildBookingc findOneOrCreate(ConnectionInterface $con = null) Return the first ChildBookingc matching the query, or a new ChildBookingc object populated from the query conditions when no match is found
+ * @method     ChildBookingc|null findOne(?ConnectionInterface $con = null) Return the first ChildBookingc matching the query
+ * @method     ChildBookingc findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildBookingc matching the query, or a new ChildBookingc object populated from the query conditions when no match is found
  *
- * @method     ChildBookingc findOneByCustid(string $custid) Return the first ChildBookingc filtered by the custid column
- * @method     ChildBookingc findOneByShiptoid(string $shiptoid) Return the first ChildBookingc filtered by the shiptoid column
- * @method     ChildBookingc findOneByBookdate(int $bookdate) Return the first ChildBookingc filtered by the bookdate column
- * @method     ChildBookingc findOneBySalesrep(string $salesrep) Return the first ChildBookingc filtered by the salesrep column
- * @method     ChildBookingc findOneByAmount(string $amount) Return the first ChildBookingc filtered by the amount column
- * @method     ChildBookingc findOneByDateupdated(int $dateupdated) Return the first ChildBookingc filtered by the dateupdated column
- * @method     ChildBookingc findOneByTimeupdated(string $timeupdated) Return the first ChildBookingc filtered by the timeupdated column *
-
- * @method     ChildBookingc requirePk($key, ConnectionInterface $con = null) Return the ChildBookingc by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildBookingc requireOne(ConnectionInterface $con = null) Return the first ChildBookingc matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildBookingc|null findOneByCustid(string $custid) Return the first ChildBookingc filtered by the custid column
+ * @method     ChildBookingc|null findOneByShiptoid(string $shiptoid) Return the first ChildBookingc filtered by the shiptoid column
+ * @method     ChildBookingc|null findOneByBookdate(int $bookdate) Return the first ChildBookingc filtered by the bookdate column
+ * @method     ChildBookingc|null findOneBySalesrep(string $salesrep) Return the first ChildBookingc filtered by the salesrep column
+ * @method     ChildBookingc|null findOneByAmount(string $amount) Return the first ChildBookingc filtered by the amount column
+ * @method     ChildBookingc|null findOneByDateupdated(int $dateupdated) Return the first ChildBookingc filtered by the dateupdated column
+ * @method     ChildBookingc|null findOneByTimeupdated(string $timeupdated) Return the first ChildBookingc filtered by the timeupdated column
+ *
+ * @method     ChildBookingc requirePk($key, ?ConnectionInterface $con = null) Return the ChildBookingc by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildBookingc requireOne(?ConnectionInterface $con = null) Return the first ChildBookingc matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildBookingc requireOneByCustid(string $custid) Return the first ChildBookingc filtered by the custid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildBookingc requireOneByShiptoid(string $shiptoid) Return the first ChildBookingc filtered by the shiptoid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -65,16 +63,26 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildBookingc requireOneByDateupdated(int $dateupdated) Return the first ChildBookingc filtered by the dateupdated column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildBookingc requireOneByTimeupdated(string $timeupdated) Return the first ChildBookingc filtered by the timeupdated column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildBookingc[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildBookingc objects based on current ModelCriteria
- * @method     ChildBookingc[]|ObjectCollection findByCustid(string $custid) Return ChildBookingc objects filtered by the custid column
- * @method     ChildBookingc[]|ObjectCollection findByShiptoid(string $shiptoid) Return ChildBookingc objects filtered by the shiptoid column
- * @method     ChildBookingc[]|ObjectCollection findByBookdate(int $bookdate) Return ChildBookingc objects filtered by the bookdate column
- * @method     ChildBookingc[]|ObjectCollection findBySalesrep(string $salesrep) Return ChildBookingc objects filtered by the salesrep column
- * @method     ChildBookingc[]|ObjectCollection findByAmount(string $amount) Return ChildBookingc objects filtered by the amount column
- * @method     ChildBookingc[]|ObjectCollection findByDateupdated(int $dateupdated) Return ChildBookingc objects filtered by the dateupdated column
- * @method     ChildBookingc[]|ObjectCollection findByTimeupdated(string $timeupdated) Return ChildBookingc objects filtered by the timeupdated column
- * @method     ChildBookingc[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildBookingc[]|Collection find(?ConnectionInterface $con = null) Return ChildBookingc objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildBookingc> find(?ConnectionInterface $con = null) Return ChildBookingc objects based on current ModelCriteria
  *
+ * @method     ChildBookingc[]|Collection findByCustid(string|array<string> $custid) Return ChildBookingc objects filtered by the custid column
+ * @psalm-method Collection&\Traversable<ChildBookingc> findByCustid(string|array<string> $custid) Return ChildBookingc objects filtered by the custid column
+ * @method     ChildBookingc[]|Collection findByShiptoid(string|array<string> $shiptoid) Return ChildBookingc objects filtered by the shiptoid column
+ * @psalm-method Collection&\Traversable<ChildBookingc> findByShiptoid(string|array<string> $shiptoid) Return ChildBookingc objects filtered by the shiptoid column
+ * @method     ChildBookingc[]|Collection findByBookdate(int|array<int> $bookdate) Return ChildBookingc objects filtered by the bookdate column
+ * @psalm-method Collection&\Traversable<ChildBookingc> findByBookdate(int|array<int> $bookdate) Return ChildBookingc objects filtered by the bookdate column
+ * @method     ChildBookingc[]|Collection findBySalesrep(string|array<string> $salesrep) Return ChildBookingc objects filtered by the salesrep column
+ * @psalm-method Collection&\Traversable<ChildBookingc> findBySalesrep(string|array<string> $salesrep) Return ChildBookingc objects filtered by the salesrep column
+ * @method     ChildBookingc[]|Collection findByAmount(string|array<string> $amount) Return ChildBookingc objects filtered by the amount column
+ * @psalm-method Collection&\Traversable<ChildBookingc> findByAmount(string|array<string> $amount) Return ChildBookingc objects filtered by the amount column
+ * @method     ChildBookingc[]|Collection findByDateupdated(int|array<int> $dateupdated) Return ChildBookingc objects filtered by the dateupdated column
+ * @psalm-method Collection&\Traversable<ChildBookingc> findByDateupdated(int|array<int> $dateupdated) Return ChildBookingc objects filtered by the dateupdated column
+ * @method     ChildBookingc[]|Collection findByTimeupdated(string|array<string> $timeupdated) Return ChildBookingc objects filtered by the timeupdated column
+ * @psalm-method Collection&\Traversable<ChildBookingc> findByTimeupdated(string|array<string> $timeupdated) Return ChildBookingc objects filtered by the timeupdated column
+ *
+ * @method     ChildBookingc[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildBookingc> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class BookingcQuery extends ModelCriteria
 {
@@ -83,11 +91,11 @@ abstract class BookingcQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\BookingcQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
-    public function __construct($dbName = 'default', $modelName = '\\Bookingc', $modelAlias = null)
+    public function __construct($dbName = 'dplusodb', $modelName = '\\Bookingc', $modelAlias = null)
     {
         parent::__construct($dbName, $modelName, $modelAlias);
     }
@@ -95,12 +103,12 @@ abstract class BookingcQuery extends ModelCriteria
     /**
      * Returns a new ChildBookingcQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildBookingcQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildBookingcQuery) {
             return $criteria;
@@ -130,7 +138,7 @@ abstract class BookingcQuery extends ModelCriteria
      *
      * @return ChildBookingc|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -162,8 +170,8 @@ abstract class BookingcQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -198,8 +206,8 @@ abstract class BookingcQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildBookingc|array|mixed the result, formatted by the current formatter
      */
@@ -219,12 +227,12 @@ abstract class BookingcQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -241,9 +249,9 @@ abstract class BookingcQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildBookingcQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -258,14 +266,16 @@ abstract class BookingcQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildBookingcQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(BookingcTableMap::COL_CUSTID, $key[0], Criteria::EQUAL);
@@ -288,14 +298,15 @@ abstract class BookingcQuery extends ModelCriteria
      * <code>
      * $query->filterByCustid('fooValue');   // WHERE custid = 'fooValue'
      * $query->filterByCustid('%fooValue%', Criteria::LIKE); // WHERE custid LIKE '%fooValue%'
+     * $query->filterByCustid(['foo', 'bar']); // WHERE custid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $custid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $custid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingcQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustid($custid = null, $comparison = null)
+    public function filterByCustid($custid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($custid)) {
@@ -303,7 +314,9 @@ abstract class BookingcQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingcTableMap::COL_CUSTID, $custid, $comparison);
+        $this->addUsingAlias(BookingcTableMap::COL_CUSTID, $custid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -313,14 +326,15 @@ abstract class BookingcQuery extends ModelCriteria
      * <code>
      * $query->filterByShiptoid('fooValue');   // WHERE shiptoid = 'fooValue'
      * $query->filterByShiptoid('%fooValue%', Criteria::LIKE); // WHERE shiptoid LIKE '%fooValue%'
+     * $query->filterByShiptoid(['foo', 'bar']); // WHERE shiptoid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $shiptoid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $shiptoid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingcQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShiptoid($shiptoid = null, $comparison = null)
+    public function filterByShiptoid($shiptoid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($shiptoid)) {
@@ -328,7 +342,9 @@ abstract class BookingcQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingcTableMap::COL_SHIPTOID, $shiptoid, $comparison);
+        $this->addUsingAlias(BookingcTableMap::COL_SHIPTOID, $shiptoid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -341,15 +357,15 @@ abstract class BookingcQuery extends ModelCriteria
      * $query->filterByBookdate(array('min' => 12)); // WHERE bookdate > 12
      * </code>
      *
-     * @param     mixed $bookdate The value to use as filter.
+     * @param mixed $bookdate The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingcQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBookdate($bookdate = null, $comparison = null)
+    public function filterByBookdate($bookdate = null, ?string $comparison = null)
     {
         if (is_array($bookdate)) {
             $useMinMax = false;
@@ -369,7 +385,9 @@ abstract class BookingcQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingcTableMap::COL_BOOKDATE, $bookdate, $comparison);
+        $this->addUsingAlias(BookingcTableMap::COL_BOOKDATE, $bookdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -379,14 +397,15 @@ abstract class BookingcQuery extends ModelCriteria
      * <code>
      * $query->filterBySalesrep('fooValue');   // WHERE salesrep = 'fooValue'
      * $query->filterBySalesrep('%fooValue%', Criteria::LIKE); // WHERE salesrep LIKE '%fooValue%'
+     * $query->filterBySalesrep(['foo', 'bar']); // WHERE salesrep IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $salesrep The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $salesrep The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingcQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesrep($salesrep = null, $comparison = null)
+    public function filterBySalesrep($salesrep = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($salesrep)) {
@@ -394,7 +413,9 @@ abstract class BookingcQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingcTableMap::COL_SALESREP, $salesrep, $comparison);
+        $this->addUsingAlias(BookingcTableMap::COL_SALESREP, $salesrep, $comparison);
+
+        return $this;
     }
 
     /**
@@ -407,15 +428,15 @@ abstract class BookingcQuery extends ModelCriteria
      * $query->filterByAmount(array('min' => 12)); // WHERE amount > 12
      * </code>
      *
-     * @param     mixed $amount The value to use as filter.
+     * @param mixed $amount The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingcQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAmount($amount = null, $comparison = null)
+    public function filterByAmount($amount = null, ?string $comparison = null)
     {
         if (is_array($amount)) {
             $useMinMax = false;
@@ -435,7 +456,9 @@ abstract class BookingcQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingcTableMap::COL_AMOUNT, $amount, $comparison);
+        $this->addUsingAlias(BookingcTableMap::COL_AMOUNT, $amount, $comparison);
+
+        return $this;
     }
 
     /**
@@ -448,15 +471,15 @@ abstract class BookingcQuery extends ModelCriteria
      * $query->filterByDateupdated(array('min' => 12)); // WHERE dateupdated > 12
      * </code>
      *
-     * @param     mixed $dateupdated The value to use as filter.
+     * @param mixed $dateupdated The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingcQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdated($dateupdated = null, $comparison = null)
+    public function filterByDateupdated($dateupdated = null, ?string $comparison = null)
     {
         if (is_array($dateupdated)) {
             $useMinMax = false;
@@ -476,7 +499,9 @@ abstract class BookingcQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingcTableMap::COL_DATEUPDATED, $dateupdated, $comparison);
+        $this->addUsingAlias(BookingcTableMap::COL_DATEUPDATED, $dateupdated, $comparison);
+
+        return $this;
     }
 
     /**
@@ -486,14 +511,15 @@ abstract class BookingcQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdated('fooValue');   // WHERE timeupdated = 'fooValue'
      * $query->filterByTimeupdated('%fooValue%', Criteria::LIKE); // WHERE timeupdated LIKE '%fooValue%'
+     * $query->filterByTimeupdated(['foo', 'bar']); // WHERE timeupdated IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdated The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdated The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingcQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdated($timeupdated = null, $comparison = null)
+    public function filterByTimeupdated($timeupdated = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdated)) {
@@ -501,15 +527,17 @@ abstract class BookingcQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingcTableMap::COL_TIMEUPDATED, $timeupdated, $comparison);
+        $this->addUsingAlias(BookingcTableMap::COL_TIMEUPDATED, $timeupdated, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildBookingc $bookingc Object to remove from the list of results
+     * @param ChildBookingc $bookingc Object to remove from the list of results
      *
-     * @return $this|ChildBookingcQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($bookingc = null)
     {
@@ -530,7 +558,7 @@ abstract class BookingcQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(BookingcTableMap::DATABASE_NAME);
@@ -555,12 +583,12 @@ abstract class BookingcQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(BookingcTableMap::DATABASE_NAME);
@@ -585,4 +613,4 @@ abstract class BookingcQuery extends ModelCriteria
         });
     }
 
-} // BookingcQuery
+}

@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class WhseavailTableMap extends TableMap
 {
@@ -34,139 +33,222 @@ class WhseavailTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.WhseavailTableMap';
+    public const CLASS_NAME = '.Map.WhseavailTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'dplusodb';
+    public const DATABASE_NAME = 'dplusodb';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'whseavail';
+    public const TABLE_NAME = 'whseavail';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'Whseavail';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\Whseavail';
+    public const OM_CLASS = '\\Whseavail';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'Whseavail';
+    public const CLASS_DEFAULT = 'Whseavail';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 11;
+    public const NUM_COLUMNS = 11;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 11;
+    public const NUM_HYDRATE_COLUMNS = 11;
 
     /**
      * the column name for the sessionid field
      */
-    const COL_SESSIONID = 'whseavail.sessionid';
+    public const COL_SESSIONID = 'whseavail.sessionid';
 
     /**
      * the column name for the recno field
      */
-    const COL_RECNO = 'whseavail.recno';
+    public const COL_RECNO = 'whseavail.recno';
 
     /**
      * the column name for the date field
      */
-    const COL_DATE = 'whseavail.date';
+    public const COL_DATE = 'whseavail.date';
 
     /**
      * the column name for the time field
      */
-    const COL_TIME = 'whseavail.time';
+    public const COL_TIME = 'whseavail.time';
 
     /**
      * the column name for the whsecd field
      */
-    const COL_WHSECD = 'whseavail.whsecd';
+    public const COL_WHSECD = 'whseavail.whsecd';
 
     /**
      * the column name for the whsename field
      */
-    const COL_WHSENAME = 'whseavail.whsename';
+    public const COL_WHSENAME = 'whseavail.whsename';
 
     /**
      * the column name for the itemid field
      */
-    const COL_ITEMID = 'whseavail.itemid';
+    public const COL_ITEMID = 'whseavail.itemid';
 
     /**
      * the column name for the itemavail field
      */
-    const COL_ITEMAVAIL = 'whseavail.itemavail';
+    public const COL_ITEMAVAIL = 'whseavail.itemavail';
 
     /**
      * the column name for the itemonord field
      */
-    const COL_ITEMONORD = 'whseavail.itemonord';
+    public const COL_ITEMONORD = 'whseavail.itemonord';
 
     /**
      * the column name for the itemetadt field
      */
-    const COL_ITEMETADT = 'whseavail.itemetadt';
+    public const COL_ITEMETADT = 'whseavail.itemetadt';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'whseavail.dummy';
+    public const COL_DUMMY = 'whseavail.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Sessionid', 'Recno', 'Date', 'Time', 'Whsecd', 'Whsename', 'Itemid', 'Itemavail', 'Itemonord', 'Itemetadt', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('sessionid', 'recno', 'date', 'time', 'whsecd', 'whsename', 'itemid', 'itemavail', 'itemonord', 'itemetadt', 'dummy', ),
-        self::TYPE_COLNAME       => array(WhseavailTableMap::COL_SESSIONID, WhseavailTableMap::COL_RECNO, WhseavailTableMap::COL_DATE, WhseavailTableMap::COL_TIME, WhseavailTableMap::COL_WHSECD, WhseavailTableMap::COL_WHSENAME, WhseavailTableMap::COL_ITEMID, WhseavailTableMap::COL_ITEMAVAIL, WhseavailTableMap::COL_ITEMONORD, WhseavailTableMap::COL_ITEMETADT, WhseavailTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('sessionid', 'recno', 'date', 'time', 'whsecd', 'whsename', 'itemid', 'itemavail', 'itemonord', 'itemetadt', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Sessionid', 'Recno', 'Date', 'Time', 'Whsecd', 'Whsename', 'Itemid', 'Itemavail', 'Itemonord', 'Itemetadt', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['sessionid', 'recno', 'date', 'time', 'whsecd', 'whsename', 'itemid', 'itemavail', 'itemonord', 'itemetadt', 'dummy', ],
+        self::TYPE_COLNAME       => [WhseavailTableMap::COL_SESSIONID, WhseavailTableMap::COL_RECNO, WhseavailTableMap::COL_DATE, WhseavailTableMap::COL_TIME, WhseavailTableMap::COL_WHSECD, WhseavailTableMap::COL_WHSENAME, WhseavailTableMap::COL_ITEMID, WhseavailTableMap::COL_ITEMAVAIL, WhseavailTableMap::COL_ITEMONORD, WhseavailTableMap::COL_ITEMETADT, WhseavailTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['sessionid', 'recno', 'date', 'time', 'whsecd', 'whsename', 'itemid', 'itemavail', 'itemonord', 'itemetadt', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Recno' => 1, 'Date' => 2, 'Time' => 3, 'Whsecd' => 4, 'Whsename' => 5, 'Itemid' => 6, 'Itemavail' => 7, 'Itemonord' => 8, 'Itemetadt' => 9, 'Dummy' => 10, ),
-        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'whsecd' => 4, 'whsename' => 5, 'itemid' => 6, 'itemavail' => 7, 'itemonord' => 8, 'itemetadt' => 9, 'dummy' => 10, ),
-        self::TYPE_COLNAME       => array(WhseavailTableMap::COL_SESSIONID => 0, WhseavailTableMap::COL_RECNO => 1, WhseavailTableMap::COL_DATE => 2, WhseavailTableMap::COL_TIME => 3, WhseavailTableMap::COL_WHSECD => 4, WhseavailTableMap::COL_WHSENAME => 5, WhseavailTableMap::COL_ITEMID => 6, WhseavailTableMap::COL_ITEMAVAIL => 7, WhseavailTableMap::COL_ITEMONORD => 8, WhseavailTableMap::COL_ITEMETADT => 9, WhseavailTableMap::COL_DUMMY => 10, ),
-        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'whsecd' => 4, 'whsename' => 5, 'itemid' => 6, 'itemavail' => 7, 'itemonord' => 8, 'itemetadt' => 9, 'dummy' => 10, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Sessionid' => 0, 'Recno' => 1, 'Date' => 2, 'Time' => 3, 'Whsecd' => 4, 'Whsename' => 5, 'Itemid' => 6, 'Itemavail' => 7, 'Itemonord' => 8, 'Itemetadt' => 9, 'Dummy' => 10, ],
+        self::TYPE_CAMELNAME     => ['sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'whsecd' => 4, 'whsename' => 5, 'itemid' => 6, 'itemavail' => 7, 'itemonord' => 8, 'itemetadt' => 9, 'dummy' => 10, ],
+        self::TYPE_COLNAME       => [WhseavailTableMap::COL_SESSIONID => 0, WhseavailTableMap::COL_RECNO => 1, WhseavailTableMap::COL_DATE => 2, WhseavailTableMap::COL_TIME => 3, WhseavailTableMap::COL_WHSECD => 4, WhseavailTableMap::COL_WHSENAME => 5, WhseavailTableMap::COL_ITEMID => 6, WhseavailTableMap::COL_ITEMAVAIL => 7, WhseavailTableMap::COL_ITEMONORD => 8, WhseavailTableMap::COL_ITEMETADT => 9, WhseavailTableMap::COL_DUMMY => 10, ],
+        self::TYPE_FIELDNAME     => ['sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'whsecd' => 4, 'whsename' => 5, 'itemid' => 6, 'itemavail' => 7, 'itemonord' => 8, 'itemetadt' => 9, 'dummy' => 10, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Sessionid' => 'SESSIONID',
+        'Whseavail.Sessionid' => 'SESSIONID',
+        'sessionid' => 'SESSIONID',
+        'whseavail.sessionid' => 'SESSIONID',
+        'WhseavailTableMap::COL_SESSIONID' => 'SESSIONID',
+        'COL_SESSIONID' => 'SESSIONID',
+        'Recno' => 'RECNO',
+        'Whseavail.Recno' => 'RECNO',
+        'recno' => 'RECNO',
+        'whseavail.recno' => 'RECNO',
+        'WhseavailTableMap::COL_RECNO' => 'RECNO',
+        'COL_RECNO' => 'RECNO',
+        'Date' => 'DATE',
+        'Whseavail.Date' => 'DATE',
+        'date' => 'DATE',
+        'whseavail.date' => 'DATE',
+        'WhseavailTableMap::COL_DATE' => 'DATE',
+        'COL_DATE' => 'DATE',
+        'Time' => 'TIME',
+        'Whseavail.Time' => 'TIME',
+        'time' => 'TIME',
+        'whseavail.time' => 'TIME',
+        'WhseavailTableMap::COL_TIME' => 'TIME',
+        'COL_TIME' => 'TIME',
+        'Whsecd' => 'WHSECD',
+        'Whseavail.Whsecd' => 'WHSECD',
+        'whsecd' => 'WHSECD',
+        'whseavail.whsecd' => 'WHSECD',
+        'WhseavailTableMap::COL_WHSECD' => 'WHSECD',
+        'COL_WHSECD' => 'WHSECD',
+        'Whsename' => 'WHSENAME',
+        'Whseavail.Whsename' => 'WHSENAME',
+        'whsename' => 'WHSENAME',
+        'whseavail.whsename' => 'WHSENAME',
+        'WhseavailTableMap::COL_WHSENAME' => 'WHSENAME',
+        'COL_WHSENAME' => 'WHSENAME',
+        'Itemid' => 'ITEMID',
+        'Whseavail.Itemid' => 'ITEMID',
+        'itemid' => 'ITEMID',
+        'whseavail.itemid' => 'ITEMID',
+        'WhseavailTableMap::COL_ITEMID' => 'ITEMID',
+        'COL_ITEMID' => 'ITEMID',
+        'Itemavail' => 'ITEMAVAIL',
+        'Whseavail.Itemavail' => 'ITEMAVAIL',
+        'itemavail' => 'ITEMAVAIL',
+        'whseavail.itemavail' => 'ITEMAVAIL',
+        'WhseavailTableMap::COL_ITEMAVAIL' => 'ITEMAVAIL',
+        'COL_ITEMAVAIL' => 'ITEMAVAIL',
+        'Itemonord' => 'ITEMONORD',
+        'Whseavail.Itemonord' => 'ITEMONORD',
+        'itemonord' => 'ITEMONORD',
+        'whseavail.itemonord' => 'ITEMONORD',
+        'WhseavailTableMap::COL_ITEMONORD' => 'ITEMONORD',
+        'COL_ITEMONORD' => 'ITEMONORD',
+        'Itemetadt' => 'ITEMETADT',
+        'Whseavail.Itemetadt' => 'ITEMETADT',
+        'itemetadt' => 'ITEMETADT',
+        'whseavail.itemetadt' => 'ITEMETADT',
+        'WhseavailTableMap::COL_ITEMETADT' => 'ITEMETADT',
+        'COL_ITEMETADT' => 'ITEMETADT',
+        'Dummy' => 'DUMMY',
+        'Whseavail.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'whseavail.dummy' => 'DUMMY',
+        'WhseavailTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('whseavail');
@@ -187,14 +269,16 @@ class WhseavailTableMap extends TableMap
         $this->addColumn('itemonord', 'Itemonord', 'INTEGER', false, 8, null);
         $this->addColumn('itemetadt', 'Itemetadt', 'VARCHAR', false, 10, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -205,9 +289,11 @@ class WhseavailTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \Whseavail $obj A \Whseavail object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(Whseavail $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -226,8 +312,10 @@ class WhseavailTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \Whseavail object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \Whseavail) {
@@ -255,14 +343,14 @@ class WhseavailTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Recno', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -277,14 +365,14 @@ class WhseavailTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -310,10 +398,10 @@ class WhseavailTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? WhseavailTableMap::CLASS_DEFAULT : WhseavailTableMap::OM_CLASS;
     }
@@ -321,17 +409,17 @@ class WhseavailTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (Whseavail object, last column rank)
+     * @return array (Whseavail object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = WhseavailTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = WhseavailTableMap::getInstanceFromPool($key))) {
@@ -347,7 +435,7 @@ class WhseavailTableMap extends TableMap
             WhseavailTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -355,13 +443,13 @@ class WhseavailTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -391,12 +479,13 @@ class WhseavailTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(WhseavailTableMap::COL_SESSIONID);
@@ -426,40 +515,70 @@ class WhseavailTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(WhseavailTableMap::COL_SESSIONID);
+            $criteria->removeSelectColumn(WhseavailTableMap::COL_RECNO);
+            $criteria->removeSelectColumn(WhseavailTableMap::COL_DATE);
+            $criteria->removeSelectColumn(WhseavailTableMap::COL_TIME);
+            $criteria->removeSelectColumn(WhseavailTableMap::COL_WHSECD);
+            $criteria->removeSelectColumn(WhseavailTableMap::COL_WHSENAME);
+            $criteria->removeSelectColumn(WhseavailTableMap::COL_ITEMID);
+            $criteria->removeSelectColumn(WhseavailTableMap::COL_ITEMAVAIL);
+            $criteria->removeSelectColumn(WhseavailTableMap::COL_ITEMONORD);
+            $criteria->removeSelectColumn(WhseavailTableMap::COL_ITEMETADT);
+            $criteria->removeSelectColumn(WhseavailTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.sessionid');
+            $criteria->removeSelectColumn($alias . '.recno');
+            $criteria->removeSelectColumn($alias . '.date');
+            $criteria->removeSelectColumn($alias . '.time');
+            $criteria->removeSelectColumn($alias . '.whsecd');
+            $criteria->removeSelectColumn($alias . '.whsename');
+            $criteria->removeSelectColumn($alias . '.itemid');
+            $criteria->removeSelectColumn($alias . '.itemavail');
+            $criteria->removeSelectColumn($alias . '.itemonord');
+            $criteria->removeSelectColumn($alias . '.itemetadt');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(WhseavailTableMap::DATABASE_NAME)->getTable(WhseavailTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(WhseavailTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(WhseavailTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new WhseavailTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a Whseavail or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or Whseavail object or primary key or array of primary keys
+     * @param mixed $values Criteria or Whseavail object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(WhseavailTableMap::DATABASE_NAME);
@@ -477,7 +596,7 @@ class WhseavailTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(WhseavailTableMap::COL_SESSIONID, $value[0]);
@@ -505,7 +624,7 @@ class WhseavailTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return WhseavailQuery::create()->doDeleteAll($con);
     }
@@ -513,13 +632,13 @@ class WhseavailTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a Whseavail or Criteria object.
      *
-     * @param mixed               $criteria Criteria or Whseavail object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or Whseavail object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(WhseavailTableMap::DATABASE_NAME);
@@ -542,7 +661,4 @@ class WhseavailTableMap extends TableMap
         });
     }
 
-} // WhseavailTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-WhseavailTableMap::buildTableMap();
+}

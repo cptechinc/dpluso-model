@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class BookingcTableMap extends TableMap
 {
@@ -34,119 +33,178 @@ class BookingcTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.BookingcTableMap';
+    public const CLASS_NAME = '.Map.BookingcTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'dplusodb';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'bookingc';
+    public const TABLE_NAME = 'bookingc';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'Bookingc';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\Bookingc';
+    public const OM_CLASS = '\\Bookingc';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'Bookingc';
+    public const CLASS_DEFAULT = 'Bookingc';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 7;
+    public const NUM_COLUMNS = 7;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 7;
+    public const NUM_HYDRATE_COLUMNS = 7;
 
     /**
      * the column name for the custid field
      */
-    const COL_CUSTID = 'bookingc.custid';
+    public const COL_CUSTID = 'bookingc.custid';
 
     /**
      * the column name for the shiptoid field
      */
-    const COL_SHIPTOID = 'bookingc.shiptoid';
+    public const COL_SHIPTOID = 'bookingc.shiptoid';
 
     /**
      * the column name for the bookdate field
      */
-    const COL_BOOKDATE = 'bookingc.bookdate';
+    public const COL_BOOKDATE = 'bookingc.bookdate';
 
     /**
      * the column name for the salesrep field
      */
-    const COL_SALESREP = 'bookingc.salesrep';
+    public const COL_SALESREP = 'bookingc.salesrep';
 
     /**
      * the column name for the amount field
      */
-    const COL_AMOUNT = 'bookingc.amount';
+    public const COL_AMOUNT = 'bookingc.amount';
 
     /**
      * the column name for the dateupdated field
      */
-    const COL_DATEUPDATED = 'bookingc.dateupdated';
+    public const COL_DATEUPDATED = 'bookingc.dateupdated';
 
     /**
      * the column name for the timeupdated field
      */
-    const COL_TIMEUPDATED = 'bookingc.timeupdated';
+    public const COL_TIMEUPDATED = 'bookingc.timeupdated';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Custid', 'Shiptoid', 'Bookdate', 'Salesrep', 'Amount', 'Dateupdated', 'Timeupdated', ),
-        self::TYPE_CAMELNAME     => array('custid', 'shiptoid', 'bookdate', 'salesrep', 'amount', 'dateupdated', 'timeupdated', ),
-        self::TYPE_COLNAME       => array(BookingcTableMap::COL_CUSTID, BookingcTableMap::COL_SHIPTOID, BookingcTableMap::COL_BOOKDATE, BookingcTableMap::COL_SALESREP, BookingcTableMap::COL_AMOUNT, BookingcTableMap::COL_DATEUPDATED, BookingcTableMap::COL_TIMEUPDATED, ),
-        self::TYPE_FIELDNAME     => array('custid', 'shiptoid', 'bookdate', 'salesrep', 'amount', 'dateupdated', 'timeupdated', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Custid', 'Shiptoid', 'Bookdate', 'Salesrep', 'Amount', 'Dateupdated', 'Timeupdated', ],
+        self::TYPE_CAMELNAME     => ['custid', 'shiptoid', 'bookdate', 'salesrep', 'amount', 'dateupdated', 'timeupdated', ],
+        self::TYPE_COLNAME       => [BookingcTableMap::COL_CUSTID, BookingcTableMap::COL_SHIPTOID, BookingcTableMap::COL_BOOKDATE, BookingcTableMap::COL_SALESREP, BookingcTableMap::COL_AMOUNT, BookingcTableMap::COL_DATEUPDATED, BookingcTableMap::COL_TIMEUPDATED, ],
+        self::TYPE_FIELDNAME     => ['custid', 'shiptoid', 'bookdate', 'salesrep', 'amount', 'dateupdated', 'timeupdated', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Custid' => 0, 'Shiptoid' => 1, 'Bookdate' => 2, 'Salesrep' => 3, 'Amount' => 4, 'Dateupdated' => 5, 'Timeupdated' => 6, ),
-        self::TYPE_CAMELNAME     => array('custid' => 0, 'shiptoid' => 1, 'bookdate' => 2, 'salesrep' => 3, 'amount' => 4, 'dateupdated' => 5, 'timeupdated' => 6, ),
-        self::TYPE_COLNAME       => array(BookingcTableMap::COL_CUSTID => 0, BookingcTableMap::COL_SHIPTOID => 1, BookingcTableMap::COL_BOOKDATE => 2, BookingcTableMap::COL_SALESREP => 3, BookingcTableMap::COL_AMOUNT => 4, BookingcTableMap::COL_DATEUPDATED => 5, BookingcTableMap::COL_TIMEUPDATED => 6, ),
-        self::TYPE_FIELDNAME     => array('custid' => 0, 'shiptoid' => 1, 'bookdate' => 2, 'salesrep' => 3, 'amount' => 4, 'dateupdated' => 5, 'timeupdated' => 6, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Custid' => 0, 'Shiptoid' => 1, 'Bookdate' => 2, 'Salesrep' => 3, 'Amount' => 4, 'Dateupdated' => 5, 'Timeupdated' => 6, ],
+        self::TYPE_CAMELNAME     => ['custid' => 0, 'shiptoid' => 1, 'bookdate' => 2, 'salesrep' => 3, 'amount' => 4, 'dateupdated' => 5, 'timeupdated' => 6, ],
+        self::TYPE_COLNAME       => [BookingcTableMap::COL_CUSTID => 0, BookingcTableMap::COL_SHIPTOID => 1, BookingcTableMap::COL_BOOKDATE => 2, BookingcTableMap::COL_SALESREP => 3, BookingcTableMap::COL_AMOUNT => 4, BookingcTableMap::COL_DATEUPDATED => 5, BookingcTableMap::COL_TIMEUPDATED => 6, ],
+        self::TYPE_FIELDNAME     => ['custid' => 0, 'shiptoid' => 1, 'bookdate' => 2, 'salesrep' => 3, 'amount' => 4, 'dateupdated' => 5, 'timeupdated' => 6, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Custid' => 'CUSTID',
+        'Bookingc.Custid' => 'CUSTID',
+        'custid' => 'CUSTID',
+        'bookingc.custid' => 'CUSTID',
+        'BookingcTableMap::COL_CUSTID' => 'CUSTID',
+        'COL_CUSTID' => 'CUSTID',
+        'Shiptoid' => 'SHIPTOID',
+        'Bookingc.Shiptoid' => 'SHIPTOID',
+        'shiptoid' => 'SHIPTOID',
+        'bookingc.shiptoid' => 'SHIPTOID',
+        'BookingcTableMap::COL_SHIPTOID' => 'SHIPTOID',
+        'COL_SHIPTOID' => 'SHIPTOID',
+        'Bookdate' => 'BOOKDATE',
+        'Bookingc.Bookdate' => 'BOOKDATE',
+        'bookdate' => 'BOOKDATE',
+        'bookingc.bookdate' => 'BOOKDATE',
+        'BookingcTableMap::COL_BOOKDATE' => 'BOOKDATE',
+        'COL_BOOKDATE' => 'BOOKDATE',
+        'Salesrep' => 'SALESREP',
+        'Bookingc.Salesrep' => 'SALESREP',
+        'salesrep' => 'SALESREP',
+        'bookingc.salesrep' => 'SALESREP',
+        'BookingcTableMap::COL_SALESREP' => 'SALESREP',
+        'COL_SALESREP' => 'SALESREP',
+        'Amount' => 'AMOUNT',
+        'Bookingc.Amount' => 'AMOUNT',
+        'amount' => 'AMOUNT',
+        'bookingc.amount' => 'AMOUNT',
+        'BookingcTableMap::COL_AMOUNT' => 'AMOUNT',
+        'COL_AMOUNT' => 'AMOUNT',
+        'Dateupdated' => 'DATEUPDATED',
+        'Bookingc.Dateupdated' => 'DATEUPDATED',
+        'dateupdated' => 'DATEUPDATED',
+        'bookingc.dateupdated' => 'DATEUPDATED',
+        'BookingcTableMap::COL_DATEUPDATED' => 'DATEUPDATED',
+        'COL_DATEUPDATED' => 'DATEUPDATED',
+        'Timeupdated' => 'TIMEUPDATED',
+        'Bookingc.Timeupdated' => 'TIMEUPDATED',
+        'timeupdated' => 'TIMEUPDATED',
+        'bookingc.timeupdated' => 'TIMEUPDATED',
+        'BookingcTableMap::COL_TIMEUPDATED' => 'TIMEUPDATED',
+        'COL_TIMEUPDATED' => 'TIMEUPDATED',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('bookingc');
@@ -163,14 +221,16 @@ class BookingcTableMap extends TableMap
         $this->addColumn('amount', 'Amount', 'DECIMAL', false, 10, null);
         $this->addColumn('dateupdated', 'Dateupdated', 'INTEGER', false, 8, null);
         $this->addColumn('timeupdated', 'Timeupdated', 'VARCHAR', false, 8, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -181,9 +241,11 @@ class BookingcTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \Bookingc $obj A \Bookingc object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(Bookingc $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -202,8 +264,10 @@ class BookingcTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \Bookingc object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \Bookingc) {
@@ -231,14 +295,14 @@ class BookingcTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Custid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Shiptoid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Bookdate', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Salesrep', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -253,14 +317,14 @@ class BookingcTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -296,10 +360,10 @@ class BookingcTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? BookingcTableMap::CLASS_DEFAULT : BookingcTableMap::OM_CLASS;
     }
@@ -307,17 +371,17 @@ class BookingcTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (Bookingc object, last column rank)
+     * @return array (Bookingc object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = BookingcTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = BookingcTableMap::getInstanceFromPool($key))) {
@@ -333,7 +397,7 @@ class BookingcTableMap extends TableMap
             BookingcTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -341,13 +405,13 @@ class BookingcTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -377,12 +441,13 @@ class BookingcTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(BookingcTableMap::COL_CUSTID);
@@ -404,40 +469,62 @@ class BookingcTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(BookingcTableMap::COL_CUSTID);
+            $criteria->removeSelectColumn(BookingcTableMap::COL_SHIPTOID);
+            $criteria->removeSelectColumn(BookingcTableMap::COL_BOOKDATE);
+            $criteria->removeSelectColumn(BookingcTableMap::COL_SALESREP);
+            $criteria->removeSelectColumn(BookingcTableMap::COL_AMOUNT);
+            $criteria->removeSelectColumn(BookingcTableMap::COL_DATEUPDATED);
+            $criteria->removeSelectColumn(BookingcTableMap::COL_TIMEUPDATED);
+        } else {
+            $criteria->removeSelectColumn($alias . '.custid');
+            $criteria->removeSelectColumn($alias . '.shiptoid');
+            $criteria->removeSelectColumn($alias . '.bookdate');
+            $criteria->removeSelectColumn($alias . '.salesrep');
+            $criteria->removeSelectColumn($alias . '.amount');
+            $criteria->removeSelectColumn($alias . '.dateupdated');
+            $criteria->removeSelectColumn($alias . '.timeupdated');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(BookingcTableMap::DATABASE_NAME)->getTable(BookingcTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(BookingcTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(BookingcTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new BookingcTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a Bookingc or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or Bookingc object or primary key or array of primary keys
+     * @param mixed $values Criteria or Bookingc object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(BookingcTableMap::DATABASE_NAME);
@@ -455,7 +542,7 @@ class BookingcTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(BookingcTableMap::COL_CUSTID, $value[0]);
@@ -485,7 +572,7 @@ class BookingcTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return BookingcQuery::create()->doDeleteAll($con);
     }
@@ -493,13 +580,13 @@ class BookingcTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a Bookingc or Criteria object.
      *
-     * @param mixed               $criteria Criteria or Bookingc object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or Bookingc object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(BookingcTableMap::DATABASE_NAME);
@@ -522,7 +609,4 @@ class BookingcTableMap extends TableMap
         });
     }
 
-} // BookingcTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-BookingcTableMap::buildTableMap();
+}

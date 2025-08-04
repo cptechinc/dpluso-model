@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class CarthedTableMap extends TableMap
 {
@@ -34,374 +33,739 @@ class CarthedTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.CarthedTableMap';
+    public const CLASS_NAME = '.Map.CarthedTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'dplusodb';
+    public const DATABASE_NAME = 'dplusodb';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'carthed';
+    public const TABLE_NAME = 'carthed';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'Carthed';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\Carthed';
+    public const OM_CLASS = '\\Carthed';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'Carthed';
+    public const CLASS_DEFAULT = 'Carthed';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 58;
+    public const NUM_COLUMNS = 58;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 58;
+    public const NUM_HYDRATE_COLUMNS = 58;
 
     /**
      * the column name for the sessionid field
      */
-    const COL_SESSIONID = 'carthed.sessionid';
+    public const COL_SESSIONID = 'carthed.sessionid';
 
     /**
      * the column name for the recno field
      */
-    const COL_RECNO = 'carthed.recno';
+    public const COL_RECNO = 'carthed.recno';
 
     /**
      * the column name for the date field
      */
-    const COL_DATE = 'carthed.date';
+    public const COL_DATE = 'carthed.date';
 
     /**
      * the column name for the time field
      */
-    const COL_TIME = 'carthed.time';
+    public const COL_TIME = 'carthed.time';
 
     /**
      * the column name for the custid field
      */
-    const COL_CUSTID = 'carthed.custid';
+    public const COL_CUSTID = 'carthed.custid';
 
     /**
      * the column name for the shiptoid field
      */
-    const COL_SHIPTOID = 'carthed.shiptoid';
+    public const COL_SHIPTOID = 'carthed.shiptoid';
 
     /**
      * the column name for the custname field
      */
-    const COL_CUSTNAME = 'carthed.custname';
+    public const COL_CUSTNAME = 'carthed.custname';
 
     /**
      * the column name for the orderno field
      */
-    const COL_ORDERNO = 'carthed.orderno';
+    public const COL_ORDERNO = 'carthed.orderno';
 
     /**
      * the column name for the custpo field
      */
-    const COL_CUSTPO = 'carthed.custpo';
+    public const COL_CUSTPO = 'carthed.custpo';
 
     /**
      * the column name for the status field
      */
-    const COL_STATUS = 'carthed.status';
+    public const COL_STATUS = 'carthed.status';
 
     /**
      * the column name for the orderdate field
      */
-    const COL_ORDERDATE = 'carthed.orderdate';
+    public const COL_ORDERDATE = 'carthed.orderdate';
 
     /**
      * the column name for the invdate field
      */
-    const COL_INVDATE = 'carthed.invdate';
+    public const COL_INVDATE = 'carthed.invdate';
 
     /**
      * the column name for the shipdate field
      */
-    const COL_SHIPDATE = 'carthed.shipdate';
+    public const COL_SHIPDATE = 'carthed.shipdate';
 
     /**
      * the column name for the hasdocuments field
      */
-    const COL_HASDOCUMENTS = 'carthed.hasdocuments';
+    public const COL_HASDOCUMENTS = 'carthed.hasdocuments';
 
     /**
      * the column name for the hastracking field
      */
-    const COL_HASTRACKING = 'carthed.hastracking';
+    public const COL_HASTRACKING = 'carthed.hastracking';
 
     /**
      * the column name for the subtotal field
      */
-    const COL_SUBTOTAL = 'carthed.subtotal';
+    public const COL_SUBTOTAL = 'carthed.subtotal';
 
     /**
      * the column name for the salestax field
      */
-    const COL_SALESTAX = 'carthed.salestax';
+    public const COL_SALESTAX = 'carthed.salestax';
 
     /**
      * the column name for the freight field
      */
-    const COL_FREIGHT = 'carthed.freight';
+    public const COL_FREIGHT = 'carthed.freight';
 
     /**
      * the column name for the misccost field
      */
-    const COL_MISCCOST = 'carthed.misccost';
+    public const COL_MISCCOST = 'carthed.misccost';
 
     /**
      * the column name for the ordertotal field
      */
-    const COL_ORDERTOTAL = 'carthed.ordertotal';
+    public const COL_ORDERTOTAL = 'carthed.ordertotal';
 
     /**
      * the column name for the hasnotes field
      */
-    const COL_HASNOTES = 'carthed.hasnotes';
+    public const COL_HASNOTES = 'carthed.hasnotes';
 
     /**
      * the column name for the editord field
      */
-    const COL_EDITORD = 'carthed.editord';
+    public const COL_EDITORD = 'carthed.editord';
 
     /**
      * the column name for the error field
      */
-    const COL_ERROR = 'carthed.error';
+    public const COL_ERROR = 'carthed.error';
 
     /**
      * the column name for the errormsg field
      */
-    const COL_ERRORMSG = 'carthed.errormsg';
+    public const COL_ERRORMSG = 'carthed.errormsg';
 
     /**
      * the column name for the sconame field
      */
-    const COL_SCONAME = 'carthed.sconame';
+    public const COL_SCONAME = 'carthed.sconame';
 
     /**
      * the column name for the shipname field
      */
-    const COL_SHIPNAME = 'carthed.shipname';
+    public const COL_SHIPNAME = 'carthed.shipname';
 
     /**
      * the column name for the shipaddress field
      */
-    const COL_SHIPADDRESS = 'carthed.shipaddress';
+    public const COL_SHIPADDRESS = 'carthed.shipaddress';
 
     /**
      * the column name for the shipaddress2 field
      */
-    const COL_SHIPADDRESS2 = 'carthed.shipaddress2';
+    public const COL_SHIPADDRESS2 = 'carthed.shipaddress2';
 
     /**
      * the column name for the shipcity field
      */
-    const COL_SHIPCITY = 'carthed.shipcity';
+    public const COL_SHIPCITY = 'carthed.shipcity';
 
     /**
      * the column name for the shipstate field
      */
-    const COL_SHIPSTATE = 'carthed.shipstate';
+    public const COL_SHIPSTATE = 'carthed.shipstate';
 
     /**
      * the column name for the shipzip field
      */
-    const COL_SHIPZIP = 'carthed.shipzip';
+    public const COL_SHIPZIP = 'carthed.shipzip';
 
     /**
      * the column name for the shipcountry field
      */
-    const COL_SHIPCOUNTRY = 'carthed.shipcountry';
+    public const COL_SHIPCOUNTRY = 'carthed.shipcountry';
 
     /**
      * the column name for the contact field
      */
-    const COL_CONTACT = 'carthed.contact';
+    public const COL_CONTACT = 'carthed.contact';
 
     /**
      * the column name for the phintl field
      */
-    const COL_PHINTL = 'carthed.phintl';
+    public const COL_PHINTL = 'carthed.phintl';
 
     /**
      * the column name for the phone field
      */
-    const COL_PHONE = 'carthed.phone';
+    public const COL_PHONE = 'carthed.phone';
 
     /**
      * the column name for the extension field
      */
-    const COL_EXTENSION = 'carthed.extension';
+    public const COL_EXTENSION = 'carthed.extension';
 
     /**
      * the column name for the faxnbr field
      */
-    const COL_FAXNBR = 'carthed.faxnbr';
+    public const COL_FAXNBR = 'carthed.faxnbr';
 
     /**
      * the column name for the email field
      */
-    const COL_EMAIL = 'carthed.email';
+    public const COL_EMAIL = 'carthed.email';
 
     /**
      * the column name for the releasenbr field
      */
-    const COL_RELEASENBR = 'carthed.releasenbr';
+    public const COL_RELEASENBR = 'carthed.releasenbr';
 
     /**
      * the column name for the shipviacd field
      */
-    const COL_SHIPVIACD = 'carthed.shipviacd';
+    public const COL_SHIPVIACD = 'carthed.shipviacd';
 
     /**
      * the column name for the shipviadesc field
      */
-    const COL_SHIPVIADESC = 'carthed.shipviadesc';
+    public const COL_SHIPVIADESC = 'carthed.shipviadesc';
 
     /**
      * the column name for the termcode field
      */
-    const COL_TERMCODE = 'carthed.termcode';
+    public const COL_TERMCODE = 'carthed.termcode';
 
     /**
      * the column name for the termtype field
      */
-    const COL_TERMTYPE = 'carthed.termtype';
+    public const COL_TERMTYPE = 'carthed.termtype';
 
     /**
      * the column name for the termdesc field
      */
-    const COL_TERMDESC = 'carthed.termdesc';
+    public const COL_TERMDESC = 'carthed.termdesc';
 
     /**
      * the column name for the rqstdate field
      */
-    const COL_RQSTDATE = 'carthed.rqstdate';
+    public const COL_RQSTDATE = 'carthed.rqstdate';
 
     /**
      * the column name for the shipcom field
      */
-    const COL_SHIPCOM = 'carthed.shipcom';
+    public const COL_SHIPCOM = 'carthed.shipcom';
 
     /**
      * the column name for the sp1 field
      */
-    const COL_SP1 = 'carthed.sp1';
+    public const COL_SP1 = 'carthed.sp1';
 
     /**
      * the column name for the sp1name field
      */
-    const COL_SP1NAME = 'carthed.sp1name';
+    public const COL_SP1NAME = 'carthed.sp1name';
 
     /**
      * the column name for the cardnumber field
      */
-    const COL_CARDNUMBER = 'carthed.cardnumber';
+    public const COL_CARDNUMBER = 'carthed.cardnumber';
 
     /**
      * the column name for the cardexpire field
      */
-    const COL_CARDEXPIRE = 'carthed.cardexpire';
+    public const COL_CARDEXPIRE = 'carthed.cardexpire';
 
     /**
      * the column name for the cardcode field
      */
-    const COL_CARDCODE = 'carthed.cardcode';
+    public const COL_CARDCODE = 'carthed.cardcode';
 
     /**
      * the column name for the cardapproval field
      */
-    const COL_CARDAPPROVAL = 'carthed.cardapproval';
+    public const COL_CARDAPPROVAL = 'carthed.cardapproval';
 
     /**
      * the column name for the totalcost field
      */
-    const COL_TOTALCOST = 'carthed.totalcost';
+    public const COL_TOTALCOST = 'carthed.totalcost';
 
     /**
      * the column name for the totaldiscount field
      */
-    const COL_TOTALDISCOUNT = 'carthed.totaldiscount';
+    public const COL_TOTALDISCOUNT = 'carthed.totaldiscount';
 
     /**
      * the column name for the paymenttype field
      */
-    const COL_PAYMENTTYPE = 'carthed.paymenttype';
+    public const COL_PAYMENTTYPE = 'carthed.paymenttype';
 
     /**
      * the column name for the srcdatefrom field
      */
-    const COL_SRCDATEFROM = 'carthed.srcdatefrom';
+    public const COL_SRCDATEFROM = 'carthed.srcdatefrom';
 
     /**
      * the column name for the srcdatethru field
      */
-    const COL_SRCDATETHRU = 'carthed.srcdatethru';
+    public const COL_SRCDATETHRU = 'carthed.srcdatethru';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'carthed.dummy';
+    public const COL_DUMMY = 'carthed.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Sessionid', 'Recno', 'Date', 'Time', 'Custid', 'Shiptoid', 'Custname', 'Orderno', 'Custpo', 'Status', 'Orderdate', 'Invdate', 'Shipdate', 'Hasdocuments', 'Hastracking', 'Subtotal', 'Salestax', 'Freight', 'Misccost', 'Ordertotal', 'Hasnotes', 'Editord', 'Error', 'Errormsg', 'Sconame', 'Shipname', 'Shipaddress', 'Shipaddress2', 'Shipcity', 'Shipstate', 'Shipzip', 'Shipcountry', 'Contact', 'Phintl', 'Phone', 'Extension', 'Faxnbr', 'Email', 'Releasenbr', 'Shipviacd', 'Shipviadesc', 'Termcode', 'Termtype', 'Termdesc', 'Rqstdate', 'Shipcom', 'Sp1', 'Sp1name', 'Cardnumber', 'Cardexpire', 'Cardcode', 'Cardapproval', 'Totalcost', 'Totaldiscount', 'Paymenttype', 'Srcdatefrom', 'Srcdatethru', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('sessionid', 'recno', 'date', 'time', 'custid', 'shiptoid', 'custname', 'orderno', 'custpo', 'status', 'orderdate', 'invdate', 'shipdate', 'hasdocuments', 'hastracking', 'subtotal', 'salestax', 'freight', 'misccost', 'ordertotal', 'hasnotes', 'editord', 'error', 'errormsg', 'sconame', 'shipname', 'shipaddress', 'shipaddress2', 'shipcity', 'shipstate', 'shipzip', 'shipcountry', 'contact', 'phintl', 'phone', 'extension', 'faxnbr', 'email', 'releasenbr', 'shipviacd', 'shipviadesc', 'termcode', 'termtype', 'termdesc', 'rqstdate', 'shipcom', 'sp1', 'sp1name', 'cardnumber', 'cardexpire', 'cardcode', 'cardapproval', 'totalcost', 'totaldiscount', 'paymenttype', 'srcdatefrom', 'srcdatethru', 'dummy', ),
-        self::TYPE_COLNAME       => array(CarthedTableMap::COL_SESSIONID, CarthedTableMap::COL_RECNO, CarthedTableMap::COL_DATE, CarthedTableMap::COL_TIME, CarthedTableMap::COL_CUSTID, CarthedTableMap::COL_SHIPTOID, CarthedTableMap::COL_CUSTNAME, CarthedTableMap::COL_ORDERNO, CarthedTableMap::COL_CUSTPO, CarthedTableMap::COL_STATUS, CarthedTableMap::COL_ORDERDATE, CarthedTableMap::COL_INVDATE, CarthedTableMap::COL_SHIPDATE, CarthedTableMap::COL_HASDOCUMENTS, CarthedTableMap::COL_HASTRACKING, CarthedTableMap::COL_SUBTOTAL, CarthedTableMap::COL_SALESTAX, CarthedTableMap::COL_FREIGHT, CarthedTableMap::COL_MISCCOST, CarthedTableMap::COL_ORDERTOTAL, CarthedTableMap::COL_HASNOTES, CarthedTableMap::COL_EDITORD, CarthedTableMap::COL_ERROR, CarthedTableMap::COL_ERRORMSG, CarthedTableMap::COL_SCONAME, CarthedTableMap::COL_SHIPNAME, CarthedTableMap::COL_SHIPADDRESS, CarthedTableMap::COL_SHIPADDRESS2, CarthedTableMap::COL_SHIPCITY, CarthedTableMap::COL_SHIPSTATE, CarthedTableMap::COL_SHIPZIP, CarthedTableMap::COL_SHIPCOUNTRY, CarthedTableMap::COL_CONTACT, CarthedTableMap::COL_PHINTL, CarthedTableMap::COL_PHONE, CarthedTableMap::COL_EXTENSION, CarthedTableMap::COL_FAXNBR, CarthedTableMap::COL_EMAIL, CarthedTableMap::COL_RELEASENBR, CarthedTableMap::COL_SHIPVIACD, CarthedTableMap::COL_SHIPVIADESC, CarthedTableMap::COL_TERMCODE, CarthedTableMap::COL_TERMTYPE, CarthedTableMap::COL_TERMDESC, CarthedTableMap::COL_RQSTDATE, CarthedTableMap::COL_SHIPCOM, CarthedTableMap::COL_SP1, CarthedTableMap::COL_SP1NAME, CarthedTableMap::COL_CARDNUMBER, CarthedTableMap::COL_CARDEXPIRE, CarthedTableMap::COL_CARDCODE, CarthedTableMap::COL_CARDAPPROVAL, CarthedTableMap::COL_TOTALCOST, CarthedTableMap::COL_TOTALDISCOUNT, CarthedTableMap::COL_PAYMENTTYPE, CarthedTableMap::COL_SRCDATEFROM, CarthedTableMap::COL_SRCDATETHRU, CarthedTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('sessionid', 'recno', 'date', 'time', 'custid', 'shiptoid', 'custname', 'orderno', 'custpo', 'status', 'orderdate', 'invdate', 'shipdate', 'hasdocuments', 'hastracking', 'subtotal', 'salestax', 'freight', 'misccost', 'ordertotal', 'hasnotes', 'editord', 'error', 'errormsg', 'sconame', 'shipname', 'shipaddress', 'shipaddress2', 'shipcity', 'shipstate', 'shipzip', 'shipcountry', 'contact', 'phintl', 'phone', 'extension', 'faxnbr', 'email', 'releasenbr', 'shipviacd', 'shipviadesc', 'termcode', 'termtype', 'termdesc', 'rqstdate', 'shipcom', 'sp1', 'sp1name', 'cardnumber', 'cardexpire', 'cardcode', 'cardapproval', 'totalcost', 'totaldiscount', 'paymenttype', 'srcdatefrom', 'srcdatethru', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Sessionid', 'Recno', 'Date', 'Time', 'Custid', 'Shiptoid', 'Custname', 'Orderno', 'Custpo', 'Status', 'Orderdate', 'Invdate', 'Shipdate', 'Hasdocuments', 'Hastracking', 'Subtotal', 'Salestax', 'Freight', 'Misccost', 'Ordertotal', 'Hasnotes', 'Editord', 'Error', 'Errormsg', 'Sconame', 'Shipname', 'Shipaddress', 'Shipaddress2', 'Shipcity', 'Shipstate', 'Shipzip', 'Shipcountry', 'Contact', 'Phintl', 'Phone', 'Extension', 'Faxnbr', 'Email', 'Releasenbr', 'Shipviacd', 'Shipviadesc', 'Termcode', 'Termtype', 'Termdesc', 'Rqstdate', 'Shipcom', 'Sp1', 'Sp1name', 'Cardnumber', 'Cardexpire', 'Cardcode', 'Cardapproval', 'Totalcost', 'Totaldiscount', 'Paymenttype', 'Srcdatefrom', 'Srcdatethru', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['sessionid', 'recno', 'date', 'time', 'custid', 'shiptoid', 'custname', 'orderno', 'custpo', 'status', 'orderdate', 'invdate', 'shipdate', 'hasdocuments', 'hastracking', 'subtotal', 'salestax', 'freight', 'misccost', 'ordertotal', 'hasnotes', 'editord', 'error', 'errormsg', 'sconame', 'shipname', 'shipaddress', 'shipaddress2', 'shipcity', 'shipstate', 'shipzip', 'shipcountry', 'contact', 'phintl', 'phone', 'extension', 'faxnbr', 'email', 'releasenbr', 'shipviacd', 'shipviadesc', 'termcode', 'termtype', 'termdesc', 'rqstdate', 'shipcom', 'sp1', 'sp1name', 'cardnumber', 'cardexpire', 'cardcode', 'cardapproval', 'totalcost', 'totaldiscount', 'paymenttype', 'srcdatefrom', 'srcdatethru', 'dummy', ],
+        self::TYPE_COLNAME       => [CarthedTableMap::COL_SESSIONID, CarthedTableMap::COL_RECNO, CarthedTableMap::COL_DATE, CarthedTableMap::COL_TIME, CarthedTableMap::COL_CUSTID, CarthedTableMap::COL_SHIPTOID, CarthedTableMap::COL_CUSTNAME, CarthedTableMap::COL_ORDERNO, CarthedTableMap::COL_CUSTPO, CarthedTableMap::COL_STATUS, CarthedTableMap::COL_ORDERDATE, CarthedTableMap::COL_INVDATE, CarthedTableMap::COL_SHIPDATE, CarthedTableMap::COL_HASDOCUMENTS, CarthedTableMap::COL_HASTRACKING, CarthedTableMap::COL_SUBTOTAL, CarthedTableMap::COL_SALESTAX, CarthedTableMap::COL_FREIGHT, CarthedTableMap::COL_MISCCOST, CarthedTableMap::COL_ORDERTOTAL, CarthedTableMap::COL_HASNOTES, CarthedTableMap::COL_EDITORD, CarthedTableMap::COL_ERROR, CarthedTableMap::COL_ERRORMSG, CarthedTableMap::COL_SCONAME, CarthedTableMap::COL_SHIPNAME, CarthedTableMap::COL_SHIPADDRESS, CarthedTableMap::COL_SHIPADDRESS2, CarthedTableMap::COL_SHIPCITY, CarthedTableMap::COL_SHIPSTATE, CarthedTableMap::COL_SHIPZIP, CarthedTableMap::COL_SHIPCOUNTRY, CarthedTableMap::COL_CONTACT, CarthedTableMap::COL_PHINTL, CarthedTableMap::COL_PHONE, CarthedTableMap::COL_EXTENSION, CarthedTableMap::COL_FAXNBR, CarthedTableMap::COL_EMAIL, CarthedTableMap::COL_RELEASENBR, CarthedTableMap::COL_SHIPVIACD, CarthedTableMap::COL_SHIPVIADESC, CarthedTableMap::COL_TERMCODE, CarthedTableMap::COL_TERMTYPE, CarthedTableMap::COL_TERMDESC, CarthedTableMap::COL_RQSTDATE, CarthedTableMap::COL_SHIPCOM, CarthedTableMap::COL_SP1, CarthedTableMap::COL_SP1NAME, CarthedTableMap::COL_CARDNUMBER, CarthedTableMap::COL_CARDEXPIRE, CarthedTableMap::COL_CARDCODE, CarthedTableMap::COL_CARDAPPROVAL, CarthedTableMap::COL_TOTALCOST, CarthedTableMap::COL_TOTALDISCOUNT, CarthedTableMap::COL_PAYMENTTYPE, CarthedTableMap::COL_SRCDATEFROM, CarthedTableMap::COL_SRCDATETHRU, CarthedTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['sessionid', 'recno', 'date', 'time', 'custid', 'shiptoid', 'custname', 'orderno', 'custpo', 'status', 'orderdate', 'invdate', 'shipdate', 'hasdocuments', 'hastracking', 'subtotal', 'salestax', 'freight', 'misccost', 'ordertotal', 'hasnotes', 'editord', 'error', 'errormsg', 'sconame', 'shipname', 'shipaddress', 'shipaddress2', 'shipcity', 'shipstate', 'shipzip', 'shipcountry', 'contact', 'phintl', 'phone', 'extension', 'faxnbr', 'email', 'releasenbr', 'shipviacd', 'shipviadesc', 'termcode', 'termtype', 'termdesc', 'rqstdate', 'shipcom', 'sp1', 'sp1name', 'cardnumber', 'cardexpire', 'cardcode', 'cardapproval', 'totalcost', 'totaldiscount', 'paymenttype', 'srcdatefrom', 'srcdatethru', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Sessionid' => 0, 'Recno' => 1, 'Date' => 2, 'Time' => 3, 'Custid' => 4, 'Shiptoid' => 5, 'Custname' => 6, 'Orderno' => 7, 'Custpo' => 8, 'Status' => 9, 'Orderdate' => 10, 'Invdate' => 11, 'Shipdate' => 12, 'Hasdocuments' => 13, 'Hastracking' => 14, 'Subtotal' => 15, 'Salestax' => 16, 'Freight' => 17, 'Misccost' => 18, 'Ordertotal' => 19, 'Hasnotes' => 20, 'Editord' => 21, 'Error' => 22, 'Errormsg' => 23, 'Sconame' => 24, 'Shipname' => 25, 'Shipaddress' => 26, 'Shipaddress2' => 27, 'Shipcity' => 28, 'Shipstate' => 29, 'Shipzip' => 30, 'Shipcountry' => 31, 'Contact' => 32, 'Phintl' => 33, 'Phone' => 34, 'Extension' => 35, 'Faxnbr' => 36, 'Email' => 37, 'Releasenbr' => 38, 'Shipviacd' => 39, 'Shipviadesc' => 40, 'Termcode' => 41, 'Termtype' => 42, 'Termdesc' => 43, 'Rqstdate' => 44, 'Shipcom' => 45, 'Sp1' => 46, 'Sp1name' => 47, 'Cardnumber' => 48, 'Cardexpire' => 49, 'Cardcode' => 50, 'Cardapproval' => 51, 'Totalcost' => 52, 'Totaldiscount' => 53, 'Paymenttype' => 54, 'Srcdatefrom' => 55, 'Srcdatethru' => 56, 'Dummy' => 57, ),
-        self::TYPE_CAMELNAME     => array('sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'custid' => 4, 'shiptoid' => 5, 'custname' => 6, 'orderno' => 7, 'custpo' => 8, 'status' => 9, 'orderdate' => 10, 'invdate' => 11, 'shipdate' => 12, 'hasdocuments' => 13, 'hastracking' => 14, 'subtotal' => 15, 'salestax' => 16, 'freight' => 17, 'misccost' => 18, 'ordertotal' => 19, 'hasnotes' => 20, 'editord' => 21, 'error' => 22, 'errormsg' => 23, 'sconame' => 24, 'shipname' => 25, 'shipaddress' => 26, 'shipaddress2' => 27, 'shipcity' => 28, 'shipstate' => 29, 'shipzip' => 30, 'shipcountry' => 31, 'contact' => 32, 'phintl' => 33, 'phone' => 34, 'extension' => 35, 'faxnbr' => 36, 'email' => 37, 'releasenbr' => 38, 'shipviacd' => 39, 'shipviadesc' => 40, 'termcode' => 41, 'termtype' => 42, 'termdesc' => 43, 'rqstdate' => 44, 'shipcom' => 45, 'sp1' => 46, 'sp1name' => 47, 'cardnumber' => 48, 'cardexpire' => 49, 'cardcode' => 50, 'cardapproval' => 51, 'totalcost' => 52, 'totaldiscount' => 53, 'paymenttype' => 54, 'srcdatefrom' => 55, 'srcdatethru' => 56, 'dummy' => 57, ),
-        self::TYPE_COLNAME       => array(CarthedTableMap::COL_SESSIONID => 0, CarthedTableMap::COL_RECNO => 1, CarthedTableMap::COL_DATE => 2, CarthedTableMap::COL_TIME => 3, CarthedTableMap::COL_CUSTID => 4, CarthedTableMap::COL_SHIPTOID => 5, CarthedTableMap::COL_CUSTNAME => 6, CarthedTableMap::COL_ORDERNO => 7, CarthedTableMap::COL_CUSTPO => 8, CarthedTableMap::COL_STATUS => 9, CarthedTableMap::COL_ORDERDATE => 10, CarthedTableMap::COL_INVDATE => 11, CarthedTableMap::COL_SHIPDATE => 12, CarthedTableMap::COL_HASDOCUMENTS => 13, CarthedTableMap::COL_HASTRACKING => 14, CarthedTableMap::COL_SUBTOTAL => 15, CarthedTableMap::COL_SALESTAX => 16, CarthedTableMap::COL_FREIGHT => 17, CarthedTableMap::COL_MISCCOST => 18, CarthedTableMap::COL_ORDERTOTAL => 19, CarthedTableMap::COL_HASNOTES => 20, CarthedTableMap::COL_EDITORD => 21, CarthedTableMap::COL_ERROR => 22, CarthedTableMap::COL_ERRORMSG => 23, CarthedTableMap::COL_SCONAME => 24, CarthedTableMap::COL_SHIPNAME => 25, CarthedTableMap::COL_SHIPADDRESS => 26, CarthedTableMap::COL_SHIPADDRESS2 => 27, CarthedTableMap::COL_SHIPCITY => 28, CarthedTableMap::COL_SHIPSTATE => 29, CarthedTableMap::COL_SHIPZIP => 30, CarthedTableMap::COL_SHIPCOUNTRY => 31, CarthedTableMap::COL_CONTACT => 32, CarthedTableMap::COL_PHINTL => 33, CarthedTableMap::COL_PHONE => 34, CarthedTableMap::COL_EXTENSION => 35, CarthedTableMap::COL_FAXNBR => 36, CarthedTableMap::COL_EMAIL => 37, CarthedTableMap::COL_RELEASENBR => 38, CarthedTableMap::COL_SHIPVIACD => 39, CarthedTableMap::COL_SHIPVIADESC => 40, CarthedTableMap::COL_TERMCODE => 41, CarthedTableMap::COL_TERMTYPE => 42, CarthedTableMap::COL_TERMDESC => 43, CarthedTableMap::COL_RQSTDATE => 44, CarthedTableMap::COL_SHIPCOM => 45, CarthedTableMap::COL_SP1 => 46, CarthedTableMap::COL_SP1NAME => 47, CarthedTableMap::COL_CARDNUMBER => 48, CarthedTableMap::COL_CARDEXPIRE => 49, CarthedTableMap::COL_CARDCODE => 50, CarthedTableMap::COL_CARDAPPROVAL => 51, CarthedTableMap::COL_TOTALCOST => 52, CarthedTableMap::COL_TOTALDISCOUNT => 53, CarthedTableMap::COL_PAYMENTTYPE => 54, CarthedTableMap::COL_SRCDATEFROM => 55, CarthedTableMap::COL_SRCDATETHRU => 56, CarthedTableMap::COL_DUMMY => 57, ),
-        self::TYPE_FIELDNAME     => array('sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'custid' => 4, 'shiptoid' => 5, 'custname' => 6, 'orderno' => 7, 'custpo' => 8, 'status' => 9, 'orderdate' => 10, 'invdate' => 11, 'shipdate' => 12, 'hasdocuments' => 13, 'hastracking' => 14, 'subtotal' => 15, 'salestax' => 16, 'freight' => 17, 'misccost' => 18, 'ordertotal' => 19, 'hasnotes' => 20, 'editord' => 21, 'error' => 22, 'errormsg' => 23, 'sconame' => 24, 'shipname' => 25, 'shipaddress' => 26, 'shipaddress2' => 27, 'shipcity' => 28, 'shipstate' => 29, 'shipzip' => 30, 'shipcountry' => 31, 'contact' => 32, 'phintl' => 33, 'phone' => 34, 'extension' => 35, 'faxnbr' => 36, 'email' => 37, 'releasenbr' => 38, 'shipviacd' => 39, 'shipviadesc' => 40, 'termcode' => 41, 'termtype' => 42, 'termdesc' => 43, 'rqstdate' => 44, 'shipcom' => 45, 'sp1' => 46, 'sp1name' => 47, 'cardnumber' => 48, 'cardexpire' => 49, 'cardcode' => 50, 'cardapproval' => 51, 'totalcost' => 52, 'totaldiscount' => 53, 'paymenttype' => 54, 'srcdatefrom' => 55, 'srcdatethru' => 56, 'dummy' => 57, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Sessionid' => 0, 'Recno' => 1, 'Date' => 2, 'Time' => 3, 'Custid' => 4, 'Shiptoid' => 5, 'Custname' => 6, 'Orderno' => 7, 'Custpo' => 8, 'Status' => 9, 'Orderdate' => 10, 'Invdate' => 11, 'Shipdate' => 12, 'Hasdocuments' => 13, 'Hastracking' => 14, 'Subtotal' => 15, 'Salestax' => 16, 'Freight' => 17, 'Misccost' => 18, 'Ordertotal' => 19, 'Hasnotes' => 20, 'Editord' => 21, 'Error' => 22, 'Errormsg' => 23, 'Sconame' => 24, 'Shipname' => 25, 'Shipaddress' => 26, 'Shipaddress2' => 27, 'Shipcity' => 28, 'Shipstate' => 29, 'Shipzip' => 30, 'Shipcountry' => 31, 'Contact' => 32, 'Phintl' => 33, 'Phone' => 34, 'Extension' => 35, 'Faxnbr' => 36, 'Email' => 37, 'Releasenbr' => 38, 'Shipviacd' => 39, 'Shipviadesc' => 40, 'Termcode' => 41, 'Termtype' => 42, 'Termdesc' => 43, 'Rqstdate' => 44, 'Shipcom' => 45, 'Sp1' => 46, 'Sp1name' => 47, 'Cardnumber' => 48, 'Cardexpire' => 49, 'Cardcode' => 50, 'Cardapproval' => 51, 'Totalcost' => 52, 'Totaldiscount' => 53, 'Paymenttype' => 54, 'Srcdatefrom' => 55, 'Srcdatethru' => 56, 'Dummy' => 57, ],
+        self::TYPE_CAMELNAME     => ['sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'custid' => 4, 'shiptoid' => 5, 'custname' => 6, 'orderno' => 7, 'custpo' => 8, 'status' => 9, 'orderdate' => 10, 'invdate' => 11, 'shipdate' => 12, 'hasdocuments' => 13, 'hastracking' => 14, 'subtotal' => 15, 'salestax' => 16, 'freight' => 17, 'misccost' => 18, 'ordertotal' => 19, 'hasnotes' => 20, 'editord' => 21, 'error' => 22, 'errormsg' => 23, 'sconame' => 24, 'shipname' => 25, 'shipaddress' => 26, 'shipaddress2' => 27, 'shipcity' => 28, 'shipstate' => 29, 'shipzip' => 30, 'shipcountry' => 31, 'contact' => 32, 'phintl' => 33, 'phone' => 34, 'extension' => 35, 'faxnbr' => 36, 'email' => 37, 'releasenbr' => 38, 'shipviacd' => 39, 'shipviadesc' => 40, 'termcode' => 41, 'termtype' => 42, 'termdesc' => 43, 'rqstdate' => 44, 'shipcom' => 45, 'sp1' => 46, 'sp1name' => 47, 'cardnumber' => 48, 'cardexpire' => 49, 'cardcode' => 50, 'cardapproval' => 51, 'totalcost' => 52, 'totaldiscount' => 53, 'paymenttype' => 54, 'srcdatefrom' => 55, 'srcdatethru' => 56, 'dummy' => 57, ],
+        self::TYPE_COLNAME       => [CarthedTableMap::COL_SESSIONID => 0, CarthedTableMap::COL_RECNO => 1, CarthedTableMap::COL_DATE => 2, CarthedTableMap::COL_TIME => 3, CarthedTableMap::COL_CUSTID => 4, CarthedTableMap::COL_SHIPTOID => 5, CarthedTableMap::COL_CUSTNAME => 6, CarthedTableMap::COL_ORDERNO => 7, CarthedTableMap::COL_CUSTPO => 8, CarthedTableMap::COL_STATUS => 9, CarthedTableMap::COL_ORDERDATE => 10, CarthedTableMap::COL_INVDATE => 11, CarthedTableMap::COL_SHIPDATE => 12, CarthedTableMap::COL_HASDOCUMENTS => 13, CarthedTableMap::COL_HASTRACKING => 14, CarthedTableMap::COL_SUBTOTAL => 15, CarthedTableMap::COL_SALESTAX => 16, CarthedTableMap::COL_FREIGHT => 17, CarthedTableMap::COL_MISCCOST => 18, CarthedTableMap::COL_ORDERTOTAL => 19, CarthedTableMap::COL_HASNOTES => 20, CarthedTableMap::COL_EDITORD => 21, CarthedTableMap::COL_ERROR => 22, CarthedTableMap::COL_ERRORMSG => 23, CarthedTableMap::COL_SCONAME => 24, CarthedTableMap::COL_SHIPNAME => 25, CarthedTableMap::COL_SHIPADDRESS => 26, CarthedTableMap::COL_SHIPADDRESS2 => 27, CarthedTableMap::COL_SHIPCITY => 28, CarthedTableMap::COL_SHIPSTATE => 29, CarthedTableMap::COL_SHIPZIP => 30, CarthedTableMap::COL_SHIPCOUNTRY => 31, CarthedTableMap::COL_CONTACT => 32, CarthedTableMap::COL_PHINTL => 33, CarthedTableMap::COL_PHONE => 34, CarthedTableMap::COL_EXTENSION => 35, CarthedTableMap::COL_FAXNBR => 36, CarthedTableMap::COL_EMAIL => 37, CarthedTableMap::COL_RELEASENBR => 38, CarthedTableMap::COL_SHIPVIACD => 39, CarthedTableMap::COL_SHIPVIADESC => 40, CarthedTableMap::COL_TERMCODE => 41, CarthedTableMap::COL_TERMTYPE => 42, CarthedTableMap::COL_TERMDESC => 43, CarthedTableMap::COL_RQSTDATE => 44, CarthedTableMap::COL_SHIPCOM => 45, CarthedTableMap::COL_SP1 => 46, CarthedTableMap::COL_SP1NAME => 47, CarthedTableMap::COL_CARDNUMBER => 48, CarthedTableMap::COL_CARDEXPIRE => 49, CarthedTableMap::COL_CARDCODE => 50, CarthedTableMap::COL_CARDAPPROVAL => 51, CarthedTableMap::COL_TOTALCOST => 52, CarthedTableMap::COL_TOTALDISCOUNT => 53, CarthedTableMap::COL_PAYMENTTYPE => 54, CarthedTableMap::COL_SRCDATEFROM => 55, CarthedTableMap::COL_SRCDATETHRU => 56, CarthedTableMap::COL_DUMMY => 57, ],
+        self::TYPE_FIELDNAME     => ['sessionid' => 0, 'recno' => 1, 'date' => 2, 'time' => 3, 'custid' => 4, 'shiptoid' => 5, 'custname' => 6, 'orderno' => 7, 'custpo' => 8, 'status' => 9, 'orderdate' => 10, 'invdate' => 11, 'shipdate' => 12, 'hasdocuments' => 13, 'hastracking' => 14, 'subtotal' => 15, 'salestax' => 16, 'freight' => 17, 'misccost' => 18, 'ordertotal' => 19, 'hasnotes' => 20, 'editord' => 21, 'error' => 22, 'errormsg' => 23, 'sconame' => 24, 'shipname' => 25, 'shipaddress' => 26, 'shipaddress2' => 27, 'shipcity' => 28, 'shipstate' => 29, 'shipzip' => 30, 'shipcountry' => 31, 'contact' => 32, 'phintl' => 33, 'phone' => 34, 'extension' => 35, 'faxnbr' => 36, 'email' => 37, 'releasenbr' => 38, 'shipviacd' => 39, 'shipviadesc' => 40, 'termcode' => 41, 'termtype' => 42, 'termdesc' => 43, 'rqstdate' => 44, 'shipcom' => 45, 'sp1' => 46, 'sp1name' => 47, 'cardnumber' => 48, 'cardexpire' => 49, 'cardcode' => 50, 'cardapproval' => 51, 'totalcost' => 52, 'totaldiscount' => 53, 'paymenttype' => 54, 'srcdatefrom' => 55, 'srcdatethru' => 56, 'dummy' => 57, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Sessionid' => 'SESSIONID',
+        'Carthed.Sessionid' => 'SESSIONID',
+        'sessionid' => 'SESSIONID',
+        'carthed.sessionid' => 'SESSIONID',
+        'CarthedTableMap::COL_SESSIONID' => 'SESSIONID',
+        'COL_SESSIONID' => 'SESSIONID',
+        'Recno' => 'RECNO',
+        'Carthed.Recno' => 'RECNO',
+        'recno' => 'RECNO',
+        'carthed.recno' => 'RECNO',
+        'CarthedTableMap::COL_RECNO' => 'RECNO',
+        'COL_RECNO' => 'RECNO',
+        'Date' => 'DATE',
+        'Carthed.Date' => 'DATE',
+        'date' => 'DATE',
+        'carthed.date' => 'DATE',
+        'CarthedTableMap::COL_DATE' => 'DATE',
+        'COL_DATE' => 'DATE',
+        'Time' => 'TIME',
+        'Carthed.Time' => 'TIME',
+        'time' => 'TIME',
+        'carthed.time' => 'TIME',
+        'CarthedTableMap::COL_TIME' => 'TIME',
+        'COL_TIME' => 'TIME',
+        'Custid' => 'CUSTID',
+        'Carthed.Custid' => 'CUSTID',
+        'custid' => 'CUSTID',
+        'carthed.custid' => 'CUSTID',
+        'CarthedTableMap::COL_CUSTID' => 'CUSTID',
+        'COL_CUSTID' => 'CUSTID',
+        'Shiptoid' => 'SHIPTOID',
+        'Carthed.Shiptoid' => 'SHIPTOID',
+        'shiptoid' => 'SHIPTOID',
+        'carthed.shiptoid' => 'SHIPTOID',
+        'CarthedTableMap::COL_SHIPTOID' => 'SHIPTOID',
+        'COL_SHIPTOID' => 'SHIPTOID',
+        'Custname' => 'CUSTNAME',
+        'Carthed.Custname' => 'CUSTNAME',
+        'custname' => 'CUSTNAME',
+        'carthed.custname' => 'CUSTNAME',
+        'CarthedTableMap::COL_CUSTNAME' => 'CUSTNAME',
+        'COL_CUSTNAME' => 'CUSTNAME',
+        'Orderno' => 'ORDERNO',
+        'Carthed.Orderno' => 'ORDERNO',
+        'orderno' => 'ORDERNO',
+        'carthed.orderno' => 'ORDERNO',
+        'CarthedTableMap::COL_ORDERNO' => 'ORDERNO',
+        'COL_ORDERNO' => 'ORDERNO',
+        'Custpo' => 'CUSTPO',
+        'Carthed.Custpo' => 'CUSTPO',
+        'custpo' => 'CUSTPO',
+        'carthed.custpo' => 'CUSTPO',
+        'CarthedTableMap::COL_CUSTPO' => 'CUSTPO',
+        'COL_CUSTPO' => 'CUSTPO',
+        'Status' => 'STATUS',
+        'Carthed.Status' => 'STATUS',
+        'status' => 'STATUS',
+        'carthed.status' => 'STATUS',
+        'CarthedTableMap::COL_STATUS' => 'STATUS',
+        'COL_STATUS' => 'STATUS',
+        'Orderdate' => 'ORDERDATE',
+        'Carthed.Orderdate' => 'ORDERDATE',
+        'orderdate' => 'ORDERDATE',
+        'carthed.orderdate' => 'ORDERDATE',
+        'CarthedTableMap::COL_ORDERDATE' => 'ORDERDATE',
+        'COL_ORDERDATE' => 'ORDERDATE',
+        'Invdate' => 'INVDATE',
+        'Carthed.Invdate' => 'INVDATE',
+        'invdate' => 'INVDATE',
+        'carthed.invdate' => 'INVDATE',
+        'CarthedTableMap::COL_INVDATE' => 'INVDATE',
+        'COL_INVDATE' => 'INVDATE',
+        'Shipdate' => 'SHIPDATE',
+        'Carthed.Shipdate' => 'SHIPDATE',
+        'shipdate' => 'SHIPDATE',
+        'carthed.shipdate' => 'SHIPDATE',
+        'CarthedTableMap::COL_SHIPDATE' => 'SHIPDATE',
+        'COL_SHIPDATE' => 'SHIPDATE',
+        'Hasdocuments' => 'HASDOCUMENTS',
+        'Carthed.Hasdocuments' => 'HASDOCUMENTS',
+        'hasdocuments' => 'HASDOCUMENTS',
+        'carthed.hasdocuments' => 'HASDOCUMENTS',
+        'CarthedTableMap::COL_HASDOCUMENTS' => 'HASDOCUMENTS',
+        'COL_HASDOCUMENTS' => 'HASDOCUMENTS',
+        'Hastracking' => 'HASTRACKING',
+        'Carthed.Hastracking' => 'HASTRACKING',
+        'hastracking' => 'HASTRACKING',
+        'carthed.hastracking' => 'HASTRACKING',
+        'CarthedTableMap::COL_HASTRACKING' => 'HASTRACKING',
+        'COL_HASTRACKING' => 'HASTRACKING',
+        'Subtotal' => 'SUBTOTAL',
+        'Carthed.Subtotal' => 'SUBTOTAL',
+        'subtotal' => 'SUBTOTAL',
+        'carthed.subtotal' => 'SUBTOTAL',
+        'CarthedTableMap::COL_SUBTOTAL' => 'SUBTOTAL',
+        'COL_SUBTOTAL' => 'SUBTOTAL',
+        'Salestax' => 'SALESTAX',
+        'Carthed.Salestax' => 'SALESTAX',
+        'salestax' => 'SALESTAX',
+        'carthed.salestax' => 'SALESTAX',
+        'CarthedTableMap::COL_SALESTAX' => 'SALESTAX',
+        'COL_SALESTAX' => 'SALESTAX',
+        'Freight' => 'FREIGHT',
+        'Carthed.Freight' => 'FREIGHT',
+        'freight' => 'FREIGHT',
+        'carthed.freight' => 'FREIGHT',
+        'CarthedTableMap::COL_FREIGHT' => 'FREIGHT',
+        'COL_FREIGHT' => 'FREIGHT',
+        'Misccost' => 'MISCCOST',
+        'Carthed.Misccost' => 'MISCCOST',
+        'misccost' => 'MISCCOST',
+        'carthed.misccost' => 'MISCCOST',
+        'CarthedTableMap::COL_MISCCOST' => 'MISCCOST',
+        'COL_MISCCOST' => 'MISCCOST',
+        'Ordertotal' => 'ORDERTOTAL',
+        'Carthed.Ordertotal' => 'ORDERTOTAL',
+        'ordertotal' => 'ORDERTOTAL',
+        'carthed.ordertotal' => 'ORDERTOTAL',
+        'CarthedTableMap::COL_ORDERTOTAL' => 'ORDERTOTAL',
+        'COL_ORDERTOTAL' => 'ORDERTOTAL',
+        'Hasnotes' => 'HASNOTES',
+        'Carthed.Hasnotes' => 'HASNOTES',
+        'hasnotes' => 'HASNOTES',
+        'carthed.hasnotes' => 'HASNOTES',
+        'CarthedTableMap::COL_HASNOTES' => 'HASNOTES',
+        'COL_HASNOTES' => 'HASNOTES',
+        'Editord' => 'EDITORD',
+        'Carthed.Editord' => 'EDITORD',
+        'editord' => 'EDITORD',
+        'carthed.editord' => 'EDITORD',
+        'CarthedTableMap::COL_EDITORD' => 'EDITORD',
+        'COL_EDITORD' => 'EDITORD',
+        'Error' => 'ERROR',
+        'Carthed.Error' => 'ERROR',
+        'error' => 'ERROR',
+        'carthed.error' => 'ERROR',
+        'CarthedTableMap::COL_ERROR' => 'ERROR',
+        'COL_ERROR' => 'ERROR',
+        'Errormsg' => 'ERRORMSG',
+        'Carthed.Errormsg' => 'ERRORMSG',
+        'errormsg' => 'ERRORMSG',
+        'carthed.errormsg' => 'ERRORMSG',
+        'CarthedTableMap::COL_ERRORMSG' => 'ERRORMSG',
+        'COL_ERRORMSG' => 'ERRORMSG',
+        'Sconame' => 'SCONAME',
+        'Carthed.Sconame' => 'SCONAME',
+        'sconame' => 'SCONAME',
+        'carthed.sconame' => 'SCONAME',
+        'CarthedTableMap::COL_SCONAME' => 'SCONAME',
+        'COL_SCONAME' => 'SCONAME',
+        'Shipname' => 'SHIPNAME',
+        'Carthed.Shipname' => 'SHIPNAME',
+        'shipname' => 'SHIPNAME',
+        'carthed.shipname' => 'SHIPNAME',
+        'CarthedTableMap::COL_SHIPNAME' => 'SHIPNAME',
+        'COL_SHIPNAME' => 'SHIPNAME',
+        'Shipaddress' => 'SHIPADDRESS',
+        'Carthed.Shipaddress' => 'SHIPADDRESS',
+        'shipaddress' => 'SHIPADDRESS',
+        'carthed.shipaddress' => 'SHIPADDRESS',
+        'CarthedTableMap::COL_SHIPADDRESS' => 'SHIPADDRESS',
+        'COL_SHIPADDRESS' => 'SHIPADDRESS',
+        'Shipaddress2' => 'SHIPADDRESS2',
+        'Carthed.Shipaddress2' => 'SHIPADDRESS2',
+        'shipaddress2' => 'SHIPADDRESS2',
+        'carthed.shipaddress2' => 'SHIPADDRESS2',
+        'CarthedTableMap::COL_SHIPADDRESS2' => 'SHIPADDRESS2',
+        'COL_SHIPADDRESS2' => 'SHIPADDRESS2',
+        'Shipcity' => 'SHIPCITY',
+        'Carthed.Shipcity' => 'SHIPCITY',
+        'shipcity' => 'SHIPCITY',
+        'carthed.shipcity' => 'SHIPCITY',
+        'CarthedTableMap::COL_SHIPCITY' => 'SHIPCITY',
+        'COL_SHIPCITY' => 'SHIPCITY',
+        'Shipstate' => 'SHIPSTATE',
+        'Carthed.Shipstate' => 'SHIPSTATE',
+        'shipstate' => 'SHIPSTATE',
+        'carthed.shipstate' => 'SHIPSTATE',
+        'CarthedTableMap::COL_SHIPSTATE' => 'SHIPSTATE',
+        'COL_SHIPSTATE' => 'SHIPSTATE',
+        'Shipzip' => 'SHIPZIP',
+        'Carthed.Shipzip' => 'SHIPZIP',
+        'shipzip' => 'SHIPZIP',
+        'carthed.shipzip' => 'SHIPZIP',
+        'CarthedTableMap::COL_SHIPZIP' => 'SHIPZIP',
+        'COL_SHIPZIP' => 'SHIPZIP',
+        'Shipcountry' => 'SHIPCOUNTRY',
+        'Carthed.Shipcountry' => 'SHIPCOUNTRY',
+        'shipcountry' => 'SHIPCOUNTRY',
+        'carthed.shipcountry' => 'SHIPCOUNTRY',
+        'CarthedTableMap::COL_SHIPCOUNTRY' => 'SHIPCOUNTRY',
+        'COL_SHIPCOUNTRY' => 'SHIPCOUNTRY',
+        'Contact' => 'CONTACT',
+        'Carthed.Contact' => 'CONTACT',
+        'contact' => 'CONTACT',
+        'carthed.contact' => 'CONTACT',
+        'CarthedTableMap::COL_CONTACT' => 'CONTACT',
+        'COL_CONTACT' => 'CONTACT',
+        'Phintl' => 'PHINTL',
+        'Carthed.Phintl' => 'PHINTL',
+        'phintl' => 'PHINTL',
+        'carthed.phintl' => 'PHINTL',
+        'CarthedTableMap::COL_PHINTL' => 'PHINTL',
+        'COL_PHINTL' => 'PHINTL',
+        'Phone' => 'PHONE',
+        'Carthed.Phone' => 'PHONE',
+        'phone' => 'PHONE',
+        'carthed.phone' => 'PHONE',
+        'CarthedTableMap::COL_PHONE' => 'PHONE',
+        'COL_PHONE' => 'PHONE',
+        'Extension' => 'EXTENSION',
+        'Carthed.Extension' => 'EXTENSION',
+        'extension' => 'EXTENSION',
+        'carthed.extension' => 'EXTENSION',
+        'CarthedTableMap::COL_EXTENSION' => 'EXTENSION',
+        'COL_EXTENSION' => 'EXTENSION',
+        'Faxnbr' => 'FAXNBR',
+        'Carthed.Faxnbr' => 'FAXNBR',
+        'faxnbr' => 'FAXNBR',
+        'carthed.faxnbr' => 'FAXNBR',
+        'CarthedTableMap::COL_FAXNBR' => 'FAXNBR',
+        'COL_FAXNBR' => 'FAXNBR',
+        'Email' => 'EMAIL',
+        'Carthed.Email' => 'EMAIL',
+        'email' => 'EMAIL',
+        'carthed.email' => 'EMAIL',
+        'CarthedTableMap::COL_EMAIL' => 'EMAIL',
+        'COL_EMAIL' => 'EMAIL',
+        'Releasenbr' => 'RELEASENBR',
+        'Carthed.Releasenbr' => 'RELEASENBR',
+        'releasenbr' => 'RELEASENBR',
+        'carthed.releasenbr' => 'RELEASENBR',
+        'CarthedTableMap::COL_RELEASENBR' => 'RELEASENBR',
+        'COL_RELEASENBR' => 'RELEASENBR',
+        'Shipviacd' => 'SHIPVIACD',
+        'Carthed.Shipviacd' => 'SHIPVIACD',
+        'shipviacd' => 'SHIPVIACD',
+        'carthed.shipviacd' => 'SHIPVIACD',
+        'CarthedTableMap::COL_SHIPVIACD' => 'SHIPVIACD',
+        'COL_SHIPVIACD' => 'SHIPVIACD',
+        'Shipviadesc' => 'SHIPVIADESC',
+        'Carthed.Shipviadesc' => 'SHIPVIADESC',
+        'shipviadesc' => 'SHIPVIADESC',
+        'carthed.shipviadesc' => 'SHIPVIADESC',
+        'CarthedTableMap::COL_SHIPVIADESC' => 'SHIPVIADESC',
+        'COL_SHIPVIADESC' => 'SHIPVIADESC',
+        'Termcode' => 'TERMCODE',
+        'Carthed.Termcode' => 'TERMCODE',
+        'termcode' => 'TERMCODE',
+        'carthed.termcode' => 'TERMCODE',
+        'CarthedTableMap::COL_TERMCODE' => 'TERMCODE',
+        'COL_TERMCODE' => 'TERMCODE',
+        'Termtype' => 'TERMTYPE',
+        'Carthed.Termtype' => 'TERMTYPE',
+        'termtype' => 'TERMTYPE',
+        'carthed.termtype' => 'TERMTYPE',
+        'CarthedTableMap::COL_TERMTYPE' => 'TERMTYPE',
+        'COL_TERMTYPE' => 'TERMTYPE',
+        'Termdesc' => 'TERMDESC',
+        'Carthed.Termdesc' => 'TERMDESC',
+        'termdesc' => 'TERMDESC',
+        'carthed.termdesc' => 'TERMDESC',
+        'CarthedTableMap::COL_TERMDESC' => 'TERMDESC',
+        'COL_TERMDESC' => 'TERMDESC',
+        'Rqstdate' => 'RQSTDATE',
+        'Carthed.Rqstdate' => 'RQSTDATE',
+        'rqstdate' => 'RQSTDATE',
+        'carthed.rqstdate' => 'RQSTDATE',
+        'CarthedTableMap::COL_RQSTDATE' => 'RQSTDATE',
+        'COL_RQSTDATE' => 'RQSTDATE',
+        'Shipcom' => 'SHIPCOM',
+        'Carthed.Shipcom' => 'SHIPCOM',
+        'shipcom' => 'SHIPCOM',
+        'carthed.shipcom' => 'SHIPCOM',
+        'CarthedTableMap::COL_SHIPCOM' => 'SHIPCOM',
+        'COL_SHIPCOM' => 'SHIPCOM',
+        'Sp1' => 'SP1',
+        'Carthed.Sp1' => 'SP1',
+        'sp1' => 'SP1',
+        'carthed.sp1' => 'SP1',
+        'CarthedTableMap::COL_SP1' => 'SP1',
+        'COL_SP1' => 'SP1',
+        'Sp1name' => 'SP1NAME',
+        'Carthed.Sp1name' => 'SP1NAME',
+        'sp1name' => 'SP1NAME',
+        'carthed.sp1name' => 'SP1NAME',
+        'CarthedTableMap::COL_SP1NAME' => 'SP1NAME',
+        'COL_SP1NAME' => 'SP1NAME',
+        'Cardnumber' => 'CARDNUMBER',
+        'Carthed.Cardnumber' => 'CARDNUMBER',
+        'cardnumber' => 'CARDNUMBER',
+        'carthed.cardnumber' => 'CARDNUMBER',
+        'CarthedTableMap::COL_CARDNUMBER' => 'CARDNUMBER',
+        'COL_CARDNUMBER' => 'CARDNUMBER',
+        'Cardexpire' => 'CARDEXPIRE',
+        'Carthed.Cardexpire' => 'CARDEXPIRE',
+        'cardexpire' => 'CARDEXPIRE',
+        'carthed.cardexpire' => 'CARDEXPIRE',
+        'CarthedTableMap::COL_CARDEXPIRE' => 'CARDEXPIRE',
+        'COL_CARDEXPIRE' => 'CARDEXPIRE',
+        'Cardcode' => 'CARDCODE',
+        'Carthed.Cardcode' => 'CARDCODE',
+        'cardcode' => 'CARDCODE',
+        'carthed.cardcode' => 'CARDCODE',
+        'CarthedTableMap::COL_CARDCODE' => 'CARDCODE',
+        'COL_CARDCODE' => 'CARDCODE',
+        'Cardapproval' => 'CARDAPPROVAL',
+        'Carthed.Cardapproval' => 'CARDAPPROVAL',
+        'cardapproval' => 'CARDAPPROVAL',
+        'carthed.cardapproval' => 'CARDAPPROVAL',
+        'CarthedTableMap::COL_CARDAPPROVAL' => 'CARDAPPROVAL',
+        'COL_CARDAPPROVAL' => 'CARDAPPROVAL',
+        'Totalcost' => 'TOTALCOST',
+        'Carthed.Totalcost' => 'TOTALCOST',
+        'totalcost' => 'TOTALCOST',
+        'carthed.totalcost' => 'TOTALCOST',
+        'CarthedTableMap::COL_TOTALCOST' => 'TOTALCOST',
+        'COL_TOTALCOST' => 'TOTALCOST',
+        'Totaldiscount' => 'TOTALDISCOUNT',
+        'Carthed.Totaldiscount' => 'TOTALDISCOUNT',
+        'totaldiscount' => 'TOTALDISCOUNT',
+        'carthed.totaldiscount' => 'TOTALDISCOUNT',
+        'CarthedTableMap::COL_TOTALDISCOUNT' => 'TOTALDISCOUNT',
+        'COL_TOTALDISCOUNT' => 'TOTALDISCOUNT',
+        'Paymenttype' => 'PAYMENTTYPE',
+        'Carthed.Paymenttype' => 'PAYMENTTYPE',
+        'paymenttype' => 'PAYMENTTYPE',
+        'carthed.paymenttype' => 'PAYMENTTYPE',
+        'CarthedTableMap::COL_PAYMENTTYPE' => 'PAYMENTTYPE',
+        'COL_PAYMENTTYPE' => 'PAYMENTTYPE',
+        'Srcdatefrom' => 'SRCDATEFROM',
+        'Carthed.Srcdatefrom' => 'SRCDATEFROM',
+        'srcdatefrom' => 'SRCDATEFROM',
+        'carthed.srcdatefrom' => 'SRCDATEFROM',
+        'CarthedTableMap::COL_SRCDATEFROM' => 'SRCDATEFROM',
+        'COL_SRCDATEFROM' => 'SRCDATEFROM',
+        'Srcdatethru' => 'SRCDATETHRU',
+        'Carthed.Srcdatethru' => 'SRCDATETHRU',
+        'srcdatethru' => 'SRCDATETHRU',
+        'carthed.srcdatethru' => 'SRCDATETHRU',
+        'CarthedTableMap::COL_SRCDATETHRU' => 'SRCDATETHRU',
+        'COL_SRCDATETHRU' => 'SRCDATETHRU',
+        'Dummy' => 'DUMMY',
+        'Carthed.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'carthed.dummy' => 'DUMMY',
+        'CarthedTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('carthed');
@@ -469,14 +833,16 @@ class CarthedTableMap extends TableMap
         $this->addColumn('srcdatefrom', 'Srcdatefrom', 'VARCHAR', false, 10, '');
         $this->addColumn('srcdatethru', 'Srcdatethru', 'VARCHAR', false, 10, '');
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, '');
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -487,9 +853,11 @@ class CarthedTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \Carthed $obj A \Carthed object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(Carthed $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -508,8 +876,10 @@ class CarthedTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \Carthed object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \Carthed) {
@@ -537,14 +907,14 @@ class CarthedTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Sessionid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Recno', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -559,14 +929,14 @@ class CarthedTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -592,10 +962,10 @@ class CarthedTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? CarthedTableMap::CLASS_DEFAULT : CarthedTableMap::OM_CLASS;
     }
@@ -603,17 +973,17 @@ class CarthedTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (Carthed object, last column rank)
+     * @return array (Carthed object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = CarthedTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = CarthedTableMap::getInstanceFromPool($key))) {
@@ -629,7 +999,7 @@ class CarthedTableMap extends TableMap
             CarthedTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -637,13 +1007,13 @@ class CarthedTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -673,12 +1043,13 @@ class CarthedTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(CarthedTableMap::COL_SESSIONID);
@@ -802,40 +1173,164 @@ class CarthedTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(CarthedTableMap::COL_SESSIONID);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_RECNO);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_DATE);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_TIME);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_CUSTID);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_SHIPTOID);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_CUSTNAME);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_ORDERNO);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_CUSTPO);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_STATUS);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_ORDERDATE);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_INVDATE);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_SHIPDATE);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_HASDOCUMENTS);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_HASTRACKING);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_SUBTOTAL);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_SALESTAX);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_FREIGHT);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_MISCCOST);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_ORDERTOTAL);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_HASNOTES);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_EDITORD);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_ERROR);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_ERRORMSG);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_SCONAME);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_SHIPNAME);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_SHIPADDRESS);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_SHIPADDRESS2);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_SHIPCITY);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_SHIPSTATE);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_SHIPZIP);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_SHIPCOUNTRY);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_CONTACT);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_PHINTL);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_PHONE);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_EXTENSION);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_FAXNBR);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_EMAIL);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_RELEASENBR);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_SHIPVIACD);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_SHIPVIADESC);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_TERMCODE);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_TERMTYPE);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_TERMDESC);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_RQSTDATE);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_SHIPCOM);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_SP1);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_SP1NAME);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_CARDNUMBER);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_CARDEXPIRE);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_CARDCODE);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_CARDAPPROVAL);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_TOTALCOST);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_TOTALDISCOUNT);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_PAYMENTTYPE);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_SRCDATEFROM);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_SRCDATETHRU);
+            $criteria->removeSelectColumn(CarthedTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.sessionid');
+            $criteria->removeSelectColumn($alias . '.recno');
+            $criteria->removeSelectColumn($alias . '.date');
+            $criteria->removeSelectColumn($alias . '.time');
+            $criteria->removeSelectColumn($alias . '.custid');
+            $criteria->removeSelectColumn($alias . '.shiptoid');
+            $criteria->removeSelectColumn($alias . '.custname');
+            $criteria->removeSelectColumn($alias . '.orderno');
+            $criteria->removeSelectColumn($alias . '.custpo');
+            $criteria->removeSelectColumn($alias . '.status');
+            $criteria->removeSelectColumn($alias . '.orderdate');
+            $criteria->removeSelectColumn($alias . '.invdate');
+            $criteria->removeSelectColumn($alias . '.shipdate');
+            $criteria->removeSelectColumn($alias . '.hasdocuments');
+            $criteria->removeSelectColumn($alias . '.hastracking');
+            $criteria->removeSelectColumn($alias . '.subtotal');
+            $criteria->removeSelectColumn($alias . '.salestax');
+            $criteria->removeSelectColumn($alias . '.freight');
+            $criteria->removeSelectColumn($alias . '.misccost');
+            $criteria->removeSelectColumn($alias . '.ordertotal');
+            $criteria->removeSelectColumn($alias . '.hasnotes');
+            $criteria->removeSelectColumn($alias . '.editord');
+            $criteria->removeSelectColumn($alias . '.error');
+            $criteria->removeSelectColumn($alias . '.errormsg');
+            $criteria->removeSelectColumn($alias . '.sconame');
+            $criteria->removeSelectColumn($alias . '.shipname');
+            $criteria->removeSelectColumn($alias . '.shipaddress');
+            $criteria->removeSelectColumn($alias . '.shipaddress2');
+            $criteria->removeSelectColumn($alias . '.shipcity');
+            $criteria->removeSelectColumn($alias . '.shipstate');
+            $criteria->removeSelectColumn($alias . '.shipzip');
+            $criteria->removeSelectColumn($alias . '.shipcountry');
+            $criteria->removeSelectColumn($alias . '.contact');
+            $criteria->removeSelectColumn($alias . '.phintl');
+            $criteria->removeSelectColumn($alias . '.phone');
+            $criteria->removeSelectColumn($alias . '.extension');
+            $criteria->removeSelectColumn($alias . '.faxnbr');
+            $criteria->removeSelectColumn($alias . '.email');
+            $criteria->removeSelectColumn($alias . '.releasenbr');
+            $criteria->removeSelectColumn($alias . '.shipviacd');
+            $criteria->removeSelectColumn($alias . '.shipviadesc');
+            $criteria->removeSelectColumn($alias . '.termcode');
+            $criteria->removeSelectColumn($alias . '.termtype');
+            $criteria->removeSelectColumn($alias . '.termdesc');
+            $criteria->removeSelectColumn($alias . '.rqstdate');
+            $criteria->removeSelectColumn($alias . '.shipcom');
+            $criteria->removeSelectColumn($alias . '.sp1');
+            $criteria->removeSelectColumn($alias . '.sp1name');
+            $criteria->removeSelectColumn($alias . '.cardnumber');
+            $criteria->removeSelectColumn($alias . '.cardexpire');
+            $criteria->removeSelectColumn($alias . '.cardcode');
+            $criteria->removeSelectColumn($alias . '.cardapproval');
+            $criteria->removeSelectColumn($alias . '.totalcost');
+            $criteria->removeSelectColumn($alias . '.totaldiscount');
+            $criteria->removeSelectColumn($alias . '.paymenttype');
+            $criteria->removeSelectColumn($alias . '.srcdatefrom');
+            $criteria->removeSelectColumn($alias . '.srcdatethru');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(CarthedTableMap::DATABASE_NAME)->getTable(CarthedTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(CarthedTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(CarthedTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new CarthedTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a Carthed or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or Carthed object or primary key or array of primary keys
+     * @param mixed $values Criteria or Carthed object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CarthedTableMap::DATABASE_NAME);
@@ -853,7 +1348,7 @@ class CarthedTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(CarthedTableMap::COL_SESSIONID, $value[0]);
@@ -881,7 +1376,7 @@ class CarthedTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return CarthedQuery::create()->doDeleteAll($con);
     }
@@ -889,13 +1384,13 @@ class CarthedTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a Carthed or Criteria object.
      *
-     * @param mixed               $criteria Criteria or Carthed object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or Carthed object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CarthedTableMap::DATABASE_NAME);
@@ -918,7 +1413,4 @@ class CarthedTableMap extends TableMap
         });
     }
 
-} // CarthedTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-CarthedTableMap::buildTableMap();
+}

@@ -10,14 +10,12 @@ use Map\LogSigninTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'log_signin' table.
- *
- *
+ * Base class that represents a query for the `log_signin` table.
  *
  * @method     ChildLogSigninQuery orderBySessionid($order = Criteria::ASC) Order by the sessionid column
  * @method     ChildLogSigninQuery orderByUser($order = Criteria::ASC) Order by the user column
@@ -35,26 +33,32 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildLogSigninQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildLogSigninQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildLogSignin findOne(ConnectionInterface $con = null) Return the first ChildLogSignin matching the query
- * @method     ChildLogSignin findOneOrCreate(ConnectionInterface $con = null) Return the first ChildLogSignin matching the query, or a new ChildLogSignin object populated from the query conditions when no match is found
+ * @method     ChildLogSignin|null findOne(?ConnectionInterface $con = null) Return the first ChildLogSignin matching the query
+ * @method     ChildLogSignin findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildLogSignin matching the query, or a new ChildLogSignin object populated from the query conditions when no match is found
  *
- * @method     ChildLogSignin findOneBySessionid(string $sessionid) Return the first ChildLogSignin filtered by the sessionid column
- * @method     ChildLogSignin findOneByUser(string $user) Return the first ChildLogSignin filtered by the user column
- * @method     ChildLogSignin findOneByDate(string $date) Return the first ChildLogSignin filtered by the date column *
-
- * @method     ChildLogSignin requirePk($key, ConnectionInterface $con = null) Return the ChildLogSignin by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildLogSignin requireOne(ConnectionInterface $con = null) Return the first ChildLogSignin matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildLogSignin|null findOneBySessionid(string $sessionid) Return the first ChildLogSignin filtered by the sessionid column
+ * @method     ChildLogSignin|null findOneByUser(string $user) Return the first ChildLogSignin filtered by the user column
+ * @method     ChildLogSignin|null findOneByDate(string $date) Return the first ChildLogSignin filtered by the date column
+ *
+ * @method     ChildLogSignin requirePk($key, ?ConnectionInterface $con = null) Return the ChildLogSignin by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildLogSignin requireOne(?ConnectionInterface $con = null) Return the first ChildLogSignin matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildLogSignin requireOneBySessionid(string $sessionid) Return the first ChildLogSignin filtered by the sessionid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildLogSignin requireOneByUser(string $user) Return the first ChildLogSignin filtered by the user column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildLogSignin requireOneByDate(string $date) Return the first ChildLogSignin filtered by the date column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildLogSignin[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildLogSignin objects based on current ModelCriteria
- * @method     ChildLogSignin[]|ObjectCollection findBySessionid(string $sessionid) Return ChildLogSignin objects filtered by the sessionid column
- * @method     ChildLogSignin[]|ObjectCollection findByUser(string $user) Return ChildLogSignin objects filtered by the user column
- * @method     ChildLogSignin[]|ObjectCollection findByDate(string $date) Return ChildLogSignin objects filtered by the date column
- * @method     ChildLogSignin[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildLogSignin[]|Collection find(?ConnectionInterface $con = null) Return ChildLogSignin objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildLogSignin> find(?ConnectionInterface $con = null) Return ChildLogSignin objects based on current ModelCriteria
  *
+ * @method     ChildLogSignin[]|Collection findBySessionid(string|array<string> $sessionid) Return ChildLogSignin objects filtered by the sessionid column
+ * @psalm-method Collection&\Traversable<ChildLogSignin> findBySessionid(string|array<string> $sessionid) Return ChildLogSignin objects filtered by the sessionid column
+ * @method     ChildLogSignin[]|Collection findByUser(string|array<string> $user) Return ChildLogSignin objects filtered by the user column
+ * @psalm-method Collection&\Traversable<ChildLogSignin> findByUser(string|array<string> $user) Return ChildLogSignin objects filtered by the user column
+ * @method     ChildLogSignin[]|Collection findByDate(string|array<string> $date) Return ChildLogSignin objects filtered by the date column
+ * @psalm-method Collection&\Traversable<ChildLogSignin> findByDate(string|array<string> $date) Return ChildLogSignin objects filtered by the date column
+ *
+ * @method     ChildLogSignin[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildLogSignin> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class LogSigninQuery extends ModelCriteria
 {
@@ -63,9 +67,9 @@ abstract class LogSigninQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\LogSigninQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'dplusodb', $modelName = '\\LogSignin', $modelAlias = null)
     {
@@ -75,12 +79,12 @@ abstract class LogSigninQuery extends ModelCriteria
     /**
      * Returns a new ChildLogSigninQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildLogSigninQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildLogSigninQuery) {
             return $criteria;
@@ -110,7 +114,7 @@ abstract class LogSigninQuery extends ModelCriteria
      *
      * @return ChildLogSignin|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -142,8 +146,8 @@ abstract class LogSigninQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -176,8 +180,8 @@ abstract class LogSigninQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildLogSignin|array|mixed the result, formatted by the current formatter
      */
@@ -197,12 +201,12 @@ abstract class LogSigninQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -219,9 +223,9 @@ abstract class LogSigninQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildLogSigninQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -234,14 +238,16 @@ abstract class LogSigninQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildLogSigninQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(LogSigninTableMap::COL_SESSIONID, $key[0], Criteria::EQUAL);
@@ -260,14 +266,15 @@ abstract class LogSigninQuery extends ModelCriteria
      * <code>
      * $query->filterBySessionid('fooValue');   // WHERE sessionid = 'fooValue'
      * $query->filterBySessionid('%fooValue%', Criteria::LIKE); // WHERE sessionid LIKE '%fooValue%'
+     * $query->filterBySessionid(['foo', 'bar']); // WHERE sessionid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sessionid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sessionid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLogSigninQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySessionid($sessionid = null, $comparison = null)
+    public function filterBySessionid($sessionid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sessionid)) {
@@ -275,7 +282,9 @@ abstract class LogSigninQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LogSigninTableMap::COL_SESSIONID, $sessionid, $comparison);
+        $this->addUsingAlias(LogSigninTableMap::COL_SESSIONID, $sessionid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -285,14 +294,15 @@ abstract class LogSigninQuery extends ModelCriteria
      * <code>
      * $query->filterByUser('fooValue');   // WHERE user = 'fooValue'
      * $query->filterByUser('%fooValue%', Criteria::LIKE); // WHERE user LIKE '%fooValue%'
+     * $query->filterByUser(['foo', 'bar']); // WHERE user IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $user The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $user The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLogSigninQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByUser($user = null, $comparison = null)
+    public function filterByUser($user = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($user)) {
@@ -300,7 +310,9 @@ abstract class LogSigninQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LogSigninTableMap::COL_USER, $user, $comparison);
+        $this->addUsingAlias(LogSigninTableMap::COL_USER, $user, $comparison);
+
+        return $this;
     }
 
     /**
@@ -313,17 +325,17 @@ abstract class LogSigninQuery extends ModelCriteria
      * $query->filterByDate(array('max' => 'yesterday')); // WHERE date > '2011-03-13'
      * </code>
      *
-     * @param     mixed $date The value to use as filter.
+     * @param mixed $date The value to use as filter.
      *              Values can be integers (unix timestamps), DateTime objects, or strings.
      *              Empty strings are treated as NULL.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildLogSigninQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDate($date = null, $comparison = null)
+    public function filterByDate($date = null, ?string $comparison = null)
     {
         if (is_array($date)) {
             $useMinMax = false;
@@ -343,15 +355,17 @@ abstract class LogSigninQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(LogSigninTableMap::COL_DATE, $date, $comparison);
+        $this->addUsingAlias(LogSigninTableMap::COL_DATE, $date, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildLogSignin $logSignin Object to remove from the list of results
+     * @param ChildLogSignin $logSignin Object to remove from the list of results
      *
-     * @return $this|ChildLogSigninQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($logSignin = null)
     {
@@ -370,7 +384,7 @@ abstract class LogSigninQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(LogSigninTableMap::DATABASE_NAME);
@@ -395,12 +409,12 @@ abstract class LogSigninQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(LogSigninTableMap::DATABASE_NAME);
@@ -425,4 +439,4 @@ abstract class LogSigninQuery extends ModelCriteria
         });
     }
 
-} // LogSigninQuery
+}

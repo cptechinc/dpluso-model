@@ -10,14 +10,12 @@ use Map\WhseavailTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'whseavail' table.
- *
- *
+ * Base class that represents a query for the `whseavail` table.
  *
  * @method     ChildWhseavailQuery orderBySessionid($order = Criteria::ASC) Order by the sessionid column
  * @method     ChildWhseavailQuery orderByRecno($order = Criteria::ASC) Order by the recno column
@@ -51,23 +49,23 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWhseavailQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildWhseavailQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildWhseavail findOne(ConnectionInterface $con = null) Return the first ChildWhseavail matching the query
- * @method     ChildWhseavail findOneOrCreate(ConnectionInterface $con = null) Return the first ChildWhseavail matching the query, or a new ChildWhseavail object populated from the query conditions when no match is found
+ * @method     ChildWhseavail|null findOne(?ConnectionInterface $con = null) Return the first ChildWhseavail matching the query
+ * @method     ChildWhseavail findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildWhseavail matching the query, or a new ChildWhseavail object populated from the query conditions when no match is found
  *
- * @method     ChildWhseavail findOneBySessionid(string $sessionid) Return the first ChildWhseavail filtered by the sessionid column
- * @method     ChildWhseavail findOneByRecno(int $recno) Return the first ChildWhseavail filtered by the recno column
- * @method     ChildWhseavail findOneByDate(int $date) Return the first ChildWhseavail filtered by the date column
- * @method     ChildWhseavail findOneByTime(int $time) Return the first ChildWhseavail filtered by the time column
- * @method     ChildWhseavail findOneByWhsecd(string $whsecd) Return the first ChildWhseavail filtered by the whsecd column
- * @method     ChildWhseavail findOneByWhsename(string $whsename) Return the first ChildWhseavail filtered by the whsename column
- * @method     ChildWhseavail findOneByItemid(string $itemid) Return the first ChildWhseavail filtered by the itemid column
- * @method     ChildWhseavail findOneByItemavail(int $itemavail) Return the first ChildWhseavail filtered by the itemavail column
- * @method     ChildWhseavail findOneByItemonord(int $itemonord) Return the first ChildWhseavail filtered by the itemonord column
- * @method     ChildWhseavail findOneByItemetadt(string $itemetadt) Return the first ChildWhseavail filtered by the itemetadt column
- * @method     ChildWhseavail findOneByDummy(string $dummy) Return the first ChildWhseavail filtered by the dummy column *
-
- * @method     ChildWhseavail requirePk($key, ConnectionInterface $con = null) Return the ChildWhseavail by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseavail requireOne(ConnectionInterface $con = null) Return the first ChildWhseavail matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWhseavail|null findOneBySessionid(string $sessionid) Return the first ChildWhseavail filtered by the sessionid column
+ * @method     ChildWhseavail|null findOneByRecno(int $recno) Return the first ChildWhseavail filtered by the recno column
+ * @method     ChildWhseavail|null findOneByDate(int $date) Return the first ChildWhseavail filtered by the date column
+ * @method     ChildWhseavail|null findOneByTime(int $time) Return the first ChildWhseavail filtered by the time column
+ * @method     ChildWhseavail|null findOneByWhsecd(string $whsecd) Return the first ChildWhseavail filtered by the whsecd column
+ * @method     ChildWhseavail|null findOneByWhsename(string $whsename) Return the first ChildWhseavail filtered by the whsename column
+ * @method     ChildWhseavail|null findOneByItemid(string $itemid) Return the first ChildWhseavail filtered by the itemid column
+ * @method     ChildWhseavail|null findOneByItemavail(int $itemavail) Return the first ChildWhseavail filtered by the itemavail column
+ * @method     ChildWhseavail|null findOneByItemonord(int $itemonord) Return the first ChildWhseavail filtered by the itemonord column
+ * @method     ChildWhseavail|null findOneByItemetadt(string $itemetadt) Return the first ChildWhseavail filtered by the itemetadt column
+ * @method     ChildWhseavail|null findOneByDummy(string $dummy) Return the first ChildWhseavail filtered by the dummy column
+ *
+ * @method     ChildWhseavail requirePk($key, ?ConnectionInterface $con = null) Return the ChildWhseavail by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWhseavail requireOne(?ConnectionInterface $con = null) Return the first ChildWhseavail matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildWhseavail requireOneBySessionid(string $sessionid) Return the first ChildWhseavail filtered by the sessionid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseavail requireOneByRecno(int $recno) Return the first ChildWhseavail filtered by the recno column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -81,20 +79,34 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWhseavail requireOneByItemetadt(string $itemetadt) Return the first ChildWhseavail filtered by the itemetadt column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWhseavail requireOneByDummy(string $dummy) Return the first ChildWhseavail filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildWhseavail[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildWhseavail objects based on current ModelCriteria
- * @method     ChildWhseavail[]|ObjectCollection findBySessionid(string $sessionid) Return ChildWhseavail objects filtered by the sessionid column
- * @method     ChildWhseavail[]|ObjectCollection findByRecno(int $recno) Return ChildWhseavail objects filtered by the recno column
- * @method     ChildWhseavail[]|ObjectCollection findByDate(int $date) Return ChildWhseavail objects filtered by the date column
- * @method     ChildWhseavail[]|ObjectCollection findByTime(int $time) Return ChildWhseavail objects filtered by the time column
- * @method     ChildWhseavail[]|ObjectCollection findByWhsecd(string $whsecd) Return ChildWhseavail objects filtered by the whsecd column
- * @method     ChildWhseavail[]|ObjectCollection findByWhsename(string $whsename) Return ChildWhseavail objects filtered by the whsename column
- * @method     ChildWhseavail[]|ObjectCollection findByItemid(string $itemid) Return ChildWhseavail objects filtered by the itemid column
- * @method     ChildWhseavail[]|ObjectCollection findByItemavail(int $itemavail) Return ChildWhseavail objects filtered by the itemavail column
- * @method     ChildWhseavail[]|ObjectCollection findByItemonord(int $itemonord) Return ChildWhseavail objects filtered by the itemonord column
- * @method     ChildWhseavail[]|ObjectCollection findByItemetadt(string $itemetadt) Return ChildWhseavail objects filtered by the itemetadt column
- * @method     ChildWhseavail[]|ObjectCollection findByDummy(string $dummy) Return ChildWhseavail objects filtered by the dummy column
- * @method     ChildWhseavail[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildWhseavail[]|Collection find(?ConnectionInterface $con = null) Return ChildWhseavail objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildWhseavail> find(?ConnectionInterface $con = null) Return ChildWhseavail objects based on current ModelCriteria
  *
+ * @method     ChildWhseavail[]|Collection findBySessionid(string|array<string> $sessionid) Return ChildWhseavail objects filtered by the sessionid column
+ * @psalm-method Collection&\Traversable<ChildWhseavail> findBySessionid(string|array<string> $sessionid) Return ChildWhseavail objects filtered by the sessionid column
+ * @method     ChildWhseavail[]|Collection findByRecno(int|array<int> $recno) Return ChildWhseavail objects filtered by the recno column
+ * @psalm-method Collection&\Traversable<ChildWhseavail> findByRecno(int|array<int> $recno) Return ChildWhseavail objects filtered by the recno column
+ * @method     ChildWhseavail[]|Collection findByDate(int|array<int> $date) Return ChildWhseavail objects filtered by the date column
+ * @psalm-method Collection&\Traversable<ChildWhseavail> findByDate(int|array<int> $date) Return ChildWhseavail objects filtered by the date column
+ * @method     ChildWhseavail[]|Collection findByTime(int|array<int> $time) Return ChildWhseavail objects filtered by the time column
+ * @psalm-method Collection&\Traversable<ChildWhseavail> findByTime(int|array<int> $time) Return ChildWhseavail objects filtered by the time column
+ * @method     ChildWhseavail[]|Collection findByWhsecd(string|array<string> $whsecd) Return ChildWhseavail objects filtered by the whsecd column
+ * @psalm-method Collection&\Traversable<ChildWhseavail> findByWhsecd(string|array<string> $whsecd) Return ChildWhseavail objects filtered by the whsecd column
+ * @method     ChildWhseavail[]|Collection findByWhsename(string|array<string> $whsename) Return ChildWhseavail objects filtered by the whsename column
+ * @psalm-method Collection&\Traversable<ChildWhseavail> findByWhsename(string|array<string> $whsename) Return ChildWhseavail objects filtered by the whsename column
+ * @method     ChildWhseavail[]|Collection findByItemid(string|array<string> $itemid) Return ChildWhseavail objects filtered by the itemid column
+ * @psalm-method Collection&\Traversable<ChildWhseavail> findByItemid(string|array<string> $itemid) Return ChildWhseavail objects filtered by the itemid column
+ * @method     ChildWhseavail[]|Collection findByItemavail(int|array<int> $itemavail) Return ChildWhseavail objects filtered by the itemavail column
+ * @psalm-method Collection&\Traversable<ChildWhseavail> findByItemavail(int|array<int> $itemavail) Return ChildWhseavail objects filtered by the itemavail column
+ * @method     ChildWhseavail[]|Collection findByItemonord(int|array<int> $itemonord) Return ChildWhseavail objects filtered by the itemonord column
+ * @psalm-method Collection&\Traversable<ChildWhseavail> findByItemonord(int|array<int> $itemonord) Return ChildWhseavail objects filtered by the itemonord column
+ * @method     ChildWhseavail[]|Collection findByItemetadt(string|array<string> $itemetadt) Return ChildWhseavail objects filtered by the itemetadt column
+ * @psalm-method Collection&\Traversable<ChildWhseavail> findByItemetadt(string|array<string> $itemetadt) Return ChildWhseavail objects filtered by the itemetadt column
+ * @method     ChildWhseavail[]|Collection findByDummy(string|array<string> $dummy) Return ChildWhseavail objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildWhseavail> findByDummy(string|array<string> $dummy) Return ChildWhseavail objects filtered by the dummy column
+ *
+ * @method     ChildWhseavail[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildWhseavail> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class WhseavailQuery extends ModelCriteria
 {
@@ -103,9 +115,9 @@ abstract class WhseavailQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\WhseavailQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'dplusodb', $modelName = '\\Whseavail', $modelAlias = null)
     {
@@ -115,12 +127,12 @@ abstract class WhseavailQuery extends ModelCriteria
     /**
      * Returns a new ChildWhseavailQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildWhseavailQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildWhseavailQuery) {
             return $criteria;
@@ -150,7 +162,7 @@ abstract class WhseavailQuery extends ModelCriteria
      *
      * @return ChildWhseavail|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -182,8 +194,8 @@ abstract class WhseavailQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -216,8 +228,8 @@ abstract class WhseavailQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildWhseavail|array|mixed the result, formatted by the current formatter
      */
@@ -237,12 +249,12 @@ abstract class WhseavailQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -259,9 +271,9 @@ abstract class WhseavailQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildWhseavailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -274,14 +286,16 @@ abstract class WhseavailQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildWhseavailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(WhseavailTableMap::COL_SESSIONID, $key[0], Criteria::EQUAL);
@@ -300,14 +314,15 @@ abstract class WhseavailQuery extends ModelCriteria
      * <code>
      * $query->filterBySessionid('fooValue');   // WHERE sessionid = 'fooValue'
      * $query->filterBySessionid('%fooValue%', Criteria::LIKE); // WHERE sessionid LIKE '%fooValue%'
+     * $query->filterBySessionid(['foo', 'bar']); // WHERE sessionid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $sessionid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $sessionid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseavailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySessionid($sessionid = null, $comparison = null)
+    public function filterBySessionid($sessionid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($sessionid)) {
@@ -315,7 +330,9 @@ abstract class WhseavailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseavailTableMap::COL_SESSIONID, $sessionid, $comparison);
+        $this->addUsingAlias(WhseavailTableMap::COL_SESSIONID, $sessionid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -328,15 +345,15 @@ abstract class WhseavailQuery extends ModelCriteria
      * $query->filterByRecno(array('min' => 12)); // WHERE recno > 12
      * </code>
      *
-     * @param     mixed $recno The value to use as filter.
+     * @param mixed $recno The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseavailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByRecno($recno = null, $comparison = null)
+    public function filterByRecno($recno = null, ?string $comparison = null)
     {
         if (is_array($recno)) {
             $useMinMax = false;
@@ -356,7 +373,9 @@ abstract class WhseavailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseavailTableMap::COL_RECNO, $recno, $comparison);
+        $this->addUsingAlias(WhseavailTableMap::COL_RECNO, $recno, $comparison);
+
+        return $this;
     }
 
     /**
@@ -369,15 +388,15 @@ abstract class WhseavailQuery extends ModelCriteria
      * $query->filterByDate(array('min' => 12)); // WHERE date > 12
      * </code>
      *
-     * @param     mixed $date The value to use as filter.
+     * @param mixed $date The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseavailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDate($date = null, $comparison = null)
+    public function filterByDate($date = null, ?string $comparison = null)
     {
         if (is_array($date)) {
             $useMinMax = false;
@@ -397,7 +416,9 @@ abstract class WhseavailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseavailTableMap::COL_DATE, $date, $comparison);
+        $this->addUsingAlias(WhseavailTableMap::COL_DATE, $date, $comparison);
+
+        return $this;
     }
 
     /**
@@ -410,15 +431,15 @@ abstract class WhseavailQuery extends ModelCriteria
      * $query->filterByTime(array('min' => 12)); // WHERE time > 12
      * </code>
      *
-     * @param     mixed $time The value to use as filter.
+     * @param mixed $time The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseavailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTime($time = null, $comparison = null)
+    public function filterByTime($time = null, ?string $comparison = null)
     {
         if (is_array($time)) {
             $useMinMax = false;
@@ -438,7 +459,9 @@ abstract class WhseavailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseavailTableMap::COL_TIME, $time, $comparison);
+        $this->addUsingAlias(WhseavailTableMap::COL_TIME, $time, $comparison);
+
+        return $this;
     }
 
     /**
@@ -448,14 +471,15 @@ abstract class WhseavailQuery extends ModelCriteria
      * <code>
      * $query->filterByWhsecd('fooValue');   // WHERE whsecd = 'fooValue'
      * $query->filterByWhsecd('%fooValue%', Criteria::LIKE); // WHERE whsecd LIKE '%fooValue%'
+     * $query->filterByWhsecd(['foo', 'bar']); // WHERE whsecd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $whsecd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $whsecd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseavailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByWhsecd($whsecd = null, $comparison = null)
+    public function filterByWhsecd($whsecd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($whsecd)) {
@@ -463,7 +487,9 @@ abstract class WhseavailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseavailTableMap::COL_WHSECD, $whsecd, $comparison);
+        $this->addUsingAlias(WhseavailTableMap::COL_WHSECD, $whsecd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -473,14 +499,15 @@ abstract class WhseavailQuery extends ModelCriteria
      * <code>
      * $query->filterByWhsename('fooValue');   // WHERE whsename = 'fooValue'
      * $query->filterByWhsename('%fooValue%', Criteria::LIKE); // WHERE whsename LIKE '%fooValue%'
+     * $query->filterByWhsename(['foo', 'bar']); // WHERE whsename IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $whsename The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $whsename The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseavailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByWhsename($whsename = null, $comparison = null)
+    public function filterByWhsename($whsename = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($whsename)) {
@@ -488,7 +515,9 @@ abstract class WhseavailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseavailTableMap::COL_WHSENAME, $whsename, $comparison);
+        $this->addUsingAlias(WhseavailTableMap::COL_WHSENAME, $whsename, $comparison);
+
+        return $this;
     }
 
     /**
@@ -498,14 +527,15 @@ abstract class WhseavailQuery extends ModelCriteria
      * <code>
      * $query->filterByItemid('fooValue');   // WHERE itemid = 'fooValue'
      * $query->filterByItemid('%fooValue%', Criteria::LIKE); // WHERE itemid LIKE '%fooValue%'
+     * $query->filterByItemid(['foo', 'bar']); // WHERE itemid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itemid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itemid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseavailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemid($itemid = null, $comparison = null)
+    public function filterByItemid($itemid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itemid)) {
@@ -513,7 +543,9 @@ abstract class WhseavailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseavailTableMap::COL_ITEMID, $itemid, $comparison);
+        $this->addUsingAlias(WhseavailTableMap::COL_ITEMID, $itemid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -526,15 +558,15 @@ abstract class WhseavailQuery extends ModelCriteria
      * $query->filterByItemavail(array('min' => 12)); // WHERE itemavail > 12
      * </code>
      *
-     * @param     mixed $itemavail The value to use as filter.
+     * @param mixed $itemavail The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseavailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemavail($itemavail = null, $comparison = null)
+    public function filterByItemavail($itemavail = null, ?string $comparison = null)
     {
         if (is_array($itemavail)) {
             $useMinMax = false;
@@ -554,7 +586,9 @@ abstract class WhseavailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseavailTableMap::COL_ITEMAVAIL, $itemavail, $comparison);
+        $this->addUsingAlias(WhseavailTableMap::COL_ITEMAVAIL, $itemavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -567,15 +601,15 @@ abstract class WhseavailQuery extends ModelCriteria
      * $query->filterByItemonord(array('min' => 12)); // WHERE itemonord > 12
      * </code>
      *
-     * @param     mixed $itemonord The value to use as filter.
+     * @param mixed $itemonord The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseavailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemonord($itemonord = null, $comparison = null)
+    public function filterByItemonord($itemonord = null, ?string $comparison = null)
     {
         if (is_array($itemonord)) {
             $useMinMax = false;
@@ -595,7 +629,9 @@ abstract class WhseavailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseavailTableMap::COL_ITEMONORD, $itemonord, $comparison);
+        $this->addUsingAlias(WhseavailTableMap::COL_ITEMONORD, $itemonord, $comparison);
+
+        return $this;
     }
 
     /**
@@ -605,14 +641,15 @@ abstract class WhseavailQuery extends ModelCriteria
      * <code>
      * $query->filterByItemetadt('fooValue');   // WHERE itemetadt = 'fooValue'
      * $query->filterByItemetadt('%fooValue%', Criteria::LIKE); // WHERE itemetadt LIKE '%fooValue%'
+     * $query->filterByItemetadt(['foo', 'bar']); // WHERE itemetadt IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itemetadt The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itemetadt The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseavailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemetadt($itemetadt = null, $comparison = null)
+    public function filterByItemetadt($itemetadt = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itemetadt)) {
@@ -620,7 +657,9 @@ abstract class WhseavailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseavailTableMap::COL_ITEMETADT, $itemetadt, $comparison);
+        $this->addUsingAlias(WhseavailTableMap::COL_ITEMETADT, $itemetadt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -630,14 +669,15 @@ abstract class WhseavailQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseavailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -645,15 +685,17 @@ abstract class WhseavailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseavailTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(WhseavailTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildWhseavail $whseavail Object to remove from the list of results
+     * @param ChildWhseavail $whseavail Object to remove from the list of results
      *
-     * @return $this|ChildWhseavailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($whseavail = null)
     {
@@ -672,7 +714,7 @@ abstract class WhseavailQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(WhseavailTableMap::DATABASE_NAME);
@@ -697,12 +739,12 @@ abstract class WhseavailQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(WhseavailTableMap::DATABASE_NAME);
@@ -727,4 +769,4 @@ abstract class WhseavailQuery extends ModelCriteria
         });
     }
 
-} // WhseavailQuery
+}
