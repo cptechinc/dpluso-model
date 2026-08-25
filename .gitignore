@@ -8,3 +8,5 @@ dw_php_codehinting.config
 # Visual Studio Code
 .vscode
 
+# vendor
+/vendor
